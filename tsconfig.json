@@ -22,6 +22,12 @@
     "noUncheckedIndexedAccess": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "@votingworks/*": [
+        "apps/*/src",
+        "libs/*/src"
+      ]
+    },
     "resolveJsonModule": true,
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
