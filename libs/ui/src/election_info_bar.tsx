@@ -4,7 +4,7 @@ import {
   ElectionDefinition,
   formatElectionHashes,
   PrecinctSelection,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import styled from 'styled-components';
 import { Seal } from './seal';
 import { Caption, Font } from './typography';

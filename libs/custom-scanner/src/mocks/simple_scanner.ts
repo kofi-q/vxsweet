@@ -1,4 +1,4 @@
-import { ok } from '@votingworks/basics';
+import { ok } from '@vx/libs/basics/src';
 import { ScannerStatus, SensorStatus } from '../types';
 import { CustomScanner } from '../types/custom_scanner';
 

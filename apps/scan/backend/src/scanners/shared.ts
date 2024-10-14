@@ -5,16 +5,16 @@ import {
   extractErrorMessage,
   Optional,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   ExportCastVoteRecordsToUsbDriveError,
   Id,
   SheetInterpretationWithPages,
-} from '@votingworks/types';
-import { UsbDrive } from '@votingworks/usb-drive';
-import { exportCastVoteRecordsToUsbDrive } from '@votingworks/backend';
+} from '@vx/libs/types/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/src';
 import { ImageData } from 'canvas';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Store } from '../store';
 import { rootDebug } from '../util/debug';
 import { Workspace } from '../util/workspace';

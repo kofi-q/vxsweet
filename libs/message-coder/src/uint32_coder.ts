@@ -1,4 +1,4 @@
-import { Result, ok, resultBlock } from '@votingworks/basics';
+import { Result, ok, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { MAX_UINT32, MIN_UINT32 } from './constants';
 import {

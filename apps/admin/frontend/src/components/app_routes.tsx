@@ -6,7 +6,7 @@ import {
   UnlockMachineScreen,
   RemoveCardScreen,
   VendorScreen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   BooleanEnvironmentVariableName,
@@ -14,10 +14,10 @@ import {
   isFeatureFlagEnabled,
   isSystemAdministratorAuth,
   isVendorAuth,
-} from '@votingworks/utils';
-import type { ManualResultsVotingMethod } from '@votingworks/admin-backend';
-import { assert } from '@votingworks/basics';
-import { BallotStyleGroupId } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import type { ManualResultsVotingMethod } from '@vx/apps/admin/backend/src';
+import { assert } from '@vx/libs/basics/src';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
 import { AppContext } from '../contexts/app_context';
 import { routerPaths } from '../router_paths';
 import { ElectionScreen } from '../screens/election_screen';

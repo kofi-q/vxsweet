@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button, Icons, P } from '@votingworks/ui';
-import { BallotStyleId, PrecinctId, VotesDict } from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+import { Button, Icons, P } from '@vx/libs/ui/src';
+import { BallotStyleId, PrecinctId, VotesDict } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 
 import * as api from '../api';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

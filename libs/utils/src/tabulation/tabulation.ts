@@ -3,7 +3,7 @@ import {
   assertDefined,
   iter,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   AnyContest,
   BallotStyleGroupId,
@@ -16,7 +16,7 @@ import {
   PartyId,
   Tabulation,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { isGroupByEmpty } from './arguments';
 import { getGroupedBallotStyles } from '../ballot_styles';
 

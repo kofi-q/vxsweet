@@ -2,7 +2,7 @@ import {
   BallotStyleId,
   BallotType,
   ExportCastVoteRecordsToUsbDriveError,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { userReadableMessageFromExportError } from './cast_vote_records';
 

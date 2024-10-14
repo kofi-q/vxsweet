@@ -1,4 +1,4 @@
-import { PnpmPackageInfo } from '@votingworks/monorepo-utils';
+import { PnpmPackageInfo } from '@vx/libs/monorepo-utils/src';
 import matcher from 'matcher';
 
 export enum ValidationIssueKind {
@@ -62,8 +62,14 @@ export async function* checkPinnedVersions({
   pinnedPackages: readonly string[];
   workspacePackages: ReadonlyMap<string, PnpmPackageInfo>;
 }): AsyncGenerator<ValidationIssue> {
-  type PnpmPackageInfoByVersionSpecifier = Map<string, Set<PackageJsonProperty>>;
-  type VersionInfoByPackageName = Map<string, PnpmPackageInfoByVersionSpecifier>;
+  type PnpmPackageInfoByVersionSpecifier = Map<
+    string,
+    Set<PackageJsonProperty>
+  >;
+  type VersionInfoByPackageName = Map<
+    string,
+    PnpmPackageInfoByVersionSpecifier
+  >;
   const packageVersions: VersionInfoByPackageName = new Map();
 
   for (const pkg of workspacePackages.values()) {

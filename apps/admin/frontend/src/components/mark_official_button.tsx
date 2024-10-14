@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Modal, P } from '@votingworks/ui';
+import { Button, Modal, P } from '@vx/libs/ui/src';
 import { getCastVoteRecordFileMode, markResultsOfficial } from '../api';
 import { AppContext } from '../contexts/app_context';
 

@@ -3,12 +3,12 @@ import {
   ElectionDefinition,
   PrecinctId,
   VotesDict,
-} from '@votingworks/types';
-import type { MachineConfig } from '@votingworks/mark-scan-backend';
+} from '@vx/libs/types/src';
+import type { MachineConfig } from '@vx/apps/mark-scan/backend/src';
 import {
   ContestsWithMsEitherNeither,
   UpdateVoteFunction,
-} from '@votingworks/mark-flow-ui';
+} from '@vx/libs/mark-flow-ui/src';
 
 // Ballot
 export interface BallotContextInterface {

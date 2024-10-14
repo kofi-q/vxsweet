@@ -3,8 +3,8 @@ import {
   ContestId,
   PrecinctId,
   PromiseOr,
-} from '@votingworks/types';
-import type { ManualResultsVotingMethod } from '@votingworks/admin-backend';
+} from '@vx/libs/types/src';
+import type { ManualResultsVotingMethod } from '@vx/apps/admin/backend/src';
 
 // Events
 export type InputEventFunction = (

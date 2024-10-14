@@ -33,9 +33,9 @@ import {
   LanguageCode,
   ElectionId,
   BallotStyleGroupId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { sha256 } from 'js-sha256';
-import { DateWithoutTime, assertDefined } from '@votingworks/basics';
+import { DateWithoutTime, assertDefined } from '@vx/libs/basics/src';
 
 /**
  * Builds arbitrary uint2 values.

@@ -1,5 +1,5 @@
-import { mockOf } from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';
 import { render, screen } from '../../test/react_testing_library';
 import { JamClearedPage } from './jam_cleared_page';

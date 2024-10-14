@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { Result, ok, resultBlock } from '@votingworks/basics';
+import { Result, ok, resultBlock } from '@vx/libs/basics/src';
 import { MAX_UINT16, MIN_UINT16 } from './constants';
 import {
   BitLength,

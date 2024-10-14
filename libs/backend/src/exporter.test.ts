@@ -1,11 +1,11 @@
-import { mockOf } from '@votingworks/test-utils';
-import { err, iter, ok } from '@votingworks/basics';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { err, iter, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { readFile, symlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { DirResult, dirSync } from 'tmp';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { Exporter, ExportDataResult } from './exporter';
 import { execFile } from './exec';
 

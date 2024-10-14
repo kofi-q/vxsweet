@@ -1,13 +1,13 @@
 import express, { Application } from 'express';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/basics/src';
+import * as grout from '@vx/libs/grout/src';
 import {
   ElectionPackageConfigurationError,
   BallotStyleId,
@@ -18,23 +18,23 @@ import {
   PollsState,
   PrecinctSelection,
   PrinterStatus,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   getPrecinctSelectionName,
   isElectionManagerAuth,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import {
   createUiStringsApi,
   readSignedElectionPackageFromUsb,
   configureUiStrings,
   createSystemCallApi,
-} from '@votingworks/backend';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { useDevDockRouter } from '@votingworks/dev-dock-backend';
-import { UsbDrive, UsbDriveStatus } from '@votingworks/usb-drive';
-import { Printer } from '@votingworks/printing';
+} from '@vx/libs/backend/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
+import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { Printer } from '@vx/libs/printing/src';
 import { getMachineConfig } from './machine_config';
 import { Workspace } from './util/workspace';
 import { ElectionState, PrintBallotProps } from './types';

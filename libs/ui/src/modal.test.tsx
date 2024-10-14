@@ -1,6 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../test/react_testing_library';
 import { Modal, ModalWidth } from './modal';
 import { Button } from './button';

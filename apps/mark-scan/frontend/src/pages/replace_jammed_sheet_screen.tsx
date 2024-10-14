@@ -1,5 +1,5 @@
-import { Icons, P } from '@votingworks/ui';
-import type { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+import { Icons, P } from '@vx/libs/ui/src';
+import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import React from 'react';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 

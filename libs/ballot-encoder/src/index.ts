@@ -20,8 +20,8 @@ import {
   VotesDict,
   YesNoContest,
   YesNoVote,
-} from '@votingworks/types';
-import { assert, iter } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, iter } from '@vx/libs/basics/src';
 import { BitReader, BitWriter, CustomEncoding, Uint8, Uint8Size } from './bits';
 
 /**

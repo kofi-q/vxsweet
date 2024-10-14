@@ -4,25 +4,25 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@votingworks/backend';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/backend/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   constructElectionKey,
   safeParseElectionDefinition,
   testCdfBallotDefinition,
-} from '@votingworks/types';
-import { createMockPrinterHandler } from '@votingworks/printing';
-import { mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/types/src';
+import { createMockPrinterHandler } from '@vx/libs/printing/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { buildApi } from './app';
 import { createWorkspace } from './util/workspace';
@@ -34,9 +34,9 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

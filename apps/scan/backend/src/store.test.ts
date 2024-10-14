@@ -3,7 +3,7 @@ import {
   RejectedSheet,
   Sheet,
   doesUsbDriveRequireCastVoteRecordSync,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   AdjudicationReason,
   BallotMetadata,
@@ -17,21 +17,21 @@ import {
   SheetOf,
   TEST_JURISDICTION,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   getFeatureFlagMock,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import * as tmp from 'tmp';
 import { v4 as uuid } from 'uuid';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { sha256 } from 'js-sha256';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
-import { mockBaseLogger } from '@votingworks/logging';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { zeroRect } from '../test/fixtures/zero_rect';
 import { Store } from './store';
 
@@ -40,9 +40,9 @@ jest.setTimeout(20000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

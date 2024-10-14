@@ -1,4 +1,4 @@
-import { Main, Screen, Prose, H1, P } from '@votingworks/ui';
+import { Main, Screen, Prose, H1, P } from '@vx/libs/ui/src';
 
 export function SetupPrinterPage(): JSX.Element {
   return (

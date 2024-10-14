@@ -6,8 +6,8 @@ import {
   StoryContext,
 } from '@storybook/types';
 
-import { TouchColorMode, TouchSizeMode } from '@votingworks/types';
-import { AppBase, VoterSettingsManagerContext } from '@votingworks/ui';
+import { TouchColorMode, TouchSizeMode } from '@vx/libs/types/src';
+import { AppBase, VoterSettingsManagerContext } from '@vx/libs/ui/src';
 
 // TODO: Find the storybook.js type declaration for this. Doesn't seem to be in
 // the @storybook/types repo.

@@ -5,7 +5,7 @@ import {
   padding,
   uint1,
   uint8,
-} from '@votingworks/message-coder';
+} from '@vx/libs/message-coder/src';
 
 export const PrinterResetCommand = message({
   command: literal(0x1b, 0x40),

@@ -4,10 +4,10 @@ import {
   ContestOptionId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
-import { assert } from '@votingworks/basics';
-import { LogEventId, mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { assert } from '@vx/libs/basics/src';
+import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   MockCastVoteRecordFile,
   addMockCvrFileToStore,

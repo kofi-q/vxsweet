@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Tabulation } from '@votingworks/types';
+import { Tabulation } from '@vx/libs/types/src';
 
-import { format, getBallotCount } from '@votingworks/utils';
+import { format, getBallotCount } from '@vx/libs/utils/src';
 import { TD, TH } from '../table';
 import { reportColors } from './layout';
 

@@ -1,9 +1,9 @@
-import { assert } from '@votingworks/basics';
-import { BallotCountReport } from '@votingworks/ui';
-import { Admin, Tabulation } from '@votingworks/types';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { assert } from '@vx/libs/basics/src';
+import { BallotCountReport } from '@vx/libs/ui/src';
+import { Admin, Tabulation } from '@vx/libs/types/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
-import { Printer, renderToPdf } from '@votingworks/printing';
+import { Printer, renderToPdf } from '@vx/libs/printing/src';
 import { Store } from '../store';
 import { generateTitleForReport } from './titles';
 import { getCurrentTime } from '../util/get_current_time';

@@ -1,4 +1,4 @@
-import { SessionTimeLimitTracker as SessionTimeLimitTrackerBase } from '@votingworks/ui';
+import { SessionTimeLimitTracker as SessionTimeLimitTrackerBase } from '@vx/libs/ui/src';
 
 import { getAuthStatus, getConfig, logOut, updateSessionExpiry } from '../api';
 

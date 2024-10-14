@@ -1,5 +1,5 @@
 import './polyfills';
-import { AppBase, ErrorBoundary } from '@votingworks/ui';
+import { AppBase, ErrorBoundary } from '@vx/libs/ui/src';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import {

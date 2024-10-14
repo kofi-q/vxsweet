@@ -1,8 +1,8 @@
-import { BaseLogger, LogSource } from '@votingworks/logging';
-import { HmpbBallotPaperSize } from '@votingworks/types';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { HmpbBallotPaperSize } from '@vx/libs/types/src';
 import { ChildProcess } from 'node:child_process';
-import { mockOf } from '@votingworks/test-utils';
-import { Device, isDeviceAttached } from '@votingworks/backend';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Device, isDeviceAttached } from '@vx/libs/backend/src';
 import {
   EXPECTED_IMPRINTER_UNATTACHED_ERROR,
   FUJITSU_VENDOR_ID,
@@ -13,9 +13,9 @@ import { makeMockChildProcess } from '../test/util/mocks';
 import { streamExecFile } from './exec';
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     isDeviceAttached: jest.fn(),
   })
 );

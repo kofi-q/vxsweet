@@ -17,13 +17,13 @@ ruleTester.run('no-import-workspace-subfolders', rule, {
       code: `import 'a'`,
     },
     {
-      code: `import a from '@votingworks/something'`,
+      code: `import a from '@vx/libs/something/src'`,
     },
     {
-      code: `import { a } from '@votingworks/something'`,
+      code: `import { a } from '@vx/libs/something/src'`,
     },
     {
-      code: `import * as a from '@votingworks/something'`,
+      code: `import * as a from '@vx/libs/something/src'`,
     },
     {
       code: `import a from 'random-library/something'`,
@@ -35,44 +35,44 @@ ruleTester.run('no-import-workspace-subfolders', rule, {
       code: `import * as a from 'random/library/with/many/slashes'`,
     },
     {
-      code: `import a from '@votingworks/types/something/else'`,
+      code: `import a from '@vx/libs/types/something/else/src'`,
     },
     {
-      code: `import { a } from '@votingworks/types/api/services/scan'`,
+      code: `import { a } from '@vx/libs/types/api/services/scan/src'`,
     },
     {
-      code: `import * as a from '@votingworks/types/a/bunch/of/folders'`,
+      code: `import * as a from '@vx/libs/types/a/bunch/of/folders/src'`,
     },
   ],
   invalid: [
     {
-      code: `import a from '@votingworks/something/src'`,
-      output: `import a from '@votingworks/something'`,
+      code: `import a from '@vx/libs/something/src/src'`,
+      output: `import a from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
     {
-      code: `import { a } from '@votingworks/something/src'`,
-      output: `import { a } from '@votingworks/something'`,
+      code: `import { a } from '@vx/libs/something/src/src'`,
+      output: `import { a } from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
     {
-      code: `import * as a from '@votingworks/something/src'`,
-      output: `import * as a from '@votingworks/something'`,
+      code: `import * as a from '@vx/libs/something/src/src'`,
+      output: `import * as a from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
     {
-      code: `import a from '@votingworks/something/utils'`,
-      output: `import a from '@votingworks/something'`,
+      code: `import a from '@vx/libs/something/utils/src'`,
+      output: `import a from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
     {
-      code: `import { a } from '@votingworks/something/src/utils/lib'`,
-      output: `import { a } from '@votingworks/something'`,
+      code: `import { a } from '@vx/libs/something/src/utils/lib/src'`,
+      output: `import { a } from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
     {
-      code: `import * as a from '@votingworks/something/src/utils'`,
-      output: `import * as a from '@votingworks/something'`,
+      code: `import * as a from '@vx/libs/something/src/utils/src'`,
+      output: `import * as a from '@vx/libs/something/src'`,
       errors: [{ messageId: 'noImportSubfolders', line: 1 }],
     },
   ],

@@ -1,11 +1,11 @@
-import { mockOf, mockUseAudioControls } from '@votingworks/test-utils';
-import { useAudioEnabled } from '@votingworks/ui';
+import { mockOf, mockUseAudioControls } from '@vx/libs/test-utils/src';
+import { useAudioEnabled } from '@vx/libs/ui/src';
 import { render } from '../../test/react_testing_library';
 import { ScannerOpenAlarmScreen } from './scanner_open_alarm_screen';
 
 const audioControlsMock = mockUseAudioControls();
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   useAudioEnabled: jest.fn(),
   useAudioControls: () => audioControlsMock,
 }));

@@ -4,8 +4,8 @@ import {
   P,
   SaveReadinessReportButton,
   ScanReadinessReportContents,
-} from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 import { Screen } from '../components/layout';
 import {
   getConfig,

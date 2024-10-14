@@ -5,8 +5,8 @@ import {
   PrecinctSelection,
   StandardPollsTransitionType,
   Tabulation,
-} from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 import { ThemeProvider } from 'styled-components';
 import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';
 import {

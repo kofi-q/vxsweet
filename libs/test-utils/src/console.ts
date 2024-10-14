@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { MaybePromise, Optional, assert, iter } from '@votingworks/basics';
+import { MaybePromise, Optional, assert, iter } from '@vx/libs/basics/src';
 
 const capturedCallCountsByTest = new Map<
   string,

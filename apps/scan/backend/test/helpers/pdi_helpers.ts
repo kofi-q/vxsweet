@@ -1,34 +1,34 @@
-import { ImageData } from '@votingworks/image-utils';
-import * as grout from '@votingworks/grout';
+import { ImageData } from '@vx/libs/image-utils/src';
+import * as grout from '@vx/libs/grout/src';
 import * as tmp from 'tmp';
 import { Application } from 'express';
 import {
   InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import {
   Listener,
   ScannerClient,
   ScannerError,
   ScannerEvent,
   ScannerStatus,
-} from '@votingworks/pdi-scanner';
-import { MockUsbDrive, createMockUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/pdi-scanner/src';
+import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   MemoryPrinterHandler,
   createMockPrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import {
   MemoryFujitsuPrinterHandler,
   createMockFujitsuPrinterHandler,
-} from '@votingworks/fujitsu-thermal-printer';
-import { Logger, mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/fujitsu-thermal-printer/src';
+import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
-import { Result, deferred, ok } from '@votingworks/basics';
+import { Result, deferred, ok } from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { AddressInfo } from 'node:net';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
@@ -36,14 +36,14 @@ import {
   electionGeneralDefinition,
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
-} from '@votingworks/fixtures';
-import { SheetOf } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { SheetOf } from '@vx/libs/types/src';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   createPrecinctScannerStateMachine,
   delays,

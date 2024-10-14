@@ -1,4 +1,4 @@
-import { mockBaseLogger, LogEventId } from '@votingworks/logging';
+import { mockBaseLogger, LogEventId } from '@vx/libs/logging/src';
 import {
   AdjudicationReason,
   BallotMetadata,
@@ -6,13 +6,13 @@ import {
   BallotType,
   DEFAULT_SYSTEM_SETTINGS,
   formatBallotHash,
-} from '@votingworks/types';
-import { Scan } from '@votingworks/api';
-import { typedAs } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { Scan } from '@vx/libs/api/src';
+import { typedAs } from '@vx/libs/basics/src';
 import fetchMock from 'fetch-mock';
 import userEvent from '@testing-library/user-event';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { BallotEjectScreen } from './ballot_eject_screen';

@@ -7,10 +7,10 @@ import {
   MarkStatus,
   WriteInAreaStatus,
   YesNoContest,
-} from '@votingworks/types';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { assert, find } from '@votingworks/basics';
-import { allContestOptions } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { assert, find } from '@vx/libs/basics/src';
+import { allContestOptions } from '@vx/libs/utils/src';
 import {
   getAllPossibleAdjudicationReasons,
   adjudicationReasonDescription,

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 
 import { ElectionInfoBar, ElectionInfoBarProps } from './election_info_bar';
 

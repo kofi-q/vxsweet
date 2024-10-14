@@ -1,5 +1,5 @@
-import { format } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+import { format } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import { useLanguageContext } from './language_context';
 import { Font, FontProps } from '../typography';
 import { WithAudio } from './with_audio';

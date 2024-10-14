@@ -1,4 +1,4 @@
-import { Optional, Result } from '@votingworks/basics';
+import { Optional, Result } from '@vx/libs/basics/src';
 import {
   BallotStyleId,
   ElectionKey,
@@ -7,7 +7,7 @@ import {
   OverallSessionTimeLimitHours,
   PrecinctId,
   StartingCardLockoutDurationSeconds,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * The API for an inserted smart card auth instance, "inserted" meaning that the card needs to be

@@ -1,4 +1,4 @@
-import { assert, deferredQueue } from '@votingworks/basics';
+import { assert, deferredQueue } from '@vx/libs/basics/src';
 import makeDebug from 'debug';
 import { join } from 'node:path';
 import { dirSync } from 'tmp';
@@ -6,9 +6,9 @@ import {
   BmdBallotPaperSize,
   HmpbBallotPaperSize,
   ballotPaperDimensions,
-} from '@votingworks/types';
-import { LogEventId, BaseLogger } from '@votingworks/logging';
-import { isDeviceAttached } from '@votingworks/backend';
+} from '@vx/libs/types/src';
+import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
+import { isDeviceAttached } from '@vx/libs/backend/src';
 import { streamExecFile } from './exec';
 import { StreamLines } from './util/stream_lines';
 

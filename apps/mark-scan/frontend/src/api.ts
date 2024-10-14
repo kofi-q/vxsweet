@@ -1,6 +1,6 @@
-import type { Api } from '@votingworks/mark-scan-backend';
+import type { Api } from '@vx/apps/mark-scan/backend/src';
 import React from 'react';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import {
   QueryClient,
   QueryKey,
@@ -13,9 +13,9 @@ import {
   USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
   createSystemCallApi,
   createUiStringsApi,
-} from '@votingworks/ui';
-import { deepEqual } from '@votingworks/basics';
-import { DiagnosticType } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { deepEqual } from '@vx/libs/basics/src';
+import { DiagnosticType } from '@vx/libs/types/src';
 import {
   ACCESSIBLE_CONTROLLER_DIAGNOSTIC_POLLING_INTERVAL_MS,
   AUTH_STATUS_POLLING_INTERVAL_MS_OVERRIDE,

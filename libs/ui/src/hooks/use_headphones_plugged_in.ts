@@ -1,8 +1,8 @@
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import { useSystemCallApi } from '../system_call_api';
 
 function useOptionalSystemCallApi() {

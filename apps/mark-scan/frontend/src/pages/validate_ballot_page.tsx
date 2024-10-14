@@ -12,10 +12,10 @@ import {
   PageNavigationButtonId,
   AssistiveTechInstructions,
   P,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assert, assertDefined } from '@votingworks/basics';
-import { VoterScreen, Review } from '@votingworks/mark-flow-ui';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { VoterScreen, Review } from '@vx/libs/mark-flow-ui/src';
 import {
   getElectionRecord,
   getInterpretation,

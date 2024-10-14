@@ -5,12 +5,12 @@ import {
   BallotStyleGroupId,
   Election,
   getContests,
-} from '@votingworks/types';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   areContestResultsValid,
   getBallotStyleGroup,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Store } from '../store';
 import {
   ManualResultsRecord,

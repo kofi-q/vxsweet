@@ -2,9 +2,9 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import yargs from 'yargs/yargs';
-import { extractErrorMessage } from '@votingworks/basics';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import { constructElectionKey, TEST_JURISDICTION } from '@votingworks/types';
+import { extractErrorMessage } from '@vx/libs/basics/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { constructElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
 
 import { CardDetails } from '../../src/card';
 import {

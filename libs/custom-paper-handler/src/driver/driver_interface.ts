@@ -1,6 +1,6 @@
-import { Coder, CoderError, Uint16, Uint8 } from '@votingworks/message-coder';
-import { Result } from '@votingworks/basics';
-import { ImageData } from '@votingworks/image-utils';
+import { Coder, CoderError, Uint16, Uint8 } from '@vx/libs/message-coder/src';
+import { Result } from '@vx/libs/basics/src';
+import { ImageData } from '@vx/libs/image-utils/src';
 import {
   PrintingDensity,
   PrintingSpeed,

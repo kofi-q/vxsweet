@@ -4,15 +4,15 @@ import {
   ElectionDefinition,
   Id,
   Election,
-} from '@votingworks/types';
-import { assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   combineGroupSpecifierAndFilter,
   getBallotCount,
   getMaxSheetsPerBallot,
   getHmpbBallotCount,
   groupMapToGroupList,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Store } from '../store';
 import {
   CsvMetadataStructure,

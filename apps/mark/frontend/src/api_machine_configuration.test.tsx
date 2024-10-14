@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
-import { ok } from '@votingworks/basics';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { ok } from '@vx/libs/basics/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { renderHook, waitFor } from '../test/react_testing_library';
 import {
   ApiClient,

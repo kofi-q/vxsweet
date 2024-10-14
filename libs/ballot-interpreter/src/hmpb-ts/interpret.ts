@@ -1,6 +1,6 @@
-import { assert, err, ok } from '@votingworks/basics';
+import { assert, err, ok } from '@vx/libs/basics/src';
 import { ImageData } from 'canvas';
-import { ElectionDefinition, safeParseJson, SheetOf } from '@votingworks/types';
+import { ElectionDefinition, safeParseJson, SheetOf } from '@vx/libs/types/src';
 import { interpret as interpretImpl } from './rust_addon';
 import {
   InterpretedBallotCard,

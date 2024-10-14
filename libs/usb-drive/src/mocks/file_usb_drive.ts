@@ -6,7 +6,7 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert } from '@votingworks/basics';
+import { Optional, assert } from '@vx/libs/basics/src';
 import { join } from 'node:path';
 import { MockFileTree, writeMockFileTree } from './helpers';
 import { UsbDrive, UsbDriveStatus } from '../types';

@@ -5,37 +5,39 @@
 /* eslint-disable */
 /* istanbul ignore file */
 
-const express = require('express')
-const path = require('path')
-const { Logger, LogSource, LogEventId } = require('@votingworks/logging')
-const { handleUncaughtExceptions } = require('@votingworks/backend');
+const express = require('express');
+const path = require('path');
+const { Logger, LogSource, LogEventId } = require('@vx/libs/logging/src');
+const { handleUncaughtExceptions } = require('@vx/libs/backend/src');
 
-const proxy = require('./setupProxy')
-const app = express()
-const port = 3000
-const logger = new Logger(LogSource.VxMarkFrontendServer)
+const proxy = require('./setupProxy');
+const app = express();
+const port = 3000;
+const logger = new Logger(LogSource.VxMarkFrontendServer);
 
 handleUncaughtExceptions(logger);
 
 app.use((req, res, next) => {
-  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private')
-  next()
-})
-proxy(app)
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+proxy(app);
 
-app.use('/', express.static('../build'))
+app.use('/', express.static('../build'));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'))
-})
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
-app.listen(port, () => {
-  logger.log(LogEventId.ApplicationStartup, 'system', {
-    message: `Ballot Marking Device running at http://localhost:${port}/`,
-    disposition: 'success',
+app
+  .listen(port, () => {
+    logger.log(LogEventId.ApplicationStartup, 'system', {
+      message: `Ballot Marking Device running at http://localhost:${port}/`,
+      disposition: 'success',
+    });
   })
-}).on('error', error => {
-  logger.log(LogEventId.ApplicationStartup, 'system', {
-    message: `Error in starting Ballot Marking Device: ${error.message}`,
-    disposition: 'failure',
-  })
-})
+  .on('error', (error) => {
+    logger.log(LogEventId.ApplicationStartup, 'system', {
+      message: `Error in starting Ballot Marking Device: ${error.message}`,
+      disposition: 'failure',
+    });
+  });

@@ -11,14 +11,14 @@ import {
   MainContent,
   TabPanel,
   RouterTabBar,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   HmpbBallotPaperSize,
   Election,
   getPartyForBallotStyle,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { useState } from 'react';
 import { getElection, updateElection } from './api';
 import { Form, FormActionsRow, NestedTr } from './layout';

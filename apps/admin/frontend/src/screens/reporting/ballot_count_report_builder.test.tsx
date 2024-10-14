@@ -1,7 +1,7 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import { renderInAppContext } from '../../../test/render_in_app_context';

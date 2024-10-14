@@ -1,5 +1,5 @@
-import { safeParse } from '@votingworks/types';
-import { throwIllegalValue } from '@votingworks/basics';
+import { safeParse } from '@vx/libs/types/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import yargs from 'yargs/yargs';
 import * as fs from 'node:fs';
 import { AppName, AppNameSchema } from '../src';

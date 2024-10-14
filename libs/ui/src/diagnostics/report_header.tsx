@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { LogoMark } from '../logo_mark';
 import { P, H1, Font } from '../typography';
 

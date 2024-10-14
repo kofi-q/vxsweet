@@ -1,13 +1,13 @@
-import { LogEventId } from '@votingworks/logging';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   AdjudicationReason,
   Contest,
   PageInterpretation,
   Side,
   formatBallotHash,
-} from '@votingworks/types';
-import { Scan } from '@votingworks/api';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { Scan } from '@vx/libs/api/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   Button,
   H1,
@@ -18,8 +18,8 @@ import {
   Modal,
   P,
   Screen,
-} from '@votingworks/ui';
-import { isElectionManagerAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { fetchNextBallotSheetToReview } from '../api/hmpb';

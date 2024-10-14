@@ -1,7 +1,7 @@
 import {
   ToMatchPdfSnapshotOptions,
   toMatchPdfSnapshot,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
 declare global {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { DiagnosticOutcome } from '@votingworks/types';
-import { Button, Icons, Modal, P } from '@votingworks/ui';
+import { DiagnosticOutcome } from '@vx/libs/types/src';
+import { Button, Icons, Modal, P } from '@vx/libs/ui/src';
 import { useSound } from '../utils/use_sound';
 import * as api from '../api';
 

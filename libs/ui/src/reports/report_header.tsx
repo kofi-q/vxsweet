@@ -1,6 +1,6 @@
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import styled from 'styled-components';
-import { Election } from '@votingworks/types';
+import { Election } from '@vx/libs/types/src';
 import React from 'react';
 import { Font } from '../typography';
 import { Icons } from '../icons';

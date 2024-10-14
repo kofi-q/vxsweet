@@ -1,4 +1,4 @@
-import { CenteredLargeProse, H1, P } from '@votingworks/ui';
+import { CenteredLargeProse, H1, P } from '@vx/libs/ui/src';
 import React from 'react';
 import { ScreenMainCenterChild } from '../components/layout';
 import { useSound } from '../utils/use_sound';

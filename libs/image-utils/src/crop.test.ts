@@ -1,4 +1,4 @@
-import { Rect } from '@votingworks/types';
+import { Rect } from '@vx/libs/types/src';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';
 import { arbitraryImageData, arbitraryRect } from '../test/arbitraries';

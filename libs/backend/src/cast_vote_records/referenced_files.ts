@@ -6,7 +6,7 @@ import {
   isNonExistentFileOrDirectoryError,
   ok,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BallotPageLayout,
   BallotPageLayoutSchema,
@@ -14,7 +14,7 @@ import {
   ReferencedFileType,
   safeParseJson,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * A file referenced by a cast vote record report

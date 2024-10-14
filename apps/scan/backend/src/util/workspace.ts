@@ -1,11 +1,11 @@
 import { emptyDirSync, ensureDirSync } from 'fs-extra';
 import { join, resolve } from 'node:path';
-import { Mutex } from '@votingworks/utils';
+import { Mutex } from '@vx/libs/utils/src';
 import {
   DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@votingworks/backend';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/backend/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store';
 
 export interface Workspace {

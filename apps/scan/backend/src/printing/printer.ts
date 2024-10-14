@@ -1,5 +1,5 @@
-import { PrinterStatus as LegacyPrinterStatus } from '@votingworks/types';
-import { detectPrinter, Printer as LegacyPrinter } from '@votingworks/printing';
+import { PrinterStatus as LegacyPrinterStatus } from '@vx/libs/types/src';
+import { detectPrinter, Printer as LegacyPrinter } from '@vx/libs/printing/src';
 import {
   PrinterStatus as FujitsuPrinterStatus,
   PrinterState as FujitsuPrinterState,
@@ -7,13 +7,13 @@ import {
   ErrorType as FujitsuErrorType,
   FujitsuThermalPrinterInterface,
   getFujitsuThermalPrinter,
-} from '@votingworks/fujitsu-thermal-printer';
+} from '@vx/libs/fujitsu-thermal-printer/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
-import { Logger } from '@votingworks/logging';
-import { assert, Result } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { Logger } from '@vx/libs/logging/src';
+import { assert, Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 
 export type PrinterStatus =

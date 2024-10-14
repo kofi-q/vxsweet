@@ -1,13 +1,13 @@
-import { assert, find } from '@votingworks/basics';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { assert, find } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotIdSchema,
   BallotType,
   CandidateContest,
   CVR,
   unsafeParse,
-} from '@votingworks/types';
-import { getCastVoteRecordBallotType } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { getCastVoteRecordBallotType } from '@vx/libs/utils/src';
 import {
   fishCouncilContest,
   fishingContest,

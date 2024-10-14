@@ -2,12 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
 import { z } from 'zod';
-import { assert, err, ok } from '@votingworks/basics';
+import { assert, err, ok } from '@vx/libs/basics/src';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordExportMetadata,
   CVR,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { getTestFilePath } from '../test/utils';
 import {
@@ -18,8 +18,8 @@ import {
 } from './artifact_authentication';
 import { ArtifactAuthenticationConfig } from './config';
 
-jest.mock('@votingworks/types', (): typeof import('@votingworks/types') => ({
-  ...jest.requireActual('@votingworks/types'),
+jest.mock('@vx/libs/types/src', (): typeof import('@vx/libs/types/src') => ({
+  ...jest.requireActual('@vx/libs/types/src'),
   // Avoid having to prepare a complete CastVoteRecordExportMetadata object
   CastVoteRecordExportMetadataSchema: z.any(),
 }));

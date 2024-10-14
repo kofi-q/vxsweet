@@ -1,8 +1,8 @@
-import { err } from '@votingworks/basics';
+import { err } from '@vx/libs/basics/src';
 
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor } from '../../test/react_testing_library';
 import {
   ExportResultsModal,

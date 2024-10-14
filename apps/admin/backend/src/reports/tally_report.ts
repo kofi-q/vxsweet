@@ -1,11 +1,11 @@
-import { Admin, Tabulation } from '@votingworks/types';
+import { Admin, Tabulation } from '@vx/libs/types/src';
 import React from 'react';
-import { combineGroupSpecifierAndFilter } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
-import { AdminTallyReportByParty } from '@votingworks/ui';
+import { combineGroupSpecifierAndFilter } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src';
 import { Buffer } from 'node:buffer';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { Printer, renderToPdf } from '@votingworks/printing';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { Printer, renderToPdf } from '@vx/libs/printing/src';
 import { generateTitleForReport } from './titles';
 import { Store } from '../store';
 import { getCurrentTime } from '../util/get_current_time';

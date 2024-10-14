@@ -1,11 +1,11 @@
-import { ElectionPackage, ElectionPackageFileName } from '@votingworks/types';
+import { ElectionPackage, ElectionPackageFileName } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import {
   ELECTION_PACKAGE_FOLDER,
   generateElectionBasedSubfolderName,
-} from '@votingworks/utils';
-import { MockFileTree } from '@votingworks/usb-drive';
-import { zipFile } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { MockFileTree } from '@vx/libs/usb-drive/src';
+import { zipFile } from '@vx/libs/test-utils/src';
 
 /**
  * Builds an election package zip archive from a ElectionPackage object.

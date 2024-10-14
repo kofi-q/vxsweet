@@ -1,11 +1,11 @@
-import { createImageData, writeImageData } from '@votingworks/image-utils';
+import { createImageData, writeImageData } from '@vx/libs/image-utils/src';
 import {
   MockReadable,
   mockReadable,
   MockWritable,
   mockWritable,
-} from '@votingworks/test-utils';
-import { Optional, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/test-utils/src';
+import { Optional, throwIllegalValue } from '@vx/libs/basics/src';
 import { ChildProcess } from 'node:child_process';
 import { EventEmitter } from 'node:events';
 import { fileSync } from 'tmp';

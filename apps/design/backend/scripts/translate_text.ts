@@ -1,5 +1,5 @@
-import { extractErrorMessage } from '@votingworks/basics';
-import { LanguageCode, NonEnglishLanguageCode } from '@votingworks/types';
+import { extractErrorMessage } from '@vx/libs/basics/src';
+import { LanguageCode, NonEnglishLanguageCode } from '@vx/libs/types/src';
 
 import { GoogleCloudTranslator } from '../src/language_and_audio';
 import { Store } from '../src/store';

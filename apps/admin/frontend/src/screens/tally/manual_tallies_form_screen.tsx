@@ -3,7 +3,7 @@ import {
   assertDefined,
   mapObject,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Route, Switch, useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -19,7 +19,7 @@ import {
   BallotStyleGroupId,
   Contests,
   Precinct,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   LinkButton,
@@ -37,19 +37,19 @@ import {
   Font,
   Callout,
   H3,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   format,
   getContestById,
   getBallotStyleGroup,
   areContestResultsValid,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import type {
   ManualResultsRecord,
   ManualResultsVotingMethod,
   WriteInCandidateRecord,
-} from '@votingworks/admin-backend';
+} from '@vx/apps/admin/backend/src';
 import { routerPaths } from '../../router_paths';
 
 import { AppContext } from '../../contexts/app_context';

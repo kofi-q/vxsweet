@@ -4,8 +4,8 @@ import {
   PrecinctId,
   PrecinctSelection,
   SinglePrecinctSelection,
-} from '@votingworks/types';
-import { find } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { find } from '@vx/libs/basics/src';
 
 export function singlePrecinctSelectionFor(
   precinctId: PrecinctId

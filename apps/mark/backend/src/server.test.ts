@@ -1,15 +1,15 @@
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
-import { mockOf } from '@votingworks/test-utils';
-import { initializeSystemAudio } from '@votingworks/backend';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { initializeSystemAudio } from '@vx/libs/backend/src';
 import { PORT } from './globals';
 import { start } from './server';
 import { createWorkspace } from './util/workspace';
 
-jest.mock('@votingworks/backend', (): typeof import('@votingworks/backend') => {
+jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
   return {
-    ...jest.requireActual('@votingworks/backend'),
+    ...jest.requireActual('@vx/libs/backend/src'),
     initializeSystemAudio: jest.fn(),
   };
 });

@@ -1,4 +1,4 @@
-import { sleep } from '@votingworks/basics';
+import { sleep } from '@vx/libs/basics/src';
 import { zipFile } from './zip';
 
 test('zipFile is deterministic across runs', async () => {

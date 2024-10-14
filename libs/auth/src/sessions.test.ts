@@ -1,4 +1,4 @@
-import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@votingworks/types';
+import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@vx/libs/types/src';
 
 import { computeSessionEndTime, SessionConfig } from './sessions';
 

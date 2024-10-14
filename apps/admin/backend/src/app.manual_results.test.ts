@@ -1,9 +1,9 @@
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 
-import { BallotStyleGroupId, PrecinctId, Tabulation } from '@votingworks/types';
-import { buildManualResultsFixture } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
-import { LogEventId } from '@votingworks/logging';
+import { BallotStyleGroupId, PrecinctId, Tabulation } from '@vx/libs/types/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   buildTestEnvironment,
   configureMachine,

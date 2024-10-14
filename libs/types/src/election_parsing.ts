@@ -6,7 +6,7 @@ import {
   find,
   DateWithoutTime,
   extractErrorMessage,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { sha256 } from 'js-sha256';
 import { z } from 'zod';
 import { safeParseCdfBallotDefinition } from './cdf/ballot-definition/convert';

@@ -9,7 +9,7 @@ import {
   BallotStyleId,
   InsertedSmartCardAuth,
   PrinterStatus,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import Gamepad from 'react-gamepad';
 import { useHistory } from 'react-router-dom';
@@ -20,7 +20,7 @@ import {
   isSystemAdministratorAuth,
   randomBallotId,
   isVendorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import {
   SetupCardReaderPage,
@@ -31,16 +31,16 @@ import {
   InvalidCardScreen,
   useQueryChangeListener,
   VendorScreen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assert, assertDefined, throwIllegalValue } from '@votingworks/basics';
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   mergeMsEitherNeitherContests,
   CastBallotPage,
   useSessionSettingsManager,
   useBallotStyleManager,
-} from '@votingworks/mark-flow-ui';
-import type { ElectionState } from '@votingworks/mark-backend';
+} from '@vx/libs/mark-flow-ui/src';
+import type { ElectionState } from '@vx/apps/mark/backend/src';
 import {
   checkPin,
   endCardlessVoterSession,

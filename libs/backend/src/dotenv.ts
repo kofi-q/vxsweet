@@ -3,7 +3,7 @@
 import * as dotenv from 'dotenv';
 import * as dotenvExpand from 'dotenv-expand';
 import fs from 'node:fs';
-import { isIntegrationTest } from '@votingworks/utils';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 
 /**
  * Loads environment variables from .env* files. dotenv will never modify environment variables

@@ -1,23 +1,23 @@
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
   SystemSettings,
   TEST_JURISDICTION,
   BallotStyleId,
-} from '@votingworks/types';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/types/src';
+import * as grout from '@vx/libs/grout/src';
 
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
-import { MockUsbDrive } from '@votingworks/usb-drive';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { configureApp, createApp } from '../test/app_helpers';
 import { Api } from './app';
 import { PaperHandlerStateMachine } from './custom-paper-handler';
@@ -38,9 +38,9 @@ const systemSettings: SystemSettings = {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
-import { PrinterConfig } from '@votingworks/types';
-import { ok } from '@votingworks/basics';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { PrinterConfig } from '@vx/libs/types/src';
+import { ok } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen, within, act } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';

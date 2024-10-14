@@ -1,5 +1,5 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render, screen } from '../test/react_testing_library';
 
 import { App } from './app';

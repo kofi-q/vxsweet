@@ -2,8 +2,8 @@ import {
   PollsState,
   PollsSuspensionTransitionType,
   PollsTransitionType,
-} from '@votingworks/types';
-import { throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 
 export function getPollsTransitionDestinationState(
   transitionType: PollsTransitionType

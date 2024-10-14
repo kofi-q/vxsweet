@@ -1,7 +1,7 @@
-import type { SystemCallApi as SystemCallApiClient } from '@votingworks/backend';
+import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
 import { renderHook, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ok } from '@votingworks/basics';
+import { ok } from '@vx/libs/basics/src';
 import {
   BATTERY_POLLING_INTERVAL_GROUT,
   createSystemCallApi,

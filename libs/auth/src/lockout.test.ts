@@ -1,8 +1,8 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   DEFAULT_NUM_INCORRECT_PIN_ATTEMPTS_ALLOWED_BEFORE_CARD_LOCKOUT,
   DEFAULT_STARTING_CARD_LOCKOUT_DURATION_SECONDS,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { CardLockoutConfig, computeCardLockoutEndTime } from './lockout';
 

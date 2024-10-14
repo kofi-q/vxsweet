@@ -5,15 +5,15 @@ import {
   PageInterpretation,
   Tabulation,
   getGroupIdFromBallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   convertVotesDictToTabulationVotes,
   getBallotStyleIdPartyIdLookup,
   groupMapToGroupList,
   tabulateCastVoteRecords,
-} from '@votingworks/utils';
-import { assert, assertDefined, iter, typedAs } from '@votingworks/basics';
-import { VX_MACHINE_ID } from '@votingworks/backend';
+} from '@vx/libs/utils/src';
+import { assert, assertDefined, iter, typedAs } from '@vx/libs/basics/src';
+import { VX_MACHINE_ID } from '@vx/libs/backend/src';
 import { Store } from '../store';
 
 function isBmdPage(

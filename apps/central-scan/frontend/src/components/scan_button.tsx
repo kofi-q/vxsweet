@@ -1,4 +1,4 @@
-import { Button } from '@votingworks/ui';
+import { Button } from '@vx/libs/ui/src';
 import { scanBatch } from '../api';
 
 export interface Props {

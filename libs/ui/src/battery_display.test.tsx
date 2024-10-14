@@ -1,4 +1,4 @@
-import type { BatteryInfo } from '@votingworks/backend';
+import type { BatteryInfo } from '@vx/libs/backend/src';
 import { screen } from '../test/react_testing_library';
 
 import { newTestContext } from '../test/test_context';

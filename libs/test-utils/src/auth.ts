@@ -9,8 +9,8 @@ import {
   SystemAdministratorUser,
   TEST_JURISDICTION,
   VendorUser,
-} from '@votingworks/types';
-import { DateWithoutTime } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 
 export function mockVendorUser(props: Partial<VendorUser> = {}): VendorUser {
   return {

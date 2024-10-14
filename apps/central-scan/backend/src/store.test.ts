@@ -11,18 +11,18 @@ import {
   SheetOf,
   TEST_JURISDICTION,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import * as tmp from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { sleep } from '@votingworks/basics';
-import { AcceptedSheet, RejectedSheet } from '@votingworks/backend';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { sleep } from '@vx/libs/basics/src';
+import { AcceptedSheet, RejectedSheet } from '@vx/libs/backend/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { sha256 } from 'js-sha256';
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { zeroRect } from '../test/fixtures/zero_rect';
 import { Store } from './store';
 

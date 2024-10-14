@@ -1,7 +1,7 @@
-import { StartPage } from '@votingworks/mark-flow-ui';
+import { StartPage } from '@vx/libs/mark-flow-ui/src';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { appStrings } from '@votingworks/ui';
+import { appStrings } from '@vx/libs/ui/src';
 import { BallotContext } from '../contexts/ballot_context';
 
 export function StartScreen(): JSX.Element {

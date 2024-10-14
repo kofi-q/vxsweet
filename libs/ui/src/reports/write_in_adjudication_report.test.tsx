@@ -1,9 +1,9 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { formatElectionHashes } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { formatElectionHashes } from '@vx/libs/types/src';
 import { render, screen, within } from '../../test/react_testing_library';
 import { WriteInAdjudicationReport } from './write_in_adjudication_report';
 

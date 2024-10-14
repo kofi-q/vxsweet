@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { Button } from './button';
 import { Icons } from './icons';

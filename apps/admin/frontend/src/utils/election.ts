@@ -1,5 +1,5 @@
-import { Election, Party, PartyId, District } from '@votingworks/types';
-import { find, unique } from '@votingworks/basics';
+import { Election, Party, PartyId, District } from '@vx/libs/types/src';
+import { find, unique } from '@vx/libs/basics/src';
 
 export function getPartiesWithPrimaryElections(election: Election): Party[] {
   const partyIds = election.ballotStyles

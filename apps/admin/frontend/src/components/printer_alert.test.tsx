@@ -1,9 +1,9 @@
-import { PrinterRichStatus, PrinterStatus } from '@votingworks/types';
+import { PrinterRichStatus, PrinterStatus } from '@vx/libs/types/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import {
   ApiMock,

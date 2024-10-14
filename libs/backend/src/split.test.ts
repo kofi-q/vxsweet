@@ -1,4 +1,4 @@
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { execFileSync } from 'node:child_process';
 import * as fc from 'fast-check';

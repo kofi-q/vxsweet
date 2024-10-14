@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { format } from '@votingworks/utils';
-import { Optional, iter } from '@votingworks/basics';
+import { format } from '@vx/libs/utils/src';
+import { Optional, iter } from '@vx/libs/basics/src';
 import { Modal } from './modal';
 import { useSystemCallApi } from './system_call_api';
 import { Button } from './button';

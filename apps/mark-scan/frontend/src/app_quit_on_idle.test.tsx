@@ -1,13 +1,13 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import userEvent from '@testing-library/user-event';
 import { createMocks as createReactIdleTimerMocks } from 'react-idle-timer';
 import {
   IDLE_RESET_TIMEOUT_SECONDS,
   IDLE_TIMEOUT_SECONDS,
-} from '@votingworks/mark-flow-ui';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { BallotStyleId } from '@votingworks/types';
+} from '@vx/libs/mark-flow-ui/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import { App } from './app';
 

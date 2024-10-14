@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { DateTime } from 'luxon';
-import { mockUseAudioControls, mockOf } from '@votingworks/test-utils';
-import { Keybinding, ReadOnLoad } from '@votingworks/ui';
+import { mockUseAudioControls, mockOf } from '@vx/libs/test-utils/src';
+import { Keybinding, ReadOnLoad } from '@vx/libs/ui/src';
 import { render, screen, within } from '../../test/react_testing_library';
 import {
   AccessibleControllerDiagnosticScreen,
@@ -10,8 +10,8 @@ import {
 
 const mockAudioControls = mockUseAudioControls();
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   ReadOnLoad: jest.fn(),
   useAudioControls: () => mockAudioControls,
 }));

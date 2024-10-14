@@ -4,8 +4,8 @@ import path from 'node:path';
 import { Readable, Stream } from 'node:stream';
 import { FileResult, fileSync } from 'tmp';
 import { z } from 'zod';
-import { throwIllegalValue } from '@votingworks/basics';
-import { unsafeParse } from '@votingworks/types';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import { unsafeParse } from '@vx/libs/types/src';
 
 import {
   FileKey,

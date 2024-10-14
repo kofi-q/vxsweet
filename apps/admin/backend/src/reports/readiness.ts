@@ -1,14 +1,14 @@
-import { AdminReadinessReport } from '@votingworks/ui';
-import { Printer, renderToPdf } from '@votingworks/printing';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { AdminReadinessReport } from '@vx/libs/ui/src';
+import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   ExportDataResult,
   Exporter,
   VX_MACHINE_ID,
   getBatteryInfo,
-} from '@votingworks/backend';
-import { generateReadinessReportFilename } from '@votingworks/utils';
-import { UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/backend/src';
+import { generateReadinessReportFilename } from '@vx/libs/utils/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { Workspace } from '../util/workspace';
 import { getCurrentTime } from '../util/get_current_time';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../globals';

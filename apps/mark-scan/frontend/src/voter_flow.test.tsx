@@ -1,11 +1,11 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   MarkScanControllerSandbox,
   useIsPatDeviceConnected,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React from 'react';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import type { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import { act, render, screen } from '../test/react_testing_library';
 import { VoterFlow, VoterFlowProps } from './voter_flow';
 import { mockMachineConfig } from '../test/helpers/mock_machine_config';
@@ -18,8 +18,8 @@ let setMockControllerHelpTriggered:
   | ((shouldShowHelp: boolean) => void)
   | undefined;
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
 
   MarkScanControllerSandbox: jest.fn(),
 

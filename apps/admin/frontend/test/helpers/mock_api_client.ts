@@ -17,11 +17,11 @@ import type {
   TallyReportSpec,
   TallyReportWarning,
   ManualResultsMetadata,
-} from '@votingworks/admin-backend';
-import type { BatteryInfo, DiskSpaceSummary } from '@votingworks/backend';
-import { FileSystemEntry, FileSystemEntryType } from '@votingworks/fs';
-import { Result, deferred, ok } from '@votingworks/basics';
-import { createMockClient, MockClient } from '@votingworks/grout-test-utils';
+} from '@vx/apps/admin/backend/src';
+import type { BatteryInfo, DiskSpaceSummary } from '@vx/libs/backend/src';
+import { FileSystemEntry, FileSystemEntryType } from '@vx/libs/fs/src';
+import { Result, deferred, ok } from '@vx/libs/basics/src';
+import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
 import { Buffer } from 'node:buffer';
 import {
   MockFunction,
@@ -29,7 +29,7 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   Admin,
   ContestId,
@@ -44,9 +44,9 @@ import {
   Rect,
   SystemSettings,
   Tabulation,
-} from '@votingworks/types';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 
 const mockRect: Rect = {
   width: 1000,

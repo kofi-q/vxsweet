@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { App } from './app';
 
 const rootElement = document.getElementById('root');

@@ -4,7 +4,7 @@ import {
   InvalidPrecinctPage,
   InvalidTestModePage,
   PageInterpretation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { InterpreterOptions } from './types';
 

@@ -1,15 +1,15 @@
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
   buildManualResultsFixture,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
-import { LogEventId } from '@votingworks/logging';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   CVR,
   CandidateContest,
@@ -17,10 +17,10 @@ import {
   Tabulation,
   safeParse,
   safeParseJson,
-} from '@votingworks/types';
-import { assert, assertDefined, find } from '@votingworks/basics';
-import { Client } from '@votingworks/grout';
-import { modifyCastVoteRecordExport } from '@votingworks/backend';
+} from '@vx/libs/types/src';
+import { assert, assertDefined, find } from '@vx/libs/basics/src';
+import { Client } from '@vx/libs/grout/src';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -32,9 +32,9 @@ jest.setTimeout(60_000);
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

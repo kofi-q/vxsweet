@@ -1,4 +1,4 @@
-import { typedAs } from '@votingworks/basics';
+import { typedAs } from '@vx/libs/basics/src';
 import { LogEventType, LogLine, LogSource } from '.';
 import { LogEventId } from './log_event_ids';
 import {

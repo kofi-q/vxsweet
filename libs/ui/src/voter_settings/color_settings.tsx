@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchColorMode } from '@votingworks/types';
+import { TouchColorMode } from '@vx/libs/types/src';
 import { ThemeConsumer } from 'styled-components';
 import { SettingsPane } from './settings_pane';
 import { RadioGroup } from '../radio_group';

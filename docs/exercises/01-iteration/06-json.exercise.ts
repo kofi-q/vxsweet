@@ -6,7 +6,7 @@
 // Hint: A naive implementation using `iter` would still collect all of the
 // names in memory in order to JSON stringify them. Can you do better?
 
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 
@@ -126,7 +126,7 @@ run({
 //
 //
 
-import { jsonStream } from '@votingworks/utils';
+import { jsonStream } from '@vx/libs/utils/src';
 
 // This is the real solution, but we wrap it in the function below to make it
 // have the same signature as the other functions in this exercise.

@@ -2,11 +2,11 @@ import {
   ALL_PRECINCTS_SELECTION,
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/utils/src';
+import * as grout from '@vx/libs/grout/src';
 import { Server } from 'node:http';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { mockOf } from '@votingworks/test-utils';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import tmp from 'tmp';
 import {
   BallotId,
@@ -14,23 +14,23 @@ import {
   DiagnosticRecord,
   PageInterpretation,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   DiskSpaceSummary,
   getBatteryInfo,
   initializeGetWorkspaceDiskSpaceSummary,
   pdfToText,
-} from '@votingworks/backend';
-import { MockUsbDrive } from '@votingworks/usb-drive';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { MockPaperHandlerDriver } from '@votingworks/custom-paper-handler';
-import { assertDefined, deferred, ok } from '@votingworks/basics';
+} from '@vx/libs/backend/src';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { assertDefined, deferred, ok } from '@vx/libs/basics/src';
 import {
   InterpretFileResult,
   interpretSimplexBmdBallot,
-} from '@votingworks/ballot-interpreter';
-import { readElection } from '@votingworks/fs';
-import { BLANK_PAGE_IMAGE_DATA } from '@votingworks/image-utils';
+} from '@vx/libs/ballot-interpreter/src';
+import { readElection } from '@vx/libs/fs/src';
+import { BLANK_PAGE_IMAGE_DATA } from '@vx/libs/image-utils/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import { Api } from './app';
 import { PatConnectionStatusReader } from './pat-input/connection_status_reader';
@@ -60,9 +60,9 @@ jest.setTimeout(60_000);
 const TEST_POLLING_INTERVAL_MS = 5;
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };
@@ -75,9 +75,9 @@ const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
 };
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     getBatteryInfo: jest.fn(),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
@@ -86,7 +86,7 @@ jest.mock(
 jest.mock('./pat-input/connection_status_reader');
 jest.mock('./util/hardware');
 jest.mock('./custom-paper-handler/application_driver');
-jest.mock('@votingworks/ballot-interpreter');
+jest.mock('@vx/libs/ballot-interpreter/src');
 
 let apiClient: grout.Client<Api>;
 let driver: MockPaperHandlerDriver;

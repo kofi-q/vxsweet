@@ -2,14 +2,14 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';
-import { assert, Optional, throwIllegalValue } from '@votingworks/basics';
+import { assert, Optional, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   Byte,
   ElectionManagerUser,
   PollWorkerUser,
   SystemAdministratorUser,
   VendorUser,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   CardCommand,

@@ -1,5 +1,5 @@
-import { Scan } from '@votingworks/api';
-import { unsafeParse } from '@votingworks/types';
+import { Scan } from '@vx/libs/api/src';
+import { unsafeParse } from '@vx/libs/types/src';
 
 export async function fetchNextBallotSheetToReview(): Promise<
   Scan.GetNextReviewSheetResponse | undefined

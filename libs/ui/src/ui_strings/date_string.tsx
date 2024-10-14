@@ -1,4 +1,4 @@
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { useLanguageContext } from './language_context';
 import { FontProps } from '../typography';
 

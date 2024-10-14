@@ -1,20 +1,20 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { Route } from 'react-router-dom';
 
 import {
   BallotStyleGroupId,
   getContests,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import {
   buildManualResultsFixture,
   getBallotStyleGroup,
-} from '@votingworks/utils';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
-import { ManualResultsIdentifier } from '@votingworks/admin-backend';
-import { assert, mapObject } from '@votingworks/basics';
+import { ManualResultsIdentifier } from '@vx/apps/admin/backend/src';
+import { assert, mapObject } from '@vx/libs/basics/src';
 import { screen, waitFor } from '../../../test/react_testing_library';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ManualTalliesFormScreen } from './manual_tallies_form_screen';

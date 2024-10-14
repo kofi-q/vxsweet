@@ -3,7 +3,7 @@ import React from 'react';
 import {
   SystemCallContextProvider,
   UiStringsContextProvider,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   ApiClient,
   ApiClientContext,

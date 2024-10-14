@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import fc from 'fast-check';
-import { asHexString, Byte } from '@votingworks/types';
+import { asHexString, Byte } from '@vx/libs/types/src';
 
 import {
   CardCommand,

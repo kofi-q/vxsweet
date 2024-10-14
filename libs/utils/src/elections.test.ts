@@ -2,7 +2,7 @@ import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
   electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { getMaxSheetsPerBallot } from '.';
 
 test('getMaxSheetsPerBallot', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
-import { LanguageCode, SizeMode } from '@votingworks/types';
+import { LanguageCode, SizeMode } from '@vx/libs/types/src';
 
 import { Screen } from '../screen';
 import { Button } from '../button';

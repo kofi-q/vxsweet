@@ -1,13 +1,13 @@
 import sample from 'lodash.sample';
 import sampleSize from 'lodash.samplesize';
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   Candidate,
   CandidateContest,
   Vote,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export function generateCandidateVotes(contest: CandidateContest): Vote {
   if (contest.seats === 1) {

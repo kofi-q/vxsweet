@@ -14,7 +14,7 @@ import {
   throwIllegalValue,
   unique,
   wrapException,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import setWith from 'lodash.setwith';
 import * as Cdf from '.';
 import * as Vxf from '../../election';

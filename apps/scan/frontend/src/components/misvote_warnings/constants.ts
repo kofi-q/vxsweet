@@ -1,4 +1,4 @@
-import { TouchSizeMode } from '@votingworks/types';
+import { TouchSizeMode } from '@vx/libs/types/src';
 import { MisvoteWarningsConfig } from './types';
 
 /**

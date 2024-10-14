@@ -1,7 +1,7 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { UsbDrive, detectUsbDrive } from '@votingworks/usb-drive';
-import { detectDevices } from '@votingworks/backend';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { detectDevices } from '@vx/libs/backend/src';
 import { buildApp } from './app';
 import { PORT } from './globals';
 import { PrecinctScannerStateMachine } from './types';

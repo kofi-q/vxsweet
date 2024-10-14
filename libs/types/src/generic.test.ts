@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { DateWithoutTime } from '@votingworks/basics';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import { MachineId, safeParse } from '.';
 import {
   DateWithoutTimeSchema,

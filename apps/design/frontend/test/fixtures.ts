@@ -1,20 +1,20 @@
-import type { ElectionRecord } from '@votingworks/design-backend';
+import type { ElectionRecord } from '@vx/apps/design/backend/src';
 import {
   createBlankElection,
   convertVxfPrecincts,
   generateBallotStyles,
   BallotLanguageConfigs,
-} from '@votingworks/design-backend';
+} from '@vx/apps/design/backend/src';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionGeneral,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   Election,
   ElectionId,
   LanguageCode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { generateId } from '../src/utils';
 
 export function makeElectionRecord(baseElection: Election): ElectionRecord {

@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 
 import { UiString as Component, UiStringProps as Props } from './ui_string';
 import {

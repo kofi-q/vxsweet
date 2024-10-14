@@ -4,9 +4,9 @@ import {
   mockChildProcess as createMockChildProcess,
   MockChildProcess,
   mockOf,
-} from '@votingworks/test-utils';
-import { err, iter, ok, sleep } from '@votingworks/basics';
-import { fromGrayScale } from '@votingworks/image-utils';
+} from '@vx/libs/test-utils/src';
+import { err, iter, ok, sleep } from '@vx/libs/basics/src';
+import { fromGrayScale } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
 import {
   createPdiScannerClient,

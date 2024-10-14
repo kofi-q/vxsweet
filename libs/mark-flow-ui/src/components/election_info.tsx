@@ -6,7 +6,7 @@ import {
   ElectionDefinition,
   PrecinctSelection,
   getBallotStyle,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   H1,
@@ -19,8 +19,8 @@ import {
   PrimaryElectionTitlePrefix,
   NumberString,
   useScreenInfo,
-} from '@votingworks/ui';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assertDefined } from '@vx/libs/basics/src';
 
 const Container = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import { Button, Icons, P } from '@votingworks/ui';
+import { Button, Icons, P } from '@vx/libs/ui/src';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { confirmInvalidateBallot } from '../api';

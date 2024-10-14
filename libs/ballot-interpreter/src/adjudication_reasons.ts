@@ -9,9 +9,9 @@ import {
   MarkStatus,
   VotesDict,
   WriteInAreaStatus,
-} from '@votingworks/types';
-import { assertDefined, throwIllegalValue } from '@votingworks/basics';
-import { allContestOptions } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { allContestOptions } from '@vx/libs/utils/src';
 
 function rankMarkStatus(markStatus: MarkStatus): number {
   switch (markStatus) {

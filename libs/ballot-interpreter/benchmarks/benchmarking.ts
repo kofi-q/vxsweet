@@ -1,5 +1,5 @@
 /* eslint-disable vx/gts-safe-number-parse */
-import { assertDefined, iter, range } from '@votingworks/basics';
+import { assertDefined, iter, range } from '@vx/libs/basics/src';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 

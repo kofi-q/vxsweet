@@ -9,13 +9,13 @@ import {
   mergeUiStrings,
   Election,
   formatElectionHashes,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   createPlaywrightRenderer,
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
-} from '@votingworks/hmpb';
+} from '@vx/libs/hmpb/src';
 import { sha256 } from 'js-sha256';
 import { writeFile } from 'node:fs/promises';
 import { PORT } from '../globals';

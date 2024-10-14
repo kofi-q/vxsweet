@@ -7,8 +7,8 @@ import {
   LanguageCode,
   Party,
   PartyId,
-} from '@votingworks/types';
-import { electionGeneral } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   generateBallotStyleId,
   getBallotStyleGroup,

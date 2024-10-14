@@ -4,7 +4,7 @@ import {
   PollWorkerUser,
   SystemAdministratorUser,
   VendorUser,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { ResponseApduError } from './apdu';
 import { UNIVERSAL_VENDOR_CARD_JURISDICTION } from './jurisdictions';

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { Byte } from '@votingworks/types';
+import { Byte } from '@vx/libs/types/src';
 
 import {
   construct8BytePinBuffer,

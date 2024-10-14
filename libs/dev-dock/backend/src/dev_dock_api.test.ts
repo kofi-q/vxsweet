@@ -1,28 +1,28 @@
 import express from 'express';
 import * as fs from 'node:fs';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import { AddressInfo } from 'node:net';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSystemAdministratorUser,
-} from '@votingworks/test-utils';
-import { DEV_JURISDICTION } from '@votingworks/auth';
+} from '@vx/libs/test-utils/src';
+import { DEV_JURISDICTION } from '@vx/libs/auth/src';
 import {
   electionFamousNames2021Fixtures,
   electionGeneral,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { Server } from 'node:http';
-import { typedAs } from '@votingworks/basics';
-import { constructElectionKey, PrinterStatus } from '@votingworks/types';
+import { typedAs } from '@vx/libs/basics/src';
+import { constructElectionKey, PrinterStatus } from '@vx/libs/types/src';
 import {
   getMockConnectedPrinterStatus,
   getMockFilePrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import {
   Api,
   MachineType,
@@ -33,9 +33,9 @@ import {
 const TEST_DEV_DOCK_FILE_PATH = '/tmp/dev-dock.test.json';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

@@ -1,16 +1,16 @@
 import { Buffer } from 'node:buffer';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   Admin,
   BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   GROUP_KEY_ROOT,
   buildManualResultsFixture,
   groupMapToGroupList,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Store } from '../store';
 import {
   MockCastVoteRecordFile,

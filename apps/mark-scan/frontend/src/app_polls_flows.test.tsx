@@ -1,7 +1,7 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../test/react_testing_library';
 import { buildApp } from '../test/helpers/build_app';
 import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';

@@ -1,5 +1,5 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
 import {
   ApiMock,

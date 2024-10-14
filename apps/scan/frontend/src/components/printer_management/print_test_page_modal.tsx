@@ -1,5 +1,5 @@
-import { Button, Loading, Modal, P } from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+import { Button, Loading, Modal, P } from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 import React from 'react';
 import { logTestPrintOutcome, printTestPage } from '../../api';
 

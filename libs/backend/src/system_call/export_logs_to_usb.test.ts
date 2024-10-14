@@ -1,10 +1,10 @@
 /* istanbul ignore file - test util */
 
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import * as fs from 'node:fs/promises';
 import { Stats, createReadStream, createWriteStream } from 'node:fs';
-import { mockOf } from '@votingworks/test-utils';
-import { LogEventId, Logger, mockLogger } from '@votingworks/logging';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { LogEventId, Logger, mockLogger } from '@vx/libs/logging/src';
 import { tmpNameSync } from 'tmp';
 import { PassThrough } from 'node:stream';
 import { execFile } from '../exec';

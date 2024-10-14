@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
-import { err, iter, ok, sleep } from '@votingworks/basics';
+import { err, iter, ok, sleep } from '@vx/libs/basics/src';
 import { exec } from './exec';
 
 const argsWorkerPath = join(__dirname, '../../test/args_worker.js');

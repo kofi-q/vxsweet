@@ -2,7 +2,7 @@
  * Creates a mock coder.
  */
 
-import { Coder } from '@votingworks/message-coder';
+import { Coder } from '@vx/libs/message-coder/src';
 
 /* istanbul ignore next */
 function notImplemented() {

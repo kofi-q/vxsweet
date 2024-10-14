@@ -4,19 +4,19 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
   DEFAULT_SYSTEM_SETTINGS,
   DippedSmartCardAuth,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimary,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { deferred, err, ok } from '@votingworks/basics';
-import { Api } from '@votingworks/admin-backend';
+import { deferred, err, ok } from '@vx/libs/basics/src';
+import { Api } from '@vx/apps/admin/backend/src';
 import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import {

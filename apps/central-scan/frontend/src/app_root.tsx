@@ -4,7 +4,7 @@ import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
   isVendorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   Main,
   UnlockMachineScreen,
@@ -14,9 +14,9 @@ import {
   SetupCardReaderPage,
   H1,
   VendorScreen,
-} from '@votingworks/ui';
-import { BaseLogger } from '@votingworks/logging';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { assert } from '@vx/libs/basics/src';
 import { AppContext, AppContextInterface } from './contexts/app_context';
 
 import { ScanBallotsScreen } from './screens/scan_ballots_screen';

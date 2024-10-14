@@ -1,7 +1,7 @@
 // allow multiple variants of `byteArray` within the same file
 /* eslint-disable max-classes-per-file */
 
-import { Result, err, resultBlock } from '@votingworks/basics';
+import { Result, err, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { CoderError, EncodeResult, DecodeResult, Coder } from './types';
@@ -166,7 +166,7 @@ class FixedLengthByteArrayCoder extends BaseCoder<Uint8Array> {
  * @example
  *
  * ```ts
- * import { byteArrayWithLengthPrefix, uint8 } from '@votingworks/message-coder';
+ * import { byteArrayWithLengthPrefix, uint8 } from '@vx/libs/message-coder/src';
  *
  * const coder = byteArrayWithLengthPrefix(uint8());
  * coder.encode(Uint8Array.from([1, 2, 3]));
@@ -191,7 +191,7 @@ export function byteArrayWithLengthPrefix(
  * @example
  *
  * ```ts
- * import { byteArrayWithLengthPrefix, uint8 } from '@votingworks/message-coder';
+ * import { byteArrayWithLengthPrefix, uint8 } from '@vx/libs/message-coder/src';
  *
  * const coder = byteArrayWithLengthPrefix(64);
  * coder.encode(randomBytes(64));

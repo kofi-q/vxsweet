@@ -4,8 +4,8 @@ import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
   updateCastVoteRecordHashes,
-} from '@votingworks/auth';
-import { Client } from '@votingworks/db';
+} from '@vx/libs/auth/src';
+import { Client } from '@vx/libs/db/src';
 import {
   BatchInfo,
   DEFAULT_MARK_THRESHOLDS,
@@ -13,8 +13,8 @@ import {
   MarkThresholds,
   PollsState,
   SystemSettings,
-} from '@votingworks/types';
-import { FileSystemEntryType, listDirectoryRecursive } from '@votingworks/fs';
+} from '@vx/libs/types/src';
+import { FileSystemEntryType, listDirectoryRecursive } from '@vx/libs/fs/src';
 import {
   CentralScannerStore,
   ElectionRecord,

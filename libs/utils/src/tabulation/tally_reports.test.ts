@@ -1,6 +1,6 @@
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
-import { find } from '@votingworks/basics';
-import { CandidateContest, DistrictId, Tabulation } from '@votingworks/types';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { find } from '@vx/libs/basics/src';
+import { CandidateContest, DistrictId, Tabulation } from '@vx/libs/types/src';
 import { buildContestResultsFixture } from './tabulation';
 import {
   getTallyReportCandidateRows,

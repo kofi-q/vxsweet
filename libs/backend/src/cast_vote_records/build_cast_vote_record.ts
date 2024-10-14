@@ -5,7 +5,7 @@ import {
   find,
   iter,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   AnyContest,
   BallotId,
@@ -26,13 +26,13 @@ import {
   VotesDict,
   YesNoContest,
   YesNoVote,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS,
   buildCVRSnapshotBallotTypeMetadata,
   getContestById,
   getMarkStatus,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import {
   ContestOptionPositionMap,

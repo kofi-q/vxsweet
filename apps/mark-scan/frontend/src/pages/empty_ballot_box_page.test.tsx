@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render } from '../../test/test_utils';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';
 import { screen } from '../../test/react_testing_library';

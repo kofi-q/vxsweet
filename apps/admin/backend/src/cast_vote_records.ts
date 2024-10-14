@@ -5,7 +5,7 @@ import {
   isTestReport,
   readCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   assert,
   assertDefined,
@@ -14,8 +14,8 @@ import {
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { FileSystemEntryType } from '@votingworks/fs';
+} from '@vx/libs/basics/src';
+import { FileSystemEntryType } from '@vx/libs/fs/src';
 import {
   BallotId,
   BallotStyleId,
@@ -25,8 +25,8 @@ import {
   getContests,
   getGroupIdFromBallotStyleId,
   getPrecinctById,
-} from '@votingworks/types';
-import { listDirectoryOnUsbDrive, UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { listDirectoryOnUsbDrive, UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   BooleanEnvironmentVariableName,
   castVoteRecordHasValidContestReferences,
@@ -36,7 +36,7 @@ import {
   isFeatureFlagEnabled,
   parseCastVoteRecordReportExportDirectoryName,
   SCANNER_RESULTS_FOLDER,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { Store } from './store';
 import {

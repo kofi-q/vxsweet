@@ -1,6 +1,6 @@
-import { assert, lines } from '@votingworks/basics';
-import { safeParseInt } from '@votingworks/types';
-import { Client } from '@votingworks/db';
+import { assert, lines } from '@vx/libs/basics/src';
+import { safeParseInt } from '@vx/libs/types/src';
+import { Client } from '@vx/libs/db/src';
 import { execFile } from './exec';
 
 /**

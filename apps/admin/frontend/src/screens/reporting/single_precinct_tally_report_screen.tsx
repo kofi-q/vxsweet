@@ -1,7 +1,7 @@
-import { SearchSelect } from '@votingworks/ui';
+import { SearchSelect } from '@vx/libs/ui/src';
 import { useContext, useState } from 'react';
-import { assert } from '@votingworks/basics';
-import { isElectionManagerAuth } from '@votingworks/utils';
+import { assert } from '@vx/libs/basics/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import styled from 'styled-components';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';

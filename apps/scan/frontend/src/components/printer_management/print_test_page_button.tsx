@@ -1,6 +1,6 @@
 import React from 'react';
-import { assert } from '@votingworks/basics';
-import { Button } from '@votingworks/ui';
+import { assert } from '@vx/libs/basics/src';
+import { Button } from '@vx/libs/ui/src';
 import { getPrinterStatus, printTestPage } from '../../api';
 import { PrintTestPageModal } from './print_test_page_modal';
 

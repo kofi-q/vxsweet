@@ -1,15 +1,15 @@
 import {
   electionFamousNames2021Fixtures,
   electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyleId,
   BallotType,
   getBallotStyle,
   getContests,
-} from '@votingworks/types';
-import { assert, find, throwIllegalValue } from '@votingworks/basics';
-import { getCastVoteRecordBallotType } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { assert, find, throwIllegalValue } from '@vx/libs/basics/src';
+import { getCastVoteRecordBallotType } from '@vx/libs/utils/src';
 import { generateCvrs } from './generate_cvrs';
 import { IMAGE_URI_REGEX } from './utils';
 

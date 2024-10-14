@@ -1,4 +1,4 @@
-import { appStrings } from '@votingworks/ui';
+import { appStrings } from '@vx/libs/ui/src';
 
 // NOTE: Keep in sync with the value of appStrings.warningBmdInactiveSession:
 export const IDLE_TIMEOUT_SECONDS = 5 * 60; // VVSG Requirement: 2–5 minutes

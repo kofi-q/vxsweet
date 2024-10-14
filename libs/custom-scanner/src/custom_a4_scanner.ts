@@ -5,10 +5,10 @@ import {
   Result,
   sleep,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { MAX_UINT24 } from '@votingworks/message-coder';
-import { SheetOf } from '@votingworks/types';
-import { time, Mutex } from '@votingworks/utils';
+} from '@vx/libs/basics/src';
+import { MAX_UINT24 } from '@vx/libs/message-coder/src';
+import { SheetOf } from '@vx/libs/types/src';
+import { time, Mutex } from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
 import { debug as baseDebug } from './debug';
 import { convertToInternalScanParameters } from './parameters';

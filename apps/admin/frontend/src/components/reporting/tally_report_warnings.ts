@@ -1,6 +1,6 @@
-import type { TallyReportWarning } from '@votingworks/admin-backend';
-import { throwIllegalValue } from '@votingworks/basics';
-import { Election, Tabulation, getContestsFromIds } from '@votingworks/types';
+import type { TallyReportWarning } from '@vx/apps/admin/backend/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import { Election, Tabulation, getContestsFromIds } from '@vx/libs/types/src';
 
 function oxfordCommaJoin(items: string[]): string {
   if (items.length === 1) {

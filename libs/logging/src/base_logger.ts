@@ -1,4 +1,4 @@
-import { Dictionary } from '@votingworks/types';
+import { Dictionary } from '@vx/libs/types/src';
 import makeDebug from 'debug';
 import { LogEventId, getDetailsForEventId } from './log_event_ids';
 import { CLIENT_SIDE_LOG_SOURCES, LogSource } from './base_types/log_source';

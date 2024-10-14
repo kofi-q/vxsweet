@@ -2,11 +2,11 @@ import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import { Readable } from 'node:stream';
-import { assert, sleep } from '@votingworks/basics';
+import { assert, sleep } from '@vx/libs/basics/src';
 import {
   formatElectionHashes,
   SignedHashValidationQrCodeValue,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   constructSignedHashValidationConfig,

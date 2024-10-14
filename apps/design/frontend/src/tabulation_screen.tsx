@@ -8,9 +8,9 @@ import {
   MainContent,
   MainHeader,
   CheckboxButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useParams } from 'react-router-dom';
-import { AdjudicationReason, Id, SystemSettings } from '@votingworks/types';
+import { AdjudicationReason, Id, SystemSettings } from '@vx/libs/types/src';
 import { Form, Column, Row, FormActionsRow, InputGroup } from './layout';
 import { ElectionNavScreen } from './nav_screen';
 import { ElectionIdParams } from './routes';

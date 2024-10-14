@@ -1,24 +1,24 @@
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
 import {
   advanceTimersAndPromises,
   mockSystemAdministratorUser,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   electionGeneral,
   electionGeneralDefinition,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
   ElectionPackageConfigurationError,
   SheetInterpretation,
   formatElectionHashes,
-} from '@votingworks/types';
-import { Result, deferred, err, ok } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { Result, deferred, err, ok } from '@vx/libs/basics/src';
 
-import type { PrecinctScannerConfig } from '@votingworks/scan-backend';
+import type { PrecinctScannerConfig } from '@vx/apps/scan/backend/src';
 import { waitFor, screen, within, render } from '../test/react_testing_library';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from './config/globals';
 import { scannerStatus } from '../test/helpers/helpers';

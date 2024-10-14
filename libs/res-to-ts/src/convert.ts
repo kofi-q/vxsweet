@@ -90,7 +90,7 @@ export async function convert({
 
   if (isElectionDefinition) {
     lines.push(
-      `import { ElectionPackage, safeParseElectionDefinition, DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';`
+      `import { ElectionPackage, safeParseElectionDefinition, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';`
     );
   }
 

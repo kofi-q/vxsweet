@@ -1,15 +1,15 @@
-import { mockOf } from '@votingworks/test-utils';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { ContestPage, ContestPageProps } from '@votingworks/mark-flow-ui';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { ContestPage, ContestPageProps } from '@vx/libs/mark-flow-ui/src';
 import {
   BallotStyleId,
   ContestId,
   LanguageCode,
   OptionalVote,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { useHistory } from 'react-router-dom';
 import { act, fireEvent, render, screen } from '../test/react_testing_library';
 import { App } from './app';
@@ -21,9 +21,9 @@ import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 let apiMock: ApiMock;
 
 jest.mock(
-  '@votingworks/mark-flow-ui',
-  (): typeof import('@votingworks/mark-flow-ui') => ({
-    ...jest.requireActual('@votingworks/mark-flow-ui'),
+  '@vx/libs/mark-flow-ui/src',
+  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
+    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
     ContestPage: jest.fn(),
   })
 );

@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { isIntegrationTest, isVxDev } from '@votingworks/utils';
+import { isIntegrationTest, isVxDev } from '@vx/libs/utils/src';
 
 import { getRequiredEnvVar, isNodeEnvProduction } from './env_vars';
 import { FileKey, TpmKey } from './keys';

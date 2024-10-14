@@ -1,4 +1,4 @@
-import { isCardlessVoterAuth } from '@votingworks/utils';
+import { isCardlessVoterAuth } from '@vx/libs/utils/src';
 
 import * as api from '../api';
 

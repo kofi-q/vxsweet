@@ -4,7 +4,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotMetadata,
   BallotStyleId,
@@ -14,23 +14,23 @@ import {
   safeParseElectionDefinition,
   SheetOf,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { v4 as uuid } from 'uuid';
-import { LogEventId } from '@votingworks/logging';
-import { suppressingConsoleOutput } from '@votingworks/test-utils';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
+import { LogEventId } from '@vx/libs/logging/src';
+import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { assert } from 'node:console';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

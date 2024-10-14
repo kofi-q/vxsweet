@@ -3,7 +3,7 @@ import * as path from 'node:path';
 import { Alias, mergeConfig, InlineConfig } from 'vite';
 import { StorybookConfig } from '@storybook/react-vite';
 
-import { getWorkspacePackageInfo } from '@votingworks/monorepo-utils';
+import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
@@ -15,12 +15,10 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: '@storybook/react-vite',
-    options: {
-
-    },
+    options: {},
   },
   docs: {
-    autodocs:'tag'
+    autodocs: 'tag',
   },
   staticDirs: ['../.storybook-static'],
   async viteFinal(config: InlineConfig): Promise<InlineConfig> {
@@ -44,29 +42,50 @@ const config: StorybookConfig = {
           // built-in NodeJS module.
           { find: 'assert', replacement: require.resolve('assert/') },
           { find: 'node:assert', replacement: require.resolve('assert/') },
-          { find: 'buffer', replacement: require.resolve('buffer/'), },
-          { find: 'node:buffer', replacement: require.resolve('buffer/'), },
+          { find: 'buffer', replacement: require.resolve('buffer/') },
+          { find: 'node:buffer', replacement: require.resolve('buffer/') },
           { find: 'events', replacement: require.resolve('events/') },
           { find: 'node:events', replacement: require.resolve('events/') },
-          { find: 'fs', replacement: path.join(__dirname, '../src/stubs/fs.ts') },
-          { find: 'node:fs', replacement: path.join(__dirname, '../src/stubs/fs.ts') },
-          { find: 'jsdom', replacement: path.join(__dirname, '../src/stubs/jsdom.ts') },
-          { find: 'os', replacement: path.join(__dirname, '../src/stubs/os.ts') },
-          { find: 'node:os', replacement: path.join(__dirname, '../src/stubs/os.ts') },
-          { find: 'path', replacement: require.resolve('path/'), },
-          { find: 'node:path', replacement: require.resolve('path/'), },
+          {
+            find: 'fs',
+            replacement: path.join(__dirname, '../src/stubs/fs.ts'),
+          },
+          {
+            find: 'node:fs',
+            replacement: path.join(__dirname, '../src/stubs/fs.ts'),
+          },
+          {
+            find: 'jsdom',
+            replacement: path.join(__dirname, '../src/stubs/jsdom.ts'),
+          },
+          {
+            find: 'os',
+            replacement: path.join(__dirname, '../src/stubs/os.ts'),
+          },
+          {
+            find: 'node:os',
+            replacement: path.join(__dirname, '../src/stubs/os.ts'),
+          },
+          { find: 'path', replacement: require.resolve('path/') },
+          { find: 'node:path', replacement: require.resolve('path/') },
           { find: 'stream', replacement: require.resolve('stream-browserify') },
-          { find: 'node:stream', replacement: require.resolve('stream-browserify') },
+          {
+            find: 'node:stream',
+            replacement: require.resolve('stream-browserify'),
+          },
           { find: 'util', replacement: require.resolve('util/') },
           { find: 'node:util', replacement: require.resolve('util/') },
           { find: 'zlib', replacement: require.resolve('browserify-zlib') },
-          { find: 'node:zlib', replacement: require.resolve('browserify-zlib') },
+          {
+            find: 'node:zlib',
+            replacement: require.resolve('browserify-zlib'),
+          },
 
           // Create aliases for all workspace packages, i.e.
           //
           //   {
-          //     '@votingworks/types': '…/libs/types/src/index.ts',
-          //     '@votingworks/utils': '…/libs/utils/src/index.ts',
+          //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
+          //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
           //      …
           //   }
           //

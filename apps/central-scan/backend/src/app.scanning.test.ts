@@ -1,9 +1,9 @@
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   BatchInfo,
   DEFAULT_SYSTEM_SETTINGS,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';
 import { generateBmdBallotFixture } from '../test/helpers/ballots';

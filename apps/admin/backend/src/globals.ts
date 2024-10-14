@@ -1,5 +1,5 @@
-import { unsafeParse } from '@votingworks/types';
-import { DEV_MOCK_USB_DRIVE_GLOB_PATTERN } from '@votingworks/usb-drive';
+import { unsafeParse } from '@vx/libs/types/src';
+import { DEV_MOCK_USB_DRIVE_GLOB_PATTERN } from '@vx/libs/usb-drive/src';
 import { join } from 'node:path';
 import { z } from 'zod';
 

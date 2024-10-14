@@ -1,10 +1,10 @@
-import { assert, assertDefined, iter } from '@votingworks/basics';
+import { assert, assertDefined, iter } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import {
   electionGeneral,
   electionFamousNames2021Fixtures,
   electionPrimaryPrecinctSplitsFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   HmpbBallotPaperSize,
   BallotStyle,
@@ -15,10 +15,10 @@ import {
   getContests,
   LanguageCode,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
 import makeDebug from 'debug';
-import { pdfToImages } from '@votingworks/image-utils';
+import { pdfToImages } from '@vx/libs/image-utils/src';
 import { markBallotDocument, voteIsCandidate } from './mark_ballot';
 import {
   BaseBallotProps,

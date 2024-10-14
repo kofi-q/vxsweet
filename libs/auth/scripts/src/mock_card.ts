@@ -4,10 +4,10 @@ import {
   extractErrorMessage,
   Optional,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { readElection } from '@votingworks/fs';
+} from '@vx/libs/basics/src';
+import { readElection } from '@vx/libs/fs/src';
 
-import { ElectionKey } from '@votingworks/types';
+import { ElectionKey } from '@vx/libs/types/src';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { mockCard } from '../../src/mock_file_card';
 

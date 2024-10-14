@@ -9,10 +9,10 @@ import {
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@votingworks/backend';
-import { assertDefined, DateWithoutTime, Optional } from '@votingworks/basics';
-import { Client as DbClient } from '@votingworks/db';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/backend/src';
+import { assertDefined, DateWithoutTime, Optional } from '@vx/libs/basics/src';
+import { Client as DbClient } from '@vx/libs/db/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import {
   ElectionDefinition,
   PrecinctSelection,
@@ -29,7 +29,7 @@ import {
   ElectionId,
   ElectionKey,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
 
 const SchemaPath = join(__dirname, '../schema.sql');

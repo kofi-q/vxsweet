@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Button, Main, Screen, Prose, H1, P } from '@votingworks/ui';
+import { Button, Main, Screen, Prose, H1, P } from '@vx/libs/ui/src';
 import { BallotContext } from '../contexts/ballot_context';
 
 export function NotFoundPage(): JSX.Element {

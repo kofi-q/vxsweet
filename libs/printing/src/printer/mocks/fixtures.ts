@@ -3,7 +3,7 @@ import {
   PrinterConfig,
   PrinterRichStatus,
   PrinterStatus,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export const MOCK_MARKER_INFO: IppMarkerInfo = {
   color: '#000000',

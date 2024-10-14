@@ -3,7 +3,7 @@ import {
   mockPollWorkerUser,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 
 import {
   areElectionManagerCardDetails,

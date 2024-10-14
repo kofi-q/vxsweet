@@ -8,7 +8,7 @@ import {
   SetClockButton,
   ExportLogsButton,
   SignedHashValidationButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useContext } from 'react';
 import { NavigationScreen } from '../navigation_screen';
 import { AppContext } from '../contexts/app_context';

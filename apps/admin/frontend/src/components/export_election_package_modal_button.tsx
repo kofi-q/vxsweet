@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   Button,
   LoadingButton,
   Modal,
   P,
   UsbControllerButton,
-} from '@votingworks/ui';
-import type { ExportDataError } from '@votingworks/admin-backend';
+} from '@vx/libs/ui/src';
+import type { ExportDataError } from '@vx/apps/admin/backend/src';
 
 import { ejectUsbDrive, saveElectionPackageToUsb } from '../api';
 import { AppContext } from '../contexts/app_context';

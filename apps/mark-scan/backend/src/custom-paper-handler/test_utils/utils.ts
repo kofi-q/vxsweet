@@ -1,7 +1,7 @@
 import {
   DEFAULT_PAPER_HANDLER_STATUS,
   PaperHandlerStatus,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 
 export function getDefaultPaperHandlerStatus(): PaperHandlerStatus {
   return { ...DEFAULT_PAPER_HANDLER_STATUS };

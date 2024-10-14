@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 
 import { Screen } from './screen';
 import { Main } from './main';

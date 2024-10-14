@@ -7,9 +7,9 @@ import {
   formatTimeZoneName,
   getDaysInMonth,
   MONTHS_SHORT,
-} from '@votingworks/utils';
-import { SelectChangeEventFunction } from '@votingworks/types';
-import { assertDefined, integers } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { SelectChangeEventFunction } from '@vx/libs/types/src';
+import { assertDefined, integers } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import { Select } from './select';
 import { Modal } from './modal';

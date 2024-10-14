@@ -3,8 +3,8 @@ import type {
   CastVoteRecordFileRecord,
   CvrFileImportInfo,
   ManualResultsMetadata,
-} from '@votingworks/admin-backend';
-import { BallotStyleGroupId } from '@votingworks/types';
+} from '@vx/apps/admin/backend/src';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
 
 export const mockCastVoteRecordFileRecord: CastVoteRecordFileRecord = {
   id: '',

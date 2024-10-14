@@ -8,17 +8,17 @@ import {
   getContests,
   PrecinctId,
   vote,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,
   electionWithMsEitherNeitherDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 
-import { encodeBallot } from '@votingworks/ballot-encoder';
-import { hasTextAcrossElements, mockOf } from '@votingworks/test-utils';
+import { encodeBallot } from '@vx/libs/ballot-encoder/src';
+import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
 import { fromByteArray } from 'base64-js';
-import { assertDefined, find } from '@votingworks/basics';
+import { assertDefined, find } from '@vx/libs/basics/src';
 import { render, screen } from '../test/react_testing_library';
 import {
   ORDERED_BMD_BALLOT_LAYOUTS,
@@ -29,9 +29,9 @@ import {
 } from './bmd_paper_ballot';
 import * as QrCodeModule from './qrcode';
 
-jest.mock('@votingworks/ballot-encoder', () => {
+jest.mock('@vx/libs/ballot-encoder/src', () => {
   return {
-    ...jest.requireActual('@votingworks/ballot-encoder'),
+    ...jest.requireActual('@vx/libs/ballot-encoder/src'),
     // mock encoded ballot so BMD ballot QR code does not change with every change to election definition
     encodeBallot: jest.fn(),
   };
@@ -40,10 +40,10 @@ jest.mock('@votingworks/ballot-encoder', () => {
 const encodeBallotMock = mockOf(encodeBallot);
 const mockEncodedBallotData = new Uint8Array([0, 1, 2, 3]);
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   const original =
-    jest.requireActual<typeof import('@votingworks/utils')>(
-      '@votingworks/utils'
+    jest.requireActual<typeof import('@vx/libs/utils/src')>(
+      '@vx/libs/utils/src'
     );
   // Mock random string generation so that snapshots match, while leaving the rest of the module
   // intact

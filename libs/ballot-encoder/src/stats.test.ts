@@ -1,4 +1,4 @@
-import { asElectionDefinition } from '@votingworks/fixtures';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
 import {
   HmpbBallotPaperSize,
   BallotStyleGroupId,
@@ -8,8 +8,8 @@ import {
   Election,
   ElectionIdSchema,
   unsafeParse,
-} from '@votingworks/types';
-import { DateWithoutTime } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import { encodeBallot } from '.';
 
 const district1Id = unsafeParse(DistrictIdSchema, 'district1');

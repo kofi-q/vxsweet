@@ -3,8 +3,8 @@ import { join, resolve } from 'node:path';
 import {
   DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@votingworks/backend';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/backend/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store';
 
 /**

@@ -1,7 +1,7 @@
 import { tmpName } from 'tmp-promise';
 import { writeFile } from 'node:fs/promises';
 import { rmSync } from 'node:fs';
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import {
   FujitsuThermalPrinterInterface,
   PrintResult,

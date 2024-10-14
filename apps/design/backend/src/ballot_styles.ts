@@ -1,15 +1,15 @@
-import { groupBy, throwIllegalValue, unique } from '@votingworks/basics';
+import { groupBy, throwIllegalValue, unique } from '@vx/libs/basics/src';
 import {
   CandidateContest,
   Contests,
   DistrictId,
   ElectionType,
   Parties,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   generateBallotStyleGroupId,
   generateBallotStyleId,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import {
   BallotLanguageConfigs,

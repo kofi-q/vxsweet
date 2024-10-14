@@ -1,7 +1,7 @@
-import { Result, err } from '@votingworks/basics';
-import { readFile, ReadFileError } from '@votingworks/fs';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { safeParseJson, ResultsReporting } from '@votingworks/types';
+import { Result, err } from '@vx/libs/basics/src';
+import { readFile, ReadFileError } from '@vx/libs/fs/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { safeParseJson, ResultsReporting } from '@vx/libs/types/src';
 import z from 'zod';
 
 const MAX_ELECTION_RESULTS_REPORTING_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB

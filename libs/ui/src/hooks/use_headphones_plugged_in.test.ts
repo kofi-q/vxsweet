@@ -2,19 +2,19 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   advanceTimers,
   advanceTimersAndPromises,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import { useHeadphonesPluggedIn } from './use_headphones_plugged_in';
 import { AUDIO_INFO_POLLING_INTERVAL_MS } from '../system_call_api';
 import { newTestContext } from '../../test/test_context';
 import { waitFor } from '../../test/react_testing_library';
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => ({
-  ...jest.requireActual('@votingworks/utils'),
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
   isFeatureFlagEnabled: jest.fn(),
 }));
 

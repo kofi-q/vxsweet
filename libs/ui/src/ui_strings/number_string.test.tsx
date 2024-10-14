@@ -1,5 +1,5 @@
-import { LanguageCode } from '@votingworks/types';
-import { suppressingConsoleOutput } from '@votingworks/test-utils';
+import { LanguageCode } from '@vx/libs/types/src';
+import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { H1, TestErrorBoundary } from '..';
 import {
   act,

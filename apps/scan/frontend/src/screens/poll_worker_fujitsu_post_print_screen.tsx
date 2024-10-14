@@ -5,16 +5,16 @@ import {
   LoadingAnimation,
   P,
   getPartyIdsForPrecinctScannerTallyReports,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React, { useCallback, useState } from 'react';
-import { ElectionDefinition, PollsTransitionType } from '@votingworks/types';
-import { Optional, assert } from '@votingworks/basics';
+import { ElectionDefinition, PollsTransitionType } from '@vx/libs/types/src';
+import { Optional, assert } from '@vx/libs/basics/src';
 import {
   getPartyById,
   getPollsReportTitle,
   isPollsSuspensionTransition,
-} from '@votingworks/utils';
-import type { FujitsuPrintResult } from '@votingworks/scan-backend';
+} from '@vx/libs/utils/src';
+import type { FujitsuPrintResult } from '@vx/apps/scan/backend/src';
 import { Screen, getPostPollsTransitionHeaderText } from './poll_worker_shared';
 import { getPrinterStatus, printReportSection } from '../api';
 import { PollWorkerLoadAndReprintButton } from '../components/printer_management/poll_worker_load_and_reprint_button';

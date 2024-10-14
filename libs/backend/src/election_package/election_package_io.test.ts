@@ -1,4 +1,4 @@
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
@@ -14,33 +14,33 @@ import {
   safeParseElectionDefinition,
   safeParseSystemSettings,
   testCdfBallotDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
   mockOf,
   zipFile,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   electionTwoPartyPrimaryFixtures,
   electionFamousNames2021Fixtures,
   systemSettings,
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
-import { assert, assertDefined, err, ok, typedAs } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { assert, assertDefined, err, ok, typedAs } from '@vx/libs/basics/src';
 import {
   ELECTION_PACKAGE_FOLDER,
   BooleanEnvironmentVariableName,
   generateElectionBasedSubfolderName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { authenticateArtifactUsingSignatureFile } from '@votingworks/auth';
+} from '@vx/libs/utils/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import { join } from 'node:path';
 import * as fs from 'node:fs';
 import { Buffer } from 'node:buffer';
-import { UsbDrive, createMockUsbDrive } from '@votingworks/usb-drive';
+import { UsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { tmpNameSync } from 'tmp';
 import { sha256 } from 'js-sha256';
 import {
@@ -55,13 +55,13 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/auth', (): typeof import('@votingworks/auth') => ({
-  ...jest.requireActual('@votingworks/auth'),
+jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
+  ...jest.requireActual('@vx/libs/auth/src'),
   authenticateArtifactUsingSignatureFile: jest.fn(),
 }));
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => ({
-  ...jest.requireActual('@votingworks/utils'),
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
   isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
 }));
 

@@ -1,4 +1,4 @@
-import { AnyContest } from '@votingworks/types';
+import { AnyContest } from '@vx/libs/types/src';
 
 export interface MisvoteWarningsProps {
   blankContests: readonly AnyContest[];

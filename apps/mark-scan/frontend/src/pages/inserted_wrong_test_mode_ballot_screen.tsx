@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Caption, Font, Icons, P } from '@votingworks/ui';
-import { assert, assertDefined } from '@votingworks/basics';
+import { Caption, Font, Icons, P } from '@vx/libs/ui/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 
 import * as api from '../api';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

@@ -5,7 +5,7 @@ import {
   range,
   throwIllegalValue,
   unique,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import styled from 'styled-components';
 import {
@@ -23,7 +23,7 @@ import {
   getContests,
   getPartyForBallotStyle,
   getPrecinctById,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BackendLanguageContextProvider,
   CandidatePartyList,
@@ -31,8 +31,8 @@ import {
   electionStrings,
   useLanguageContext,
   RichText,
-} from '@votingworks/ui';
-import { format } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { format } from '@vx/libs/utils/src';
 import {
   BallotPageTemplate,
   BaseBallotProps,

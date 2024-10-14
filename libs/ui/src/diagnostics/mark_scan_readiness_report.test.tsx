@@ -1,6 +1,6 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { MarkScanReadinessReport } from './mark_scan_readiness_report';
 import { render, screen } from '../../test/react_testing_library';
 import { expectConnectionStatus, expectDiagnosticResult } from './test_utils';

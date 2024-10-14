@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { createMockClient, MockClient } from '@votingworks/grout-test-utils';
+import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
 import type {
   Api,
   MachineConfig,
   ElectionState,
   PrintBallotProps,
-} from '@votingworks/mark-backend';
+} from '@vx/apps/mark/backend/src';
 import {
   ElectionPackageConfigurationError,
   BallotStyleId,
@@ -21,7 +21,7 @@ import {
   PrinterStatus,
   PrinterConfig,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
@@ -29,11 +29,11 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
-import { err, ok, Result } from '@votingworks/basics';
-import { TestErrorBoundary } from '@votingworks/ui';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import type { BatteryInfo } from '@votingworks/backend';
+} from '@vx/libs/test-utils/src';
+import { err, ok, Result } from '@vx/libs/basics/src';
+import { TestErrorBoundary } from '@vx/libs/ui/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import type { BatteryInfo } from '@vx/libs/backend/src';
 import { mockMachineConfig } from './mock_machine_config';
 import { initialElectionState } from '../../src/app_root';
 import { ApiProvider } from '../../src/api_provider';

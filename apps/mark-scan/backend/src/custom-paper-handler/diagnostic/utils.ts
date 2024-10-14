@@ -1,12 +1,12 @@
-import { readElection } from '@votingworks/fs';
+import { readElection } from '@vx/libs/fs/src';
 import {
   ElectionDefinition,
   ElectionPackageFileName,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
-import { generateMockVotes } from '@votingworks/utils';
-import { pdfToImages, writeImageData } from '@votingworks/image-utils';
-import { iter, assert, assertDefined } from '@votingworks/basics';
+import { generateMockVotes } from '@vx/libs/utils/src';
+import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
+import { iter, assert, assertDefined } from '@vx/libs/basics/src';
 import tmp from 'tmp';
 import { Buffer } from 'node:buffer';
 import { renderTestModeBallotWithoutLanguageContext } from '../../util/render_ballot';

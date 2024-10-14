@@ -1,4 +1,4 @@
-import { cleanupCachedBrowser } from '@votingworks/printing';
+import { cleanupCachedBrowser } from '@vx/libs/printing/src';
 import { cleanupTestSuiteTmpFiles } from './cleanup';
 
 afterAll(async () => {

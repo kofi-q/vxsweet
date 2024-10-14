@@ -1,7 +1,7 @@
 import { tmpNameSync } from 'tmp';
 import { writeFileSync } from 'node:fs';
-import { Client } from '@votingworks/db';
-import { DiagnosticRecord } from '@votingworks/types';
+import { Client } from '@vx/libs/db/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
 import {
   DIAGNOSTICS_TABLE_SCHEMA,
   addDiagnosticRecord,

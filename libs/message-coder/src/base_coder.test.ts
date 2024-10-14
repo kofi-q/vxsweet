@@ -1,4 +1,4 @@
-import { Result, err, ok } from '@votingworks/basics';
+import { Result, err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import { BaseCoder } from './base_coder';

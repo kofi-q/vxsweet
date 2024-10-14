@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
-import { Optional } from '@votingworks/basics';
+import { Optional } from '@vx/libs/basics/src';
 import {
   NumIncorrectPinAttemptsAllowedBeforeCardLockout,
   StartingCardLockoutDurationSeconds,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * Config params for card lockout

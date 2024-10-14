@@ -1,10 +1,10 @@
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 
 import {
   MockPaperHandlerStatus,
   PaperHandlerDriverInterface,
   isMockPaperHandler,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function buildMockPaperHandlerApi(params: {

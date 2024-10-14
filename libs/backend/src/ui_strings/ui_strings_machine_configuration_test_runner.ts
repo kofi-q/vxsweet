@@ -7,9 +7,9 @@ import {
   UiStringAudioClips,
   UiStringAudioIdsPackage,
   UiStringsPackage,
-} from '@votingworks/types';
-import { MockUsbDrive } from '@votingworks/usb-drive';
-import { Result, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { Result, assertDefined } from '@vx/libs/basics/src';
 import { UiStringsStore } from './ui_strings_store';
 import { mockElectionPackageFileTree } from '../election_package/test_utils';
 

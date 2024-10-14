@@ -1,4 +1,4 @@
-import { electionGeneral } from '@votingworks/fixtures';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,

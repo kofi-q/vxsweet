@@ -7,21 +7,21 @@ import {
   CastVoteRecordExportFileName,
   CastVoteRecordExportMetadata,
   ballotPaperDimensions,
-} from '@votingworks/types';
-import { assert, assertDefined, iter } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, assertDefined, iter } from '@vx/libs/basics/src';
 import {
   buildCastVoteRecordReportMetadata,
   buildBatchManifest,
-} from '@votingworks/backend';
-import { readElection } from '@votingworks/fs';
+} from '@vx/libs/backend/src';
+import { readElection } from '@vx/libs/fs/src';
 import * as fs from 'node:fs/promises';
 import yargs from 'yargs/yargs';
-import { writeImageData, createImageData } from '@votingworks/image-utils';
+import { writeImageData, createImageData } from '@vx/libs/image-utils/src';
 import { basename, join, parse } from 'node:path';
 import {
   computeCastVoteRecordRootHashFromScratch,
   prepareSignatureFile,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import { sha256 } from 'js-sha256';
 import {
   generateBallotPageLayouts,

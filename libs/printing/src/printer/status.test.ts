@@ -1,6 +1,6 @@
-import { IppMarkerInfo } from '@votingworks/types';
-import { backendWaitFor, mockOf } from '@votingworks/test-utils';
-import { assert, err, ok } from '@votingworks/basics';
+import { IppMarkerInfo } from '@vx/libs/types/src';
+import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
+import { assert, err, ok } from '@vx/libs/basics/src';
 import { existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import {

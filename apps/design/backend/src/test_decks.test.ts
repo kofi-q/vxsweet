@@ -1,4 +1,4 @@
-import { readElection } from '@votingworks/fs';
+import { readElection } from '@vx/libs/fs/src';
 import {
   Renderer,
   createPlaywrightRenderer,
@@ -7,13 +7,13 @@ import {
   primaryElectionFixtures,
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
-} from '@votingworks/hmpb';
-import { assert, find, iter } from '@votingworks/basics';
+} from '@vx/libs/hmpb/src';
+import { assert, find, iter } from '@vx/libs/basics/src';
 import {
   buildContestResultsFixture,
   getBallotStylesByPrecinctId,
-} from '@votingworks/utils';
-import { ElectionDefinition, LanguageCode } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
 import {
   createPrecinctTestDeck,
   createTestDeckTallyReport,

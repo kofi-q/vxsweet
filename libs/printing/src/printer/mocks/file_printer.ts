@@ -9,9 +9,9 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert, iter } from '@votingworks/basics';
+import { Optional, assert, iter } from '@vx/libs/basics/src';
 import { writeFile } from 'node:fs/promises';
-import { PrinterConfig, PrinterStatus } from '@votingworks/types';
+import { PrinterConfig, PrinterStatus } from '@vx/libs/types/src';
 import { PrintProps, Printer } from '../types';
 import { getMockConnectedPrinterStatus } from './fixtures';
 

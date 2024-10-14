@@ -4,7 +4,7 @@
 // provided weather data.
 //
 
-import { Optional, assertDefined, iter, typedAs } from '@votingworks/basics';
+import { Optional, assertDefined, iter, typedAs } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 import { collecting } from '../src/collecting';

@@ -4,7 +4,7 @@ import {
   VxRenderResult,
   vxTestingLibraryScreen,
   vxTestingLibraryWithinFn,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 // Re-export all of @testing-library/react for convenience and override
 // with customized VX utils and types, as recommended at

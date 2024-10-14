@@ -1,5 +1,5 @@
-import { Result } from '@votingworks/basics';
-import { ElectionId, Id } from '@votingworks/types';
+import { Result } from '@vx/libs/basics/src';
+import { ElectionId, Id } from '@vx/libs/types/src';
 import {
   H1,
   P,
@@ -9,11 +9,11 @@ import {
   MainHeader,
   FileInputButton,
   Table,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { listElections, createElection, loadElection } from './api';
 import { Column, Row } from './layout';
 import { NavScreen } from './nav_screen';

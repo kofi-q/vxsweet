@@ -1,10 +1,10 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   mockSystemAdministratorUser,
   mockSessionExpiresAt,
   mockElectionManagerUser,
-} from '@votingworks/test-utils';
-import { constructElectionKey, DippedSmartCardAuth } from '@votingworks/types';
+} from '@vx/libs/test-utils/src';
+import { constructElectionKey, DippedSmartCardAuth } from '@vx/libs/types/src';
 import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { screen } from '../../test/react_testing_library';

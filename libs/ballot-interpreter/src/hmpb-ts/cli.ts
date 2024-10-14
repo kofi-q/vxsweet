@@ -6,9 +6,9 @@ import {
   ok,
   Optional,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import tmp from 'tmp';
-import { writeImageData } from '@votingworks/image-utils';
+import { writeImageData } from '@vx/libs/image-utils/src';
 import {
   DEFAULT_MARK_THRESHOLDS,
   ElectionDefinition,
@@ -19,8 +19,8 @@ import {
   SheetOf,
   SystemSettings,
   safeParseSystemSettings,
-} from '@votingworks/types';
-import { jsonStream } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { jsonStream } from '@vx/libs/utils/src';
 import Sqlite3 from 'better-sqlite3';
 import chalk from 'chalk';
 import { promises as fs } from 'node:fs';

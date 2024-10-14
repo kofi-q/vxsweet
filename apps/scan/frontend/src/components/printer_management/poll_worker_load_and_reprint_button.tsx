@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+import { Button } from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 import { getPrinterStatus } from '../../api';
 import { LoadPaperModal } from './load_paper_modal';
 

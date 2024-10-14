@@ -1,4 +1,4 @@
-import { AudioControls } from '@votingworks/types';
+import { AudioControls } from '@vx/libs/types/src';
 import { useAudioContext } from '../ui_strings/audio_context';
 import { useUiStringScreenReaderContext } from '../ui_strings/ui_string_screen_reader';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import parseCssColor from 'parse-css-color';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { ServerStyleSheet, ThemeConsumer } from 'styled-components';
-import { UiTheme } from '@votingworks/types';
+import { UiTheme } from '@vx/libs/types/src';
 import { act, render } from '@testing-library/react';
 
 import { AppBaseProps, AppBase as OriginalAppBase } from './app_base';

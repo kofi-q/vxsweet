@@ -1,5 +1,5 @@
-import { mockOf } from '@votingworks/test-utils';
-import { Contest } from '@votingworks/types';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Contest } from '@vx/libs/types/src';
 import { ContestList } from './contest_list';
 import { render, screen, within } from '../../../test/react_testing_library';
 import { WarningDetails } from './warning_details';

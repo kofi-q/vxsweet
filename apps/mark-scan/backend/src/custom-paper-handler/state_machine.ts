@@ -12,7 +12,7 @@ import {
   isPaperInInput,
   isPaperParked,
   isCoverOpen,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 import {
   assign as xassign,
   BaseActionObject,
@@ -29,19 +29,19 @@ import {
   EventObject,
 } from 'xstate';
 import { Buffer } from 'node:buffer';
-import { Optional, assert, assertDefined } from '@votingworks/basics';
+import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
   ElectionDefinition,
   MarkThresholds,
   PageInterpretationType,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   InterpretFileResult,
   interpretSimplexBmdBallot,
-} from '@votingworks/ballot-interpreter';
-import { LogEventId, LogLine, Logger } from '@votingworks/logging';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+} from '@vx/libs/ballot-interpreter/src';
+import { LogEventId, LogLine, Logger } from '@vx/libs/logging/src';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   BooleanEnvironmentVariableName,
   isCardlessVoterAuth,
@@ -49,9 +49,9 @@ import {
   isPollWorkerAuth,
   isSystemAdministratorAuth,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { readElection } from '@votingworks/fs';
-import { loadImageData } from '@votingworks/image-utils';
+} from '@vx/libs/utils/src';
+import { readElection } from '@vx/libs/fs/src';
+import { loadImageData } from '@vx/libs/image-utils/src';
 import { Clock } from 'xstate/lib/interpreter';
 import { Workspace } from '../util/workspace';
 import { SimpleServerStatus } from './types';

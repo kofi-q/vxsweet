@@ -7,7 +7,7 @@ import {
   Result,
   wrapException,
   DateWithoutTime,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 
 export interface Dictionary<T> {
   [key: string]: Optional<T>;

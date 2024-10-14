@@ -13,7 +13,7 @@
  *    100 dB SPL, in increments no greater than 10 dB
  */
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 
 const MIN_VOLUME_DB_SPL = 20;
 const MAX_VOLUME_DB_SPL = 100;

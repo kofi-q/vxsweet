@@ -1,8 +1,8 @@
-import { assert, find } from '@votingworks/basics';
+import { assert, find } from '@vx/libs/basics/src';
 import {
   electionGeneral,
   electionWithMsEitherNeither,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   getContestDistrictName,
   mergeMsEitherNeitherContests,

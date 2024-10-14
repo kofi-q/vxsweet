@@ -1,4 +1,4 @@
-import { advanceTimersAndPromises } from '@votingworks/test-utils';
+import { advanceTimersAndPromises } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '../../test/react_testing_library';
 import { IdlePage } from './idle_page';

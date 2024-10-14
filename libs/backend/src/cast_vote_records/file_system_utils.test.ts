@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
-import { sleep } from '@votingworks/basics';
+import { sleep } from '@vx/libs/basics/src';
 
 import { updateCreationTimestampOfDirectoryAndChildrenFiles } from './file_system_utils';
 

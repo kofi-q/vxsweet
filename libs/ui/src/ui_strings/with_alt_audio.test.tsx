@@ -1,7 +1,7 @@
 import React from 'react';
-import { mockOf } from '@votingworks/test-utils';
-import { assertDefined } from '@votingworks/basics';
-import { LanguageCode } from '@votingworks/types';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { LanguageCode } from '@vx/libs/types/src';
 import { WithAltAudio } from './with_alt_audio';
 import { newTestContext } from '../../test/test_context';
 import { useAudioContext } from './audio_context';

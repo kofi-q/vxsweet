@@ -1,4 +1,4 @@
-import { advanceTimers as advanceTimersBase } from '@votingworks/test-utils';
+import { advanceTimers as advanceTimersBase } from '@vx/libs/test-utils/src';
 import { waitFor } from '../react_testing_library';
 import { AUTH_STATUS_POLLING_INTERVAL_MS_OVERRIDE } from '../../src/constants';
 

@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 /**
  * Gets an env var and throws an error if it's not set

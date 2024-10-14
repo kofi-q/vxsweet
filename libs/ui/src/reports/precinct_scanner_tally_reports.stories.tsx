@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_SELECTION,
   buildElectionResultsFixture,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { PrintedReportPreview } from './layout';
 import {
   PrecinctScannerTallyReports,

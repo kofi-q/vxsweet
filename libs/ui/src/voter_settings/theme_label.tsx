@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ColorMode, SizeMode } from '@votingworks/types';
+import { ColorMode, SizeMode } from '@vx/libs/types/src';
 
 import { ThemePreview } from './theme_preview';
 import { Font } from '../typography';

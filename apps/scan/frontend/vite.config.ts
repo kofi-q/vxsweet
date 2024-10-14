@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { join } from 'node:path';
 import { Alias, defineConfig, loadEnv } from 'vite';
-import { getWorkspacePackageInfo } from '@votingworks/monorepo-utils';
+import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 import setupProxy from './prodserver/setupProxy';
 
 export default defineConfig(async (env) => {
@@ -57,14 +57,14 @@ export default defineConfig(async (env) => {
         { find: 'node:path', replacement: require.resolve('path/') },
         { find: 'os', replacement: join(__dirname, './src/stubs/os.ts') },
         { find: 'node:os', replacement: join(__dirname, './src/stubs/os.ts') },
-        { find: 'util', replacement: require.resolve('util/'), },
-        { find: 'node:util', replacement: require.resolve('util/'), },
+        { find: 'util', replacement: require.resolve('util/') },
+        { find: 'node:util', replacement: require.resolve('util/') },
 
         // Create aliases for all workspace packages, i.e.
         //
         //   {
-        //     '@votingworks/types': '…/libs/types/src/index.ts',
-        //     '@votingworks/utils': '…/libs/utils/src/index.ts',
+        //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
+        //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
         //      …
         //   }
         //

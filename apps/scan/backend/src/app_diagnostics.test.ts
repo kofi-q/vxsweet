@@ -1,15 +1,15 @@
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { err } from '@votingworks/basics';
-import { LogEventId } from '@votingworks/logging';
-import { DiagnosticRecord } from '@votingworks/types';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { err } from '@vx/libs/basics/src';
+import { LogEventId } from '@vx/libs/logging/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import { withApp } from '../test/helpers/pdi_helpers';
 import { TEST_PRINT_USER_FAIL_REASON } from './util/diagnostics';
 import { configureApp } from '../test/helpers/shared_helpers';
@@ -18,9 +18,9 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });
@@ -44,9 +44,9 @@ async function wrapWithFakeSystemTime<T>(fn: () => Promise<T>): Promise<T> {
 }
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );

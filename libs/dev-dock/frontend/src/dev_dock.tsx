@@ -8,19 +8,19 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import styled from 'styled-components';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import {
   assert,
   assertDefined,
   sleep,
   throwIllegalValue,
   uniqueBy,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import type {
   Api,
   DevDockUserRole,
   MachineType,
-} from '@votingworks/dev-dock-backend';
+} from '@vx/libs/dev-dock/backend/src';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCamera,
@@ -32,7 +32,7 @@ import {
 import {
   isFeatureFlagEnabled,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { UsbDriveIcon } from './usb_drive_icon';
 import { Colors } from './colors';
 import { FujitsuPrinterMockControl } from './fujitsu_printer_mock';

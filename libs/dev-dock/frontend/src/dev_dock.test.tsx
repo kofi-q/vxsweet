@@ -1,20 +1,20 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { Buffer } from 'node:buffer';
 import userEvent from '@testing-library/user-event';
-import { createMockClient, MockClient } from '@votingworks/grout-test-utils';
-import type { Api } from '@votingworks/dev-dock-backend';
+import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
+import type { Api } from '@vx/libs/dev-dock/backend/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   mockSystemAdministratorUser,
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockKiosk,
   mockFileWriter,
-} from '@votingworks/test-utils';
-import { CardStatus } from '@votingworks/auth';
+} from '@vx/libs/test-utils/src';
+import { CardStatus } from '@vx/libs/auth/src';
 import { DevDock } from './dev_dock';
 
 const noCardStatus: CardStatus = {
@@ -41,9 +41,9 @@ const pollWorkerCardStatus: CardStatus = {
 };
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

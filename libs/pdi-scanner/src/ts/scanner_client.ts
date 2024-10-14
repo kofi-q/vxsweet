@@ -9,14 +9,14 @@ import {
   err,
   ok,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   ImageData,
   createImageData,
   fromGrayScale,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
-import { SheetOf, mapSheet } from '@votingworks/types';
+import { SheetOf, mapSheet } from '@vx/libs/types/src';
 import makeDebug from 'debug';
 
 const debug = makeDebug('pdi-scanner');

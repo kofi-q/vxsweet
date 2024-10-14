@@ -1,10 +1,10 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { formatElectionHashes } from '@votingworks/types';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { formatElectionHashes } from '@vx/libs/types/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../test/react_testing_library';
 import { ElectionInfoBar, VerticalElectionInfoBar } from './election_info_bar';
 import { makeTheme } from './themes/make_theme';

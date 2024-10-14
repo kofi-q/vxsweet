@@ -1,4 +1,4 @@
-import { assert, assertDefined } from '@votingworks/basics';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   CandidateContest,
   Election,
@@ -6,8 +6,8 @@ import {
   LanguageCode,
   UiStringsPackage,
   YesNoContest,
-} from '@votingworks/types';
-import { format } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { format } from '@vx/libs/utils/src';
 
 import { GoogleCloudTranslator } from './translator';
 import { setUiString } from './utils';

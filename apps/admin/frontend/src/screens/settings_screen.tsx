@@ -7,8 +7,8 @@ import {
   RebootToBiosButton,
   SetClockButton,
   SignedHashValidationButton,
-} from '@votingworks/ui';
-import { isSystemAdministratorAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { isSystemAdministratorAuth } from '@vx/libs/utils/src';
 
 import { AppContext } from '../contexts/app_context';
 import { NavigationScreen } from '../components/navigation_screen';

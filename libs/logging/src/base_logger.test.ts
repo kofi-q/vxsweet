@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { mockKiosk } from '@votingworks/test-utils';
+import { mockKiosk } from '@vx/libs/test-utils/src';
 import { LogEventId } from './log_event_ids';
 import { LogEventType } from './base_types/log_event_types';
 import { CLIENT_SIDE_LOG_SOURCES, LogSource } from './base_types/log_source';

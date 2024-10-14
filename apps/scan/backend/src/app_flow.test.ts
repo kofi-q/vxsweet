@@ -1,16 +1,16 @@
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockOf,
-} from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
-import { constructElectionKey, TEST_JURISDICTION } from '@votingworks/types';
-import { doesUsbDriveRequireCastVoteRecordSync } from '@votingworks/backend';
+} from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+import { constructElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/src';
 import { isReadyToScan } from './app_flow';
 import { Store } from './store';
 
@@ -18,8 +18,8 @@ const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);
 const electionPackageHash = 'test-election-package-hash';
 
-jest.mock('@votingworks/backend', () => ({
-  ...jest.requireActual('@votingworks/backend'),
+jest.mock('@vx/libs/backend/src', () => ({
+  ...jest.requireActual('@vx/libs/backend/src'),
   doesUsbDriveRequireCastVoteRecordSync: jest.fn(),
 }));
 

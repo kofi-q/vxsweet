@@ -4,18 +4,18 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@votingworks/backend';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
+} from '@vx/libs/backend/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import {
   safeParseElectionDefinition,
   testCdfBallotDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { MockUsbDrive, createMockUsbDrive } from '@votingworks/usb-drive';
-import { mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/utils/src';
+import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { createWorkspace } from './util/workspace';
 import { Api, buildApi } from './app';
@@ -24,9 +24,9 @@ import { mockElectionManagerAuth } from '../test/auth_helpers';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

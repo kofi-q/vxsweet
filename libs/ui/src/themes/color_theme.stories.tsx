@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
-import { ColorMode } from '@votingworks/types';
+import { ColorMode } from '@vx/libs/types/src';
 import styled, { useTheme } from 'styled-components';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import contrastLib from 'get-contrast';
 import { H2, H4, Icons } from '..';
 

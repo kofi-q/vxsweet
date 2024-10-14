@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';
-import { assert, assertDefined } from '@votingworks/basics';
-import { asHexString, Byte, isByte } from '@votingworks/types';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { asHexString, Byte, isByte } from '@vx/libs/types/src';
 
 /**
  * The max length of an APDU

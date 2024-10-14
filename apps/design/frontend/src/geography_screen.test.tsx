@@ -3,12 +3,12 @@ import {
   Precinct,
   PrecinctWithSplits,
   PrecinctWithoutSplits,
-} from '@votingworks/design-backend';
+} from '@vx/apps/design/backend/src';
 import { createMemoryHistory } from 'history';
-import { District, DistrictId } from '@votingworks/types';
+import { District, DistrictId } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
-import { assert } from '@votingworks/basics';
-import { electionGeneral } from '@votingworks/fixtures';
+import { assert } from '@vx/libs/basics/src';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   MockApiClient,
   createMockApiClient,

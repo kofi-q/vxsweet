@@ -1,4 +1,4 @@
-import { mockReadable, mockWritable } from '@votingworks/test-utils';
+import { mockReadable, mockWritable } from '@vx/libs/test-utils/src';
 import { dirSync, fileSync } from 'tmp';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';

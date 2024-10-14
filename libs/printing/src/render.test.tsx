@@ -1,19 +1,19 @@
 import {
   getEmptyCardCounts,
   getEmptyElectionResults,
-} from '@votingworks/utils';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+} from '@vx/libs/utils/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   AdminTallyReportByParty,
   AdminTallyReportByPartyProps,
   P,
   useCurrentTheme,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { tmpNameSync } from 'tmp';
-import { parsePdf } from '@votingworks/image-utils';
+import { parsePdf } from '@vx/libs/image-utils/src';
 import { writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
-import { err, iter } from '@votingworks/basics';
+import { err, iter } from '@vx/libs/basics/src';
 import { PAPER_DIMENSIONS, RenderSpec, renderToPdf } from './render';
 import { OPTIONAL_EXECUTABLE_PATH_OVERRIDE } from './chromium';
 

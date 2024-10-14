@@ -1,4 +1,4 @@
-import { UnconfiguredElectionScreen, Screen, Main } from '@votingworks/ui';
+import { UnconfiguredElectionScreen, Screen, Main } from '@vx/libs/ui/src';
 import { useEffect } from 'react';
 import {
   configureFromElectionPackageOnUsbDrive,

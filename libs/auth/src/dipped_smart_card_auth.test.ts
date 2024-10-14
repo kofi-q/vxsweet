@@ -1,22 +1,22 @@
 import { DateTime } from 'luxon';
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import {
   electionGeneral,
   electionTwoPartyPrimary,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   mockBaseLogger,
   LogDispositionStandardTypes,
   LogEventId,
   BaseLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSystemAdministratorUser,
   mockOf,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   DEFAULT_NUM_INCORRECT_PIN_ATTEMPTS_ALLOWED_BEFORE_CARD_LOCKOUT,
   DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS,
@@ -24,12 +24,12 @@ import {
   DippedSmartCardAuth as DippedSmartCardAuthTypes,
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   generatePin,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { buildMockCard, MockCard, mockCardAssertComplete } from '../test/utils';
 import { CardDetails, CardStatus, ProgrammableCard } from './card';
@@ -41,8 +41,8 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => ({
-  ...jest.requireActual('@votingworks/utils'),
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
   generatePin: jest.fn(),
   isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
 }));

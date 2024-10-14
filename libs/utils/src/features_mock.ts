@@ -1,4 +1,4 @@
-import { Dictionary } from '@votingworks/types';
+import { Dictionary } from '@vx/libs/types/src';
 import { BooleanEnvironmentVariableName } from './environment_variable';
 import { isFeatureFlagEnabled } from './features';
 

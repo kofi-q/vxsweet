@@ -1,5 +1,5 @@
-import type { DiskSpaceSummary } from '@votingworks/backend';
-import { format } from '@votingworks/utils';
+import type { DiskSpaceSummary } from '@vx/libs/backend/src';
+import { format } from '@vx/libs/utils/src';
 import { H2, P } from '../typography';
 import { SuccessIcon, WarningIcon } from './icons';
 

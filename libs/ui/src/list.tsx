@@ -1,4 +1,4 @@
-import { SizeMode } from '@votingworks/types';
+import { SizeMode } from '@vx/libs/types/src';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 

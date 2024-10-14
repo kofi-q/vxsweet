@@ -6,8 +6,8 @@ import {
   PrecinctId,
   AnyContest,
   Contests,
-} from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   createElectionMetadataLookupFunction,
   getContestById,

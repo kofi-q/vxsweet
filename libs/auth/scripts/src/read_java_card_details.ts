@@ -1,4 +1,4 @@
-import { extractErrorMessage } from '@votingworks/basics';
+import { extractErrorMessage } from '@vx/libs/basics/src';
 
 import { CardDetails } from '../../src/card';
 import {

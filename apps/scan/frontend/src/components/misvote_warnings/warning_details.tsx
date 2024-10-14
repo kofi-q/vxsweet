@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { appStrings } from '@votingworks/ui';
-import { SizeMode } from '@votingworks/types';
+import { appStrings } from '@vx/libs/ui/src';
+import { SizeMode } from '@vx/libs/types/src';
 import { ContestList } from './contest_list';
 import { useLayoutConfig } from './use_layout_config_hook';
 import { MisvoteWarningsProps } from './types';

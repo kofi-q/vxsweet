@@ -1,5 +1,5 @@
-import { electionTwoPartyPrimary } from '@votingworks/fixtures';
-import type { TallyReportWarning } from '@votingworks/admin-backend';
+import { electionTwoPartyPrimary } from '@vx/libs/fixtures/src';
+import type { TallyReportWarning } from '@vx/apps/admin/backend/src';
 import {
   getTallyReportWarningText,
   TallyReportWarningText,

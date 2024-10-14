@@ -9,7 +9,7 @@ import {
   err,
   iter,
   ok,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   ELECTION_PACKAGE_FOLDER,
   BooleanEnvironmentVariableName,
@@ -20,9 +20,9 @@ import {
   maybeGetFileByName,
   openZip,
   readTextEntry,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import * as fs from 'node:fs/promises';
-import { LogEventId, BaseLogger } from '@votingworks/logging';
+import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
   ElectionPackage,
   ElectionPackageConfigurationError,
@@ -43,9 +43,9 @@ import {
   safeParseElectionDefinition,
   constructElectionKey,
   ElectionPackageWithHash,
-} from '@votingworks/types';
-import { authenticateArtifactUsingSignatureFile } from '@votingworks/auth';
-import { UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { sha256 } from 'js-sha256';
 
 /**

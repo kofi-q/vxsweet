@@ -1,4 +1,4 @@
-import { assert, assertDefined, find } from '@votingworks/basics';
+import { assert, assertDefined, find } from '@vx/libs/basics/src';
 import {
   AnyContest,
   Contest,
@@ -8,7 +8,7 @@ import {
   getContestDistrictName as getContestDistrictNameBase,
   Election,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * Special case to support MS either-neither contests, which are represented in

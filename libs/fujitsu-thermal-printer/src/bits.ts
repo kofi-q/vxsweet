@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 /**
  * Possible indexes for a bit offset in a `Uint8` value.

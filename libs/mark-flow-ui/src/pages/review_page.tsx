@@ -9,11 +9,11 @@ import {
   ReadOnLoad,
   PageNavigationButtonId,
   AssistiveTechInstructions,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
-import { ElectionDefinition, PrecinctId, VotesDict } from '@votingworks/types';
+import { ElectionDefinition, PrecinctId, VotesDict } from '@vx/libs/types/src';
 import { Review, ReviewProps } from '../components/review';
 import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 import { VoterScreen } from '../components/voter_screen';

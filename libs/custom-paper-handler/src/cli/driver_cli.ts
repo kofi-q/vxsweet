@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { createInterface } from 'node:readline';
-import { assert, assertDefined, sleep } from '@votingworks/basics';
+import { assert, assertDefined, sleep } from '@vx/libs/basics/src';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { getPaperHandlerDriver } from '../driver/helpers';

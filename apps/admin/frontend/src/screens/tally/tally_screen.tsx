@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { isElectionManagerAuth } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
-import { Button, Icons, H3, RouterTabBar } from '@votingworks/ui';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
+import { Button, Icons, H3, RouterTabBar } from '@vx/libs/ui/src';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';

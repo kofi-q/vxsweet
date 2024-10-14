@@ -1,4 +1,4 @@
-import { sliceBallotHashForEncoding } from '@votingworks/ballot-encoder';
+import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import {
   DEFAULT_ELECTION_GENERAL_BALLOT_STYLE_ID,
   DEFAULT_ELECTION_GENERAL_PRECINCT_ID,
@@ -7,12 +7,12 @@ import {
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/fixtures/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   AdjudicationReason,
   BallotStyleId,
@@ -25,14 +25,14 @@ import {
   VotesDict,
   asSheet,
   mapSheet,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import { assert } from 'node:console';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
 import { InterpreterOptions } from './types';

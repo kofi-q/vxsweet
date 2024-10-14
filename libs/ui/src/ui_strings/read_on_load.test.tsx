@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import React, { act } from 'react';
 import { createMemoryHistory } from 'history';
 import { Route, Router } from 'react-router-dom';

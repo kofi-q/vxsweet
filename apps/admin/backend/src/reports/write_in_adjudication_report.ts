@@ -1,9 +1,9 @@
-import { assert } from '@votingworks/basics';
-import { WriteInAdjudicationReport } from '@votingworks/ui';
-import { PdfError, Printer, renderToPdf } from '@votingworks/printing';
+import { assert } from '@vx/libs/basics/src';
+import { WriteInAdjudicationReport } from '@vx/libs/ui/src';
+import { PdfError, Printer, renderToPdf } from '@vx/libs/printing/src';
 import { Buffer } from 'node:buffer';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { Tabulation } from '@votingworks/types';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { Tabulation } from '@vx/libs/types/src';
 import { Store } from '../store';
 import { getCurrentTime } from '../util/get_current_time';
 import { exportFile } from '../util/export_file';

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { StartPage } from '@votingworks/mark-flow-ui';
-import { AssistiveTechInstructions, appStrings } from '@votingworks/ui';
+import { StartPage } from '@vx/libs/mark-flow-ui/src';
+import { AssistiveTechInstructions, appStrings } from '@vx/libs/ui/src';
 import { BallotContext } from '../contexts/ballot_context';
 
 export function StartScreen(): JSX.Element {

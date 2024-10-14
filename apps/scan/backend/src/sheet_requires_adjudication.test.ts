@@ -1,5 +1,5 @@
-import { throwIllegalValue } from '@votingworks/basics';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
   BallotIdSchema,
@@ -12,7 +12,7 @@ import {
   PageInterpretation,
   UnreadablePage,
   unsafeParse,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 
 const metadata: BallotMetadata = {

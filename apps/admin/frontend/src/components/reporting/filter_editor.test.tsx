@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { FilterEditor } from './filter_editor';

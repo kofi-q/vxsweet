@@ -6,7 +6,7 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,
   electionWithMsEitherNeitherDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { PreviewDashboard } from './preview_dashboard';
 import * as CardErrorScreen from './screens/card_error_screen';
 import * as ElectionManagerScreen from './screens/election_manager_screen';

@@ -1,4 +1,4 @@
-import { MockFunction, mockFunction } from '@votingworks/test-utils';
+import { MockFunction, mockFunction } from '@vx/libs/test-utils/src';
 import { readdirSync, rmSync } from 'node:fs';
 import tmp from 'tmp';
 import { MockFileTree, TMP_DIR_PREFIX, writeMockFileTree } from './helpers';

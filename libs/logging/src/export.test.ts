@@ -1,5 +1,5 @@
-import { assert, iter } from '@votingworks/basics';
-import { EventLogging, safeParseJson } from '@votingworks/types';
+import { assert, iter } from '@vx/libs/basics/src';
+import { EventLogging, safeParseJson } from '@vx/libs/types/src';
 import { createReadStream } from 'node:fs';
 import { join } from 'node:path';
 import {

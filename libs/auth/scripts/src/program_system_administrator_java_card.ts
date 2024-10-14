@@ -1,4 +1,4 @@
-import { extractErrorMessage } from '@votingworks/basics';
+import { extractErrorMessage } from '@vx/libs/basics/src';
 
 import { constructJavaCardConfig, JavaCardConfig } from '../../src/config';
 import { getRequiredEnvVar, isNodeEnvProduction } from '../../src/env_vars';

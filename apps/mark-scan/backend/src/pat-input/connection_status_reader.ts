@@ -2,10 +2,10 @@
 // props must be public to be defined in the interface
 
 import * as fs from 'node:fs/promises';
-import { open as fsOpen } from '@votingworks/fs';
-import { assert } from '@votingworks/basics';
+import { open as fsOpen } from '@vx/libs/fs/src';
+import { assert } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
-import { LogEventId, BaseLogger } from '@votingworks/logging';
+import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import { join } from 'node:path';
 import {
   FAI_100_STATUS_FILENAME,

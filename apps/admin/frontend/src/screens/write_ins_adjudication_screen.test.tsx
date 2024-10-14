@@ -1,10 +1,10 @@
-import { electionTwoPartyPrimaryDefinition as electionDefinition } from '@votingworks/fixtures';
-import { ContestId } from '@votingworks/types';
+import { electionTwoPartyPrimaryDefinition as electionDefinition } from '@vx/libs/fixtures/src';
+import { ContestId } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import {
   WriteInCandidateRecord,
   WriteInImageView,
-} from '@votingworks/admin-backend';
+} from '@vx/apps/admin/backend/src';
 import { Route } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { screen, waitFor } from '../../test/react_testing_library';

@@ -1,4 +1,4 @@
-import { PrinterConfig } from '@votingworks/types';
+import { PrinterConfig } from '@vx/libs/types/src';
 
 export const BROTHER_THERMAL_PRINTER_CONFIG: PrinterConfig = {
   label: 'Brother PJ-822',

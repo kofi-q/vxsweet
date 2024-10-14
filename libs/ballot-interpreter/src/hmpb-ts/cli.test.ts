@@ -1,11 +1,11 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import { dirSync, fileSync } from 'tmp';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { integers, iter } from '@votingworks/basics';
+import { integers, iter } from '@vx/libs/basics/src';
 import { randomUUID } from 'node:crypto';
 import { join } from 'node:path';
-import { mockWritable } from '@votingworks/test-utils';
+import { mockWritable } from '@vx/libs/test-utils/src';
 import { main } from './cli';
 
 test('interpret CVRs', async () => {

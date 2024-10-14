@@ -1,12 +1,12 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { waitForElementToBeRemoved } from '@testing-library/react';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import { TallyReportSpec } from '@votingworks/admin-backend';
-import { ok } from '@votingworks/basics';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { TallyReportSpec } from '@vx/apps/admin/backend/src';
+import { ok } from '@vx/libs/basics/src';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import { screen, within } from '../../../test/react_testing_library';
 import { renderInAppContext } from '../../../test/render_in_app_context';

@@ -1,4 +1,4 @@
-import { err } from '@votingworks/basics';
+import { err } from '@vx/libs/basics/src';
 import { makeTmpFile } from '../test/utils';
 import { open } from './open_file';
 

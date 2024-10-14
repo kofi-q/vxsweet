@@ -1,4 +1,4 @@
-import { BaseLogger, LogEventId } from '@votingworks/logging';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { usb } from 'usb';
 
 /**

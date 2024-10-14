@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, P, Button } from '@votingworks/ui';
+import { Modal, P, Button } from '@vx/libs/ui/src';
 import { clearCastVoteRecordFiles, deleteAllManualResults } from '../../api';
 
 export function ConfirmRemoveAllResultsModal({

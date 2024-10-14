@@ -3,18 +3,18 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { DevDock } from '@votingworks/dev-dock-frontend';
+import { DevDock } from '@vx/libs/dev-dock/frontend/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   AppBase,
   AppErrorBoundary,
   SystemCallContextProvider,
-} from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
-import { LogSource, BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
+import { LogSource, BaseLogger } from '@vx/libs/logging/src';
 import { App } from './app';
 import {
   ApiClientContext,

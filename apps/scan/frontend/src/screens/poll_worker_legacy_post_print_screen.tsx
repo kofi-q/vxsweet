@@ -4,12 +4,12 @@ import {
   H1,
   LoadingAnimation,
   P,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import pluralize from 'pluralize';
-import { PollsTransitionType } from '@votingworks/types';
-import { getPollsReportTitle } from '@votingworks/utils';
+import { PollsTransitionType } from '@vx/libs/types/src';
+import { getPollsReportTitle } from '@vx/libs/utils/src';
 import { useState } from 'react';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { Screen, getPostPollsTransitionHeaderText } from './poll_worker_shared';
 import { getPrinterStatus, printReport } from '../api';
 

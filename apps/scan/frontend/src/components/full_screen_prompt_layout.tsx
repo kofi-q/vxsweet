@@ -1,4 +1,4 @@
-import { H1, WithScrollButtons } from '@votingworks/ui';
+import { H1, WithScrollButtons } from '@vx/libs/ui/src';
 import React from 'react';
 import styled from 'styled-components';
 

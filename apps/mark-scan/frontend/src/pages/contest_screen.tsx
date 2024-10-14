@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ContestPage } from '@votingworks/mark-flow-ui';
-import { ContestId } from '@votingworks/types';
+import { ContestPage } from '@vx/libs/mark-flow-ui/src';
+import { ContestId } from '@vx/libs/types/src';
 
 import * as api from '../api';
 import { BallotContext } from '../contexts/ballot_context';

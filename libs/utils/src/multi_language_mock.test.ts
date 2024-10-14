@@ -1,5 +1,5 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { LanguageCode } from '@votingworks/types';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { LanguageCode } from '@vx/libs/types/src';
 import { getMockMultiLanguageElectionDefinition } from './multi_language_mock';
 
 test('getMockMultiLanguageElectionDefinition', () => {

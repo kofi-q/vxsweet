@@ -1,4 +1,4 @@
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { promises as fs } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { writeImageData } from '../image_data';

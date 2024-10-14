@@ -3,11 +3,11 @@ import { Server } from 'node:http';
 import { AddressInfo } from 'node:net';
 import path from 'node:path';
 import * as tmp from 'tmp';
-import * as grout from '@votingworks/grout';
-import { suppressingConsoleOutput } from '@votingworks/test-utils';
-import { assertDefined } from '@votingworks/basics';
-import { ElectionSerializationFormat, LanguageCode } from '@votingworks/types';
-import { mockBaseLogger } from '@votingworks/logging';
+import * as grout from '@vx/libs/grout/src';
+import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { ElectionSerializationFormat, LanguageCode } from '@vx/libs/types/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { buildApp } from '../src/app';
 import type { Api } from '../src/app';
 import {

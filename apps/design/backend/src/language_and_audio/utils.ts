@@ -1,11 +1,11 @@
 import { sha256 } from 'js-sha256';
-import { assert, assertDefined } from '@votingworks/basics';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   LanguageCode,
   UiStringAudioIdsPackage,
   UiStringsPackage,
   isLanguageCode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * i18next catalog strings can contain tags that interfere with speech synthesis, e.g.

@@ -5,13 +5,13 @@ import {
   DateWithoutTime,
   Optional,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   ElectionManagerUser,
   PollWorkerUser,
   SystemAdministratorUser,
   VendorUser,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { Card, CardStatus, CheckPinResponse } from './card';
 

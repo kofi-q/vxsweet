@@ -3,7 +3,7 @@ import {
   DateWithoutTime,
   mergeObjects,
   range,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   AnyContest,
   HmpbBallotPaperSize,
@@ -19,7 +19,7 @@ import {
   PartyId,
   Precinct,
   safeParse,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { customAlphabet } from 'nanoid';
 import { defaultConfig, GenerateElectionConfig } from './config';
 import { ballotMeasureText, seal, words } from './source_text';

@@ -1,4 +1,4 @@
-import { CompressedTally, Election } from '@votingworks/types';
+import { CompressedTally, Election } from '@vx/libs/types/src';
 
 // duplicated from shared utils library in order to avoid creating a cyclical dependency
 function throwIllegalValue(s: never): never {

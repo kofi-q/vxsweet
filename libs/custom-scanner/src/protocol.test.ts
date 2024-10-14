@@ -1,5 +1,5 @@
-import { err, ok, typedAs } from '@votingworks/basics';
-import { CoderError, message, Uint8, uint8 } from '@votingworks/message-coder';
+import { err, ok, typedAs } from '@vx/libs/basics/src';
+import { CoderError, message, Uint8, uint8 } from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import {

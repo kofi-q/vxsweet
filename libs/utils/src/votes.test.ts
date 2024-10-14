@@ -3,15 +3,15 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionGeneral,
   electionWithMsEitherNeither,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotTargetMark,
   CandidateContest,
   Tabulation,
   WriteInCandidate,
   YesNoContest,
-} from '@votingworks/types';
-import { find, typedAs } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { find, typedAs } from '@vx/libs/basics/src';
 import {
   convertMarksToVotesDict,
   getContestVoteOptionsForCandidateContest,

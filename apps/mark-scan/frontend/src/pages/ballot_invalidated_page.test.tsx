@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { InsertedSmartCardAuth } from '@votingworks/types';
-import { VxRenderResult } from '@votingworks/ui';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { VxRenderResult } from '@vx/libs/ui/src';
 import { render } from '../../test/test_utils';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';
 import { screen } from '../../test/react_testing_library';

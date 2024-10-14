@@ -1,8 +1,8 @@
 import {
   InterpreterOptions,
   interpretSheetAndSaveImages,
-} from '@votingworks/ballot-interpreter';
-import { ok, Result } from '@votingworks/basics';
+} from '@vx/libs/ballot-interpreter/src';
+import { ok, Result } from '@vx/libs/basics/src';
 import {
   AdjudicationReason,
   AdjudicationReasonInfo,
@@ -11,8 +11,8 @@ import {
   SheetInterpretation,
   SheetInterpretationWithPages,
   SheetOf,
-} from '@votingworks/types';
-import { time } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { time } from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import { rootDebug } from './util/debug';
 

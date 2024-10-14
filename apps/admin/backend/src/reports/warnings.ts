@@ -1,10 +1,10 @@
-import { PdfError } from '@votingworks/printing';
-import { Admin, ContestId, Election, Tabulation } from '@votingworks/types';
+import { PdfError } from '@vx/libs/printing/src';
+import { Admin, ContestId, Election, Tabulation } from '@vx/libs/types/src';
 import {
   combineElectionResults,
   convertManualElectionResults,
   getBallotCount,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 /**
  * A warning about a generated ballot count report to be shown to the user.

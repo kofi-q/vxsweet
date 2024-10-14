@@ -2,9 +2,9 @@ import {
   BallotMetadata,
   PageInterpretation,
   PageInterpretationType,
-} from '@votingworks/types';
-import { mockOf, suppressingConsoleOutput } from '@votingworks/test-utils';
-import { TestErrorBoundary } from '@votingworks/ui';
+} from '@vx/libs/types/src';
+import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { TestErrorBoundary } from '@vx/libs/ui/src';
 import { UseQueryResult } from '@tanstack/react-query';
 import { render, screen } from '../../test/react_testing_library';
 import { ReinsertedInvalidBallotScreen } from './reinserted_invalid_ballot_screen';

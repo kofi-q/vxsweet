@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { Result, deferred, err, ok } from '@votingworks/basics';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import type { ExportDataError } from '@votingworks/admin-backend';
+import { Result, deferred, err, ok } from '@vx/libs/basics/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import type { ExportDataError } from '@vx/apps/admin/backend/src';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { ExportElectionPackageModalButton } from './export_election_package_modal_button';

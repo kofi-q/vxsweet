@@ -1,10 +1,10 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   CustomScanner,
   DoubleSheetDetectOpt,
@@ -17,17 +17,17 @@ import {
   ScannerStatus,
   ScanSide,
   SensorStatus,
-} from '@votingworks/custom-scanner';
-import { fromGrayScale, ImageData } from '@votingworks/image-utils';
-import { Logger, LogEventId, LogLine } from '@votingworks/logging';
+} from '@vx/libs/custom-scanner/src';
+import { fromGrayScale, ImageData } from '@vx/libs/image-utils/src';
+import { Logger, LogEventId, LogLine } from '@vx/libs/logging/src';
 import {
   mapSheet,
   PrecinctScannerError,
   PrecinctScannerMachineStatus,
   SheetInterpretation,
   SheetOf,
-} from '@votingworks/types';
-import { UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { v4 as uuid } from 'uuid';
 import {
   Assigner,

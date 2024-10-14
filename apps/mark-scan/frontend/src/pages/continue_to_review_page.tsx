@@ -5,7 +5,7 @@ import {
   P,
   PageNavigationButtonId,
   Icons,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 // This page is rendered as part of the blank ballot interpretation flow immediately after

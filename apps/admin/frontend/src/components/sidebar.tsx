@@ -7,9 +7,9 @@ import {
   NavList,
   NavListItem,
   VerticalElectionInfoBar,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { AppContext } from '../contexts/app_context';
 
 export interface SidebarProps {

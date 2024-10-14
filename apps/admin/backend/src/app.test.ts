@@ -1,10 +1,10 @@
-import { assert, assertDefined, err, ok } from '@votingworks/basics';
+import { assert, assertDefined, err, ok } from '@vx/libs/basics/src';
 import {
   electionTwoPartyPrimaryFixtures,
   electionGeneral,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
-import { LogEventId } from '@votingworks/logging';
+} from '@vx/libs/fixtures/src';
+import { LogEventId } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
 import {
   BallotStyleGroupId,
@@ -15,12 +15,12 @@ import {
   safeParseElectionDefinition,
   testElectionReport,
   testElectionReportUnsupportedContestType,
-} from '@votingworks/types';
-import { suppressingConsoleOutput, zipFile } from '@votingworks/test-utils';
+} from '@vx/libs/types/src';
+import { suppressingConsoleOutput, zipFile } from '@vx/libs/test-utils/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   getMockConnectedPrinterStatus,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import { tmpNameSync } from 'tmp';
 import { writeFile } from 'node:fs/promises';
 import {

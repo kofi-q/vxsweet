@@ -5,7 +5,7 @@ import {
   Election,
   YesNoContestOptionId,
   getContestDistrict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   ContestChoiceButton,
@@ -21,10 +21,10 @@ import {
   PageNavigationButtonId,
   useIsPatDeviceConnected,
   RichText,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { getSingleYesNoVote } from '@votingworks/utils';
-import { Optional } from '@votingworks/basics';
+import { getSingleYesNoVote } from '@vx/libs/utils/src';
+import { Optional } from '@vx/libs/basics/src';
 
 import { ContestFooter, ChoicesGrid } from './contest_screen_layout';
 import { BreadcrumbMetadata, ContestHeader } from './contest_header';

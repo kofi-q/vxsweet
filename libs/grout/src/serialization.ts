@@ -15,7 +15,7 @@ import {
   isPlainObject,
   isSet,
   isString,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { DateTime } from 'luxon';
 
 type JsonBuiltInValue =

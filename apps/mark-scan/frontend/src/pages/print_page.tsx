@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { assert } from '@votingworks/basics';
-import { Icons, P, appStrings, useCurrentLanguage } from '@votingworks/ui';
+import { assert } from '@vx/libs/basics/src';
+import { Icons, P, appStrings, useCurrentLanguage } from '@vx/libs/ui/src';
 import { BallotContext } from '../contexts/ballot_context';
 import { printBallot } from '../api';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

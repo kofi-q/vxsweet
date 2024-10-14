@@ -1,8 +1,8 @@
 import {
   UnconfiguredElectionScreen,
   useQueryChangeListener,
-} from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   configureFromElectionPackageOnUsbDrive,
   getUsbDriveStatus,

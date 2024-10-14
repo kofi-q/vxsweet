@@ -2,13 +2,13 @@ import {
   mockFunction,
   MockFunction,
   MockFunctionError,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   AnyApi,
   AnyMethods,
   AsyncRpcMethod,
   inferApiMethods,
-} from '@votingworks/grout';
+} from '@vx/libs/grout/src';
 
 type MockMethods<Methods extends AnyMethods> = {
   [Method in keyof Methods]: MockFunction<AsyncRpcMethod<Methods[Method]>>;

@@ -1,4 +1,4 @@
-import { BaseLogger, LogEventId } from '@votingworks/logging';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { PrinterStatus } from './types';
 
 export async function logPrinterStatusIfChanged(

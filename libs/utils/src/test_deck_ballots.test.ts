@@ -1,4 +1,4 @@
-import { electionGeneral } from '@votingworks/fixtures';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   BallotStyle,
   BallotStyleId,
@@ -9,8 +9,8 @@ import {
   getBallotStyle,
   getContests,
   YesNoVote,
-} from '@votingworks/types';
-import { deepEqual, unique } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { deepEqual, unique } from '@vx/libs/basics/src';
 import {
   generateTestDeckWriteIn,
   numBallotPositions,

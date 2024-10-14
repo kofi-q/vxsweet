@@ -1,4 +1,4 @@
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import { Type } from './types';
 
 /**

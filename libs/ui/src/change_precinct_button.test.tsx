@@ -1,9 +1,9 @@
-import { electionTwoPartyPrimary } from '@votingworks/fixtures';
+import { electionTwoPartyPrimary } from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import {

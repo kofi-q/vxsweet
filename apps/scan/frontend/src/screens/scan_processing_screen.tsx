@@ -4,7 +4,7 @@ import {
   LoadingAnimation,
   P,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function ScanProcessingScreen(): JSX.Element {

@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   ColorMode,
   ColorPalette,
@@ -9,7 +9,7 @@ import {
   TouchSizeMode,
   UiTheme,
   isTouchSizeMode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * Palette of colors for use on touchscreens. These colors are intended to meet

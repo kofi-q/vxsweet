@@ -1,4 +1,4 @@
-import { Admin, Id, Tabulation } from '@votingworks/types';
+import { Admin, Id, Tabulation } from '@vx/libs/types/src';
 import {
   GROUP_KEY_ROOT,
   getEmptyCardCounts,
@@ -6,7 +6,7 @@ import {
   groupBySupportsZeroSplits,
   isGroupByEmpty,
   mergeTabulationGroupMaps,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { CardTally } from '../types';
 import { Store } from '../store';
 import { tabulateManualBallotCounts } from './manual_results';

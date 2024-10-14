@@ -6,11 +6,11 @@ import {
   InsertCardImage,
   Main,
   Screen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useContext } from 'react';
 import styled from 'styled-components';
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { AppContext } from '../contexts/app_context';
 
 const LockedImage = styled.img`

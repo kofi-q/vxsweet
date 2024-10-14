@@ -1,4 +1,4 @@
-import { integers } from '@votingworks/basics';
+import { integers } from '@vx/libs/basics/src';
 import {
   AnyContest,
   BatchInfo,
@@ -7,7 +7,7 @@ import {
   CVR,
   Election,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * If the report is a test report, this value will be included in the

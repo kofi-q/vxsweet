@@ -1,6 +1,5 @@
-import React from 'react';
-import { mapObject } from '@votingworks/basics';
-import { UiString } from '@votingworks/ui';
+import { mapObject } from '@vx/libs/basics/src';
+import { UiString } from '@vx/libs/ui/src';
 
 export const hmpbStringsCatalog = {
   hmpbOfficialBallot: 'Official Ballot',

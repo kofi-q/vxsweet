@@ -11,16 +11,16 @@ import {
   FullScreenIconWrapper,
   Icons,
   SignedHashValidationButton,
-} from '@votingworks/ui';
-import { getPollsReportTitle } from '@votingworks/utils';
-import { ElectionDefinition, PollsTransitionType } from '@votingworks/types';
-import { Optional, assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { getPollsReportTitle } from '@vx/libs/utils/src';
+import { ElectionDefinition, PollsTransitionType } from '@vx/libs/types/src';
+import { Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import type {
   PrecinctScannerPollsInfo,
   PrintResult,
-} from '@votingworks/scan-backend';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/apps/scan/backend/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   getUsbDriveStatus,
   printReport,

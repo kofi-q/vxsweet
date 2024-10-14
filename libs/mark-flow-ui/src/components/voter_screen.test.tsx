@@ -1,18 +1,18 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   Button,
   H1,
   LanguageSettingsButton,
   LanguageSettingsScreen,
   VoterSettings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../../test/react_testing_library';
 import { VoterScreen } from './voter_screen';
 import { VoterSettingsButton } from './voter_settings_button';
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   LanguageSettingsButton: jest.fn(),
   LanguageSettingsScreen: jest.fn(),
   VoterSettings: jest.fn(),

@@ -6,7 +6,7 @@ import {
   MachineVersion,
   safeParseJson,
   UiStringsPackage,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { GoogleCloudTranslator } from './translator';
 import { setUiString } from './utils';

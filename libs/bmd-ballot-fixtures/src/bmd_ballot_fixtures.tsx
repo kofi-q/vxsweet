@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderToPdf } from '@votingworks/printing';
+import { renderToPdf } from '@vx/libs/printing/src';
 import tmp from 'tmp';
 import {
   ElectionDefinition,
@@ -7,15 +7,15 @@ import {
   BallotStyleId,
   PrecinctId,
   vote,
-} from '@votingworks/types';
-import { BmdPaperBallot, BmdPaperBallotProps } from '@votingworks/ui';
+} from '@vx/libs/types/src';
+import { BmdPaperBallot, BmdPaperBallotProps } from '@vx/libs/ui/src';
 import { Buffer } from 'node:buffer';
 import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
-import { assertDefined, iter } from '@votingworks/basics';
-import { pdfToImages, writeImageData } from '@votingworks/image-utils';
+} from '@vx/libs/fixtures/src';
+import { assertDefined, iter } from '@vx/libs/basics/src';
+import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
 
 export async function renderBmdBallotFixture(
   props: Partial<BmdPaperBallotProps> & {

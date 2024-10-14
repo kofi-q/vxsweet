@@ -1,10 +1,10 @@
-import { formatFullDateTimeZone } from '@votingworks/utils';
+import { formatFullDateTimeZone } from '@vx/libs/utils/src';
 import { DateTime } from 'luxon';
 import {
   ElectionDefinition,
   formatBallotHash,
   formatElectionHashes,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { LabeledValue, ReportMetadata } from './report_header';
 
 export function AdminReportMetadata({

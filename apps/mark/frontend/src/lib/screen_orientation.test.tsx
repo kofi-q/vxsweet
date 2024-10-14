@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@votingworks/mark-backend';
+import type { MachineConfig } from '@vx/apps/mark/backend/src';
 import { screenOrientation } from './screen_orientation';
 
 test('Portrait orientation booleans', () => {

@@ -9,11 +9,11 @@ import {
   P,
   TD,
   Table,
-} from '@votingworks/ui';
-import { BatchInfo } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { BatchInfo } from '@vx/libs/types/src';
 import styled from 'styled-components';
-import { iter } from '@votingworks/basics';
-import type { ScanStatus } from '@votingworks/central-scan-backend';
+import { iter } from '@vx/libs/basics/src';
+import type { ScanStatus } from '@vx/apps/central-scan/backend/src';
 import { DeleteBatchModal } from '../components/delete_batch_modal';
 import { NavigationScreen } from '../navigation_screen';
 import { ExportResultsModal } from '../components/export_results_modal';

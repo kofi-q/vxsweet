@@ -1,4 +1,4 @@
-import { MaybePromise } from '@votingworks/basics';
+import { MaybePromise } from '@vx/libs/basics/src';
 
 export function run<I, T extends (input: I) => MaybePromise<unknown>>({
   name = 'example',

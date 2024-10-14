@@ -1,13 +1,13 @@
 import { dirSync } from 'tmp';
-import { mockOf } from '@votingworks/test-utils';
-import { initializeGetWorkspaceDiskSpaceSummary } from '@votingworks/backend';
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from './workspace';
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );

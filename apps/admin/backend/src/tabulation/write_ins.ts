@@ -4,14 +4,14 @@ import {
   Election,
   Id,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   GROUP_KEY_ROOT,
   extractGroupSpecifier,
   getGroupKey,
   isGroupByEmpty,
-} from '@votingworks/utils';
-import { assert, assertDefined, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { WriteInTally } from '../types';
 import { Store } from '../store';
 import { extractWriteInSummary, tabulateManualResults } from './manual_results';

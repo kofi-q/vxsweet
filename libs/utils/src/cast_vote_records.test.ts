@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
-import { BallotType, CVR } from '@votingworks/types';
+import { BallotType, CVR } from '@vx/libs/types/src';
 
 import {
   buildCVRSnapshotBallotTypeMetadata,

@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { err } from '@votingworks/basics';
+import { err } from '@vx/libs/basics/src';
 import {
   ApiMock,
   createApiMock,

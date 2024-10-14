@@ -1,4 +1,4 @@
-import { assert, assertDefined } from '@votingworks/basics';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import { z } from 'zod';
 import {
   ContestId,

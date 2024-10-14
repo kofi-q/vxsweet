@@ -1,18 +1,18 @@
 import { Server } from 'node:http';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { LogEventId, BaseLogger, Logger } from '@votingworks/logging';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   getPaperHandlerDriver,
   MaxPrintWidthDots,
   MockPaperHandlerDriver,
   PaperHandlerDriverInterface,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
-import { detectUsbDrive } from '@votingworks/usb-drive';
-import { detectDevices, initializeSystemAudio } from '@votingworks/backend';
+} from '@vx/libs/utils/src';
+import { detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { detectDevices, initializeSystemAudio } from '@vx/libs/backend/src';
 import { buildApp } from './app';
 import { Workspace } from './util/workspace';
 import { getPaperHandlerStateMachine } from './custom-paper-handler/state_machine';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import type { BatteryInfo as BatteryInfoType } from '@votingworks/backend';
-import { format } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+import type { BatteryInfo as BatteryInfoType } from '@vx/libs/backend/src';
+import { format } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import { IconProps, Icons } from './icons';
 import { Font } from './typography';
 import { useSystemCallApi } from './system_call_api';

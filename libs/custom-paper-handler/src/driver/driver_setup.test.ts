@@ -1,9 +1,9 @@
 import { Device, findByIds, WebUSBDevice } from 'usb';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { getPaperHandlerWebDevice, PaperHandlerDriver } from './driver';
 import { setUpMockWebUsbDevice } from './test_utils';
 import { MaxPrintWidthDots } from './constants';

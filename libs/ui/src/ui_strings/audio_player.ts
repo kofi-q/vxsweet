@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 
-import { UiStringAudioClip } from '@votingworks/types';
-import { deferred } from '@votingworks/basics';
+import { UiStringAudioClip } from '@vx/libs/types/src';
+import { deferred } from '@vx/libs/basics/src';
 import { AudioVolume, getAudioGainAmountDb } from './audio_volume';
 
 /**

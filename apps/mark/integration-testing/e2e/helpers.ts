@@ -3,7 +3,7 @@ import {
   INTEGRATION_TEST_DEFAULT_PIN,
   mockCardRemoval,
   mockSystemAdministratorCardInsertion,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 
 /**
  * Find all the "More" buttons on the page.

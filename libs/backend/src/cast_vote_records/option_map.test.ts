@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { buildElectionOptionPositionMap } from './option_map';
 
 test('buildElectionOptionMap', () => {

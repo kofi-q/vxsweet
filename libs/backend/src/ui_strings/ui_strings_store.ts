@@ -1,7 +1,7 @@
 /* istanbul ignore file - tested via VxSuite apps. */
 
-import { Optional, typedAs } from '@votingworks/basics';
-import { Client as DbClient } from '@votingworks/db';
+import { Optional, typedAs } from '@vx/libs/basics/src';
+import { Client as DbClient } from '@vx/libs/db/src';
 import {
   LanguageCode,
   LanguageCodeSchema,
@@ -15,7 +15,7 @@ import {
   UiStringsPackage,
   UiStringTranslations,
   UiStringTranslationsSchema,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /** Store interface for UI String API endpoints. */
 export interface UiStringsStore {

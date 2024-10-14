@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { MockFunction, mockFunction } from '@votingworks/test-utils';
+import { MockFunction, mockFunction } from '@vx/libs/test-utils/src';
 
 import { Card, CardStatus } from '../src/card';
 import {

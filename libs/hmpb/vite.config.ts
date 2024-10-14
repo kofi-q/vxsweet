@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import { Alias, defineConfig } from 'vite';
-import { getWorkspacePackageInfo } from '@votingworks/monorepo-utils';
+import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 
 export default defineConfig(async (env) => {
   const workspaceRootPath = join(__dirname, '../..');
@@ -48,8 +48,8 @@ export default defineConfig(async (env) => {
         // Create aliases for all workspace packages, i.e.
         //
         //   {
-        //     '@votingworks/types': '…/libs/types/src/index.ts',
-        //     '@votingworks/utils': '…/libs/utils/src/index.ts',
+        //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
+        //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
         //      …
         //   }
         //

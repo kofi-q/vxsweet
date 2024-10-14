@@ -3,7 +3,7 @@ import {
   LanguageCode,
   NonEnglishLanguageCode,
   safeParse,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import vendoredTranslations from './vendored_translations.json';
 

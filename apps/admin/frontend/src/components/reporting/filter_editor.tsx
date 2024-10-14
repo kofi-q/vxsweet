@@ -3,18 +3,18 @@ import {
   throwIllegalValue,
   typedAs,
   unique,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   Admin,
   BallotStyleGroupId,
   Election,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { SearchSelect, SelectOption, Button } from '@votingworks/ui';
-import type { ScannerBatch } from '@votingworks/admin-backend';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+import { SearchSelect, SelectOption, Button } from '@vx/libs/ui/src';
+import type { ScannerBatch } from '@vx/apps/admin/backend/src';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { getScannerBatches } from '../../api';
 import {
   getPartiesWithPrimaryElections,

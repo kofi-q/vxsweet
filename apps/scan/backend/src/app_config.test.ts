@@ -3,27 +3,27 @@ import {
   electionGeneral,
   electionGeneralDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { LogEventId } from '@votingworks/logging';
+} from '@vx/libs/fixtures/src';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { err, ok } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { err, ok } from '@vx/libs/basics/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockOf,
-} from '@votingworks/test-utils';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+} from '@vx/libs/test-utils/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   constructElectionKey,
   convertVxfElectionToCdfBallotDefinition,
   ElectionDefinition,
   safeParseElectionDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { withApp } from '../test/helpers/pdi_helpers';
 import { PrecinctScannerPollsInfo } from '.';
@@ -32,9 +32,9 @@ jest.setTimeout(30_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

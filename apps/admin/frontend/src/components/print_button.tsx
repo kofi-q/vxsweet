@@ -6,8 +6,8 @@ import {
   Modal,
   useCancelablePromise,
   P,
-} from '@votingworks/ui';
-import { sleep } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { sleep } from '@vx/libs/basics/src';
 import { Loading } from './loading';
 import { getPrinterStatus } from '../api';
 

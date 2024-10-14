@@ -1,4 +1,4 @@
-import { Optional, Result, err, ok, resultBlock } from '@votingworks/basics';
+import { Optional, Result, err, ok, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { toBitLength, toByteOffset } from './bits';

@@ -1,7 +1,7 @@
-import { buildContestResultsFixture } from '@votingworks/utils';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { assert } from '@votingworks/basics';
+import { buildContestResultsFixture } from '@vx/libs/utils/src';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { assert } from '@vx/libs/basics/src';
 import { render, screen, within } from '../../test/react_testing_library';
 
 import { ContestResultsTable } from './contest_results_table';

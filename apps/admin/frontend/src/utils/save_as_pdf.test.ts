@@ -1,4 +1,4 @@
-import { electionGeneral } from '@votingworks/fixtures';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import { generateDefaultReportFilename } from './save_as_pdf';
 
 test('file path name is generated properly', () => {

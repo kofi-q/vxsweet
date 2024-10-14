@@ -9,7 +9,7 @@ import {
   MarkScanControllerIllustration,
   MarkScanControllerButton,
   Keybinding,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { addDiagnosticRecord } from '../../api';
 import {
   CancelButtonContainer,

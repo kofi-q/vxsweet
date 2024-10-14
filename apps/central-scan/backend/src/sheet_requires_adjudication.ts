@@ -2,7 +2,7 @@ import {
   AdjudicationReason,
   PageInterpretation,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * Determine if a sheet needs adjudication.

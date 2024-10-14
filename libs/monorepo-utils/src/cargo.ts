@@ -1,4 +1,4 @@
-import { assertDefined, lines } from '@votingworks/basics';
+import { assertDefined, lines } from '@vx/libs/basics/src';
 import { spawn } from 'node:child_process';
 import { getAbsoluteRootPath } from './dependencies';
 

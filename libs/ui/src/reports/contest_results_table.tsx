@@ -6,9 +6,9 @@ import {
   getContestDistrictName,
   Tabulation,
   AnyContest,
-} from '@votingworks/types';
-import { format, getTallyReportCandidateRows } from '@votingworks/utils';
-import { throwIllegalValue, assert, Optional } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { format, getTallyReportCandidateRows } from '@vx/libs/utils/src';
+import { throwIllegalValue, assert, Optional } from '@vx/libs/basics/src';
 
 import { NoWrap } from '../text';
 import { reportColors } from './layout';

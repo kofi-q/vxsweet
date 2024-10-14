@@ -1,4 +1,4 @@
-import { BallotStyleId, Election, GridLayout } from '@votingworks/types';
+import { BallotStyleId, Election, GridLayout } from '@vx/libs/types/src';
 import { election } from './election.json';
 import { asElectionDefinition } from '../../util';
 

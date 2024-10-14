@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { basename, join } from 'node:path';
-import { assert, throwIllegalValue, assertDefined } from '@votingworks/basics';
+import { assert, throwIllegalValue, assertDefined } from '@vx/libs/basics/src';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
-import type { ExportDataResult } from '@votingworks/admin-backend';
+} from '@vx/libs/utils/src';
+import type { ExportDataResult } from '@vx/apps/admin/backend/src';
 
-import { Button, Modal, P, Font, ModalWidth } from '@votingworks/ui';
+import { Button, Modal, P, Font, ModalWidth } from '@vx/libs/ui/src';
 
 import { MutationStatus } from '@tanstack/react-query';
 import { AppContext } from '../contexts/app_context';

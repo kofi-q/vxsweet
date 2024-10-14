@@ -1,11 +1,11 @@
-import { assert, lines } from '@votingworks/basics';
+import { assert, lines } from '@vx/libs/basics/src';
 import {
   Dictionary,
   EventLogging,
   safeParse,
   safeParseJson,
-} from '@votingworks/types';
-import { JsonStreamInput, jsonStream } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { JsonStreamInput, jsonStream } from '@vx/libs/utils/src';
 import { z } from 'zod';
 import { LogEventId } from './log_event_ids';
 // import { CLIENT_SIDE_LOG_SOURCES } from './base_types/log_source';

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { AudioControls, LanguageCode } from '@votingworks/types';
-import { advancePromises, mockUseAudioControls } from '@votingworks/test-utils';
+import { AudioControls, LanguageCode } from '@vx/libs/types/src';
+import { advancePromises, mockUseAudioControls } from '@vx/libs/test-utils/src';
 import { newTestContext } from '../../test/test_context';
 import { KeyboardShortcutHandlers } from './keyboard_shortcut_handlers';
 import { act, render, screen, waitFor } from '../../test/react_testing_library';

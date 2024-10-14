@@ -1,8 +1,8 @@
 import { Buffer } from 'node:buffer';
-import { mockOf } from '@votingworks/test-utils';
-import { ElectionId, ElectionKey, TEST_JURISDICTION } from '@votingworks/types';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { ElectionId, ElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
 
-import { DateWithoutTime } from '@votingworks/basics';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import { CardDetails } from './card';
 import {
   constructCardCertSubject,

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import path from 'node:path';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import { ExportDataResult } from '@votingworks/backend';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { ExportDataResult } from '@vx/libs/backend/src';
 import { UseMutationResult } from '@tanstack/react-query';
 import { Button } from './button';
 import { Modal } from './modal';

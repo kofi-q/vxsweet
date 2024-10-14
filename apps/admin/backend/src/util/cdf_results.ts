@@ -5,9 +5,9 @@ import {
   ResultsReporting,
   Tabulation,
   YesNoContest,
-} from '@votingworks/types';
-import { getBallotCount } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { getBallotCount } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import { MachineConfig, WriteInCandidateRecord } from '../types';
 
 const {

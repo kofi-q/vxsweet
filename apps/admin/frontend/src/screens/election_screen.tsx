@@ -4,9 +4,9 @@ import {
   format,
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
-import { Card, H2, P, Seal, UnconfigureMachineButton } from '@votingworks/ui';
+} from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
+import { Card, H2, P, Seal, UnconfigureMachineButton } from '@vx/libs/ui/src';
 import { useHistory } from 'react-router-dom';
 import { AppContext } from '../contexts/app_context';
 import { NavigationScreen } from '../components/navigation_screen';

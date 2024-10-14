@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import fc from 'fast-check';
-import { arbitraryDateTime } from '@votingworks/test-utils';
+import { arbitraryDateTime } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import {
   act,

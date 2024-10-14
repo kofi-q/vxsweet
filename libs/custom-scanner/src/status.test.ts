@@ -1,4 +1,4 @@
-import { typedAs } from '@votingworks/basics';
+import { typedAs } from '@vx/libs/basics/src';
 import fc from 'fast-check';
 import { arbitraryStatusInternalMessage } from '../test/arbitraries';
 import { StatusInternalMessage } from './protocol';

@@ -1,4 +1,4 @@
-import { integers } from '@votingworks/basics';
+import { integers } from '@vx/libs/basics/src';
 import {
   PaperMovementAfterScan,
   Resolution,

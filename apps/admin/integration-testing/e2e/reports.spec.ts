@@ -1,22 +1,22 @@
 import { expect, test } from '@playwright/test';
-import { getMockFileUsbDriveHandler } from '@votingworks/usb-drive';
+import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import {
   SCANNER_RESULTS_FOLDER,
   generateElectionBasedSubfolderName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { assert, assertDefined } from '@votingworks/basics';
-import { zipFile } from '@votingworks/test-utils';
-import { ElectionPackageFileName } from '@votingworks/types';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { zipFile } from '@vx/libs/test-utils/src';
+import { ElectionPackageFileName } from '@vx/libs/types/src';
 import {
   forceLogOutAndResetElectionDefinition,
   logInAsElectionManager,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, P } from '@votingworks/ui';
+import { Modal, Button, P } from '@vx/libs/ui/src';
 import { deleteAllManualResults } from '../../api';
 
 export function ConfirmRemoveAllManualTalliesModal({

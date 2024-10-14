@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { screen, waitFor } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';

@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import fc from 'fast-check';
 import randomBytes from 'randombytes';
 import { Buffer } from 'node:buffer';

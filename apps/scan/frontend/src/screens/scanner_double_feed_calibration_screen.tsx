@@ -1,4 +1,4 @@
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   Button,
   DoubleFeedCalibrationDoubleSheetIllustration,
@@ -12,7 +12,7 @@ import {
   MainHeader,
   P,
   Screen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React from 'react';
 import { endDoubleFeedCalibration, getScannerStatus } from '../api';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from '../config/globals';

@@ -9,8 +9,8 @@ import {
   ReadOnLoad,
   appStrings,
   electionStrings,
-} from '@votingworks/ui';
-import { Contest, District } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { Contest, District } from '@vx/libs/types/src';
 import { MsEitherNeitherContest } from '../utils/ms_either_neither_contests';
 
 export interface ContestHeaderProps {

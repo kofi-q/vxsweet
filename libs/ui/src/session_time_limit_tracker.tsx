@@ -7,7 +7,7 @@ import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
   SystemSettings,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import styled from 'styled-components';
 import { Button } from './button';

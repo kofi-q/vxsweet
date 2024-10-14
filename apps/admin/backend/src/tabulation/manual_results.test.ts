@@ -1,12 +1,12 @@
 import { Buffer } from 'node:buffer';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
-import { buildManualResultsFixture } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { Store } from '../store';
 import {
   extractWriteInSummary,

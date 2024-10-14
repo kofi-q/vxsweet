@@ -5,12 +5,12 @@ import {
   PrecinctSelection,
   StandardPollsTransitionType,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   combineElectionResults,
   getContestsForPrecinct,
   getEmptyElectionResults,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { PrecinctScannerTallyReport } from './precinct_scanner_tally_report';
 
 export function getPartyIdsForPrecinctScannerTallyReports(

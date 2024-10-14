@@ -4,7 +4,7 @@ import {
   UiStringTranslations,
   UiStringTranslationsSchema,
   safeParseJson,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import path from 'node:path';
 import { generateNumberStringsCatalog } from '../src/ui_strings/number_strings';
 

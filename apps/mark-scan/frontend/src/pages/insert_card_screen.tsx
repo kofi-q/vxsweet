@@ -3,7 +3,7 @@ import {
   ElectionDefinition,
   PollsState,
   PrecinctSelection,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Main,
   Screen,
@@ -16,9 +16,9 @@ import {
   Caption,
   Icons,
   Font,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 
 interface Props {
   appPrecinct: PrecinctSelection;

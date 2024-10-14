@@ -1,8 +1,8 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
-import { mockOf } from '@votingworks/test-utils';
-import { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import React from 'react';
 import { electionDefinition } from '../test/helpers/election';
 import { render, screen } from '../test/react_testing_library';

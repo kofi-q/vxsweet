@@ -7,8 +7,8 @@ import {
   Screen,
   SignedHashValidationButton,
   SystemAdministratorScreenContents,
-} from '@votingworks/ui';
-import { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/ui/src';
+import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut, useApiClient } from '../api';
 import { DiagnosticsScreen } from './diagnostics/diagnostics_screen';
 

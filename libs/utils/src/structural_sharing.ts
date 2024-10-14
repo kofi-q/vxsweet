@@ -1,4 +1,4 @@
-import { deepEqual } from '@votingworks/basics';
+import { deepEqual } from '@vx/libs/basics/src';
 
 /**
  * React Query allows passing a custom `structuralSharing` function to `useQuery`.

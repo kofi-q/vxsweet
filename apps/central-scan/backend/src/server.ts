@@ -3,17 +3,17 @@ import {
   LogEventId,
   LogSource,
   Logger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import { Application } from 'express';
-import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@votingworks/auth';
+import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
-} from '@votingworks/utils';
-import { UsbDrive, detectUsbDrive } from '@votingworks/usb-drive';
-import { detectDevices } from '@votingworks/backend';
+} from '@vx/libs/utils/src';
+import { UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { detectDevices } from '@vx/libs/backend/src';
 import { PORT, SCAN_WORKSPACE } from './globals';
 import { Importer } from './importer';
 import { FujitsuScanner, BatchScanner, ScannerMode } from './fujitsu_scanner';

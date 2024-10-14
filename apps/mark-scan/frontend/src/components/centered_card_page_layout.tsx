@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, FullScreenIconWrapper, H2 } from '@votingworks/ui';
+import { Card, FullScreenIconWrapper, H2 } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import {
   CenteredPageLayout,

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AppBase } from '@votingworks/ui';
-import { ColorMode, ScreenType, SizeMode } from '@votingworks/types';
+import { AppBase } from '@vx/libs/ui/src';
+import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
 
 export interface AppBaseProps {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import { byteArray } from './byte_array';
 
 test('canEncode', () => {

@@ -4,19 +4,19 @@ import path from 'node:path';
 import {
   computeCastVoteRecordRootHashFromScratch,
   SIGNATURE_FILE_EXTENSION,
-} from '@votingworks/auth';
-import { assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/auth/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordReportWithoutMetadataSchema,
   CVR,
   safeParseJson,
-} from '@votingworks/types';
-import { UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   getExportedCastVoteRecordIds,
   SCANNER_RESULTS_FOLDER,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { readCastVoteRecordExportMetadata } from './import';
 

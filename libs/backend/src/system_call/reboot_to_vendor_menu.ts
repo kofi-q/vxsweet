@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 
 import { execFile } from '../exec';
 import { intermediateScript } from '../intermediate_scripts';

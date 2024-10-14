@@ -1,32 +1,32 @@
 import type Express from 'express';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import * as fs from 'node:fs';
-import { Optional, assert } from '@votingworks/basics';
+import { Optional, assert } from '@vx/libs/basics/src';
 import {
   PrinterConfig,
   PrinterStatus,
   safeParseElectionDefinition,
   UserRole,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { isAbsolute, join } from 'node:path';
 import {
   CardStatus,
   readFromMockFile as readFromCardMockFile,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import {
   isFeatureFlagEnabled,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
-import { getMockFileUsbDriveHandler } from '@votingworks/usb-drive';
+} from '@vx/libs/utils/src';
+import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   getMockFileFujitsuPrinterHandler,
   PrinterStatus as FujitsuPrinterStatus,
-} from '@votingworks/fujitsu-thermal-printer';
+} from '@vx/libs/fujitsu-thermal-printer/src';
 import {
   BROTHER_THERMAL_PRINTER_CONFIG,
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import { execFile } from './utils';
 
 export type DevDockUserRole = Exclude<UserRole, 'cardless_voter'>;

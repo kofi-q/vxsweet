@@ -1,5 +1,5 @@
 import { createWriteStream } from 'node:fs';
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import {
   CARD_DOD_CERT,
   CommonAccessCard,

@@ -1,10 +1,10 @@
-import { renderToPdf } from '@votingworks/printing';
-import { assert, assertDefined } from '@votingworks/basics';
-import { isPollsSuspensionTransition } from '@votingworks/utils';
+import { renderToPdf } from '@vx/libs/printing/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,
   PrecinctScannerTallyReports,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { getDocument } from 'pdfjs-dist';
 import { Store } from '../store';
 import { rootDebug } from '../util/debug';

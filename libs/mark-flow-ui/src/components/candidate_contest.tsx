@@ -8,7 +8,7 @@ import {
   CandidateContest as CandidateContestInterface,
   Election,
   getContestDistrict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   ContestChoiceButton,
@@ -30,8 +30,8 @@ import {
   ReadOnLoad,
   AssistiveTechInstructions,
   PageNavigationButtonId,
-} from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 
 import { UpdateVoteFunction } from '../config/types';
 

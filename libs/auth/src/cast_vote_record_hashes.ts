@@ -3,10 +3,10 @@ import { createReadStream } from 'node:fs';
 import { Hasher, sha256 } from 'js-sha256';
 import path from 'node:path';
 import { Readable } from 'node:stream';
-import { assert, groupBy } from '@votingworks/basics';
-import { Client } from '@votingworks/db';
-import { CastVoteRecordExportFileName } from '@votingworks/types';
-import { getExportedCastVoteRecordIds } from '@votingworks/utils';
+import { assert, groupBy } from '@vx/libs/basics/src';
+import { Client } from '@vx/libs/db/src';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/src';
+import { getExportedCastVoteRecordIds } from '@vx/libs/utils/src';
 
 /**
  * A representation of a file that only provides its hash

@@ -1,5 +1,5 @@
 import { DateTime, Duration } from 'luxon';
-import { find } from '@votingworks/basics';
+import { find } from '@vx/libs/basics/src';
 
 export const AMERICA_TIMEZONES = [
   'Pacific/Honolulu',

@@ -1,4 +1,4 @@
-import { EventLogging } from '@votingworks/types';
+import { EventLogging } from '@vx/libs/types/src';
 import { getDetailsForEventId, LogDetails, LogEventId } from './log_event_ids';
 import {
   getDocumentationForEventType,
@@ -30,8 +30,8 @@ ${allEventIdsForDevice
   .map(
     (details) =>
       `### ${details.eventId}
-**Type:** [${details.eventType}](#${details.eventType})  
-**Description:** ${details.documentationMessage}  
+**Type:** [${details.eventType}](#${details.eventType})
+**Description:** ${details.documentationMessage}
 **Machines:** ${
         details.restrictInDocumentationToApps
           ? details.restrictInDocumentationToApps.join(', ')

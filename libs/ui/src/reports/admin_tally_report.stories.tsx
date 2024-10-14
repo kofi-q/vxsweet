@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   BallotStyleId,
   Tabulation,
   getBallotStyle,
   getContests,
-} from '@votingworks/types';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import { AdminTallyReportProps, AdminTallyReport } from './admin_tally_report';
 import { PrintedReportPreview } from './layout';
 

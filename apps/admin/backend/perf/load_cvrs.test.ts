@@ -1,6 +1,6 @@
 import { join } from 'node:path';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { assert } from '@votingworks/basics';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   buildTestEnvironment,
   configureMachine,

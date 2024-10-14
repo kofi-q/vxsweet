@@ -1,4 +1,4 @@
-import { lines } from '@votingworks/basics';
+import { lines } from '@vx/libs/basics/src';
 import { rootDebug } from '../utils/debug';
 import { exec } from '../utils/exec';
 

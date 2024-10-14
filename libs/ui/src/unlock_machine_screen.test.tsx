@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import {
   mockSystemAdministratorUser,
   hasTextAcrossElements,
-} from '@votingworks/test-utils';
-import { DippedSmartCardAuth } from '@votingworks/types';
+} from '@vx/libs/test-utils/src';
+import { DippedSmartCardAuth } from '@vx/libs/types/src';
 
 import { act, render, screen, waitFor } from '../test/react_testing_library';
 import { UnlockMachineScreen } from './unlock_machine_screen';

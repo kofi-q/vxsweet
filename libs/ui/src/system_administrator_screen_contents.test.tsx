@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { mockKiosk, mockOf } from '@votingworks/test-utils';
-import { isVxDev } from '@votingworks/utils';
+import { mockKiosk, mockOf } from '@vx/libs/test-utils/src';
+import { isVxDev } from '@vx/libs/utils/src';
 import {
   screen,
   waitForElementToBeRemoved,
@@ -10,9 +10,9 @@ import { SystemAdministratorScreenContents } from './system_administrator_screen
 import { newTestContext } from '../test/test_context';
 import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isVxDev: jest.fn(),
   };
 });

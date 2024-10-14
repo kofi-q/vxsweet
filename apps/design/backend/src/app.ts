@@ -1,4 +1,4 @@
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import { Buffer } from 'node:buffer';
 import {
   Election,
@@ -11,7 +11,7 @@ import {
   ElectionSerializationFormat,
   ElectionId,
   BallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import express, { Application } from 'express';
 import {
   assertDefined,
@@ -20,7 +20,7 @@ import {
   iter,
   ok,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import JsZip from 'jszip';
 import {
   BallotMode,
@@ -30,7 +30,7 @@ import {
   renderAllBallotsAndCreateElectionDefinition,
   renderBallotPreviewToPdf,
   vxDefaultBallotTemplate,
-} from '@votingworks/hmpb';
+} from '@vx/libs/hmpb/src';
 import { ElectionPackage, ElectionRecord } from './store';
 import { Precinct } from './types';
 import {

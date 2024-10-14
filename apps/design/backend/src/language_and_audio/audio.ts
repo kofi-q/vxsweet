@@ -4,12 +4,12 @@ import {
   UiStringAudioClip,
   UiStringAudioIdsPackage,
   UiStringsPackage,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { GoogleCloudSpeechSynthesizer } from './speech_synthesizer';
 import {
   forEachUiString,

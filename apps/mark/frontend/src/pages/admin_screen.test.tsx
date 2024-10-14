@@ -1,13 +1,13 @@
 import {
   asElectionDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { screen, within } from '../../test/react_testing_library';
 import { render } from '../../test/test_utils';
 import { election, defaultPrecinctId } from '../../test/helpers/election';

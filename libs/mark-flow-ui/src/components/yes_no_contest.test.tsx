@@ -1,22 +1,22 @@
 import {
   electionGeneral,
   electionTwoPartyPrimary,
-} from '@votingworks/fixtures';
-import { YesNoContest as YesNoContestInterface } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { YesNoContest as YesNoContestInterface } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
-import { advanceTimers } from '@votingworks/test-utils';
+import { advanceTimers } from '@vx/libs/test-utils/src';
 import {
   useIsPatDeviceConnected,
   WithScrollButtons,
   WithScrollButtonsProps,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { YesNoContest } from './yes_no_contest';
 
 const MOCK_WITH_SCROLL_BUTTONS_TEST_ID = 'MockWithScrollButtons';
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   useIsPatDeviceConnected: jest.fn(),
   WithScrollButtons: jest.fn(({ children }) => (
     <div data-testid={MOCK_WITH_SCROLL_BUTTONS_TEST_ID}>{children}</div>

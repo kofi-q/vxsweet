@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@votingworks/mark-backend';
+import type { MachineConfig } from '@vx/apps/mark/backend/src';
 
 export function mockMachineConfig({
   machineId = '000',

@@ -1,20 +1,23 @@
 import react from '@vitejs/plugin-react';
 import { join } from 'node:path';
 import { Alias, defineConfig, loadEnv } from 'vite';
-import { getWorkspacePackageInfo } from '@votingworks/monorepo-utils';
+import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 import setupProxy from './prodserver/setupProxy';
 
 export default defineConfig((env) => {
-  const workspacePackages = getWorkspacePackageInfo(
-    join(__dirname, '../..')
-  );
+  const workspacePackages = getWorkspacePackageInfo(join(__dirname, '../..'));
 
   const envPrefix = 'REACT_APP_';
-  const rootDotenvValues = loadEnv(env.mode, join(__dirname, '../../..'), envPrefix);
-  const coreDotenvValues = loadEnv(env.mode, __dirname, envPrefix)
-  const processEnvDefines = [...Object.entries(rootDotenvValues), ...Object.entries(coreDotenvValues)].reduce<
-    Record<string, string>
-  >(
+  const rootDotenvValues = loadEnv(
+    env.mode,
+    join(__dirname, '../../..'),
+    envPrefix
+  );
+  const coreDotenvValues = loadEnv(env.mode, __dirname, envPrefix);
+  const processEnvDefines = [
+    ...Object.entries(rootDotenvValues),
+    ...Object.entries(coreDotenvValues),
+  ].reduce<Record<string, string>>(
     (acc, [key, value]) => ({
       ...acc,
       [`process.env.${key}`]: JSON.stringify(value),
@@ -63,7 +66,10 @@ export default defineConfig((env) => {
         { find: 'os', replacement: join(__dirname, './src/stubs/os.ts') },
         { find: 'node:os', replacement: join(__dirname, './src/stubs/os.ts') },
         { find: 'stream', replacement: require.resolve('stream-browserify') },
-        { find: 'node:stream', replacement: require.resolve('stream-browserify') },
+        {
+          find: 'node:stream',
+          replacement: require.resolve('stream-browserify'),
+        },
         { find: 'util', replacement: require.resolve('util/') },
         { find: 'node:util', replacement: require.resolve('util/') },
         { find: 'zlib', replacement: require.resolve('browserify-zlib') },
@@ -84,8 +90,8 @@ export default defineConfig((env) => {
         // Create aliases for all workspace packages, i.e.
         //
         //   {
-        //     '@votingworks/types': '…/libs/types/src/index.ts',
-        //     '@votingworks/utils': '…/libs/utils/src/index.ts',
+        //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
+        //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
         //      …
         //   }
         //

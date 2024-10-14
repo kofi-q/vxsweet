@@ -5,8 +5,8 @@ import {
   Vote,
   VotesDict,
   WriteInCandidate,
-} from '@votingworks/types';
-import { throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import React from 'react';
 import { RenderDocument, Renderer } from './renderer';
 import {

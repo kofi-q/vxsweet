@@ -3,16 +3,16 @@ import {
   isTestReport,
   mockElectionPackageFileTree,
   readCastVoteRecordExport,
-} from '@votingworks/backend';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { BallotType, CVR, DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';
+} from '@vx/libs/backend/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { BallotType, CVR, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,
   getCastVoteRecordBallotType,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { ok } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { ok } from '@vx/libs/basics/src';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 
@@ -20,9 +20,9 @@ import { mockElectionManagerAuth } from '../test/helpers/auth';
 jest.setTimeout(20000);
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

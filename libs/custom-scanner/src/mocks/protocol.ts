@@ -1,5 +1,5 @@
-import { err, ok, Optional, Result } from '@votingworks/basics';
-import { Coder } from '@votingworks/message-coder';
+import { err, ok, Optional, Result } from '@vx/libs/basics/src';
+import { Coder } from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';
 import { debug } from '../debug';

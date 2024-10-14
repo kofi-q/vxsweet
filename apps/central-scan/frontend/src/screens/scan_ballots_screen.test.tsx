@@ -1,6 +1,6 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import type { ScanStatus } from '@votingworks/central-scan-backend';
+import type { ScanStatus } from '@vx/apps/central-scan/backend/src';
 import { screen, waitFor } from '../../test/react_testing_library';
 import {
   ScanBallotsScreen,

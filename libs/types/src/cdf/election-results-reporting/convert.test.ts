@@ -1,4 +1,4 @@
-import { assert, assertDefined } from '@votingworks/basics';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import { ResultsReporting } from '../..';
 import { LanguageCode } from '../../language_code';
 import {

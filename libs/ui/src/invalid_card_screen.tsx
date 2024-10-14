@@ -1,4 +1,4 @@
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@votingworks/types';
+import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
 
 import { Main } from './main';
 import { Screen } from './screen';

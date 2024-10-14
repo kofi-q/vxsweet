@@ -8,7 +8,7 @@ import {
   Result,
   throwIllegalValue,
   typedAs,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   AnyContest,
   BallotType,
@@ -23,7 +23,7 @@ import {
   safeParseJson,
   Side,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export const UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS =
   'unmarked-write-in';

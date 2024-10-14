@@ -1,29 +1,29 @@
 import {
   asElectionDefinition,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   ElectionDefinition,
   formatElectionHashes,
   InsertedSmartCardAuth,
   LanguageCode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   BooleanEnvironmentVariableName,
   generateBallotStyleId,
   getFeatureFlagMock,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   advancePromises,
   hasTextAcrossElements,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 
-import { assertDefined, DateWithoutTime } from '@votingworks/basics';
-import { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+import { assertDefined, DateWithoutTime } from '@vx/libs/basics/src';
+import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import { fireEvent, screen } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';
@@ -46,9 +46,9 @@ const { election } = electionGeneralDefinition;
 let apiMock: ApiMock;
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

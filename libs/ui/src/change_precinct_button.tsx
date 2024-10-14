@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Election, PrecinctSelection } from '@votingworks/types';
+import { Election, PrecinctSelection } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { assert, deepEqual } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, deepEqual } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import { Button } from './button';
 import { Modal } from './modal';

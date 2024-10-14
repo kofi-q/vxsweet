@@ -1,5 +1,5 @@
-import { find } from '@votingworks/basics';
-import { Tabulation } from '@votingworks/types';
+import { find } from '@vx/libs/basics/src';
+import { Tabulation } from '@vx/libs/types/src';
 
 export type LabeledScannerBatch = Tabulation.ScannerBatch & { label: string };
 

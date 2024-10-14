@@ -1,8 +1,8 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { BallotStyleId } from '@votingworks/types';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import {
   fireEvent,
   render,

@@ -14,7 +14,7 @@ import {
   Breadcrumbs,
   TabPanel,
   RouterTabBar,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   Switch,
   Route,
@@ -28,9 +28,9 @@ import {
   Election,
   Id,
   PrecinctId,
-} from '@votingworks/types';
-import { assert } from '@votingworks/basics';
-import type { Precinct, PrecinctSplit } from '@votingworks/design-backend';
+} from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
+import type { Precinct, PrecinctSplit } from '@vx/apps/design/backend/src';
 import { ElectionNavScreen } from './nav_screen';
 import { ElectionIdParams, electionParamRoutes, routes } from './routes';
 import {

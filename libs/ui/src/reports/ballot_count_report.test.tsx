@@ -1,16 +1,16 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyleGroupId,
   Dictionary,
   formatElectionHashes,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { within } from '@testing-library/react';
-import { Optional } from '@votingworks/basics';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { Optional } from '@vx/libs/basics/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   ATTRIBUTE_COLUMNS,

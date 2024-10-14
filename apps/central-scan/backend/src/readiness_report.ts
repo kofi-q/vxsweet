@@ -1,15 +1,15 @@
-import { UsbDrive } from '@votingworks/usb-drive';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { CentralScanReadinessReport } from '@votingworks/ui';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { CentralScanReadinessReport } from '@vx/libs/ui/src';
 import {
   ExportDataResult,
   Exporter,
   SCAN_ALLOWED_EXPORT_PATTERNS,
   VX_MACHINE_ID,
   getBatteryInfo,
-} from '@votingworks/backend';
-import { renderToPdf } from '@votingworks/printing';
-import { generateReadinessReportFilename } from '@votingworks/utils';
+} from '@vx/libs/backend/src';
+import { renderToPdf } from '@vx/libs/printing/src';
+import { generateReadinessReportFilename } from '@vx/libs/utils/src';
 import { Workspace } from './util/workspace';
 import { getCurrentTime } from './util/get_current_time';
 

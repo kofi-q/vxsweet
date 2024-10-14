@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { FujitsuPrintResult, Printer } from './printer';

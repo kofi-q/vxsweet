@@ -1,9 +1,9 @@
-import { buildMockDippedSmartCardAuth } from '@votingworks/auth';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/src';
 import { dirSync } from 'tmp';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
-import { testDetectDevices } from '@votingworks/backend';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { testDetectDevices } from '@vx/libs/backend/src';
 import { Server } from 'node:http';
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from './util/workspace';
 import { buildMockLogger } from '../test/helpers/setup_app';
 import { makeMockScanner } from '../test/util/mocks';

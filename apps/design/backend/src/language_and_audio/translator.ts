@@ -1,6 +1,6 @@
 import { TranslationServiceClient as GoogleCloudTranslationClient } from '@google-cloud/translate';
-import { assertDefined, iter } from '@votingworks/basics';
-import { LanguageCode, NonEnglishLanguageCode } from '@votingworks/types';
+import { assertDefined, iter } from '@vx/libs/basics/src';
+import { LanguageCode, NonEnglishLanguageCode } from '@vx/libs/types/src';
 
 import { Store } from '../store';
 import { GOOGLE_CLOUD_PROJECT_ID } from './google_cloud_config';

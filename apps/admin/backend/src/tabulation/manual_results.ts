@@ -1,11 +1,11 @@
-import { Admin, Election, Id, Tabulation } from '@votingworks/types';
+import { Admin, Election, Id, Tabulation } from '@vx/libs/types/src';
 import {
   BallotStyleIdPartyIdLookup,
   combineManualElectionResults,
   getBallotStyleIdPartyIdLookup,
   getGroupKey,
-} from '@votingworks/utils';
-import { Result, assert, assertDefined, err, ok } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { Result, assert, assertDefined, err, ok } from '@vx/libs/basics/src';
 import {
   ManualResultsFilter,
   ManualResultsIdentifier,

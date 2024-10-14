@@ -1,17 +1,17 @@
 import { Buffer } from 'node:buffer';
 import set from 'lodash.set';
-import { assert, err, ok } from '@votingworks/basics';
+import { assert, err, ok } from '@vx/libs/basics/src';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { LogEventId } from '@votingworks/logging';
+} from '@vx/libs/fixtures/src';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   CVR,
   CVR as CVRType,
   CastVoteRecordExportFileName,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import path, { basename } from 'node:path';
 import {
   BooleanEnvironmentVariableName,
@@ -19,9 +19,9 @@ import {
   generateCastVoteRecordExportDirectoryName,
   generateElectionBasedSubfolderName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { mockOf } from '@votingworks/test-utils';
-import { authenticateArtifactUsingSignatureFile } from '@votingworks/auth';
+} from '@vx/libs/utils/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import {
   CastVoteRecordExportModifications,
   combineImageAndLayoutHashes,
@@ -29,8 +29,8 @@ import {
   getLayoutHash,
   modifyCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '@votingworks/backend';
-import { MockFileTree } from '@votingworks/usb-drive';
+} from '@vx/libs/backend/src';
+import { MockFileTree } from '@vx/libs/usb-drive/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -45,16 +45,16 @@ import { CvrFileImportInfo } from './types';
 
 jest.setTimeout(60_000);
 
-jest.mock('@votingworks/auth', (): typeof import('@votingworks/auth') => ({
-  ...jest.requireActual('@votingworks/auth'),
+jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
+  ...jest.requireActual('@vx/libs/auth/src'),
   authenticateArtifactUsingSignatureFile: jest.fn(),
 }));
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

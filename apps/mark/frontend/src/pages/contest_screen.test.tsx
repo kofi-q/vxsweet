@@ -1,7 +1,7 @@
 import { Route } from 'react-router-dom';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { createMemoryHistory } from 'history';
-import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@votingworks/mark-flow-ui';
+import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
 import { screen } from '../../test/react_testing_library';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
 

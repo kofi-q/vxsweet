@@ -4,9 +4,9 @@ import {
   PowerDownButton,
   SignedHashValidationButton,
   SystemAdministratorScreenContents,
-} from '@votingworks/ui';
-import { ElectionDefinition, PollsState } from '@votingworks/types';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/ui/src';
+import { ElectionDefinition, PollsState } from '@vx/libs/types/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Screen } from '../components/layout';
 import {
   unconfigureElection,

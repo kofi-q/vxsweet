@@ -3,8 +3,8 @@ import {
   CandidateContest,
   CandidateId,
   Tabulation,
-} from '@votingworks/types';
-import { assertDefined, iter } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assertDefined, iter } from '@vx/libs/basics/src';
 import { combineCandidateContestResults } from './tabulation';
 
 type TallyReportCandidateRow = Candidate & {

@@ -1,6 +1,6 @@
-import { LanguageCode } from '@votingworks/types';
-import { mockOf } from '@votingworks/test-utils';
-import { deferred } from '@votingworks/basics';
+import { LanguageCode } from '@vx/libs/types/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { deferred } from '@vx/libs/basics/src';
 
 import { newTestContext } from '../../test/test_context';
 import { PlayAudioClips } from './play_audio_clips';

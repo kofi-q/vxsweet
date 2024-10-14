@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { assertDefined, range } from '@votingworks/basics';
+import { assertDefined, range } from '@vx/libs/basics/src';
 import {
   getPrecinctById,
   getBallotStyle,
@@ -7,7 +7,7 @@ import {
   BallotType,
   getPartyForBallotStyle,
   BallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
@@ -22,10 +22,10 @@ import {
   TaskControls,
   TaskHeader,
   TaskScreen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { format } from '@votingworks/utils';
-import type { BallotMode } from '@votingworks/design-backend';
+import { format } from '@vx/libs/utils/src';
+import type { BallotMode } from '@vx/apps/design/backend/src';
 import { getElection, getBallotPreviewPdf } from './api';
 import { routes } from './routes';
 import { Column, FieldName as BaseFieldName, Row } from './layout';

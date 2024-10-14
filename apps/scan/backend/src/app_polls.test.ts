@@ -1,9 +1,9 @@
-import { LogEventId } from '@votingworks/logging';
+import { LogEventId } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { find, iter } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { find, iter } from '@vx/libs/basics/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
 import { PrecinctScannerPollsInfo } from '.';
@@ -12,9 +12,9 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

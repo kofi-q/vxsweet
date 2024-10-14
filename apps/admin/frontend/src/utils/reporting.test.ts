@@ -3,8 +3,8 @@ import {
   BallotStyleGroupId,
   Election,
   Tabulation,
-} from '@votingworks/types';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   canonicalizeFilter,
   canonicalizeGroupBy,

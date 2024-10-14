@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { useLanguageControls } from './use_language_controls';
 import { createUiStringsApi } from './ui_strings_api';

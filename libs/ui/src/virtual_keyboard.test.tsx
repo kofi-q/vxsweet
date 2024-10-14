@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
 
-import { hasTextAcrossElements, mockOf } from '@votingworks/test-utils';
-import { assertDefined } from '@votingworks/basics';
-import { LanguageCode } from '@votingworks/types';
+import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { act, render, screen, waitFor } from '../test/react_testing_library';
 import { US_ENGLISH_KEYMAP, VirtualKeyboard } from './virtual_keyboard';

@@ -1,6 +1,6 @@
-import { ElectionDefinition, SystemSettings } from '@votingworks/types';
-import { useQueryChangeListener } from '@votingworks/ui';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { ElectionDefinition, SystemSettings } from '@vx/libs/types/src';
+import { useQueryChangeListener } from '@vx/libs/ui/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { getScannerStatus } from '../api';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from '../config/globals';
 import { useSound } from '../utils/use_sound';

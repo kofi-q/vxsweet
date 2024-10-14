@@ -14,7 +14,7 @@ import {
   Breadcrumbs,
   TabPanel,
   RouterTabBar,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   Redirect,
   Route,
@@ -34,8 +34,8 @@ import {
   Party,
   PartyId,
   YesNoContest,
-} from '@votingworks/types';
-import { assert, find } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, find } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import {

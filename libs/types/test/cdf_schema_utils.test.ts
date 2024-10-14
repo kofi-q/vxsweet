@@ -1,4 +1,4 @@
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import {
   findUnusedDefinitions,
   isSubsetCdfSchema,

@@ -1,7 +1,6 @@
-import React from 'react';
-import { readElection } from '@votingworks/fs';
-import { AdminTallyReportByParty } from '@votingworks/ui';
-import { buildSimpleMockTallyReportResults } from '@votingworks/utils';
+import { readElection } from '@vx/libs/fs/src';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src';
+import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src';
 import { renderToPdf } from '../src';
 
 export async function main(args: readonly string[]): Promise<void> {

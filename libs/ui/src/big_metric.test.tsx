@@ -1,4 +1,4 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../test/react_testing_library';
 import { BigMetric } from './big_metric';
 

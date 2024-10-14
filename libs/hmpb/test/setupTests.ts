@@ -2,7 +2,7 @@ import {
   ImageData,
   toMatchImage,
   ToMatchImageOptions,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

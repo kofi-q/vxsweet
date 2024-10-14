@@ -4,7 +4,7 @@ import {
   BlankPage,
   SheetOf,
   SheetValidationError,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { canonicalizeSheet } from './canonicalize';
 import {
   interpretedBmdPage,

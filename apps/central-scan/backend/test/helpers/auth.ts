@@ -1,10 +1,10 @@
-import { DippedSmartCardAuthApi } from '@votingworks/auth';
-import { mockSessionExpiresAt } from '@votingworks/test-utils';
+import { DippedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { mockSessionExpiresAt } from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
   ElectionDefinition,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export function mockElectionManagerAuth(
   auth: jest.Mocked<DippedSmartCardAuthApi>,

@@ -11,12 +11,12 @@ import {
   Caption,
   Icons,
   PrinterStatusDisplay,
-} from '@votingworks/ui';
-import { format, formatTime } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { format, formatTime } from '@vx/libs/utils/src';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { PrinterStatus } from '@votingworks/types';
-import type { BatteryInfo } from '@votingworks/backend';
+import { PrinterStatus } from '@vx/libs/types/src';
+import type { BatteryInfo } from '@vx/libs/backend/src';
 import {
   AccessibleControllerDiagnosticScreen,
   AccessibleControllerDiagnosticResults,

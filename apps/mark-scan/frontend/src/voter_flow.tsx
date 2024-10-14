@@ -4,20 +4,20 @@ import {
   ContestsWithMsEitherNeither,
   MachineConfig,
   UpdateVoteFunction,
-} from '@votingworks/mark-flow-ui';
-import { randomBallotId } from '@votingworks/utils';
+} from '@vx/libs/mark-flow-ui/src';
+import { randomBallotId } from '@vx/libs/utils/src';
 import {
   BallotStyleId,
   ElectionDefinition,
   PrecinctId,
   VotesDict,
-} from '@votingworks/types';
-import type { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+} from '@vx/libs/types/src';
+import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import {
   MarkScanControllerSandbox,
   PatDeviceContextProvider,
   useAccessibleControllerHelpTrigger,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Ballot } from './components/ballot';
 import { ValidateBallotPage } from './pages/validate_ballot_page';
 import { BallotContext } from './contexts/ballot_context';

@@ -8,7 +8,7 @@ import {
   PrecinctId,
   BallotStyleId,
   InsertedSmartCardAuth,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { useHistory } from 'react-router-dom';
 import {
@@ -17,7 +17,7 @@ import {
   isPollWorkerAuth,
   isSystemAdministratorAuth,
   isVendorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   InvalidCardScreen,
   SetupCardReaderPage,
@@ -26,18 +26,18 @@ import {
   VoterSettingsManagerContext,
   useAudioControls,
   useLanguageControls,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assert, assertDefined, throwIllegalValue } from '@votingworks/basics';
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   mergeMsEitherNeitherContests,
   useBallotStyleManager,
   useSessionSettingsManager,
-} from '@votingworks/mark-flow-ui';
+} from '@vx/libs/mark-flow-ui/src';
 import type {
   ElectionState,
   SimpleServerStatus,
-} from '@votingworks/mark-scan-backend';
+} from '@vx/apps/mark-scan/backend/src';
 import {
   checkPin,
   endCardlessVoterSession,

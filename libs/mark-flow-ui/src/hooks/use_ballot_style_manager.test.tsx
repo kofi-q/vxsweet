@@ -1,9 +1,9 @@
 import React from 'react';
-import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@votingworks/ui';
-import { Election, ElectionDefinition, LanguageCode } from '@votingworks/types';
+import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';
+import { Election, ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { generateBallotStyleId } from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { generateBallotStyleId } from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { useBallotStyleManager } from '..';
 import { act, renderHook } from '../../test/react_testing_library';
 
@@ -16,8 +16,8 @@ function useCurrentLanguageMock() {
   return language;
 }
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   useCurrentLanguage: useCurrentLanguageMock,
 }));
 

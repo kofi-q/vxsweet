@@ -1,9 +1,9 @@
 // Import the rest of our application.
-import { BaseLogger, LogSource, LogEventId } from '@votingworks/logging';
+import { BaseLogger, LogSource, LogEventId } from '@vx/libs/logging/src';
 import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import * as server from './server';
 
 export type { Api } from './app';

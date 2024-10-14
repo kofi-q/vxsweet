@@ -2,10 +2,10 @@ import {
   arbitraryCandidateContest,
   arbitraryCandidateId,
   arbitraryYesNoContest,
-} from '@votingworks/test-utils';
-import { ContestOption } from '@votingworks/types';
+} from '@vx/libs/test-utils/src';
+import { ContestOption } from '@vx/libs/types/src';
 import fc from 'fast-check';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { allContestOptions } from './all_contest_options';
 
 test('candidate contest with no write-ins', () => {

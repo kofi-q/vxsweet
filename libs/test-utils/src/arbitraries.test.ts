@@ -3,9 +3,9 @@ import {
   safeParseElection,
   safeParseElectionDefinition,
   unsafeParse,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import fc from 'fast-check';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { arbitraryDateTime } from '.';
 import {
   arbitraryCandidateContest,

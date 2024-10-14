@@ -1,9 +1,9 @@
 import { z } from 'zod';
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import {
   ElectionSerializationFormatSchema,
   safeParseJson,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { BackgroundTask } from '../store';
 import { WorkerContext } from './context';

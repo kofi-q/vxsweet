@@ -1,26 +1,26 @@
-import * as customScanner from '@votingworks/custom-scanner';
+import * as customScanner from '@vx/libs/custom-scanner/src';
 import {
   BaseLogger,
   LogEventId,
   Logger,
   LogSource,
-} from '@votingworks/logging';
-import { detectUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/logging/src';
+import { detectUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   InsertedSmartCardAuth,
   JavaCard,
   MockFileCard,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
-} from '@votingworks/backend';
-import { createPdiScannerClient } from '@votingworks/pdi-scanner';
+} from '@vx/libs/backend/src';
+import { createPdiScannerClient } from '@vx/libs/pdi-scanner/src';
 import { SCAN_WORKSPACE } from './globals';
 import * as customStateMachine from './scanners/custom/state_machine';
 import * as pdiStateMachine from './scanners/pdi/state_machine';

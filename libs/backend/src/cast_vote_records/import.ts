@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { authenticateArtifactUsingSignatureFile } from '@votingworks/auth';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
@@ -10,7 +10,7 @@ import {
   iter,
   ok,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BallotPageLayout,
   CastVoteRecordExportFileName,
@@ -25,7 +25,7 @@ import {
   safeParseJson,
   safeParseNumber,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   CastVoteRecordWriteIn,
@@ -34,7 +34,7 @@ import {
   getWriteInsFromCastVoteRecord,
   isCastVoteRecordWriteInValid,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { TEST_OTHER_REPORT_TYPE } from './build_report_metadata';
 import {

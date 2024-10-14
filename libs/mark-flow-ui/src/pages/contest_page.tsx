@@ -9,14 +9,14 @@ import {
   OptionalVote,
   PrecinctId,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   LinkButton,
   appStrings,
   Button,
   PageNavigationButtonId,
-} from '@votingworks/ui';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
 import { Contest, ContestProps } from '../components/contest';
 import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';

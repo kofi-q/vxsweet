@@ -1,7 +1,7 @@
 import {
   AdminReadinessReportContents,
   SaveReadinessReportButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import styled from 'styled-components';
 import { useContext } from 'react';

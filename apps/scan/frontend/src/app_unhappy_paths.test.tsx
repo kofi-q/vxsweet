@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { suppressingConsoleOutput } from '@votingworks/test-utils';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 
 import userEvent from '@testing-library/user-event';
 
-import { ServerError } from '@votingworks/grout';
+import { ServerError } from '@vx/libs/grout/src';
 import {
   PrecinctScannerConfig,
   FujitsuErrorType,
-} from '@votingworks/scan-backend';
+} from '@vx/apps/scan/backend/src';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import {
   ApiMock,

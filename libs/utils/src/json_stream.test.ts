@@ -1,4 +1,4 @@
-import { integers, iter } from '@votingworks/basics';
+import { integers, iter } from '@vx/libs/basics/src';
 import * as fc from 'fast-check';
 import { jsonStream, JsonStreamInput, JsonStreamOptions } from './json_stream';
 

@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../../../test/react_testing_library';
 import { WarningDetails } from './warning_details';

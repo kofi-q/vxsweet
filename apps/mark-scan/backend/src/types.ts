@@ -4,7 +4,7 @@ import {
   PollsState,
   PrecinctSelection,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export interface MachineConfig {
   machineId: string;

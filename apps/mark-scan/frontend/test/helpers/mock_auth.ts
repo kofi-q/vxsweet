@@ -2,12 +2,12 @@ import {
   mockCardlessVoterUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
   ElectionDefinition,
   InsertedSmartCardAuth,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export function mockPollWorkerAuth(
   electionDefinition: ElectionDefinition

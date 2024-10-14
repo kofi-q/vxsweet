@@ -4,9 +4,9 @@ import {
   mockCard,
   mockElectionManagerCardInsertion,
   mockSystemAdministratorCardInsertion,
-} from '@votingworks/auth';
-import { methodUrl } from '@votingworks/grout';
-import { Election } from '@votingworks/types';
+} from '@vx/libs/auth/src';
+import { methodUrl } from '@vx/libs/grout/src';
+import { Election } from '@vx/libs/types/src';
 
 /**
  * Enters the PIN into the PIN pad.

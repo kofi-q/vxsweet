@@ -4,7 +4,7 @@ import {
   ToMatchPdfSnapshotOptions,
   toMatchImage,
   toMatchPdfSnapshot,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { setGracefulCleanup } from 'tmp';
 

@@ -1,11 +1,11 @@
-import { Result, sleep } from '@votingworks/basics';
-import { CoderError } from '@votingworks/message-coder';
+import { Result, sleep } from '@vx/libs/basics/src';
+import { CoderError } from '@vx/libs/message-coder/src';
 import makeDebug from 'debug';
 import {
   BLANK_PAGE_IMAGE_DATA,
   ImageData,
   writeImageData,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 import {
   PaperHandlerStatus,
   PrinterStatusRealTimeExchangeResponse,

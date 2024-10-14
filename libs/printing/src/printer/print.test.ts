@@ -1,5 +1,5 @@
-import { ok } from '@votingworks/basics';
-import { mockOf } from '@votingworks/test-utils';
+import { ok } from '@vx/libs/basics/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { Buffer } from 'node:buffer';
 import { exec } from '../utils/exec';
 import { DEFAULT_MANAGED_PRINTER_NAME } from './configure';

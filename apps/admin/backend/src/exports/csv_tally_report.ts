@@ -6,15 +6,15 @@ import {
   Id,
   AnyContest,
   Election,
-} from '@votingworks/types';
-import { Optional, assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
   combineGroupSpecifierAndFilter,
   getEmptyElectionResults,
   getTallyReportCandidateRows,
   groupMapToGroupList,
   mergeTabulationGroupMaps,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Store } from '../store';
 import { tabulateElectionResults } from '../tabulation/full_results';
 import {
