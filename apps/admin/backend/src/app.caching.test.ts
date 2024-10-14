@@ -1,13 +1,13 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { Client } from '@votingworks/grout';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { Client } from '@vx/libs/grout/src';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
-import { assert, ok } from '@votingworks/basics';
-import { modifyCastVoteRecordExport } from '@votingworks/backend';
+import { assert, ok } from '@vx/libs/basics/src';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -18,9 +18,9 @@ import { Api } from './app';
 
 // enable us to use modified fixtures that don't pass authentication
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

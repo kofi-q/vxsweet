@@ -2,22 +2,22 @@ import {
   electionFamousNames2021Fixtures,
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { mockReadable, mockWritable } from '@votingworks/test-utils';
+} from '@vx/libs/fixtures/src';
+import { mockReadable, mockWritable } from '@vx/libs/test-utils/src';
 import {
   CVR,
   CastVoteRecordBatchMetadata,
   CastVoteRecordExportFileName,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import fs from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { dirSync } from 'tmp';
 import {
   getWriteInsFromCastVoteRecord,
   isBmdWriteIn,
-} from '@votingworks/utils';
-import { readCastVoteRecordExport } from '@votingworks/backend';
-import { ok } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { readCastVoteRecordExport } from '@vx/libs/backend/src';
+import { ok } from '@vx/libs/basics/src';
 import { main } from './main';
 import { IMAGE_URI_REGEX } from '../../generate-cvrs/utils';
 

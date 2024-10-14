@@ -1,10 +1,10 @@
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
   buildManualResultsFixture,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { BallotStyleGroupId } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -15,9 +15,9 @@ jest.setTimeout(60_000);
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

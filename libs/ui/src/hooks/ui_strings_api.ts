@@ -6,10 +6,10 @@ import {
   useQueries,
   useQuery,
 } from '@tanstack/react-query';
-import { LanguageCode } from '@votingworks/types';
-import type { UiStringsApi } from '@votingworks/backend';
-import * as grout from '@votingworks/grout';
-import { assertDefined } from '@votingworks/basics';
+import { LanguageCode } from '@vx/libs/types/src';
+import type { UiStringsApi } from '@vx/libs/backend/src';
+import * as grout from '@vx/libs/grout/src';
+import { assertDefined } from '@vx/libs/basics/src';
 
 export type UiStringsApiClient = grout.Client<UiStringsApi>;
 

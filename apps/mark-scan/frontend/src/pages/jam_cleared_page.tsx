@@ -1,5 +1,5 @@
-import { appStrings, P } from '@votingworks/ui';
-import { InsertedSmartCardAuth } from '@votingworks/types';
+import { appStrings, P } from '@vx/libs/ui/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src';
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import {
   JamClearedState,

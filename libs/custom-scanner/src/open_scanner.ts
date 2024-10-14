@@ -1,4 +1,4 @@
-import { err, ok, Result } from '@votingworks/basics';
+import { err, ok, Result } from '@vx/libs/basics/src';
 import { findByIds, WebUSBDevice } from 'usb';
 import { UsbChannel, UsbChannelOptions } from './usb_channel';
 import { CustomA4Scanner } from './custom_a4_scanner';

@@ -1,9 +1,9 @@
-import { assertDefined } from '@votingworks/basics';
-import { LogEventId, BaseLogger } from '@votingworks/logging';
+import { assertDefined } from '@vx/libs/basics/src';
+import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { rootDebug } from '../utils/debug';
 import { getConnectedDeviceUris } from './device_uri';
 import { configurePrinter } from './configure';

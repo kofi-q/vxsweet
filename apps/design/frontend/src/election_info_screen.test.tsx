@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { Election, ElectionId } from '@votingworks/types';
+import { Election, ElectionId } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { createMemoryHistory } from 'history';
-import { DateWithoutTime } from '@votingworks/basics';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import {
   MockApiClient,
   createMockApiClient,

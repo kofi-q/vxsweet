@@ -1,4 +1,4 @@
-import { mockBaseLogger, BaseLogger } from '@votingworks/logging';
+import { mockBaseLogger, BaseLogger } from '@vx/libs/logging/src';
 import { render, RenderResult } from '../react_testing_library';
 import { App } from '../../src/app';
 import { createApiMock } from './mock_api_client';

@@ -1,6 +1,6 @@
-import { FileSystemEntryType } from '@votingworks/fs';
+import { FileSystemEntryType } from '@vx/libs/fs/src';
 import tmp from 'tmp';
-import { err, iter, ok } from '@votingworks/basics';
+import { err, iter, ok } from '@vx/libs/basics/src';
 import { listDirectoryOnUsbDrive } from './list_directory_on_usb_drive';
 import { createMockUsbDrive } from './mocks/memory_usb_drive';
 import { UsbDriveStatus } from './types';

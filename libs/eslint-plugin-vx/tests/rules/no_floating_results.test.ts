@@ -72,11 +72,11 @@ void rand()
     },
     {
       code: `
-declare module '@votingworks/types' {
+declare module '@vx/libs/types/src' {
   export interface Result<T, E> {}
 }
 
-import { Result } from '@votingworks/types';
+import { Result } from '@vx/libs/types/src';
 
 declare function rand(): Result<number, Error>
 void rand()
@@ -86,11 +86,11 @@ void rand()
     },
     {
       code: `
-declare module '@votingworks/types' {
+declare module '@vx/libs/types/src' {
   export interface Result<T, E> {}
 }
 
-import { Result } from '@votingworks/types';
+import { Result } from '@vx/libs/types/src';
 
 type CustomResult<T> = Result<T, CustomError>;
 

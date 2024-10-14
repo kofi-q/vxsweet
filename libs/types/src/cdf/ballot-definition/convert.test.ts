@@ -1,6 +1,6 @@
 import cloneDeep from 'lodash.clonedeep';
 import set from 'lodash.set';
-import { ok } from '@votingworks/basics';
+import { ok } from '@vx/libs/basics/src';
 import {
   election,
   electionTwoPartyPrimary,

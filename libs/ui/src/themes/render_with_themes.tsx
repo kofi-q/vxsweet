@@ -17,7 +17,7 @@ import {
   within,
 } from '@testing-library/react';
 
-import { ColorMode, ScreenType, SizeMode } from '@votingworks/types';
+import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
 import { AppBase } from '../app_base';
 
 /**

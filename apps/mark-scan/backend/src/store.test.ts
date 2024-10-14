@@ -1,5 +1,5 @@
-import { safeParseSystemSettings, TEST_JURISDICTION } from '@votingworks/types';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
+import { safeParseSystemSettings, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { Store } from './store';
 
 // We pause in some of these tests so we need to increase the timeout

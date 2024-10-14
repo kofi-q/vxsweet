@@ -6,8 +6,8 @@ import {
   PageInterpretation,
   Precinct,
   SheetOf,
-} from '@votingworks/types';
-import { throwIllegalValue, Result, ok, err } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { throwIllegalValue, Result, ok, err } from '@vx/libs/basics/src';
 
 const BlankPageTypes: ReadonlyArray<PageInterpretation['type']> = [
   'BlankPage',

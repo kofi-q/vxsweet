@@ -6,7 +6,7 @@ import {
   constructElectionKey,
   SheetInterpretation,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import waitForExpect from 'wait-for-expect';
 import {
   Result,
@@ -16,27 +16,27 @@ import {
   ok,
   sleep,
   typedAs,
-} from '@votingworks/basics';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/basics/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import {
   ErrorCode,
   FormMovement,
   ImageFromScanner,
   ScannerStatus,
   mocks,
-} from '@votingworks/custom-scanner';
+} from '@vx/libs/custom-scanner/src';
 import {
   ALL_PRECINCTS_SELECTION,
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   MAX_FAILED_SCAN_ATTEMPTS,
   ScannerStatusEvent,
@@ -58,9 +58,9 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

@@ -1,9 +1,9 @@
 import { Document, Page, pdfjs } from 'react-pdf';
 import styled from 'styled-components';
 import React, { useMemo, useState } from 'react';
-import { H3, Icons, P } from '@votingworks/ui';
+import { H3, Icons, P } from '@vx/libs/ui/src';
 import { Buffer } from 'node:buffer';
-import { range } from '@votingworks/basics';
+import { range } from '@vx/libs/basics/src';
 
 // Worker file must be copied from pdfjs-dist into public directory
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';

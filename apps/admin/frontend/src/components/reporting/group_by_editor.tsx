@@ -1,5 +1,5 @@
-import { Tabulation } from '@votingworks/types';
-import { CheckboxGroup } from '@votingworks/ui';
+import { Tabulation } from '@vx/libs/types/src';
+import { CheckboxGroup } from '@vx/libs/ui/src';
 
 export type GroupByEditorOption =
   | keyof Tabulation.GroupBy

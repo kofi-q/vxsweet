@@ -1,5 +1,5 @@
 import tmp from 'tmp-promise';
-import { Optional, assert } from '@votingworks/basics';
+import { Optional, assert } from '@vx/libs/basics/src';
 import { writeFile } from 'node:fs/promises';
 import {
   IppMarkerInfo,
@@ -7,7 +7,7 @@ import {
   IppPrinterStateReason,
   PrinterRichStatus,
   safeParseInt,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { exec } from '../utils/exec';
 import { rootDebug } from '../utils/debug';
 

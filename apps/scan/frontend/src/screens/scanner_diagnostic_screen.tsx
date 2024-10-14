@@ -11,8 +11,8 @@ import {
   MainHeader,
   P,
   Screen,
-} from '@votingworks/ui';
-import type { PrecinctScannerStatus } from '@votingworks/scan-backend';
+} from '@vx/libs/ui/src';
+import type { PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
 
 function DiagnosticScreen({ children }: { children: React.ReactNode }) {
   return (

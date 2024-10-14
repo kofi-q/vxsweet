@@ -1,6 +1,6 @@
-import { SimpleServerStatus } from '@votingworks/mark-scan-backend';
+import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
 import userEvent from '@testing-library/user-event';
-import { DiagnosticRecord } from '@votingworks/types';
+import { DiagnosticRecord } from '@vx/libs/types/src';
 import { render, screen } from '../../../test/react_testing_library';
 import {
   ApiMock,

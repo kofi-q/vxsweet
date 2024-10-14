@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 
 import styled, { css, CSSObject, DefaultTheme } from 'styled-components';
-import { SizeMode, SizeTheme, UiTheme } from '@votingworks/types';
+import { SizeMode, SizeTheme, UiTheme } from '@vx/libs/types/src';
 
-import { assertDefined, throwIllegalValue } from '@votingworks/basics';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { rgba } from 'polished';
 import { IconName, Icons } from './icons';
 

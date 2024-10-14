@@ -1,6 +1,6 @@
-import { safeParseJson } from '@votingworks/types';
+import { safeParseJson } from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   generateElection,
   GenerateElectionConfigSchema,

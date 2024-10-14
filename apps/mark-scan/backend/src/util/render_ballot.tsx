@@ -2,22 +2,22 @@ import {
   PAPER_DIMENSIONS,
   PaperDimensions,
   renderToPdf,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import {
   BallotStyleId,
   ElectionDefinition,
   LanguageCode,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   BmdPaperBallot,
   BackendLanguageContextProvider,
   BmdBallotSheetSize,
-} from '@votingworks/ui';
-import { randomBallotId } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { randomBallotId } from '@vx/libs/utils/src';
 import { Store } from '../store';
 import { getMarkScanBmdModel } from './hardware';
 

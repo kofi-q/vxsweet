@@ -1,12 +1,12 @@
 import React from 'react';
-import { deepEqual } from '@votingworks/basics';
-import type { Api } from '@votingworks/central-scan-backend';
+import { deepEqual } from '@vx/libs/basics/src';
+import type { Api } from '@vx/apps/central-scan/backend/src';
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,
   QUERY_CLIENT_DEFAULT_OPTIONS,
   USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
   createSystemCallApi,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   QueryClient,
   QueryKey,
@@ -14,7 +14,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 
 export type ApiClient = grout.Client<Api>;
 

@@ -1,10 +1,10 @@
-import { Optional, Result, assert, err, ok } from '@votingworks/basics';
+import { Optional, Result, assert, err, ok } from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { print } from './printing';
 import {
   FujitsuThermalPrinterDriver,

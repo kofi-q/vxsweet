@@ -10,18 +10,18 @@ import {
   FileInputButton,
   UsbDriveImage,
   Loading,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
 import type {
   ImportElectionResultsReportingError,
   ManualResultsVotingMethod,
-} from '@votingworks/admin-backend';
-import { BallotStyleGroupId } from '@votingworks/types';
+} from '@vx/apps/admin/backend/src';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
 import { AppContext } from '../../contexts/app_context';
 import { InputEventFunction } from '../../config/types';
 import { importElectionResultsReportingFile } from '../../api';

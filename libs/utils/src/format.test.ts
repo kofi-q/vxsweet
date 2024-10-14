@@ -1,4 +1,4 @@
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 import * as format from './format';
 
 test('formats counts properly', () => {

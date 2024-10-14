@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import { sampleBallotImages } from '@votingworks/fixtures';
+import { assert } from '@vx/libs/basics/src';
+import { sampleBallotImages } from '@vx/libs/fixtures/src';
 import { ImageData } from 'canvas';
 import { rotateImageData180 } from './rotate';
 

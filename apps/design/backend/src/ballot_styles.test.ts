@@ -1,4 +1,4 @@
-import { typedAs } from '@votingworks/basics';
+import { typedAs } from '@vx/libs/basics/src';
 import {
   AnyContest,
   District,
@@ -6,11 +6,11 @@ import {
   LanguageCode,
   Party,
   PartyId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   generateBallotStyleGroupId,
   generateBallotStyleId,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { generateBallotStyles } from './ballot_styles';
 import { BallotStyle, Precinct, PrecinctSplit } from './types';

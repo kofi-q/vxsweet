@@ -1,8 +1,8 @@
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 
-import { electionGeneralDefinition as electionDefinition } from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { BallotStyleId } from '@votingworks/types';
+import { electionGeneralDefinition as electionDefinition } from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { render, screen } from '../../test/react_testing_library';
 import { ElectionInfo } from './election_info';
 

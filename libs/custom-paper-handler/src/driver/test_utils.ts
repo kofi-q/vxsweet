@@ -1,5 +1,5 @@
 import { Device, WebUSBDevice, findByIds } from 'usb';
-import { mocks } from '@votingworks/custom-scanner';
+import { mocks } from '@vx/libs/custom-scanner/src';
 import {
   REAL_TIME_ENDPOINT_IN,
   REAL_TIME_ENDPOINT_OUT,

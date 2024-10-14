@@ -3,15 +3,15 @@ import {
   UnlockMachineScreen,
   useQueryChangeListener,
   VendorScreen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   isSystemAdministratorAuth,
   isElectionManagerAuth,
   isPollWorkerAuth,
   isVendorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { useState } from 'react';
 import { LoadingConfigurationScreen } from './screens/loading_configuration_screen';
 import { ElectionManagerScreen } from './screens/election_manager_screen';

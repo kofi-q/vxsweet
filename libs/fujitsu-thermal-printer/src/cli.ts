@@ -2,11 +2,11 @@
 /* eslint-disable no-console */
 
 import { createInterface } from 'node:readline';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { safeParseInt } from '@votingworks/types';
-import { BaseLogger, LogSource, Logger } from '@votingworks/logging';
+import { safeParseInt } from '@vx/libs/types/src';
+import { BaseLogger, LogSource, Logger } from '@vx/libs/logging/src';
 import { FujitsuThermalPrinter } from './printer';
 
 /**

@@ -1,4 +1,4 @@
-import { SizeMode } from '@votingworks/types';
+import { SizeMode } from '@vx/libs/types/src';
 import { render } from '../../../test/react_testing_library';
 import { Layout, MisvoteWarningsProps } from './types';
 import { useLayoutConfig } from './use_layout_config_hook';

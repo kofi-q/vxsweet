@@ -1,13 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 
-import { BaseLogger, LogSource } from '@votingworks/logging';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import { QueryClient } from '@tanstack/react-query';
 import {
   AppBase,
   AppErrorBoundary,
   VisualModeDisabledOverlay,
-} from '@votingworks/ui';
-import { ColorMode, ScreenType, SizeMode } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
 
 import { AppRoot } from './app_root';
 import { ApiClient, createApiClient, createQueryClient } from './api';

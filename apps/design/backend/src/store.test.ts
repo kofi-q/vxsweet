@@ -1,5 +1,5 @@
-import { assertDefined } from '@votingworks/basics';
-import { LanguageCode } from '@votingworks/types';
+import { assertDefined } from '@vx/libs/basics/src';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { Store, TaskName } from './store';
 

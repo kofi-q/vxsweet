@@ -1,6 +1,6 @@
-import { Button, Font, Loading, Modal, P } from '@votingworks/ui';
+import { Button, Font, Loading, Modal, P } from '@vx/libs/ui/src';
 import React from 'react';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { getStatus, performScanDiagnostic } from '../api';
 
 function TestScanModal({

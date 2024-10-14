@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { sleep } from '@votingworks/basics';
+import { sleep } from '@vx/libs/basics/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 
 import {
@@ -7,9 +7,9 @@ import {
   UnconfigureMachineButton,
 } from './unconfigure_machine_button';
 
-jest.mock('@votingworks/basics', (): typeof import('@votingworks/basics') => {
+jest.mock('@vx/libs/basics/src', (): typeof import('@vx/libs/basics/src') => {
   return {
-    ...jest.requireActual('@votingworks/basics'),
+    ...jest.requireActual('@vx/libs/basics/src'),
     sleep: jest.fn(),
   };
 });

@@ -1,6 +1,6 @@
 /* istanbul ignore file - test util */
 
-import { LanguageCode, UiStringAudioClips } from '@votingworks/types';
+import { LanguageCode, UiStringAudioClips } from '@vx/libs/types/src';
 import { UiStringsStore } from './ui_strings_store';
 import { UiStringsApi } from './ui_strings_api';
 

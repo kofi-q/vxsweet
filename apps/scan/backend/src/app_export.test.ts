@@ -1,16 +1,16 @@
 import {
   getCastVoteRecordExportDirectoryPaths,
   readCastVoteRecordExport,
-} from '@votingworks/backend';
-import { assertDefined, err, ok } from '@votingworks/basics';
-import { mockOf } from '@votingworks/test-utils';
-import { CVR } from '@votingworks/types';
+} from '@vx/libs/backend/src';
+import { assertDefined, err, ok } from '@vx/libs/basics/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { CVR } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,
   getCurrentSnapshot,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
 import { configureApp } from '../test/helpers/shared_helpers';
@@ -19,9 +19,9 @@ jest.setTimeout(30_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

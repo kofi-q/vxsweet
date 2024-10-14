@@ -1,5 +1,5 @@
-import { mockOf } from '@votingworks/test-utils';
-import { isIntegrationTest, isVxDev } from '@votingworks/utils';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { isIntegrationTest, isVxDev } from '@vx/libs/utils/src';
 
 import {
   ArtifactAuthenticationConfig,
@@ -11,8 +11,8 @@ import {
   SignedHashValidationConfig,
 } from './config';
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => ({
-  ...jest.requireActual('@votingworks/utils'),
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
   isVxDev: jest.fn(),
   isIntegrationTest: jest.fn(),
 }));

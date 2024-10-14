@@ -1,5 +1,5 @@
 import { createInterface } from 'node:readline';
-import { extractErrorMessage, throwIllegalValue } from '@votingworks/basics';
+import { extractErrorMessage, throwIllegalValue } from '@vx/libs/basics/src';
 
 import { CommonAccessCard, CommonAccessCardDetails } from '../../src/cac';
 import { CardDetails, PinProtectedCard, StatefulCard } from '../../src/card';

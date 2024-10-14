@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-import { isTouchSizeMode } from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+import { isTouchSizeMode } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 import { CONFIG } from './constants';
 import { Layout, MisvoteWarningsProps } from './types';
 

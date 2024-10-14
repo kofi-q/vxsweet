@@ -1,4 +1,4 @@
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import { Device, findByIds, WebUSBDevice } from 'usb';
 import { CustomA4Scanner } from './custom_a4_scanner';
 import { mockCustomA4ScannerWebUsbDevice } from './mocks';

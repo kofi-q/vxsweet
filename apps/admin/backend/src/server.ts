@@ -3,18 +3,18 @@ import {
   BaseLogger,
   LogSource,
   Logger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import { Application } from 'express';
-import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@votingworks/auth';
+import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
-} from '@votingworks/utils';
-import { detectUsbDrive, UsbDrive } from '@votingworks/usb-drive';
-import { Printer, detectPrinter } from '@votingworks/printing';
-import { detectDevices } from '@votingworks/backend';
+} from '@vx/libs/utils/src';
+import { detectUsbDrive, UsbDrive } from '@vx/libs/usb-drive/src';
+import { Printer, detectPrinter } from '@vx/libs/printing/src';
+import { detectDevices } from '@vx/libs/backend/src';
 import { ADMIN_WORKSPACE, PORT } from './globals';
 import { createWorkspace, Workspace } from './util/workspace';
 import { buildApp } from './app';

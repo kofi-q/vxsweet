@@ -3,7 +3,7 @@ import {
   MockPaperHandlerDriver,
   MockPaperHandlerStatus,
   PaperHandlerDriverInterface,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 import { Buffer } from 'node:buffer';
 import { dirSync } from 'tmp';
 import {
@@ -11,18 +11,18 @@ import {
   Logger,
   mockBaseLogger,
   mockLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import {
   InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
-} from '@votingworks/auth';
-import { backendWaitFor, mockOf } from '@votingworks/test-utils';
-import { assert, Deferred, deferred, iter, sleep } from '@votingworks/basics';
+} from '@vx/libs/auth/src';
+import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
+import { assert, Deferred, deferred, iter, sleep } from '@vx/libs/basics/src';
 import {
   electionGeneralDefinition,
   electionGridLayoutNewHampshireHudsonFixtures,
   systemSettings,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotId,
   BallotStyleId,
@@ -31,25 +31,25 @@ import {
   SheetOf,
   TEST_JURISDICTION,
   safeParseSystemSettings,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   renderBmdBallotFixture,
   writeFirstBallotPageToImageFile,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   InterpretFileResult,
   interpretSimplexBmdBallot,
-} from '@votingworks/ballot-interpreter';
+} from '@vx/libs/ballot-interpreter/src';
 import {
   BLANK_PAGE_IMAGE_DATA,
   loadImageData,
   writeImageData,
-} from '@votingworks/image-utils';
+} from '@vx/libs/image-utils/src';
 import { join } from 'node:path';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
@@ -90,7 +90,7 @@ import {
 } from '../../test/ballot_helpers';
 import { AudioOutput, setAudioOutput } from '../audio/outputs';
 
-jest.mock('@votingworks/ballot-interpreter');
+jest.mock('@vx/libs/ballot-interpreter/src');
 jest.mock('./application_driver');
 jest.mock('../pat-input/connection_status_reader');
 jest.mock('node-hid');
@@ -107,9 +107,9 @@ let clock: SimulatedClock;
 
 const precinctId = electionGeneralDefinition.election.precincts[1].id;
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };
@@ -1318,10 +1318,10 @@ describe('open cover detection', () => {
 describe('unrecoverable_error', () => {
   beforeEach(() => {
     jest.mock(
-      '@votingworks/ballot-interpreter',
-      (): typeof import('@votingworks/ballot-interpreter') => {
+      '@vx/libs/ballot-interpreter/src',
+      (): typeof import('@vx/libs/ballot-interpreter/src') => {
         return {
-          ...jest.requireActual('@votingworks/ballot-interpreter'),
+          ...jest.requireActual('@vx/libs/ballot-interpreter/src'),
           interpretSimplexBmdBallot: () => {
             throw new Error('Test error interpreting BMD ballot');
           },

@@ -1,4 +1,4 @@
-import { assert, lines } from '@votingworks/basics';
+import { assert, lines } from '@vx/libs/basics/src';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';

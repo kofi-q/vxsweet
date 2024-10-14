@@ -1,6 +1,6 @@
-import * as grout from '@votingworks/grout';
-import { useDevDockRouter } from '@votingworks/dev-dock-backend';
-import { LogEventId, Logger } from '@votingworks/logging';
+import * as grout from '@vx/libs/grout/src';
+import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   ElectionPackageConfigurationError,
   DEFAULT_SYSTEM_SETTINGS,
@@ -8,12 +8,12 @@ import {
   SinglePrecinctSelection,
   DiagnosticRecord,
   DiagnosticOutcome,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   getPrecinctSelectionName,
   isElectionManagerAuth,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import express, { Application } from 'express';
 import {
   createUiStringsApi,
@@ -22,13 +22,13 @@ import {
   doesUsbDriveRequireCastVoteRecordSync as doesUsbDriveRequireCastVoteRecordSyncFn,
   configureUiStrings,
   DiskSpaceSummary,
-} from '@votingworks/backend';
-import { assert, assertDefined, ok, Result } from '@votingworks/basics';
+} from '@vx/libs/backend/src';
+import { assert, assertDefined, ok, Result } from '@vx/libs/basics/src';
 import {
   InsertedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
-} from '@votingworks/auth';
-import { UsbDrive, UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/auth/src';
+import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   FujitsuPrintResult,
   Printer,

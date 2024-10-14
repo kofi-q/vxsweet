@@ -1,8 +1,8 @@
 import {
   CandidateContest as CandidateContestInterface,
   getCandidateParties,
-} from '@votingworks/types';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 import { act } from 'react';
 import userEvent from '@testing-library/user-event';
@@ -11,13 +11,13 @@ import {
   advanceTimersAndPromises,
   hasTextAcrossElements,
   mockOf,
-} from '@votingworks/test-utils';
-import { VirtualKeyboard, VirtualKeyboardProps } from '@votingworks/ui';
+} from '@vx/libs/test-utils/src';
+import { VirtualKeyboard, VirtualKeyboardProps } from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { CandidateContest } from './candidate_contest';
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   VirtualKeyboard: jest.fn(),
 }));
 

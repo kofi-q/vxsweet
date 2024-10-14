@@ -1,5 +1,5 @@
 /* istanbul ignore file - tested via Mark/Mark-Scan */
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import styled, { keyframes } from 'styled-components';
 import {
   Button,
@@ -7,15 +7,15 @@ import {
   AudioOnly,
   ReadOnLoad,
   PageNavigationButtonId,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 import {
   BallotStyleId,
   ElectionDefinition,
   PrecinctId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { ElectionInfo } from '../components/election_info';
 import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 import { VoterScreen } from '../components/voter_screen';

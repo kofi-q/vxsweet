@@ -2,9 +2,9 @@ import {
   DiagnosticRecord,
   PrinterStatus,
   IppPrinterStateReason,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import React from 'react';
-import { Optional, assert, throwIllegalValue } from '@votingworks/basics';
+import { Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { H2, P } from '../typography';
 import { InfoIcon, LoadingIcon, SuccessIcon, WarningIcon } from './icons';
 

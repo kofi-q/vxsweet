@@ -1,4 +1,4 @@
-import { LogEventId, BaseLogger, mockBaseLogger } from '@votingworks/logging';
+import { LogEventId, BaseLogger, mockBaseLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
 import * as fs from 'node:fs/promises';
 import { Buffer } from 'node:buffer';

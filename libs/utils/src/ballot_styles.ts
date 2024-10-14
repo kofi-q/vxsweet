@@ -5,7 +5,7 @@ import {
   deepEqual,
   iter,
   ok,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BallotStyle,
   BallotStyleGroupId,
@@ -14,7 +14,7 @@ import {
   BallotStyleGroup,
   Party,
   Election,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 const ID_LANGUAGES_SEPARATOR = '_';
 const GROUP_ID_PARTS_SEPARATOR = '-';

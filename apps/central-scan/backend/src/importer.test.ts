@@ -1,5 +1,5 @@
 import { dirSync } from 'tmp';
-import { mockBaseLogger, mockLogger } from '@votingworks/logging';
+import { mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import { createImageData } from 'canvas';
 import { Importer } from './importer';
 import { createWorkspace } from './util/workspace';

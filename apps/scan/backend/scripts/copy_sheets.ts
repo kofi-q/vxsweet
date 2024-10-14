@@ -1,16 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { v4 as uuid } from 'uuid';
-import { AcceptedSheet } from '@votingworks/backend';
+import { AcceptedSheet } from '@vx/libs/backend/src';
 import {
   assert,
   assertDefined,
   extractErrorMessage,
   iter,
-} from '@votingworks/basics';
-import { safeParseInt } from '@votingworks/types';
+} from '@vx/libs/basics/src';
+import { safeParseInt } from '@vx/libs/types/src';
 
-import { BaseLogger, LogSource } from '@votingworks/logging';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import { SCAN_WORKSPACE } from '../src/globals';
 import { Store } from '../src/store';
 import { createWorkspace } from '../src/util/workspace';

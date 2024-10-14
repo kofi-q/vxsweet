@@ -1,10 +1,10 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
-import { buildSimpleMockTallyReportResults } from '@votingworks/utils';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { formatBallotHash } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { formatBallotHash } from '@vx/libs/types/src';
 import { render, screen, within } from '../../test/react_testing_library';
 import { AdminTallyReportByParty } from './admin_tally_report_by_party';
 import { mockScannerBatches } from '../../test/fixtures';

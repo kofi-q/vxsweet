@@ -3,12 +3,12 @@ import {
   BallotStyleId,
   InterpretedBmdPage,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { QueryClientProvider } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
-import { deferred, typedAs } from '@votingworks/basics';
+import { deferred, typedAs } from '@vx/libs/basics/src';
 
-import { advancePromises } from '@votingworks/test-utils';
+import { advancePromises } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import * as api from '../api';
 import { InsertedPreprintedBallotScreen } from './inserted_preprinted_ballot_screen';

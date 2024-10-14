@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { UINT_16_MAX } from './driver/constants';
 
 /**

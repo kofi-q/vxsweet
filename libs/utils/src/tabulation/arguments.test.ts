@@ -1,4 +1,4 @@
-import { BallotStyleGroupId, Tabulation } from '@votingworks/types';
+import { BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
 import {
   combineGroupSpecifierAndFilter,
   groupBySupportsZeroSplits,

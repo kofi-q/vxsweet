@@ -3,13 +3,13 @@ import {
   ElectionDefinition,
   Id,
   Tabulation,
-} from '@votingworks/types';
-import { assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   getParentBallotStyleById,
   getPartyById,
   getPrecinctById,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { ScannerBatchLookup } from '../types';
 import { Store } from '../store';
 

@@ -9,7 +9,7 @@ import {
   ReadOnLoad,
   VerifyBallotImage,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { VoterScreen } from '../components/voter_screen';
 
 const Instructions = styled.ol`

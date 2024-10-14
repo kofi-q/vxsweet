@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
 import {
   Button,
@@ -9,11 +9,11 @@ import {
   P,
   Icons,
   Font,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { AppContext } from '../contexts/app_context';
 import { formatUsbDrive } from '../api';
 

@@ -1,5 +1,5 @@
-import { assert, assertDefined, throwIllegalValue } from '@votingworks/basics';
-import { LogEventId, BaseLogger } from '@votingworks/logging';
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
   VoteAdjudication,
   WriteInAdjudicationAction,

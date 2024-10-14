@@ -1,4 +1,4 @@
-import { Result, resultBlock } from '@votingworks/basics';
+import { Result, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { LiteralCoder } from './literal_coder';

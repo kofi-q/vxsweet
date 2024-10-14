@@ -1,10 +1,10 @@
-import { advancePromises, mockOf } from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { advancePromises, mockOf } from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import React from 'react';
-import { AUTH_STATUS_POLLING_INTERVAL_MS } from '@votingworks/ui';
+import { AUTH_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/src';
 import { PollWorkerScreen } from './pages/poll_worker_screen';
 import { VoterFlow } from './voter_flow';
 import { AppRoot, POLL_WORKER_AUTH_REQUIRED_STATES } from './app_root';

@@ -1,4 +1,4 @@
-import { LanguageCode, UiStringsPackage } from '@votingworks/types';
+import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
 import { H1 } from '..';
 import {
   act,

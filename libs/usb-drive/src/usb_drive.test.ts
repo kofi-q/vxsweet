@@ -1,17 +1,17 @@
 import { promises as fs, existsSync, rmSync } from 'node:fs';
-import { deferred } from '@votingworks/basics';
-import { backendWaitFor } from '@votingworks/test-utils';
+import { deferred } from '@vx/libs/basics/src';
+import { backendWaitFor } from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
 import {
   LogEventId,
   LogSource,
   mockLogger,
   mockLoggerWithRoleAndSource,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   BlockDeviceInfo,
   VX_USB_LABEL_REGEXP,
@@ -38,9 +38,9 @@ jest.mock('./exec', () => ({
 }));
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

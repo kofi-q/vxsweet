@@ -1,8 +1,8 @@
 import React from 'react';
 import getDeepValue from 'lodash.get';
 
-import { Optional, assertDefined } from '@votingworks/basics';
-import { LanguageCode, LanguageCodeSchema } from '@votingworks/types';
+import { Optional, assertDefined } from '@vx/libs/basics/src';
+import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/src';
 
 import { useAudioContext } from './audio_context';
 import { ClipParams, PlayAudioClips } from './play_audio_clips';

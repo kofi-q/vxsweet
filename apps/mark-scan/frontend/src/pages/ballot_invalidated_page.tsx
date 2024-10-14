@@ -1,6 +1,6 @@
-import { InsertedSmartCardAuth } from '@votingworks/types';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src';
 
-import { P, appStrings } from '@votingworks/ui';
+import { P, appStrings } from '@vx/libs/ui/src';
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import { RemoveInvalidatedBallotPage } from './remove_invalidated_ballot_page';
 

@@ -1,8 +1,8 @@
 import {
   buildMockInsertedSmartCardAuth,
   InsertedSmartCardAuthApi,
-} from '@votingworks/auth';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/auth/src';
+import * as grout from '@vx/libs/grout/src';
 import { Application } from 'express';
 import { AddressInfo } from 'node:net';
 import {
@@ -10,26 +10,26 @@ import {
   LogSource,
   Logger,
   mockBaseLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import tmp from 'tmp';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
 import { Server } from 'node:http';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockOf,
   backendWaitFor,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
   SystemSettings,
   TEST_JURISDICTION,
-} from '@votingworks/types';
-import { MockPaperHandlerDriver } from '@votingworks/custom-paper-handler';
-import { assert } from '@votingworks/basics';
-import { createMockUsbDrive, MockUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { assert } from '@vx/libs/basics/src';
+import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import { Api, buildApp } from '../src/app';
 import { createWorkspace, Workspace } from '../src/util/workspace';

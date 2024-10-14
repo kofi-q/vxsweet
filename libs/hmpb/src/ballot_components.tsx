@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
-import { BALLOT_HASH_DISPLAY_LENGTH, Outset } from '@votingworks/types';
-import { range } from '@votingworks/basics';
+import { BALLOT_HASH_DISPLAY_LENGTH, Outset } from '@vx/libs/types/src';
+import { range } from '@vx/libs/basics/src';
 import { InchDimensions, InchMargins } from './types';
 
 /**

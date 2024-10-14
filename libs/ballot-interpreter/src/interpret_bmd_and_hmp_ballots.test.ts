@@ -1,13 +1,13 @@
-import { renderBmdBallotFixture } from '@votingworks/bmd-ballot-fixtures';
-import { readElection } from '@votingworks/fs';
-import { famousNamesFixtures } from '@votingworks/hmpb';
+import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
+import { readElection } from '@vx/libs/fs/src';
+import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {
   DEFAULT_MARK_THRESHOLDS,
   InterpretedHmpbPage,
   PageInterpretation,
   asSheet,
-} from '@votingworks/types';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { interpretSheet } from './interpret';
 

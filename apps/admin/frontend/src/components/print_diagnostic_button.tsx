@@ -1,7 +1,7 @@
-import { Button, Font, Modal, P, RadioGroup } from '@votingworks/ui';
+import { Button, Font, Modal, P, RadioGroup } from '@vx/libs/ui/src';
 import React, { useState } from 'react';
-import { assert, assertFalsy, sleep } from '@votingworks/basics';
-import { DiagnosticOutcome } from '@votingworks/types';
+import { assert, assertFalsy, sleep } from '@vx/libs/basics/src';
+import { DiagnosticOutcome } from '@vx/libs/types/src';
 import { addDiagnosticRecord, getPrinterStatus, printTestPage } from '../api';
 import { Loading } from './loading';
 

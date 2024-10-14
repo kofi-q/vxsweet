@@ -6,18 +6,18 @@ import {
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BaseLogger,
   LogDispositionStandardTypes,
   LogEventId,
-} from '@votingworks/logging';
-import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@votingworks/types';
+} from '@vx/libs/logging/src';
+import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   generatePin,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   arePollWorkerCardDetails,
   areUniversalVendorCardDetails,

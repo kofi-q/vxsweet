@@ -1,9 +1,9 @@
-import { mockKiosk } from '@votingworks/test-utils';
+import { mockKiosk } from '@vx/libs/test-utils/src';
 
-import { ElectronFile, mockUsbDriveStatus } from '@votingworks/ui';
+import { ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
 import userEvent from '@testing-library/user-event';
-import { ok } from '@votingworks/basics';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import { ok } from '@vx/libs/basics/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   waitFor,
   fireEvent,

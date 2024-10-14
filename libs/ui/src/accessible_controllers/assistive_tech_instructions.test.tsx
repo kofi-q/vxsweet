@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { render } from '../../test/react_testing_library';
 import { AssistiveTechInstructions } from './assistive_tech_instructions';
 import { useIsPatDeviceConnected } from './pat_device_context';

@@ -3,11 +3,11 @@ import {
   LanguageControls,
   useCurrentLanguage,
   VoterSettingsManagerContext,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { DefaultTheme, ThemeContext } from 'styled-components';
 import React from 'react';
-import { LanguageCode } from '@votingworks/types';
-import { mockOf } from '@votingworks/test-utils';
+import { LanguageCode } from '@vx/libs/types/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 import { renderHook, act } from '../../test/react_testing_library';
 import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
@@ -19,8 +19,8 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
 };
 const mockUseCurrentLanguage = mockOf(useCurrentLanguage);
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   useCurrentLanguage: jest.fn(),
   useLanguageControls: () => mockLanguageControls,
 }));

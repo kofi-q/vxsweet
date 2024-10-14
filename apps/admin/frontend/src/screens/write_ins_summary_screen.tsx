@@ -10,14 +10,14 @@ import {
   Table,
   TD,
   TH,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   CandidateContest,
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { NavigationScreen } from '../components/navigation_screen';
 import { AppContext } from '../contexts/app_context';
 import {

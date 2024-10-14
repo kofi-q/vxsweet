@@ -1,6 +1,6 @@
-import type { PrinterStatus } from '@votingworks/fujitsu-thermal-printer';
-import { assert, throwIllegalValue } from '@votingworks/basics';
-import { DiagnosticRecord } from '@votingworks/types';
+import type { PrinterStatus } from '@vx/libs/fujitsu-thermal-printer/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
 import { H2, P } from '../typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';
 

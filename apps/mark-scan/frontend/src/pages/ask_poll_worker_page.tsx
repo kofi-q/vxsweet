@@ -1,7 +1,7 @@
-import { appStrings, Caption, H6, Icons, P } from '@votingworks/ui';
+import { appStrings, Caption, H6, Icons, P } from '@vx/libs/ui/src';
 
-import { InsertedSmartCardAuth } from '@votingworks/types';
-import { isPollWorkerAuth } from '@votingworks/utils';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { isPollWorkerAuth } from '@vx/libs/utils/src';
 import React from 'react';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 

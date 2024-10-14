@@ -1,5 +1,5 @@
-import { AnyContest, ElectionDefinition, Tabulation } from '@votingworks/types';
-import { getContestById } from '@votingworks/utils';
+import { AnyContest, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
+import { getContestById } from '@vx/libs/utils/src';
 import { CastVoteRecordAdjudicationFlags } from '../types';
 
 function getNumberVotesAllowed(contest: AnyContest): number {

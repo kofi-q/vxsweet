@@ -2,7 +2,7 @@ import { fromByteArray } from 'base64-js';
 import React from 'react';
 import styled from 'styled-components';
 
-import { encodeBallot } from '@votingworks/ballot-encoder';
+import { encodeBallot } from '@vx/libs/ballot-encoder/src';
 import {
   BallotStyleId,
   BallotType,
@@ -19,10 +19,10 @@ import {
   VotesDict,
   YesNoContest,
   YesNoVote,
-} from '@votingworks/types';
-import { getSingleYesNoVote, randomBallotId } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { getSingleYesNoVote, randomBallotId } from '@vx/libs/utils/src';
 
-import { assert, find } from '@votingworks/basics';
+import { assert, find } from '@vx/libs/basics/src';
 import { NoWrap } from './text';
 import { QrCode } from './qrcode';
 import { Font, H4, H5, P } from './typography';

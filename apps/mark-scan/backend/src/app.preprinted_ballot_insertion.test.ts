@@ -1,10 +1,10 @@
 import tmp from 'tmp';
 
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
-import { typedAs } from '@votingworks/basics';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { typedAs } from '@vx/libs/basics/src';
 
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { createWorkspace } from './util/workspace';
 import { buildApi } from './app';

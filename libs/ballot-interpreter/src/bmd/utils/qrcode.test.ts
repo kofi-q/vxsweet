@@ -1,10 +1,10 @@
 import { Buffer } from 'node:buffer';
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import {
   electionFamousNames2021Fixtures,
   sampleBallotImages,
-} from '@votingworks/fixtures';
-import { renderBmdBallotFixture } from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/fixtures/src';
+import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
 import { QrCodePageResult, detectInBallot, getSearchAreas } from './qrcode';
 import { pdfToPageImages } from '../../../test/helpers/interpretation';
 

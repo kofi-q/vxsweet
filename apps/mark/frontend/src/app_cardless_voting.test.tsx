@@ -1,10 +1,10 @@
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { BallotStyleId } from '@votingworks/types';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { render, screen, within } from '../test/react_testing_library';
 import * as GLOBALS from './config/globals';
 

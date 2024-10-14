@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 
-import { format, isElectionManagerAuth } from '@votingworks/utils';
-import { LinkButton, H2, P, Font, H3, Icons } from '@votingworks/ui';
+import { format, isElectionManagerAuth } from '@vx/libs/utils/src';
+import { LinkButton, H2, P, Font, H3, Icons } from '@vx/libs/ui/src';
 
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import { AppContext } from '../../contexts/app_context';
 

@@ -3,9 +3,9 @@ import { Buffer } from 'node:buffer';
 import {
   BallotStyleReadinessReport,
   BallotStyleReadinessReportProps,
-} from '@votingworks/ui';
-import { renderToPdf } from '@votingworks/printing';
-import { PlaywrightRenderer } from '@votingworks/hmpb';
+} from '@vx/libs/ui/src';
+import { renderToPdf } from '@vx/libs/printing/src';
+import { PlaywrightRenderer } from '@vx/libs/hmpb/src';
 
 export interface BallotStyleReadinessReportParams {
   componentProps: BallotStyleReadinessReportProps;

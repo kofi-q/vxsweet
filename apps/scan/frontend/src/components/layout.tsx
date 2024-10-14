@@ -8,10 +8,10 @@ import {
   H1,
   LanguageSettingsButton,
   LanguageSettingsScreen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import styled, { DefaultTheme, ThemeContext } from 'styled-components';
-import { SizeMode } from '@votingworks/types';
-import { assertDefined } from '@votingworks/basics';
+import { SizeMode } from '@vx/libs/types/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import { getConfig, getMachineConfig, getScannerStatus } from '../api';
 import { ScannedBallotCount } from './scanned_ballot_count';
 import { VoterSettingsButton } from './voter_settings_button';

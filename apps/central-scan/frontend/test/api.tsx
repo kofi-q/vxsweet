@@ -3,20 +3,20 @@ import type {
   Api,
   MachineConfig,
   ScanStatus,
-} from '@votingworks/central-scan-backend';
-import { createMockClient, MockClient } from '@votingworks/grout-test-utils';
+} from '@vx/apps/central-scan/backend/src';
+import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   DiagnosticRecord,
   DippedSmartCardAuth,
   ElectionDefinition,
   SystemSettings,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { SystemCallContextProvider, TestErrorBoundary } from '@votingworks/ui';
-import type { BatteryInfo, DiskSpaceSummary } from '@votingworks/backend';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import { ok } from '@votingworks/basics';
+import { SystemCallContextProvider, TestErrorBoundary } from '@vx/libs/ui/src';
+import type { BatteryInfo, DiskSpaceSummary } from '@vx/libs/backend/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { ok } from '@vx/libs/basics/src';
 import { ApiClientContext, createQueryClient, systemCallApi } from '../src/api';
 import { DEFAULT_STATUS } from './fixtures';
 

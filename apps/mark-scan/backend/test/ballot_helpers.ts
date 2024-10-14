@@ -1,6 +1,6 @@
-import { InterpretFileResult } from '@votingworks/ballot-interpreter';
-import { BLANK_PAGE_IMAGE_DATA } from '@votingworks/image-utils';
-import { SheetOf } from '@votingworks/types';
+import { InterpretFileResult } from '@vx/libs/ballot-interpreter/src';
+import { BLANK_PAGE_IMAGE_DATA } from '@vx/libs/image-utils/src';
+import { SheetOf } from '@vx/libs/types/src';
 
 export const BLANK_PAGE_MOCK: InterpretFileResult = {
   interpretation: { type: 'BlankPage' },

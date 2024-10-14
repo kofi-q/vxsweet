@@ -1,13 +1,13 @@
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   electionTwoPartyPrimaryDefinition,
   electionFamousNames2021Fixtures,
-} from '@votingworks/fixtures';
-import { formatElectionHashes, PartyId } from '@votingworks/types';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+} from '@vx/libs/fixtures/src';
+import { formatElectionHashes, PartyId } from '@vx/libs/types/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';
 

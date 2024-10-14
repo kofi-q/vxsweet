@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 import { UiStringsAudioContext } from './audio_context';
 import { AudioOnly } from './audio_only';
 import { LanguageOverride } from './language_override';

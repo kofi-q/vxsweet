@@ -1,6 +1,6 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { assert } from '@votingworks/basics';
-import { SizeMode } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { SizeMode } from '@vx/libs/types/src';
 import { JustifyContent } from './layout';
 
 export interface MainProps {

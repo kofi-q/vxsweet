@@ -5,7 +5,7 @@ import {
   BallotSheetInfoSchema,
   Contest,
   IdSchema,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import * as z from 'zod';
 
 /**

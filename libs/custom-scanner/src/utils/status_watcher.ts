@@ -1,5 +1,5 @@
-import { ok, Result, sleep, Optional } from '@votingworks/basics';
-import { valuesEncodeEquivalently } from '@votingworks/message-coder';
+import { ok, Result, sleep, Optional } from '@vx/libs/basics/src';
+import { valuesEncodeEquivalently } from '@vx/libs/message-coder/src';
 import { ErrorCode, ScannerStatus } from '../types';
 import { debug as rootDebug } from '../debug';
 import { StatusInternalMessage } from '../protocol';
@@ -32,7 +32,7 @@ export interface StatusWatcher
  *
  * ```ts
  * import { createInterface } from 'readline';
- * import { openScanner, watchStatus } from '@votingworks/custom';
+ * import { openScanner, watchStatus } from '@vx/libs/custom/src';
  *
  * const scanner = (await openScanner()).assertOk('failed to open scanner');
  * const watcher = watchStatus(scanner);

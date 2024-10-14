@@ -1,5 +1,5 @@
-import type { BallotCountReportWarning } from '@votingworks/admin-backend';
-import { throwIllegalValue } from '@votingworks/basics';
+import type { BallotCountReportWarning } from '@vx/apps/admin/backend/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 
 interface BallotCountReportWarningProps {
   ballotCountReportWarning: BallotCountReportWarning;

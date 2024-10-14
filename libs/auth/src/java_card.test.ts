@@ -2,20 +2,20 @@ import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { sha256 } from 'js-sha256';
 import waitForExpect from 'wait-for-expect';
-import { assert } from '@votingworks/basics';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { assert } from '@vx/libs/basics/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSystemAdministratorUser,
   mockOf,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   Byte,
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   getTestFilePath,

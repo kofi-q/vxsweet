@@ -1,6 +1,6 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { ElectionDefinition } from '@votingworks/types';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { ElectionDefinition } from '@vx/libs/types/src';
 import { ReportsScreen } from './reports_screen';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';

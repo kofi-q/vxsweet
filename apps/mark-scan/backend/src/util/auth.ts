@@ -4,14 +4,14 @@ import {
   InsertedSmartCardAuthMachineState,
   JavaCard,
   MockFileCard,
-} from '@votingworks/auth';
-import { BaseLogger, LoggingUserRole } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { BaseLogger, LoggingUserRole } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
-} from '@votingworks/utils';
-import { DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import { Workspace } from './workspace';
 
 export function getDefaultAuth(logger: BaseLogger): InsertedSmartCardAuth {

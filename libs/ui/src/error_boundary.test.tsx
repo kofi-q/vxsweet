@@ -1,5 +1,5 @@
-import { suppressingConsoleOutput } from '@votingworks/test-utils';
-import { LogEventId, mockBaseLogger } from '@votingworks/logging';
+import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { render, screen } from '../test/react_testing_library';
 import {
   AppErrorBoundary,

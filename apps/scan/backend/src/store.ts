@@ -2,7 +2,7 @@
 // The durable datastore for CVRs and configuration info.
 //
 
-import { Client as DbClient } from '@votingworks/db';
+import { Client as DbClient } from '@vx/libs/db/src';
 import {
   AdjudicationStatus,
   HmpbBallotPaperSize,
@@ -30,14 +30,14 @@ import {
   ElectionKey,
   ElectionId,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   assert,
   assertDefined,
   DateWithoutTime,
   Optional,
   typedAs,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { DateTime } from 'luxon';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';
@@ -53,14 +53,14 @@ import {
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
   updateCastVoteRecordHashes,
-} from '@votingworks/auth';
-import { getPollsTransitionDestinationState } from '@votingworks/utils';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { getPollsTransitionDestinationState } from '@vx/libs/utils/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 import { rootDebug } from './util/debug';
 import { PollsTransition } from './types';

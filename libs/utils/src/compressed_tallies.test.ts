@@ -1,11 +1,11 @@
-import { CandidateContest, Tabulation } from '@votingworks/types';
+import { CandidateContest, Tabulation } from '@vx/libs/types/src';
 import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,
   electionWithMsEitherNeitherFixtures,
-} from '@votingworks/fixtures';
-import { getZeroCompressedTally } from '@votingworks/test-utils';
-import { find, assert } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { getZeroCompressedTally } from '@vx/libs/test-utils/src';
+import { find, assert } from '@vx/libs/basics/src';
 import { compressTally, readCompressedTally } from './compressed_tallies';
 import {
   buildElectionResultsFixture,

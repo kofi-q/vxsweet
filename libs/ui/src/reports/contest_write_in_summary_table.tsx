@@ -4,11 +4,11 @@ import {
   Election,
   getContestDistrictName,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
-import { find } from '@votingworks/basics';
+import { find } from '@vx/libs/basics/src';
 import pluralize from 'pluralize';
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { TD, TH } from '../table';
 import { Font, FontProps } from '../typography';
 import { NoWrap, Text } from '../text';

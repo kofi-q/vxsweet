@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ProgressEllipsis } from '@votingworks/ui';
+import { ProgressEllipsis } from '@vx/libs/ui/src';
 
 const Fullscreen = styled.div`
   display: flex;

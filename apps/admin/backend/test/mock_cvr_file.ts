@@ -5,10 +5,10 @@ import {
   BallotType,
   Id,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { v4 as uuid } from 'uuid';
 import { Buffer } from 'node:buffer';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { Store } from '../src/store';
 import { getCastVoteRecordAdjudicationFlags } from '../src/util/cast_vote_records';
 

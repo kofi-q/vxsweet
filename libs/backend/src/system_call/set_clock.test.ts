@@ -1,6 +1,6 @@
 /* eslint-disable prefer-regex-literals */
 
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { setClock } from './set_clock';
 import { execFile } from '../exec';
 

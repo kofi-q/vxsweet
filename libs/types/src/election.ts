@@ -1,4 +1,4 @@
-import { Optional, DateWithoutTime } from '@votingworks/basics';
+import { Optional, DateWithoutTime } from '@vx/libs/basics/src';
 import { sha256 } from 'js-sha256';
 import * as z from 'zod';
 import {

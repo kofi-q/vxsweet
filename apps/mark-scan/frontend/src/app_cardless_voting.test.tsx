@@ -1,11 +1,11 @@
 import {
   singlePrecinctSelectionFor,
   ALL_PRECINCTS_SELECTION,
-} from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { BallotStyleId, LanguageCode } from '@votingworks/types';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { BallotStyleId, LanguageCode } from '@vx/libs/types/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import {
   fireEvent,
   render,

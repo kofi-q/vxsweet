@@ -6,7 +6,7 @@ import {
   IdleTimerProvider,
 } from 'react-idle-timer';
 
-import { IDLE_TIMEOUT_SECONDS } from '@votingworks/mark-flow-ui';
+import { IDLE_TIMEOUT_SECONDS } from '@vx/libs/mark-flow-ui/src';
 import { ContestScreen } from '../pages/contest_screen';
 import { IdlePage } from '../pages/idle_page';
 import { NotFoundPage } from '../pages/not_found_page';

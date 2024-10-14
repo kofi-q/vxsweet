@@ -7,7 +7,7 @@ import {
   PartyId,
   PrecinctId,
   BallotStyleGroupId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export interface BallotLanguageConfig {
   languages: LanguageCode[];

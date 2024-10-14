@@ -1,4 +1,4 @@
-import { PrinterConfig } from '@votingworks/types';
+import { PrinterConfig } from '@vx/libs/types/src';
 import { rootDebug } from '../utils/debug';
 import { exec } from '../utils/exec';
 import { getPpdPath } from './supported';

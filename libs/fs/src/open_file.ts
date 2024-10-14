@@ -1,4 +1,4 @@
-import { Result, err, ok } from '@votingworks/basics';
+import { Result, err, ok } from '@vx/libs/basics/src';
 import { Mode } from 'node:fs';
 import { FileHandle, open as fsOpen } from 'node:fs/promises';
 

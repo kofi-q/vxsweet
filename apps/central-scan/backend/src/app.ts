@@ -1,16 +1,16 @@
-import { Scan } from '@votingworks/api';
+import { Scan } from '@vx/libs/api/src';
 import {
   DippedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
-} from '@votingworks/auth';
-import { Result, assert, ok } from '@votingworks/basics';
+} from '@vx/libs/auth/src';
+import { Result, assert, ok } from '@vx/libs/basics/src';
 import {
   createSystemCallApi,
   DiskSpaceSummary,
   readSignedElectionPackageFromUsb,
   exportCastVoteRecordsToUsbDrive,
   ElectionRecord,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   ElectionPackageConfigurationError,
   BallotPageLayout,
@@ -19,13 +19,13 @@ import {
   SystemSettings,
   ExportCastVoteRecordsToUsbDriveError,
   DiagnosticRecord,
-} from '@votingworks/types';
-import { isElectionManagerAuth } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import express, { Application } from 'express';
-import * as grout from '@votingworks/grout';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { useDevDockRouter } from '@votingworks/dev-dock-backend';
-import { UsbDrive, UsbDriveStatus } from '@votingworks/usb-drive';
+import * as grout from '@vx/libs/grout/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
+import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Importer } from './importer';
 import { Workspace } from './util/workspace';
 import { MachineConfig, ScanStatus } from './types';

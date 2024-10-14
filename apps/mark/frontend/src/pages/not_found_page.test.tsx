@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { screen } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';

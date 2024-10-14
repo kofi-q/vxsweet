@@ -1,5 +1,5 @@
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { render, screen } from '../test/react_testing_library';
 import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { advancePromises } from '@votingworks/test-utils';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { advancePromises } from '@vx/libs/test-utils/src';
 import { useIsVoterAuth } from './use_is_voter_auth';
 import {
   ApiMock,

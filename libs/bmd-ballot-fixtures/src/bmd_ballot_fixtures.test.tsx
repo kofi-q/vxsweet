@@ -1,7 +1,7 @@
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import { pdfToImages, toImageBuffer } from '@votingworks/image-utils';
-import { iter } from '@votingworks/basics';
-import { readFile } from '@votingworks/fs';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { pdfToImages, toImageBuffer } from '@vx/libs/image-utils/src';
+import { iter } from '@vx/libs/basics/src';
+import { readFile } from '@vx/libs/fs/src';
 import {
   renderBmdBallotFixture,
   writeFirstBallotPageToImageFile,

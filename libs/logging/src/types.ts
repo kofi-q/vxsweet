@@ -3,7 +3,7 @@ import {
   UserRoleSchema,
   Dictionary,
   EventLogging,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { z } from 'zod';
 import { LogEventId } from './log_event_ids';
 import { AppName, LogSource } from './base_types/log_source';

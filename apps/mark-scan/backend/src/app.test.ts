@@ -1,4 +1,4 @@
-import { assert, deferred, mapObject } from '@votingworks/basics';
+import { assert, deferred, mapObject } from '@vx/libs/basics/src';
 import tmp from 'tmp';
 import {
   electionFamousNames2021Fixtures,
@@ -7,9 +7,9 @@ import {
   electionGeneralDefinition,
   electionGeneralFixtures,
   electionGeneral,
-} from '@votingworks/fixtures';
-import { mockOf, suppressingConsoleOutput } from '@votingworks/test-utils';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+} from '@vx/libs/fixtures/src';
+import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,
@@ -18,11 +18,11 @@ import {
   generateMockVotes,
   singlePrecinctSelectionFor,
   getMockMultiLanguageElectionDefinition,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
 import { Server } from 'node:http';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import {
   BallotStyleId,
   CandidateVote,
@@ -34,10 +34,10 @@ import {
   convertVxfElectionToCdfBallotDefinition,
   safeParseElectionDefinition,
   safeParseSystemSettings,
-} from '@votingworks/types';
-import { MockUsbDrive } from '@votingworks/usb-drive';
-import { MockPaperHandlerDriver } from '@votingworks/custom-paper-handler';
-import { LogEventId, Logger, mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/types/src';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { LogEventId, Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { AddressInfo } from 'node:net';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
@@ -64,9 +64,9 @@ const TEST_POLLING_INTERVAL_MS = 15;
 jest.mock('./pat-input/connection_status_reader');
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
     randomBallotId: () => '12345',

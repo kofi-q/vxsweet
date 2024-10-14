@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { createWriteStream, renameSync } from 'node:fs';
 import { join, parse } from 'node:path';
 import StreamChopper from 'stream-chopper';

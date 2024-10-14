@@ -8,7 +8,7 @@
 //
 // Hint: what does `iter` return? What methods does it have?
 
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 import { collecting } from '../src/collecting';

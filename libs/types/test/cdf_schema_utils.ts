@@ -4,7 +4,7 @@ import {
   ok,
   throwIllegalValue,
   assert,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import Ajv, { AnySchema } from 'ajv';
 import AjvDraft04, { AnySchema as AnySchemaDraft04 } from 'ajv-draft-04';
 

@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { HmpbBallotPaperSize, Election, ElectionId } from '@votingworks/types';
+import { HmpbBallotPaperSize, Election, ElectionId } from '@vx/libs/types/src';
 import {
   provideApi,
   createMockApiClient,

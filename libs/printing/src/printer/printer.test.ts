@@ -1,18 +1,18 @@
-import { mockFunction } from '@votingworks/test-utils';
-import { LogEventId, mockBaseLogger } from '@votingworks/logging';
+import { mockFunction } from '@vx/libs/test-utils/src';
+import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { PrinterRichStatus } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { PrinterRichStatus } from '@vx/libs/types/src';
 import { detectPrinter } from './printer';
 import { BROTHER_THERMAL_PRINTER_CONFIG, HP_LASER_PRINTER_CONFIG } from '.';
 import { MockFilePrinter } from './mocks/file_printer';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

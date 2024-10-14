@@ -1,11 +1,11 @@
-import { electionGeneral } from '@votingworks/fixtures';
-import { createPlaywrightRenderer } from '@votingworks/hmpb';
+import { electionGeneral } from '@vx/libs/fixtures/src';
+import { createPlaywrightRenderer } from '@vx/libs/hmpb/src';
 import {
   Election,
   LanguageCode,
   safeParseElectionDefinition,
-} from '@votingworks/types';
-import { generateBallotStyleId } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { renderBallotStyleReadinessReport } from './ballot_style_reports';
 
 const { ENGLISH, CHINESE_SIMPLIFIED, SPANISH } = LanguageCode;

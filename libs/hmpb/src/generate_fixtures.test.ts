@@ -1,9 +1,9 @@
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
-import { HmpbBallotPaperSize } from '@votingworks/types';
-import { pdfToImages } from '@votingworks/image-utils';
-import { iter } from '@votingworks/basics';
-import { readElection } from '@votingworks/fs';
+import { HmpbBallotPaperSize } from '@vx/libs/types/src';
+import { pdfToImages } from '@vx/libs/image-utils/src';
+import { iter } from '@vx/libs/basics/src';
+import { readElection } from '@vx/libs/fs/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {
   famousNamesFixtures,

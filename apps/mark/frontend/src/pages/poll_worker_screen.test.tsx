@@ -1,26 +1,26 @@
 import {
   asElectionDefinition,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   constructElectionKey,
   ElectionDefinition,
   InsertedSmartCardAuth,
   LanguageCode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import {
   singlePrecinctSelectionFor,
   generateBallotStyleId,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   mockPollWorkerUser,
   mockSessionExpiresAt,
   hasTextAcrossElements,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 
-import { DateWithoutTime } from '@votingworks/basics';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import { fireEvent, screen } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';

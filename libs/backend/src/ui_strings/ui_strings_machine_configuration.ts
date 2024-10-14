@@ -1,7 +1,7 @@
 /* istanbul ignore file - tested via VxSuite apps. */
 
-import { ElectionPackage, LanguageCode } from '@votingworks/types';
-import { BaseLogger } from '@votingworks/logging';
+import { ElectionPackage, LanguageCode } from '@vx/libs/types/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { UiStringsStore } from './ui_strings_store';
 
 /** Input for {@link configureUiStrings}. */

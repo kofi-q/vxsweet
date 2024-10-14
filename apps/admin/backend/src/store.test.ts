@@ -2,22 +2,22 @@ import { Buffer } from 'node:buffer';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   CandidateContest,
   Tabulation,
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
   BallotStyleGroupId,
-} from '@votingworks/types';
-import { find, typedAs } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { find, typedAs } from '@vx/libs/basics/src';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { tmpNameSync } from 'tmp';
-import { zipFile } from '@votingworks/test-utils';
+import { zipFile } from '@vx/libs/test-utils/src';
 import { sha256 } from 'js-sha256';
-import { mockBaseLogger } from '@votingworks/logging';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+import { mockBaseLogger } from '@vx/libs/logging/src';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { Store } from './store';
 import {
   ElectionRecord,

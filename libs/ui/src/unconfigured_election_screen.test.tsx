@@ -1,4 +1,4 @@
-import { ElectionPackageConfigurationError } from '@votingworks/types';
+import { ElectionPackageConfigurationError } from '@vx/libs/types/src';
 import { render, screen } from '../test/react_testing_library';
 
 import { UnconfiguredElectionScreen } from './unconfigured_election_screen';

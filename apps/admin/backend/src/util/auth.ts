@@ -2,10 +2,10 @@ import {
   DEV_JURISDICTION,
   DippedSmartCardAuthApi,
   DippedSmartCardAuthMachineState,
-} from '@votingworks/auth';
-import { isIntegrationTest } from '@votingworks/utils';
-import { DEFAULT_SYSTEM_SETTINGS, TEST_JURISDICTION } from '@votingworks/types';
-import { LoggingUserRole } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { isIntegrationTest } from '@vx/libs/utils/src';
+import { DEFAULT_SYSTEM_SETTINGS, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { LoggingUserRole } from '@vx/libs/logging/src';
 import { Workspace } from './workspace';
 
 /**

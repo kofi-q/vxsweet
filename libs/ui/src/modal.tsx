@@ -3,9 +3,9 @@ import ReactModal from 'react-modal';
 import styled, { DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
 
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
-import { SizeMode } from '@votingworks/types';
+import { SizeMode } from '@vx/libs/types/src';
 import { Theme } from './themes';
 import { H2 } from './typography';
 import { ReadOnLoad } from './ui_strings/read_on_load';

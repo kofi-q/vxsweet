@@ -2,14 +2,14 @@ import {
   MockPaperHandlerDriver,
   MockPaperHandlerStatus,
   isMockPaperHandler,
-} from '@votingworks/custom-paper-handler';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/custom-paper-handler/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { buildMockPaperHandlerApi } from './mock_paper_handler_api';
 
 jest.mock(
-  '@votingworks/custom-paper-handler',
-  (): typeof import('@votingworks/custom-paper-handler') => ({
-    ...jest.requireActual('@votingworks/custom-paper-handler'),
+  '@vx/libs/custom-paper-handler/src',
+  (): typeof import('@vx/libs/custom-paper-handler/src') => ({
+    ...jest.requireActual('@vx/libs/custom-paper-handler/src'),
     isMockPaperHandler: jest.fn() as unknown as typeof isMockPaperHandler,
   })
 );

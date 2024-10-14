@@ -5,18 +5,18 @@ import { dirSync } from 'tmp';
 import {
   buildMockDippedSmartCardAuth,
   DippedSmartCardAuthApi,
-} from '@votingworks/auth';
-import * as grout from '@votingworks/grout';
-import { Logger, mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import * as grout from '@vx/libs/grout/src';
+import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
   SystemSettings,
   TEST_JURISDICTION,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMockScanner } from '../test/util/mocks';
 import { Api, buildCentralScannerApp } from './app';
 import { Importer } from './importer';

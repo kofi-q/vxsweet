@@ -1,4 +1,4 @@
-import { err, ok, typedAs } from '@votingworks/basics';
+import { err, ok, typedAs } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { makeProtocolListeners } from '../../test/helpers';
 import {

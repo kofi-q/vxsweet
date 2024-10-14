@@ -1,7 +1,7 @@
-import type { Api } from '@votingworks/mark-backend';
+import type { Api } from '@vx/apps/mark/backend/src';
 import React from 'react';
-import { deepEqual } from '@votingworks/basics';
-import * as grout from '@votingworks/grout';
+import { deepEqual } from '@vx/libs/basics/src';
+import * as grout from '@vx/libs/grout/src';
 import {
   QueryClient,
   QueryKey,
@@ -15,7 +15,7 @@ import {
   USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
   createSystemCallApi,
   createUiStringsApi,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 export const ACCESSIBLE_CONTROLLER_POLLING_INTERVAL_MS = 3000;

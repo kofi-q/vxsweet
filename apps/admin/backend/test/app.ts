@@ -1,14 +1,14 @@
 import {
   buildMockDippedSmartCardAuth,
   DippedSmartCardAuthApi,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockOf,
   zipFile,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   DippedSmartCardAuth,
@@ -17,24 +17,24 @@ import {
   ElectionDefinition,
   ElectionPackageFileName,
   SystemSettings,
-} from '@votingworks/types';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/types/src';
+import * as grout from '@vx/libs/grout/src';
 import { AddressInfo } from 'node:net';
 import { Buffer } from 'node:buffer';
 import tmp, { tmpNameSync } from 'tmp';
 import {
   generateElectionBasedSubfolderName,
   SCANNER_RESULTS_FOLDER,
-} from '@votingworks/utils';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/utils/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { writeFileSync } from 'node:fs';
-import { createMockPrinterHandler } from '@votingworks/printing';
+import { createMockPrinterHandler } from '@vx/libs/printing/src';
 import {
   Logger,
   LogSource,
   mockBaseLogger,
   mockLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import { Api } from '../src';
 import { createWorkspace, Workspace } from '../src/util/workspace';
 import { buildApp } from '../src/app';

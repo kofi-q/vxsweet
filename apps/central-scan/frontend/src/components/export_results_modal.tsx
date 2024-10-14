@@ -7,10 +7,10 @@ import {
   P,
   UsbControllerButton,
   userReadableMessageFromExportError,
-} from '@votingworks/ui';
-import { isElectionManagerAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { AppContext } from '../contexts/app_context';
 import { ejectUsbDrive, exportCastVoteRecordsToUsbDrive } from '../api';
 import { InsertUsbDriveModal, UsbImage } from './insert_usb_drive_modal';

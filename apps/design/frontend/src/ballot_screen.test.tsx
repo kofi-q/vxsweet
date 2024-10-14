@@ -1,7 +1,7 @@
-import { BallotType } from '@votingworks/types';
+import { BallotType } from '@vx/libs/types/src';
 import { DocumentProps, PageProps } from 'react-pdf';
 import { useEffect } from 'react';
-import { ok } from '@votingworks/basics';
+import { ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

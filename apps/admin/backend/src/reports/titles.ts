@@ -1,4 +1,4 @@
-import { Admin, ElectionDefinition, Tabulation } from '@votingworks/types';
+import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 import {
   Result,
   assertDefined,
@@ -6,12 +6,12 @@ import {
   find,
   ok,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   getDistrictById,
   getPartyById,
   getPrecinctById,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { ScannerBatch } from '../types';
 
 const MANUAL_BATCH_REPORT_LABEL = 'Manual Tallies';

@@ -1,4 +1,4 @@
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Button } from './button';
 import { IconName } from './icons';
 

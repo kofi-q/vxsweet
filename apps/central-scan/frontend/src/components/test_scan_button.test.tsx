@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { deferred } from '@votingworks/basics';
-import { ScanDiagnosticOutcome } from '@votingworks/central-scan-backend';
+import { deferred } from '@vx/libs/basics/src';
+import { ScanDiagnosticOutcome } from '@vx/apps/central-scan/backend/src';
 import { ApiMock, createApiMock } from '../../test/api';
 import { mockStatus } from '../../test/fixtures';
 import {

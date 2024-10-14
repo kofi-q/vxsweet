@@ -1,11 +1,11 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
   getEmptyElectionResults,
-} from '@votingworks/utils';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { formatElectionHashes } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { formatElectionHashes } from '@vx/libs/types/src';
 import { render, screen, within } from '../../test/react_testing_library';
 import { AdminTallyReport } from './admin_tally_report';
 import { mockScannerBatches } from '../../test/fixtures';

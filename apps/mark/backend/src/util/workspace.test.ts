@@ -1,5 +1,5 @@
 import { dirSync } from 'tmp';
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from './workspace';
 
 test('workspace.reset rests the store', () => {

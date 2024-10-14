@@ -1,6 +1,6 @@
-import { assert, find, iter } from '@votingworks/basics';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { CandidateContest, CVR, YesNoContest } from '@votingworks/types';
+import { assert, find, iter } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { CandidateContest, CVR, YesNoContest } from '@vx/libs/types/src';
 import {
   buildBatchManifest,
   buildCastVoteRecordReportMetadata,

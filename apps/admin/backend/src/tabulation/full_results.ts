@@ -1,4 +1,4 @@
-import { Id, Tabulation } from '@votingworks/types';
+import { Id, Tabulation } from '@vx/libs/types/src';
 import {
   combineElectionResults,
   convertManualElectionResults,
@@ -6,8 +6,8 @@ import {
   mergeTabulationGroupMaps,
   tabulateCastVoteRecords as tabulateFilteredCastVoteRecords,
   groupBySupportsZeroSplits,
-} from '@votingworks/utils';
-import { assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import memoize from 'lodash.memoize';
 import hash from 'object-hash';
 import { Store } from '../store';

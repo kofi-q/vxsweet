@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@votingworks/ui';
+import { Button } from '@vx/libs/ui/src';
 import { getPrinterStatus, printTestPage } from '../../api';
 import { PrintTestPageModal } from './print_test_page_modal';
 import { LoadPaperModal } from './load_paper_modal';

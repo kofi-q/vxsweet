@@ -1,4 +1,4 @@
-import { IdlePage as MarkFlowIdlePage } from '@votingworks/mark-flow-ui';
+import { IdlePage as MarkFlowIdlePage } from '@vx/libs/mark-flow-ui/src';
 import { useContext } from 'react';
 import { BallotContext } from '../contexts/ballot_context';
 

@@ -6,7 +6,7 @@
 // Hint: `fibonacci` is an infinite iterable. What happens if you try to make an
 // array from it and then slice the first ten elements?
 
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 

@@ -3,7 +3,7 @@ import {
   ElectionDefinition,
   InterpretedBmdPage,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 // Returns a BMD page interpretation with a vote for the first option (candidate or yesOption) in the first contest of the provided election. Use when you just need a well-formed interpretation and the contents don't matter.
 export function getMockInterpretation(

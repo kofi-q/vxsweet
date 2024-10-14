@@ -3,9 +3,9 @@
 import {
   ElectionDefinition,
   safeParseElectionDefinition,
-} from '@votingworks/types';
-import { H1, H4, Prose, Select } from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { H1, H4, Prose, Select } from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 import React, { useRef, useState } from 'react';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import styled from 'styled-components';

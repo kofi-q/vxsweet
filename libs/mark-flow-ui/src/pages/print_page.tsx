@@ -9,7 +9,7 @@ import {
   appStrings,
   Font,
   ReadOnLoad,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 export const printingMessageTimeoutSeconds = 5;
 

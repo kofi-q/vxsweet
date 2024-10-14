@@ -1,4 +1,4 @@
-import type { BallotCountReportWarning } from '@votingworks/admin-backend';
+import type { BallotCountReportWarning } from '@vx/apps/admin/backend/src';
 import { getBallotCountReportWarningText } from './ballot_count_report_warnings';
 
 test('getBallotCountReportWarningText', () => {

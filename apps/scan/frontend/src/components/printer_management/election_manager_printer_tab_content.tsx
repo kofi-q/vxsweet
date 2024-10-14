@@ -1,6 +1,6 @@
-import { Icons, P } from '@votingworks/ui';
-import type { PrinterStatus } from '@votingworks/scan-backend';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { Icons, P } from '@vx/libs/ui/src';
+import type { PrinterStatus } from '@vx/apps/scan/backend/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import React from 'react';
 import styled from 'styled-components';
 import { getPrinterStatus } from '../../api';

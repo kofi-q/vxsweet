@@ -1,4 +1,4 @@
-import { Main, NoWrap, Screen, Prose, H1, P } from '@votingworks/ui';
+import { Main, NoWrap, Screen, Prose, H1, P } from '@vx/libs/ui/src';
 
 export function SetupPowerPage(): JSX.Element {
   return (

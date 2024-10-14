@@ -1,4 +1,4 @@
-import { Button, ButtonBar, H2, Main, P, Screen } from '@votingworks/ui';
+import { Button, ButtonBar, H2, Main, P, Screen } from '@vx/libs/ui/src';
 import { useRef, useState } from 'react';
 import { addDiagnosticRecord } from '../../api';
 

@@ -1,8 +1,8 @@
-import { Result, err } from '@votingworks/basics';
+import { Result, err } from '@vx/libs/basics/src';
 import {
   ElectionDefinition,
   safeParseElectionDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { ZodError } from 'zod';
 import { ReadFileError, readFile } from './read_file';
 

@@ -1,5 +1,5 @@
-import { throwIllegalValue } from '@votingworks/basics';
-import { Button, Font, Modal, P } from '@votingworks/ui';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import { Button, Font, Modal, P } from '@vx/libs/ui/src';
 
 export interface DoubleVoteAlert {
   type:

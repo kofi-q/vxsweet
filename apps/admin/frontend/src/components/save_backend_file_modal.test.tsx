@@ -1,8 +1,8 @@
-import { advancePromises, mockKiosk } from '@votingworks/test-utils';
+import { advancePromises, mockKiosk } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import { err, ok } from '@votingworks/basics';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { err, ok } from '@vx/libs/basics/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { screen, waitFor } from '../../test/react_testing_library';
 import { SaveBackendFileModal } from './save_backend_file_modal';
 import { renderInAppContext } from '../../test/render_in_app_context';

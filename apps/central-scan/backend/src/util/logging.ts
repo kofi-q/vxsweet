@@ -1,5 +1,5 @@
-import { LogEventId, Logger } from '@votingworks/logging';
-import { BatchInfo } from '@votingworks/types';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { BatchInfo } from '@vx/libs/types/src';
 
 export function logBatchComplete(
   logger: Logger,

@@ -1,7 +1,7 @@
 import test from '@playwright/test';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
-import { getMockFileUsbDriveHandler } from '@votingworks/usb-drive';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { logInAsElectionManager, forceReset } from './helpers';
 
 test.beforeEach(async ({ page }) => {

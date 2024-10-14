@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PrinterRichStatus } from '@votingworks/types';
+import { PrinterRichStatus } from '@vx/libs/types/src';
 import {
   Button,
   IPP_PRINTER_STATE_REASON_MESSAGES,
@@ -7,8 +7,8 @@ import {
   Modal,
   P,
   parseHighestPriorityIppPrinterStateReason,
-} from '@votingworks/ui';
-import { isElectionManagerAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { getAuthStatus, getPrinterStatus } from '../api';
 
 export function PrinterAlert(): JSX.Element | null {

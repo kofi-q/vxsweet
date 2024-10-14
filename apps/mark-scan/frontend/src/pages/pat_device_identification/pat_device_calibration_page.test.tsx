@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { Keybinding } from '@votingworks/ui';
+import { Keybinding } from '@vx/libs/ui/src';
 import { render, screen } from '../../../test/react_testing_library';
 import {
   PatDeviceCalibrationPage,

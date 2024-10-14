@@ -1,4 +1,4 @@
-import { assert, Result } from '@votingworks/basics';
+import { assert, Result } from '@vx/libs/basics/src';
 import { JSONSchema4 } from 'json-schema';
 import { Enum, EnumValue, Interface, Property, Type } from './types';
 import { makeIdentifier } from './util';

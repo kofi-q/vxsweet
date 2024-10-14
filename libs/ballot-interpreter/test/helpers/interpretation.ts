@@ -3,16 +3,16 @@ import {
   assertDefined,
   iter,
   unique,
-} from '@votingworks/basics';
-import { voteToOptionId } from '@votingworks/hmpb';
-import { ImageData, pdfToImages } from '@votingworks/image-utils';
+} from '@vx/libs/basics/src';
+import { voteToOptionId } from '@vx/libs/hmpb/src';
+import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {
   ContestId,
   GridLayout,
   UnmarkedWriteIn,
   Vote,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { readFileSync } from 'node:fs';
 

@@ -1,4 +1,4 @@
-import { assert, iter, sleep } from '@votingworks/basics';
+import { assert, iter, sleep } from '@vx/libs/basics/src';
 import makeDebug from 'debug';
 import { Buffer } from 'node:buffer';
 import {
@@ -11,8 +11,8 @@ import {
   isPaperAnywhere,
   isMockPaperHandler,
   ScanDirection,
-} from '@votingworks/custom-paper-handler';
-import { pdfToImages } from '@votingworks/image-utils';
+} from '@vx/libs/custom-paper-handler/src';
+import { pdfToImages } from '@vx/libs/image-utils/src';
 import { tmpNameSync } from 'tmp';
 import { PRINT_DPI, PAPER_HANDLER_RESET_DELAY_MS, SCAN_DPI } from './constants';
 

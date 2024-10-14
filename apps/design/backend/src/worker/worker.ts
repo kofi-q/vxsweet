@@ -1,4 +1,4 @@
-import { extractErrorMessage, sleep } from '@votingworks/basics';
+import { extractErrorMessage, sleep } from '@vx/libs/basics/src';
 
 import { WorkerContext } from './context';
 import { processBackgroundTask } from './tasks';

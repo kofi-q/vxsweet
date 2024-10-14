@@ -1,4 +1,4 @@
-import { sleep } from '@votingworks/basics';
+import { sleep } from '@vx/libs/basics/src';
 
 export interface BackendWaitForOptions {
   interval: number;

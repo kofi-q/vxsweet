@@ -1,6 +1,6 @@
-import { BallotStyleId, ElectionDefinition } from '@votingworks/types';
-import { useCurrentLanguage } from '@votingworks/ui';
-import { getRelatedBallotStyle } from '@votingworks/utils';
+import { BallotStyleId, ElectionDefinition } from '@vx/libs/types/src';
+import { useCurrentLanguage } from '@vx/libs/ui/src';
+import { getRelatedBallotStyle } from '@vx/libs/utils/src';
 import React from 'react';
 
 export interface BallotStyleManagerParams {

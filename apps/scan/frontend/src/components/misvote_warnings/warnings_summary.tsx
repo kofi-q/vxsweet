@@ -4,7 +4,7 @@ import {
   ListItem,
   NumberString,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React from 'react';
 import { WarningDetailsModalButton } from './warning_details_modal_button';
 import { MisvoteWarningsProps } from './types';

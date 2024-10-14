@@ -4,13 +4,13 @@ import fsPromises from 'node:fs/promises';
 import { sha256 } from 'js-sha256';
 import path from 'node:path';
 import { dirSync } from 'tmp';
-import { err, ok, Result } from '@votingworks/basics';
+import { err, ok, Result } from '@vx/libs/basics/src';
 import {
   BallotPageLayout,
   BallotStyleId,
   BallotType,
   ReadCastVoteRecordError,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { referencedImageFile, referencedLayoutFile } from './referenced_files';
 

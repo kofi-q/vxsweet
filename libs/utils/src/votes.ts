@@ -1,4 +1,4 @@
-import { assert, throwIllegalValue, uniqueBy } from '@votingworks/basics';
+import { assert, throwIllegalValue, uniqueBy } from '@vx/libs/basics/src';
 import {
   BallotTargetMark,
   Candidate,
@@ -17,7 +17,7 @@ import {
   YesNoContest,
   YesNoContestOptionId,
   YesNoVote,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export function getSingleYesNoVote(
   vote?: YesNoVote

@@ -1,4 +1,4 @@
-import { assert, err, ok, Result } from '@votingworks/basics';
+import { assert, err, ok, Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
 import { inspect } from 'node:util';

@@ -1,12 +1,12 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
-import { LogEventId, mockBaseLogger } from '@votingworks/logging';
+import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
 import { dirSync } from 'tmp';
-import { buildMockDippedSmartCardAuth } from '@votingworks/auth';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
-import { createMockPrinterHandler } from '@votingworks/printing';
-import { testDetectDevices } from '@votingworks/backend';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/src';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { createMockPrinterHandler } from '@vx/libs/printing/src';
+import { testDetectDevices } from '@vx/libs/backend/src';
 import { start } from './server';
 import { createWorkspace } from './util/workspace';
 import { PORT } from './globals';

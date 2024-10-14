@@ -1,5 +1,5 @@
 import type { DefaultOptions } from '@tanstack/react-query';
-import { persistDataReferenceIfDeepEqual } from '@votingworks/utils';
+import { persistDataReferenceIfDeepEqual } from '@vx/libs/utils/src';
 
 /**
  * A custom retry function

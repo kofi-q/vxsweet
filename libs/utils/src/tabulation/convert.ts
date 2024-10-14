@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import { Candidate, Tabulation, VotesDict } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { Candidate, Tabulation, VotesDict } from '@vx/libs/types/src';
 
 export function convertVotesDictToTabulationVotes(
   votesDict: VotesDict

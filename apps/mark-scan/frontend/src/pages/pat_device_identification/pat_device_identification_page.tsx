@@ -4,9 +4,9 @@ import {
   Button,
   ReadOnLoad as BaseReadOnLoad,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useCallback, useState, useEffect } from 'react';
-import { VoterScreen } from '@votingworks/mark-flow-ui';
+import { VoterScreen } from '@vx/libs/mark-flow-ui/src';
 import styled from 'styled-components';
 import {
   DiagnosticScreenHeader,

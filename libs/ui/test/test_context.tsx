@@ -1,8 +1,8 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Optional } from '@votingworks/basics';
-import { AudioControls, LanguageCode } from '@votingworks/types';
-import type { SystemCallApi as SystemCallApiClient } from '@votingworks/backend';
+import { Optional } from '@vx/libs/basics/src';
+import { AudioControls, LanguageCode } from '@vx/libs/types/src';
+import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
 import {
   UiStringsApiClient,
   UiStringsReactQueryApi,

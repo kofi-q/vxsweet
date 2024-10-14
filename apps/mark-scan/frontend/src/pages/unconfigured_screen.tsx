@@ -3,7 +3,7 @@ import {
   Screen,
   FullScreenMessage,
   InsertCardImage,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 export function UnconfiguredScreen(): JSX.Element {
   return (

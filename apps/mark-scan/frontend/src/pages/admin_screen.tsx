@@ -19,14 +19,14 @@ import {
   ExportLogsButton,
   SignedHashValidationButton,
   Button,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   ElectionDefinition,
   PollsState,
   PrecinctSelection,
-} from '@votingworks/types';
-import type { MachineConfig } from '@votingworks/mark-scan-backend';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import type { MachineConfig } from '@vx/apps/mark-scan/backend/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   ejectUsbDrive,
   logOut,

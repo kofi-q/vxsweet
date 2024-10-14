@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
-import { extractErrorMessage } from '@votingworks/basics';
-import { LanguageCode } from '@votingworks/types';
+import { extractErrorMessage } from '@vx/libs/basics/src';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { GoogleCloudSpeechSynthesizer } from '../src/language_and_audio';
 import { Store } from '../src/store';

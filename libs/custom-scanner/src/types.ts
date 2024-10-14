@@ -1,4 +1,4 @@
-import { Result } from '@votingworks/basics';
+import { Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 
 /**

@@ -1,11 +1,11 @@
-import { Admin, ElectionDefinition, Tabulation } from '@votingworks/types';
+import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 import {
   Optional,
   assert,
   assertDefined,
   find,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import styled, { ThemeProvider } from 'styled-components';
 import {
   combineCardCounts,
@@ -18,7 +18,7 @@ import {
   getPartyById,
   getPrecinctById,
   isGroupByEmpty,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import React from 'react';
 import { printedReportThemeFn, PrintedReport, reportColors } from './layout';
 import { LogoMark } from '../logo_mark';
@@ -156,7 +156,7 @@ const BallotCountGrid = styled.div<{
     const numColumns = columns.length;
     let css = ``;
     for (let i = 2; i <= numColumns; i += 1) {
-      css += `span:nth-child(${numColumns}n + ${i}) { 
+      css += `span:nth-child(${numColumns}n + ${i}) {
         border-left: 1px solid #ddd;
        }`;
     }
@@ -168,7 +168,7 @@ const BallotCountGrid = styled.div<{
     const numColumns = columns.length;
     let css = ``;
     for (let i = 1; i <= numColumns; i += 1) {
-      css += `span.striping:nth-child(${2 * numColumns}n + ${i}) { 
+      css += `span.striping:nth-child(${2 * numColumns}n + ${i}) {
         background-color: #f5f5f5;
 
         @media print {

@@ -1,12 +1,12 @@
-import { LogEventId, Logger } from '@votingworks/logging';
-import { ExportCastVoteRecordsToUsbDriveError } from '@votingworks/types';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/src';
 import {
   extractErrorMessage,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { exportCastVoteRecordsToUsbDrive as exportCastVoteRecordsToUsbDriveBackend } from '@votingworks/backend';
-import { UsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/basics/src';
+import { exportCastVoteRecordsToUsbDrive as exportCastVoteRecordsToUsbDriveBackend } from '@vx/libs/backend/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { Workspace } from './util/workspace';
 
 export type ExportCastVoteRecordsToUsbDriveResult = Result<

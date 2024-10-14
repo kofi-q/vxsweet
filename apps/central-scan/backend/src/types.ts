@@ -1,4 +1,4 @@
-import { BatchInfo } from '@votingworks/types';
+import { BatchInfo } from '@vx/libs/types/src';
 
 export interface MachineConfig {
   machineId: string;

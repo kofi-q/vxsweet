@@ -1,4 +1,4 @@
-import { Button, Icons, Modal, P } from '@votingworks/ui';
+import { Button, Icons, Modal, P } from '@vx/libs/ui/src';
 import React from 'react';
 import * as api from '../api';
 

@@ -3,7 +3,7 @@ import * as path from 'node:path';
 import { Alias, mergeConfig, InlineConfig } from 'vite';
 import { StorybookConfig } from '@storybook/react-vite';
 
-import { getWorkspacePackageInfo } from '@votingworks/monorepo-utils';
+import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
@@ -69,17 +69,23 @@ const config: StorybookConfig = {
           { find: 'path', replacement: require.resolve('path/') },
           { find: 'node:path', replacement: require.resolve('path/') },
           { find: 'stream', replacement: require.resolve('stream-browserify') },
-          { find: 'node:stream', replacement: require.resolve('stream-browserify') },
+          {
+            find: 'node:stream',
+            replacement: require.resolve('stream-browserify'),
+          },
           { find: 'util', replacement: require.resolve('util/') },
           { find: 'node:util', replacement: require.resolve('util/') },
           { find: 'zlib', replacement: require.resolve('browserify-zlib') },
-          { find: 'node:zlib', replacement: require.resolve('browserify-zlib') },
+          {
+            find: 'node:zlib',
+            replacement: require.resolve('browserify-zlib'),
+          },
 
           // Create aliases for all workspace packages, i.e.
           //
           //   {
-          //     '@votingworks/types': '…/libs/types/src/index.ts',
-          //     '@votingworks/utils': '…/libs/utils/src/index.ts',
+          //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
+          //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
           //      …
           //   }
           //
@@ -90,12 +96,12 @@ const config: StorybookConfig = {
               !p.source
                 ? aliases
                 : [
-                  ...aliases,
-                  {
-                    find: p.name,
-                    replacement: path.join(p.path, p.source),
-                  },
-                ],
+                    ...aliases,
+                    {
+                      find: p.name,
+                      replacement: path.join(p.path, p.source),
+                    },
+                  ],
             []
           ),
         ],

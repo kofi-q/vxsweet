@@ -1,5 +1,5 @@
 /* eslint-disable vx/gts-no-public-class-fields */
-import { BaseLogger } from '@votingworks/logging';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { PatConnectionStatusReaderInterface } from './connection_status_reader';
 import { GPIO_PATH_PREFIX } from './constants';
 

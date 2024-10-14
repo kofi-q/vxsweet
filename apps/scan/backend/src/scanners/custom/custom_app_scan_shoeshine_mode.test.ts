@@ -1,14 +1,14 @@
-import { ok } from '@votingworks/basics';
-import { mocks } from '@votingworks/custom-scanner';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { ok } from '@vx/libs/basics/src';
+import { mocks } from '@vx/libs/custom-scanner/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   SheetInterpretation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   configureApp,
   waitForStatus,
@@ -24,9 +24,9 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

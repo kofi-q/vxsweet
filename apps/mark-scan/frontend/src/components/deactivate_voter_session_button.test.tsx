@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   ResetVoterSessionButton,

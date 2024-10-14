@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import type { Precinct, PrecinctWithSplits } from '@votingworks/design-backend';
+import { assert } from '@vx/libs/basics/src';
+import type { Precinct, PrecinctWithSplits } from '@vx/apps/design/backend/src';
 import { customAlphabet } from 'nanoid';
 
 export function hasSplits(precinct: Precinct): precinct is PrecinctWithSplits {

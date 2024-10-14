@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@votingworks/mark-backend';
+import type { MachineConfig } from '@vx/apps/mark/backend/src';
 
 interface ScreenOrientationReturnType {
   isLandscape: boolean;

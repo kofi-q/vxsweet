@@ -1,4 +1,4 @@
-import { assert, deferred } from '@votingworks/basics';
+import { assert, deferred } from '@vx/libs/basics/src';
 
 export class Lock {
   private inUse = false;

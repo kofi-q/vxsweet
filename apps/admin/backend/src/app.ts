@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import { isMatch } from 'micromatch';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   Admin,
   ElectionPackageFileName,
@@ -13,7 +13,7 @@ import {
   SystemSettings,
   Tabulation,
   convertElectionResultsReportingReportToVxManualResults,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   assert,
   assertDefined,
@@ -22,16 +22,16 @@ import {
   ok,
   Optional,
   Result,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import express, { Application } from 'express';
 import {
   DippedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
   prepareSignatureFile,
-} from '@votingworks/auth';
-import * as grout from '@votingworks/grout';
-import { useDevDockRouter } from '@votingworks/dev-dock-backend';
-import { Printer } from '@votingworks/printing';
+} from '@vx/libs/auth/src';
+import * as grout from '@vx/libs/grout/src';
+import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
+import { Printer } from '@vx/libs/printing/src';
 import { createReadStream, promises as fs } from 'node:fs';
 import path, { join } from 'node:path';
 import {
@@ -41,7 +41,7 @@ import {
   getBallotCount,
   groupMapToGroupList,
   isIntegrationTest,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { dirSync } from 'tmp';
 import {
   DiskSpaceSummary,
@@ -51,18 +51,18 @@ import {
   createSystemCallApi,
   readElectionPackageFromBuffer,
   readElectionPackageFromFile,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   FileSystemEntry,
   FileSystemEntryType,
   readElection,
-} from '@votingworks/fs';
+} from '@vx/libs/fs/src';
 import {
   ListDirectoryOnUsbDriveError,
   listDirectoryOnUsbDrive,
   UsbDrive,
   UsbDriveStatus,
-} from '@votingworks/usb-drive';
+} from '@vx/libs/usb-drive/src';
 import ZipStream from 'zip-stream';
 import {
   CastVoteRecordFileRecord,

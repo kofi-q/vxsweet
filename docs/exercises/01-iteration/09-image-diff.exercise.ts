@@ -5,7 +5,7 @@
 // have the same dimensions.
 //
 
-import { iter, typedAs } from '@votingworks/basics';
+import { iter, typedAs } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 import { collecting } from '../src/collecting';

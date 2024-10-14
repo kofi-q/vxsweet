@@ -23,10 +23,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@votingworks/*": [
-        "apps/*/src",
-        "libs/*/src"
-      ]
+      "@vx/*": ["*"]
     },
     "resolveJsonModule": true,
     "skipDefaultLibCheck": false,

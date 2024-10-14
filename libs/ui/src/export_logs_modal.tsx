@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { throwIllegalValue } from '@votingworks/basics';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
-import type { LogExportFormat } from '@votingworks/logging';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import type { LogExportFormat } from '@vx/libs/logging/src';
 import { Button } from './button';
 import { Modal } from './modal';
 

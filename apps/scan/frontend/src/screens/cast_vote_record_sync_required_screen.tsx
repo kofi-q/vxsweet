@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import {
   Button,
   FullScreenIconWrapper,
@@ -8,7 +8,7 @@ import {
   Modal,
   P,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import { exportCastVoteRecordsToUsbDrive } from '../api';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';

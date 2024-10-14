@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { Scan } from '@votingworks/api';
+import { Scan } from '@vx/libs/api/src';
 import { fetchNextBallotSheetToReview } from './hmpb';
 
 test('can fetch the next ballot sheet needing review', async () => {

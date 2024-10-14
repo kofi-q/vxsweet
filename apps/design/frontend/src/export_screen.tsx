@@ -9,14 +9,14 @@ import {
   LoadingButton,
   Icons,
   CheckboxButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import fileDownload from 'js-file-download';
 import { useParams } from 'react-router-dom';
 import {
   ElectionSerializationFormat,
   formatBallotHash,
-} from '@votingworks/types';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   exportAllBallots,
   exportElectionPackage,

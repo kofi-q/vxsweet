@@ -3,10 +3,10 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
-} from '@votingworks/test-utils';
-import { DippedSmartCardAuth, constructElectionKey } from '@votingworks/types';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import { ok } from '@votingworks/basics';
+} from '@vx/libs/test-utils/src';
+import { DippedSmartCardAuth, constructElectionKey } from '@vx/libs/types/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { ok } from '@vx/libs/basics/src';
 import {
   screen,
   waitFor,

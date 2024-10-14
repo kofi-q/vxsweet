@@ -1,9 +1,9 @@
 import {
   electionGeneralFixtures,
   electionPrimaryPrecinctSplitsFixtures,
-} from '@votingworks/fixtures';
-import { formatElectionHashes } from '@votingworks/types';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+} from '@vx/libs/fixtures/src';
+import { formatElectionHashes } from '@vx/libs/types/src';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { ConfigurationSection } from './configuration_section';
 import { expectTextWithIcon } from '../../test/expect_text_with_icon';

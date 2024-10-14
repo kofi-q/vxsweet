@@ -1,5 +1,5 @@
-import { advanceTimersAndPromises, mockOf } from '@votingworks/test-utils';
-import { LanguageCode } from '@votingworks/types';
+import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
+import { LanguageCode } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import { act, screen, waitFor } from '../../test/react_testing_library';
 import { newTestContext } from '../../test/test_context';

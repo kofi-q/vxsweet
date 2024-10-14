@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Buffer } from 'node:buffer';
-import { DateWithoutTime, err, ok } from '@votingworks/basics';
+import { DateWithoutTime, err, ok } from '@vx/libs/basics/src';
 import { DateTime } from 'luxon';
 import { deserialize, serialize } from './serialization';
 

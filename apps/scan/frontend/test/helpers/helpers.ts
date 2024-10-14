@@ -1,4 +1,4 @@
-import type { PrecinctScannerStatus } from '@votingworks/scan-backend';
+import type { PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
 
 export function scannerStatus(
   props: Partial<PrecinctScannerStatus> = {}

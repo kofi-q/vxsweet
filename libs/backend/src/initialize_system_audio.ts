@@ -1,4 +1,4 @@
-import { isIntegrationTest } from '@votingworks/utils';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 import { execFile } from './exec';
 
 /**

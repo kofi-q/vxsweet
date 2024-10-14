@@ -2,7 +2,7 @@ import {
   ExportDataResult,
   ExportableData,
   Exporter,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../globals';
 import { rootDebug } from './debug';
 

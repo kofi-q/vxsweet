@@ -1,6 +1,6 @@
-import { iter } from '@votingworks/basics';
-import { electionGridLayoutNewHampshireHudsonFixtures } from '@votingworks/fixtures';
-import { Size } from '@votingworks/types';
+import { iter } from '@vx/libs/basics/src';
+import { electionGridLayoutNewHampshireHudsonFixtures } from '@vx/libs/fixtures/src';
+import { Size } from '@vx/libs/types/src';
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { execFile } from '../exec';
 
 /**

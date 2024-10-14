@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import React, { useState } from 'react';
 import { Button } from './button';
 import { Modal } from './modal';

@@ -1,4 +1,4 @@
-import { mockFunction } from '@votingworks/test-utils';
+import { mockFunction } from '@vx/libs/test-utils/src';
 import { UseQueryResult } from '@tanstack/react-query';
 import {
   useExternalStateChangeListener,

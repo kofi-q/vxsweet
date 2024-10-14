@@ -9,9 +9,9 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert, err, iter, ok, sleep } from '@votingworks/basics';
+import { Optional, assert, err, iter, ok, sleep } from '@vx/libs/basics/src';
 import { writeFile } from 'node:fs/promises';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   FujitsuThermalPrinterInterface,
   PrintResult,

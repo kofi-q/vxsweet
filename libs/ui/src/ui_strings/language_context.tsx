@@ -2,13 +2,13 @@ import React from 'react';
 import i18next, { InitOptions, i18n } from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
-import { LanguageCode, UiStringsPackage } from '@votingworks/types';
+import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
 import {
   Optional,
   assert,
   assertDefined,
   mapObject,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { Screen } from '../screen';
 import { UiStringsReactQueryApi } from '../hooks/ui_strings_api';
 

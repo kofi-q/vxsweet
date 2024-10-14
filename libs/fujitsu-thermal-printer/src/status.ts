@@ -1,4 +1,4 @@
-import { Result, err, ok, sleep } from '@votingworks/basics';
+import { Result, err, ok, sleep } from '@vx/libs/basics/src';
 import {
   FujitsuThermalPrinterDriverInterface,
   RawPrinterStatus,

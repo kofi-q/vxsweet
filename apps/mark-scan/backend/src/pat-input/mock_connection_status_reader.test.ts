@@ -1,4 +1,4 @@
-import { BaseLogger, mockBaseLogger } from '@votingworks/logging';
+import { BaseLogger, mockBaseLogger } from '@vx/libs/logging/src';
 import { MockPatConnectionStatusReader } from './mock_connection_status_reader';
 
 let logger: BaseLogger;

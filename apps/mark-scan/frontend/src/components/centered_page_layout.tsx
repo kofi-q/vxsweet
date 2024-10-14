@@ -7,8 +7,8 @@ import {
   Main,
   ReadOnLoad as ReadOnLoadBase,
   Screen,
-} from '@votingworks/ui';
-import { VoterScreen, ButtonFooter } from '@votingworks/mark-flow-ui';
+} from '@vx/libs/ui/src';
+import { VoterScreen, ButtonFooter } from '@vx/libs/mark-flow-ui/src';
 
 export interface CenteredPageLayoutProps {
   buttons?: React.ReactNode;

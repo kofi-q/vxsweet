@@ -1,13 +1,13 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { iter, ok } from '@votingworks/basics';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import * as grout from '@votingworks/grout';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { iter, ok } from '@vx/libs/basics/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as grout from '@vx/libs/grout/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   ElectionPackage,
   PrecinctId,
@@ -15,15 +15,15 @@ import {
   SheetOf,
   asSheet,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import waitForExpect from 'wait-for-expect';
-import { MockUsbDrive } from '@votingworks/usb-drive';
-import { Logger, mockLogger, LogSource } from '@votingworks/logging';
-import { pdfToImages, ImageData } from '@votingworks/image-utils';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { Logger, mockLogger, LogSource } from '@vx/libs/logging/src';
+import { pdfToImages, ImageData } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
 import { Api } from '../../src/app';
 import {

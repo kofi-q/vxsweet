@@ -1,4 +1,4 @@
-import { sliceBallotHashForEncoding } from '@votingworks/ballot-encoder';
+import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import {
   assert,
   find,
@@ -8,8 +8,8 @@ import {
   Result,
   throwIllegalValue,
   typedAs,
-} from '@votingworks/basics';
-import { fromGrayScale } from '@votingworks/image-utils';
+} from '@vx/libs/basics/src';
+import { fromGrayScale } from '@vx/libs/image-utils/src';
 import {
   AdjudicationInfo,
   AdjudicationReason,
@@ -43,13 +43,13 @@ import {
   VotesDict,
   WriteInAreaStatus,
   WriteInId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   allContestOptions,
   convertMarksToVotesDict,
   time,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import makeDebug from 'debug';
 import {

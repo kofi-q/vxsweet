@@ -2,19 +2,19 @@ import { expect, test } from '@playwright/test';
 import {
   electionGeneralDefinition,
   electionGeneralFixtures,
-} from '@votingworks/fixtures';
-import { getMockFileUsbDriveHandler } from '@votingworks/usb-drive';
+} from '@vx/libs/fixtures/src';
+import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
-} from '@votingworks/printing';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
+} from '@vx/libs/printing/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
 import assert from 'node:assert';
 import {
   mockCardRemoval,
   mockElectionManagerCardInsertion,
   mockPollWorkerCardInsertion,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import { enterPin, findMoreButtons, forceReset } from './helpers';
 
 const usbHandler = getMockFileUsbDriveHandler();

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { extractErrorMessage } from '@votingworks/basics';
+import { extractErrorMessage } from '@vx/libs/basics/src';
 
 import { createCertHelper, parseCreateCertInput } from '../cryptography';
 

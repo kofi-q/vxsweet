@@ -1,13 +1,13 @@
 import React from 'react';
-import { mockOf, suppressingConsoleOutput } from '@votingworks/test-utils';
+import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 
 import fetchMock from 'fetch-mock';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   useBallotStyleManager,
   useSessionSettingsManager,
-} from '@votingworks/mark-flow-ui';
-import { BallotStyleId } from '@votingworks/types';
+} from '@vx/libs/mark-flow-ui/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { screen } from '../test/react_testing_library';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 import { render } from '../test/test_utils';
@@ -16,9 +16,9 @@ import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { buildApp } from '../test/helpers/build_app';
 
 jest.mock(
-  '@votingworks/mark-flow-ui',
-  (): typeof import('@votingworks/mark-flow-ui') => ({
-    ...jest.requireActual('@votingworks/mark-flow-ui'),
+  '@vx/libs/mark-flow-ui/src',
+  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
+    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
     useBallotStyleManager: jest.fn(),
     useSessionSettingsManager: jest.fn(),
   })

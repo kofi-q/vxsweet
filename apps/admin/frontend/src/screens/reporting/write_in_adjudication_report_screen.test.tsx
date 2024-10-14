@@ -1,8 +1,8 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 
 import userEvent from '@testing-library/user-event';
-import { ok } from '@votingworks/basics';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { ok } from '@vx/libs/basics/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import {

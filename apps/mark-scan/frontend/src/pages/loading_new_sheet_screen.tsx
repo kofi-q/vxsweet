@@ -1,4 +1,4 @@
-import { Icons, P } from '@votingworks/ui';
+import { Icons, P } from '@vx/libs/ui/src';
 
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 

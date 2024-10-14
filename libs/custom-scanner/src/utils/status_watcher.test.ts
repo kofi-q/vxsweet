@@ -1,4 +1,4 @@
-import { err, ok } from '@votingworks/basics';
+import { err, ok } from '@vx/libs/basics/src';
 import fc from 'fast-check';
 import { mock } from 'jest-mock-extended';
 import { arbitraryStatusInternalMessage } from '../../test/arbitraries';

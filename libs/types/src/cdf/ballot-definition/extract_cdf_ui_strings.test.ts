@@ -1,4 +1,4 @@
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { extractCdfUiStrings } from './convert';
 import * as BallotDefinition from './index';
 import { testCdfBallotDefinition } from './fixtures';

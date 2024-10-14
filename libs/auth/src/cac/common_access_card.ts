@@ -4,8 +4,8 @@ import {
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { Byte } from '@votingworks/types';
+} from '@vx/libs/basics/src';
+import { Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';

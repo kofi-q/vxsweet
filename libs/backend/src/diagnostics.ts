@@ -1,9 +1,9 @@
-import { Client } from '@votingworks/db';
+import { Client } from '@vx/libs/db/src';
 import {
   DiagnosticOutcome,
   DiagnosticRecord,
   DiagnosticType,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * A schema for tracking the outcome of hardware diagnostics.
@@ -15,7 +15,7 @@ create table diagnostics (
     outcome text not null check (outcome = 'pass' or outcome = 'fail'),
     message text,
     timestamp number not null
-  );  
+  );
 `;
 
 /**

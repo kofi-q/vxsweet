@@ -1,4 +1,4 @@
-import { err, iter, ok } from '@votingworks/basics';
+import { err, iter, ok } from '@vx/libs/basics/src';
 import { symlinkSync } from 'node:fs';
 import tmp from 'tmp';
 import {

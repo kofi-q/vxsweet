@@ -2,13 +2,13 @@ import {
   ElectionDefinition,
   PollsSuspensionTransitionType,
   PrecinctSelection,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   formatFullDateTimeZone,
   getPollsStateName,
   getPollsTransitionActionPastTense,
   getPollsTransitionDestinationState,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { DateTime } from 'luxon';
 import styled, { ThemeProvider } from 'styled-components';
 import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';

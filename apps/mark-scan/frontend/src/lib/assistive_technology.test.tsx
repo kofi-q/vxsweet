@@ -1,9 +1,9 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { mockOf } from '@votingworks/test-utils';
-import { Keybinding, simulateKeyPress } from '@votingworks/ui';
-import { BallotStyleId } from '@votingworks/types';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Keybinding, simulateKeyPress } from '@vx/libs/ui/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { render, screen, waitFor } from '../../test/react_testing_library';
 
 import { App } from '../app';

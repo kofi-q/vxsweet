@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 import {
   DEFAULT_SYSTEM_SETTINGS,

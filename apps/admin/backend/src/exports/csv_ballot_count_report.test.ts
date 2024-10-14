@@ -2,14 +2,14 @@ import { Buffer } from 'node:buffer';
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
-import { find } from '@votingworks/basics';
-import { buildManualResultsFixture } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { find } from '@vx/libs/basics/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src';
 import {
   MockCastVoteRecordFile,
   addMockCvrFileToStore,

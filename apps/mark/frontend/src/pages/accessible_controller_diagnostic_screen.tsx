@@ -14,7 +14,7 @@ import {
   Screen,
   appStrings,
   useAudioControls,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { DateTime } from 'luxon';
 import styled from 'styled-components';
 

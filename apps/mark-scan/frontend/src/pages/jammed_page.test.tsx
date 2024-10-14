@@ -1,5 +1,5 @@
-import { mockOf } from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';

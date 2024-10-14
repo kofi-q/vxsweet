@@ -1,4 +1,4 @@
-import { err, ok, Result } from '@votingworks/basics';
+import { err, ok, Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { DuplexChannel, ErrorCode, MaybePromise } from '../types';
 

@@ -1,4 +1,4 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render, screen } from '../test/react_testing_library';
 import { Seal } from './seal';
 

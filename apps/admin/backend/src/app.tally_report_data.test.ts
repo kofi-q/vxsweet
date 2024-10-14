@@ -2,16 +2,16 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionPrimaryPrecinctSplitsFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
   buildManualResultsFixture,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { assert, find } from '@votingworks/basics';
-import { BallotStyleGroupId, Tabulation } from '@votingworks/types';
-import { initializeGetWorkspaceDiskSpaceSummary } from '@votingworks/backend';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { assert, find } from '@vx/libs/basics/src';
+import { BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -22,18 +22,18 @@ jest.setTimeout(60_000);
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };
 });
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );

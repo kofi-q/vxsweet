@@ -8,9 +8,9 @@ import {
   useCurrentLanguage,
   useCurrentTheme,
   useLanguageControls,
-} from '@votingworks/ui';
-import { InsertedSmartCardAuth, LanguageCode } from '@votingworks/types';
-import { isCardlessVoterAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { InsertedSmartCardAuth, LanguageCode } from '@vx/libs/types/src';
+import { isCardlessVoterAuth } from '@vx/libs/utils/src';
 
 export interface UseSessionSettingsManagerParams {
   authStatus: InsertedSmartCardAuth.AuthStatus;

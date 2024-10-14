@@ -2,21 +2,21 @@ import { Buffer } from 'node:buffer';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
   GROUP_KEY_ROOT,
   buildElectionResultsFixture,
   buildManualResultsFixture,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import {
   BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
-import { mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/types/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   tabulateCastVoteRecords,
   tabulateElectionResults,
@@ -31,9 +31,9 @@ import { adjudicateWriteIn } from '../adjudication';
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };
@@ -315,7 +315,7 @@ test('tabulateElectionResults - write-in handling', async () => {
   const { id: fileId } = importResult.unsafeUnwrap();
   expect(store.getCastVoteRecordCountByFileId(fileId)).toEqual(184);
 
-  /*  ******************* 
+  /*  *******************
   /*   Pre-Adjudication, No WIA Data
   /*  ******************* */
 
@@ -364,8 +364,8 @@ test('tabulateElectionResults - write-in handling', async () => {
     partialExpectedResultsPreAdjudication.contestResults[candidateContestId]
   );
 
-  /*  ********************** 
-  /*   With Screen WIA Data    
+  /*  **********************
+  /*   With Screen WIA Data
   /*  ********************** */
 
   // now let's add some "screen-adjudicated" write-in adjudication
@@ -541,7 +541,7 @@ test('tabulateElectionResults - write-in handling', async () => {
   );
 
   /*  *******************************
-  /*   With Screen + Manual WIA Data    
+  /*   With Screen + Manual WIA Data
   /*  ******************************* */
 
   const manualOnlyWriteInCandidate = store.addWriteInCandidate({
@@ -648,7 +648,7 @@ test('tabulateElectionResults - write-in handling', async () => {
   );
 
   /*  ***********************************************
-  /*   With Screen + Manual WIA Data, Without Detail    
+  /*   With Screen + Manual WIA Data, Without Detail
   /*  *********************************************** */
 
   const overallResultsScreenAndManualWiaNoDetail = (

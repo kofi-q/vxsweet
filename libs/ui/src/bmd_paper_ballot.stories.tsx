@@ -9,12 +9,12 @@ import {
   YesNoContest,
   getContests,
   safeParseElectionDefinition,
-} from '@votingworks/types';
-import { generateBallotStyleId } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { generateBallotStyleId } from '@vx/libs/utils/src';
 import styled from 'styled-components';
-import { electionGeneral } from '@votingworks/fixtures';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { assert, find } from '@votingworks/basics';
+import { assert, find } from '@vx/libs/basics/src';
 import {
   BmdPaperBallot as Component,
   BmdPaperBallotProps,

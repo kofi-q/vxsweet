@@ -1,5 +1,5 @@
-import { ok } from '@votingworks/basics';
-import { mockOf } from '@votingworks/test-utils';
+import { ok } from '@vx/libs/basics/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { BROTHER_THERMAL_PRINTER_CONFIG, getPpdPath } from '.';
 import { exec } from '../utils/exec';
 import { DEFAULT_MANAGED_PRINTER_NAME, configurePrinter } from './configure';

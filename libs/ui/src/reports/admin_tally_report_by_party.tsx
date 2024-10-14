@@ -1,12 +1,12 @@
-import { Admin, ElectionDefinition } from '@votingworks/types';
+import { Admin, ElectionDefinition } from '@vx/libs/types/src';
 import React from 'react';
 
-import { unique } from '@votingworks/basics';
+import { unique } from '@vx/libs/basics/src';
 import {
   getContestById,
   getEmptyCardCounts,
   getPartyById,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { AdminTallyReport } from './admin_tally_report';
 import { LabeledScannerBatch } from './utils';
 

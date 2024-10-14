@@ -1,14 +1,14 @@
 import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   mockOf,
   mockElectionManagerUser,
   mockSessionExpiresAt,
-} from '@votingworks/test-utils';
-import { Result, deferred } from '@votingworks/basics';
-import { ScannerError } from '@votingworks/pdi-scanner';
+} from '@vx/libs/test-utils/src';
+import { Result, deferred } from '@vx/libs/basics/src';
+import { ScannerError } from '@vx/libs/pdi-scanner/src';
 import {
   configureApp,
   waitForStatus,
@@ -20,9 +20,9 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

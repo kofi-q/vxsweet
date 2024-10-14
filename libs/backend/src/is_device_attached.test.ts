@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { usb } from 'usb';
 import { isDeviceAttached } from './is_device_attached';
 

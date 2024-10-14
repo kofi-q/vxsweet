@@ -4,16 +4,16 @@ import {
   InsertedSmartCardAuthApi,
   JavaCard,
   MockFileCard,
-} from '@votingworks/auth';
-import { LogEventId, BaseLogger, Logger } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
-} from '@votingworks/utils';
-import { detectUsbDrive } from '@votingworks/usb-drive';
-import { initializeSystemAudio } from '@votingworks/backend';
-import { detectPrinter } from '@votingworks/printing';
+} from '@vx/libs/utils/src';
+import { detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { initializeSystemAudio } from '@vx/libs/backend/src';
+import { detectPrinter } from '@vx/libs/printing/src';
 import { buildApp } from './app';
 import { Workspace } from './util/workspace';
 import { getUserRole } from './util/auth';

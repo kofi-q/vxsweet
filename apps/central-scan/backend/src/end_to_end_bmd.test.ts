@@ -2,15 +2,15 @@ import {
   getCastVoteRecordExportDirectoryPaths,
   mockElectionPackageFileTree,
   readCastVoteRecordExport,
-} from '@votingworks/backend';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import { CVR } from '@votingworks/types';
+} from '@vx/libs/backend/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { CVR } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { ok, sleep } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { ok, sleep } from '@vx/libs/basics/src';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 import { generateBmdBallotFixture } from '../test/helpers/ballots';
@@ -20,9 +20,9 @@ import { ScannedSheetInfo } from './fujitsu_scanner';
 jest.setTimeout(20000);
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', () => {
+jest.mock('@vx/libs/utils/src', () => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

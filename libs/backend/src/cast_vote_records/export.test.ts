@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { assert, assertDefined, err, ok, sleep } from '@votingworks/basics';
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
+import { assert, assertDefined, err, ok, sleep } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   BatchInfo,
   CastVoteRecordExportFileName,
@@ -11,8 +11,8 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   PageInterpretation,
   SheetOf,
-} from '@votingworks/types';
-import { createMockUsbDrive, MockUsbDrive } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
 
 import {
   interpretedBmdBallot,

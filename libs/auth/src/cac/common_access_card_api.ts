@@ -1,5 +1,5 @@
-import { Result } from '@votingworks/basics';
-import { Byte, Id } from '@votingworks/types';
+import { Result } from '@vx/libs/basics/src';
+import { Byte, Id } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { ResponseApduError } from '../apdu';
 import { BaseCard, PinProtectedCard, StatefulCard } from '../card';

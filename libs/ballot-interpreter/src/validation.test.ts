@@ -1,12 +1,12 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotId,
   BallotStyleId,
   BallotType,
   DEFAULT_MARK_THRESHOLDS,
   PageInterpretation,
-} from '@votingworks/types';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { normalizeBallotMode } from './validation';
 import { InterpreterOptions } from './types';
 

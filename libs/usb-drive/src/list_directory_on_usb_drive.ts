@@ -1,9 +1,9 @@
-import { Result, err, throwIllegalValue } from '@votingworks/basics';
+import { Result, err, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   FileSystemEntry,
   ListDirectoryError,
   listDirectory,
-} from '@votingworks/fs';
+} from '@vx/libs/fs/src';
 import { join } from 'node:path';
 import { UsbDrive } from './types';
 

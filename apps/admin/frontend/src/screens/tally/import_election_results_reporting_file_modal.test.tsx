@@ -1,19 +1,19 @@
 import {
   ManualResultsIdentifier,
   ImportElectionResultsReportingError,
-} from '@votingworks/admin-backend';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { assertDefined, deferred, err, ok, Result } from '@votingworks/basics';
-import { ElectronFile, mockUsbDriveStatus } from '@votingworks/ui';
+} from '@vx/apps/admin/backend/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { assertDefined, deferred, err, ok, Result } from '@vx/libs/basics/src';
+import { ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
 import userEvent from '@testing-library/user-event';
 import {
   mockKiosk,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
-import { UsbDriveStatus } from '@votingworks/usb-drive';
-import { BallotStyleGroupId, DippedSmartCardAuth } from '@votingworks/types';
+import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { BallotStyleGroupId, DippedSmartCardAuth } from '@vx/libs/types/src';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ImportElectionsResultReportingFileModal } from './import_election_results_reporting_file_modal';

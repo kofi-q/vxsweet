@@ -10,7 +10,7 @@ import {
   PrecinctId,
   VotesDict,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ContestsWithMsEitherNeither,
   MsEitherNeitherContest,

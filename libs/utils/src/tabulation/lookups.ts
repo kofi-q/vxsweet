@@ -1,4 +1,4 @@
-import { Optional, assert, assertDefined } from '@votingworks/basics';
+import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
   AnyContest,
   BallotStyle,
@@ -12,7 +12,7 @@ import {
   Precinct,
   PrecinctId,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { getBallotStyleGroup, getGroupedBallotStyles } from '../ballot_styles';
 
 /**

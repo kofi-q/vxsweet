@@ -1,12 +1,12 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { assertDefined, throwIllegalValue } from '@votingworks/basics';
-import { Logger, LogEventId, LogLine } from '@votingworks/logging';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { Logger, LogEventId, LogLine } from '@vx/libs/logging/src';
 import {
   ScannerClient,
   ScannerError,
   ScannerEvent,
   ScannerStatus,
-} from '@votingworks/pdi-scanner';
+} from '@vx/libs/pdi-scanner/src';
 import {
   HmpbBallotPaperSize,
   InsertedSmartCardAuth,
@@ -16,9 +16,9 @@ import {
   SheetOf,
   ballotPaperDimensions,
   mapSheet,
-} from '@votingworks/types';
-import { UsbDrive } from '@votingworks/usb-drive';
-import { time, Timer } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { time, Timer } from '@vx/libs/utils/src';
 import assert from 'node:assert';
 import { ImageData } from 'canvas';
 import { v4 as uuid } from 'uuid';
@@ -36,8 +36,8 @@ import {
   spawn,
 } from 'xstate';
 import { Clock } from 'xstate/lib/interpreter';
-import { runBlankPaperDiagnostic } from '@votingworks/ballot-interpreter';
-import { writeImageData } from '@votingworks/image-utils';
+import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src';
+import { writeImageData } from '@vx/libs/image-utils/src';
 import { join } from 'node:path';
 import { isReadyToScan } from '../../app_flow';
 import { interpret } from '../../interpret';

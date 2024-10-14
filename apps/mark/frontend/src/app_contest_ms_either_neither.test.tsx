@@ -1,8 +1,8 @@
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
-import { BallotStyleId, getContestDistrictName } from '@votingworks/types';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
+import { BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
 
-import { electionWithMsEitherNeitherDefinition } from '@votingworks/fixtures';
-import { assert, assertDefined, find } from '@votingworks/basics';
+import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
+import { assert, assertDefined, find } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import {
   fireEvent,

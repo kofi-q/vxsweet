@@ -1,6 +1,6 @@
 import React from 'react';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
@@ -11,8 +11,8 @@ import {
   PrinterStatus,
   DiagnosticRecord,
   DiagnosticOutcome,
-} from '@votingworks/types';
-import { createMockClient } from '@votingworks/grout-test-utils';
+} from '@vx/libs/types/src';
+import { createMockClient } from '@vx/libs/grout/test-utils/src';
 import type {
   Api,
   FujitsuPrintResult,
@@ -23,19 +23,19 @@ import type {
   PrecinctScannerConfig,
   PrecinctScannerStatus,
   PrintResult,
-} from '@votingworks/scan-backend';
-import { deferred, err, ok } from '@votingworks/basics';
+} from '@vx/apps/scan/backend/src';
+import { deferred, err, ok } from '@vx/libs/basics/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
-import { UsbDriveStatus } from '@votingworks/usb-drive';
-import { TestErrorBoundary, mockUsbDriveStatus } from '@votingworks/ui';
-import { BROTHER_THERMAL_PRINTER_CONFIG } from '@votingworks/printing';
-import type { DiskSpaceSummary, ExportDataResult } from '@votingworks/backend';
+} from '@vx/libs/test-utils/src';
+import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { TestErrorBoundary, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src';
+import type { DiskSpaceSummary, ExportDataResult } from '@vx/libs/backend/src';
 import { mockPollsInfo } from './mock_polls_info';
 import { ApiProvider } from '../../src/api_provider';
 

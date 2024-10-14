@@ -2,15 +2,15 @@ import { Meta, StoryObj } from '@storybook/react';
 import {
   electionTwoPartyPrimaryDefinition,
   electionWithMsEitherNeitherDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyleId,
   ElectionDefinition,
   GridLayout,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import styled from 'styled-components';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import {
   BallotCountReport,
   BallotCountReportProps,

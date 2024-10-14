@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { assert, err, ok } from '@votingworks/basics';
+import { assert, err, ok } from '@vx/libs/basics/src';
 import fc from 'fast-check';
 import { byteArrayWithLengthPrefix } from './byte_array_with_length_prefix';
 import { uint8 } from './uint8_coder';

@@ -1,4 +1,4 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
   BallotMetadata,
@@ -9,21 +9,21 @@ import {
   PageInterpretationWithFiles,
   SheetOf,
   TEST_JURISDICTION,
-} from '@votingworks/types';
-import { Scan } from '@votingworks/api';
+} from '@vx/libs/types/src';
+import { Scan } from '@vx/libs/api/src';
 import { Application } from 'express';
 import * as fs from 'node:fs/promises';
 import request from 'supertest';
 import { dirSync } from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { typedAs } from '@votingworks/basics';
+import { typedAs } from '@vx/libs/basics/src';
 import {
   buildMockDippedSmartCardAuth,
   DippedSmartCardAuthApi,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import { Server } from 'node:http';
-import { Logger, mockBaseLogger } from '@votingworks/logging';
-import { MockUsbDrive, createMockUsbDrive } from '@votingworks/usb-drive';
+import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
+import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMock, makeMockScanner } from '../test/util/mocks';
 import { Importer } from './importer';
 import { createWorkspace, Workspace } from './util/workspace';

@@ -3,8 +3,8 @@ import {
   buildCVRContestsFromVotes,
   buildCvrImageData,
   combineImageAndLayoutHashes,
-} from '@votingworks/backend';
-import { assertDefined, iter, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/backend/src';
+import { assertDefined, iter, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   BallotMetadata,
   BallotPageContestLayout,
@@ -24,12 +24,12 @@ import {
   Size,
   Vote,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   allContestOptions,
   buildCVRSnapshotBallotTypeMetadata,
   hasWriteIns,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   arrangeContestsBySheet,
   filterVotesByContests,

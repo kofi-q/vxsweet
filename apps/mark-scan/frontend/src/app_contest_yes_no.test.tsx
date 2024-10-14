@@ -1,10 +1,10 @@
 import {
   electionGeneral,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { BallotStyleId, getContestDistrictName } from '@votingworks/types';
+import { BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import {
   fireEvent,

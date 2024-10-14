@@ -1,5 +1,5 @@
-import { LanguageCode } from '@votingworks/types';
-import { format } from '@votingworks/utils';
+import { LanguageCode } from '@vx/libs/types/src';
+import { format } from '@vx/libs/utils/src';
 import { H1 } from '..';
 import {
   act,

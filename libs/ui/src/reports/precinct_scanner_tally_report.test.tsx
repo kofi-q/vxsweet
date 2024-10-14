@@ -2,14 +2,14 @@ import {
   electionTwoPartyPrimary,
   electionTwoPartyPrimaryDefinition,
   electionFamousNames2021Fixtures,
-} from '@votingworks/fixtures';
-import { formatElectionHashes, PartyId } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { formatElectionHashes, PartyId } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   buildElectionResultsFixture,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../../test/react_testing_library';
 
 import { PrecinctScannerTallyReport } from './precinct_scanner_tally_report';

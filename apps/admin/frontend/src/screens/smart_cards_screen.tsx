@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { assert, deepEqual, throwIllegalValue } from '@votingworks/basics';
+import { assert, deepEqual, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   Button,
   Callout,
@@ -12,20 +12,20 @@ import {
   P,
   RotateCardImage,
   SmartCardChipImage,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   format,
   hyphenatePin,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   constructElectionKey,
   DippedSmartCardAuth,
   Election,
   SystemSettings,
   UserWithCard,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import React, { useContext, useState } from 'react';
 import { NavigationScreen } from '../components/navigation_screen';
 import { AppContext } from '../contexts/app_context';

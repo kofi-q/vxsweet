@@ -9,7 +9,7 @@ import {
   PollsTransitionType,
   InsertedSmartCardAuth,
   getGroupIdFromBallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   ButtonList,
@@ -31,7 +31,7 @@ import {
   FullScreenIconWrapper,
   H3,
   H6,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   getPollsTransitionDestinationState,
@@ -39,11 +39,11 @@ import {
   getPollsTransitionAction,
   getPollTransitionsFromState,
   getGroupedBallotStyles,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
-import type { MachineConfig } from '@votingworks/mark-backend';
+import type { MachineConfig } from '@vx/apps/mark/backend/src';
 import styled from 'styled-components';
-import { DateWithoutTime, find, throwIllegalValue } from '@votingworks/basics';
+import { DateWithoutTime, find, throwIllegalValue } from '@vx/libs/basics/src';
 
 import { DiagnosticsScreen } from './diagnostics_screen';
 import { setPollsState, setTestMode } from '../api';

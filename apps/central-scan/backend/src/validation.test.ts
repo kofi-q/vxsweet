@@ -5,7 +5,7 @@ import {
   BlankPage,
   InterpretedBmdPage,
   InterpretedHmpbPage,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   describeValidationError,
   validateSheetInterpretation,

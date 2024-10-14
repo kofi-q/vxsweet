@@ -1,5 +1,5 @@
-import { LogEventId, mockLogger } from '@votingworks/logging';
-import { err } from '@votingworks/basics';
+import { LogEventId, mockLogger } from '@vx/libs/logging/src';
+import { err } from '@vx/libs/basics/src';
 import { openPolls } from './polls';
 import { Store } from './store';
 

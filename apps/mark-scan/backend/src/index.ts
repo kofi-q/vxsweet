@@ -1,8 +1,8 @@
-import { BaseLogger, LogSource, LogEventId } from '@votingworks/logging';
+import { BaseLogger, LogSource, LogEventId } from '@vx/libs/logging/src';
 import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import * as server from './server';
 import { MARK_SCAN_WORKSPACE, PORT } from './globals';
 import { createWorkspace, Workspace } from './util/workspace';

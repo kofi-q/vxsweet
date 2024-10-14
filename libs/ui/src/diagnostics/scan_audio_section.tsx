@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import { DiagnosticRecord } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
 import { H2, P } from '../typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';
 

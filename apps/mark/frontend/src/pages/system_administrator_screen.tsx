@@ -5,8 +5,8 @@ import {
   Main,
   Screen,
   SystemAdministratorScreenContents,
-} from '@votingworks/ui';
-import { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/ui/src';
+import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut } from '../api';
 
 const resetPollsToPausedText =

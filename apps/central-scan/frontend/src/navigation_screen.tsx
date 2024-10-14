@@ -16,16 +16,16 @@ import {
   SessionTimeLimitTimer,
   UsbControllerButton,
   VerticalElectionInfoBar,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import React, { useContext } from 'react';
 import {
   isSystemAdministratorAuth,
   isElectionManagerAuth,
-} from '@votingworks/utils';
-import { DippedSmartCardAuth, ElectionDefinition } from '@votingworks/types';
+} from '@vx/libs/utils/src';
+import { DippedSmartCardAuth, ElectionDefinition } from '@vx/libs/types/src';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { AppContext } from './contexts/app_context';
 import { ejectUsbDrive, logOut } from './api';
 

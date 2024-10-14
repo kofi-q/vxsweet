@@ -1,6 +1,6 @@
-import type { Api, PrecinctScannerStatus } from '@votingworks/scan-backend';
+import type { Api, PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
 import React from 'react';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import {
   QueryClient,
   QueryKey,
@@ -15,8 +15,8 @@ import {
   QUERY_CLIENT_DEFAULT_OPTIONS,
   createUiStringsApi,
   createSystemCallApi,
-} from '@votingworks/ui';
-import { DiagnosticRecord } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 

@@ -1,4 +1,4 @@
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import {
   FullElectionTallyReportScreen,

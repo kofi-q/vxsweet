@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { appStrings, P } from '@votingworks/ui';
-import { InsertedSmartCardAuth, VotesDict } from '@votingworks/types';
+import { appStrings, P } from '@vx/libs/ui/src';
+import { InsertedSmartCardAuth, VotesDict } from '@vx/libs/types/src';
 
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import { RemoveJammedSheetScreen } from './remove_jammed_sheet_screen';

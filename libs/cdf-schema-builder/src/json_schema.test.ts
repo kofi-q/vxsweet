@@ -1,4 +1,4 @@
-import { typedAs } from '@votingworks/basics';
+import { typedAs } from '@vx/libs/basics/src';
 import { JSONSchema4 } from 'json-schema';
 import {
   convertToGenericType,

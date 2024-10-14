@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { Result, assert, err } from '@votingworks/basics';
+import { Result, assert, err } from '@vx/libs/basics/src';
 import { BaseCoder } from './base_coder';
 import {
   BitLength,

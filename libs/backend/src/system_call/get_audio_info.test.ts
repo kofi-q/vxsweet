@@ -1,6 +1,6 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 
-import { LogEventId, mockLogger } from '@votingworks/logging';
+import { LogEventId, mockLogger } from '@vx/libs/logging/src';
 import { execFile } from '../exec';
 import { AudioInfo, getAudioInfo } from './get_audio_info';
 

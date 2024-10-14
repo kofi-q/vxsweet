@@ -1,4 +1,4 @@
-import { ColorMode, ColorString, SizeMode } from '@votingworks/types';
+import { ColorMode, ColorString, SizeMode } from '@vx/libs/types/src';
 
 import { DesktopPalette, TouchscreenPalette, makeTheme } from './make_theme';
 

@@ -1,5 +1,5 @@
-import { mockOf } from '@votingworks/test-utils';
-import { Client } from '@votingworks/db';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Client } from '@vx/libs/db/src';
 import { tmpNameSync } from 'tmp';
 import { writeFileSync } from 'node:fs';
 import {

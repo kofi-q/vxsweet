@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import type { UseQueryResult } from '@tanstack/react-query';
-import { deepEqual } from '@votingworks/basics';
+import { deepEqual } from '@vx/libs/basics/src';
 
 /**
  * Registers a handler that will be called whenever some external state changes

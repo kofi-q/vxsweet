@@ -1,11 +1,11 @@
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { join } from 'node:path';
-import { readFile } from '@votingworks/fs';
-import { safeParseInt } from '@votingworks/types';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { readFile } from '@vx/libs/fs/src';
+import { safeParseInt } from '@vx/libs/types/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { BmdModelNumber } from '../types';
 
 export const PID_FILENAME = 'vx_accessible_controller_daemon.pid';

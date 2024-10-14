@@ -1,4 +1,4 @@
-import { IteratorPlus, assert, iter } from '@votingworks/basics';
+import { IteratorPlus, assert, iter } from '@vx/libs/basics/src';
 import { sha256 } from 'js-sha256';
 import {
   BallotPageLayout,
@@ -9,7 +9,7 @@ import {
   getContests,
   SheetOf,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * Generate all combinations of an array.

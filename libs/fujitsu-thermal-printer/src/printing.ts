@@ -1,6 +1,6 @@
-import { IteratorPlus, Result, assert, iter, ok } from '@votingworks/basics';
-import { ImageData, pdfToImages } from '@votingworks/image-utils';
-import { BITS_PER_BYTE } from '@votingworks/message-coder';
+import { IteratorPlus, Result, assert, iter, ok } from '@vx/libs/basics/src';
+import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
+import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
 import { readFileSync } from 'node:fs';
 import { Buffer } from 'node:buffer';
 import {

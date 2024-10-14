@@ -9,8 +9,8 @@ import {
   unsafeParse,
   YesNoContestCompressedTally,
   YesNoContestCompressedTallySchema,
-} from '@votingworks/types';
-import { assert, throwIllegalValue, typedAs } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, throwIllegalValue, typedAs } from '@vx/libs/basics/src';
 
 /**
  * Compresses election results

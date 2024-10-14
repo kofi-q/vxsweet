@@ -1,18 +1,18 @@
 import memoizeOne from 'memoize-one';
-import { PollsTransitionType } from '@votingworks/types';
-import { assert, assertDefined } from '@votingworks/basics';
-import { isPollsSuspensionTransition } from '@votingworks/utils';
+import { PollsTransitionType } from '@vx/libs/types/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,
   PrecinctScannerTallyReports,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   DEFAULT_MARGIN_DIMENSIONS,
   MarginDimensions,
   PAPER_DIMENSIONS,
   renderToPdf,
-} from '@votingworks/printing';
-import { PrintResult } from '@votingworks/fujitsu-thermal-printer';
+} from '@vx/libs/printing/src';
+import { PrintResult } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Store } from '../store';
 import { getMachineConfig } from '../machine_config';
 import { getScannerResults } from '../util/results';

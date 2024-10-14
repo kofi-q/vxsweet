@@ -1,6 +1,6 @@
-import { assert, throwIllegalValue } from '@votingworks/basics';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import React, { useState } from 'react';
-import { Button, Modal, P, useQueryChangeListener } from '@votingworks/ui';
+import { Button, Modal, P, useQueryChangeListener } from '@vx/libs/ui/src';
 import { getPrinterStatus } from '../../api';
 
 export interface LoadPaperModalProps {

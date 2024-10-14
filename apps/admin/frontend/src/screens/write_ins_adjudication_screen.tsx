@@ -8,7 +8,7 @@ import {
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
   Id,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   Main,
@@ -20,14 +20,14 @@ import {
   Loading,
   H1,
   H4,
-} from '@votingworks/ui';
-import { format } from '@votingworks/utils';
-import { assert, find } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { format } from '@vx/libs/utils/src';
+import { assert, find } from '@vx/libs/basics/src';
 import { useQueryClient } from '@tanstack/react-query';
 import type {
   WriteInCandidateRecord,
   WriteInRecordAdjudicatedOfficialCandidate,
-} from '@votingworks/admin-backend';
+} from '@vx/apps/admin/backend/src';
 import { useParams } from 'react-router-dom';
 import {
   getWriteInAdjudicationContext,

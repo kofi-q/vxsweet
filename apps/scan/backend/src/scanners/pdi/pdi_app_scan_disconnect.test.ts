@@ -1,22 +1,22 @@
 import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
-import { Result, deferred, err, ok, typedAs } from '@votingworks/basics';
-import { ScannerError } from '@votingworks/pdi-scanner';
+} from '@vx/libs/utils/src';
+import { Result, deferred, err, ok, typedAs } from '@vx/libs/basics/src';
+import { ScannerError } from '@vx/libs/pdi-scanner/src';
 import {
   AdjudicationReason,
   AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
   SheetInterpretation,
-} from '@votingworks/types';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import { dirSync } from 'tmp';
-import { createMockUsbDrive } from '@votingworks/usb-drive';
+import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import waitForExpect from 'wait-for-expect';
-import { mockBaseLogger } from '@votingworks/logging';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   MockPdiScannerClient,
   ballotImages,
@@ -38,9 +38,9 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

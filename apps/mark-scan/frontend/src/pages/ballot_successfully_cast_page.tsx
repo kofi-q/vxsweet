@@ -1,4 +1,4 @@
-import { Icons, P, appStrings } from '@votingworks/ui';
+import { Icons, P, appStrings } from '@vx/libs/ui/src';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 export function BallotSuccessfullyCastPage(): JSX.Element {

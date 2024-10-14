@@ -2,7 +2,7 @@ import {
   CentralScanReadinessReportContents,
   SaveReadinessReportButton,
   UsbImage,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import { NavigationScreen } from '../navigation_screen';
 import {

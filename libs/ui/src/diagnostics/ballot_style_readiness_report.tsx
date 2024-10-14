@@ -5,8 +5,8 @@ import {
   LanguageCode,
   getContests,
   formatBallotHash,
-} from '@votingworks/types';
-import { format } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { format } from '@vx/libs/utils/src';
 import React from 'react';
 import { ReadinessReportHeader } from './report_header';
 import { Font, H3 } from '../typography';

@@ -1,19 +1,19 @@
-import { Result, assert, ok, sleep } from '@votingworks/basics';
+import { Result, assert, ok, sleep } from '@vx/libs/basics/src';
 import {
   ElectionDefinition,
   PageInterpretation,
   PageInterpretationWithFiles,
   SheetOf,
-} from '@votingworks/types';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import makeDebug from 'debug';
 import * as fsExtra from 'fs-extra';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';
-import { interpretSheetAndSaveImages } from '@votingworks/ballot-interpreter';
-import { LogEventId, Logger } from '@votingworks/logging';
+import { interpretSheetAndSaveImages } from '@vx/libs/ballot-interpreter/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { ImageData } from 'canvas';
-import { loadImageData } from '@votingworks/image-utils';
+import { loadImageData } from '@vx/libs/image-utils/src';
 import {
   BatchControl,
   BatchScanner,

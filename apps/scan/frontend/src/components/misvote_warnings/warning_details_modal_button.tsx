@@ -4,7 +4,7 @@ import {
   ModalWidth,
   WithScrollButtons,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React from 'react';
 import { MisvoteWarningsProps } from './types';
 import { WarningDetails } from './warning_details';

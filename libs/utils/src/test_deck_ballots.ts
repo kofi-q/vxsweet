@@ -1,4 +1,4 @@
-import { assert, assertDefined, find, iter } from '@votingworks/basics';
+import { assert, assertDefined, find, iter } from '@vx/libs/basics/src';
 import {
   AnyContest,
   WriteInCandidate,
@@ -9,7 +9,7 @@ import {
   getContests,
   VotesDict,
   BallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export interface TestDeckBallot {
   ballotStyleId: BallotStyleId;

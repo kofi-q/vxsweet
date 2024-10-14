@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { spawn } from 'node:child_process';
 import { Stream } from 'node:stream';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 interface RunCommandOptions {
   /** Data to pipe to the child process's standard input */

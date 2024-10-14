@@ -1,11 +1,11 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   CandidateContest,
   getBallotStyle,
   getContests,
   YesNoContest,
-} from '@votingworks/types';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 export const electionDefinition = electionGeneralDefinition;
 export const { election } = electionDefinition;

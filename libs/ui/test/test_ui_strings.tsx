@@ -1,6 +1,6 @@
 /* istanbul ignore file - test utils */
 
-import { LanguageCode, UiStringsPackage } from '@votingworks/types';
+import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
 
 import React from 'react';
 import { UiString } from '../src/ui_strings/ui_string';

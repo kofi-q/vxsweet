@@ -13,7 +13,7 @@ import {
   AudioOnly,
   NumberString,
   ReadOnLoad,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   IDLE_RESET_TIMEOUT_SECONDS,

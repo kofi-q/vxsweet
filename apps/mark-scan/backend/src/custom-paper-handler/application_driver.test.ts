@@ -10,11 +10,11 @@ import {
   MockPaperHandlerDriver,
   isMockPaperHandler,
   MaxPrintWidthDots,
-} from '@votingworks/custom-paper-handler';
+} from '@vx/libs/custom-paper-handler/src';
 import { Buffer } from 'node:buffer';
-import { mockOf } from '@votingworks/test-utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { renderBmdBallotFixture } from '@votingworks/bmd-ballot-fixtures';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   loadAndParkPaper,
   printBallotChunks,
@@ -23,7 +23,7 @@ import {
 } from './application_driver';
 import { getDefaultPaperHandlerStatus } from './test_utils';
 
-jest.mock('@votingworks/custom-paper-handler');
+jest.mock('@vx/libs/custom-paper-handler/src');
 
 let driver: PaperHandlerDriver;
 let webDevice: MinimalWebUsbDevice;

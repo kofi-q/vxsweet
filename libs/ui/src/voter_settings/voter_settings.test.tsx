@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { ThemeConsumer } from 'styled-components';
-import { UiTheme } from '@votingworks/types';
-import { mockUseAudioControls } from '@votingworks/test-utils';
+import { UiTheme } from '@vx/libs/types/src';
+import { mockUseAudioControls } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { VoterSettings } from '.';
 

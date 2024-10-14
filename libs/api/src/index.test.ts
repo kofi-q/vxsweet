@@ -1,4 +1,4 @@
-import { safeParse, unsafeParse } from '@votingworks/types';
+import { safeParse, unsafeParse } from '@vx/libs/types/src';
 import { ErrorsResponseSchema, OkResponseSchema } from '.';
 
 test('OkResponse', () => {

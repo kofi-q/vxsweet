@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { unsafeParse } from '@votingworks/types';
+import { unsafeParse } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { z } from 'zod';
 

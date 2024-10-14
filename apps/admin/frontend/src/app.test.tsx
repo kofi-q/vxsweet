@@ -4,14 +4,14 @@ import {
   electionGridLayoutNewHampshireHudsonFixtures,
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { err } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { err } from '@vx/libs/basics/src';
 import {
   hasTextAcrossElements,
   mockElectionManagerUser,
   mockSessionExpiresAt,
-} from '@votingworks/test-utils';
-import { constructElectionKey, formatElectionHashes } from '@votingworks/types';
+} from '@vx/libs/test-utils/src';
+import { constructElectionKey, formatElectionHashes } from '@vx/libs/types/src';
 import {
   fireEvent,
   screen,

@@ -1,17 +1,17 @@
-import { sliceBallotHashForEncoding } from '@votingworks/ballot-encoder';
-import { assert, err } from '@votingworks/basics';
+import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
+import { assert, err } from '@vx/libs/basics/src';
 import {
   electionFamousNames2021Fixtures,
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
-} from '@votingworks/fixtures';
-import { SheetOf, asSheet } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { SheetOf, asSheet } from '@vx/libs/types/src';
 import {
   renderBmdBallotFixture,
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import { ImageData, createCanvas } from 'canvas';
 import { InterpretResult, interpret } from './interpret';
 import { pdfToPageImages } from '../../test/helpers/interpretation';

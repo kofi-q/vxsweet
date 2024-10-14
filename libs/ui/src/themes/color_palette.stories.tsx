@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
-import { ColorPalette } from '@votingworks/types';
-import { groupBy } from '@votingworks/basics';
+import { ColorPalette } from '@vx/libs/types/src';
+import { groupBy } from '@vx/libs/basics/src';
 import { DesktopPalette, TouchscreenPalette } from './make_theme';
 
 const palettes = {

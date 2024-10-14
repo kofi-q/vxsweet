@@ -5,7 +5,7 @@
 //
 // Hint: look at the function signature for `iter` in @votingworks/basics.
 
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import { run } from '../src/example';
 import { TODO } from '../src/todo';
 

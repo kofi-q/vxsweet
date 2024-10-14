@@ -1,5 +1,5 @@
-import { Admin, Election } from '@votingworks/types';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+import { Admin, Election } from '@vx/libs/types/src';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 
 /**
  * The frontend filter interface allows filtering on geographical district,

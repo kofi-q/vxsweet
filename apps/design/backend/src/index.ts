@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
-import { loadEnvVarsFromDotenvFiles } from '@votingworks/backend';
-import { BaseLogger, LogSource } from '@votingworks/logging';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import { WORKSPACE } from './globals';
 import * as server from './server';
 import { createWorkspace } from './workspace';
@@ -20,7 +20,7 @@ export type {
   PrecinctWithoutSplits,
 } from './types';
 export type { Api } from './app';
-export type { BallotMode } from '@votingworks/hmpb';
+export type { BallotMode } from '@vx/libs/hmpb/src';
 
 // Frontend tests import these for generating test data
 export { generateBallotStyles } from './ballot_styles';

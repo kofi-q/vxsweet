@@ -6,11 +6,11 @@ import {
   assert,
   assertDefined,
   find,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
   HmpbBallotPaperSize,
@@ -27,25 +27,25 @@ import {
   formatBallotHash,
   formatElectionPackageHash,
   mergeUiStrings,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getBallotStylesByPrecinctId,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { readElectionPackageFromFile } from '@votingworks/backend';
+} from '@vx/libs/utils/src';
+import { readElectionPackageFromFile } from '@vx/libs/backend/src';
 import {
   countObjectLeaves,
   getObjectLeaves,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   BallotMode,
   BaseBallotProps,
   hmpbStringsCatalog,
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
-} from '@votingworks/hmpb';
+} from '@vx/libs/hmpb/src';
 import {
   ELECTION_PACKAGE_FILE_NAME_REGEX,
   exportElectionPackage,
@@ -72,9 +72,9 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });
@@ -614,8 +614,8 @@ test('Election package export', async () => {
 
 // Spy on the ballot rendering function so we can check that it's called with the
 // right arguments.
-jest.mock('@votingworks/hmpb', () => {
-  const original = jest.requireActual('@votingworks/hmpb');
+jest.mock('@vx/libs/hmpb/src', () => {
+  const original = jest.requireActual('@vx/libs/hmpb/src');
   return {
     ...original,
     renderAllBallotsAndCreateElectionDefinition: jest.fn(

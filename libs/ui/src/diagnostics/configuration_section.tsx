@@ -7,9 +7,9 @@ import {
   PrecinctSelection,
   formatElectionHashes,
   getPrecinctById,
-} from '@votingworks/types';
-import { assert, assertDefined, iter } from '@votingworks/basics';
-import { format, getGroupedBallotStyles } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { format, getGroupedBallotStyles } from '@vx/libs/utils/src';
 import styled from 'styled-components';
 import { H2, P } from '../typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';

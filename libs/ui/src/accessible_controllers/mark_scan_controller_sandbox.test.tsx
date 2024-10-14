@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { MarkScanControllerSandbox } from './mark_scan_controller_sandbox';
 import { render, screen } from '../../test/react_testing_library';
 import { AccessibleControllerSandbox } from './accessible_controller_sandbox';

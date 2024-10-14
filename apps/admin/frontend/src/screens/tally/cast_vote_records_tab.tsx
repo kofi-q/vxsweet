@@ -1,4 +1,4 @@
-import { assertDefined, find, iter } from '@votingworks/basics';
+import { assertDefined, find, iter } from '@vx/libs/basics/src';
 import {
   H3,
   Icons,
@@ -9,11 +9,11 @@ import {
   Card,
   TabPanel,
   Font,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { DateTime } from 'luxon';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { format } from '@votingworks/utils';
+import { format } from '@vx/libs/utils/src';
 import { TIME_FORMAT } from '../../config/globals';
 import { AppContext } from '../../contexts/app_context';
 import { getCastVoteRecordFileMode, getCastVoteRecordFiles } from '../../api';

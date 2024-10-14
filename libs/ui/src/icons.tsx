@@ -68,7 +68,7 @@ import {
   faEye,
 } from '@fortawesome/free-regular-svg-icons';
 
-import { UiTheme } from '@votingworks/types';
+import { UiTheme } from '@vx/libs/types/src';
 import { Font, FontProps } from './typography';
 import { ScreenInfo, useScreenInfo } from './hooks/use_screen_info';
 

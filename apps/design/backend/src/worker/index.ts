@@ -1,8 +1,8 @@
 import path from 'node:path';
-import { loadEnvVarsFromDotenvFiles } from '@votingworks/backend';
-import { assertDefined } from '@votingworks/basics';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
+import { assertDefined } from '@vx/libs/basics/src';
 
-import { BaseLogger, LogSource } from '@votingworks/logging';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import { WORKSPACE } from '../globals';
 import {
   GoogleCloudSpeechSynthesizer,

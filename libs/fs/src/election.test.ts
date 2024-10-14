@@ -1,5 +1,5 @@
-import { err, ok, typedAs } from '@votingworks/basics';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { err, ok, typedAs } from '@vx/libs/basics/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { writeFileSync } from 'node:fs';
 import { makeTmpFile } from '../test/utils';
 import { ReadElectionError, readElection } from './election';

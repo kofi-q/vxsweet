@@ -2,14 +2,14 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
 import set from 'lodash.set';
 import path from 'node:path';
-import { assertDefined, err } from '@votingworks/basics';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { CastVoteRecordExportFileName, CVR } from '@votingworks/types';
+import { assertDefined, err } from '@vx/libs/basics/src';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { CastVoteRecordExportFileName, CVR } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getCastVoteRecordExportSubDirectoryNames,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { TEST_OTHER_REPORT_TYPE } from './build_report_metadata';
 import { isTestReport, readCastVoteRecordExport } from './import';
@@ -21,9 +21,9 @@ import { getImageHash } from './build_cast_vote_record';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

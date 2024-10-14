@@ -1,6 +1,6 @@
-import { MockFunction } from '@votingworks/test-utils';
+import { MockFunction } from '@vx/libs/test-utils/src';
 import { expectTypeOf } from 'expect-type';
-import { createApi, createClient } from '@votingworks/grout';
+import { createApi, createClient } from '@vx/libs/grout/src';
 import { createMockClient } from './mock_client';
 
 const api = createApi({

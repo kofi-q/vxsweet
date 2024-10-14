@@ -1,12 +1,12 @@
-import { Admin, Tabulation } from '@votingworks/types';
-import { Button, Callout, H6 } from '@votingworks/ui';
+import { Admin, Tabulation } from '@vx/libs/types/src';
+import { Button, Callout, H6 } from '@vx/libs/ui/src';
 import React, { useContext } from 'react';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   isElectionManagerAuth,
   isFilterEmpty,
   isGroupByEmpty,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   exportCdfElectionResultsReport,
   exportTallyReportCsv,

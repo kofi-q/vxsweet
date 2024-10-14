@@ -10,8 +10,8 @@ import {
   Screen,
   VoterSettings,
   useScreenInfo,
-} from '@votingworks/ui';
-import { SizeMode } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { SizeMode } from '@vx/libs/types/src';
 
 import { VoterSettingsButton } from './voter_settings_button';
 

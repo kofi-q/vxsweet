@@ -9,7 +9,7 @@
 //
 // Hint: what does `iter` return? What methods does it have?
 
-import { Optional, iter } from '@votingworks/basics';
+import { Optional, iter } from '@vx/libs/basics/src';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';
 

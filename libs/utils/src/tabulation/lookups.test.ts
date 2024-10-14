@@ -2,11 +2,11 @@ import {
   BallotStyleGroupId,
   ElectionDefinition,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   getContestById,
   getPartyById,

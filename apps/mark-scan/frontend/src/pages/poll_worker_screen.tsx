@@ -10,7 +10,7 @@ import {
   PrecinctSelection,
   VotesDict,
   getBallotStyle,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   ButtonList,
@@ -33,7 +33,7 @@ import {
   SignedHashValidationButton,
   RemoveCardImage,
   electionStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   getPollsTransitionDestinationState,
@@ -43,19 +43,19 @@ import {
   isFeatureFlagEnabled,
   BooleanEnvironmentVariableName,
   getGroupedBallotStyles,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import type {
   AcceptedPaperType,
   MachineConfig,
-} from '@votingworks/mark-scan-backend';
+} from '@vx/apps/mark-scan/backend/src';
 import styled from 'styled-components';
 import {
   assertDefined,
   DateWithoutTime,
   find,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 
 import { LoadPaperPage } from './load_paper_page';
 import {

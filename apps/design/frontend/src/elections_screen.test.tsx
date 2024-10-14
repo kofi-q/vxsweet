@@ -1,4 +1,4 @@
-import { ok } from '@votingworks/basics';
+import { ok } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import {

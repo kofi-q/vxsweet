@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 
 import { execFile } from './exec';
 import { initializeSystemAudio } from './initialize_system_audio';

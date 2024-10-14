@@ -2,10 +2,10 @@
 // The durable datastore for configuration info.
 //
 
-import { UiStringsStore, createUiStringStore } from '@votingworks/backend';
-import { assertDefined, DateWithoutTime, Optional } from '@votingworks/basics';
-import { Client as DbClient } from '@votingworks/db';
-import { BaseLogger } from '@votingworks/logging';
+import { UiStringsStore, createUiStringStore } from '@vx/libs/backend/src';
+import { assertDefined, DateWithoutTime, Optional } from '@vx/libs/basics/src';
+import { Client as DbClient } from '@vx/libs/db/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import {
   ElectionDefinition,
   safeParseElectionDefinition,
@@ -20,7 +20,7 @@ import {
   ElectionId,
   ElectionKey,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
 
 const SchemaPath = join(__dirname, '../schema.sql');

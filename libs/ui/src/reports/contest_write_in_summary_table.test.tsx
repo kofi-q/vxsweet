@@ -1,5 +1,5 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../../test/react_testing_library';
 
 import { ContestWriteInSummaryTable } from './contest_write_in_summary_table';

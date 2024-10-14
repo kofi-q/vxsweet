@@ -1,8 +1,8 @@
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { BallotStyleGroupId } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
 import { render, screen } from '../../test/react_testing_library';
 import { CustomFilterSummary } from './custom_filter_summary';
 import { mockScannerBatches } from '../../test/fixtures';

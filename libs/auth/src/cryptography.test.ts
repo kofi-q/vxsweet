@@ -7,7 +7,7 @@ import {
   mockChildProcess as newMockChildProcess,
   MockChildProcess,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 
 import {
   createCert,

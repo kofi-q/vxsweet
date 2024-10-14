@@ -1,9 +1,9 @@
 import {
   DippedSmartCardAuthApi,
   DippedSmartCardAuthMachineState,
-} from '@votingworks/auth';
-import { DEFAULT_SYSTEM_SETTINGS } from '@votingworks/types';
-import { LoggingUserRole } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { LoggingUserRole } from '@vx/libs/logging/src';
 import { Workspace } from './workspace';
 
 export function constructAuthMachineState(

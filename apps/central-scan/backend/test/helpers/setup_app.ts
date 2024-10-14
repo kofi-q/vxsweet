@@ -4,16 +4,16 @@ import {
   Logger,
   mockBaseLogger,
   mockLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import { Server } from 'node:http';
-import * as grout from '@votingworks/grout';
+import * as grout from '@vx/libs/grout/src';
 import {
   DippedSmartCardAuthApi,
   buildMockDippedSmartCardAuth,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import { dirSync } from 'tmp';
 import getPort from 'get-port';
-import { MockUsbDrive, createMockUsbDrive } from '@votingworks/usb-drive';
+import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { Workspace, createWorkspace } from '../../src/util/workspace';
 import { MockScanner, makeMockScanner } from '../util/mocks';
 import { Importer } from '../../src/importer';

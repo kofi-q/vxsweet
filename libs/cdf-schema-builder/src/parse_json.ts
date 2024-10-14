@@ -1,4 +1,4 @@
-import { err, ok, Result, wrapException } from '@votingworks/basics';
+import { err, ok, Result, wrapException } from '@vx/libs/basics/src';
 import { z } from 'zod';
 
 function safeParse<T>(

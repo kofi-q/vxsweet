@@ -1,7 +1,7 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import { BATTERY_POLLING_INTERVAL_GROUT } from '@votingworks/ui';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { BATTERY_POLLING_INTERVAL_GROUT } from '@vx/libs/ui/src';
 import {
   act,
   render,

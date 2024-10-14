@@ -1,4 +1,4 @@
-import { CenteredLargeProse, H1, LoadingAnimation } from '@votingworks/ui';
+import { CenteredLargeProse, H1, LoadingAnimation } from '@vx/libs/ui/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function LoadingConfigurationScreen(): JSX.Element {

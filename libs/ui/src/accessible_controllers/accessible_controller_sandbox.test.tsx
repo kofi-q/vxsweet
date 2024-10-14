@@ -2,9 +2,9 @@ import {
   advanceTimers,
   mockUseAudioControls,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import React from 'react';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { simulateKeyPress as baseSimulateKeyPress } from './test_utils';
 import { UiString } from '../ui_strings/ui_string';
 import {

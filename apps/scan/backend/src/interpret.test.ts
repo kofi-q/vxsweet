@@ -1,15 +1,15 @@
-import { assertDefined, iter, typedAs } from '@votingworks/basics';
+import { assertDefined, iter, typedAs } from '@vx/libs/basics/src';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   electionFamousNames2021Fixtures,
   electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@votingworks/fixtures';
-import { ImageData, pdfToImages } from '@votingworks/image-utils';
+} from '@vx/libs/fixtures/src';
+import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {
   AdjudicationReason,
   BallotType,
@@ -20,8 +20,8 @@ import {
   SheetInterpretation,
   SheetOf,
   asSheet,
-} from '@votingworks/types';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import * as fs from 'node:fs/promises';
 import { dirSync } from 'tmp';
 import { Buffer } from 'node:buffer';

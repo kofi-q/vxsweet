@@ -1,11 +1,11 @@
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import tmp from 'tmp';
 import fs from 'node:fs';
 import { Buffer } from 'node:buffer';
-import { LogEventId, Logger, mockLogger } from '@votingworks/logging';
+import { LogEventId, Logger, mockLogger } from '@vx/libs/logging/src';
 import { join } from 'node:path';
 import {
   getMarkScanBmdModel,
@@ -13,11 +13,11 @@ import {
   PID_FILENAME,
 } from './hardware';
 
-jest.mock('@votingworks/backend');
+jest.mock('@vx/libs/backend/src');
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };

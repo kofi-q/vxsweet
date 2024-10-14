@@ -2,7 +2,7 @@ import {
   ConverterClientType,
   ConverterClientTypeSchema,
   unsafeParse,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { asBoolean } from './as_boolean';
 import {
   BooleanEnvironmentVariableName,

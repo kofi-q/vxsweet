@@ -4,8 +4,8 @@ import {
   PageInterpretation,
   SheetOf,
   SheetValidationError,
-} from '@votingworks/types';
-import { Result, ok, err } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { Result, ok, err } from '@vx/libs/basics/src';
 
 /**
  * The back of a BMD ballot should be empty, which could be interpreted as

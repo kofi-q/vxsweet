@@ -1,6 +1,6 @@
 import React from 'react';
-import { ColorMode, SizeMode } from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+import { ColorMode, SizeMode } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen } from '../test/react_testing_library';
 import {

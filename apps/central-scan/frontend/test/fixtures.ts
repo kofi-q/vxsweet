@@ -1,5 +1,5 @@
-import { ScanStatus } from '@votingworks/central-scan-backend';
-import { BatchInfo } from '@votingworks/types';
+import { ScanStatus } from '@vx/apps/central-scan/backend/src';
+import { BatchInfo } from '@vx/libs/types/src';
 
 export const DEFAULT_STATUS: ScanStatus = {
   isScannerAttached: true,

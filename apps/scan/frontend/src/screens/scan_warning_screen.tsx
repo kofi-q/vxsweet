@@ -9,7 +9,7 @@ import {
   AnyContest,
   SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Button,
   Caption,
@@ -20,8 +20,8 @@ import {
   P,
   WithScrollButtons,
   appStrings,
-} from '@votingworks/ui';
-import { assert } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert } from '@vx/libs/basics/src';
 
 import { Screen } from '../components/layout';
 

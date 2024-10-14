@@ -1,4 +1,4 @@
-import { assert, assertDefined, find, uniqueBy } from '@votingworks/basics';
+import { assert, assertDefined, find, uniqueBy } from '@vx/libs/basics/src';
 import {
   Admin,
   BallotStyleId,
@@ -9,7 +9,7 @@ import {
   PrecinctId,
   Tabulation,
   getGroupIdFromBallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   combineElectionResults,
   convertVotesDictToTabulationVotes,
@@ -19,17 +19,17 @@ import {
   groupMapToGroupList,
   tabulateCastVoteRecords,
   TestDeckBallot as TestDeckBallotSpec,
-} from '@votingworks/utils';
-import { renderToPdf } from '@votingworks/printing';
+} from '@vx/libs/utils/src';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { Buffer } from 'node:buffer';
-import { AdminTallyReportByParty } from '@votingworks/ui';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src';
 import {
   BaseBallotProps,
   RenderDocument,
   Renderer,
   markBallotDocument,
   concatenatePdfs,
-} from '@votingworks/hmpb';
+} from '@vx/libs/hmpb/src';
 
 /**
  * Creates a test deck for a precinct that includes:

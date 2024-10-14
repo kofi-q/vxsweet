@@ -1,4 +1,4 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
@@ -6,12 +6,12 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   CardlessVoterUser,
   constructElectionKey,
   ElectionDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export function mockLoggedOutAuth(auth: InsertedSmartCardAuthApi): void {
   mockOf(auth.getAuthStatus).mockImplementation(() =>

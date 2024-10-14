@@ -1,6 +1,6 @@
 import React from 'react';
-import { H1, P, Button, Icons, ReadOnLoad, appStrings } from '@votingworks/ui';
-import { VoterScreen } from '@votingworks/mark-flow-ui';
+import { H1, P, Button, Icons, ReadOnLoad, appStrings } from '@vx/libs/ui/src';
+import { VoterScreen } from '@vx/libs/mark-flow-ui/src';
 import { PortraitStepInnerContainer } from './portrait_step_inner_container';
 
 interface Props {

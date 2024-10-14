@@ -1,8 +1,8 @@
 import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { extractErrorMessage, lines } from '@votingworks/basics';
-import { Byte } from '@votingworks/types';
+import { extractErrorMessage, lines } from '@vx/libs/basics/src';
+import { Byte } from '@vx/libs/types/src';
 
 import { CommandApdu, constructTlv } from '../../../src/apdu';
 import { getRequiredEnvVar } from '../../../src/env_vars';

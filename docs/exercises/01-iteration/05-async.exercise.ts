@@ -7,7 +7,7 @@
 // iterable. You can use the same set of methods on the async version as with
 // the sync version, but they return and accept promises instead of values.
 
-import { lines } from '@votingworks/basics';
+import { lines } from '@vx/libs/basics/src';
 import { readFile } from 'node:fs/promises';
 import { TODO } from '../src/todo';
 import { run } from '../src/example';

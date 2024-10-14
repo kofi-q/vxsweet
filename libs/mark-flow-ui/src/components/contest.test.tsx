@@ -1,11 +1,11 @@
 import {
   electionGeneralDefinition,
   electionWithMsEitherNeitherDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { find } from '@votingworks/basics';
-import { CandidateContest, YesNoContest } from '@votingworks/types';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { find } from '@vx/libs/basics/src';
+import { CandidateContest, YesNoContest } from '@vx/libs/types/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 
 import { Contest } from './contest';

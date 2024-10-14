@@ -1,6 +1,6 @@
 import { mkdir, rm, writeFile } from 'node:fs/promises';
-import { iter } from '@votingworks/basics';
-import { writeImageData } from '@votingworks/image-utils';
+import { iter } from '@vx/libs/basics/src';
+import { writeImageData } from '@vx/libs/image-utils/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {
   fixturesDir,

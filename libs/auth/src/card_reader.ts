@@ -1,8 +1,8 @@
 import { Buffer } from 'node:buffer';
 import newPcscLite from 'pcsclite';
 import { promisify } from 'node:util';
-import { assert } from '@votingworks/basics';
-import { Byte, isByte } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { Byte, isByte } from '@vx/libs/types/src';
 
 import {
   CardCommand,

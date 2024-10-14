@@ -1,4 +1,4 @@
-import { Card } from '@votingworks/ui';
+import { Card } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 
 export const OfficialResultsCard = styled(Card).attrs({ color: 'neutral' })`

@@ -1,5 +1,5 @@
-import { Admin, Id, Tabulation } from '@votingworks/types';
-import { assert, assertDefined } from '@votingworks/basics';
+import { Admin, Id, Tabulation } from '@vx/libs/types/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   coalesceGroupsAcrossParty,
   combineElectionResults,
@@ -9,7 +9,7 @@ import {
   getEmptyElectionResults,
   groupMapToGroupList,
   mergeTabulationGroupMaps,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { Store } from '../store';
 import { tabulateElectionResults } from './full_results';
 import { tabulateManualResults } from './manual_results';

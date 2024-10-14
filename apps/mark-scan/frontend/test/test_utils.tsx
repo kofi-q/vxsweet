@@ -7,11 +7,11 @@ import {
   ElectionDefinition,
   PrecinctId,
   VotesDict,
-} from '@votingworks/types';
-import { MachineConfig } from '@votingworks/mark-scan-backend';
+} from '@vx/libs/types/src';
+import { MachineConfig } from '@vx/apps/mark-scan/backend/src';
 
-import { randomBallotId } from '@votingworks/utils';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { randomBallotId } from '@vx/libs/utils/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render as testRender } from './react_testing_library';
 
 import { BallotContext } from '../src/contexts/ballot_context';

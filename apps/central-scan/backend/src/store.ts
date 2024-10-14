@@ -2,7 +2,7 @@
 // The durable datastore for CVRs and configuration info.
 //
 
-import { Client as DbClient } from '@votingworks/db';
+import { Client as DbClient } from '@vx/libs/db/src';
 import {
   AdjudicationStatus,
   HmpbBallotPaperSize,
@@ -30,14 +30,14 @@ import {
   ElectionId,
   ElectionKey,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   assert,
   assertDefined,
   DateWithoutTime,
   find,
   Optional,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import makeDebug from 'debug';
 import { DateTime } from 'luxon';
 import { dirname, join } from 'node:path';
@@ -51,13 +51,13 @@ import {
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
   updateCastVoteRecordHashes,
-} from '@votingworks/auth';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/auth/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 import { normalizeAndJoin } from './util/path';
 
@@ -580,7 +580,7 @@ export class Store {
     // Adding or deleting sheets would have updated the CVR count
     const { maxSheetsCreatedAt, maxSheetsDeletedAt } = this.client.one(`
         select
-          max(created_at) as maxSheetsCreatedAt, 
+          max(created_at) as maxSheetsCreatedAt,
           max(deleted_at) as maxSheetsDeletedAt
         from sheets
       `) as {

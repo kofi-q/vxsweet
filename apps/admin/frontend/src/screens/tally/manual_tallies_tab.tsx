@@ -1,4 +1,4 @@
-import { assert, find, iter } from '@votingworks/basics';
+import { assert, find, iter } from '@vx/libs/basics/src';
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
@@ -14,22 +14,22 @@ import {
   Card,
   TabPanel,
   Icons,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   getBallotStyleGroup,
   getGroupedBallotStyles,
   isElectionManagerAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   BallotStyleGroup,
   BallotStyleGroupId,
   Election,
   Precinct,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import type {
   ManualResultsVotingMethod,
   ManualResultsIdentifier,
-} from '@votingworks/admin-backend';
+} from '@vx/apps/admin/backend/src';
 import { routerPaths } from '../../router_paths';
 
 import { AppContext } from '../../contexts/app_context';

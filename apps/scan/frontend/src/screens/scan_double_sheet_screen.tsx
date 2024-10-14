@@ -4,7 +4,7 @@ import {
   Icons,
   P,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Screen } from '../components/layout';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
 

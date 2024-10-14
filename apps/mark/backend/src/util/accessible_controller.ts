@@ -1,4 +1,4 @@
-import { isDeviceAttached } from '@votingworks/backend';
+import { isDeviceAttached } from '@vx/libs/backend/src';
 
 export const ACCESSIBLE_CONTROLLER_VENDOR_ID = 0x0d8c;
 export const ACCESSIBLE_CONTROLLER_PRODUCT_ID = 0x0170;

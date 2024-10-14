@@ -1,6 +1,6 @@
-import { assertDefined, find, assert } from '@votingworks/basics';
-import { Id, safeParseNumber } from '@votingworks/types';
-import { loadImageData, toDataUrl } from '@votingworks/image-utils';
+import { assertDefined, find, assert } from '@vx/libs/basics/src';
+import { Id, safeParseNumber } from '@vx/libs/types/src';
+import { loadImageData, toDataUrl } from '@vx/libs/image-utils/src';
 import { Store } from '../store';
 import { WriteInAdjudicationContext, WriteInImageView } from '../types';
 import { rootDebug } from './debug';

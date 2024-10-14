@@ -1,8 +1,8 @@
 import './polyfills';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { DevDock } from '@votingworks/dev-dock-frontend';
-import { assert } from '@votingworks/basics';
+import { DevDock } from '@vx/libs/dev-dock/frontend/src';
+import { assert } from '@vx/libs/basics/src';
 import { App } from './app';
 import { PreviewApp } from './preview_app';
 

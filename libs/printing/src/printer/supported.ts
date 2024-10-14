@@ -1,8 +1,8 @@
-import { PrinterConfig, safeParse, safeParseJson } from '@votingworks/types';
+import { PrinterConfig, safeParse, safeParseJson } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { readFileSync } from 'node:fs';
-import { find } from '@votingworks/basics';
+import { find } from '@vx/libs/basics/src';
 
 export const PrinterConfigSchema: z.ZodSchema<PrinterConfig> = z.object({
   label: z.string(),

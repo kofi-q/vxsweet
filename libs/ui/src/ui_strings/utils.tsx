@@ -9,8 +9,8 @@ import {
   PrecinctSelection,
   getCandidateParties,
   getPartyForBallotStyle,
-} from '@votingworks/types';
-import { getPrecinctSelection } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { getPrecinctSelection } from '@vx/libs/utils/src';
 
 import { appStrings } from './app_strings';
 import { electionStrings } from './election_strings';

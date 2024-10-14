@@ -1,8 +1,8 @@
-import { electionGeneralDefinition } from '@votingworks/fixtures';
-import type { CastVoteRecordFileRecord } from '@votingworks/admin-backend';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import type { CastVoteRecordFileRecord } from '@vx/apps/admin/backend/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import { ok } from '@votingworks/basics';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { ok } from '@vx/libs/basics/src';
 import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
 import { screen, within, waitFor } from '../../../test/react_testing_library';
 import { renderInAppContext } from '../../../test/render_in_app_context';

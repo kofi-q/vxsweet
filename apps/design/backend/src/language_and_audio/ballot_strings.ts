@@ -3,8 +3,8 @@ import {
   LanguageCode,
   UiStringsPackage,
   mergeUiStrings,
-} from '@votingworks/types';
-import { hmpbStringsCatalog } from '@votingworks/hmpb';
+} from '@vx/libs/types/src';
+import { hmpbStringsCatalog } from '@vx/libs/hmpb/src';
 import { BallotLanguageConfigs, getAllBallotLanguages } from '../types';
 import { extractAndTranslateElectionStrings } from './election_strings';
 import { GoogleCloudTranslator } from './translator';

@@ -4,8 +4,8 @@ import {
   P,
   PowerDownButton,
   appStrings,
-} from '@votingworks/ui';
-import type { PrinterStatus } from '@votingworks/scan-backend';
+} from '@vx/libs/ui/src';
+import type { PrinterStatus } from '@vx/apps/scan/backend/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 function PrinterErrorMessage({

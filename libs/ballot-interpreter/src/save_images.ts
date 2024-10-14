@@ -1,6 +1,6 @@
-import { encodeImageData, ImageData } from '@votingworks/image-utils';
-import { mapSheet, SheetOf } from '@votingworks/types';
-import { time } from '@votingworks/utils';
+import { encodeImageData, ImageData } from '@vx/libs/image-utils/src';
+import { mapSheet, SheetOf } from '@vx/libs/types/src';
+import { time } from '@vx/libs/utils/src';
 import makeDebug from 'debug';
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';

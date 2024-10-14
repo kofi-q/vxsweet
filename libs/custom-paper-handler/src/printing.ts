@@ -1,6 +1,6 @@
-import { assert, iter } from '@votingworks/basics';
-import { BITS_PER_BYTE } from '@votingworks/message-coder';
-import { ImageData } from '@votingworks/image-utils';
+import { assert, iter } from '@vx/libs/basics/src';
+import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
+import { ImageData } from '@vx/libs/image-utils/src';
 import { BitArray, bitArrayToByte, Uint8Max } from './bits';
 import { PaperHandlerBitmap } from './driver/coders';
 

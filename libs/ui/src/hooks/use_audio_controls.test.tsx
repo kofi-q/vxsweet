@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { AudioControls } from '@votingworks/types';
+import { AudioControls } from '@vx/libs/types/src';
 import { UiStringsAudioContext } from '../ui_strings/audio_context';
 import { useAudioControls } from './use_audio_controls';
 import { UiStringsReactQueryApi, createUiStringsApi } from './ui_strings_api';

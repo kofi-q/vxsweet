@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   Button,
   CurrentDateAndTime,
@@ -13,8 +13,8 @@ import {
   SignedHashValidationButton,
   UnconfigureMachineButton,
   userReadableMessageFromExportError,
-} from '@votingworks/ui';
-import { isElectionManagerAuth } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { ToggleTestModeButton } from '../components/toggle_test_mode_button';

@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -7,15 +7,15 @@ import {
   hasTextAcrossElements,
   suppressingConsoleOutput,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
   ElectionDefinition,
   formatElectionHashes,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor, within, screen } from '../test/react_testing_library';
 import { App } from './app';
 import { ApiMock, createApiMock } from '../test/api';

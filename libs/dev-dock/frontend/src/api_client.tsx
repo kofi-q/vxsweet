@@ -1,5 +1,5 @@
-import * as grout from '@votingworks/grout';
-import type { Api } from '@votingworks/dev-dock-backend';
+import * as grout from '@vx/libs/grout/src';
+import type { Api } from '@vx/libs/dev-dock/backend/src';
 import React from 'react';
 
 export type ApiClient = grout.Client<Api>;

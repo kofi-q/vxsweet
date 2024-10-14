@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Election, Id } from '@votingworks/types';
+import { Election, Id } from '@vx/libs/types/src';
 import {
   Button,
   H1,
   MainContent,
   MainHeader,
   SegmentedButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { DateWithoutTime } from '@votingworks/basics';
+import { DateWithoutTime } from '@vx/libs/basics/src';
 import { deleteElection, getElection, updateElection } from './api';
 import { FieldName, Form, FormActionsRow, InputGroup } from './layout';
 import { ElectionNavScreen } from './nav_screen';

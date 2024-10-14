@@ -1,6 +1,6 @@
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
-import { doesUsbDriveRequireCastVoteRecordSync } from '@votingworks/backend';
-import { UsbDrive } from '@votingworks/usb-drive';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { Store } from './store';
 import { constructAuthMachineState } from './util/auth';
 

@@ -4,12 +4,12 @@ import {
   buildManualResultsFixture,
   buildSimpleMockTallyReportResults,
   getEmptyCardCounts,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimary,
-} from '@votingworks/fixtures';
-import { Admin, ContestId, Tabulation } from '@votingworks/types';
+} from '@vx/libs/fixtures/src';
+import { Admin, ContestId, Tabulation } from '@vx/libs/types/src';
 import {
   BallotCountReportWarning,
   TallyReportWarning,

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { ReviewPage } from '@votingworks/mark-flow-ui';
+import { ReviewPage } from '@vx/libs/mark-flow-ui/src';
 
 import { BallotContext } from '../contexts/ballot_context';
 

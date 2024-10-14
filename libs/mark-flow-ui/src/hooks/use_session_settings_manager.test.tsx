@@ -6,19 +6,19 @@ import {
   useCurrentLanguage,
   useAudioEnabled,
   AppBase,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
   mockSessionExpiresAt,
   mockUseAudioControls,
   mockOf,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import {
   AudioControls,
   InsertedSmartCardAuth,
   LanguageCode,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { act, renderHook } from '../../test/react_testing_library';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 
@@ -28,8 +28,8 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
   setLanguage: jest.fn(),
 };
 
-jest.mock('@votingworks/ui', (): typeof import('@votingworks/ui') => ({
-  ...jest.requireActual('@votingworks/ui'),
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
   useAudioControls: () => mockAudioControls,
   useAudioEnabled: jest.fn(),
   useCurrentLanguage: jest.fn(),

@@ -1,5 +1,5 @@
 import { act, render, screen } from '@testing-library/react';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 
 import { Timer } from './timer';
 

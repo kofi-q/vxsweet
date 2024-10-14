@@ -8,13 +8,13 @@ import {
   Party,
   PartyId,
   Precinct,
-} from '@votingworks/types';
-import { electionGeneral } from '@votingworks/fixtures';
-import { assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { electionGeneral } from '@vx/libs/fixtures/src';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   CandidatePartyList,
   PrecinctSelectionName,

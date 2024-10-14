@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Optional } from '@votingworks/basics';
+import { Optional } from '@vx/libs/basics/src';
 
 export interface PatDeviceContextInterface {
   isPatDeviceConnected: boolean;

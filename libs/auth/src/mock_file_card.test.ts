@@ -1,14 +1,14 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
-import { electionGeneral } from '@votingworks/fixtures';
+import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 
-import { constructElectionKey } from '@votingworks/types';
+import { constructElectionKey } from '@vx/libs/types/src';
 import {
   deserializeMockFileContents,
   MOCK_FILE_PATH,

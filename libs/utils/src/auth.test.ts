@@ -5,8 +5,8 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
   mockVendorUser,
-} from '@votingworks/test-utils';
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@votingworks/types';
+} from '@vx/libs/test-utils/src';
+import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
 
 import {
   isCardlessVoterAuth,

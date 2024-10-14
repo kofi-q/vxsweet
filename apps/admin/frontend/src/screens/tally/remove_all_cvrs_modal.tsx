@@ -1,4 +1,4 @@
-import { Modal, P, Button } from '@votingworks/ui';
+import { Modal, P, Button } from '@vx/libs/ui/src';
 import React from 'react';
 import {
   getManualResultsMetadata,

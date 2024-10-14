@@ -1,4 +1,4 @@
-import { electionGeneralDefinition as electionDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition as electionDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotIdSchema,
   BallotStyleId,
@@ -11,7 +11,7 @@ import {
   unsafeParse,
   vote,
   VotesDict,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import '../test/expect';
 import { BitReader, BitWriter } from './bits';
 import {

@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import type { ExportDataResult } from '@votingworks/admin-backend';
-import { ok } from '@votingworks/basics';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import type { ExportDataResult } from '@vx/apps/admin/backend/src';
+import { ok } from '@vx/libs/basics/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { act } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { renderInAppContext } from '../../../test/render_in_app_context';

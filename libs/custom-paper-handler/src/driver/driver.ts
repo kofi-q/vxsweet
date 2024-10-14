@@ -6,7 +6,7 @@ import {
   Optional,
   Result,
   sleep,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import {
   byteArray,
@@ -15,14 +15,14 @@ import {
   literal,
   message,
   oneOf,
-} from '@votingworks/message-coder';
+} from '@vx/libs/message-coder/src';
 import {
   createImageData,
   crop,
   ImageData,
   writeImageData,
-} from '@votingworks/image-utils';
-import { Rect } from '@votingworks/types';
+} from '@vx/libs/image-utils/src';
+import { Rect } from '@vx/libs/types/src';
 import {
   assertNumberIsInRangeInclusive,
   assertUint16,

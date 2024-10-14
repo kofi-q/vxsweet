@@ -1,5 +1,5 @@
-import { electionTwoPartyPrimaryFixtures } from '@votingworks/fixtures';
-import { Tabulation } from '@votingworks/types';
+import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { Tabulation } from '@vx/libs/types/src';
 import { getCastVoteRecordAdjudicationFlags } from './cast_vote_records';
 import { CastVoteRecordAdjudicationFlags } from '..';
 

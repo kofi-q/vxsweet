@@ -1,12 +1,12 @@
-import { assertDefined } from '@votingworks/basics';
-import { readElection } from '@votingworks/fs';
-import { famousNamesFixtures } from '@votingworks/hmpb';
+import { assertDefined } from '@vx/libs/basics/src';
+import { readElection } from '@vx/libs/fs/src';
+import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {
   asSheet,
   DEFAULT_MARK_THRESHOLDS,
   ElectionDefinition,
-} from '@votingworks/types';
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { interpretSheet } from '../src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { benchmarkRegressionTest } from './benchmarking';

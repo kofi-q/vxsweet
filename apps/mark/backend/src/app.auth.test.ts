@@ -1,17 +1,17 @@
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   constructElectionKey,
   SystemSettings,
   TEST_JURISDICTION,
   BallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { configureApp, createApp } from '../test/app_helpers';
 
 const jurisdiction = TEST_JURISDICTION;
@@ -34,9 +34,9 @@ beforeAll(() => {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

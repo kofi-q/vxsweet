@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import { existsSync } from 'node:fs';
-import { Optional } from '@votingworks/basics';
+import { Optional } from '@vx/libs/basics/src';
 import { PnpmPackageInfo } from './types';
 
 function jobIdForPackage(pkg: PnpmPackageInfo): string {

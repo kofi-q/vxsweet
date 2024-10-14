@@ -1,11 +1,11 @@
 import {
   electionGeneralDefinition,
   electionWithMsEitherNeitherDefinition,
-} from '@votingworks/fixtures';
-import { CandidateContest, YesNoContest } from '@votingworks/types';
-import { assert, find } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { CandidateContest, YesNoContest } from '@vx/libs/types/src';
+import { assert, find } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { mergeMsEitherNeitherContests } from '../utils/ms_either_neither_contests';
 import { Review } from './review';

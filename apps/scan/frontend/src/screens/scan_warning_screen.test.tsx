@@ -1,11 +1,11 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
   CandidateContest,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@votingworks/types';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/types/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { ScanWarningScreen, Props } from './scan_warning_screen';
 import {
@@ -19,9 +19,9 @@ import {
   MisvoteWarnings,
 } from '../components/misvote_warnings';
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: jest.fn(),
   };
 });

@@ -1,4 +1,4 @@
-import { LanguageCode, UiStringAudioClips } from '@votingworks/types';
+import { LanguageCode, UiStringAudioClips } from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { act } from 'react';
 import { renderHook, waitFor } from '../../test/react_testing_library';

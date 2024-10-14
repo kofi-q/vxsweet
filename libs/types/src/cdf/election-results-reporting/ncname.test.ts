@@ -1,4 +1,4 @@
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { election } from '../../../test/election';
 import { Candidate, PartyId } from '../../election';
 import {

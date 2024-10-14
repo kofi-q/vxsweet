@@ -1,12 +1,12 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   SheetInterpretation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ballotImages,
   simulateScan,
@@ -22,9 +22,9 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
   };
 });

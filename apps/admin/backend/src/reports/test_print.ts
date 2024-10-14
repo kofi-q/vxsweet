@@ -1,18 +1,18 @@
-import { BallotCountReport } from '@votingworks/ui';
+import { BallotCountReport } from '@vx/libs/ui/src';
 import {
   ElectionDefinition,
   ElectionId,
   HmpbBallotPaperSize,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   DateWithoutTime,
   assert,
   assertDefined,
   range,
-} from '@votingworks/basics';
-import { Printer, renderToPdf } from '@votingworks/printing';
-import { LogEventId, Logger } from '@votingworks/logging';
+} from '@vx/libs/basics/src';
+import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { getCurrentTime } from '../util/get_current_time';
 
 const REPORT_NUM_ROWS = 30;

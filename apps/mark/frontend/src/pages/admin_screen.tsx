@@ -17,14 +17,14 @@ import {
   H6,
   UnconfigureMachineButton,
   ExportLogsButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   ElectionDefinition,
   PollsState,
   PrecinctSelection,
-} from '@votingworks/types';
-import type { MachineConfig } from '@votingworks/mark-backend';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import type { MachineConfig } from '@vx/apps/mark/backend/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   ejectUsbDrive,
   logOut,

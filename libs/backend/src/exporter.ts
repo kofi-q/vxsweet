@@ -1,12 +1,12 @@
-import { err, ok, Result } from '@votingworks/basics';
+import { err, ok, Result } from '@vx/libs/basics/src';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { any } from 'micromatch';
 import { isAbsolute, join, normalize, parse } from 'node:path';
 import { Readable } from 'node:stream';
 import { createReadStream, lstatSync } from 'node:fs';
 import { Buffer } from 'node:buffer';
-import { ExportDataError as BaseExportDataError } from '@votingworks/types';
-import { UsbDrive } from '@votingworks/usb-drive';
+import { ExportDataError as BaseExportDataError } from '@vx/libs/types/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { splitToFiles } from './split';
 
 /**

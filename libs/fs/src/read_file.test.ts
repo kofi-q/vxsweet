@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import { writeFileSync } from 'node:fs';
-import { err, ok, typedAs } from '@votingworks/basics';
+import { err, ok, typedAs } from '@vx/libs/basics/src';
 import fc from 'fast-check';
 import { ReadFileError, readFile } from './read_file';
 import { makeTmpFile } from '../test/utils';

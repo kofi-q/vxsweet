@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table as UiTable } from '@votingworks/ui';
+import { Table as UiTable } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 
 export const Row = styled.div`

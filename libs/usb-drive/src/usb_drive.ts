@@ -1,12 +1,12 @@
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { assert, assertDefined } from '@votingworks/basics';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import makeDebug from 'debug';
-import { LogEventId, BaseLogger, Logger } from '@votingworks/logging';
+import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { exec } from './exec';
 import { UsbDriveStatus, UsbDrive } from './types';
 import { MockFileUsbDrive } from './mocks/file_usb_drive';

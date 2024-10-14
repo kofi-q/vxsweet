@@ -10,7 +10,7 @@ import {
   ReadableFile,
   readableFileFromData,
   readableFileFromDisk,
-} from '@votingworks/auth';
+} from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
@@ -18,7 +18,7 @@ import {
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BallotIdSchema,
   BatchInfo,
@@ -36,15 +36,15 @@ import {
   SheetOf,
   SystemSettings,
   unsafeParse,
-} from '@votingworks/types';
-import { UsbDrive, UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/types/src';
+import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   generateCastVoteRecordExportDirectoryName,
   generateElectionBasedSubfolderName,
   getCastVoteRecordExportSubDirectoryNames,
   hasWriteIns,
   SCANNER_RESULTS_FOLDER,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { Exporter } from '../exporter';
 import { SCAN_ALLOWED_EXPORT_PATTERNS, VX_MACHINE_ID } from '../scan_globals';

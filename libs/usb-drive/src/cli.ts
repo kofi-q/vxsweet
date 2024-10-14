@@ -1,6 +1,6 @@
 /* istanbul ignore file */
-import { sleep } from '@votingworks/basics';
-import { LogSource, Logger } from '@votingworks/logging';
+import { sleep } from '@vx/libs/basics/src';
+import { LogSource, Logger } from '@vx/libs/logging/src';
 import { detectUsbDrive } from './usb_drive';
 import { UsbDrive } from './types';
 

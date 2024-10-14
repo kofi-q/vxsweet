@@ -1,4 +1,4 @@
-import { Result } from '@votingworks/basics';
+import { Result } from '@vx/libs/basics/src';
 import {
   DippedSmartCardAuth,
   ElectionKey,
@@ -9,7 +9,7 @@ import {
   StartingCardLockoutDurationSeconds,
   SystemAdministratorUser,
   VendorUser,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 /**
  * The API for a dipped smart card auth instance, "dipped" meaning that the card needs to be

@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import {
   Canvas,

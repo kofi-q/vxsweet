@@ -1,6 +1,6 @@
-import { ConverterClientTypeSchema } from '@votingworks/types';
+import { ConverterClientTypeSchema } from '@vx/libs/types/src';
 import { ZodSchema } from 'zod';
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import { asBoolean } from './as_boolean';
 
 export enum BooleanEnvironmentVariableName {

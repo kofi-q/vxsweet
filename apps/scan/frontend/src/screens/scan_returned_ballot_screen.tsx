@@ -1,4 +1,4 @@
-import { Caption, CenteredLargeProse, H1, appStrings } from '@votingworks/ui';
+import { Caption, CenteredLargeProse, H1, appStrings } from '@vx/libs/ui/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function ScanReturnedBallotScreen(): JSX.Element {

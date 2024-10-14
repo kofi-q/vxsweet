@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { createReadStream } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import { Readable } from 'node:stream';

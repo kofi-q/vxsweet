@@ -1,6 +1,6 @@
-import { Button } from '@votingworks/ui';
+import { Button } from '@vx/libs/ui/src';
 import React from 'react';
-import type { BallotCountReportSpec } from '@votingworks/admin-backend';
+import type { BallotCountReportSpec } from '@vx/apps/admin/backend/src';
 import {
   exportBallotCountReportCsv,
   exportBallotCountReportPdf,

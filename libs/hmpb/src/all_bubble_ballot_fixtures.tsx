@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   HmpbBallotPaperSize,
   BallotStyleGroupId,
@@ -11,8 +10,8 @@ import {
   GridPositionOption,
   VotesDict,
   ballotPaperDimensions,
-} from '@votingworks/types';
-import { DateWithoutTime, assertDefined, range } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { DateWithoutTime, assertDefined, range } from '@vx/libs/basics/src';
 import { join } from 'node:path';
 import makeDebug from 'debug';
 import { Buffer } from 'node:buffer';

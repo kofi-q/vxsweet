@@ -1,4 +1,4 @@
-import { Button, Modal, P } from '@votingworks/ui';
+import { Button, Modal, P } from '@vx/libs/ui/src';
 import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { setTestMode } from '../api';

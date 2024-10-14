@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 
 import userEvent from '@testing-library/user-event';
 import { screen } from '../../../test/react_testing_library';

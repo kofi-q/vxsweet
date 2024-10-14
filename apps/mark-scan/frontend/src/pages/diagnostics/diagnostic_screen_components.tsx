@@ -1,4 +1,4 @@
-import { Prose } from '@votingworks/ui';
+import { Prose } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 
 export const DiagnosticScreenHeader = styled(Prose).attrs({

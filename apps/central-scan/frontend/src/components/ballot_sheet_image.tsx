@@ -1,5 +1,5 @@
-import { BallotPageLayout, Contest } from '@votingworks/types';
-import { iter } from '@votingworks/basics';
+import { BallotPageLayout, Contest } from '@vx/libs/types/src';
+import { iter } from '@vx/libs/basics/src';
 import React, { useCallback, useRef, useState } from 'react';
 
 export interface Props {

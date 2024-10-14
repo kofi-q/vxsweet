@@ -1,5 +1,5 @@
-import { throwIllegalValue } from '@votingworks/basics';
-import type { PrinterStatus } from '@votingworks/scan-backend';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import type { PrinterStatus } from '@vx/apps/scan/backend/src';
 
 export type PollsFlowPrinterSummary =
   | {

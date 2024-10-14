@@ -16,10 +16,10 @@ import {
   Admin,
   Sha256Hash,
   BallotStyleGroupId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import * as z from 'zod';
 
-export type { ExportDataResult, ExportDataError } from '@votingworks/backend';
+export type { ExportDataResult, ExportDataError } from '@vx/libs/backend/src';
 
 /**
  * Environment variables that identify the machine and its software. Set at the

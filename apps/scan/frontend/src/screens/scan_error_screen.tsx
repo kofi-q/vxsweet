@@ -4,12 +4,12 @@ import {
   Icons,
   P,
   appStrings,
-} from '@votingworks/ui';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   PrecinctScannerErrorType,
   InvalidInterpretationReason,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { Screen } from '../components/layout';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
 

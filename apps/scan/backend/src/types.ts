@@ -8,7 +8,7 @@ import {
   SheetInterpretationWithPages,
   SystemSettings,
   PrecinctScannerMachineStatus,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 export interface MachineConfig {
   machineId: string;

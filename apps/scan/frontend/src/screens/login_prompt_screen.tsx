@@ -3,7 +3,7 @@ import {
   InsertCardImage,
   Main,
   FullScreenMessage,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 /**
  * LoginPromptScreen prompts the user to log in when the machine is unconfigured

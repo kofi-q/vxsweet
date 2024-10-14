@@ -1,4 +1,4 @@
-import { Card, H3, H5, Icons } from '@votingworks/ui';
+import { Card, H3, H5, Icons } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import { routerPaths } from '../../router_paths';
 

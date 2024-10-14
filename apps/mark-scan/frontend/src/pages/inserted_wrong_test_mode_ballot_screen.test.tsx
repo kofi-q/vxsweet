@@ -1,6 +1,6 @@
-import { BallotMetadata, PageInterpretation } from '@votingworks/types';
-import { mockOf, suppressingConsoleOutput } from '@votingworks/test-utils';
-import { TestErrorBoundary } from '@votingworks/ui';
+import { BallotMetadata, PageInterpretation } from '@vx/libs/types/src';
+import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+import { TestErrorBoundary } from '@vx/libs/ui/src';
 import { UseQueryResult } from '@tanstack/react-query';
 import { render } from '../../test/react_testing_library';
 import * as api from '../api';

@@ -12,15 +12,15 @@ import {
   Route,
   Breadcrumbs,
   BatteryDisplay,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
-import { DippedSmartCardAuth } from '@votingworks/types';
+import { DippedSmartCardAuth } from '@vx/libs/types/src';
 import styled from 'styled-components';
 import { AppContext } from '../contexts/app_context';
 import { routerPaths } from '../router_paths';

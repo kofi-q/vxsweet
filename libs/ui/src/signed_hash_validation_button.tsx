@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { assert } from '@votingworks/basics';
-import { SignedHashValidationQrCodeValue } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { SignedHashValidationQrCodeValue } from '@vx/libs/types/src';
 
 import { DateTime } from 'luxon';
 import { Button } from './button';

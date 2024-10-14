@@ -6,7 +6,7 @@ import type {
   ToneAudioBuffer,
 } from 'tone';
 
-import { LanguageCode, UiStringAudioClip } from '@votingworks/types';
+import { LanguageCode, UiStringAudioClip } from '@vx/libs/types/src';
 
 import { waitFor } from '../../test/react_testing_library';
 import {

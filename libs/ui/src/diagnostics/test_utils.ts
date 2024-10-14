@@ -1,5 +1,5 @@
 import { within } from '@testing-library/react';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { VxScreen } from '../themes/render_with_themes';
 import { DiagnosticSectionTitle } from './types';
 

@@ -1,9 +1,9 @@
-import { BaseLogger, LogSource, LogEventId } from '@votingworks/logging';
-import { iter } from '@votingworks/basics';
+import { BaseLogger, LogSource, LogEventId } from '@vx/libs/logging/src';
+import { iter } from '@vx/libs/basics/src';
 import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
-} from '@votingworks/backend';
+} from '@vx/libs/backend/src';
 import { MOCK_SCANNER_FILES } from './globals';
 import { LoopScanner, parseBatchesFromEnv } from './loop_scanner';
 import { BatchScanner } from './fujitsu_scanner';

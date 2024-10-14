@@ -1,8 +1,8 @@
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import {
   ExportCastVoteRecordsToUsbDriveError,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 function sheetValuesToString<T extends string | number>(
   sheetValues: SheetOf<T>

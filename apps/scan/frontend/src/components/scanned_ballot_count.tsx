@@ -1,4 +1,4 @@
-import { BigMetric, appStrings } from '@votingworks/ui';
+import { BigMetric, appStrings } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 
 interface Props {

@@ -1,6 +1,6 @@
-import { ElectionPackageConfigurationError } from '@votingworks/types';
-import { throwIllegalValue } from '@votingworks/basics';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import { ElectionPackageConfigurationError } from '@vx/libs/types/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { FullScreenIconWrapper, Icons } from './icons';
 import { UsbDriveImage } from './usb_drive_image';
 import { FullScreenMessage } from './full_screen_message';

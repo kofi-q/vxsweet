@@ -1,11 +1,11 @@
-import { Admin, Election, Tabulation } from '@votingworks/types';
-import { find, throwIllegalValue } from '@votingworks/basics';
+import { Admin, Election, Tabulation } from '@vx/libs/types/src';
+import { find, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   TEST_FILE_PREFIX,
   sanitizeStringForFilename,
   isFilterEmpty as isTabulationFilterEmpty,
   generateFileTimeSuffix,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 const FAT_FILENAME_CHAR_LIMIT = 255;
 

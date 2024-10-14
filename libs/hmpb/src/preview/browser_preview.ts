@@ -6,9 +6,9 @@ import {
   LanguageCode,
   VotesDict,
   getContests,
-} from '@votingworks/types';
-import { electionGeneral } from '@votingworks/fixtures';
-import { assertDefined, iter } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { electionGeneral } from '@vx/libs/fixtures/src';
+import { assertDefined, iter } from '@vx/libs/basics/src';
 import { vxDefaultBallotTemplate } from '../vx_default_ballot_template';
 import {
   BaseBallotProps,

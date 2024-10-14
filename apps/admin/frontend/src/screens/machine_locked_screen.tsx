@@ -1,7 +1,7 @@
-import { ElectionInfoBar, Main, Screen, H1, H3 } from '@votingworks/ui';
+import { ElectionInfoBar, Main, Screen, H1, H3 } from '@vx/libs/ui/src';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { AppContext } from '../contexts/app_context';
 
 const LockedImage = styled.img`

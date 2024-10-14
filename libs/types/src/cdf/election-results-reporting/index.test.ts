@@ -1,4 +1,4 @@
-import { buildSchema } from '@votingworks/cdf-schema-builder';
+import { buildSchema } from '@vx/libs/cdf-schema-builder/src';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ElectionReportSchema } from '.';

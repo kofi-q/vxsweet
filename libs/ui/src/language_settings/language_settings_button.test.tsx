@@ -2,10 +2,10 @@ import {
   ElectionStringKey,
   LanguageCode,
   UiStringsPackage,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { advancePromises } from '@votingworks/test-utils';
+import { advancePromises } from '@vx/libs/test-utils/src';
 import { newTestContext } from '../../test/test_context';
 import { LanguageSettingsButton } from './language_settings_button';
 import { act, screen } from '../../test/react_testing_library';

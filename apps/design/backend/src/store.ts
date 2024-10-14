@@ -1,5 +1,5 @@
-import { DateWithoutTime, Optional, assert } from '@votingworks/basics';
-import { Client as DbClient } from '@votingworks/db';
+import { DateWithoutTime, Optional, assert } from '@vx/libs/basics/src';
+import { Client as DbClient } from '@vx/libs/db/src';
 import {
   Id,
   Iso8601Timestamp,
@@ -9,14 +9,14 @@ import {
   safeParseSystemSettings,
   LanguageCode,
   ElectionSerializationFormat,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/utils/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import {
   BallotLanguageConfig,
   BallotLanguageConfigs,

@@ -1,5 +1,5 @@
-import { Result } from '@votingworks/basics';
-import { SheetOf } from '@votingworks/types';
+import { Result } from '@vx/libs/basics/src';
+import { SheetOf } from '@vx/libs/types/src';
 import {
   ErrorCode,
   FormMovement,

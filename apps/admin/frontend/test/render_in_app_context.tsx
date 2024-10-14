@@ -2,25 +2,25 @@ import { createMemoryHistory, MemoryHistory } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';
 
-import { electionWithMsEitherNeitherDefinition } from '@votingworks/fixtures';
+import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
 import {
   ElectionDefinition,
   DippedSmartCardAuth,
   constructElectionKey,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
-} from '@votingworks/test-utils';
-import type { MachineConfig } from '@votingworks/admin-backend';
+} from '@vx/libs/test-utils/src';
+import type { MachineConfig } from '@vx/apps/admin/backend/src';
 import {
   mockUsbDriveStatus,
   SystemCallContextProvider,
   TestErrorBoundary,
-} from '@votingworks/ui';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+} from '@vx/libs/ui/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { render as testRender, RenderResult } from './react_testing_library';
 import { AppContext } from '../src/contexts/app_context';
 import { Iso8601Timestamp } from '../src/config/types';

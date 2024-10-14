@@ -1,11 +1,11 @@
 import { BrowserRouter } from 'react-router-dom';
-import { BaseLogger, LogSource } from '@votingworks/logging';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import {
   AppBase,
   AppErrorBoundary,
   BatteryLowAlert,
   SystemCallContextProvider,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppRoot, AppRootProps } from './app_root';
 import {

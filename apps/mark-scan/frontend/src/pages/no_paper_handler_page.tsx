@@ -1,4 +1,4 @@
-import { Main, Screen, Text, H1, P, appStrings } from '@votingworks/ui';
+import { Main, Screen, Text, H1, P, appStrings } from '@vx/libs/ui/src';
 
 export function NoPaperHandlerPage(): JSX.Element {
   return (

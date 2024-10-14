@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { buildTestEnvironment, mockElectionManagerAuth } from '../test/app';
 import { getBackupPath } from '../test/backups';
 import { getPerformanceTimer } from '../test/timer';

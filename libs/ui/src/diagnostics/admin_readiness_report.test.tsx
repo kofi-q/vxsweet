@@ -1,6 +1,6 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { IppMarkerInfo, PrinterConfig } from '@votingworks/types';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { IppMarkerInfo, PrinterConfig } from '@vx/libs/types/src';
 import { AdminReadinessReport } from './admin_readiness_report';
 import { render, screen } from '../../test/react_testing_library';
 

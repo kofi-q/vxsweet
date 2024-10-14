@@ -1,5 +1,5 @@
-import { PollsTransitionType } from '@votingworks/types';
-import { throwIllegalValue } from '@votingworks/basics';
+import { PollsTransitionType } from '@vx/libs/types/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import { LogEventId } from './log_event_ids';
 
 export function getLogEventIdForPollsTransition(

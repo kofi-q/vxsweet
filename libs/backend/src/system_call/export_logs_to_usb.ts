@@ -1,5 +1,5 @@
-import { Result, err, ok, throwIllegalValue } from '@votingworks/basics';
-import { UsbDrive } from '@votingworks/usb-drive';
+import { Result, err, ok, throwIllegalValue } from '@vx/libs/basics/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import * as fs from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -9,7 +9,7 @@ import {
   Logger,
   buildCdfLog,
   filterErrorLogs,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { createGunzip, createGzip } from 'node:zlib';

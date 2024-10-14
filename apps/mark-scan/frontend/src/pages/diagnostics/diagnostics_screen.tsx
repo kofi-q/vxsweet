@@ -8,7 +8,7 @@ import {
   Loading,
   SaveReadinessReportButton,
   appStrings,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { useHistory, Switch, Route, Redirect } from 'react-router-dom';
 import { AccessibleControllerDiagnosticScreen } from './accessible_controller_diagnostic_screen';
 import {

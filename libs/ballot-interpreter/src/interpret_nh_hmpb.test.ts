@@ -1,10 +1,10 @@
-import { assert, unique } from '@votingworks/basics';
+import { assert, unique } from '@vx/libs/basics/src';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
-} from '@votingworks/fixtures';
-import { loadImageData } from '@votingworks/image-utils';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/fixtures/src';
+import { loadImageData } from '@vx/libs/image-utils/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   AdjudicationReason,
   DEFAULT_MARK_THRESHOLDS,
@@ -12,11 +12,11 @@ import {
   PageInterpretation,
   safeParseElectionDefinition,
   SheetOf,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

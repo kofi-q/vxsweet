@@ -1,8 +1,8 @@
-import { LogEventId, mockBaseLogger } from '@votingworks/logging';
+import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { Application } from 'express';
 import { dirSync } from 'tmp';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
-import { testDetectDevices } from '@votingworks/backend';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { testDetectDevices } from '@vx/libs/backend/src';
 import { buildApp } from './app';
 import { PORT } from './globals';
 import { start } from './server';

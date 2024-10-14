@@ -7,10 +7,10 @@ import {
   mockUsbDriveStatus,
   DiagnosticSectionTitle,
   Keybinding,
-} from '@votingworks/ui';
-import { ok } from '@votingworks/basics';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { ok } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   fireEvent,
   render,

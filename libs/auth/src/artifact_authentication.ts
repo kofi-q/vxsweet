@@ -10,12 +10,12 @@ import {
   ok,
   Result,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordExportMetadataSchema,
   safeParseJson,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { computeCastVoteRecordRootHashFromScratch } from './cast_vote_record_hashes';
 import { parseCert } from './certs';

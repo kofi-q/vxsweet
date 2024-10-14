@@ -2,7 +2,7 @@ import {
   LanguageCode,
   UiStringAudioIds,
   UiStringsPackage,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   cleanText,
   forEachUiString,

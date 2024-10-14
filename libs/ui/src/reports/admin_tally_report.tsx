@@ -3,8 +3,8 @@ import {
   Contests,
   ElectionDefinition,
   Tabulation,
-} from '@votingworks/types';
-import { assert, assertDefined } from '@votingworks/basics';
+} from '@vx/libs/types/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import { ThemeProvider } from 'styled-components';
 import {
   printedReportThemeFn,

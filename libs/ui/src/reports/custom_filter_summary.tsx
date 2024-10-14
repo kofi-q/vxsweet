@@ -1,10 +1,10 @@
-import { Admin, ElectionDefinition, Tabulation } from '@votingworks/types';
+import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 
 import {
   getDistrictById,
   getPartyById,
   getPrecinctById,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import pluralize from 'pluralize';
 import styled from 'styled-components';

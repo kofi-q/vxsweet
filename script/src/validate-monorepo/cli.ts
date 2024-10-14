@@ -1,4 +1,4 @@
-import { throwIllegalValue } from '@votingworks/basics';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 import { relative } from 'node:path';
 import { IO } from '../types';
 import { validateMonorepo, ValidationIssue } from './validation';
@@ -20,7 +20,8 @@ export async function main({ stderr }: IO): Promise<number> {
         stderr.write(`Mismatched package configuration:\n`);
         for (const { packageJsonPath, propertyName, value } of properties) {
           stderr.write(
-            `  ${relative(cwd, packageJsonPath)}: ${propertyName} ${typeof value === 'undefined' ? 'is unset' : `= ${value}`
+            `  ${relative(cwd, packageJsonPath)}: ${propertyName} ${
+              typeof value === 'undefined' ? 'is unset' : `= ${value}`
             }\n`
           );
         }
@@ -37,7 +38,8 @@ export async function main({ stderr }: IO): Promise<number> {
 
       case tsconfig.ValidationIssueKind.InvalidPropertyValue:
         stderr.write(
-          `${relative(cwd, issue.tsconfigPath)}: invalid value for "${issue.propertyKeyPath
+          `${relative(cwd, issue.tsconfigPath)}: invalid value for "${
+            issue.propertyKeyPath
           }": ${issue.actualValue} (expected ${issue.expectedValue})\n`
         );
         break;
@@ -59,13 +61,18 @@ export async function main({ stderr }: IO): Promise<number> {
           `${relative(
             cwd,
             issue.packageJsonPath
-          )}: missing expected workspace dependency on ${issue.dependencyName}\n`
+          )}: missing expected workspace dependency on ${
+            issue.dependencyName
+          }\n`
         );
         break;
 
       case circleci.ValidationIssueKind.OutdatedConfig:
         stderr.write(
-          `${relative(cwd, issue.configPath)}: configuration is outdated. To resolve, run pnpm -w generate-circleci-config and commit the results.\n`
+          `${relative(
+            cwd,
+            issue.configPath
+          )}: configuration is outdated. To resolve, run pnpm -w generate-circleci-config and commit the results.\n`
         );
         break;
 

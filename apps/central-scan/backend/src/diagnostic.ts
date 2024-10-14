@@ -1,5 +1,5 @@
-import { LogEventId, Logger } from '@votingworks/logging';
-import { runBlankPaperDiagnostic } from '@votingworks/ballot-interpreter';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src';
 import { BatchScanner, ScannedSheetInfo } from './fujitsu_scanner';
 import { Store } from './store';
 

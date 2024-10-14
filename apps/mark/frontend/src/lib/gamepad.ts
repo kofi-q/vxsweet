@@ -4,7 +4,7 @@ import {
   PageNavigationButtonId,
   advanceElementFocus,
   triggerPageNavigationButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 function handleClick() {
   if (document.activeElement instanceof HTMLElement) {

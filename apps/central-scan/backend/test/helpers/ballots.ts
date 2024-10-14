@@ -1,13 +1,13 @@
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
-} from '@votingworks/bmd-ballot-fixtures';
-import { electionFamousNames2021Fixtures } from '@votingworks/fixtures';
-import { pdfToImages, writeImageData } from '@votingworks/image-utils';
-import { SheetOf, asSheet } from '@votingworks/types';
+} from '@vx/libs/bmd-ballot-fixtures/src';
+import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
+import { SheetOf, asSheet } from '@vx/libs/types/src';
 import { tmpNameSync } from 'tmp';
 
 export async function generateBmdBallotFixture(): Promise<SheetOf<string>> {

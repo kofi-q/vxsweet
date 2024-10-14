@@ -1,4 +1,4 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { screen } from '../../test/react_testing_library';
 import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
 import { render } from '../../test/test_utils';

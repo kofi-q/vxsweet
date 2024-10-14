@@ -1,6 +1,6 @@
-import { assert, Optional } from '@votingworks/basics';
-import { readElection } from '@votingworks/fs';
-import { allBubbleBallotFixtures } from '@votingworks/hmpb';
+import { assert, Optional } from '@vx/libs/basics/src';
+import { readElection } from '@vx/libs/fs/src';
+import { allBubbleBallotFixtures } from '@vx/libs/hmpb/src';
 import {
   AdjudicationReason,
   asSheet,
@@ -8,8 +8,8 @@ import {
   CandidateVote,
   DEFAULT_MARK_THRESHOLDS,
   ElectionDefinition,
-} from '@votingworks/types';
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { pdfToPageImages, sortVotesDict } from '../test/helpers/interpretation';
 import { interpretSheet } from './interpret';
 

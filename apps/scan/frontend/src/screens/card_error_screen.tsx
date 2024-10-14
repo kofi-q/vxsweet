@@ -1,4 +1,4 @@
-import { CenteredLargeProse, H1, P, RotateCardImage } from '@votingworks/ui';
+import { CenteredLargeProse, H1, P, RotateCardImage } from '@vx/libs/ui/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function CardErrorScreen(): JSX.Element {

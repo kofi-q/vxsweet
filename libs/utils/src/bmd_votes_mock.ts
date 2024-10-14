@@ -1,11 +1,11 @@
-import { iter } from '@votingworks/basics';
+import { iter } from '@vx/libs/basics/src';
 import {
   CandidateContest,
   Election,
   Vote,
   VotesDict,
   YesNoContest,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 function generateMockCandidateVote(contest: CandidateContest, seed = 0): Vote {
   return iter(contest.candidates)

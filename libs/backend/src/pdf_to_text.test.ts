@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { pdfToText } from './pdf_to_text';
 import { execFile } from './exec';
 

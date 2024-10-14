@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import {
   DEFAULT_LANGUAGE_CODE,

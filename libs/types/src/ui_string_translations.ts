@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { mapObject, mergeObjects } from '@votingworks/basics';
+import { mapObject, mergeObjects } from '@vx/libs/basics/src';
 import { Dictionary } from './generic';
 import { LanguageCode } from './language_code';
 

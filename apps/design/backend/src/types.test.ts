@@ -3,7 +3,7 @@ import {
   LanguageCode,
   DistrictId,
   PartyId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { convertToVxfBallotStyle } from './types';
 
 const { ENGLISH, SPANISH } = LanguageCode;

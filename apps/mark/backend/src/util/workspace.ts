@@ -1,6 +1,6 @@
 import { ensureDirSync } from 'fs-extra';
 import { join, resolve } from 'node:path';
-import { BaseLogger } from '@votingworks/logging';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store';
 
 export interface Workspace {

@@ -1,6 +1,6 @@
-import { InsertedSmartCardAuth } from '@votingworks/types';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src';
 
-import { Button, Icons, P, appStrings } from '@votingworks/ui';
+import { Button, Icons, P, appStrings } from '@vx/libs/ui/src';
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import { confirmBallotBoxEmptied } from '../api';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

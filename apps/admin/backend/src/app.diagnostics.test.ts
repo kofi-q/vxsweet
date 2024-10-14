@@ -1,14 +1,14 @@
-import { LogEventId } from '@votingworks/logging';
-import { HP_LASER_PRINTER_CONFIG } from '@votingworks/printing';
+import { LogEventId } from '@vx/libs/logging/src';
+import { HP_LASER_PRINTER_CONFIG } from '@vx/libs/printing/src';
 import {
   DiskSpaceSummary,
   getBatteryInfo,
   initializeGetWorkspaceDiskSpaceSummary,
   pdfToText,
-} from '@votingworks/backend';
-import { mockOf } from '@votingworks/test-utils';
-import { DiagnosticRecord } from '@votingworks/types';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/backend/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { DiagnosticRecord } from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -18,9 +18,9 @@ import {
 jest.setTimeout(60_000);
 
 jest.mock(
-  '@votingworks/backend',
-  (): typeof import('@votingworks/backend') => ({
-    ...jest.requireActual('@votingworks/backend'),
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
     getBatteryInfo: jest.fn(),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })

@@ -1,4 +1,4 @@
-import { Result } from '@votingworks/basics';
+import { Result } from '@vx/libs/basics/src';
 import { z } from 'zod';
 import { AdjudicationReason, AdjudicationReasonSchema } from './election';
 import {

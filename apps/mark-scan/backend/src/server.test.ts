@@ -1,29 +1,29 @@
-import { LogEventId, mockBaseLogger, mockLogger } from '@votingworks/logging';
+import { LogEventId, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
-import { buildMockInsertedSmartCardAuth } from '@votingworks/auth';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
-} from '@votingworks/utils';
-import { MockPaperHandlerDriver } from '@votingworks/custom-paper-handler';
-import { initializeSystemAudio, testDetectDevices } from '@votingworks/backend';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/utils/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { initializeSystemAudio, testDetectDevices } from '@vx/libs/backend/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { PORT } from './globals';
 import { resolveDriver, start } from './server';
 import { createWorkspace } from './util/workspace';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
       featureFlagMock.isEnabled(flag),
   };
 });
 
-jest.mock('@votingworks/backend', (): typeof import('@votingworks/backend') => {
+jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
   return {
-    ...jest.requireActual('@votingworks/backend'),
+    ...jest.requireActual('@vx/libs/backend/src'),
     initializeSystemAudio: jest.fn(),
   };
 });

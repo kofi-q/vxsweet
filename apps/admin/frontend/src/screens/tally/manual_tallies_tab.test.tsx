@@ -1,11 +1,11 @@
-import { electionPrimaryPrecinctSplitsFixtures } from '@votingworks/fixtures';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
+import { electionPrimaryPrecinctSplitsFixtures } from '@vx/libs/fixtures/src';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 
 import userEvent from '@testing-library/user-event';
-import { BallotStyleGroupId } from '@votingworks/types';
-import { getGroupedBallotStyles } from '@votingworks/utils';
+import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../../../test/react_testing_library';
 import {
   ALL_MANUAL_TALLY_BALLOT_TYPES,

@@ -1,5 +1,5 @@
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { format } from '@votingworks/utils';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { format } from '@vx/libs/utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { ReadinessReportHeader } from './report_header';
 

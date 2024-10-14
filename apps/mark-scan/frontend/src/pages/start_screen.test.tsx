@@ -2,11 +2,11 @@ import { Route } from 'react-router-dom';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { createMemoryHistory } from 'history';
-import { hasTextAcrossElements } from '@votingworks/test-utils';
-import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@votingworks/mark-flow-ui';
-import { BallotStyleId } from '@votingworks/types';
+import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
+import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
+import { BallotStyleId } from '@vx/libs/types/src';
 import { screen } from '../../test/react_testing_library';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
 import { render } from '../../test/test_utils';

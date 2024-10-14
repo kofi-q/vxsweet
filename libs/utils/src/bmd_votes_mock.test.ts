@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { generateMockVotes } from './bmd_votes_mock';
 
 test('generateMockVotes is consistent', () => {

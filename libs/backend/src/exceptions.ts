@@ -3,7 +3,7 @@
 // Could potentially set up a custom test environment, if we need the coverage
 // for this: https://github.com/jestjs/jest/issues/10364#issuecomment-669047725
 
-import { BaseLogger, LogEventId } from '@votingworks/logging';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 
 /** Sets up handlers for unhandled exceptions. */
 export function handleUncaughtExceptions(logger: BaseLogger): void {

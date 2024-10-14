@@ -1,4 +1,4 @@
-import { Button, appStrings } from '@votingworks/ui';
+import { Button, appStrings } from '@vx/libs/ui/src';
 
 export interface VoterSettingsButtonProps {
   onPress: () => void;

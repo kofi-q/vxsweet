@@ -15,18 +15,18 @@ import {
   Font,
   Icons,
   FileInputButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import {
   format,
   isElectionManagerAuth,
   isSystemAdministratorAuth,
-} from '@votingworks/utils';
-import { assert, throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/utils/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
 import type {
   CvrFileImportInfo,
   ImportCastVoteRecordsError,
-} from '@votingworks/admin-backend';
+} from '@vx/apps/admin/backend/src';
 import { AppContext } from '../../contexts/app_context';
 import { Loading } from '../../components/loading';
 import {

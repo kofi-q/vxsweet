@@ -1,6 +1,6 @@
 import { act } from 'react';
 
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 
 import { UiStringAudioDataAttributeName, WithAudio } from './with_audio';
 import {

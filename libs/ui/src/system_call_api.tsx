@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Optional } from '@votingworks/basics';
+import { Optional } from '@vx/libs/basics/src';
 import { QueryKey, useMutation, useQuery } from '@tanstack/react-query';
-import type { SystemCallApi as SystemCallApiClient } from '@votingworks/backend';
+import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
 
 export const BATTERY_POLLING_INTERVAL_GROUT = 3000;
 export const AUDIO_INFO_POLLING_INTERVAL_MS = 1000;

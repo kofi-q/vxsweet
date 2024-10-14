@@ -1,7 +1,7 @@
 import {
   DippedSmartCardAuth as DippedSmartCardAuthTypes,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { DippedSmartCardAuthApi } from './dipped_smart_card_auth_api';
 import { InsertedSmartCardAuthApi } from './inserted_smart_card_auth_api';

@@ -3,10 +3,10 @@ import {
   CandidateContest,
   ElectionDefinition,
   Tabulation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { ThemeProvider } from 'styled-components';
-import { unique } from '@votingworks/basics';
-import { getPartyById } from '@votingworks/utils';
+import { unique } from '@vx/libs/basics/src';
+import { getPartyById } from '@vx/libs/utils/src';
 import {
   printedReportThemeFn,
   PrintedReport,

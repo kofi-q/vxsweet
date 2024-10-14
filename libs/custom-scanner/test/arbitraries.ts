@@ -1,10 +1,10 @@
-import { Uint8 } from '@votingworks/message-coder';
+import { Uint8 } from '@vx/libs/message-coder/src';
 import {
   arbitraryUint16,
   arbitraryUint24,
   arbitraryUint32,
   arbitraryUint8,
-} from '@votingworks/test-utils';
+} from '@vx/libs/test-utils/src';
 import * as fc from 'fast-check';
 import {
   AckResponseMessage,

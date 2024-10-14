@@ -1,5 +1,5 @@
-import { Id } from '@votingworks/types';
-import { Route } from '@votingworks/ui';
+import { Id } from '@vx/libs/types/src';
+import { Route } from '@vx/libs/ui/src';
 
 export const routes = {
   root: {

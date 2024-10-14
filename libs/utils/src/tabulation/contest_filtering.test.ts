@@ -2,8 +2,8 @@ import {
   electionPrimaryPrecinctSplitsFixtures,
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
-import { find } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { find } from '@vx/libs/basics/src';
 import {
   doesContestAppearOnPartyBallot,
   getContestIdsForBallotStyle,

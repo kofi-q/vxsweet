@@ -10,22 +10,22 @@ import {
   Result,
   throwIllegalValue,
   wrapException,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   LogDispositionStandardTypes,
   LogEventId,
   BaseLogger,
-} from '@votingworks/logging';
+} from '@vx/libs/logging/src';
 import {
   BallotStyleId,
   CardlessVoterUser,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
   PrecinctId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import {
   arePollWorkerCardDetails,

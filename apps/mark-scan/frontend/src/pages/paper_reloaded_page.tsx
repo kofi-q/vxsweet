@@ -1,4 +1,4 @@
-import { Icons, P } from '@votingworks/ui';
+import { Icons, P } from '@vx/libs/ui/src';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

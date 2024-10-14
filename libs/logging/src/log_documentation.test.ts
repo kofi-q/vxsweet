@@ -1,5 +1,5 @@
-import { EventLogging, safeParseJson } from '@votingworks/types';
-import { assert } from '@votingworks/basics';
+import { EventLogging, safeParseJson } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
 import * as fs from 'node:fs';
 import { LogEventId } from './log_event_ids';
 import {

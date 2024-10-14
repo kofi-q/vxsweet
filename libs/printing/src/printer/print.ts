@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { rootDebug } from '../utils/debug';
 import { PrintProps, PrintSides } from './types';
 import { DEFAULT_MANAGED_PRINTER_NAME } from './configure';

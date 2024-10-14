@@ -1,5 +1,5 @@
 /* eslint-disable vx/gts-jsdoc */
-import { assertDefined, find } from '@votingworks/basics';
+import { assertDefined, find } from '@vx/libs/basics/src';
 import {
   AdjudicationInfo,
   BallotMetadata,
@@ -13,8 +13,8 @@ import {
   SheetOf,
   TargetShape,
   YesNoContest,
-} from '@votingworks/types';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;
 const { election, ballotHash } = electionDefinition;

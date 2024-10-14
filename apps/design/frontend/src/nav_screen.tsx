@@ -9,7 +9,7 @@ import {
   NavLink,
   NavList,
   Screen,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { electionNavRoutes } from './routes';
 

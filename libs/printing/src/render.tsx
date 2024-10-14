@@ -9,8 +9,8 @@ import {
   GlobalStyles,
   VxThemeProvider,
   FONT_AWESOME_STYLES,
-} from '@votingworks/ui';
-import { err, ok, Result } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { err, ok, Result } from '@vx/libs/basics/src';
 import { OPTIONAL_EXECUTABLE_PATH_OVERRIDE } from './chromium';
 
 const PLAYWRIGHT_PIXELS_PER_INCH = 96;

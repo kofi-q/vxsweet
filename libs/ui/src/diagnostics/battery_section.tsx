@@ -1,5 +1,5 @@
-import type { BatteryInfo } from '@votingworks/backend';
-import { format } from '@votingworks/utils';
+import type { BatteryInfo } from '@vx/libs/backend/src';
+import { format } from '@vx/libs/utils/src';
 import { H2, P } from '../typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';
 

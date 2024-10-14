@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { deferred, err, ok } from '@votingworks/basics';
-import { ExportDataResult } from '@votingworks/backend';
+import { deferred, err, ok } from '@vx/libs/basics/src';
+import { ExportDataResult } from '@vx/libs/backend/src';
 import {
   QueryClient,
   QueryClientProvider,

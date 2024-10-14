@@ -4,8 +4,8 @@ import {
   Icons,
   P,
   appStrings,
-} from '@votingworks/ui';
-import { PrecinctScannerErrorType } from '@votingworks/types';
+} from '@vx/libs/ui/src';
+import { PrecinctScannerErrorType } from '@vx/libs/types/src';
 import { Screen } from '../components/layout';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
 

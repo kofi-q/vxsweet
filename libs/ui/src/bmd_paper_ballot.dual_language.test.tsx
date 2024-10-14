@@ -7,12 +7,12 @@ import {
   VotesDict,
   YesNoContest,
   getContests,
-} from '@votingworks/types';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
-import { mockOf } from '@votingworks/test-utils';
-import { generateBallotStyleId } from '@votingworks/utils';
-import { assertDefined, find } from '@votingworks/basics';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { generateBallotStyleId } from '@vx/libs/utils/src';
+import { assertDefined, find } from '@vx/libs/basics/src';
 import { BmdPaperBallot } from './bmd_paper_ballot';
 import { newTestContext as newUiStringsTestContext } from '../test/test_context';
 import { UiString, UiStringProps } from './ui_strings/ui_string';

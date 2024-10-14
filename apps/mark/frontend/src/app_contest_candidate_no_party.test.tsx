@@ -1,10 +1,10 @@
-import { ALL_PRECINCTS_SELECTION } from '@votingworks/utils';
+import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { BallotStyleId, CandidateContest, Election } from '@votingworks/types';
+import { BallotStyleId, CandidateContest, Election } from '@vx/libs/types/src';
 import {
   asElectionDefinition,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';

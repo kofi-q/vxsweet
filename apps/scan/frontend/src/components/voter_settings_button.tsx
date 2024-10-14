@@ -1,4 +1,4 @@
-import { Button, Icons, appStrings } from '@votingworks/ui';
+import { Button, Icons, appStrings } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Paths } from '../constants';

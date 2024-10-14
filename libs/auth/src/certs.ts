@@ -4,8 +4,8 @@ import {
   assert,
   DateWithoutTime,
   throwIllegalValue,
-} from '@votingworks/basics';
-import { ElectionId, ElectionKey } from '@votingworks/types';
+} from '@vx/libs/basics/src';
+import { ElectionId, ElectionKey } from '@vx/libs/types/src';
 import { arePollWorkerCardDetails, CardDetails } from './card';
 import { openssl } from './cryptography';
 

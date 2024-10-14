@@ -79,7 +79,7 @@ test.each(['dependencies', 'devDependencies', 'peerDependencies'])(
 
 test('findAllMonorepoDependencies yields all dependencies', () => {
   const pkgs = getWorkspacePackageInfo(join(__dirname, '../../..'));
-  const basicsPkg = pkgs.get('@votingworks/basics')!;
+  const basicsPkg = pkgs.get('@vx/libs/basics/src')!;
 
   // simple dependencies
   expect([...findAllMonorepoDependencies(pkgs, basicsPkg)]).toEqual([
@@ -96,20 +96,20 @@ test('findAllMonorepoDependencies yields all dependencies', () => {
     [
       ...findAllMonorepoDependencies(
         pkgs,
-        pkgs.get('@votingworks/mark-frontend')!
+        pkgs.get('@vx/apps/mark/frontend/src')!
       ),
     ].map((pkg) => pkg.name)
   ).toEqual(
     // this list is intentionally incomplete to avoid breaking this test
     // when new packages are added or dependencies are changed
     expect.arrayContaining([
-      '@votingworks/basics',
-      '@votingworks/fixtures',
-      '@votingworks/logging',
-      '@votingworks/types',
-      '@votingworks/ui',
-      '@votingworks/utils',
-      '@votingworks/mark-backend',
+      '@vx/libs/basics/src',
+      '@vx/libs/fixtures/src',
+      '@vx/libs/logging/src',
+      '@vx/libs/types/src',
+      '@vx/libs/ui/src',
+      '@vx/libs/utils/src',
+      '@vx/apps/mark/backend/src',
     ])
   );
 });

@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import { BaseLogger, LogEventId, LogSource } from '@votingworks/logging';
+import { assert } from '@vx/libs/basics/src';
+import { BaseLogger, LogEventId, LogSource } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
 import { createHash } from 'node:crypto';
 import makeDebug from 'debug';

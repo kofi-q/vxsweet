@@ -2,12 +2,12 @@ import userEvent from '@testing-library/user-event';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { mockKiosk } from '@votingworks/test-utils';
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
-import { ok } from '@votingworks/basics';
-import { mockUsbDriveStatus } from '@votingworks/ui';
-import { FujitsuPrinterStatus } from '@votingworks/scan-backend';
+} from '@vx/libs/fixtures/src';
+import { mockKiosk } from '@vx/libs/test-utils/src';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
+import { ok } from '@vx/libs/basics/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { FujitsuPrinterStatus } from '@vx/apps/scan/backend/src';
 import {
   act,
   render,

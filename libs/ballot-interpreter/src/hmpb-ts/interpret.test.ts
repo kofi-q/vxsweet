@@ -1,7 +1,7 @@
-import { assertDefined, iter, ok, unique } from '@votingworks/basics';
+import { assertDefined, iter, ok, unique } from '@vx/libs/basics/src';
 import { ImageData } from 'canvas';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@votingworks/fixtures';
-import { Election, ElectionDefinition, SheetOf } from '@votingworks/types';
+import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import { Election, ElectionDefinition, SheetOf } from '@vx/libs/types/src';
 import { interpret } from './interpret';
 
 test('interpret exists', () => {

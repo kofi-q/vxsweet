@@ -12,8 +12,8 @@ import {
   assert,
   DateWithoutTime,
   assertDefined,
-} from '@votingworks/basics';
-import { Bindable, Client as DbClient, Statement } from '@votingworks/db';
+} from '@vx/libs/basics/src';
+import { Bindable, Client as DbClient, Statement } from '@vx/libs/db/src';
 import {
   AnyContest,
   BallotId,
@@ -43,7 +43,7 @@ import {
   constructElectionKey,
   BallotStyleGroupId,
   BallotStyleGroup,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { Buffer } from 'node:buffer';
 import { v4 as uuid } from 'uuid';
@@ -54,14 +54,14 @@ import {
   getOfficialCandidateNameLookup,
   OfficialCandidateNameLookup,
   SqliteBool,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import {
   addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@votingworks/backend';
-import { BaseLogger } from '@votingworks/logging';
+} from '@vx/libs/backend/src';
+import { BaseLogger } from '@vx/libs/logging/src';
 import {
   CastVoteRecordFileRecord,
   CastVoteRecordFileRecordSchema,

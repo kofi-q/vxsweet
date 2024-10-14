@@ -3,8 +3,8 @@ import {
   electionTwoPartyPrimary,
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
-import { assert, assertDefined, find, typedAs } from '@votingworks/basics';
+} from '@vx/libs/fixtures/src';
+import { assert, assertDefined, find, typedAs } from '@vx/libs/basics/src';
 import {
   CVR,
   Tabulation,
@@ -16,10 +16,10 @@ import {
   BallotStyleId,
   BallotStyleGroupId,
   getGroupIdFromBallotStyleId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { GroupSpecifier } from '@votingworks/types/src/tabulation';
+import { GroupSpecifier } from '@vx/libs/types/src/tabulation/src';
 import {
   getBallotCount,
   getBallotStyleIdPartyIdLookup,

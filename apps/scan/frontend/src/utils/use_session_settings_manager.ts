@@ -3,9 +3,9 @@ import {
   VoterSettingsManagerContext,
   useCurrentLanguage,
   useLanguageControls,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { DefaultTheme, ThemeContext } from 'styled-components';
-import { LanguageCode } from '@votingworks/types';
+import { LanguageCode } from '@vx/libs/types/src';
 
 export interface SessionSettingsManagerProps {
   startNewSession: () => void;

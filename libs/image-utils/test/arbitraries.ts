@@ -1,5 +1,5 @@
-import { assert } from '@votingworks/basics';
-import { Rect } from '@votingworks/types';
+import { assert } from '@vx/libs/basics/src';
+import { Rect } from '@vx/libs/types/src';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';
 import { int, RGBA_CHANNEL_COUNT } from '../src';

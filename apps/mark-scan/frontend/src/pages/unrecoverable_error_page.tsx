@@ -1,4 +1,4 @@
-import { P, appStrings, Icons } from '@votingworks/ui';
+import { P, appStrings, Icons } from '@vx/libs/ui/src';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 export function UnrecoverableErrorPage(): JSX.Element {

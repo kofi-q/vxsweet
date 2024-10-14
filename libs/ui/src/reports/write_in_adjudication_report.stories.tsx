@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import { PrintedReportPreview } from './layout';
 import {
   WriteInAdjudicationReport,

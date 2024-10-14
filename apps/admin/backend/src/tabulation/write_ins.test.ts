@@ -3,13 +3,13 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
-} from '@votingworks/types';
-import { getEmptyElectionResults } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { getEmptyElectionResults } from '@vx/libs/utils/src';
 import {
   convertContestWriteInSummaryToWriteInTallies,
   getEmptyContestWriteInSummary,

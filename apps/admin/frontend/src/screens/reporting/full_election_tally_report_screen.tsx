@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { isElectionManagerAuth } from '@votingworks/utils';
-import { assert } from '@votingworks/basics';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
+import { assert } from '@vx/libs/basics/src';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';
 import { TallyReportViewer } from '../../components/reporting/tally_report_viewer';

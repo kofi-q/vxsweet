@@ -1,4 +1,4 @@
-import { ElectionDefinition } from '@votingworks/types';
+import { ElectionDefinition } from '@vx/libs/types/src';
 import {
   Button,
   Modal,
@@ -13,10 +13,10 @@ import {
   TabConfig,
   PowerDownButton,
   SignedHashValidationButton,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import React, { useState } from 'react';
-import type { PrecinctScannerStatus } from '@votingworks/scan-backend';
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import type { PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import styled from 'styled-components';
 import { ExportResultsModal } from '../components/export_results_modal';
 import { Screen } from '../components/layout';

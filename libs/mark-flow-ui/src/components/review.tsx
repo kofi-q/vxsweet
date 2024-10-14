@@ -9,7 +9,7 @@ import {
   PrecinctId,
   getContestDistrict,
   ContestId,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   Caption,
   Card,
@@ -23,9 +23,9 @@ import {
   NumberString,
   WithAltAudio,
   AssistiveTechInstructions,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
-import { getSingleYesNoVote } from '@votingworks/utils';
+import { getSingleYesNoVote } from '@vx/libs/utils/src';
 import {
   CandidateContestResultInterface,
   MsEitherNeitherContestResultInterface,

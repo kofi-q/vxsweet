@@ -3,7 +3,7 @@ import {
   PrinterConfig,
   PrinterRichStatus,
   PrinterStatus,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   PrinterSection,

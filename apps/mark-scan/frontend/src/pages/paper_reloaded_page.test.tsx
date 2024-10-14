@@ -1,4 +1,4 @@
-import { mockOf } from '@votingworks/test-utils';
+import { mockOf } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';

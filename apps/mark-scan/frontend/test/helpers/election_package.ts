@@ -1,8 +1,8 @@
 import {
   DEFAULT_SYSTEM_SETTINGS,
   ElectionDefinition,
-} from '@votingworks/types';
-import { VxScreen, mockUsbDriveStatus } from '@votingworks/ui';
+} from '@vx/libs/types/src';
+import { VxScreen, mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { ApiMock } from './mock_api_client';
 
 /**

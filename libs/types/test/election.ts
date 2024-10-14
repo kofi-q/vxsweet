@@ -1,4 +1,4 @@
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import { BallotStyle, Election, PartyIdSchema } from '../src/election';
 import { safeParseElection } from '../src/election_parsing';
 import { unsafeParse } from '../src/generic';

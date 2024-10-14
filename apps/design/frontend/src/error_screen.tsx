@@ -4,7 +4,7 @@ import {
   H1,
   Icons,
   LeftNav,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 import { Column, Row } from './layout';
 
 export function ErrorScreen(): JSX.Element {

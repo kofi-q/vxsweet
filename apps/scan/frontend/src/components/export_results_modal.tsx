@@ -8,10 +8,10 @@ import {
   UsbControllerButton,
   P,
   userReadableMessageFromExportError,
-} from '@votingworks/ui';
-import { throwIllegalValue } from '@votingworks/basics';
+} from '@vx/libs/ui/src';
+import { throwIllegalValue } from '@vx/libs/basics/src';
 
-import type { UsbDriveStatus } from '@votingworks/usb-drive';
+import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { ejectUsbDrive, exportCastVoteRecordsToUsbDrive } from '../api';
 
 const UsbImage = styled.img`

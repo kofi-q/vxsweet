@@ -2,7 +2,7 @@ import {
   AdjudicationReason,
   DEFAULT_SYSTEM_SETTINGS,
   SystemSettings,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '../test/react_testing_library';
 import {

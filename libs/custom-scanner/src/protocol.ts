@@ -6,7 +6,7 @@ import {
   Result,
   resultBlock,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BaseCoder,
   BitLength,
@@ -26,7 +26,7 @@ import {
   Uint8,
   uint8,
   unboundedString,
-} from '@votingworks/message-coder';
+} from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import { debug as baseDebug } from './debug';
 import {

@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 
 import { QUERY_CLIENT_DEFAULT_OPTIONS, shouldRetry } from './react_query';
 

@@ -1,4 +1,4 @@
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import {
   electionFamousNames2021Fixtures,
   electionGeneral,
@@ -6,15 +6,15 @@ import {
   electionGeneralFixtures,
   electionTwoPartyPrimaryFixtures,
   systemSettings,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
   mockSessionExpiresAt,
   mockOf,
   suppressingConsoleOutput,
-} from '@votingworks/test-utils';
-import { InsertedSmartCardAuthApi } from '@votingworks/auth';
+} from '@vx/libs/test-utils/src';
+import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   safeParseSystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
@@ -27,7 +27,7 @@ import {
   constructElectionKey,
   convertVxfElectionToCdfBallotDefinition,
   safeParseElectionDefinition,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,
@@ -36,18 +36,18 @@ import {
   singlePrecinctSelectionFor,
   getMockMultiLanguageElectionDefinition,
   generateMockVotes,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 
 import { Buffer } from 'node:buffer';
-import { mockElectionPackageFileTree } from '@votingworks/backend';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
 import { Server } from 'node:http';
-import * as grout from '@votingworks/grout';
-import { MockUsbDrive } from '@votingworks/usb-drive';
-import { LogEventId, Logger } from '@votingworks/logging';
+import * as grout from '@vx/libs/grout/src';
+import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   MemoryPrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import { createApp } from '../test/app_helpers';
 import { Api } from './app';
 import { ElectionState } from '.';
@@ -55,9 +55,9 @@ import { isAccessibleControllerAttached } from './util/accessible_controller';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@votingworks/utils', (): typeof import('@votingworks/utils') => {
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {
-    ...jest.requireActual('@votingworks/utils'),
+    ...jest.requireActual('@vx/libs/utils/src'),
     isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
     randomBallotId: () => '12345',
   };

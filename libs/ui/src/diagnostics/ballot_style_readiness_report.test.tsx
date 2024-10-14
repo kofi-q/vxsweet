@@ -1,7 +1,7 @@
 import {
   electionGeneral,
   electionGeneralDefinition,
-} from '@votingworks/fixtures';
+} from '@vx/libs/fixtures/src';
 import {
   BallotStyle,
   BallotStyleGroupId,
@@ -15,8 +15,8 @@ import {
   PartyId,
   Precinct,
   getContests,
-} from '@votingworks/types';
-import { hasTextAcrossElements, mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/types/src';
+import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { BallotStyleReadinessReport } from './ballot_style_readiness_report';
 import {

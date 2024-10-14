@@ -1,12 +1,12 @@
-import { sliceBallotHashForEncoding } from '@votingworks/ballot-encoder';
-import { assert, assertDefined, iter } from '@votingworks/basics';
-import { readElection } from '@votingworks/fs';
+import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
+import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { readElection } from '@vx/libs/fs/src';
 import {
   famousNamesFixtures,
   generalElectionFixtures,
   primaryElectionFixtures,
-} from '@votingworks/hmpb';
-import { mockOf } from '@votingworks/test-utils';
+} from '@vx/libs/hmpb/src';
+import { mockOf } from '@vx/libs/test-utils/src';
 import {
   AdjudicationReason,
   asSheet,
@@ -15,11 +15,11 @@ import {
   DEFAULT_MARK_THRESHOLDS,
   ElectionDefinition,
   PageInterpretation,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { createCanvas } from 'canvas';
 import {
   pdfToPageImages,

@@ -1,6 +1,6 @@
-import { assertDefined, err, ok } from '@votingworks/basics';
-import { mockOf } from '@votingworks/test-utils';
-import { Byte } from '@votingworks/types';
+import { assertDefined, err, ok } from '@vx/libs/basics/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { join } from 'node:path';

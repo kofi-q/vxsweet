@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { VxRenderResult } from '@votingworks/ui';
+import { VxRenderResult } from '@vx/libs/ui/src';
 import { fireEvent, render, screen } from '../../../test/react_testing_library';
 import {
   ApiMock,

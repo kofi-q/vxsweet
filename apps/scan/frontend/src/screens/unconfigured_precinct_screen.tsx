@@ -1,4 +1,4 @@
-import { CenteredLargeProse, H1, P } from '@votingworks/ui';
+import { CenteredLargeProse, H1, P } from '@vx/libs/ui/src';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function UnconfiguredPrecinctScreen(): JSX.Element {

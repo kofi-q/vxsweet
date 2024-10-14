@@ -1,6 +1,6 @@
-import { err, ok } from '@votingworks/basics';
-import { electionTwoPartyPrimaryDefinition } from '@votingworks/fixtures';
-import { Admin, BallotStyleGroupId, Tabulation } from '@votingworks/types';
+import { err, ok } from '@vx/libs/basics/src';
+import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { Admin, BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
 import { generateTitleForReport } from './titles';
 import { ScannerBatch } from '../types';
 

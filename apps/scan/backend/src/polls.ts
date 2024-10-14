@@ -1,6 +1,6 @@
-import { Result, assert, err, ok } from '@votingworks/basics';
-import { LogEventId, Logger } from '@votingworks/logging';
-import { UsbDrive } from '@votingworks/usb-drive';
+import { Result, assert, err, ok } from '@vx/libs/basics/src';
+import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { UsbDrive } from '@vx/libs/usb-drive/src';
 import { Store } from './store';
 import { exportCastVoteRecordsToUsbDrive } from './export';
 import { Workspace } from './util/workspace';

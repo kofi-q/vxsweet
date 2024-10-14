@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Result } from '@votingworks/basics';
+import { Result } from '@vx/libs/basics/src';
 import { safeParse } from './generic';
 
 export interface SafeParseNumberOptions {

@@ -6,7 +6,7 @@ import {
   P,
   useAudioControls,
   useAudioEnabled,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import React from 'react';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

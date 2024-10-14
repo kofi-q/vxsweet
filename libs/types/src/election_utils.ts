@@ -3,7 +3,7 @@ import {
   assertDefined,
   find,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   AnyContest,
   HmpbBallotPaperSize,

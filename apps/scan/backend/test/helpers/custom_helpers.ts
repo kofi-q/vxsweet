@@ -2,8 +2,8 @@ import { Buffer } from 'node:buffer';
 import {
   InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
-} from '@votingworks/auth';
-import { Result, assert, deferred, ok } from '@votingworks/basics';
+} from '@vx/libs/auth/src';
+import { Result, assert, deferred, ok } from '@vx/libs/basics/src';
 import {
   CustomScanner,
   ErrorCode,
@@ -12,45 +12,45 @@ import {
   ImageFromScanner,
   ScanSide,
   mocks,
-} from '@votingworks/custom-scanner';
+} from '@vx/libs/custom-scanner/src';
 import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
-} from '@votingworks/fixtures';
-import * as grout from '@votingworks/grout';
+} from '@vx/libs/fixtures/src';
+import * as grout from '@vx/libs/grout/src';
 import {
   ImageData,
   RGBA_CHANNEL_COUNT,
   isRgba,
-} from '@votingworks/image-utils';
-import { Logger, mockBaseLogger } from '@votingworks/logging';
-import { SheetOf, mapSheet } from '@votingworks/types';
+} from '@vx/libs/image-utils/src';
+import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
+import { SheetOf, mapSheet } from '@vx/libs/types/src';
 import { Application } from 'express';
 import { Server } from 'node:http';
 import { AddressInfo } from 'node:net';
 import tmp from 'tmp';
-import { createMockUsbDrive, MockUsbDrive } from '@votingworks/usb-drive';
+import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   MemoryPrinterHandler,
   createMockPrinterHandler,
-} from '@votingworks/printing';
+} from '@vx/libs/printing/src';
 import {
   MemoryFujitsuPrinterHandler,
   createMockFujitsuPrinterHandler,
-} from '@votingworks/fujitsu-thermal-printer';
+} from '@vx/libs/fujitsu-thermal-printer/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
-} from '@votingworks/bmd-ballot-fixtures';
+} from '@vx/libs/bmd-ballot-fixtures/src';
 import { Api, buildApp } from '../../src/app';
 import {
   createPrecinctScannerStateMachine,

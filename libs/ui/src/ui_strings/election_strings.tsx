@@ -13,8 +13,8 @@ import {
   Party,
   Precinct,
   YesNoOption,
-} from '@votingworks/types';
-import { format } from '@votingworks/utils';
+} from '@vx/libs/types/src';
+import { format } from '@vx/libs/utils/src';
 
 import { UiRichTextString, UiString } from './ui_string';
 import { DateString } from './date_string';

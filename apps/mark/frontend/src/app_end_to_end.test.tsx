@@ -2,15 +2,15 @@ import userEvent from '@testing-library/user-event';
 import {
   mockElectionManagerUser,
   hasTextAcrossElements,
-} from '@votingworks/test-utils';
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
-import { mockBaseLogger } from '@votingworks/logging';
+} from '@vx/libs/test-utils/src';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
+import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   BallotStyleId,
   constructElectionKey,
   getContestDistrictName,
-} from '@votingworks/types';
-import { electionGeneralDefinition } from '@votingworks/fixtures';
+} from '@vx/libs/types/src';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 import * as GLOBALS from './config/globals';
 

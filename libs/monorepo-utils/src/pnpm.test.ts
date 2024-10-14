@@ -35,16 +35,16 @@ test('getWorkspacePackageInfo', () => {
   );
 
   // this package
-  expect(packages.get('@votingworks/monorepo-utils')).toEqual(
+  expect(packages.get('@vx/libs/monorepo-utils/src')).toEqual(
     expect.objectContaining({
-      name: '@votingworks/monorepo-utils',
+      name: '@vx/libs/monorepo-utils/src',
     })
   );
 
   // basics, as an example library
-  expect(packages.get('@votingworks/basics')).toEqual(
+  expect(packages.get('@vx/libs/basics/src')).toEqual(
     expect.objectContaining({
-      name: '@votingworks/basics',
+      name: '@vx/libs/basics/src',
     })
   );
 });

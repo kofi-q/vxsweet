@@ -1,4 +1,3 @@
-import React from 'react';
 import { Buffer } from 'node:buffer';
 import {
   assert,
@@ -6,7 +5,7 @@ import {
   deepEqual,
   iter,
   throwIllegalValue,
-} from '@votingworks/basics';
+} from '@vx/libs/basics/src';
 import {
   BallotStyleId,
   BallotType,
@@ -21,9 +20,9 @@ import {
   convertVxfElectionToCdfBallotDefinition,
   formatBallotHash,
   safeParseElectionDefinition,
-} from '@votingworks/types';
-import { QrCode } from '@votingworks/ui';
-import { encodeHmpbBallotPageMetadata } from '@votingworks/ballot-encoder';
+} from '@vx/libs/types/src';
+import { QrCode } from '@vx/libs/ui/src';
+import { encodeHmpbBallotPageMetadata } from '@vx/libs/ballot-encoder/src';
 import { RenderDocument, RenderScratchpad, Renderer } from './renderer';
 import {
   BUBBLE_CLASS,

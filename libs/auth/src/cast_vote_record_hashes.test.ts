@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import { sha256 } from 'js-sha256';
 import path from 'node:path';
 import { dirSync } from 'tmp';
-import { iter } from '@votingworks/basics';
-import { Client } from '@votingworks/db';
-import { CastVoteRecordExportFileName } from '@votingworks/types';
+import { iter } from '@vx/libs/basics/src';
+import { Client } from '@vx/libs/db/src';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/src';
 
 import {
   CAST_VOTE_RECORD_HASHES_TABLE_SCHEMA,

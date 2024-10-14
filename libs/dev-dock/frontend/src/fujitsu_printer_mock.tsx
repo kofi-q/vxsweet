@@ -1,12 +1,12 @@
-import type { PrinterStatus } from '@votingworks/fujitsu-thermal-printer';
-import { assert, assertDefined, throwIllegalValue } from '@votingworks/basics';
+import type { PrinterStatus } from '@vx/libs/fujitsu-thermal-printer/src';
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import styled from 'styled-components';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 import {
   isFeatureFlagEnabled,
   BooleanEnvironmentVariableName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { useApiClient } from './api_client';
 
 const MOCK_PRINTER_STATUS_OPTIONS: Record<string, PrinterStatus> = {

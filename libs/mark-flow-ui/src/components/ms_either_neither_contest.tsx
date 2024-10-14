@@ -10,14 +10,14 @@ import {
   electionStrings,
   AssistiveTechInstructions,
   RichText,
-} from '@votingworks/ui';
+} from '@vx/libs/ui/src';
 
 import {
   YesNoVote,
   Election,
   getContestDistrict,
   YesNoOption,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 
 import { UpdateVoteFunction } from '../config/types';
 import { MsEitherNeitherContest as MsEitherNeitherContestInterface } from '../utils/ms_either_neither_contests';

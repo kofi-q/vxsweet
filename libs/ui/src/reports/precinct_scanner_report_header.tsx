@@ -4,14 +4,14 @@ import {
   PartyId,
   PollsTransitionType,
   PrecinctSelection,
-} from '@votingworks/types';
+} from '@vx/libs/types/src';
 import {
   formatFullDateTimeZone,
   getPartyById,
   getPollsReportTitle,
   getPollsTransitionActionPastTense,
   getPrecinctSelectionName,
-} from '@votingworks/utils';
+} from '@vx/libs/utils/src';
 import { DateTime } from 'luxon';
 import React from 'react';
 import { LogoMark } from '../logo_mark';

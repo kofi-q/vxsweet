@@ -1,12 +1,12 @@
-import { PrintSides, Printer, renderToPdf } from '@votingworks/printing';
-import { BallotStyleId, LanguageCode, VotesDict } from '@votingworks/types';
+import { PrintSides, Printer, renderToPdf } from '@vx/libs/printing/src';
+import { BallotStyleId, LanguageCode, VotesDict } from '@vx/libs/types/src';
 
-import { assertDefined } from '@votingworks/basics';
+import { assertDefined } from '@vx/libs/basics/src';
 import {
   BmdPaperBallot,
   BackendLanguageContextProvider,
-} from '@votingworks/ui';
-import { randomBallotId } from '@votingworks/utils';
+} from '@vx/libs/ui/src';
+import { randomBallotId } from '@vx/libs/utils/src';
 import { Store } from '../store';
 
 export interface PrintBallotProps {

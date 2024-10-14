@@ -1,8 +1,8 @@
 import {
   advanceTimers,
   advanceTimersAndPromises,
-} from '@votingworks/test-utils';
-import { sleep } from '@votingworks/basics';
+} from '@vx/libs/test-utils/src';
+import { sleep } from '@vx/libs/basics/src';
 import { act, renderHook, waitFor } from '../../test/react_testing_library';
 import { useCancelablePromise } from './use_cancelable_promise';
 

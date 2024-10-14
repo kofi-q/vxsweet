@@ -1,9 +1,8 @@
-import React from 'react';
 import { Buffer } from 'node:buffer';
 import type { Page as PlaywrightPage } from 'playwright';
 import ReactDomServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
-import { assert } from '@votingworks/basics';
+import { assert } from '@vx/libs/basics/src';
 import { PixelMeasurements } from './types';
 import { PAGE_CLASS } from './ballot_components';
 

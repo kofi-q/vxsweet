@@ -3,7 +3,7 @@ import * as fs from 'node:fs';
 import { join } from 'node:path';
 import yargs from 'yargs';
 import { ZodSchema } from 'zod';
-import { safeParse } from '@votingworks/types';
+import { safeParse } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getBooleanEnvVarConfig,

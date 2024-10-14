@@ -1,4 +1,4 @@
-import { singlePrecinctSelectionFor } from '@votingworks/utils';
+import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   PollsNotOpenScreen,
