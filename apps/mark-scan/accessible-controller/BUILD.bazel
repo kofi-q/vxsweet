@@ -1,0 +1,30 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "accessible-controller",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "controllerd",
+    crate_root = "src/controllerd.rs",
+    tags = ["rust"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//apps/mark-scan/daemon-utils",
+        "//libs/logging:rust",
+        "@crates//:clap",
+        "@crates//:color-eyre",
+        "@crates//:crc16",
+        "@crates//:ctrlc",
+        "@crates//:num_enum",
+        "@crates//:serde",
+        "@crates//:serde_json",
+        "@crates//:serialport",
+        "@crates//:thiserror",
+        "@crates//:uinput",
+    ],
+)
+
+rust_test(
+    name = "tests",
+    size = "small",
+    crate = ":accessible-controller",
+)

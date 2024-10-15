@@ -1,0 +1,36 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+DATA_FILE_EXTENSIONS = [
+    "jpg",
+    "jpeg",
+    "json",
+    "pdf",
+]
+
+DATA_FILE_PATTERNS = [
+    "fixtures/**/*.{}".format(ext)
+    for ext in DATA_FILE_EXTENSIONS
+]
+
+filegroup(
+    name = "fixtures",
+    srcs = glob(
+        DATA_FILE_PATTERNS,
+        allow_empty = True,
+    ),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "fixtures_js",
+    data = [":fixtures"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "build_resources",
+    srcs = ["build_resources.sh"],
+    tags = ["manual"],
+)

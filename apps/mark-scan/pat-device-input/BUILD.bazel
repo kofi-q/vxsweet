@@ -1,0 +1,23 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "pat-device-input",
+    srcs = glob(["src/**/*.rs"]),
+    crate_name = "patinputd",
+    crate_root = "src/patinputd.rs",
+    tags = ["rust"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//apps/mark-scan/daemon-utils",
+        "//libs/logging:rust",
+        "@crates//:clap",
+        "@crates//:ctrlc",
+        "@crates//:uinput",
+    ],
+)
+
+rust_test(
+    name = "tests",
+    size = "small",
+    crate = ":pat-device-input",
+)

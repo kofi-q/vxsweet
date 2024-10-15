@@ -2,6 +2,8 @@ load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
 
 # gazelle:js_mono_package
 
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
 json_package(name = "json")
 
 ts_package(
@@ -21,4 +23,34 @@ ts_package(
         "//libs/image-utils/src",
         "//libs/types/src",
     ],
+)
+
+FIXTURE_FILE_EXTENSIONS = [
+    "jpeg",
+    "jpg",
+    "json",
+    "pdf",
+    "png",
+]
+
+FIXTURE_FILE_PATTERNS = [
+    "fixtures/**/*.{}".format(ext)
+    for ext in FIXTURE_FILE_EXTENSIONS
+]
+
+filegroup(
+    name = "fixtures",
+    srcs = glob(
+        FIXTURE_FILE_PATTERNS,
+        allow_empty = True,
+    ),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "fixtures_js",
+    data = [":data"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
 )

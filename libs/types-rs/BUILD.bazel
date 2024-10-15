@@ -1,0 +1,21 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "types-rs",
+    srcs = glob(["src/**/*.rs"]),
+    tags = ["rust"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@crates//:serde",
+        "@crates//:serde_json",
+    ],
+)
+
+rust_test(
+    name = "tests",
+    size = "small",
+    crate = ":types-rs",
+    deps = [
+        "@crates//:proptest",
+    ],
+)

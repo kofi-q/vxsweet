@@ -1,0 +1,53 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "rust",
+    srcs = glob(["types-rust/**/*.rs"]),
+    crate_name = "vx_logging",
+    tags = ["rust"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@crates//:serde",
+        "@crates//:serde_json",
+    ],
+)
+
+rust_test(
+    name = "rust_tests",
+    size = "small",
+    crate = ":rust",
+)
+
+filegroup(
+    name = "data",
+    srcs = [
+        "VotingWorksLoggingDocumentation.md",
+        "log_event_details.toml",
+    ],
+    tags = ["manual"],
+    visibility = [":__subpackages__"],
+)
+
+js_library(
+    name = "data_js",
+    data = [":data"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "fixtures",
+    srcs = glob([
+        "fixtures/**/*.log",
+    ]),
+    tags = ["manual"],
+    visibility = [":__subpackages__"],
+)
+
+js_library(
+    name = "fixtures_js",
+    data = [":fixtures"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
