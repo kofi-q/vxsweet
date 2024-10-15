@@ -1,1 +1,23 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/jsdom",
+        "//:node_modules/@types/json-schema",
+        "//:node_modules/jsdom",
+        "//:node_modules/json-schema",
+        "//:node_modules/zod",
+        "//libs/basics/src",
+    ],
+    test_deps = [
+        "//:node_modules/@antongolub/iso8601",
+        "//:node_modules/@types/json-schema",
+        "//:node_modules/json-schema",
+        "//:node_modules/zod",
+        "//libs/basics/src",
+        "//libs/cdf-schema-builder/test",
+    ],
+)

@@ -1,1 +1,46 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/better-sqlite3",
+        "//:node_modules/@types/chalk",
+        "//:node_modules/@types/debug",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/better-sqlite3",
+        "//:node_modules/canvas",
+        "//:node_modules/chalk",
+        "//:node_modules/debug",
+        "//:node_modules/node-quirc",
+        "//:node_modules/tmp",
+        "//libs/ballot-encoder/src",
+        "//libs/basics/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+    test_deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/canvas",
+        "//:node_modules/tmp",
+        "//libs/ballot-encoder/src",
+        "//libs/ballot-interpreter/test",
+        "//libs/basics/src",
+        "//libs/bmd-ballot-fixtures/src",
+        "//libs/fixtures/src",
+        "//libs/fs/src",
+        "//libs/hmpb/src",
+        "//libs/image-utils/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+    type_deps = [
+        "//:node_modules/canvas",
+        "//libs/types/src",
+    ],
+)

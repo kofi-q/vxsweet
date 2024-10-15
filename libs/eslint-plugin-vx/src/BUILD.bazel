@@ -1,1 +1,16 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/eslint",
+        "//:node_modules/@types/node",
+        "//:node_modules/@typescript-eslint/parser",
+        "//:node_modules/@typescript-eslint/utils",
+        "//:node_modules/comment-parser",
+        "//:node_modules/eslint",
+        "//:node_modules/typescript",
+    ],
+)

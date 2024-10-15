@@ -1,1 +1,29 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "test",
+    src_deps = [
+        "//:node_modules/@types/express",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/jest-image-snapshot",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/express",
+        "//:node_modules/get-port",
+        "//:node_modules/jest-image-snapshot",
+        "//:node_modules/tmp",
+        "//apps/central-scan/backend/src",
+        "//libs/auth/src",
+        "//libs/basics/src",
+        "//libs/bmd-ballot-fixtures/src",
+        "//libs/fixtures/src",
+        "//libs/grout/src",
+        "//libs/image-utils/src",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+    ],
+)

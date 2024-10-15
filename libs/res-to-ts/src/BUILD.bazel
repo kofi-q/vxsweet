@@ -1,1 +1,20 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/mime",
+        "//:node_modules/@types/node",
+        "//:node_modules/globby",
+        "//:node_modules/js-sha256",
+        "//:node_modules/mime",
+    ],
+    test_deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//libs/test-utils/src",
+    ],
+)

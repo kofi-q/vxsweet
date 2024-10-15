@@ -1,1 +1,32 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@fortawesome/free-solid-svg-icons",
+        "//:node_modules/@fortawesome/react-fontawesome",
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@tanstack/react-query-devtools",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/dev-dock/backend/src",
+        "//libs/fujitsu-thermal-printer/src",
+        "//libs/grout/src",
+        "//libs/utils/src",
+    ],
+    test_deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/node",
+        "//libs/auth/src",
+        "//libs/dev-dock/backend/src",
+        "//libs/grout/test-utils/src",
+        "//libs/test-utils/src",
+        "//libs/utils/src",
+    ],
+)

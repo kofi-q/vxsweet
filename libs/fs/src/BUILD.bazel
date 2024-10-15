@@ -1,1 +1,22 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/zod",
+        "//libs/basics/src",
+        "//libs/types/src",
+    ],
+    test_deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/fast-check",
+        "//:node_modules/tmp",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/fs/test",
+    ],
+)

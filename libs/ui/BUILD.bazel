@@ -1,0 +1,5 @@
+load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+
+json_package(name = "json")
+
+ts_package(name = "ui")

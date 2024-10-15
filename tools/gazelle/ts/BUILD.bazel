@@ -11,7 +11,7 @@ go_library(
         "parser.go",
         "resolve.go",
     ],
-    importpath = "github.com/votingworks/vxsuite/ts",
+    importpath = "github.com/kofi-q/vxsweet/ts",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [

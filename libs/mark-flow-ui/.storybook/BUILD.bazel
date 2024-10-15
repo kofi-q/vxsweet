@@ -1,0 +1,25 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+ts_package(
+    name = ".storybook",
+    src_deps = [
+        "//:node_modules/@storybook/manager-api",
+        "//:node_modules/@storybook/react-vite",
+        "//:node_modules/@storybook/theming",
+        "//:node_modules/@storybook/types",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/react",
+        "//:node_modules/assert",
+        "//:node_modules/browserify-zlib",
+        "//:node_modules/buffer",
+        "//:node_modules/events",
+        "//:node_modules/path",
+        "//:node_modules/react",
+        "//:node_modules/stream-browserify",
+        "//:node_modules/util",
+        "//:node_modules/vite",
+        "//libs/monorepo-utils/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+    ],
+)

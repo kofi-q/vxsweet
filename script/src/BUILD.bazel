@@ -1,0 +1,3 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+ts_package(name = "src")

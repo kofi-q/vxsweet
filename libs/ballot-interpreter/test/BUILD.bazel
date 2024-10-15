@@ -1,1 +1,21 @@
+load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+
 # gazelle:js_mono_package
+
+json_package(name = "json")
+
+ts_package(
+    name = "test",
+    src_deps = [
+        "//:node_modules/@types/fs-extra",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/fs-extra",
+        "//:node_modules/tmp",
+        "//libs/basics/src",
+        "//libs/hmpb/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+    ],
+)

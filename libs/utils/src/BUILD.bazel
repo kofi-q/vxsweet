@@ -1,1 +1,44 @@
+load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+
 # gazelle:js_mono_package
+
+json_package(name = "json")
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/base64-js",
+        "//:node_modules/@types/debug",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/randombytes",
+        "//:node_modules/@types/yargs",
+        "//:node_modules/base64-js",
+        "//:node_modules/debug",
+        "//:node_modules/jszip",
+        "//:node_modules/luxon",
+        "//:node_modules/randombytes",
+        "//:node_modules/yargs",
+        "//:node_modules/zod",
+        "//libs/basics/src",
+        "//libs/types/src",
+    ],
+    test_deps = [
+        "//:node_modules/@types/debug",
+        "//:node_modules/@types/fetch-mock",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/randombytes",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/debug",
+        "//:node_modules/fast-check",
+        "//:node_modules/fetch-mock",
+        "//:node_modules/luxon",
+        "//:node_modules/randombytes",
+        "//:node_modules/tmp",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+    ],
+)

@@ -1,0 +1,11 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+ts_package(
+    name = "01-iteration",
+    src_deps = [
+        "//:node_modules/@types/node",
+        "//docs/exercises/src",
+        "//libs/basics/src",
+        "//libs/utils/src",
+    ],
+)

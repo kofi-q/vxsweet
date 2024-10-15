@@ -1,1 +1,18 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
 # gazelle:js_mono_package
+
+ts_package(
+    name = "test",
+    src_deps = [
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+    ],
+)

@@ -37,6 +37,11 @@ ts_config(
     visibility = ["//visibility:public"],
     deps = [
         "package.json",
+
+        # Ambient types for globals referenced throughout the codebase without
+        # the need for explicit imports:
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
     ],
 )
 
