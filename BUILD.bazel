@@ -41,7 +41,16 @@ ts_config(
         # Ambient types for globals referenced throughout the codebase without
         # the need for explicit imports:
         "//:node_modules/@types/jest",
+        "//:node_modules/@types/jest-image-snapshot",
         "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "kiosk-browser.d.ts",
+
+        # Internal ambient types for external packages with missing typings:
+        "compress-commons.d.ts",
+        "node-quirc.d.ts",
+        "stream-chopper.d.ts",
+        "zip-stream.d.ts",
     ],
 )
 
