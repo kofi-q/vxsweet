@@ -1,0 +1,58 @@
+"""Top-level build targets"""
+
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+# Set up all node_modules packages as individual bazel targets that can be used
+# as build dependencies for source packages.
+npm_link_all_packages(name = "node_modules")
+
+# Export top-level config files that may be needed by builds in sub-packages:
+exports_files(
+    [
+        ".npmrc",
+        ".prettierrc.mjs",
+        "package.json",
+        "pnpm-lock.yaml",
+        "tsconfig.json",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.build.json",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":tsconfig_base",
+    ],
+)
+
+ts_config(
+    name = "tsconfig_base",
+    src = "tsconfig.json",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "package.json",
+    ],
+)
+
+js_library(
+    name = "package_json",
+    srcs = ["package.json"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "env",
+    srcs = [".env"] + glob(
+        ["**/.env.local"],
+        allow_empty = True,
+    ),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

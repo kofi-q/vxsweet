@@ -1,0 +1,54 @@
+load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
+
+# Set up Gazelle, the automatic BUILD file init/update tool.
+# It crawls the repo looking for discrepancies between source files and their
+# associated BUILD files and updates the BUILD file declarations to keep things
+# in sync:
+
+# gazelle:exclude **/__snapshots__
+# gazelle:exclude **/build
+# gazelle:exclude **/coverage
+# gazelle:exclude **/node_modules
+# gazelle:exclude **/public
+# gazelle:exclude **/target
+# gazelle:exclude tsconfig.json
+# gazelle:prefix github.com/kofi-q/vxsweet
+sh_binary(
+    name = "update_deps",
+    srcs = ["update-deps.sh"],
+    tags = ["manual"],
+)
+
+gazelle(
+    name = "gazelle",
+    command = "fix",
+    gazelle = ":gazelle_binary",
+    tags = ["manual"],
+)
+
+gazelle_binary(
+    name = "gazelle_binary",
+    languages = [
+        "@gazelle//language/go:go_default_library",
+        "//tools/gazelle/ts",
+    ],
+    tags = ["manual"],
+)
+
+sh_binary(
+    name = "go_tidy",
+    srcs = ["go-tidy.sh"],
+    tags = ["manual"],
+)
+
+# Add `go mod tidy` target for keeping the go.mod dependency file up-to-date.
+# (Only needed for the gazelle js extension in `tools/gazelle/ts`).
+sh_binary(
+    name = "go_tidy_binary",
+    srcs = ["@rules_go//go"],
+    args = [
+        "mod",
+        "tidy",
+    ],
+    tags = ["manual"],
+)

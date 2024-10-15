@@ -1,0 +1,25 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "ts",
+    srcs = [
+        "configure.go",
+        "generate.go",
+        "kinds.go",
+        "language.go",
+        "parse.go",
+        "parser.go",
+        "resolve.go",
+    ],
+    importpath = "github.com/votingworks/vxsuite/ts",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@gazelle//config:go_default_library",
+        "@gazelle//label:go_default_library",
+        "@gazelle//language:go_default_library",
+        "@gazelle//repo:go_default_library",
+        "@gazelle//resolve:go_default_library",
+        "@gazelle//rule:go_default_library",
+    ],
+)

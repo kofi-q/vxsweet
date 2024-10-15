@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "streetsidesoftware.code-spell-checker",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "bazelbuild.vscode-bazel"
+  ]
+}

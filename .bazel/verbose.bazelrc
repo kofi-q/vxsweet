@@ -1,0 +1,5 @@
+common:verbose --curses=yes
+
+build:verbose --show_progress_rate_limit=0
+build:verbose --show_timestamps
+build:verbose --worker_verbose

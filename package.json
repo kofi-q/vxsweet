@@ -1,5 +1,5 @@
 {
-  "name": "vxsuite",
+  "name": "vxsweet",
   "private": true,
   "scripts": {
     "clean-all": "git clean -dfX",
@@ -318,6 +318,41 @@
       "graceful-fs": "^4.2.9",
       "nan": "^2.20.0",
       "typescript": "5.6.2"
+    },
+    "packageExtensions": {
+      "//a": "These have runtime peer dependencies marked as devDependencies:",
+      "typescript": {
+        "dependencies": {
+          "source-map-support": "*"
+        }
+      },
+      "//b": "These have implicit dependencies on node-gyp - making it",
+      "//c": "explicit, so it's available to them in the bazel build sandbox:",
+      "@votingworks/qrdetect": {
+        "dependencies": {
+          "node-gyp": "*"
+        }
+      },
+      "better-sqlite3": {
+        "dependencies": {
+          "node-gyp": "*"
+        }
+      },
+      "canvas": {
+        "dependencies": {
+          "node-gyp": "*"
+        }
+      },
+      "node-quirc": {
+        "dependencies": {
+          "node-gyp": "*"
+        }
+      },
+      "pcsclite": {
+        "dependencies": {
+          "node-gyp": "*"
+        }
+      }
     }
   }
 }

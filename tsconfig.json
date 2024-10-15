@@ -14,14 +14,14 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
-    "module": "Node16",
-    "moduleResolution": "Node16",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noFallthroughCasesInSwitch": true,
     "noEmit": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
       "@vx/*": ["*"]
     },
@@ -31,5 +31,12 @@
     "strict": true,
     "target": "ESNext"
   },
-  "exclude": [],
+  "include": [
+    "**/*",
+    "**/.storybook/**/*"
+  ],
+  "exclude": [
+    "bazel-*/**",
+    "**/node_modules/**"
+  ]
 }

@@ -1,0 +1,24 @@
+# Use an explicit build cache directory that can then be saved to the
+# CircleCI cache.
+common:ci --disk_cache=~/bazel_build_cache
+
+# Docs: https://bazel.build/docs/user-manual#test-output
+test:ci --test_output=errors
+
+# Docs: https://bazel.build/docs/user-manual#show-result
+build:ci --show_result=1
+
+# Machines in CircleCI may have more cores than what's allocated to a workflow,
+# so we need to explicitly limit Bazel CPU usage to 8 cores to avoid
+# overscheduling and thrashy context switching.
+# https://bazel.build/reference/command-line-reference#flag--local_resources
+common:ci --local_resources=cpu=8
+
+# Machines in CircleCI may have more cores than what's allocated to a workflow,
+# so we need to explicitly limit Bazel CPU usage to 8 cores to avoid
+# overscheduling and thrashy context switching.
+# https://bazel.build/reference/command-line-reference#flag--color
+common:ci --color=yes
+
+# Docs: https://bazel.build/docs/user-manual#keep-going
+common:ci --keep_going
