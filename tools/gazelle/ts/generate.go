@@ -21,7 +21,6 @@ type JsImports struct {
 }
 
 var (
-	typeFileInfix  = ".d"
 	testFileInfix  = ".test"
 	storyFileInfix = ".stories"
 
@@ -37,7 +36,6 @@ type JsFiles struct {
 	sourceFiles []string
 	testFiles   []string
 	storyFiles  []string
-	typeFiles   []string
 }
 
 // GenerateRules extracts build metadata from source files in a directory.
@@ -109,11 +107,6 @@ func (t *tsPackage) collectSourceFiles(
 			path.Ext((filePathRel)),
 		)
 
-		if strings.HasSuffix(filenameWithoutSuffix, typeFileInfix) {
-			jsFiles.typeFiles = append(jsFiles.typeFiles, filePathRel)
-			return
-		}
-
 		if strings.HasSuffix(filenameWithoutSuffix, testFileInfix) {
 			jsFiles.testFiles = append(jsFiles.testFiles, filePathRel)
 			return
@@ -176,8 +169,7 @@ func (t *tsPackage) addProjectRules(
 	jsonFileCount := len(jsFiles.jsonFiles)
 	sourceFileCount := len(jsFiles.sourceFiles) +
 		len(jsFiles.storyFiles) +
-		len(jsFiles.testFiles) +
-		len(jsFiles.typeFiles)
+		len(jsFiles.testFiles)
 
 	if indexFileCount != 0 {
 		indexRule := newTsLibraryRule()
@@ -230,7 +222,6 @@ func (t *tsPackage) addProjectRules(
 	imports.sourceImports = t.findImports(args, &jsFiles.sourceFiles)
 	imports.testImports = t.findImports(args, &jsFiles.testFiles)
 	imports.storyImports = t.findImports(args, &jsFiles.storyFiles)
-	imports.typeImports = t.findImports(args, &jsFiles.typeFiles)
 
 	result.Gen = append(result.Gen, sourceRule)
 	result.Imports = append(result.Imports, imports)

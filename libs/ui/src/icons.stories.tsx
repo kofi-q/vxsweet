@@ -7,11 +7,12 @@ import { H1, H5, P } from './typography';
 const meta: Meta<IconComponent> = {
   title: 'libs-ui/Icons',
   args: {
-    color: 'default',
+    color: 'neutral',
   },
   argTypes: {
     color: {
-      type: 'select',
+      type: 'string',
+      control: 'select',
       options: [undefined, ...ICON_COLORS],
     },
   },

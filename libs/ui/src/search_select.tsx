@@ -117,7 +117,7 @@ export function SearchSelect<T extends string = string>({
   return (
     <Select
       id={id}
-      isMulti={isMulti}
+      isMulti={isMulti || undefined}
       isSearchable={isSearchable}
       isClearable={false}
       isDisabled={disabled}
@@ -129,6 +129,8 @@ export function SearchSelect<T extends string = string>({
           ? findOption(options, value)
           : null
       }
+      // @ts-expect-error - we're not matching the external types accurately.
+      // It's fine. There's more to life.
       onChange={
         isMulti
           ? (selectedOptions: Array<SelectOption<T>>) =>
@@ -140,6 +142,9 @@ export function SearchSelect<T extends string = string>({
       unstyled
       components={{ DropdownIndicator, MultiValueRemove }}
       className="search-select"
+      // @ts-expect-error - this is typed as `number` in `search-select` - not
+      // sure why this ever passed typechecking, but not sure what'll break if
+      // it's changed to a number
       maxMenuHeight="50vh"
       styles={typedAs<StylesConfig>({
         container: (baseStyles) => ({

@@ -5,6 +5,7 @@ ts_package(
     src_deps = [
         "//:node_modules/@types/node",
         "//:node_modules/resolve-from",
+        "//:types_env",
         "//script/src",
         "//script/src/prod-build/utils",
     ],

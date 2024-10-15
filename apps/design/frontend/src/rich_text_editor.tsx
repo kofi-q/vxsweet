@@ -1,22 +1,42 @@
+// @ts-expect-error  - Joys of ESM interop
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
+// @ts-expect-error  - Joys of ESM interop
 import Bold from '@tiptap/extension-bold';
+// @ts-expect-error  - Joys of ESM interop
 import Italic from '@tiptap/extension-italic';
+// @ts-expect-error  - Joys of ESM interop
 import Underline from '@tiptap/extension-underline';
+// @ts-expect-error  - Joys of ESM interop
 import Strike from '@tiptap/extension-strike';
+// @ts-expect-error  - Joys of ESM interop
 import Text from '@tiptap/extension-text';
+// @ts-expect-error  - Joys of ESM interop
 import Document from '@tiptap/extension-document';
+// @ts-expect-error  - Joys of ESM interop
 import Paragraph from '@tiptap/extension-paragraph';
+// @ts-expect-error  - Joys of ESM interop
 import HardBreak from '@tiptap/extension-hard-break';
+// @ts-expect-error  - Joys of ESM interop
 import BulletList from '@tiptap/extension-bullet-list';
+// @ts-expect-error  - Joys of ESM interop
 import OrderedList from '@tiptap/extension-ordered-list';
+// @ts-expect-error  - Joys of ESM interop
 import ListItem from '@tiptap/extension-list-item';
+// @ts-expect-error  - Joys of ESM interop
 import Image from '@tiptap/extension-image';
+// @ts-expect-error  - Joys of ESM interop
 import Table from '@tiptap/extension-table';
+// @ts-expect-error  - Joys of ESM interop
 import TableCell from '@tiptap/extension-table-cell';
+// @ts-expect-error  - Joys of ESM interop
 import TableRow from '@tiptap/extension-table-row';
+// @ts-expect-error  - Joys of ESM interop
 import TableHeader from '@tiptap/extension-table-header';
+// @ts-expect-error  - Joys of ESM interop
 import Dropcursor from '@tiptap/extension-dropcursor';
+// @ts-expect-error  - Joys of ESM interop
 import Gapcursor from '@tiptap/extension-gapcursor';
+// @ts-expect-error  - Joys of ESM interop
 import History from '@tiptap/extension-history';
 import { Button, ButtonProps, Icons, richTextStyles } from '@vx/libs/ui/src';
 import styled from 'styled-components';

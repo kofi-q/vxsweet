@@ -3,13 +3,6 @@ import { debug as baseDebug } from '../debug';
 
 const debug = baseDebug.extend('mock-usb-device');
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function ignore(...args: unknown[]): void {
-  // do nothing
-}
-
 type NonReadonly<T> = {
   -readonly [K in keyof T]: T[K] extends object ? NonReadonly<T[K]> : T[K];
 };
@@ -198,19 +191,11 @@ export class MockWebUsbDevice implements USBDevice {
     usbInterface.alternate = alternate;
   }
 
-  controlTransferIn(
-    setup: USBControlTransferParameters,
-    length: number
-  ): Promise<USBInTransferResult> {
-    ignore(setup, length);
+  controlTransferIn(): Promise<USBInTransferResult> {
     throw new Error('not implemented');
   }
 
-  controlTransferOut(
-    setup: USBControlTransferParameters,
-    data?: BufferSource
-  ): Promise<USBOutTransferResult> {
-    ignore(setup, data);
+  controlTransferOut(): Promise<USBOutTransferResult> {
     throw new Error('not implemented');
   }
 
@@ -282,20 +267,11 @@ export class MockWebUsbDevice implements USBDevice {
     return { status: 'ok', bytesWritten };
   }
 
-  isochronousTransferIn(
-    endpointNumber: number,
-    packetLengths: number[]
-  ): Promise<USBIsochronousInTransferResult> {
-    ignore(endpointNumber, packetLengths);
+  isochronousTransferIn(): Promise<USBIsochronousInTransferResult> {
     throw new Error('not implemented');
   }
 
-  isochronousTransferOut(
-    endpointNumber: number,
-    data: BufferSource,
-    packetLengths: number[]
-  ): Promise<USBIsochronousOutTransferResult> {
-    ignore(endpointNumber, data, packetLengths);
+  isochronousTransferOut(): Promise<USBIsochronousOutTransferResult> {
     throw new Error('not implemented');
   }
 

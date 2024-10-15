@@ -35,24 +35,7 @@ ts_config(
     src = "tsconfig.json",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = [
-        "package.json",
-
-        # Ambient types for globals referenced throughout the codebase without
-        # the need for explicit imports:
-        "//:node_modules/@types/jest",
-        "//:node_modules/@types/jest-image-snapshot",
-        "//:node_modules/@types/node",
-        "//:node_modules/@types/testing-library__jest-dom",
-        "env.d.ts",
-        "kiosk-browser.d.ts",
-
-        # Internal ambient types for external packages with missing typings:
-        "compress-commons.d.ts",
-        "node-quirc.d.ts",
-        "stream-chopper.d.ts",
-        "zip-stream.d.ts",
-    ],
+    deps = ["package.json"],
 )
 
 js_library(
@@ -70,4 +53,64 @@ js_library(
     ),
     tags = ["manual"],
     visibility = ["//visibility:public"],
+)
+
+#
+# Ambient types for globals referenced throughout the codebase without
+# the need for explicit imports:
+#
+
+js_library(
+    name = "types_env",
+    srcs = ["env.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_jest_styled_components",
+    srcs = ["jest-styled-components.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = ["//:node_modules/jest-styled-components"],
+)
+
+js_library(
+    name = "types_kiosk_browser",
+    srcs = ["kiosk-browser.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+#
+# Internal ambient types for external packages with missing typings:
+#
+
+js_library(
+    name = "types_compress_commons",
+    srcs = ["compress-commons.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_node_quirc",
+    srcs = ["node-quirc.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_stream_chopper",
+    srcs = ["stream-chopper.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_zip_stream",
+    srcs = ["zip-stream.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":types_compress_commons"],
 )

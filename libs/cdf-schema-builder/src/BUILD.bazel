@@ -7,6 +7,7 @@ ts_package(
     src_deps = [
         "//:node_modules/@types/jsdom",
         "//:node_modules/@types/json-schema",
+        "//:node_modules/@types/node",
         "//:node_modules/jsdom",
         "//:node_modules/json-schema",
         "//:node_modules/zod",
@@ -14,10 +15,15 @@ ts_package(
     ],
     test_deps = [
         "//:node_modules/@antongolub/iso8601",
+        "//:node_modules/@testing-library/jest-dom",
+        "//:node_modules/@types/jest",
         "//:node_modules/@types/json-schema",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/jest",
         "//:node_modules/json-schema",
         "//:node_modules/zod",
         "//libs/basics/src",
+        "//libs/cdf-schema-builder/src",
         "//libs/cdf-schema-builder/test",
     ],
 )

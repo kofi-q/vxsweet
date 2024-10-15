@@ -27,7 +27,7 @@ const initialProps: SegmentedButtonProps<string> = {
   ],
 };
 
-const meta: Meta<typeof Component> = {
+const meta: Meta<typeof Component<string>> = {
   title: 'libs-ui/SegmentedButton',
   component: Component,
   args: initialProps,

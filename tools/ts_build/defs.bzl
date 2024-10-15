@@ -42,7 +42,6 @@ def ts_library(
 
 def ts_package(
         name = "lib",
-        exclude = [],
         src_deps = [],
         src_data = [],
         test_deps = [],
@@ -70,8 +69,6 @@ def ts_package(
     Args:
       name: Name for the main source target. This should usually match the name
           of the package/directory.
-
-      exclude: Files to exclude from generated build targets.
 
       src_deps: Source file dependencies, including node_modules dependencies.
 
@@ -109,23 +106,13 @@ def ts_package(
       visibility: Visibility of the main lib target. Defaults to public.
     """
 
-    TYPE_DECLARATION_FILES = native.glob(
-        [
-            "**/*.d.ts",
-        ],
-        allow_empty = True,
-        exclude = exclude,
-    )
-
     TS_TEST_FILES = native.glob(
         ["**/*.test.ts"],
         allow_empty = True,
-        exclude = exclude,
     )
     REACT_TEST_FILES = native.glob(
         ["**/*.test.tsx"],
         allow_empty = True,
-        exclude = exclude,
     )
     TEST_FILES = TS_TEST_FILES + REACT_TEST_FILES
 
@@ -135,25 +122,19 @@ def ts_package(
             "**/*.stories.tsx",
         ],
         allow_empty = True,
-        exclude = exclude,
     )
 
     TS_SOURCE_FILES = native.glob(
         ["**/*.ts"],
         allow_empty = True,
-        exclude = TEST_FILES + STORY_FILES + TYPE_DECLARATION_FILES +
-                  exclude,
+        exclude = TEST_FILES + STORY_FILES,
     )
     REACT_SOURCE_FILES = native.glob(
         ["**/*.tsx"],
         allow_empty = True,
-        exclude = TEST_FILES + STORY_FILES + TYPE_DECLARATION_FILES +
-                  exclude,
+        exclude = TEST_FILES + STORY_FILES,
     )
     SOURCE_FILES = TS_SOURCE_FILES + REACT_SOURCE_FILES
-
-    src_files_to_test = []
-    type_declarations = []
 
     def _newTarget(base_name = None):
         target_name = base_name
@@ -169,17 +150,6 @@ def ts_package(
     target_stories = _newTarget("stories")
     target_tests = _newTarget("tests")
     target_tests_lib = _newTarget("tests_lib")
-    target_types = _newTarget("types")
-
-    if TYPE_DECLARATION_FILES:
-        js_library(
-            name = target_types.name,
-            srcs = TYPE_DECLARATION_FILES,
-            visibility = ["//visibility:public"],
-            deps = type_deps,
-            tags = ["types"],
-        )
-        type_declarations = [target_types.label]
 
     if SOURCE_FILES:
         additional_react_deps = []
@@ -189,7 +159,7 @@ def ts_package(
                 "//:node_modules/@types/react",
             ]
 
-        all_deps = src_deps + type_declarations + additional_react_deps
+        all_deps = src_deps + additional_react_deps
 
         ts_library(
             name = target_main.name,
@@ -199,14 +169,13 @@ def ts_package(
             data = src_data,
             tags = ["src"],
         )
-        src_files_to_test = [target_main.label]
 
     if TEST_FILES and not test_skip_all:
         # TODO: Add jest test target
         ts_library(
             name = target_tests_lib.name,
             srcs = TEST_FILES,
-            deps = test_deps + src_files_to_test + type_declarations,
+            deps = test_deps,
             tags = ["test_files"],
         )
 
@@ -214,7 +183,7 @@ def ts_package(
         ts_library(
             name = target_stories.name,
             srcs = STORY_FILES,
-            deps = story_deps + src_files_to_test,
+            deps = story_deps,
             tags = ["stories"],
         )
 

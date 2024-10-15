@@ -6,7 +6,7 @@ import {
   ScannerError,
   ScannerEvent,
   ScannerStatus,
-} from '@vx/libs/pdi-scanner/src';
+} from '@vx/libs/pdi-scanner/src/ts';
 import {
   HmpbBallotPaperSize,
   InsertedSmartCardAuth,

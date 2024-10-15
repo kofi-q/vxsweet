@@ -211,7 +211,6 @@ function ContestsTab(): JSX.Element | null {
           </React.Fragment>
         ) : (
           // Flipper/Flip are used to animate the reordering of contest rows
-          /* @ts-expect-error: TS doesn't think Flipper is a valid component */
           <Flipper
             flipKey={contestsToShow.map((contest) => contest.id).join(',')}
             // Custom spring parameters to speed up the duration of the animation

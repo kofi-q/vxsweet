@@ -5,7 +5,6 @@ load("//tools/ts_build:defs.bzl", "ts_package")
 ts_package(
     name = "test",
     src_deps = [
-        "//:node_modules/@types/jest",
         "//libs/auth/src",
         "//libs/test-utils/src",
     ],

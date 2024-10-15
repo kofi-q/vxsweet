@@ -13,6 +13,32 @@ import (
 	"github.com/bazelbuild/bazel-gazelle/rule"
 )
 
+const (
+	ambientTypesImportEnv                  = "env"
+	ambientTypesImportJestStyledComponents = "jest-styled-components"
+	ambientTypesImportJestImageSnapshot    = "jest-image-snapshot"
+	ambientTypesImportKioskBrowser         = "kiosk-browser"
+	ambientTypesImportJestImageUtils       = "image-utils"
+)
+
+var (
+	internalTypeDefinitionTargets = map[string]label.Label{
+		ambientTypesImportEnv: {Name: "types_env"},
+		ambientTypesImportJestStyledComponents: {
+			Name: "types_jest_styled_components",
+		},
+		ambientTypesImportKioskBrowser: {Name: "types_kiosk_browser"},
+		ambientTypesImportJestImageUtils: {
+			Pkg:  "libs/image-utils/src",
+			Name: "src",
+		},
+		"compress-commons": {Name: "types_compress_commons"},
+		"node-quirc":       {Name: "types_node_quirc"},
+		"stream-chopper":   {Name: "types_stream_chopper"},
+		"zip-stream":       {Name: "types_zip_stream"},
+	}
+)
+
 // Imports returns a list of ImportSpecs that can be used to import `buildRule`.
 // This is used to populate RuleIndex.
 //
@@ -47,11 +73,6 @@ func (t *tsPackage) Imports(
 	importSpecs = append(
 		importSpecs,
 		getImportSpecsForFiles(buildFile, jsFiles.sourceFiles)...,
-	)
-
-	importSpecs = append(
-		importSpecs,
-		getImportSpecsForFiles(buildFile, jsFiles.typeFiles)...,
 	)
 
 	return importSpecs
@@ -247,6 +268,7 @@ func setDeps(
 		ruleIndex,
 		currentRuleLabel,
 		imports,
+		attributeName,
 	)
 	if len(depSet) == 0 {
 		return
@@ -268,6 +290,7 @@ func resolveImports(
 	ruleIndex *resolve.RuleIndex,
 	currentRuleLabel label.Label,
 	imports map[ImportStatement]interface{},
+	attributeName string,
 ) map[label.Label]interface{} {
 	deps := map[label.Label]interface{}{}
 
@@ -276,7 +299,7 @@ func resolveImports(
 			importStatement.ImportPath[0] != '/' &&
 			!strings.HasPrefix(importStatement.ImportPath, "@vx") {
 			for _, dep := range resolveNodeModuleImport(
-				runConfig, ruleIndex, importStatement, currentRuleLabel,
+				runConfig, importStatement, currentRuleLabel,
 			) {
 				deps[dep] = nil
 			}
@@ -288,20 +311,13 @@ func resolveImports(
 			languageName,
 		)
 		for _, match := range matches {
-			if match.IsSelfImport(currentRuleLabel) {
+			if match.IsSelfImport(currentRuleLabel) &&
+				// TODO: de-hackify
+				attributeName == "src_deps" {
 				continue
 			}
 
-			matchedLabel := match.Label
-			if strings.HasSuffix(importStatement.ImportPath, ".d.ts") {
-				matchedLabel = label.New(
-					matchedLabel.Repo,
-					matchedLabel.Pkg,
-					"types",
-				)
-			}
-
-			deps[matchedLabel] = nil
+			deps[match.Label] = nil
 		}
 	}
 
@@ -310,7 +326,6 @@ func resolveImports(
 
 func resolveNodeModuleImport(
 	runConfig *config.Config,
-	ruleIndex *resolve.RuleIndex,
 	importStatement ImportStatement,
 	currentRuleLabel label.Label,
 ) []label.Label {
@@ -346,6 +361,12 @@ func resolveNodeModuleImport(
 		return deps
 	}
 
+	if internalTypesTarget, exists := internalTypeDefinitionTargets[moduleNameParts[0]]; exists {
+		deps = append(deps, internalTypesTarget)
+
+		return deps
+	}
+
 	typesPackageName := moduleNameParts[0]
 	if len(moduleNameParts) > 1 {
 		typesPackageName = strings.TrimPrefix(
@@ -355,25 +376,6 @@ func resolveNodeModuleImport(
 	}
 	if isNodePackage {
 		typesPackageName = "node"
-	}
-
-	internalTypePackageMatches := ruleIndex.FindRulesByImport(
-		resolve.ImportSpec{
-			Lang: languageName,
-			Imp:  path.Join("libs", "@types", typesPackageName),
-		},
-		languageName,
-	)
-	for _, match := range internalTypePackageMatches {
-		if match.IsSelfImport(currentRuleLabel) {
-			continue
-		}
-
-		deps = append(
-			deps,
-			label.New(match.Label.Repo, match.Label.Pkg, "types"),
-		)
-		return deps
 	}
 
 	typesPackageName = path.Join("@types", typesPackageName)

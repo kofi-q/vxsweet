@@ -12,7 +12,12 @@ type ParseResult struct {
 	Modules []string
 }
 
+// TODO: Use tree-sitter to simplify these lookups:
 var (
+	//
+	// Used to identify explicitly imported dependencies:
+	//
+
 	regexReexport = regexp.MustCompile(
 		`(?m:^ *\bexport(?:.|\n|\s)*?from ["'](.+?)["'])`,
 	)
@@ -30,6 +35,31 @@ var (
 	)
 	regexRequire = regexp.MustCompile(
 		`\brequire(?:\.resolve)?\((?:\n|\s)*?["'](.+?)["'](?:\n|\s)*?\)`,
+	)
+
+	//
+	// Used to identify implicitly required ambient type dependencies:
+	//
+
+	regexJestReference = regexp.MustCompile(
+		`\s(?:` +
+			strings.Join([]string{
+				`jest\.\w+\(`,
+				`test(:?\.each)?\(`,
+				`(?:before|after)(?:Each|All)\(`,
+				`expect(?:\.\w+)?\(`,
+			}, "|") +
+			`)`,
+	)
+	regexJestStyledComponents = regexp.MustCompile(`\.toHaveStyleRule\(`)
+	regexJestImageSnapshot    = regexp.MustCompile(`\.toMatchImageSnapshot\(`)
+	regexJestImageUtils       = regexp.MustCompile(
+		`\.(?:toMatchImage|toMatchPdfSnapshot)\(`,
+	)
+	regexProcessEnv   = regexp.MustCompile(`\sprocess\.env(\.|\[])`)
+	regexNodeTypes    = regexp.MustCompile(`\sNodeJS\..+`)
+	regexKioskBrowser = regexp.MustCompile(
+		`\s(?:KioskBrowser\.|window\.kiosk)`,
 	)
 )
 
@@ -102,13 +132,37 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 		imports[moduleNameOrPath] = true
 	}
 
-	if !strings.Contains(filePath, ".test.") &&
-		(strings.Contains(filePath, "test_utils") ||
-			strings.Contains(filePath, "/test/") ||
-			strings.Contains(filePath, "test-utils") ||
-			strings.Contains(filePath, "/fixtures/") ||
-			strings.Contains(filePath, "setUpJestTests.ts")) {
-		imports["@types/jest"] = true
+	if regexJestReference.Match([]byte(stringContent)) {
+		imports["jest"] = true
+
+		// Keeping detection simple for @testing-library/jest-dom for now and just
+		// importing the types whenever we import `jest` types.
+		imports["@testing-library/jest-dom"] = true
+	}
+
+	if regexJestStyledComponents.Match([]byte(stringContent)) {
+		imports[ambientTypesImportJestStyledComponents] = true
+	}
+
+	if regexJestImageSnapshot.Match([]byte(stringContent)) {
+		imports[ambientTypesImportJestImageSnapshot] = true
+	}
+
+	if regexJestImageUtils.Match([]byte(stringContent)) {
+		imports[ambientTypesImportJestImageUtils] = true
+	}
+
+	if regexKioskBrowser.Match([]byte(stringContent)) {
+		imports[ambientTypesImportKioskBrowser] = true
+	}
+
+	if regexProcessEnv.Match([]byte(stringContent)) {
+		imports[ambientTypesImportEnv] = true
+		imports["@types/node"] = true
+	}
+
+	if regexNodeTypes.Match([]byte(stringContent)) {
+		imports["@types/node"] = true
 	}
 
 	return ParseResult{
