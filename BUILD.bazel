@@ -44,6 +44,7 @@ ts_config(
         "//:node_modules/@types/jest-image-snapshot",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
+        "env.d.ts",
         "kiosk-browser.d.ts",
 
         # Internal ambient types for external packages with missing typings:
