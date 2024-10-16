@@ -1,0 +1,23 @@
+# To spin up a mirror of the CI environment, run:
+# ```
+#   docker compose run --build --rm -i ci_env
+# ```
+# The `bazel` command will be available on the command line and changes made in
+# the local workspace will be reflected in the docker container.
+
+services:
+  ci_env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /root/vxsweet
+    volumes:
+      - ./:/root/vxsweet
+      - bazel_cache:/root/.cache/bazel/
+      - bazelisk_cache:/root/.cache/bazelisk/
+      - playwright_cache:/root/.cache/ms-playwright
+
+volumes:
+  bazel_cache: null
+  bazelisk_cache: null
+  playwright_cache: null
