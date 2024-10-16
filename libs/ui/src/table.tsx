@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-interface TableProps {
+export interface TableProps {
   borderTop?: boolean;
   condensed?: boolean;
   expanded?: boolean;

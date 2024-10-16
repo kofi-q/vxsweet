@@ -20,7 +20,7 @@ import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
 } from '@vx/libs/backend/src';
-import { createPdiScannerClient } from '@vx/libs/pdi-scanner/src';
+import { createPdiScannerClient } from '@vx/libs/pdi-scanner/src/ts';
 import { SCAN_WORKSPACE } from './globals';
 import * as customStateMachine from './scanners/custom/state_machine';
 import * as pdiStateMachine from './scanners/pdi/state_machine';

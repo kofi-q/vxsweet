@@ -1,0 +1,26 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+# gazelle:js_mono_package
+
+ts_package(
+    name = "ts",
+    src_deps = [
+        "//:node_modules/@types/debug",
+        "//:node_modules/@types/node",
+        "//:node_modules/debug",
+        "//libs/basics/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+    ],
+    test_deps = [
+        "//:node_modules/@testing-library/jest-dom",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/jest",
+        "//libs/basics/src",
+        "//libs/image-utils/src",
+        "//libs/pdi-scanner/src/ts",
+        "//libs/test-utils/src",
+    ],
+)

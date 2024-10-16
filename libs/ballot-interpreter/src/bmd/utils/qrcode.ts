@@ -1,4 +1,4 @@
-import { detect as qrdetect } from '@vx/libs/qrdetect/src';
+import { detect as qrdetect } from '@votingworks/qrdetect';
 import { decode as quircDecode, QRCode } from 'node-quirc';
 import { isVxBallot } from '@vx/libs/ballot-encoder/src';
 import { ImageData, crop } from '@vx/libs/image-utils/src';

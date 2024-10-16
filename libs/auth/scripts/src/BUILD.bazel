@@ -1,0 +1,20 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+# gazelle:js_mono_package
+
+ts_package(
+    name = "src",
+    src_deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/@types/yargs",
+        "//:node_modules/tmp",
+        "//:node_modules/yargs",
+        "//libs/auth/src",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/fs/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)

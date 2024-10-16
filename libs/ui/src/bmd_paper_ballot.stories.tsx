@@ -198,7 +198,7 @@ const Container = styled.div`
   }
 `;
 
-const meta: Meta<typeof Component> = {
+const meta: Meta<BmdPaperBallotProps & { numMockContests: number }> = {
   title: 'libs-ui/BmdPaperBallot',
   component: Component,
   args: { ...initialArgs, numMockContests: 20 },

@@ -1,0 +1,29 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+
+rust_binary(
+    name = "fai-100-controller",
+    srcs = glob(["src/**/*.rs"]),
+    crate_root = "src/fai_100_controllerd.rs",
+    tags = ["rust"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//apps/mark-scan/daemon-utils",
+        "//libs/logging:rust",
+        "@crates//:clap",
+        "@crates//:color-eyre",
+        "@crates//:ctrlc",
+        "@crates//:hex",
+        "@crates//:num_enum",
+        "@crates//:rusb",
+        "@crates//:serde",
+        "@crates//:serde_json",
+        "@crates//:thiserror",
+        "@crates//:uinput",
+    ],
+)
+
+rust_test(
+    name = "tests",
+    size = "small",
+    crate = ":fai-100-controller",
+)

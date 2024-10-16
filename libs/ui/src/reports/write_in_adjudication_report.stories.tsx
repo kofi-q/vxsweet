@@ -234,7 +234,7 @@ export const EmptyPrimaryReport: Story = {
   args: {
     electionDefinition: electionTwoPartyPrimaryDefinition,
     electionPackageHash: '11111111111111111111',
-    isOfficialResults: true,
+    isOfficial: true,
     generatedAtTime: new Date('2020-11-03T12:00:00.000'),
     electionWriteInSummary: {
       contestWriteInSummaries: {},

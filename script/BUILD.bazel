@@ -1,0 +1,13 @@
+exports_files(
+    srcs = [
+        "bootstrap",
+        "build-all.sh",
+        "build-stubs",
+        "prod-build",
+        "run-dev",
+        "test-all.sh",
+        "update-go-builds.sh",
+        "update-ts-builds.sh",
+    ],
+    visibility = ["//visibility:public"],
+)

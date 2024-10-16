@@ -3,7 +3,7 @@ import {
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
 import { Result, deferred, ok, typedAs } from '@vx/libs/basics/src';
-import { ScannerError } from '@vx/libs/pdi-scanner/src';
+import { ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,

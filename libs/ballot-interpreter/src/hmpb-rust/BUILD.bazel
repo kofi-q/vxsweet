@@ -1,0 +1,5 @@
+filegroup(
+    name = "hmpb-rust",
+    srcs = glob(["**/*.rs"]),
+    visibility = ["//libs/ballot-interpreter:__pkg__"],
+)

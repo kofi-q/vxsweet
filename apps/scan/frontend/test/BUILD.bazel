@@ -1,0 +1,24 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+# gazelle:js_mono_package
+
+ts_package(
+    name = "test",
+    src_deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/scan/backend/src",
+        "//apps/scan/frontend/src",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/grout/test-utils/src",
+        "//libs/printing/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)

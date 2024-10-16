@@ -1,0 +1,18 @@
+import %workspace%/.bazel/bazel7.bazelrc
+import %workspace%/.bazel/ci.bazelrc
+import %workspace%/.bazel/convenience.bazelrc
+import %workspace%/.bazel/correctness.bazelrc
+import %workspace%/.bazel/debug.bazelrc
+import %workspace%/.bazel/javascript.bazelrc
+import %workspace%/.bazel/node.bazelrc
+import %workspace%/.bazel/performance.bazelrc
+import %workspace%/.bazel/rust.bazelrc
+import %workspace%/.bazel/verbose.bazelrc
+
+coverage --combined_report=lcov
+
+# Load any settings & overrides specific to the current user from `user.bazelrc`.
+# This file should appear in `.gitignore` so that settings are not shared with team members. This
+# should be last statement in this config so the user configuration is able to overwrite flags from
+# this file. See https://bazel.build/configure/best-practices#bazelrc-file.
+try-import %workspace%/user.bazelrc

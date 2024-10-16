@@ -12,7 +12,7 @@ import {
   ScannerError,
   ScannerEvent,
   ScannerStatus,
-} from '@vx/libs/pdi-scanner/src';
+} from '@vx/libs/pdi-scanner/src/ts';
 import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   MemoryPrinterHandler,

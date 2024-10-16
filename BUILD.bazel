@@ -1,0 +1,116 @@
+"""Top-level build targets"""
+
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+# Set up all node_modules packages as individual bazel targets that can be used
+# as build dependencies for source packages.
+npm_link_all_packages(name = "node_modules")
+
+# Export top-level config files that may be needed by builds in sub-packages:
+exports_files(
+    [
+        ".npmrc",
+        ".prettierrc.mjs",
+        "package.json",
+        "pnpm-lock.yaml",
+        "tsconfig.json",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.build.json",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":tsconfig_base",
+    ],
+)
+
+ts_config(
+    name = "tsconfig_base",
+    src = "tsconfig.json",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = ["package.json"],
+)
+
+js_library(
+    name = "package_json",
+    srcs = ["package.json"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "env",
+    srcs = [".env"] + glob(
+        ["**/.env.local"],
+        allow_empty = True,
+    ),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+#
+# Ambient types for globals referenced throughout the codebase without
+# the need for explicit imports:
+#
+
+js_library(
+    name = "types_env",
+    srcs = ["env.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_jest_styled_components",
+    srcs = ["jest-styled-components.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = ["//:node_modules/jest-styled-components"],
+)
+
+js_library(
+    name = "types_kiosk_browser",
+    srcs = ["kiosk-browser.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+#
+# Internal ambient types for external packages with missing typings:
+#
+
+js_library(
+    name = "types_compress_commons",
+    srcs = ["compress-commons.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_node_quirc",
+    srcs = ["node-quirc.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_stream_chopper",
+    srcs = ["stream-chopper.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
+    name = "types_zip_stream",
+    srcs = ["zip-stream.d.ts"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":types_compress_commons"],
+)

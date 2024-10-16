@@ -19,7 +19,6 @@ import {
 } from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { GroupSpecifier } from '@vx/libs/types/src/tabulation/src';
 import {
   getBallotCount,
   getBallotStyleIdPartyIdLookup,
@@ -555,7 +554,7 @@ test('getBallotStyleIdPartyIdLookup', () => {
 });
 
 test('mapping from group keys to and from group specifiers', () => {
-  function maintainsGroupSpecifier(groupSpecifier: GroupSpecifier) {
+  function maintainsGroupSpecifier(groupSpecifier: Tabulation.GroupSpecifier) {
     const groupBy: Tabulation.GroupBy = {
       groupByBallotStyle: groupSpecifier.ballotStyleGroupId !== undefined,
       groupByBatch: groupSpecifier.batchId !== undefined,
@@ -610,7 +609,9 @@ test('mapping from group keys to and from group specifiers', () => {
   });
 });
 
-type ObjectWithGroupSpecifier = { something: 'something' } & GroupSpecifier;
+type ObjectWithGroupSpecifier = {
+  something: 'something';
+} & Tabulation.GroupSpecifier;
 
 test('extractGroupSpecifier', () => {
   expect(

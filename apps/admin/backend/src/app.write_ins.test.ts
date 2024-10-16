@@ -14,7 +14,6 @@ import {
 } from '@vx/libs/utils/src';
 import { CVR, Id, Rect, Tabulation } from '@vx/libs/types/src';
 import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
-import { ContestWriteInSummary } from '@vx/libs/types/src/tabulation/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -511,7 +510,7 @@ test('handling unmarked write-ins', async () => {
   }
 
   async function expectWriteInSummary(
-    summary: Partial<ContestWriteInSummary>
+    summary: Partial<Tabulation.ContestWriteInSummary>
   ): Promise<void> {
     expect(
       (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[
@@ -630,7 +629,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   }
 
   async function expectWriteInSummary(
-    summary: ContestWriteInSummary
+    summary: Tabulation.ContestWriteInSummary
   ): Promise<void> {
     expect(
       (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[

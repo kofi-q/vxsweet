@@ -10,9 +10,7 @@ import {
 import { SECURITY_PIN_LENGTH } from './globals';
 import { PinLength } from './utils/pin_length';
 
-type PropsAndCustomArgs = React.ComponentProps<
-  typeof UnlockMachineScreenComponent
-> & {
+type PropsAndCustomArgs = UnlockMachineScreenProps & {
   minPinLength: number;
   maxPinLength: number;
 };
@@ -43,9 +41,10 @@ export const UnlockMachineScreen: StoryObj<PropsAndCustomArgs> = {
   ),
 };
 
-const meta: Meta<UnlockMachineScreenProps> = {
+const meta: Meta<PropsAndCustomArgs> = {
   title: 'libs-ui/UnlockMachineScreen',
-  component: UnlockMachineScreen,
+  component:
+    UnlockMachineScreen as unknown as React.ComponentType<PropsAndCustomArgs>,
   args: initialProps,
   argTypes: {
     minPinLength: {

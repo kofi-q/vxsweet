@@ -1,0 +1,1 @@
+common --@rules_nodejs//nodejs:default_args=""

@@ -1,0 +1,12 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+ts_package(
+    name = "support",
+    src_deps = [
+        "//:node_modules/@playwright/test",
+        "//:node_modules/@types/node",
+        "//libs/auth/src",
+        "//libs/grout/src",
+        "//libs/types/src",
+    ],
+)

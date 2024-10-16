@@ -1,0 +1,58 @@
+load("@rules_rust//rust:defs.bzl", "rust_shared_library", "rust_test")
+
+DATA_FILE_EXTENSIONS = [
+    "png",
+    "ttf",
+]
+
+DATA_FILE_PATTERNS = [
+    "data/**/*.{}".format(ext)
+    for ext in DATA_FILE_EXTENSIONS
+]
+
+rust_shared_library(
+    name = "rust",
+    srcs = ["//libs/ballot-interpreter/src/hmpb-rust"],
+    compile_data = glob(DATA_FILE_PATTERNS),
+    crate_name = "ballot_interpreter",
+    tags = ["rust"],
+    visibility = [":__subpackages__"],
+    deps = [
+        "//libs/types-rs",
+        "@crates//:ab_glyph",
+        "@crates//:base64",
+        "@crates//:bitter",
+        "@crates//:clap",
+        "@crates//:hex",
+        "@crates//:image",
+        "@crates//:imageproc",
+        "@crates//:itertools",
+        "@crates//:log",
+        "@crates//:logging_timer",
+        "@crates//:neon",
+        "@crates//:pretty_env_logger",
+        "@crates//:rayon",
+        "@crates//:rqrr",
+        "@crates//:serde",
+        "@crates//:serde_json",
+        "@crates//:thiserror",
+        "@crates//:zbar-rust",
+    ],
+)
+
+rust_test(
+    name = "rust_tests",
+    size = "small",
+    compile_data = [
+        "//libs/ballot-interpreter/test:fixtures",
+    ],
+    crate = ":rust",
+    data = [
+        "//libs/ballot-interpreter/test:fixtures",
+        "//libs/hmpb:fixtures",
+    ],
+    deps = [
+        "@crates//:proptest",
+        "@crates//:tempfile",
+    ],
+)

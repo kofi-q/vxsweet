@@ -1,0 +1,8 @@
+load("//tools/ts_build:defs.bzl", "ts_package")
+
+# gazelle:js_mono_package
+
+ts_package(
+    name = "test",
+    src_deps = ["//:node_modules/@types/node"],
+)

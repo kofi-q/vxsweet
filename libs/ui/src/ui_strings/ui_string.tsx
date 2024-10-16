@@ -1,4 +1,3 @@
-import React from 'react';
 import { Trans } from 'react-i18next';
 
 import sanitizeHtml from 'sanitize-html';
@@ -7,7 +6,7 @@ import { useLanguageContext } from './language_context';
 import { WithAudio } from './with_audio';
 
 export interface UiStringProps {
-  as?: string | React.ComponentType<never>;
+  as?: string;
   children: ReactUiString;
   pluralCount?: number;
   uiStringKey: string;
