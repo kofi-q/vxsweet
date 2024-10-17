@@ -33,7 +33,6 @@ type tsPackageConfig struct {
 	// the build.
 	isIgnoredPackage bool
 
-	// See [PackageJson]
 	packageJson *PackageJson
 
 	tsConfig *TsConfig
@@ -49,7 +48,7 @@ func (self tsPackageConfig) createChild() *tsPackageConfig {
 	}
 }
 
-// Contains workspace path mapping information from the root tsconfi.json file.
+// Contains workspace path mapping information from the root tsconfig.json file.
 type TsConfig struct {
 	CompilerOptions TsConfigCompilerOptions
 }
@@ -167,7 +166,7 @@ func (t *tsPackage) CheckFlags(fs *flag.FlagSet, c *config.Config) error {
 }
 
 // KnownDirectives returns a list of directive keys that this Configurer can
-// interpret. Gazelle prints errors for directives that are not recoginized by
+// interpret. Gazelle prints errors for directives that are not recognized by
 // any Configurer.
 func (t *tsPackage) KnownDirectives() []string {
 	return []string{
@@ -185,4 +184,5 @@ func (t *tsPackage) RegisterFlags(
 	fs *flag.FlagSet,
 	cmd string,
 	c *config.Config,
-) {}
+) {
+}

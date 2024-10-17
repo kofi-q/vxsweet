@@ -5,16 +5,101 @@ import (
 )
 
 var (
-	tsPackageKindName = "ts_package"
-	tsLibraryKindName = "ts_library"
+	tsPackageKindName   = "ts_package"
+	tsLibraryKindName   = "ts_library"
+	tsTestsKindName     = "ts_tests"
+	tsStoriesKindName   = "ts_stories"
 	jsonPackageKindName = "json_package"
 
 	kinds = map[string]rule.KindInfo{
+		tsStoriesKindName: {
+			MatchAny: true,
+			SubstituteAttrs: map[string]bool{
+				"deps": true,
+				"data": true,
+			},
+			MergeableAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+			NonEmptyAttrs: map[string]bool{
+				"name": true,
+			},
+			ResolveAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+		},
+
+		tsTestsKindName: {
+			MatchAny: true,
+			SubstituteAttrs: map[string]bool{
+				"deps": true,
+				"data": true,
+			},
+			MergeableAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+			NonEmptyAttrs: map[string]bool{
+				"name": true,
+			},
+			ResolveAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+		},
+
+		tsStoriesKindName: {
+			MatchAny: true,
+			SubstituteAttrs: map[string]bool{
+				"deps": true,
+				"data": true,
+			},
+			MergeableAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+			NonEmptyAttrs: map[string]bool{
+				"name": true,
+			},
+			ResolveAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+		},
+
+		tsLibraryKindName: {
+			MatchAny: true,
+			SubstituteAttrs: map[string]bool{
+				"deps": true,
+				"data": true,
+			},
+			MergeableAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+			NonEmptyAttrs: map[string]bool{
+				"name": true,
+			},
+			ResolveAttrs: map[string]bool{
+				"name": true,
+				"deps": true,
+				"data": true,
+			},
+		},
+
 		tsPackageKindName: {
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
 				"src_deps":   true,
-				"exclude":    true,
 				"test_deps":  true,
 				"type_deps":  true,
 				"story_deps": true,
@@ -22,7 +107,6 @@ var (
 			MergeableAttrs: map[string]bool{
 				"name":       true,
 				"src_deps":   true,
-				"exclude":    true,
 				"test_deps":  true,
 				"type_deps":  true,
 				"story_deps": true,
@@ -33,12 +117,12 @@ var (
 			ResolveAttrs: map[string]bool{
 				"name":       true,
 				"src_deps":   true,
-				"exclude":    true,
 				"test_deps":  true,
 				"type_deps":  true,
 				"story_deps": true,
 			},
 		},
+
 		jsonPackageKindName: {
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
@@ -104,12 +188,24 @@ func (*tsPackage) Loads() []rule.LoadInfo {
 func (*tsPackage) ApparentLoads(_ func(string) string) []rule.LoadInfo {
 	return []rule.LoadInfo{
 		{
-			Name: "//tools/ts_build:defs.bzl",
-			Symbols: []string{
-				tsPackageKindName,
-				tsLibraryKindName,
-				jsonPackageKindName,
-			},
+			Name:    "//tools/ts_build:defs.bzl",
+			Symbols: []string{tsPackageKindName},
+		},
+		{
+			Name:    "//tools/ts_build:ts_library.bzl",
+			Symbols: []string{tsLibraryKindName},
+		},
+		{
+			Name:    "//tools/ts_build:ts_tests.bzl",
+			Symbols: []string{tsTestsKindName},
+		},
+		{
+			Name:    "//tools/ts_build:ts_stories.bzl",
+			Symbols: []string{tsStoriesKindName},
+		},
+		{
+			Name:    "//tools/ts_build:json_package.bzl",
+			Symbols: []string{jsonPackageKindName},
 		},
 	}
 }
