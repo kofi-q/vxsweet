@@ -1,5 +1,6 @@
 # Use an explicit build cache directory that can then be saved to the
 # CircleCI cache.
+# NOTE: Keep in sync with .circleci/config.yml:
 common:ci --disk_cache=~/bazel_build_cache
 
 # Docs: https://bazel.build/docs/user-manual#test-output
@@ -20,5 +21,10 @@ common:ci --local_resources=cpu=8
 # https://bazel.build/reference/command-line-reference#flag--color
 common:ci --color=yes
 
+# Try to build as many targets as possible before exiting.
 # Docs: https://bazel.build/docs/user-manual#keep-going
 common:ci --keep_going
+
+# Make sure we have as much info in the CI output as possible to debug failures.
+# Docs: https://bazel.build/docs/user-manual#keep-going
+common:ci --verbose_failures
