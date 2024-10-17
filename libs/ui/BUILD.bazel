@@ -1,5 +1,6 @@
-load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 json_package(name = "json")
 
-ts_package(name = "ui")
+ts_library(name = "ui")

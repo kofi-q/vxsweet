@@ -14,11 +14,9 @@ import (
 )
 
 const (
-	ambientTypesImportEnv                  = "env"
-	ambientTypesImportJestStyledComponents = "jest-styled-components"
-	ambientTypesImportJestImageSnapshot    = "jest-image-snapshot"
-	ambientTypesImportKioskBrowser         = "kiosk-browser"
-	ambientTypesImportJestImageUtils       = "image-utils"
+	ambientTypesImportEnv                  = "types_env"
+	ambientTypesImportJestStyledComponents = "types_jest_styled_components"
+	ambientTypesImportKioskBrowser         = "types_kiosk_browser"
 )
 
 var (
@@ -28,14 +26,10 @@ var (
 			Name: "types_jest_styled_components",
 		},
 		ambientTypesImportKioskBrowser: {Name: "types_kiosk_browser"},
-		ambientTypesImportJestImageUtils: {
-			Pkg:  "libs/image-utils/src",
-			Name: "src",
-		},
-		"compress-commons": {Name: "types_compress_commons"},
-		"node-quirc":       {Name: "types_node_quirc"},
-		"stream-chopper":   {Name: "types_stream_chopper"},
-		"zip-stream":       {Name: "types_zip_stream"},
+		"compress-commons":             {Name: "types_compress_commons"},
+		"node-quirc":                   {Name: "types_node_quirc"},
+		"stream-chopper":               {Name: "types_stream_chopper"},
+		"zip-stream":                   {Name: "types_zip_stream"},
 	}
 )
 
@@ -49,33 +43,31 @@ func (t *tsPackage) Imports(
 	buildRule *rule.Rule,
 	buildFile *rule.File,
 ) []resolve.ImportSpec {
-	if buildRule.Kind() == tsLibraryKindName {
-		return getImportSpecsForFiles(buildFile, buildRule.AttrStrings("srcs"))
-	}
+	switch buildRule.Kind() {
+	case tsLibraryKindName:
+		fallthrough
+	case tsTestsKindName:
+		fallthrough
+	case tsStoriesKindName:
+		srcFiles, ok := buildRule.PrivateAttr("srcs").([]string)
+		if !ok {
+			log.Fatalf("malformed json_package rule - see generate.go\n")
+		}
 
-	if buildRule.Kind() == jsonPackageKindName {
+		return getImportSpecsForFiles(buildFile, srcFiles)
+
+	case jsonPackageKindName:
 		jsonFiles, ok := buildRule.PrivateAttr("srcs").([]string)
 		if !ok {
-			log.Fatalf("malformed json_package rule - see generate.go")
+			log.Fatalf("malformed json_package rule - see generate.go\n")
 			return nil
 		}
 
 		return getImportSpecsForFiles(buildFile, jsonFiles)
+
+	default:
+		panic("unexpected rule kind: " + buildRule.Kind())
 	}
-
-	importSpecs := []resolve.ImportSpec{}
-
-	jsFiles, ok := buildRule.PrivateAttr("srcs").(*JsFiles)
-	if !ok {
-		return importSpecs
-	}
-
-	importSpecs = append(
-		importSpecs,
-		getImportSpecsForFiles(buildFile, jsFiles.sourceFiles)...,
-	)
-
-	return importSpecs
 }
 
 func getImportSpecsForFiles(
@@ -161,98 +153,31 @@ func (t *tsPackage) Resolve(
 	buildRuleLabel label.Label,
 ) {
 	switch buildRule.Kind() {
-	case tsPackageKindName:
+	case tsLibraryKindName:
+		fallthrough
+	case tsStoriesKindName:
+		fallthrough
+	case tsTestsKindName:
 		jsImports, ok := imports.(JsImports)
 		if !ok {
-			panic("unable to extract imports for" + tsPackageKindName + "rule")
+			panic("unable to extract imports for " + tsTestsKindName + " rule")
 		}
 
-		t.resolveTsPackage(
+		setDeps(
 			runConfig,
-			ruleIndex,
 			buildRule,
+			"deps",
+			ruleIndex,
+			buildRuleLabel,
 			jsImports,
-			buildRuleLabel,
 		)
-	case tsLibraryKindName:
-		indexImports, ok := imports.(map[ImportStatement]interface{})
-		if !ok {
-			panic("unable to extract imports for" + tsLibraryKindName + "rule")
-		}
 
-		t.resolveTsLibrary(
-			runConfig,
-			ruleIndex,
-			buildRule,
-			indexImports,
-			buildRuleLabel,
-		)
 	case jsonPackageKindName:
 		// no-op
+
 	default:
 		panic("unexpected rule kind: " + buildRule.Kind())
 	}
-}
-
-func (t *tsPackage) resolveTsPackage(
-	runConfig *config.Config,
-	ruleIndex *resolve.RuleIndex,
-	buildRule *rule.Rule,
-	jsImports JsImports,
-	buildRuleLabel label.Label,
-) {
-	setDeps(
-		runConfig,
-		buildRule,
-		"src_deps",
-		ruleIndex,
-		buildRuleLabel,
-		jsImports.sourceImports,
-	)
-
-	setDeps(
-		runConfig,
-		buildRule,
-		"test_deps",
-		ruleIndex,
-		buildRuleLabel,
-		jsImports.testImports,
-	)
-
-	setDeps(
-		runConfig,
-		buildRule,
-		"type_deps",
-		ruleIndex,
-		buildRuleLabel,
-		jsImports.typeImports,
-	)
-
-	setDeps(
-		runConfig,
-		buildRule,
-		"story_deps",
-		ruleIndex,
-		buildRuleLabel,
-		jsImports.storyImports,
-	)
-}
-
-func (t *tsPackage) resolveTsLibrary(
-	runConfig *config.Config,
-	ruleIndex *resolve.RuleIndex,
-	buildRule *rule.Rule,
-	indexImports map[ImportStatement]interface{},
-	buildRuleLabel label.Label,
-) {
-	setDeps(
-		runConfig,
-		buildRule,
-		"deps",
-		ruleIndex,
-		buildRuleLabel,
-		indexImports,
-	)
 }
 
 func setDeps(
@@ -268,7 +193,6 @@ func setDeps(
 		ruleIndex,
 		currentRuleLabel,
 		imports,
-		attributeName,
 	)
 	if len(depSet) == 0 {
 		return
@@ -290,7 +214,6 @@ func resolveImports(
 	ruleIndex *resolve.RuleIndex,
 	currentRuleLabel label.Label,
 	imports map[ImportStatement]interface{},
-	attributeName string,
 ) map[label.Label]interface{} {
 	deps := map[label.Label]interface{}{}
 
@@ -311,9 +234,7 @@ func resolveImports(
 			languageName,
 		)
 		for _, match := range matches {
-			if match.IsSelfImport(currentRuleLabel) &&
-				// TODO: de-hackify
-				attributeName == "src_deps" {
+			if match.IsSelfImport(currentRuleLabel) {
 				continue
 			}
 
@@ -357,39 +278,8 @@ func resolveNodeModuleImport(
 		})
 	}
 
-	if moduleNameParts[0] == "@types" {
-		return deps
-	}
-
 	if internalTypesTarget, exists := internalTypeDefinitionTargets[moduleNameParts[0]]; exists {
 		deps = append(deps, internalTypesTarget)
-
-		return deps
-	}
-
-	typesPackageName := moduleNameParts[0]
-	if len(moduleNameParts) > 1 {
-		typesPackageName = strings.TrimPrefix(
-			strings.Join(moduleNameParts, "__"),
-			"@",
-		)
-	}
-	if isNodePackage {
-		typesPackageName = "node"
-	}
-
-	typesPackageName = path.Join("@types", typesPackageName)
-	_, isTypesDependency :=
-		packageConfig.packageJson.Dependencies[typesPackageName]
-
-	_, isDevTypesDependency :=
-		packageConfig.packageJson.DevDependencies[typesPackageName]
-
-	if isTypesDependency || isDevTypesDependency {
-		deps = append(deps, label.Label{
-			Repo: currentRuleLabel.Repo,
-			Name: path.Join("node_modules", typesPackageName),
-		})
 	}
 
 	return deps

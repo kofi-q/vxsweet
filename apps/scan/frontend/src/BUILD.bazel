@@ -1,10 +1,11 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
+    deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@types/node",
         "//:node_modules/@types/pluralize",
@@ -20,6 +21,7 @@ ts_package(
         "//:node_modules/setimmediate",
         "//:node_modules/styled-components",
         "//:node_modules/use-sound",
+        "//:types_env",
         "//:types_kiosk_browser",
         "//apps/scan/backend/src",
         "//libs/basics/src",
@@ -32,9 +34,12 @@ ts_package(
         "//libs/usb-drive/src",
         "//libs/utils/src",
     ],
-    test_deps = [
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@tanstack/react-query",
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/history",
@@ -44,8 +49,6 @@ ts_package(
         "//:node_modules/@types/styled-components",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/history",
-        "//:node_modules/jest",
-        "//:node_modules/jest-styled-components",
         "//:node_modules/react",
         "//:node_modules/react-router-dom",
         "//:node_modules/styled-components",

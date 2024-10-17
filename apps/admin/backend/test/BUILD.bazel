@@ -1,11 +1,10 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 # gazelle:js_mono_package
 
-ts_package(
+ts_library(
     name = "test",
-    src_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+    deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/fs-extra",
         "//:node_modules/@types/jest",
@@ -17,7 +16,6 @@ ts_package(
         "//:node_modules/csv-parse",
         "//:node_modules/debug",
         "//:node_modules/fs-extra",
-        "//:node_modules/jest",
         "//:node_modules/jest-image-snapshot",
         "//:node_modules/tmp",
         "//:node_modules/uuid",

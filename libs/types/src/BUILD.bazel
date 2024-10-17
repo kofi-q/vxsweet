@@ -1,12 +1,14 @@
-load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
 json_package(name = "json")
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
+    deps = [
         "//:node_modules/@antongolub/iso8601",
         "//:node_modules/@types/lodash.setwith",
         "//:node_modules/@types/node",
@@ -17,15 +19,18 @@ ts_package(
         "//:node_modules/zod",
         "//libs/basics/src",
     ],
-    test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.clonedeep",
         "//:node_modules/@types/lodash.set",
         "//:node_modules/@types/node",
+        "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
-        "//:node_modules/jest",
         "//:node_modules/js-sha256",
         "//:node_modules/lodash.clonedeep",
         "//:node_modules/lodash.set",

@@ -13,12 +13,7 @@ import (
 	"github.com/bazelbuild/bazel-gazelle/rule"
 )
 
-type JsImports struct {
-	sourceImports map[ImportStatement]interface{}
-	storyImports  map[ImportStatement]interface{}
-	testImports   map[ImportStatement]interface{}
-	typeImports   map[ImportStatement]interface{}
-}
+type JsImports map[ImportStatement]interface{}
 
 var (
 	testFileInfix  = ".test"
@@ -31,11 +26,10 @@ var (
 )
 
 type JsFiles struct {
-	indexFiles  []string
 	jsonFiles   []string
 	sourceFiles []string
-	testFiles   []string
 	storyFiles  []string
+	testFiles   []string
 }
 
 // GenerateRules extracts build metadata from source files in a directory.
@@ -73,7 +67,7 @@ func (t *tsPackage) GenerateRules(
 	sourceFiles := t.collectSourceFiles(args, packageConfig)
 
 	// Add or edit/merge a rule for this source group.
-	_, srcGenErr := t.addProjectRules(
+	srcGenErr := t.addPackageRules(
 		args,
 		sourceFiles,
 		&result,
@@ -158,84 +152,132 @@ func (t *tsPackage) collectSourceFiles(
 	return &jsFiles
 }
 
-func (t *tsPackage) addProjectRules(
+func (t *tsPackage) addPackageRules(
 	args language.GenerateArgs,
 	jsFiles *JsFiles,
 	result *language.GenerateResult,
-) ([]*rule.Rule, error) {
-	rules := []*rule.Rule{}
+) error {
+	// Clear out instances of the old rule:
+	result.Empty = append(result.Empty, newTsPackageRule())
 
-	indexFileCount := len(jsFiles.indexFiles)
-	jsonFileCount := len(jsFiles.jsonFiles)
-	sourceFileCount := len(jsFiles.sourceFiles) +
-		len(jsFiles.storyFiles) +
-		len(jsFiles.testFiles)
+	if err := t.addLibraryRule(args, jsFiles, result); err != nil {
+		return err
+	}
 
-	if indexFileCount != 0 {
-		indexRule := newTsLibraryRule()
-		indexRule.SetName("index")
-		indexRule.SetAttr("srcs", jsFiles.indexFiles)
+	if err := t.addTestsRule(args, jsFiles, result); err != nil {
+		return err
+	}
 
-		result.Gen = append(result.Gen, indexRule)
-		result.Imports = append(
-			result.Imports,
-			t.findImports(args, &jsFiles.indexFiles),
-		)
+	if err := t.addStoriesRule(args, jsFiles, result); err != nil {
+		return err
+	}
 
-		rules = append(rules, indexRule)
-	} else {
+	if err := t.addJsonRule(jsFiles, result); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (t *tsPackage) addLibraryRule(
+	args language.GenerateArgs,
+	jsFiles *JsFiles,
+	result *language.GenerateResult,
+) error {
+	if len(jsFiles.sourceFiles) == 0 {
 		result.Empty = append(result.Empty, newTsLibraryRule())
+		return nil
 	}
 
-	// HACK: Only include `:json` target if there are source files in the
-	// directory (that may import it directly).
-	if jsonFileCount != 0 && sourceFileCount != 0 {
-		jsonRule := newJsonPackageRule()
-		jsonRule.SetName("json")
-		jsonRule.SetPrivateAttr("srcs", jsFiles.jsonFiles)
-
-		result.Gen = append(result.Gen, jsonRule)
-		result.Imports = append(
-			result.Imports,
-			map[ImportStatement]interface{}{},
-		)
-
-		rules = append(rules, jsonRule)
-	} else {
-		result.Empty = append(result.Empty, newJsonPackageRule())
-	}
-
-	if sourceFileCount == 0 {
-		result.Empty = append(result.Empty, newTsPackageRule())
-		return rules, nil
-	}
-
-	sourceRule := newTsPackageRule()
+	sourceRule := newTsLibraryRule()
 	sourceRule.SetName(path.Base(args.Dir))
-	sourceRule.SetPrivateAttr("srcs", jsFiles)
-
-	if len(jsFiles.indexFiles) != 0 {
-		sourceRule.SetAttr("exclude", jsFiles.indexFiles)
-	}
-
-	imports := JsImports{}
-	imports.sourceImports = t.findImports(args, &jsFiles.sourceFiles)
-	imports.testImports = t.findImports(args, &jsFiles.testFiles)
-	imports.storyImports = t.findImports(args, &jsFiles.storyFiles)
+	sourceRule.SetPrivateAttr("srcs", jsFiles.sourceFiles)
 
 	result.Gen = append(result.Gen, sourceRule)
-	result.Imports = append(result.Imports, imports)
+	result.Imports = append(
+		result.Imports,
+		t.findImports(args, &jsFiles.sourceFiles),
+	)
 
-	rules = append(rules, sourceRule)
+	return nil
+}
 
-	return rules, nil
+func (t *tsPackage) addTestsRule(
+	args language.GenerateArgs,
+	jsFiles *JsFiles,
+	result *language.GenerateResult,
+) error {
+	if len(jsFiles.testFiles) == 0 {
+		result.Empty = append(result.Empty, newTsTestsRule())
+		return nil
+	}
+
+	testsRule := newTsTestsRule()
+	testsRule.SetName("tests")
+	testsRule.SetPrivateAttr("srcs", jsFiles.testFiles)
+
+	result.Gen = append(result.Gen, testsRule)
+	result.Imports = append(
+		result.Imports,
+		t.findImports(args, &jsFiles.testFiles),
+	)
+
+	return nil
+}
+
+func (t *tsPackage) addStoriesRule(
+	args language.GenerateArgs,
+	jsFiles *JsFiles,
+	result *language.GenerateResult,
+) error {
+	if len(jsFiles.storyFiles) == 0 {
+		result.Empty = append(result.Empty, newTsStoriesRule())
+		return nil
+	}
+
+	storiesRule := newTsStoriesRule()
+	storiesRule.SetName("stories")
+	storiesRule.SetPrivateAttr("srcs", jsFiles.storyFiles)
+
+	result.Gen = append(result.Gen, storiesRule)
+	result.Imports = append(
+		result.Imports,
+		t.findImports(args, &jsFiles.storyFiles),
+	)
+
+	return nil
+}
+
+func (t *tsPackage) addJsonRule(
+	jsFiles *JsFiles,
+	result *language.GenerateResult,
+) error {
+	if len(jsFiles.jsonFiles) == 0 ||
+		// HACK: Only include `:json` target if there are source files in the
+		// directory (that may import it directly).
+		len(jsFiles.sourceFiles) == 0 {
+		result.Empty = append(result.Empty, newJsonPackageRule())
+		return nil
+	}
+
+	jsonRule := newJsonPackageRule()
+	jsonRule.SetName("json")
+	jsonRule.SetPrivateAttr("srcs", jsFiles.jsonFiles)
+
+	result.Gen = append(result.Gen, jsonRule)
+	result.Imports = append(
+		result.Imports,
+		map[ImportStatement]interface{}{},
+	)
+
+	return nil
 }
 
 func (t *tsPackage) findImports(
 	args language.GenerateArgs,
 	files *[]string,
-) map[ImportStatement]interface{} {
-	imports := map[ImportStatement]interface{}{}
+) JsImports {
+	imports := JsImports{}
 
 	for result := range t.parseFiles(args, files) {
 		if len(result.Errors) > 0 {
@@ -256,7 +298,6 @@ func (t *tsPackage) findImports(
 func newTsPackageRule() *rule.Rule {
 	packageRule := rule.NewRule(tsPackageKindName, "")
 	packageRule.SetSortedAttrs([]string{
-		"exclude",
 		"src_deps",
 		"story_deps",
 		"test_deps",
@@ -278,6 +319,32 @@ func newTsLibraryRule() *rule.Rule {
 	})
 
 	return libraryRule
+}
+
+func newTsTestsRule() *rule.Rule {
+	testsRule := rule.NewRule(tsTestsKindName, "")
+	testsRule.SetSortedAttrs([]string{
+		"srcs",
+		"deps",
+		"data",
+		"tags",
+		"visibility",
+	})
+
+	return testsRule
+}
+
+func newTsStoriesRule() *rule.Rule {
+	storiesRule := rule.NewRule(tsStoriesKindName, "")
+	storiesRule.SetSortedAttrs([]string{
+		"srcs",
+		"deps",
+		"data",
+		"tags",
+		"visibility",
+	})
+
+	return storiesRule
 }
 
 func newJsonPackageRule() *rule.Rule {
@@ -303,9 +370,11 @@ func isTsExtension(fileExtension string) bool {
 func newEmptyLanguageResult() language.GenerateResult {
 	return language.GenerateResult{
 		Empty: []*rule.Rule{
-
-			newTsLibraryRule(),
+			newJsonPackageRule(),
 			newTsPackageRule(),
+			newTsLibraryRule(),
+			newTsStoriesRule(),
+			newTsTestsRule(),
 		},
 	}
 }

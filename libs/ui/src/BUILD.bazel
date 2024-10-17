@@ -1,18 +1,20 @@
-load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_stories.bzl", "ts_stories")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
 json_package(name = "json")
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
+    deps = [
         "//:node_modules/@fortawesome/fontawesome-svg-core",
         "//:node_modules/@fortawesome/free-regular-svg-icons",
         "//:node_modules/@fortawesome/free-solid-svg-icons",
         "//:node_modules/@fortawesome/react-fontawesome",
         "//:node_modules/@tanstack/react-query",
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/base64-js",
@@ -34,7 +36,6 @@ ts_package(
         "//:node_modules/@yornaath/batshit",
         "//:node_modules/base64-js",
         "//:node_modules/i18next",
-        "//:node_modules/jest",
         "//:node_modules/lodash.get",
         "//:node_modules/lodash.sample",
         "//:node_modules/lodash.samplesize",
@@ -64,27 +65,12 @@ ts_package(
         "//libs/usb-drive/src",
         "//libs/utils/src",
     ],
-    story_deps = [
-        "//:node_modules/@storybook/react",
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@tanstack/react-query",
-        "//:node_modules/@types/react",
-        "//:node_modules/@types/react-router-dom",
-        "//:node_modules/@types/styled-components",
-        "//:node_modules/get-contrast",
-        "//:node_modules/lorem-ipsum",
-        "//:node_modules/react",
-        "//:node_modules/react-router-dom",
-        "//:node_modules/styled-components",
-        "//libs/basics/src",
-        "//libs/fixtures/src",
-        "//libs/types/src",
-        "//libs/ui/src",
-        "//libs/ui/test",
-        "//libs/utils/src",
-    ],
-    test_deps = [
-        "//:node_modules/@tanstack/react-query",
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/base64-js",
@@ -100,8 +86,6 @@ ts_package(
         "//:node_modules/base64-js",
         "//:node_modules/fast-check",
         "//:node_modules/history",
-        "//:node_modules/jest",
-        "//:node_modules/jest-styled-components",
         "//:node_modules/luxon",
         "//:node_modules/parse-css-color",
         "//:node_modules/react",
@@ -121,6 +105,28 @@ ts_package(
         "//libs/ui/src",
         "//libs/ui/test",
         "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_stories(
+    name = "stories",
+    deps = [
+        "//:node_modules/@storybook/react",
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/get-contrast",
+        "//:node_modules/lorem-ipsum",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/ui/test",
         "//libs/utils/src",
     ],
 )

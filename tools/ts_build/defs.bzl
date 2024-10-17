@@ -152,20 +152,11 @@ def ts_package(
     target_tests_lib = _newTarget("tests_lib")
 
     if SOURCE_FILES:
-        additional_react_deps = []
-        if REACT_SOURCE_FILES and "//:node_modules/react" not in src_deps:
-            additional_react_deps = [
-                "//:node_modules/react",
-                "//:node_modules/@types/react",
-            ]
-
-        all_deps = src_deps + additional_react_deps
-
         ts_library(
             name = target_main.name,
             srcs = SOURCE_FILES,
             visibility = visibility,
-            deps = all_deps,
+            deps = src_deps,
             data = src_data,
             tags = ["src"],
         )

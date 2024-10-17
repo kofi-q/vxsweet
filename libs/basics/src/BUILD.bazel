@@ -1,25 +1,26 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+    deps = [
         "//:node_modules/@types/deep-eql",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/deep-eql",
-        "//:node_modules/jest",
     ],
-    test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
-        "//:node_modules/jest",
         "//libs/basics/src",
     ],
 )

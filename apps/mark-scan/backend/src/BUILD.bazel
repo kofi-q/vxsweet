@@ -1,25 +1,26 @@
-load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
 json_package(name = "json")
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+    deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/express",
         "//:node_modules/@types/fs-extra",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/node-hid",
+        "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/@types/tmp",
         "//:node_modules/debug",
         "//:node_modules/express",
         "//:node_modules/fs-extra",
-        "//:node_modules/jest",
         "//:node_modules/node-hid",
         "//:node_modules/path",
         "//:node_modules/tmp",
@@ -43,15 +44,17 @@ ts_package(
         "//libs/usb-drive/src",
         "//libs/utils/src",
     ],
-    test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
         "//:node_modules/@types/node",
         "//:node_modules/@types/node-hid",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/@types/tmp",
-        "//:node_modules/jest",
         "//:node_modules/luxon",
         "//:node_modules/node-hid",
         "//:node_modules/tmp",
