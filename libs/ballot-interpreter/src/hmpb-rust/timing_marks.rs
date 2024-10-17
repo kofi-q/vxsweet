@@ -1776,6 +1776,7 @@ pub fn detect_metadata_and_normalize_orientation(
 
 #[cfg(test)]
 mod tests {
+    use std::env;
     use std::path::{Path, PathBuf};
 
     use image::GrayImage;
@@ -1803,8 +1804,8 @@ mod tests {
 
     #[test]
     fn test_ignore_smudged_timing_mark() {
-        let fixture_path =
-            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("test/fixtures/nh-test-ballot");
+        let fixture_path = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap())
+            .join("test/fixtures/nh-test-ballot");
         let side_a_path = fixture_path.join("timing-mark-smudge-front.jpeg");
         let side_b_path = fixture_path.join("timing-mark-smudge-back.jpeg");
         let (side_a_image, side_b_image) = load_ballot_card_images(&side_a_path, &side_b_path);

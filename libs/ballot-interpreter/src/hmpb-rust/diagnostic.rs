@@ -124,13 +124,16 @@ pub fn blank_paper(img: GrayImage, debug_path: Option<PathBuf>) -> bool {
 mod test {
     use super::*;
     use image::DynamicImage;
+    use std::env;
     use std::fs::read_dir;
 
     macro_rules! fixture_test {
         ($test_name:ident, $path:expr, $expected:expr) => {
             #[test]
             fn $test_name() {
-                let paths = read_dir($path).unwrap();
+                let paths =
+                    read_dir(PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join($path))
+                        .unwrap();
                 for path in paths {
                     let path = path.unwrap().path();
                     let img = image::open(&path)
@@ -169,10 +172,13 @@ mod test {
 
     #[test]
     fn test_non_blank_paper_fails() {
-        let img = image::open("./test/fixtures/all-bubble-side-a.jpeg")
-            .ok()
-            .map(DynamicImage::into_luma8)
-            .unwrap();
+        let img = image::open(
+            PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap())
+                .join("./test/fixtures/all-bubble-side-a.jpeg"),
+        )
+        .ok()
+        .map(DynamicImage::into_luma8)
+        .unwrap();
         assert!(!blank_paper(img, None));
     }
 }

@@ -112,7 +112,7 @@ const fn bit_size(n: u32) -> u32 {
 #[cfg(test)]
 #[allow(clippy::unwrap_used)]
 mod test {
-    use std::{fs::File, io::BufReader, path::PathBuf};
+    use std::{env, fs::File, io::BufReader, path::PathBuf};
 
     use proptest::{
         prop_oneof, proptest,
@@ -123,7 +123,8 @@ mod test {
 
     #[test]
     fn test_decode_metadata_bits() {
-        let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("test/fixtures/ashland");
+        let fixture_path =
+            PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join("test/fixtures/ashland");
         let election_path = fixture_path.join("election.json");
         let election: Election =
             serde_json::from_reader(BufReader::new(File::open(election_path).unwrap())).unwrap();

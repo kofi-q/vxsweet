@@ -653,6 +653,7 @@ where
 #[allow(clippy::similar_names, clippy::unwrap_used)]
 mod test {
     use std::{
+        env,
         fs::File,
         io::BufReader,
         path::{Path, PathBuf},
@@ -683,7 +684,8 @@ mod test {
         fixture_name: &str,
         (side_a_name, side_b_name): (&str, &str),
     ) -> (GrayImage, GrayImage, Options) {
-        let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("test/fixtures");
+        let fixture_path =
+            PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join("test/fixtures");
         let election_path = fixture_path.join(fixture_name).join("election.json");
         let election: Election =
             serde_json::from_reader(BufReader::new(File::open(election_path).unwrap())).unwrap();
@@ -705,7 +707,7 @@ mod test {
         fixture_name: &str,
         starting_page_number: usize,
     ) -> (GrayImage, GrayImage, Options) {
-        let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        let fixture_path = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap())
             .join("../hmpb/fixtures/")
             .join(fixture_name);
         let election_path = fixture_path.join("election.json");
