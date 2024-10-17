@@ -25,7 +25,6 @@ ts_package(
         "//libs/types/src",
     ],
     test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/fetch-mock",
         "//:node_modules/@types/jest",
@@ -37,7 +36,6 @@ ts_package(
         "//:node_modules/debug",
         "//:node_modules/fast-check",
         "//:node_modules/fetch-mock",
-        "//:node_modules/jest",
         "//:node_modules/luxon",
         "//:node_modules/randombytes",
         "//:node_modules/tmp",

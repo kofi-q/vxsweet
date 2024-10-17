@@ -5,7 +5,6 @@ load("//tools/ts_build:defs.bzl", "ts_package")
 ts_package(
     name = "src",
     src_deps = [
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/chalk",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/jest",
@@ -13,8 +12,6 @@ ts_package(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/chalk",
         "//:node_modules/debug",
-        "//:node_modules/jest",
-        "//:node_modules/readline",
         "//:node_modules/usb",
         "//libs/basics/src",
         "//libs/message-coder/src",
@@ -22,14 +19,12 @@ ts_package(
         "//libs/utils/src",
     ],
     test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/debug",
         "//:node_modules/fast-check",
-        "//:node_modules/jest",
         "//:node_modules/jest-mock-extended",
         "//:node_modules/usb",
         "//libs/basics/src",

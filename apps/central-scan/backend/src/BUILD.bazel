@@ -38,7 +38,6 @@ ts_package(
         "//libs/utils/src",
     ],
     test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/express",
         "//:node_modules/@types/fs-extra",
         "//:node_modules/@types/jest",
@@ -52,7 +51,6 @@ ts_package(
         "//:node_modules/express",
         "//:node_modules/fs-extra",
         "//:node_modules/get-port",
-        "//:node_modules/jest",
         "//:node_modules/js-sha256",
         "//:node_modules/luxon",
         "//:node_modules/supertest",

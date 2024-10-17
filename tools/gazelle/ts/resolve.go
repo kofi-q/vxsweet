@@ -14,11 +14,9 @@ import (
 )
 
 const (
-	ambientTypesImportEnv                  = "env"
-	ambientTypesImportJestStyledComponents = "jest-styled-components"
-	ambientTypesImportJestImageSnapshot    = "jest-image-snapshot"
-	ambientTypesImportKioskBrowser         = "kiosk-browser"
-	ambientTypesImportJestImageUtils       = "image-utils"
+	ambientTypesImportEnv                  = "types_env"
+	ambientTypesImportJestStyledComponents = "types_jest_styled_components"
+	ambientTypesImportKioskBrowser         = "types_kiosk_browser"
 )
 
 var (
@@ -28,14 +26,10 @@ var (
 			Name: "types_jest_styled_components",
 		},
 		ambientTypesImportKioskBrowser: {Name: "types_kiosk_browser"},
-		ambientTypesImportJestImageUtils: {
-			Pkg:  "libs/image-utils/src",
-			Name: "src",
-		},
-		"compress-commons": {Name: "types_compress_commons"},
-		"node-quirc":       {Name: "types_node_quirc"},
-		"stream-chopper":   {Name: "types_stream_chopper"},
-		"zip-stream":       {Name: "types_zip_stream"},
+		"compress-commons":             {Name: "types_compress_commons"},
+		"node-quirc":                   {Name: "types_node_quirc"},
+		"stream-chopper":               {Name: "types_stream_chopper"},
+		"zip-stream":                   {Name: "types_zip_stream"},
 	}
 )
 
@@ -357,39 +351,8 @@ func resolveNodeModuleImport(
 		})
 	}
 
-	if moduleNameParts[0] == "@types" {
-		return deps
-	}
-
 	if internalTypesTarget, exists := internalTypeDefinitionTargets[moduleNameParts[0]]; exists {
 		deps = append(deps, internalTypesTarget)
-
-		return deps
-	}
-
-	typesPackageName := moduleNameParts[0]
-	if len(moduleNameParts) > 1 {
-		typesPackageName = strings.TrimPrefix(
-			strings.Join(moduleNameParts, "__"),
-			"@",
-		)
-	}
-	if isNodePackage {
-		typesPackageName = "node"
-	}
-
-	typesPackageName = path.Join("@types", typesPackageName)
-	_, isTypesDependency :=
-		packageConfig.packageJson.Dependencies[typesPackageName]
-
-	_, isDevTypesDependency :=
-		packageConfig.packageJson.DevDependencies[typesPackageName]
-
-	if isTypesDependency || isDevTypesDependency {
-		deps = append(deps, label.Label{
-			Repo: currentRuleLabel.Repo,
-			Name: path.Join("node_modules", typesPackageName),
-		})
 	}
 
 	return deps

@@ -6,12 +6,10 @@ ts_package(
     name = "test",
     src_deps = [
         "//:node_modules/@tanstack/react-query",
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@testing-library/react",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//:node_modules/jest",
         "//:node_modules/react",
         "//libs/backend/src",
         "//libs/basics/src",

@@ -15,11 +15,9 @@ ts_package(
     ],
     test_deps = [
         "//:node_modules/@antongolub/iso8601",
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/json-schema",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//:node_modules/jest",
         "//:node_modules/json-schema",
         "//:node_modules/zod",
         "//libs/basics/src",

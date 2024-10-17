@@ -19,10 +19,10 @@ var (
 	//
 
 	regexReexport = regexp.MustCompile(
-		`(?m:^ *\bexport(?:.|\n|\s)*?from ["'](.+?)["'])`,
+		`(?m:^ *\bexport(?:[^;]|\n|\s)*?from ["'](.+?)["'])`,
 	)
 	regexStaticImport = regexp.MustCompile(
-		`(?m:^ *\bimport(?:.|\n|\s)*?from ["'](.+?)["'])`,
+		`(?m:^ *\bimport(?:[^;]|\n|\s)*?from ["'](.+?)["'])`,
 	)
 	regexJestMock = regexp.MustCompile(
 		`(?m:^.*\bjest\.mock\(["'](.+?)["'])`,
@@ -56,19 +56,17 @@ var (
 	regexJestImageUtils       = regexp.MustCompile(
 		`\.(?:toMatchImage|toMatchPdfSnapshot)\(`,
 	)
-	regexProcessEnv   = regexp.MustCompile(`\sprocess\.env(\.|\[])`)
-	regexNodeTypes    = regexp.MustCompile(`\sNodeJS\..+`)
+	regexProcessEnv   = regexp.MustCompile(`\bprocess\.env(\.|\[])`)
+	regexNodeTypes    = regexp.MustCompile(`\bNodeJS\..+`)
 	regexKioskBrowser = regexp.MustCompile(
-		`\s(?:KioskBrowser\.|window\.kiosk)`,
+		`\b(?:KioskBrowser\.|window\.kiosk)`,
 	)
+	regexReactTypes = regexp.MustCompile(`\bJSX\.`)
 )
-
-type Parser interface {
-	ParseSource(filePath, source string) (ParseResult, []error)
-}
 
 // Parse the passed file for import statements.
 func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
+	extension := path.Ext(filePath)
 	content, err := os.ReadFile(path.Join(rootDir, filePath))
 	if err != nil {
 		return ParseResult{}, []error{err}
@@ -78,66 +76,56 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 
 	imports := map[string]bool{}
 
-	for _, reexport := range regexReexport.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := reexport[1]
-		if moduleNameOrPath == "" {
-			continue
+	for _, regexImportVariant := range []*regexp.Regexp{
+		regexReexport,
+		regexStaticImport,
+		regexJestMock,
+		regexSideEffectImport,
+		regexDynamicImport,
+		regexRequire,
+	} {
+		for _, match := range regexImportVariant.FindAllStringSubmatch(stringContent, -1) {
+			moduleNameOrPath := match[1]
+			if moduleNameOrPath == "" {
+				continue
+			}
+
+			imports[moduleNameOrPath] = true
+
+			//
+			// Add @types imports for external packages:
+			//
+
+			if strings.HasPrefix(moduleNameOrPath, "@types/") ||
+				strings.HasPrefix(moduleNameOrPath, "@vx/") ||
+				strings.HasPrefix(moduleNameOrPath, ".") {
+				continue
+			}
+
+			// TODO: Handle node imports without the `node:` prefix?
+			if strings.HasPrefix(moduleNameOrPath, "node:") {
+				imports["@types/node"] = true
+				continue
+			}
+
+			moduleNameParts := strings.Split(moduleNameOrPath, "/")
+			typesPackageName := moduleNameParts[0]
+			if len(moduleNameParts) > 1 && moduleNameParts[0][0] == '@' {
+				typesPackageName = strings.TrimPrefix(
+					strings.Join(moduleNameParts, "__"),
+					"@",
+				)
+			}
+			imports["@types/"+typesPackageName] = true
 		}
-
-		imports[moduleNameOrPath] = true
-	}
-
-	for _, staticImport := range regexStaticImport.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := staticImport[1]
-		if moduleNameOrPath == "" {
-			continue
-		}
-
-		imports[moduleNameOrPath] = true
-	}
-
-	for _, jestMock := range regexJestMock.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := jestMock[1]
-		if moduleNameOrPath == "" {
-			continue
-		}
-
-		imports[moduleNameOrPath] = true
-	}
-
-	for _, sideEffectImport := range regexSideEffectImport.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := sideEffectImport[1]
-		if moduleNameOrPath == "" {
-			continue
-		}
-
-		imports[moduleNameOrPath] = true
-	}
-
-	for _, dynamicImport := range regexDynamicImport.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := dynamicImport[1]
-		if moduleNameOrPath == "" {
-			continue
-		}
-
-		imports[moduleNameOrPath] = true
-	}
-
-	for _, require := range regexRequire.FindAllStringSubmatch(stringContent, -1) {
-		moduleNameOrPath := require[1]
-		if moduleNameOrPath == "" {
-			continue
-		}
-
-		imports[moduleNameOrPath] = true
 	}
 
 	if regexJestReference.Match([]byte(stringContent)) {
-		imports["jest"] = true
+		imports["@types/jest"] = true
 
 		// Keeping detection simple for @testing-library/jest-dom for now and just
 		// importing the types whenever we import `jest` types.
-		imports["@testing-library/jest-dom"] = true
+		imports["@types/testing-library__jest-dom"] = true
 	}
 
 	if regexJestStyledComponents.Match([]byte(stringContent)) {
@@ -145,11 +133,11 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 	}
 
 	if regexJestImageSnapshot.Match([]byte(stringContent)) {
-		imports[ambientTypesImportJestImageSnapshot] = true
+		imports["@types/jest-image-snapshot"] = true
 	}
 
 	if regexJestImageUtils.Match([]byte(stringContent)) {
-		imports[ambientTypesImportJestImageUtils] = true
+		imports["@vx/libs/image-utils/src"] = true
 	}
 
 	if regexKioskBrowser.Match([]byte(stringContent)) {
@@ -163,6 +151,10 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 
 	if regexNodeTypes.Match([]byte(stringContent)) {
 		imports["@types/node"] = true
+	}
+
+	if extension == ".tsx" || regexReactTypes.Match([]byte(stringContent)) {
+		imports["@types/react"] = true
 	}
 
 	return ParseResult{

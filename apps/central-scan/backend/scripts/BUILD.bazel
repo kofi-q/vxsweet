@@ -6,6 +6,7 @@ ts_package(
         "//:node_modules/@types/node",
         "//:node_modules/@types/uuid",
         "//:node_modules/uuid",
+        "//:types_env",
         "//apps/central-scan/backend/src",
         "//libs/backend/src",
         "//libs/basics/src",

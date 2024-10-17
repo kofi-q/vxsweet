@@ -16,7 +16,6 @@ ts_package(
         "//libs/basics/src",
     ],
     test_deps = [
-        "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@types/express",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
@@ -24,7 +23,6 @@ ts_package(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/expect-type",
         "//:node_modules/express",
-        "//:node_modules/jest",
         "//:node_modules/luxon",
         "//libs/basics/src",
         "//libs/grout/src",

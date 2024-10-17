@@ -10,6 +10,7 @@ ts_package(
         "//:node_modules/@types/yargs",
         "//:node_modules/tmp",
         "//:node_modules/yargs",
+        "//:types_env",
         "//libs/auth/src",
         "//libs/basics/src",
         "//libs/fixtures/src",
