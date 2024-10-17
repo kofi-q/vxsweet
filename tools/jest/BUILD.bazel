@@ -1,0 +1,29 @@
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "jest",
+    data = [
+        "//:node_modules/jest-environment-jsdom",
+        "//:node_modules/jest-watch-typeahead",
+        "//:tsconfig_base",
+    ],
+    tags = ["manual"],
+    deps = [
+        "//:node_modules/@jest/transform",
+        "//:node_modules/@jest/types",
+        "//:node_modules/@testing-library/jest-dom",
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@types/fetch-mock",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/fetch-mock",
+        "//:node_modules/jest-fetch-mock",
+        "//:node_modules/jest-styled-components",
+        "//:node_modules/nanoid",
+        "//:node_modules/styled-components",
+        "//:node_modules/ts-jest",
+        "//:types_env",
+    ],
+)

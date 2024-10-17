@@ -41,7 +41,6 @@ declare namespace NodeJS {
     REACT_APP_VX_USE_MOCK_USB_DRIVE?: string;
     SCAN_ALLOWED_EXPORT_PATTERNS?: string;
     SCAN_WORKSPACE?: string;
-    TMPDIR?: string; // Pltform-agnostic tmp path, to enable sandboxed Bazel tmp dirs.
     VX_CODE_VERSION?: string;
     VX_CONFIG_ROOT?: string;
     VX_MACHINE_ID?: string;
@@ -49,5 +48,56 @@ declare namespace NodeJS {
     VX_MACHINE_TYPE?: 'admin' | 'central-scan' | 'mark' | 'mark-scan' | 'scan';
     VX_SCREEN_ORIENTATION?: 'portrait' | 'landscape';
     WORKSPACE?: string;
+
+    //
+    // Bazel build env variables:
+    //
+
+    /**
+     * Absolute path to the directory from which bazel was invoked, for scripts
+     * that need to perform actions relative to the current working directory.
+     *
+     * NOTE: This is different from `process.cwd()`, which will always point to
+     * a directory within the bazel output tree or sandbox for any code running
+     * under bazel.
+     */
+    BUILD_WORKING_DIRECTORY?: string;
+
+    /**
+     * Absolute path to the root of the original source tree, for scripts that
+     * need to modify or generate code/data files in the original workspace.
+     */
+    BUILD_WORKSPACE_DIRECTORY?: string;
+
+    /**
+     * `true` if tests are being executed via Bazel. Enables configuration based
+     * run type (i.e. under Bazel, or directly with, say, `pnpm jest`).
+     */
+    IS_BAZEL_TEST?: 'true' | 'false';
+
+    /**
+     * Specifies the jest runtime environment. Defaults to `jsdom` for test
+     * suites containing `.tsx` files or references to `React`,
+     * otherwise, `node`.
+     */
+    JEST_ENVIRONMENT?: 'jsdom' | 'node';
+
+    /**
+     * When running under Bazel, `PWD` is set to the absolute path to the root
+     * of the Bazel sandbox, which mirrors the root of the repo.
+     */
+    PWD?: string;
+
+    /**
+     * Hermetic/sandboxed tmp dir path for bazel tests.
+     */
+    TEST_TMPDIR?: string;
+
+    /**
+     * Similar to {@link TEST_TMPDIR}, but more generally available outside of
+     * Bazel - when running under Bazel, this will be set to a Bazel-specific
+     * sandbox path and will be equal to {@link TEST_TMPDIR} when running tests.
+     */
+    TMPDIR?: string;
   }
 }

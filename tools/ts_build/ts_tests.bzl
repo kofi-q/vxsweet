@@ -1,3 +1,4 @@
+load("//tools/jest:jest_test.bzl", "jest_test")
 load(":files.bzl", "list_test_files")
 load(":ts_transpile.bzl", "ts_transpile")
 
@@ -6,11 +7,12 @@ def ts_tests(
         data = [],
         deps = [],
         env = {},
-        num_shards = 1,
+        shard_count = 1,
         size = "small",
         tags = [],
         timeout = "short",
-        type = None,
+        jest_environment = None,
+        tmp_enable_tests = False,
         unsound_disable_node_fs_patch_for_tests = False,
         visibility = None):
     """Declares build and test targets for Typescript test files in a package.
@@ -24,7 +26,7 @@ def ts_tests(
 
       env: Additional environment variables to set for the test target.
 
-      num_shards: Defaults to 1. Allows Bazel to split test files across
+      shard_count: Defaults to 1. Allows Bazel to split test files across
           multiple workers in parallel. Similar to adjusting test workers with
           jest, but resource management happens across all packages. Consider
           splitting packages into smaller chunks before resorting to sharding
@@ -39,8 +41,11 @@ def ts_tests(
       timeout: Timeout ("short" | "moderate" | "long" | "eternal") for the
           test target. Default value will correspond to the `size`.
 
-      type: Jest test env ("jsdom" | "node"). Defaults to "jsdom" if .tsx
+      jest_environment: Jest test env ("jsdom" | "node"). Defaults to "jsdom" if .tsx
           files are included, else "node".
+
+      tmp_enable_tests: Temporary flag to enable tests, so tests can be enabled
+          when they're passing. TODO: Remove once all tests are fixed.
 
       unsound_disable_node_fs_patch_for_tests: Disables node:fs patching that's
           put in place to prevent tests from accessing files outside of the
@@ -50,12 +55,35 @@ def ts_tests(
       visibility: Defaults to public.
     """
 
-    # TODO: Add jest test target
+    TEST_FILES = list_test_files()
+    lib_name = "{}_lib".format(name)
+
+    jest_env = jest_environment or "node"
+    if "//:node_modules/react" in deps:
+        jest_env = "jsdom"
+
+    if tmp_enable_tests:
+        jest_test(
+            name = name,
+            srcs = TEST_FILES,
+            data = [
+                ":{}".format(lib_name),
+            ],
+            env = env,
+            jest_environment = jest_env,
+            shard_count = shard_count,
+            size = size,
+            timeout = timeout,
+            tags = tags,
+            unsound_disable_node_fs_patch_for_tests = unsound_disable_node_fs_patch_for_tests,
+            visibility = visibility,
+        )
+
     ts_transpile(
-        name = name,
-        srcs = list_test_files(),
+        name = lib_name,
+        srcs = TEST_FILES,
         deps = deps,
         data = data,
-        tags = tags + ["test_files"],
+        tags = tags + ["test_lib"],
         visibility = visibility,
     )
