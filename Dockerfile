@@ -2,22 +2,16 @@
 
 FROM bitnami/minideb:bookworm
 
-ENV BAZELISK_VERSION=1.21.0
-
 # Essentials
 RUN apt update && apt install -y --no-install-recommends \
   ca-certificates \
   curl \
   git \
+  ssh \
   sudo \
   tar \
-  xz-utils
-
-# Bazel (via Bazelisk):
-RUN [[ $(uname -m) == "x86_64" ]] && ARCH="amd64" || ARCH="arm64" && \
-  curl -L -o bazel "https://github.com/bazelbuild/bazelisk/releases/download/v${BAZELISK_VERSION}/bazelisk-linux-${ARCH}" && \
-  chmod +x bazel && \
-  mv ./bazel /usr/local/bin/bazel
+  xz-utils \
+  zip
 
 # VxSuite transitive deps:
 RUN sudo apt update && apt install -y --no-install-recommends \
@@ -52,5 +46,12 @@ RUN sudo apt update && apt install -y --no-install-recommends \
   make \
   pkg-config \
   poppler-utils \
-  python3 \
-  zip
+  python3
+
+# Bazel (via Bazelisk):
+ENV BAZELISK_VERSION=1.22.0
+ARG TARGETARCH
+RUN curl -L -o bazel "https://github.com/bazelbuild/bazelisk/releases/download/v${BAZELISK_VERSION}/bazelisk-linux-${TARGETARCH}" && \
+  chmod +x bazel && \
+  mv ./bazel /usr/local/bin/bazel && \
+  bazel version
