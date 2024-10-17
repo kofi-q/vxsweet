@@ -100,14 +100,8 @@ for (const Heading of [H1, H2, H3, H4, H5, H6]) {
 
     const regularHeading = screen.getByText('regular heading');
     if (Heading === H1) {
-      // H1 receives styling from normalize.css. In production, the styling is
-      // always resolved in favor of our own global styles, but in tests, the
-      // style is resolved in favor of normalize.css.
-      //
-      // TODO: Dedupe normalize.css and our own global styles to avoid
-      // unpredictable styling.
       expect(regularHeading).toHaveStyle({
-        'font-size': `2em`,
+        'font-size': `1.4rem`,
       });
     } else {
       expect(regularHeading).toHaveStyle({

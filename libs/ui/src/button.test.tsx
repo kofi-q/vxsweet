@@ -14,6 +14,8 @@ import {
 import { makeTheme } from './themes/make_theme';
 import { Icons } from './icons';
 
+const FONT_SIZE_BROWSER_DEFAULT_PX = 16;
+
 function createTouchStartEventProperties(x: number, y: number) {
   return { touches: [{ clientX: x, clientY: y }] };
 }
@@ -65,6 +67,19 @@ describe('Button', () => {
       });
 
       const button = screen.getButton(`${sizeMode} button`);
+
+      const fontSize = window.getComputedStyle(button).fontSize;
+      if (!fontSize) {
+        return 0;
+      }
+
+      if (fontSize.endsWith('px')) {
+        return Number.parseFloat(fontSize);
+      }
+
+      if (fontSize.endsWith('rem')) {
+        return Number.parseFloat(fontSize) * FONT_SIZE_BROWSER_DEFAULT_PX;
+      }
 
       return percentToPx(window.getComputedStyle(button).fontSize);
     }
