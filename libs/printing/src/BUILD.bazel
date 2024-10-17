@@ -39,6 +39,7 @@ ts_tests(
         "//:node_modules/tmp",
         "//libs/basics/src",
         "//libs/fixtures/src",
+        "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/logging/src",
         "//libs/printing/src",

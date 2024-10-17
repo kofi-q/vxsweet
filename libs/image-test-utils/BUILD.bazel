@@ -1,22 +1,20 @@
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
-# gazelle:js_mono_package
-
 ts_library(
-    name = "src",
+    name = "image-test-utils",
     deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/jest-image-snapshot",
         "//:node_modules/@types/node",
-        "//:node_modules/@types/react",
-        "//:node_modules/@types/tmp",
-        "//:node_modules/react",
-        "//:node_modules/tmp",
+        "//:node_modules/@types/pixelmatch",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/canvas",
+        "//:node_modules/jest-image-snapshot",
+        "//:node_modules/pixelmatch",
         "//libs/basics/src",
-        "//libs/fixtures/src",
         "//libs/image-utils/src",
-        "//libs/printing/src",
-        "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/utils/src",
     ],
 )
 
@@ -24,12 +22,10 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/react",
+        "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//libs/basics/src",
-        "//libs/bmd-ballot-fixtures/src",
+        "//:node_modules/canvas",
         "//libs/fixtures/src",
-        "//libs/fs/src",
         "//libs/image-test-utils",
         "//libs/image-utils/src",
     ],

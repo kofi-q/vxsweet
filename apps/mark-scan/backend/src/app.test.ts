@@ -69,9 +69,9 @@ import {
 } from '../test/auth_helpers';
 import { PatConnectionStatusReader } from './pat-input/connection_status_reader';
 import { createWorkspace } from './util/workspace';
+import '@vx/libs/image-test-utils/register';
 
 const TEST_POLLING_INTERVAL_MS = 15;
-
 
 const featureFlagMock = getFeatureFlagMock();
 

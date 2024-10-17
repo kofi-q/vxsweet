@@ -2,7 +2,7 @@ import { ImageData } from 'canvas';
 import pixelmatch from 'pixelmatch';
 import { format } from '@vx/libs/utils/src';
 import { assert } from '@vx/libs/basics/src';
-import { writeImageData } from './image_data';
+import { writeImageData } from '../image-utils/src/image_data';
 
 /**
  * Options for the `toMatchImage` custom Jest matcher.

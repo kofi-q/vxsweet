@@ -1,7 +1,10 @@
+import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { readFile } from 'node:fs/promises';
 import { Buffer } from 'node:buffer';
-import { pdfToImages } from './pdf_to_images';
-import { toImageBuffer } from './image_data';
+import { pdfToImages } from '../image-utils/src/pdf_to_images';
+import { toImageBuffer } from '../image-utils/src/image_data';
+
+expect.extend({ toMatchImageSnapshot });
 
 /**
  * Options for `toMatchPdfSnapshot`.

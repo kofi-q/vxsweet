@@ -15,6 +15,7 @@ import {
 import { ImageData, createCanvas } from 'canvas';
 import { InterpretResult, interpret } from './interpret';
 import { pdfToPageImages } from '../../test/helpers/interpretation';
+import '@vx/libs/image-test-utils/register';
 
 let famousNamesBmdBallot: SheetOf<ImageData>;
 let famousNamesBmdBallotUpsideDown: SheetOf<ImageData>;

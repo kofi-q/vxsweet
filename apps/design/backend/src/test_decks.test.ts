@@ -19,6 +19,7 @@ import {
   createTestDeckTallyReport,
   getTallyReportResults,
 } from './test_decks';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(30000);
 

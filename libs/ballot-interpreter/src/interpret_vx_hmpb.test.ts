@@ -33,7 +33,7 @@ import {
 import { interpretSheet } from './interpret';
 import { InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
-
+import '@vx/libs/image-test-utils/register';
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

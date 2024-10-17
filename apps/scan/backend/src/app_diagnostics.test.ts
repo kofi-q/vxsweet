@@ -32,11 +32,11 @@ import {
 import { withApp } from '../test/helpers/pdi_helpers';
 import { TEST_PRINT_USER_FAIL_REASON } from './util/diagnostics';
 import { configureApp } from '../test/helpers/shared_helpers';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
 
 beforeEach(() => {
   mockFeatureFlagger.enableFeatureFlag(
@@ -52,7 +52,6 @@ async function wrapWithFakeSystemTime<T>(fn: () => Promise<T>): Promise<T> {
   jest.useRealTimers();
   return result;
 }
-
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,

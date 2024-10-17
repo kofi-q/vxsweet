@@ -16,6 +16,7 @@ import { chromium } from 'playwright';
 import { err, iter } from '@vx/libs/basics/src';
 import { PAPER_DIMENSIONS, RenderSpec, renderToPdf } from './render';
 import { OPTIONAL_EXECUTABLE_PATH_OVERRIDE } from './chromium';
+import '@vx/libs/image-test-utils/register';
 
 const { electionDefinition } = electionFamousNames2021Fixtures;
 const { election } = electionDefinition;

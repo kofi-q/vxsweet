@@ -1,3 +1,5 @@
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
 exports_files(
     srcs = [
         "bootstrap",
@@ -10,4 +12,9 @@ exports_files(
         "update-ts-builds.sh",
     ],
     visibility = ["//visibility:public"],
+)
+
+ts_library(
+    name = "script",
+    deps = ["//:node_modules/@types/node"],
 )

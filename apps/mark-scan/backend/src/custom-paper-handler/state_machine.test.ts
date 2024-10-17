@@ -107,7 +107,7 @@ import {
   BLANK_PAGE_MOCK,
 } from '../../test/ballot_helpers';
 import { AudioOutput, setAudioOutput } from '../audio/outputs';
-
+import '@vx/libs/image-test-utils/register';
 
 let driver: MockPaperHandlerDriver;
 let workspace: Workspace;

@@ -69,7 +69,7 @@ ts_tests(
         "//libs/basics/src",
         "//libs/fixtures/src",
         "//libs/grout/src",
-        "//libs/image-utils/src",
+        "//libs/image-test-utils",
         "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/src",
