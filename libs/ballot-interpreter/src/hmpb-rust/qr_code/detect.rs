@@ -213,6 +213,7 @@ pub fn detect(img: &GrayImage, debug: &ImageDebugWriter) -> Result {
 #[cfg(test)]
 #[allow(clippy::unwrap_used)]
 mod test {
+    use std::env;
     use std::path::PathBuf;
     use types_rs::geometry::Rect;
 
@@ -222,7 +223,8 @@ mod test {
 
     #[test]
     fn test_detect_qr_code() {
-        let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("test/fixtures");
+        let fixture_path =
+            PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join("test/fixtures");
         let scan_side_a_path = fixture_path.join("all-bubble-side-a.jpeg");
         let scan_side_a = image::open(scan_side_a_path).unwrap().into_luma8();
         let qr_code = detect(&scan_side_a, &ImageDebugWriter::disabled()).unwrap();
@@ -239,8 +241,8 @@ mod test {
 
     #[test]
     fn test_detect_qr_code_in_skewed_image() {
-        let fixture_path =
-            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("test/fixtures/alameda-test");
+        let fixture_path = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap())
+            .join("test/fixtures/alameda-test");
         let scan_side_a_path = fixture_path.join("scan-skewed-side-a.jpeg");
         let scan_side_b_path = fixture_path.join("scan-skewed-side-b.jpeg");
         detect(
