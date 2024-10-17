@@ -1,7 +1,10 @@
-jest.mock('tone', () => ({
-  getContext: mockToneJsGetContext,
-  GrainPlayer: mockToneJsGrainPlayerConstructor,
-  setContext: mockToneJsSetContext,
+jest.mock('./get_tone_lib', (): typeof import('./get_tone_lib') => ({
+  getToneLib: () =>
+    Promise.resolve({
+      getContext: mockToneJsGetContext,
+      GrainPlayer: mockToneJsGrainPlayerConstructor,
+      setContext: mockToneJsSetContext,
+    } as unknown as typeof import('tone')),
 }));
 
 import { Buffer } from 'node:buffer';
@@ -33,7 +36,6 @@ const FIRST_AUDIO_CHANNEL_INDEX = 0;
 const mockToneJsGetContext = jest.fn();
 const mockToneJsSetContext = jest.fn();
 const mockToneJsGrainPlayerConstructor = jest.fn();
-
 
 const { ENGLISH } = LanguageCode;
 

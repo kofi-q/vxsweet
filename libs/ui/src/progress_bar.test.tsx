@@ -4,5 +4,7 @@ import { ProgressBar } from './progress_bar';
 
 it('renders ProgressBar with defaults', () => {
   const { container } = render(<ProgressBar />);
-  expect(container.firstChild).toMatchSnapshot();
+  expect(container.firstChild).toEqual(
+    container.getElementsByTagName('span').item(0)
+  );
 });

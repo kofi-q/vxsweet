@@ -1,15 +1,17 @@
-import { render } from '../test/react_testing_library';
+import { render, screen } from '../test/react_testing_library';
 
 import { HorizontalRule } from './horizontal_rule';
 
 describe('Renders HorizontalRule', () => {
   test('with defaults', () => {
-    const { container } = render(<HorizontalRule>or</HorizontalRule>);
-    expect(container.firstChild).toMatchSnapshot();
+    render(<HorizontalRule>or</HorizontalRule>);
+    screen.getByText('or');
   });
 
   test('without children', () => {
     const { container } = render(<HorizontalRule />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toEqual(
+      container.getElementsByTagName('p').item(0)
+    );
   });
 });

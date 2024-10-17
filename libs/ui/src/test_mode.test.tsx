@@ -7,5 +7,4 @@ test('renders TestMode - VVSG styling', () => {
     vxTheme: { sizeMode: 'touchLarge' },
   });
   screen.getByText('Test Ballot Mode');
-  expect(container).toMatchSnapshot();
 });

@@ -3,6 +3,7 @@ import { Buffer } from 'node:buffer';
 import { UiStringAudioClip } from '@vx/libs/types/src';
 import { deferred } from '@vx/libs/basics/src';
 import { AudioVolume, getAudioGainAmountDb } from './audio_volume';
+import { getToneLib } from './get_tone_lib';
 
 /**
  * Lowest absolute audio sample value, between 0 and 1, considered to be
@@ -61,7 +62,7 @@ const RATE_CONFIG_DEFAULT: RateBasedConfig = {
  * replace the context reference here with the one passed down from the Vx app.
  */
 async function initializeToneJs(webAudioContext: AudioContext) {
-  const { getContext, GrainPlayer, setContext } = await import('tone');
+  const { getContext, GrainPlayer, setContext } = await getToneLib();
 
   if (getContext().rawContext !== webAudioContext) {
     getContext().dispose();
