@@ -37,6 +37,7 @@ ts_tests(
         "//libs/basics/src",
         "//libs/fs/src",
         "//libs/hmpb/src",
+        "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/types/src",
     ],

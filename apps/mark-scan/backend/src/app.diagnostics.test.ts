@@ -83,6 +83,7 @@ import {
   scanAndSave,
 } from './custom-paper-handler/application_driver';
 import { BLANK_PAGE_MOCK } from '../test/ballot_helpers';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
 
@@ -95,8 +96,6 @@ const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   used: 1 * 1_000_000,
   available: 9 * 1_000_000,
 };
-
-
 
 let apiClient: grout.Client<Api>;
 let driver: MockPaperHandlerDriver;

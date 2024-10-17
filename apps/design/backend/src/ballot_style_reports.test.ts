@@ -7,6 +7,7 @@ import {
 } from '@vx/libs/types/src';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { renderBallotStyleReadinessReport } from './ballot_style_reports';
+import '@vx/libs/image-test-utils/register';
 
 const { ENGLISH, CHINESE_SIMPLIFIED, SPANISH } = LanguageCode;
 const ballotLanguages = [ENGLISH, CHINESE_SIMPLIFIED, SPANISH];

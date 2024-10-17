@@ -70,6 +70,7 @@ ts_tests(
         "//libs/basics/src",
         "//libs/fixtures/src",
         "//libs/grout/src",
+        "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/logging/src",
         "//libs/printing/src",

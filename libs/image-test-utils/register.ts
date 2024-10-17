@@ -1,15 +1,9 @@
+import { ImageData } from '@vx/libs/image-utils/src';
 import {
-  ImageData,
-  ToMatchImageOptions,
   ToMatchPdfSnapshotOptions,
-  toMatchImage,
   toMatchPdfSnapshot,
-} from '@vx/libs/image-utils/src';
-import { toMatchImageSnapshot } from 'jest-image-snapshot';
-import { setGracefulCleanup } from 'tmp';
-
-// ensure tmp files are cleaned up
-setGracefulCleanup();
+} from './jest_pdf_snapshot';
+import { ToMatchImageOptions, toMatchImage } from './jest_match_image';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -24,4 +18,4 @@ declare global {
   }
 }
 
-expect.extend({ toMatchImageSnapshot, toMatchPdfSnapshot, toMatchImage });
+expect.extend({ toMatchImage, toMatchPdfSnapshot });

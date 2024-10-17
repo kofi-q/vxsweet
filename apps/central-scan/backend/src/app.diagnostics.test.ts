@@ -24,9 +24,9 @@ import { DiagnosticRecord, TEST_JURISDICTION } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { mockSystemAdministratorAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
-
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,

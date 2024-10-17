@@ -27,9 +27,9 @@ import {
   configureMachine,
   mockSystemAdministratorAuth,
 } from '../test/app';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
-
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,

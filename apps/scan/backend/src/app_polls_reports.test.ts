@@ -17,11 +17,11 @@ import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
 
 beforeEach(() => {
   mockFeatureFlagger.enableFeatureFlag(

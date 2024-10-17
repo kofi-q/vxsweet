@@ -62,10 +62,9 @@ import { createApp } from '../test/app_helpers';
 import { Api } from './app';
 import { ElectionState } from '.';
 import { isAccessibleControllerAttached } from './util/accessible_controller';
+import '@vx/libs/image-test-utils/register';
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
-
 
 let apiClient: grout.Client<Api>;
 let logger: Logger;

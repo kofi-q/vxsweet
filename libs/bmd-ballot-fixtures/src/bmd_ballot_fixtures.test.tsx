@@ -6,6 +6,7 @@ import {
   renderBmdBallotFixture,
   writeFirstBallotPageToImageFile,
 } from './bmd_ballot_fixtures';
+import '@vx/libs/image-test-utils/register';
 
 const MAX_BALLOT_IMAGE_SIZE_BYTES = 250 * 1024;
 

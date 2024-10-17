@@ -31,7 +31,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/jest-image-snapshot",
         "//:node_modules/@types/node",
         "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
@@ -46,6 +45,7 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/fs/src",
         "//libs/hmpb/src",
+        "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/test-utils/src",
         "//libs/types/src",

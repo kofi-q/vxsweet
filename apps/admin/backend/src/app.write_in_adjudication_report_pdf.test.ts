@@ -38,6 +38,7 @@ import {
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);
 
@@ -45,7 +46,6 @@ const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-
 
 beforeEach(() => {
   featureFlagMock.enableFeatureFlag(

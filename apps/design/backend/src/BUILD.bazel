@@ -55,7 +55,7 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/fs/src",
         "//libs/hmpb/src",
-        "//libs/image-utils/src",
+        "//libs/image-test-utils",
         "//libs/test-utils/src",
         "//libs/types/src",
         "//libs/utils/src",

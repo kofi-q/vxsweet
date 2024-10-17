@@ -52,13 +52,9 @@ var (
 			`)`,
 	)
 	regexJestStyledComponents = regexp.MustCompile(`\.toHaveStyleRule\(`)
-	regexJestImageSnapshot    = regexp.MustCompile(`\.toMatchImageSnapshot\(`)
-	regexJestImageUtils       = regexp.MustCompile(
-		`\.(?:toMatchImage|toMatchPdfSnapshot)\(`,
-	)
-	regexProcessEnv   = regexp.MustCompile(`\bprocess\.env(\.|\[])`)
-	regexNodeTypes    = regexp.MustCompile(`\bNodeJS\..+`)
-	regexKioskBrowser = regexp.MustCompile(
+	regexProcessEnv           = regexp.MustCompile(`\bprocess\.env(\.|\[])`)
+	regexNodeTypes            = regexp.MustCompile(`\bNodeJS\..+`)
+	regexKioskBrowser         = regexp.MustCompile(
 		`\b(?:KioskBrowser\.|window\.kiosk)`,
 	)
 	regexReactTypes = regexp.MustCompile(`\bJSX\.`)
@@ -130,14 +126,6 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 
 	if regexJestStyledComponents.Match([]byte(stringContent)) {
 		imports[ambientTypesImportJestStyledComponents] = true
-	}
-
-	if regexJestImageSnapshot.Match([]byte(stringContent)) {
-		imports["@types/jest-image-snapshot"] = true
-	}
-
-	if regexJestImageUtils.Match([]byte(stringContent)) {
-		imports["@vx/libs/image-utils/src"] = true
 	}
 
 	if regexKioskBrowser.Match([]byte(stringContent)) {

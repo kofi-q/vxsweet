@@ -12,6 +12,7 @@ import {
 } from './ballot_fixtures';
 import { createPlaywrightRenderer } from './playwright_renderer';
 import { Renderer } from './renderer';
+import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(120_000);
 

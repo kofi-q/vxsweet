@@ -72,6 +72,7 @@ ts_tests(
         "//libs/bmd-ballot-fixtures/src",
         "//libs/custom-scanner/src",
         "//libs/fixtures/src",
+        "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/logging/src",
         "//libs/pdi-scanner/src/ts",
