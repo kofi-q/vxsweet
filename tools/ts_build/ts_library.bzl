@@ -6,7 +6,7 @@ def ts_library(
         deps = [],
         data = [],
         tags = [],
-        visibility = None):
+        visibility = ["//visibility:public"]):
     """Declares a build target for transpiling Typescript source files in a package.
 
     Args:

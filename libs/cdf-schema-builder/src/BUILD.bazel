@@ -1,10 +1,11 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
+    deps = [
         "//:node_modules/@types/jsdom",
         "//:node_modules/@types/json-schema",
         "//:node_modules/@types/node",
@@ -13,7 +14,11 @@ ts_package(
         "//:node_modules/zod",
         "//libs/basics/src",
     ],
-    test_deps = [
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@antongolub/iso8601",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/json-schema",

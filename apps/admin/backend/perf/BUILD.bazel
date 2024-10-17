@@ -1,8 +1,8 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
-ts_package(
-    name = "perf",
-    test_deps = [
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",

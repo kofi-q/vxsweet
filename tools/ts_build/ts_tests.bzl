@@ -12,7 +12,7 @@ def ts_tests(
         timeout = "short",
         type = None,
         unsound_disable_node_fs_patch_for_tests = False,
-        visibility = ["//visibility:public"]):
+        visibility = None):
     """Declares build and test targets for Typescript test files in a package.
 
     Args:

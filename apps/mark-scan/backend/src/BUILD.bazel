@@ -1,12 +1,14 @@
-load("//tools/ts_build:defs.bzl", "json_package", "ts_package")
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
 json_package(name = "json")
 
-ts_package(
+ts_library(
     name = "src",
-    src_deps = [
+    deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/express",
         "//:node_modules/@types/fs-extra",
@@ -42,7 +44,11 @@ ts_package(
         "//libs/usb-drive/src",
         "//libs/utils/src",
     ],
-    test_deps = [
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
         "//:node_modules/@types/node",

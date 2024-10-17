@@ -1,8 +1,8 @@
-load("//tools/ts_build:defs.bzl", "ts_package")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
-ts_package(
+ts_library(
     name = "validation",
-    src_deps = [
+    deps = [
         "//:node_modules/@types/node",
         "//:node_modules/matcher",
         "//:node_modules/typescript",
