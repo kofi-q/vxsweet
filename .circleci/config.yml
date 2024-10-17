@@ -1,0 +1,106 @@
+version: 2.1
+
+parameters:
+  force_cache_save:
+    type: boolean
+    default: false
+
+executors:
+  nodejs:
+    docker:
+      - image: kofiq/vxsweet:latest
+        auth:
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
+
+workflows:
+  build_and_test_commit:
+    description: Build and test all targets on every commit.
+    jobs:
+      - build_and_test
+
+  daily_cache_regenerate:
+    description: Regenerate the Bazel cache from scratch daily to prune stale/unused artifacts.
+    jobs:
+      - regenerate_cache
+    triggers:
+      - schedule:
+          cron: "0 10 * * 1-5"
+          filters:
+            branches:
+              only:
+                - main
+
+jobs:
+  build_and_test:
+    executor: nodejs
+    resource_class: xlarge
+    steps:
+      - checkout
+      - restore_bazel_cache
+      - run_build_test
+      - save_bazel_cache:
+          key_suffix: additive
+      - save_test_outputs
+
+  regenerate_cache:
+    executor: nodejs
+    resource_class: xlarge
+    steps:
+      - checkout
+      - run_build_test
+      - save_bazel_cache:
+          key_suffix: clean
+      - save_test_outputs
+
+commands:
+  run_build_test:
+    description: Builds and tests all relevant targets in the build graph.
+    steps:
+      - run:
+          name: Build and Test
+          # TODO: Update to `bazel test` when tests are ready:
+          command: |
+            bazel build //... --config=ci
+
+  save_test_outputs:
+    description: Save test logs and artifacts
+    steps:
+      - run:
+          name: Export Test Results
+          when: always
+          command: |
+            cp -r $(bazel info bazel-testlogs) ./testlogs
+      - store_test_results:
+          path: ./testlogs
+
+  restore_bazel_cache:
+    description: |
+        Restore a previous cache for the current branch, falling back to the
+        most recent main, if a match isn't found.
+    steps:
+      - restore_cache:
+          keys:
+            - build_cache-v1-{{ .Branch }}-{{ .Revision }}-
+            - build_cache-v1-{{ .Branch }}-
+            - build_cache-v1-main-
+
+  save_bazel_cache:
+    description: Saves the Bazel cache to the CircleCI cache for future runs.
+    parameters:
+      key_suffix:
+        type: string
+    steps:
+      - when:
+          condition:
+              or:
+                - equal: [ main, << pipeline.git.branch >> ]
+                - << pipeline.parameters.force_cache_save >>
+          steps:
+            - save_cache:
+                when: always
+                key: build_cache-v1-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
+                paths:
+                  # NOTE: Keep in sync with .bazel/ci.bazelrc:
+                  - /root/bazel_build_cache
+                  - /root/.cache/ms-playwright
