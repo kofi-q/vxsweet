@@ -1,3 +1,26 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock('./configure', (): typeof import('./configure') => ({
+  ...jest.requireActual('./configure'),
+  configurePrinter: (args) => mockConfigurePrinter(args),
+}));
+
+jest.mock('./device_uri', (): typeof import('./device_uri') => ({
+  ...jest.requireActual('./device_uri'),
+  getConnectedDeviceUris: () => mockGetConnectedDeviceUris(),
+}));
+
+jest.mock('./status', (): typeof import('./status') => ({
+  ...jest.requireActual('./device_uri'),
+  getPrinterRichStatus: () => mockGetPrinterRichStatus(),
+}));
+
 import { mockFunction } from '@vx/libs/test-utils/src';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
@@ -10,31 +33,12 @@ import { BROTHER_THERMAL_PRINTER_CONFIG, HP_LASER_PRINTER_CONFIG } from '.';
 import { MockFilePrinter } from './mocks/file_printer';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 const mockConfigurePrinter = mockFunction('configurePrinter');
-jest.mock('./configure', (): typeof import('./configure') => ({
-  ...jest.requireActual('./configure'),
-  configurePrinter: (args) => mockConfigurePrinter(args),
-}));
 
 const mockGetConnectedDeviceUris = mockFunction('getConnectedDeviceUris');
-jest.mock('./device_uri', (): typeof import('./device_uri') => ({
-  ...jest.requireActual('./device_uri'),
-  getConnectedDeviceUris: () => mockGetConnectedDeviceUris(),
-}));
 
 const mockGetPrinterRichStatus = mockFunction('mockGetPrinterRichStatus');
-jest.mock('./status', (): typeof import('./status') => ({
-  ...jest.requireActual('./device_uri'),
-  getPrinterRichStatus: () => mockGetPrinterRichStatus(),
-}));
 
 beforeEach(() => {
   mockConfigurePrinter.reset();

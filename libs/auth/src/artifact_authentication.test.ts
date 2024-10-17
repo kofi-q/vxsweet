@@ -1,3 +1,9 @@
+jest.mock('@vx/libs/types/src', (): typeof import('@vx/libs/types/src') => ({
+  ...jest.requireActual('@vx/libs/types/src'),
+  // Avoid having to prepare a complete CastVoteRecordExportMetadata object
+  CastVoteRecordExportMetadataSchema: z.any(),
+}));
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
@@ -18,11 +24,6 @@ import {
 } from './artifact_authentication';
 import { ArtifactAuthenticationConfig } from './config';
 
-jest.mock('@vx/libs/types/src', (): typeof import('@vx/libs/types/src') => ({
-  ...jest.requireActual('@vx/libs/types/src'),
-  // Avoid having to prepare a complete CastVoteRecordExportMetadata object
-  CastVoteRecordExportMetadataSchema: z.any(),
-}));
 
 /**
  * The root hash for the mock cast vote records created in the beforeEach block

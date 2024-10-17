@@ -1,3 +1,5 @@
+jest.mock('./validation');
+
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import { assert, assertDefined, iter } from '@vx/libs/basics/src';
 import { readElection } from '@vx/libs/fs/src';
@@ -32,7 +34,6 @@ import { interpretSheet } from './interpret';
 import { InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
-jest.mock('./validation');
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

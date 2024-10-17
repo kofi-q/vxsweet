@@ -1,3 +1,20 @@
+jest.mock('node:fs/promises', () => ({
+  ...jest.requireActual('node:fs/promises'),
+  stat: jest.fn().mockRejectedValue(new Error('not mocked yet')),
+  readdir: jest.fn(),
+}));
+
+jest.mock('node:fs', () => ({
+  ...jest.requireActual('node:fs'),
+  createReadStream: jest.fn(),
+  createWriteStream: jest.fn(),
+}));
+
+jest.mock('../exec', (): typeof import('../exec') => ({
+  ...jest.requireActual('../exec'),
+  execFile: jest.fn(),
+}));
+
 /* istanbul ignore file - test util */
 
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
@@ -10,16 +27,6 @@ import { PassThrough } from 'node:stream';
 import { execFile } from '../exec';
 import { exportLogsToUsb } from './export_logs_to_usb';
 
-jest.mock('node:fs/promises', () => ({
-  ...jest.requireActual('node:fs/promises'),
-  stat: jest.fn().mockRejectedValue(new Error('not mocked yet')),
-  readdir: jest.fn(),
-}));
-jest.mock('node:fs', () => ({
-  ...jest.requireActual('node:fs'),
-  createReadStream: jest.fn(),
-  createWriteStream: jest.fn(),
-}));
 const { createReadStream: realCreateReadStream } =
   jest.requireActual('node:fs');
 const createReadStreamMock = mockOf(createReadStream) as jest.Mock;
@@ -27,10 +34,6 @@ const createWriteStreamMock = mockOf(createWriteStream) as jest.Mock;
 
 createReadStreamMock.mockImplementation(realCreateReadStream);
 
-jest.mock('../exec', (): typeof import('../exec') => ({
-  ...jest.requireActual('../exec'),
-  execFile: jest.fn(),
-}));
 
 const execFileMock = mockOf(execFile);
 

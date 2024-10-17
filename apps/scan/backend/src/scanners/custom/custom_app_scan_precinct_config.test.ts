@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
 import { ok } from '@vx/libs/basics/src';
 import { mocks } from '@vx/libs/custom-scanner/src';
 import { SheetInterpretation } from '@vx/libs/types/src';
@@ -20,12 +27,6 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   mockFeatureFlagger.enableFeatureFlag(

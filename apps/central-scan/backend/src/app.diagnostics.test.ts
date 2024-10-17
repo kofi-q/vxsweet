@@ -1,3 +1,16 @@
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    getBatteryInfo: jest.fn(),
+    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
+  })
+);
+
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => reportPrintedTime.getTime(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   DiskSpaceSummary,
@@ -14,14 +27,6 @@ import { withApp } from '../test/helpers/setup_app';
 
 jest.setTimeout(60_000);
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
-    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
-  })
-);
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,
@@ -48,9 +53,6 @@ test('getDiskSpaceSummary', async () => {
 });
 
 const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => reportPrintedTime.getTime(),
-}));
 
 const jurisdiction = TEST_JURISDICTION;
 

@@ -1,3 +1,11 @@
+jest.mock(
+  '@vx/libs/image-utils/src',
+  (): typeof import('@vx/libs/image-utils/src') => ({
+    ...jest.requireActual('@vx/libs/image-utils/src'),
+    writeImageData: jest.fn(),
+  })
+);
+
 import { ImageData, writeImageData } from '@vx/libs/image-utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 
@@ -11,13 +19,6 @@ import * as statusHelpers from './scanner_status';
 import { MinimalWebUsbDevice } from './minimal_web_usb_device';
 import { PaperHandlerDriver } from './driver';
 
-jest.mock(
-  '@vx/libs/image-utils/src',
-  (): typeof import('@vx/libs/image-utils/src') => ({
-    ...jest.requireActual('@vx/libs/image-utils/src'),
-    writeImageData: jest.fn(),
-  })
-);
 
 function expectMockStatus(params: {
   mockDriver: MockPaperHandlerDriver;

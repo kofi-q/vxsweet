@@ -1,3 +1,11 @@
+jest.mock(
+  './accessible_controller_diagnostic_screen',
+  (): typeof import('./accessible_controller_diagnostic_screen') => ({
+    ...jest.requireActual('./accessible_controller_diagnostic_screen'),
+    AccessibleControllerDiagnosticScreen: jest.fn(),
+  })
+);
+
 import userEvent from '@testing-library/user-event';
 import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
 import { MemoryRouter } from 'react-router-dom';
@@ -23,13 +31,6 @@ export const MOCK_MARKER_INFO: IppMarkerInfo = {
   type: 'toner-cartridge',
 };
 
-jest.mock(
-  './accessible_controller_diagnostic_screen',
-  (): typeof import('./accessible_controller_diagnostic_screen') => ({
-    ...jest.requireActual('./accessible_controller_diagnostic_screen'),
-    AccessibleControllerDiagnosticScreen: jest.fn(),
-  })
-);
 
 let apiMock: ApiMock;
 

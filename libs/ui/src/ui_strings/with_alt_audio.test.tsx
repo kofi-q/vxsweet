@@ -1,3 +1,8 @@
+jest.mock('./audio_only', (): typeof import('./audio_only') => ({
+  ...jest.requireActual('./audio_only'),
+  AudioOnly: jest.fn(),
+}));
+
 import React from 'react';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/src';
@@ -9,10 +14,6 @@ import { AudioOnly } from './audio_only';
 import { act, screen, waitFor } from '../../test/react_testing_library';
 import { useCurrentLanguage } from '../hooks/use_current_language';
 
-jest.mock('./audio_only', (): typeof import('./audio_only') => ({
-  ...jest.requireActual('./audio_only'),
-  AudioOnly: jest.fn(),
-}));
 
 const { ENGLISH, SPANISH } = LanguageCode;
 

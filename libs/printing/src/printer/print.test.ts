@@ -1,3 +1,5 @@
+jest.mock('../utils/exec');
+
 import { ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { Buffer } from 'node:buffer';
@@ -6,7 +8,6 @@ import { DEFAULT_MANAGED_PRINTER_NAME } from './configure';
 import { print } from './print';
 import { PrintSides } from './types';
 
-jest.mock('../utils/exec');
 
 const execMock = mockOf(exec);
 

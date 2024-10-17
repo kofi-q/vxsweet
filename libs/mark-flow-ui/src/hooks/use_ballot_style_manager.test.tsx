@@ -1,3 +1,8 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  useCurrentLanguage: useCurrentLanguageMock,
+}));
+
 import React from 'react';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';
 import { Election, ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
@@ -16,10 +21,6 @@ function useCurrentLanguageMock() {
   return language;
 }
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useCurrentLanguage: useCurrentLanguageMock,
-}));
 
 const queryClient = new QueryClient({
   defaultOptions: QUERY_CLIENT_DEFAULT_OPTIONS,

@@ -1,3 +1,13 @@
+jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
+  ...jest.requireActual('@vx/libs/auth/src'),
+  authenticateArtifactUsingSignatureFile: jest.fn(),
+}));
+
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
+  isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+}));
+
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
@@ -55,15 +65,7 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
-  ...jest.requireActual('@vx/libs/auth/src'),
-  authenticateArtifactUsingSignatureFile: jest.fn(),
-}));
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
-  ...jest.requireActual('@vx/libs/utils/src'),
-  isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-}));
 
 beforeEach(() => {
   mockOf(authenticateArtifactUsingSignatureFile).mockResolvedValue(ok());

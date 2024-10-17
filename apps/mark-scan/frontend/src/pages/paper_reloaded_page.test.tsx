@@ -1,3 +1,5 @@
+jest.mock('./remove_jammed_sheet_screen');
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
@@ -6,7 +8,6 @@ import { render, screen } from '../../test/react_testing_library';
 import { PaperReloadedPage } from './paper_reloaded_page';
 import { RemoveJammedSheetScreen } from './remove_jammed_sheet_screen';
 
-jest.mock('./remove_jammed_sheet_screen');
 
 let apiMock: ApiMock;
 beforeEach(() => {

@@ -1,3 +1,8 @@
+jest.mock('node:fs', () => ({
+  ...jest.requireActual('node:fs'),
+  createReadStream: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { createReadStream } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -5,10 +10,6 @@ import { Readable } from 'node:stream';
 import { tmpNameSync } from 'tmp';
 import { getBatteryInfo, parseBatteryInfo } from './get_battery_info';
 
-jest.mock('node:fs', () => ({
-  ...jest.requireActual('node:fs'),
-  createReadStream: jest.fn(),
-}));
 const { createReadStream: realCreateReadStream } =
   jest.requireActual('node:fs');
 const createReadStreamMock = mockOf(createReadStream) as jest.Mock;

@@ -1,3 +1,5 @@
+jest.mock('../api');
+
 import { BallotMetadata, PageInterpretation } from '@vx/libs/types/src';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';
@@ -6,7 +8,6 @@ import { render } from '../../test/react_testing_library';
 import * as api from '../api';
 import { ReinsertedWrongTestModeBallotScreen } from './reinserted_wrong_test_mode_ballot_screen';
 
-jest.mock('../api');
 
 function setMockInterpretationQuery(params: {
   data?: Partial<PageInterpretation>;

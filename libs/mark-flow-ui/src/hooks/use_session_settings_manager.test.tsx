@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  useAudioControls: () => mockAudioControls,
+  useAudioEnabled: jest.fn(),
+  useCurrentLanguage: jest.fn(),
+  useLanguageControls: () => mockLanguageControls,
+}));
+
 import { DefaultTheme, ThemeContext } from 'styled-components';
 import React from 'react';
 import {
@@ -28,13 +36,6 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
   setLanguage: jest.fn(),
 };
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useAudioControls: () => mockAudioControls,
-  useAudioEnabled: jest.fn(),
-  useCurrentLanguage: jest.fn(),
-  useLanguageControls: () => mockLanguageControls,
-}));
 
 const mockUseAudioEnabled = mockOf(useAudioEnabled);
 const mockUseCurrentLanguage = mockOf(useCurrentLanguage);

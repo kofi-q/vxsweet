@@ -1,3 +1,23 @@
+jest.mock('node:fs', () => ({
+  ...jest.requireActual('node:fs'),
+  promises: {
+    readdir: jest.fn().mockRejectedValue(new Error('Not mocked')),
+    readlink: jest.fn().mockRejectedValue(new Error('Not mocked')),
+  },
+}));
+
+jest.mock('./exec', () => ({
+  exec: jest.fn().mockRejectedValue(new Error('Not mocked')),
+}));
+
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import { promises as fs, existsSync, rmSync } from 'node:fs';
 import { deferred } from '@vx/libs/basics/src';
 import { backendWaitFor } from '@vx/libs/test-utils/src';
@@ -26,25 +46,8 @@ import {
 
 const MOUNT_SCRIPT_PATH = join(__dirname, '../scripts');
 
-jest.mock('node:fs', () => ({
-  ...jest.requireActual('node:fs'),
-  promises: {
-    readdir: jest.fn().mockRejectedValue(new Error('Not mocked')),
-    readlink: jest.fn().mockRejectedValue(new Error('Not mocked')),
-  },
-}));
-jest.mock('./exec', () => ({
-  exec: jest.fn().mockRejectedValue(new Error('Not mocked')),
-}));
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 const readdirMock = fs.readdir as unknown as jest.Mock<Promise<string[]>>;
 const readlinkMock = fs.readlink as unknown as jest.Mock<Promise<string>>;

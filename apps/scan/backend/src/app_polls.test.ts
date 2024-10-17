@@ -1,3 +1,14 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => pollsTransitionTime,
+}));
+
 import { LogEventId } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
@@ -12,17 +23,8 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
 const pollsTransitionTime = new Date('2021-01-01T00:00:00.000').getTime();
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => pollsTransitionTime,
-}));
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();

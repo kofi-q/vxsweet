@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { Buffer } from 'node:buffer';
 import userEvent from '@testing-library/user-event';
@@ -41,13 +49,6 @@ const pollWorkerCardStatus: CardStatus = {
 };
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 let mockApiClient: MockClient<Api>;
 let kiosk!: jest.Mocked<KioskBrowser.Kiosk>;

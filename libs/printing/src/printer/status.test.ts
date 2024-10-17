@@ -1,3 +1,12 @@
+jest.mock('../utils/exec');
+
+jest.mock('node:fs/promises', (): typeof import('node:fs/promises') => {
+  return {
+    ...jest.requireActual('node:fs/promises'),
+    writeFile: jest.fn(),
+  };
+});
+
 import { IppMarkerInfo } from '@vx/libs/types/src';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
 import { assert, err, ok } from '@vx/libs/basics/src';
@@ -11,14 +20,7 @@ import {
 } from './status';
 import { exec } from '../utils/exec';
 
-jest.mock('../utils/exec');
 
-jest.mock('node:fs/promises', (): typeof import('node:fs/promises') => {
-  return {
-    ...jest.requireActual('node:fs/promises'),
-    writeFile: jest.fn(),
-  };
-});
 
 const execMock = mockOf(exec);
 const writeFileMock = mockOf(writeFile);

@@ -1,3 +1,24 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
+jest.mock('./inserted_invalid_new_sheet_screen');
+
+jest.mock('./inserted_preprinted_ballot_screen');
+
+jest.mock('./ballot_ready_for_review_screen');
+
+jest.mock(
+  '../ballot_reinsertion_flow',
+  (): typeof import('../ballot_reinsertion_flow') => ({
+    ...jest.requireActual('../ballot_reinsertion_flow'),
+    BallotReinsertionFlow: () => <div>MockBallotReinsertionFlow</div>,
+  })
+);
+
 import {
   asElectionDefinition,
   electionGeneralDefinition,
@@ -46,25 +67,9 @@ const { election } = electionGeneralDefinition;
 let apiMock: ApiMock;
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
-jest.mock('./inserted_invalid_new_sheet_screen');
-jest.mock('./inserted_preprinted_ballot_screen');
-jest.mock('./ballot_ready_for_review_screen');
 
 const MOCK_BALLOT_REINSERTION_FLOW_CONTENT = 'MockBallotReinsertionFlow';
-jest.mock(
-  '../ballot_reinsertion_flow',
-  (): typeof import('../ballot_reinsertion_flow') => ({
-    ...jest.requireActual('../ballot_reinsertion_flow'),
-    BallotReinsertionFlow: () => <div>MockBallotReinsertionFlow</div>,
-  })
-);
 
 beforeEach(() => {
   jest.useFakeTimers();

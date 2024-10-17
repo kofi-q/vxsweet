@@ -1,3 +1,10 @@
+jest.mock('js-file-download');
+
+jest.mock('./utils', (): typeof import('./utils') => ({
+  ...jest.requireActual('./utils'),
+  downloadFile: jest.fn(),
+}));
+
 import { Buffer } from 'node:buffer';
 import fileDownload from 'js-file-download';
 import userEvent from '@testing-library/user-event';
@@ -16,13 +23,8 @@ import { generalElectionRecord } from '../test/fixtures';
 
 const electionId = generalElectionRecord.election.id;
 
-jest.mock('js-file-download');
 const fileDownloadMock = jest.mocked(fileDownload);
 
-jest.mock('./utils', (): typeof import('./utils') => ({
-  ...jest.requireActual('./utils'),
-  downloadFile: jest.fn(),
-}));
 
 let apiMock: MockApiClient;
 

@@ -1,3 +1,18 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/backend/src'),
+    initializeSystemAudio: jest.fn(),
+  };
+});
+
 import { LogEventId, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
@@ -13,20 +28,7 @@ import { resolveDriver, start } from './server';
 import { createWorkspace } from './util/workspace';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
-jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/backend/src'),
-    initializeSystemAudio: jest.fn(),
-  };
-});
 
 afterEach(() => {
   featureFlagMock.resetFeatureFlags();

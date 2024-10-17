@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
 import {
   electionFamousNames2021Fixtures,
   electionGeneral,
@@ -32,12 +39,6 @@ jest.setTimeout(30_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
 function mockElectionManager(
   mockAuth: InsertedSmartCardAuthApi,

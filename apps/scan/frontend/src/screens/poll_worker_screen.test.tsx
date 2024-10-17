@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -25,13 +33,6 @@ let startNewVoterSessionMock: jest.Mock;
 
 const featureFlagMock = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   featureFlagMock.resetFeatureFlags();

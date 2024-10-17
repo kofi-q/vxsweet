@@ -1,3 +1,5 @@
+jest.mock('./validation');
+
 import { assert, unique } from '@vx/libs/basics/src';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
@@ -24,7 +26,6 @@ import { interpretSheet } from './interpret';
 import { InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
-jest.mock('./validation');
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

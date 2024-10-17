@@ -1,10 +1,11 @@
+jest.mock('../exec');
+
 import { mockOf } from '@vx/libs/test-utils/src';
 
 import { LogEventId, mockLogger } from '@vx/libs/logging/src';
 import { execFile } from '../exec';
 import { AudioInfo, getAudioInfo } from './get_audio_info';
 
-jest.mock('../exec');
 
 const mockExecFile = mockOf(execFile);
 

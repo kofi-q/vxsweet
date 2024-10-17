@@ -1,3 +1,11 @@
+jest.mock(
+  '@vx/libs/custom-paper-handler/src',
+  (): typeof import('@vx/libs/custom-paper-handler/src') => ({
+    ...jest.requireActual('@vx/libs/custom-paper-handler/src'),
+    isMockPaperHandler: jest.fn() as unknown as typeof isMockPaperHandler,
+  })
+);
+
 import {
   MockPaperHandlerDriver,
   MockPaperHandlerStatus,
@@ -6,13 +14,6 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import { buildMockPaperHandlerApi } from './mock_paper_handler_api';
 
-jest.mock(
-  '@vx/libs/custom-paper-handler/src',
-  (): typeof import('@vx/libs/custom-paper-handler/src') => ({
-    ...jest.requireActual('@vx/libs/custom-paper-handler/src'),
-    isMockPaperHandler: jest.fn() as unknown as typeof isMockPaperHandler,
-  })
-);
 
 beforeEach(() => {
   mockOf(isMockPaperHandler).mockReturnValue(true);

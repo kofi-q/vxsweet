@@ -1,3 +1,13 @@
+jest.mock('react-pdf', (): typeof import('react-pdf') => {
+  const original = jest.requireActual('react-pdf');
+  return {
+    ...original,
+    pdfjs: { GlobalWorkerOptions: { workerSrc: 'mock-worker-src' } },
+    Document: MockDocument,
+    Page: MockPage,
+  };
+});
+
 import { BallotType } from '@vx/libs/types/src';
 import { DocumentProps, PageProps } from 'react-pdf';
 import { useEffect } from 'react';
@@ -45,15 +55,6 @@ function MockPage({ pageNumber }: PageProps) {
   return <div>Mock Page {pageNumber}</div>;
 }
 
-jest.mock('react-pdf', (): typeof import('react-pdf') => {
-  const original = jest.requireActual('react-pdf');
-  return {
-    ...original,
-    pdfjs: { GlobalWorkerOptions: { workerSrc: 'mock-worker-src' } },
-    Document: MockDocument,
-    Page: MockPage,
-  };
-});
 
 let apiMock: MockApiClient;
 

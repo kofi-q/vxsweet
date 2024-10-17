@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import { Buffer } from 'node:buffer';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
@@ -31,13 +39,6 @@ import { adjudicateWriteIn } from '../adjudication';
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   jest.restoreAllMocks();

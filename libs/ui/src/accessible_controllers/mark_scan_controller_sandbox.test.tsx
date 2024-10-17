@@ -1,3 +1,11 @@
+jest.mock(
+  './accessible_controller_sandbox',
+  (): typeof import('./accessible_controller_sandbox') => ({
+    ...jest.requireActual('./accessible_controller_sandbox'),
+    AccessibleControllerSandbox: jest.fn(),
+  })
+);
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { MarkScanControllerSandbox } from './mark_scan_controller_sandbox';
 import { render, screen } from '../../test/react_testing_library';
@@ -9,13 +17,6 @@ import {
 import { Keybinding } from '../keybindings';
 import { MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME } from '.';
 
-jest.mock(
-  './accessible_controller_sandbox',
-  (): typeof import('./accessible_controller_sandbox') => ({
-    ...jest.requireActual('./accessible_controller_sandbox'),
-    AccessibleControllerSandbox: jest.fn(),
-  })
-);
 
 test('all relevant buttons configured', () => {
   mockOf(AccessibleControllerSandbox).mockImplementation((props) => {

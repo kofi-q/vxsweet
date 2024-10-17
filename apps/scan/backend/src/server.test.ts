@@ -1,3 +1,5 @@
+jest.mock('./app');
+
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { Application } from 'express';
 import { dirSync } from 'tmp';
@@ -12,7 +14,6 @@ import {
   createPrecinctScannerStateMachineMock,
 } from '../test/helpers/shared_helpers';
 
-jest.mock('./app');
 
 const buildAppMock = buildApp as jest.MockedFunction<typeof buildApp>;
 

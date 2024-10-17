@@ -1,3 +1,5 @@
+jest.mock('@vx/libs/custom-paper-handler/src');
+
 import {
   MinimalWebUsbDevice,
   PaperHandlerDriver,
@@ -23,7 +25,6 @@ import {
 } from './application_driver';
 import { getDefaultPaperHandlerStatus } from './test_utils';
 
-jest.mock('@vx/libs/custom-paper-handler/src');
 
 let driver: PaperHandlerDriver;
 let webDevice: MinimalWebUsbDevice;

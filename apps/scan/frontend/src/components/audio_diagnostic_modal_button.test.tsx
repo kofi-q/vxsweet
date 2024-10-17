@@ -1,3 +1,5 @@
+jest.mock('../utils/use_sound');
+
 import userEvent from '@testing-library/user-event';
 import {
   render as baseRender,
@@ -9,7 +11,6 @@ import { AudioDiagnosticModalButton } from './audio_diagnostic_modal_button';
 import { useSound } from '../utils/use_sound';
 import { createApiMock, provideApi } from '../../test/helpers/mock_api_client';
 
-jest.mock('../utils/use_sound');
 
 const mockUseSound = jest.mocked(useSound);
 

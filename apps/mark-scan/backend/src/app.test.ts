@@ -1,3 +1,14 @@
+jest.mock('./pat-input/connection_status_reader');
+
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+    randomBallotId: () => '12345',
+  };
+});
+
 import { assert, deferred, mapObject } from '@vx/libs/basics/src';
 import tmp from 'tmp';
 import {
@@ -61,17 +72,8 @@ import { createWorkspace } from './util/workspace';
 
 const TEST_POLLING_INTERVAL_MS = 15;
 
-jest.mock('./pat-input/connection_status_reader');
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-    randomBallotId: () => '12345',
-  };
-});
 
 let apiClient: grout.Client<Api>;
 let mockAuth: InsertedSmartCardAuthApi;

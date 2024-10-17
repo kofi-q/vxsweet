@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import {
   electionGeneral,
   electionGeneralDefinition,
@@ -28,13 +36,6 @@ import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 const jurisdiction = TEST_JURISDICTION;
 

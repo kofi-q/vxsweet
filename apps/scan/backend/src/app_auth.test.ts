@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
 import { DateTime } from 'luxon';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
@@ -40,12 +47,6 @@ beforeAll(() => {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   mockFeatureFlagger.enableFeatureFlag(

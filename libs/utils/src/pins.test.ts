@@ -1,3 +1,12 @@
+jest.mock('./features', (): typeof import('./features') => {
+  return {
+    ...jest.requireActual('./features'),
+    isFeatureFlagEnabled: jest.fn(),
+  };
+});
+
+jest.mock('randombytes', (): typeof import('randombytes') => jest.fn());
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import fc from 'fast-check';
 import randomBytes from 'randombytes';
@@ -11,14 +20,7 @@ import {
   MIN_PIN_LENGTH,
 } from './pins';
 
-jest.mock('./features', (): typeof import('./features') => {
-  return {
-    ...jest.requireActual('./features'),
-    isFeatureFlagEnabled: jest.fn(),
-  };
-});
 
-jest.mock('randombytes', (): typeof import('randombytes') => jest.fn());
 
 const WEAK_PIN_EXAMPLES: string[] = [
   '000000',

@@ -1,3 +1,8 @@
+jest.mock('./audio_player', (): typeof import('./audio_player') => ({
+  ...jest.requireActual('./audio_player'),
+  newAudioPlayer: jest.fn(),
+}));
+
 import { LanguageCode } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { deferred } from '@vx/libs/basics/src';
@@ -9,10 +14,6 @@ import { act, screen, waitFor } from '../../test/react_testing_library';
 import { DEFAULT_AUDIO_VOLUME } from './audio_volume';
 import { DEFAULT_PLAYBACK_RATE } from './audio_playback_rate';
 
-jest.mock('./audio_player', (): typeof import('./audio_player') => ({
-  ...jest.requireActual('./audio_player'),
-  newAudioPlayer: jest.fn(),
-}));
 
 const { ENGLISH, SPANISH } = LanguageCode;
 

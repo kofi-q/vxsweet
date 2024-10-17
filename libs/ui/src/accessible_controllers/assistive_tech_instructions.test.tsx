@@ -1,9 +1,10 @@
+jest.mock('./pat_device_context');
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { render } from '../../test/react_testing_library';
 import { AssistiveTechInstructions } from './assistive_tech_instructions';
 import { useIsPatDeviceConnected } from './pat_device_context';
 
-jest.mock('./pat_device_context');
 
 const mockUseIsPatDeviceConnected = mockOf(useIsPatDeviceConnected);
 

@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/basics/src', (): typeof import('@vx/libs/basics/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/basics/src'),
+    sleep: jest.fn(),
+  };
+});
+
 import userEvent from '@testing-library/user-event';
 import { sleep } from '@vx/libs/basics/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
@@ -7,12 +14,6 @@ import {
   UnconfigureMachineButton,
 } from './unconfigure_machine_button';
 
-jest.mock('@vx/libs/basics/src', (): typeof import('@vx/libs/basics/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/basics/src'),
-    sleep: jest.fn(),
-  };
-});
 
 test('UnconfigureMachineButton interactions', async () => {
   const unconfigureMachine = jest.fn();

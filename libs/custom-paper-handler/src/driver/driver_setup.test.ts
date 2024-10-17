@@ -1,3 +1,5 @@
+jest.mock('usb');
+
 import { Device, findByIds, WebUSBDevice } from 'usb';
 import { assert } from '@vx/libs/basics/src';
 import {
@@ -8,7 +10,6 @@ import { getPaperHandlerWebDevice, PaperHandlerDriver } from './driver';
 import { setUpMockWebUsbDevice } from './test_utils';
 import { MaxPrintWidthDots } from './constants';
 
-jest.mock('usb');
 const findByIdsMock = findByIds as jest.MockedFunction<typeof findByIds>;
 const createInstanceMock = WebUSBDevice.createInstance as jest.MockedFunction<
   typeof WebUSBDevice.createInstance

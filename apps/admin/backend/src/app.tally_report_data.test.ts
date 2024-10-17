@@ -1,3 +1,19 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
+  })
+);
+
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionPrimaryPrecinctSplitsFixtures,
@@ -22,21 +38,7 @@ jest.setTimeout(60_000);
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
-  })
-);
 
 beforeEach(() => {
   jest.restoreAllMocks();

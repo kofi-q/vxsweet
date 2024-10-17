@@ -1,9 +1,10 @@
+jest.mock('../utils/exec');
+
 import { ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { exec } from '../utils/exec';
 import { getConnectedDeviceUris } from './device_uri';
 
-jest.mock('../utils/exec');
 
 const execMock = mockOf(exec);
 

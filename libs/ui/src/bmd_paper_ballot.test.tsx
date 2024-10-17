@@ -1,3 +1,24 @@
+jest.mock('@vx/libs/ballot-encoder/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/ballot-encoder/src'),
+    // mock encoded ballot so BMD ballot QR code does not change with every change to election definition
+    encodeBallot: jest.fn(),
+  };
+});
+
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  const original =
+    jest.requireActual<typeof import('@vx/libs/utils/src')>(
+      '@vx/libs/utils/src'
+    );
+  // Mock random string generation so that snapshots match, while leaving the rest of the module
+  // intact
+  return {
+    ...original,
+    randomBallotId: () => 'CHhgYxfN5GeqnK8KaVOt1w',
+  };
+});
+
 import {
   BallotStyleId,
   BallotType,
@@ -29,29 +50,10 @@ import {
 } from './bmd_paper_ballot';
 import * as QrCodeModule from './qrcode';
 
-jest.mock('@vx/libs/ballot-encoder/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/ballot-encoder/src'),
-    // mock encoded ballot so BMD ballot QR code does not change with every change to election definition
-    encodeBallot: jest.fn(),
-  };
-});
 
 const encodeBallotMock = mockOf(encodeBallot);
 const mockEncodedBallotData = new Uint8Array([0, 1, 2, 3]);
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  const original =
-    jest.requireActual<typeof import('@vx/libs/utils/src')>(
-      '@vx/libs/utils/src'
-    );
-  // Mock random string generation so that snapshots match, while leaving the rest of the module
-  // intact
-  return {
-    ...original,
-    randomBallotId: () => 'CHhgYxfN5GeqnK8KaVOt1w',
-  };
-});
 
 beforeEach(() => {
   encodeBallotMock.mockReset();

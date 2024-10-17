@@ -1,3 +1,8 @@
+jest.mock('./warning_details', (): typeof import('./warning_details') => ({
+  ...jest.requireActual('./warning_details'),
+  WarningDetails: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../../../test/react_testing_library';
@@ -5,10 +10,6 @@ import { WarningDetails } from './warning_details';
 import { generateContests } from './test_utils.test';
 import { WarningDetailsModalButton } from './warning_details_modal_button';
 
-jest.mock('./warning_details', (): typeof import('./warning_details') => ({
-  ...jest.requireActual('./warning_details'),
-  WarningDetails: jest.fn(),
-}));
 
 afterEach(() => {
   jest.resetAllMocks();

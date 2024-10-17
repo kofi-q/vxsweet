@@ -1,9 +1,10 @@
+jest.mock('./rust_addon');
+
 import { ImageData } from 'canvas';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { interpret as interpretImpl } from './rust_addon';
 import { interpret } from './interpret';
 
-jest.mock('./rust_addon');
 
 const interpretImplMock = interpretImpl as jest.MockedFunction<
   typeof interpretImpl

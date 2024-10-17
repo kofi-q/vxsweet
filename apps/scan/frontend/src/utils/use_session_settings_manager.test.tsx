@@ -1,3 +1,9 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  useCurrentLanguage: jest.fn(),
+  useLanguageControls: () => mockLanguageControls,
+}));
+
 import {
   AppBase,
   LanguageControls,
@@ -19,11 +25,6 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
 };
 const mockUseCurrentLanguage = mockOf(useCurrentLanguage);
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useCurrentLanguage: jest.fn(),
-  useLanguageControls: () => mockLanguageControls,
-}));
 
 const DEFAULT_THEME = {
   colorMode: 'contrastMedium',

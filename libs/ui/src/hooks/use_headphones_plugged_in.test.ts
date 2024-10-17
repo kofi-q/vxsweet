@@ -1,3 +1,8 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
+  isFeatureFlagEnabled: jest.fn(),
+}));
+
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -13,10 +18,6 @@ import { AUDIO_INFO_POLLING_INTERVAL_MS } from '../system_call_api';
 import { newTestContext } from '../../test/test_context';
 import { waitFor } from '../../test/react_testing_library';
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
-  ...jest.requireActual('@vx/libs/utils/src'),
-  isFeatureFlagEnabled: jest.fn(),
-}));
 
 const mockFeatureFlagger = getFeatureFlagMock();
 

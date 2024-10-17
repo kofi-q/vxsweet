@@ -1,3 +1,9 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
+  isVxDev: jest.fn(),
+  isIntegrationTest: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { isIntegrationTest, isVxDev } from '@vx/libs/utils/src';
 
@@ -11,11 +17,6 @@ import {
   SignedHashValidationConfig,
 } from './config';
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
-  ...jest.requireActual('@vx/libs/utils/src'),
-  isVxDev: jest.fn(),
-  isIntegrationTest: jest.fn(),
-}));
 
 beforeEach(() => {
   (process.env.NODE_ENV as string) = 'test';

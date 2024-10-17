@@ -1,3 +1,13 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+    randomBallotId: () => '12345',
+  };
+});
+
+jest.mock('./util/accessible_controller');
+
 import { assert } from '@vx/libs/basics/src';
 import {
   electionFamousNames2021Fixtures,
@@ -55,15 +65,7 @@ import { isAccessibleControllerAttached } from './util/accessible_controller';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-    randomBallotId: () => '12345',
-  };
-});
 
-jest.mock('./util/accessible_controller');
 
 let apiClient: grout.Client<Api>;
 let logger: Logger;

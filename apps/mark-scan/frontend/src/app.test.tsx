@@ -1,3 +1,12 @@
+jest.mock(
+  '@vx/libs/mark-flow-ui/src',
+  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
+    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
+    useBallotStyleManager: jest.fn(),
+    useSessionSettingsManager: jest.fn(),
+  })
+);
+
 import React from 'react';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 
@@ -15,14 +24,6 @@ import { App } from './app';
 import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { buildApp } from '../test/helpers/build_app';
 
-jest.mock(
-  '@vx/libs/mark-flow-ui/src',
-  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
-    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
-    useBallotStyleManager: jest.fn(),
-    useSessionSettingsManager: jest.fn(),
-  })
-);
 
 let apiMock: ApiMock;
 

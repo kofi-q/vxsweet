@@ -1,3 +1,9 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
+  ...jest.requireActual('@vx/libs/utils/src'),
+  generatePin: jest.fn(),
+  isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+}));
+
 import { Buffer } from 'node:buffer';
 import { DateTime } from 'luxon';
 import { assert, err, ok } from '@vx/libs/basics/src';
@@ -45,11 +51,6 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
-  ...jest.requireActual('@vx/libs/utils/src'),
-  generatePin: jest.fn(),
-  isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-}));
 
 const pin = '123456';
 const wrongPin = '654321';

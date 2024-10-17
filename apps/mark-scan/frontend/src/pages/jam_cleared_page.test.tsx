@@ -1,3 +1,5 @@
+jest.mock('./replace_jammed_sheet_screen');
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';
@@ -9,7 +11,6 @@ import {
   mockPollWorkerAuth,
 } from '../../test/helpers/mock_auth';
 
-jest.mock('./replace_jammed_sheet_screen');
 
 let apiMock: ApiMock;
 beforeEach(() => {

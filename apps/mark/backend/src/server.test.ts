@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/backend/src'),
+    initializeSystemAudio: jest.fn(),
+  };
+});
+
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
@@ -7,12 +14,6 @@ import { PORT } from './globals';
 import { start } from './server';
 import { createWorkspace } from './util/workspace';
 
-jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/backend/src'),
-    initializeSystemAudio: jest.fn(),
-  };
-});
 
 test('can start server', async () => {
   const auth = buildMockInsertedSmartCardAuth();
