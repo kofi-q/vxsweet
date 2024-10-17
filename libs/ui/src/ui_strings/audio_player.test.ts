@@ -1,3 +1,9 @@
+jest.mock('tone', () => ({
+  getContext: mockToneJsGetContext,
+  GrainPlayer: mockToneJsGrainPlayerConstructor,
+  setContext: mockToneJsSetContext,
+}));
+
 import { Buffer } from 'node:buffer';
 import type {
   BasicPlaybackState,
@@ -28,11 +34,6 @@ const mockToneJsGetContext = jest.fn();
 const mockToneJsSetContext = jest.fn();
 const mockToneJsGrainPlayerConstructor = jest.fn();
 
-jest.mock('tone', () => ({
-  getContext: mockToneJsGetContext,
-  GrainPlayer: mockToneJsGrainPlayerConstructor,
-  setContext: mockToneJsSetContext,
-}));
 
 const { ENGLISH } = LanguageCode;
 

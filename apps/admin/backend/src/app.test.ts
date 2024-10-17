@@ -1,3 +1,10 @@
+jest.mock('./globals', (): typeof import('./globals') => ({
+  ...jest.requireActual('./globals'),
+  get NODE_ENV(): 'production' | 'test' {
+    return mockNodeEnv;
+  },
+}));
+
 import { assert, assertDefined, err, ok } from '@vx/libs/basics/src';
 import {
   electionTwoPartyPrimaryFixtures,
@@ -34,12 +41,6 @@ import { ManualResultsIdentifier, ManualResultsRecord } from './types';
 
 let mockNodeEnv: 'production' | 'test' = 'test';
 
-jest.mock('./globals', (): typeof import('./globals') => ({
-  ...jest.requireActual('./globals'),
-  get NODE_ENV(): 'production' | 'test' {
-    return mockNodeEnv;
-  },
-}));
 
 beforeEach(() => {
   mockNodeEnv = 'test';

@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import express from 'express';
 import * as fs from 'node:fs';
 import * as grout from '@vx/libs/grout/src';
@@ -33,13 +41,6 @@ import {
 const TEST_DEV_DOCK_FILE_PATH = '/tmp/dev-dock.test.json';
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 let server: Server;
 

@@ -1,3 +1,11 @@
+jest.mock(
+  './ui_strings/audio_only',
+  (): typeof import('./ui_strings/audio_only') => ({
+    ...jest.requireActual('./ui_strings/audio_only'),
+    AudioOnly: jest.fn(),
+  })
+);
+
 import userEvent from '@testing-library/user-event';
 
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
@@ -10,13 +18,6 @@ import { newTestContext as newUiStringsTestContext } from '../test/test_context'
 import { AudioOnly } from './ui_strings/audio_only';
 import { useCurrentLanguage } from './hooks/use_current_language';
 
-jest.mock(
-  './ui_strings/audio_only',
-  (): typeof import('./ui_strings/audio_only') => ({
-    ...jest.requireActual('./ui_strings/audio_only'),
-    AudioOnly: jest.fn(),
-  })
-);
 
 const { ENGLISH, SPANISH } = LanguageCode;
 

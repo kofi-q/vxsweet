@@ -1,3 +1,8 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  VirtualKeyboard: jest.fn(),
+}));
+
 import {
   CandidateContest as CandidateContestInterface,
   getCandidateParties,
@@ -16,10 +21,6 @@ import { VirtualKeyboard, VirtualKeyboardProps } from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { CandidateContest } from './candidate_contest';
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  VirtualKeyboard: jest.fn(),
-}));
 
 function setUpMockVirtualKeyboard() {
   let checkIsKeyDisabled: (key: string) => boolean;

@@ -1,3 +1,13 @@
+jest.mock('./card_reader');
+
+jest.mock('./cryptography', (): typeof import('./cryptography') => ({
+  // We use real cryptographic commands in these tests to ensure end-to-end correctness, the one
+  // exception being commands for cert creation since two cert creation commands with the exact
+  // same inputs won't necessarily generate the same outputs, making assertions difficult
+  ...jest.requireActual('./cryptography'),
+  createCert: jest.fn(),
+}));
+
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { sha256 } from 'js-sha256';
@@ -64,14 +74,6 @@ import {
   VERIFY,
 } from './piv';
 
-jest.mock('./card_reader');
-jest.mock('./cryptography', (): typeof import('./cryptography') => ({
-  // We use real cryptographic commands in these tests to ensure end-to-end correctness, the one
-  // exception being commands for cert creation since two cert creation commands with the exact
-  // same inputs won't necessarily generate the same outputs, making assertions difficult
-  ...jest.requireActual('./cryptography'),
-  createCert: jest.fn(),
-}));
 
 let mockCardReader: MockCardReader;
 

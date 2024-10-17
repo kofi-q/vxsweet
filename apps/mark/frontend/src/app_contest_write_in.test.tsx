@@ -1,3 +1,11 @@
+jest.mock(
+  '@vx/libs/mark-flow-ui/src',
+  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
+    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
+    ContestPage: jest.fn(),
+  })
+);
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
@@ -23,13 +31,6 @@ import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 
-jest.mock(
-  '@vx/libs/mark-flow-ui/src',
-  (): typeof import('@vx/libs/mark-flow-ui/src') => ({
-    ...jest.requireActual('@vx/libs/mark-flow-ui/src'),
-    ContestPage: jest.fn(),
-  })
-);
 
 /**
  * Mocks the mark-flow-ui {@link ContestPage} to avoid re-testing the write-in

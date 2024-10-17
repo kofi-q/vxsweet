@@ -1,3 +1,13 @@
+jest.mock('./qrcode', () => ({
+  ...jest.requireActual('./qrcode'),
+  QrCode: () => <span>QR code</span>,
+}));
+
+jest.mock('./ui_strings/ui_string', () => ({
+  ...jest.requireActual('./ui_strings/ui_string'),
+  UiString: jest.fn(),
+}));
+
 import {
   CandidateContest,
   Election,
@@ -24,15 +34,7 @@ import {
   generateYesNoVote,
 } from './bmd_paper_ballot_test_utils';
 
-jest.mock('./qrcode', () => ({
-  ...jest.requireActual('./qrcode'),
-  QrCode: () => <span>QR code</span>,
-}));
 
-jest.mock('./ui_strings/ui_string', () => ({
-  ...jest.requireActual('./ui_strings/ui_string'),
-  UiString: jest.fn(),
-}));
 
 const mockUiStringRenderer = mockOf(UiString);
 

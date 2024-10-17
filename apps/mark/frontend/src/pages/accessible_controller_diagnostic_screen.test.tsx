@@ -1,3 +1,9 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  ReadOnLoad: jest.fn(),
+  useAudioControls: () => mockAudioControls,
+}));
+
 import userEvent from '@testing-library/user-event';
 import { DateTime } from 'luxon';
 import { mockUseAudioControls, mockOf } from '@vx/libs/test-utils/src';
@@ -10,11 +16,6 @@ import {
 
 const mockAudioControls = mockUseAudioControls();
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  ReadOnLoad: jest.fn(),
-  useAudioControls: () => mockAudioControls,
-}));
 
 const now = DateTime.fromISO('2022-03-23T11:23:00.000Z');
 

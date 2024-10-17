@@ -1,3 +1,32 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    getBatteryInfo: jest.fn(),
+    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
+  })
+);
+
+jest.mock('./pat-input/connection_status_reader');
+
+jest.mock('./util/hardware');
+
+jest.mock('./custom-paper-handler/application_driver');
+
+jest.mock('@vx/libs/ballot-interpreter/src');
+
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => reportPrintedTime.getTime(),
+}));
+
 import {
   ALL_PRECINCTS_SELECTION,
   BooleanEnvironmentVariableName,
@@ -60,13 +89,6 @@ jest.setTimeout(60_000);
 const TEST_POLLING_INTERVAL_MS = 5;
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,
@@ -74,19 +96,7 @@ const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   available: 9 * 1_000_000,
 };
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
-    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
-  })
-);
 
-jest.mock('./pat-input/connection_status_reader');
-jest.mock('./util/hardware');
-jest.mock('./custom-paper-handler/application_driver');
-jest.mock('@vx/libs/ballot-interpreter/src');
 
 let apiClient: grout.Client<Api>;
 let driver: MockPaperHandlerDriver;
@@ -204,9 +214,6 @@ test('getIsAccessibleControllerInputDetected', async () => {
 });
 
 const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => reportPrintedTime.getTime(),
-}));
 
 test('saving the readiness report', async () => {
   jest.useFakeTimers().setSystemTime(reportPrintedTime.getTime());

@@ -1,3 +1,5 @@
+jest.mock('usb');
+
 import { err, ok } from '@vx/libs/basics/src';
 import { Device, findByIds, WebUSBDevice } from 'usb';
 import { CustomA4Scanner } from './custom_a4_scanner';
@@ -5,7 +7,6 @@ import { mockCustomA4ScannerWebUsbDevice } from './mocks';
 import { openScanner } from './open_scanner';
 import { ErrorCode } from './types';
 
-jest.mock('usb');
 
 const findByIdsMock = findByIds as jest.MockedFunction<typeof findByIds>;
 const createInstanceMock = WebUSBDevice.createInstance as jest.MockedFunction<

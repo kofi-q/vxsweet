@@ -1,3 +1,5 @@
+jest.mock('pcsclite');
+
 import { Buffer } from 'node:buffer';
 import EventEmitter from 'node:events';
 import pcscLite from 'pcsclite';
@@ -14,7 +16,6 @@ import {
 } from './apdu';
 import { CardReader, PcscLite } from './card_reader';
 
-jest.mock('pcsclite');
 
 type ConnectCallback = (error?: Error, protocol?: number) => void;
 type Connect = (options: { share_mode: number }, cb: ConnectCallback) => void;

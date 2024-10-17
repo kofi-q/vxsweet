@@ -1,3 +1,8 @@
+jest.mock('./exec', (): typeof import('./exec') => ({
+  ...jest.requireActual('./exec'),
+  execFile: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { err, iter, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
@@ -9,10 +14,6 @@ import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { Exporter, ExportDataResult } from './exporter';
 import { execFile } from './exec';
 
-jest.mock('./exec', (): typeof import('./exec') => ({
-  ...jest.requireActual('./exec'),
-  execFile: jest.fn(),
-}));
 
 const execFileMock = mockOf(execFile);
 const tmpDirs: DirResult[] = [];

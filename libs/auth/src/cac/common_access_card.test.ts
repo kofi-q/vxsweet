@@ -1,3 +1,13 @@
+jest.mock('../card_reader');
+
+jest.mock('../cryptography', (): typeof import('../cryptography') => ({
+  // We use real cryptographic commands in these tests to ensure end-to-end correctness, the one
+  // exception being commands for cert creation since two cert creation commands with the exact
+  // same inputs won't necessarily generate the same outputs, making assertions difficult
+  ...jest.requireActual('../cryptography'),
+  createCert: jest.fn(),
+}));
+
 import { assertDefined, err, ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { Byte } from '@vx/libs/types/src';
@@ -31,14 +41,6 @@ import {
   buildGenerateSignatureCardCommand,
 } from './common_access_card';
 
-jest.mock('../card_reader');
-jest.mock('../cryptography', (): typeof import('../cryptography') => ({
-  // We use real cryptographic commands in these tests to ensure end-to-end correctness, the one
-  // exception being commands for cert creation since two cert creation commands with the exact
-  // same inputs won't necessarily generate the same outputs, making assertions difficult
-  ...jest.requireActual('../cryptography'),
-  createCert: jest.fn(),
-}));
 
 const DEV_CERT_PEM = fs.readFileSync(join(__dirname, './cac-dev-cert.pem'));
 const CERTIFYING_PRIVATE_KEY_PATH = join(

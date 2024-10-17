@@ -1,3 +1,5 @@
+jest.mock('../api');
+
 import userEvent from '@testing-library/user-event';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
@@ -7,7 +9,6 @@ import {
 } from './deactivate_voter_session_button';
 import * as api from '../api';
 
-jest.mock('../api');
 
 function renderButton(
   button: JSX.Element,

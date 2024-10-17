@@ -1,3 +1,19 @@
+jest.mock(
+  '../ui_strings/ui_string',
+  (): typeof import('../ui_strings/ui_string') => ({
+    ...jest.requireActual('../ui_strings/ui_string'),
+    UiString: jest.fn(),
+  })
+);
+
+jest.mock(
+  '../hooks/use_audio_controls',
+  (): typeof import('../hooks/use_audio_controls') => ({
+    ...jest.requireActual('../hooks/use_audio_controls'),
+    useAudioControls: () => mockAudioControls,
+  })
+);
+
 import {
   advanceTimers,
   mockUseAudioControls,
@@ -18,21 +34,7 @@ import { newTestContext } from '../../test/test_context';
 
 const mockAudioControls = mockUseAudioControls();
 
-jest.mock(
-  '../ui_strings/ui_string',
-  (): typeof import('../ui_strings/ui_string') => ({
-    ...jest.requireActual('../ui_strings/ui_string'),
-    UiString: jest.fn(),
-  })
-);
 
-jest.mock(
-  '../hooks/use_audio_controls',
-  (): typeof import('../hooks/use_audio_controls') => ({
-    ...jest.requireActual('../hooks/use_audio_controls'),
-    useAudioControls: () => mockAudioControls,
-  })
-);
 
 function newRenderer() {
   let lastReadElement: HTMLElement;

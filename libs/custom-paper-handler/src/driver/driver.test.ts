@@ -1,3 +1,5 @@
+jest.mock('usb');
+
 import { Buffer } from 'node:buffer';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { mocks } from '@vx/libs/custom-scanner/src';
@@ -31,7 +33,6 @@ import {
 
 type MockWebUsbDevice = mocks.MockWebUsbDevice;
 
-jest.mock('usb');
 const findByIdsMock = mockOf(findByIds);
 const createInstanceMock = mockOf(WebUSBDevice.createInstance);
 

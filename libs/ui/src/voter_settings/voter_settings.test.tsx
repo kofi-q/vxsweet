@@ -1,3 +1,11 @@
+jest.mock(
+  '../hooks/use_audio_controls',
+  (): typeof import('../hooks/use_audio_controls') => ({
+    ...jest.requireActual('../hooks/use_audio_controls'),
+    useAudioControls: () => mockAudioControls,
+  })
+);
+
 import userEvent from '@testing-library/user-event';
 import { ThemeConsumer } from 'styled-components';
 import { UiTheme } from '@vx/libs/types/src';
@@ -7,13 +15,6 @@ import { VoterSettings } from '.';
 
 const mockAudioControls = mockUseAudioControls();
 
-jest.mock(
-  '../hooks/use_audio_controls',
-  (): typeof import('../hooks/use_audio_controls') => ({
-    ...jest.requireActual('../hooks/use_audio_controls'),
-    useAudioControls: () => mockAudioControls,
-  })
-);
 
 test('renders expected subcomponents', () => {
   render(<VoterSettings onClose={jest.fn()} />);

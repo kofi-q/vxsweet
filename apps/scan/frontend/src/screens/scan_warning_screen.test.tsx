@@ -1,3 +1,19 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: jest.fn(),
+  };
+});
+
+jest.mock(
+  '../components/misvote_warnings',
+  (): typeof import('../components/misvote_warnings') => ({
+    ...jest.requireActual('../components/misvote_warnings'),
+    WarningDetails: jest.fn(),
+    MisvoteWarnings: jest.fn(),
+  })
+);
+
 import userEvent from '@testing-library/user-event';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
@@ -19,21 +35,7 @@ import {
   MisvoteWarnings,
 } from '../components/misvote_warnings';
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: jest.fn(),
-  };
-});
 
-jest.mock(
-  '../components/misvote_warnings',
-  (): typeof import('../components/misvote_warnings') => ({
-    ...jest.requireActual('../components/misvote_warnings'),
-    WarningDetails: jest.fn(),
-    MisvoteWarnings: jest.fn(),
-  })
-);
 
 let apiMock: ApiMock;
 

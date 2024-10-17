@@ -1,3 +1,17 @@
+jest.mock(
+  '../hooks/use_headphones_plugged_in',
+  (): typeof import('../hooks/use_headphones_plugged_in') => ({
+    ...jest.requireActual('../hooks/use_headphones_plugged_in'),
+    useHeadphonesPluggedIn() {
+      const [isPluggedIn, setIsPluggedIn] = React.useState(true);
+
+      setMockHeadphonesPluggedIn = setIsPluggedIn;
+
+      return isPluggedIn;
+    },
+  })
+);
+
 import React, { act } from 'react';
 import {
   DEFAULT_AUDIO_ENABLED_STATE,
@@ -17,19 +31,6 @@ import { newTestContext } from '../../test/test_context';
 
 let setMockHeadphonesPluggedIn: (isPluggedIn: boolean) => void;
 
-jest.mock(
-  '../hooks/use_headphones_plugged_in',
-  (): typeof import('../hooks/use_headphones_plugged_in') => ({
-    ...jest.requireActual('../hooks/use_headphones_plugged_in'),
-    useHeadphonesPluggedIn() {
-      const [isPluggedIn, setIsPluggedIn] = React.useState(true);
-
-      setMockHeadphonesPluggedIn = setIsPluggedIn;
-
-      return isPluggedIn;
-    },
-  })
-);
 
 const { mockApiClient } = newTestContext();
 const mockUiStringsApi = createUiStringsApi(() => mockApiClient);

@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
+  ...jest.requireActual('@vx/libs/ui/src'),
+  useIsPatDeviceConnected: jest.fn(),
+  WithScrollButtons: jest.fn(({ children }) => (
+    <div data-testid={MOCK_WITH_SCROLL_BUTTONS_TEST_ID}>{children}</div>
+  )),
+}));
+
 import {
   electionGeneral,
   electionTwoPartyPrimary,
@@ -15,13 +23,6 @@ import { YesNoContest } from './yes_no_contest';
 
 const MOCK_WITH_SCROLL_BUTTONS_TEST_ID = 'MockWithScrollButtons';
 
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useIsPatDeviceConnected: jest.fn(),
-  WithScrollButtons: jest.fn(({ children }) => (
-    <div data-testid={MOCK_WITH_SCROLL_BUTTONS_TEST_ID}>{children}</div>
-  )),
-}));
 
 const mockUseIsPatDeviceConnected = jest.mocked(useIsPatDeviceConnected);
 const MockWithScrollButtons = jest.mocked(WithScrollButtons);

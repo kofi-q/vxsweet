@@ -1,11 +1,14 @@
+jest.mock('../api');
+
+jest.mock('../hooks/use_is_voter_auth');
+
+jest.mock('../components/deactivate_voter_session_button');
+
 import { render, screen } from '../../test/react_testing_library';
 import { ResetVoterSessionButton } from '../components/deactivate_voter_session_button';
 import { useIsVoterAuth } from '../hooks/use_is_voter_auth';
 import { WaitingForBallotReinsertionBallotScreen } from './waiting_for_ballot_reinsertion_screen';
 
-jest.mock('../api');
-jest.mock('../hooks/use_is_voter_auth');
-jest.mock('../components/deactivate_voter_session_button');
 
 const mockUseIsVoterAuth = jest.mocked(useIsVoterAuth);
 

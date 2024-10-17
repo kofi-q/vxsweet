@@ -1,3 +1,22 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
+jest.mock('./ballot_style_reports');
+
+jest.mock('@vx/libs/hmpb/src', () => {
+  const original = jest.requireActual('@vx/libs/hmpb/src');
+  return {
+    ...original,
+    renderAllBallotsAndCreateElectionDefinition: jest.fn(
+      original.renderAllBallotsAndCreateElectionDefinition
+    ),
+  };
+});
+
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
 import get from 'lodash.get';
@@ -72,14 +91,7 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
-jest.mock('./ballot_style_reports');
 
 const { setupApp, cleanup } = testSetupHelpers();
 
@@ -614,15 +626,6 @@ test('Election package export', async () => {
 
 // Spy on the ballot rendering function so we can check that it's called with the
 // right arguments.
-jest.mock('@vx/libs/hmpb/src', () => {
-  const original = jest.requireActual('@vx/libs/hmpb/src');
-  return {
-    ...original,
-    renderAllBallotsAndCreateElectionDefinition: jest.fn(
-      original.renderAllBallotsAndCreateElectionDefinition
-    ),
-  };
-});
 
 test('Export all ballots', async () => {
   // This test runs unnecessarily long if we're generating exports for all

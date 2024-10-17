@@ -1,3 +1,5 @@
+jest.mock('./cryptography');
+
 import { Buffer } from 'node:buffer';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { ElectionId, ElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
@@ -15,7 +17,6 @@ import {
 } from './certs';
 import { openssl } from './cryptography';
 
-jest.mock('./cryptography');
 
 const cert = Buffer.of();
 const electionId = 'rhr6fw5qb077';

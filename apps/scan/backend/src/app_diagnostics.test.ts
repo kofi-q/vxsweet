@@ -1,3 +1,22 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
+  };
+});
+
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => mockTime.getTime(),
+}));
+
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
+  })
+);
+
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -18,12 +37,6 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag) => mockFeatureFlagger.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   mockFeatureFlagger.enableFeatureFlag(
@@ -32,9 +45,6 @@ beforeEach(() => {
 });
 
 const mockTime = new Date('2021-01-01T00:00:00.000');
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => mockTime.getTime(),
-}));
 
 async function wrapWithFakeSystemTime<T>(fn: () => Promise<T>): Promise<T> {
   jest.useFakeTimers().setSystemTime(mockTime.getTime());
@@ -43,13 +53,6 @@ async function wrapWithFakeSystemTime<T>(fn: () => Promise<T>): Promise<T> {
   return result;
 }
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
-  })
-);
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,

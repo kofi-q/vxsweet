@@ -1,3 +1,5 @@
+jest.mock('node:child_process');
+
 import { spawn } from 'node:child_process';
 import {
   backendWaitFor,
@@ -17,7 +19,6 @@ import {
   ScannerStatus,
 } from './scanner_client';
 
-jest.mock('node:child_process');
 let mockChildProcess: MockChildProcess;
 
 beforeEach(() => {

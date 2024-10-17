@@ -1,3 +1,7 @@
+jest.mock('node:child_process');
+
+jest.mock('tmp');
+
 import { Buffer } from 'node:buffer';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs/promises';
@@ -24,8 +28,6 @@ import {
   SignMessageInputExcludingMessage,
 } from './cryptography';
 
-jest.mock('node:child_process');
-jest.mock('tmp');
 
 let mockChildProcess: MockChildProcess;
 let nextTempFileName = 0;

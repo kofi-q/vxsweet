@@ -1,3 +1,11 @@
+jest.mock(
+  './ui_strings/read_on_load',
+  (): typeof import('./ui_strings/read_on_load') => ({
+    ...jest.requireActual('./ui_strings/read_on_load'),
+    ReadOnLoad: jest.fn(),
+  })
+);
+
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { mockOf } from '@vx/libs/test-utils/src';
@@ -13,13 +21,6 @@ import {
   createUiStringsApi,
 } from './hooks/ui_strings_api';
 
-jest.mock(
-  './ui_strings/read_on_load',
-  (): typeof import('./ui_strings/read_on_load') => ({
-    ...jest.requireActual('./ui_strings/read_on_load'),
-    ReadOnLoad: jest.fn(),
-  })
-);
 
 const mockReadOnLoad = mockOf(ReadOnLoad);
 const MOCK_READ_ON_LOAD_TEST_ID = 'mockReadOnLoad';

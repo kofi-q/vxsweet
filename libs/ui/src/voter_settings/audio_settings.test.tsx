@@ -1,3 +1,10 @@
+jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
+  ...jest.requireActual('../ui_strings'),
+  ToggleAudioButton: jest.fn(() => (
+    <div data-testid={MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID} />
+  )),
+}));
+
 import { UiTheme } from '@vx/libs/types/src';
 import { ThemeConsumer } from 'styled-components';
 import userEvent from '@testing-library/user-event';
@@ -7,12 +14,6 @@ import { newTestContext } from '../../test/test_context';
 
 const MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID = 'mockToggleAudioButton';
 
-jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
-  ...jest.requireActual('../ui_strings'),
-  ToggleAudioButton: jest.fn(() => (
-    <div data-testid={MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID} />
-  )),
-}));
 
 test('renders audio toggle button', async () => {
   const { render } = newTestContext();

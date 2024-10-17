@@ -1,3 +1,13 @@
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    isDeviceAttached: jest.fn(),
+  })
+);
+
+jest.mock('./exec');
+
 import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 import { HmpbBallotPaperSize } from '@vx/libs/types/src';
 import { ChildProcess } from 'node:child_process';
@@ -12,17 +22,9 @@ import {
 import { makeMockChildProcess } from '../test/util/mocks';
 import { streamExecFile } from './exec';
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    isDeviceAttached: jest.fn(),
-  })
-);
 
 const isDeviceAttachedMock = mockOf(isDeviceAttached);
 
-jest.mock('./exec');
 
 const exec = streamExecFile as unknown as jest.MockedFunction<
   (file: string, args: readonly string[]) => ChildProcess

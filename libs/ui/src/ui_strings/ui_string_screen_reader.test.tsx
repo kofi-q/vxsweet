@@ -1,3 +1,8 @@
+jest.mock('./play_audio_clips', (): typeof import('./play_audio_clips') => ({
+  ...jest.requireActual('./play_audio_clips'),
+  PlayAudioClips: jest.fn(),
+}));
+
 import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
 import { LanguageCode } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
@@ -10,10 +15,6 @@ import { LanguageOverride } from './language_override';
 import { Button } from '../button';
 import { AudioVolume } from './audio_volume';
 
-jest.mock('./play_audio_clips', (): typeof import('./play_audio_clips') => ({
-  ...jest.requireActual('./play_audio_clips'),
-  PlayAudioClips: jest.fn(),
-}));
 
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 

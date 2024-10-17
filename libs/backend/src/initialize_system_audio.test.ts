@@ -1,12 +1,13 @@
+jest.mock('./exec', (): typeof import('./exec') => ({
+  ...jest.requireActual('./exec'),
+  execFile: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 
 import { execFile } from './exec';
 import { initializeSystemAudio } from './initialize_system_audio';
 
-jest.mock('./exec', (): typeof import('./exec') => ({
-  ...jest.requireActual('./exec'),
-  execFile: jest.fn(),
-}));
 
 const execFileMock = mockOf(execFile);
 

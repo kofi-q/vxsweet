@@ -1,9 +1,3 @@
-import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
-import { mockOf } from '@vx/libs/test-utils/src';
-import tmp from 'tmp';
-import { mockBaseLogger } from '@vx/libs/logging/src';
-import { createWorkspace } from './workspace';
-
 jest.mock(
   '@vx/libs/backend/src',
   (): typeof import('@vx/libs/backend/src') => ({
@@ -11,6 +5,13 @@ jest.mock(
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
+
+import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
+import { mockOf } from '@vx/libs/test-utils/src';
+import tmp from 'tmp';
+import { mockBaseLogger } from '@vx/libs/logging/src';
+import { createWorkspace } from './workspace';
+
 
 const initializeGetWorkspaceDiskSpaceSummaryMock = mockOf(
   initializeGetWorkspaceDiskSpaceSummary

@@ -1,3 +1,8 @@
+jest.mock('@vx/libs/backend/src', () => ({
+  ...jest.requireActual('@vx/libs/backend/src'),
+  doesUsbDriveRequireCastVoteRecordSync: jest.fn(),
+}));
+
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
@@ -18,10 +23,6 @@ const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);
 const electionPackageHash = 'test-election-package-hash';
 
-jest.mock('@vx/libs/backend/src', () => ({
-  ...jest.requireActual('@vx/libs/backend/src'),
-  doesUsbDriveRequireCastVoteRecordSync: jest.fn(),
-}));
 
 const doesUsbDriveRequireCastVoteRecordSyncMock = mockOf(
   doesUsbDriveRequireCastVoteRecordSync

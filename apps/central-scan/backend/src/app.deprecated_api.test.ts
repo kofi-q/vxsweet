@@ -1,3 +1,5 @@
+jest.mock('./importer');
+
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
@@ -30,7 +32,6 @@ import { createWorkspace, Workspace } from './util/workspace';
 import { buildCentralScannerApp } from './app';
 import { buildMockLogger } from '../test/helpers/setup_app';
 
-jest.mock('./importer');
 
 const jurisdiction = TEST_JURISDICTION;
 

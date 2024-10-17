@@ -1,3 +1,11 @@
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import {
   getCastVoteRecordExportDirectoryPaths,
   mockElectionPackageFileTree,
@@ -20,13 +28,6 @@ import { ScannedSheetInfo } from './fujitsu_scanner';
 jest.setTimeout(20000);
 
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 test('going through the whole process works - BMD', async () => {
   const { electionDefinition } = electionFamousNames2021Fixtures;

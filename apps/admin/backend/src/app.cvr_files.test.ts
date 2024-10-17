@@ -1,3 +1,16 @@
+jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
+  ...jest.requireActual('@vx/libs/auth/src'),
+  authenticateArtifactUsingSignatureFile: jest.fn(),
+}));
+
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import { Buffer } from 'node:buffer';
 import set from 'lodash.set';
 import { assert, err, ok } from '@vx/libs/basics/src';
@@ -45,20 +58,9 @@ import { CvrFileImportInfo } from './types';
 
 jest.setTimeout(60_000);
 
-jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
-  ...jest.requireActual('@vx/libs/auth/src'),
-  authenticateArtifactUsingSignatureFile: jest.fn(),
-}));
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 beforeEach(() => {
   jest.restoreAllMocks();

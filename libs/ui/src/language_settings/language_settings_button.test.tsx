@@ -1,3 +1,14 @@
+jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
+  ...jest.requireActual('../ui_strings'),
+
+  WithAltAudio: ({ audioText, children }) => (
+    <React.Fragment>
+      <span data-testid={MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID}>{children}</span>
+      <span data-testid={MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID}>{audioText}</span>
+    </React.Fragment>
+  ),
+}));
+
 import {
   ElectionStringKey,
   LanguageCode,
@@ -13,16 +24,6 @@ import { act, screen } from '../../test/react_testing_library';
 const MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID = 'MockAltAudioPrimaryText';
 const MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID = 'MockAltAudioAltText';
 
-jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
-  ...jest.requireActual('../ui_strings'),
-
-  WithAltAudio: ({ audioText, children }) => (
-    <React.Fragment>
-      <span data-testid={MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID}>{children}</span>
-      <span data-testid={MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID}>{audioText}</span>
-    </React.Fragment>
-  ),
-}));
 
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 

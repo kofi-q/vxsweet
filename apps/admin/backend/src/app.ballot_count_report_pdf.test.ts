@@ -1,3 +1,23 @@
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => reportPrintedTime.getTime(),
+}));
+
+jest.mock('@vx/libs/utils/src', () => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock('@vx/libs/printing/src', () => {
+  const original = jest.requireActual('@vx/libs/printing/src');
+  return {
+    ...original,
+    renderToPdf: jest.fn(original.renderToPdf),
+  };
+});
+
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
@@ -26,27 +46,10 @@ import { BallotCountReportSpec } from './reports/ballot_count_report';
 jest.setTimeout(60_000);
 
 const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => reportPrintedTime.getTime(),
-}));
 
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', () => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
-jest.mock('@vx/libs/printing/src', () => {
-  const original = jest.requireActual('@vx/libs/printing/src');
-  return {
-    ...original,
-    renderToPdf: jest.fn(original.renderToPdf),
-  };
-});
 
 beforeEach(() => {
   featureFlagMock.enableFeatureFlag(

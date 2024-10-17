@@ -1,13 +1,14 @@
+jest.mock('../exec', (): typeof import('../exec') => ({
+  ...jest.requireActual('../exec'),
+  execFile: jest.fn(),
+}));
+
 /* eslint-disable prefer-regex-literals */
 
 import { mockOf } from '@vx/libs/test-utils/src';
 import { setClock } from './set_clock';
 import { execFile } from '../exec';
 
-jest.mock('../exec', (): typeof import('../exec') => ({
-  ...jest.requireActual('../exec'),
-  execFile: jest.fn(),
-}));
 
 const execMock = mockOf(execFile);
 

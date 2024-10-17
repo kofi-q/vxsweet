@@ -1,3 +1,5 @@
+jest.mock('./validation');
+
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import {
   DEFAULT_ELECTION_GENERAL_BALLOT_STYLE_ID,
@@ -38,7 +40,6 @@ import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
 import { InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
-jest.mock('./validation');
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

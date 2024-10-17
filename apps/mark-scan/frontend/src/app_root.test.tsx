@@ -1,3 +1,9 @@
+jest.mock('./voter_flow');
+
+jest.mock('./pages/poll_worker_screen');
+
+jest.mock('./pages/poll_worker_auth_ended_unexpectedly_page');
+
 import { advancePromises, mockOf } from '@vx/libs/test-utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
@@ -17,9 +23,6 @@ import {
 import { screen } from '../test/react_testing_library';
 import { PollWorkerAuthEndedUnexpectedlyPage } from './pages/poll_worker_auth_ended_unexpectedly_page';
 
-jest.mock('./voter_flow');
-jest.mock('./pages/poll_worker_screen');
-jest.mock('./pages/poll_worker_auth_ended_unexpectedly_page');
 
 let apiMock: ApiMock;
 

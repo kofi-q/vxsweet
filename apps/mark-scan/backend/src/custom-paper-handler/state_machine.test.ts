@@ -1,3 +1,21 @@
+jest.mock('@vx/libs/ballot-interpreter/src');
+
+jest.mock('./application_driver');
+
+jest.mock('../pat-input/connection_status_reader');
+
+jest.mock('node-hid');
+
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
+jest.mock('../audio/outputs');
+
 import HID from 'node-hid';
 import {
   MockPaperHandlerDriver,
@@ -90,10 +108,6 @@ import {
 } from '../../test/ballot_helpers';
 import { AudioOutput, setAudioOutput } from '../audio/outputs';
 
-jest.mock('@vx/libs/ballot-interpreter/src');
-jest.mock('./application_driver');
-jest.mock('../pat-input/connection_status_reader');
-jest.mock('node-hid');
 
 let driver: MockPaperHandlerDriver;
 let workspace: Workspace;
@@ -107,14 +121,6 @@ let clock: SimulatedClock;
 
 const precinctId = electionGeneralDefinition.election.precincts[1].id;
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
-jest.mock('../audio/outputs');
 jest.setTimeout(2000);
 
 const SUCCESSFUL_INTERPRETATION_MOCK: SheetOf<InterpretFileResult> = [

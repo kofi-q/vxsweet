@@ -1,3 +1,5 @@
+jest.mock('./report_header');
+
 import {
   electionGeneral,
   electionGeneralDefinition,
@@ -24,7 +26,6 @@ import {
   ReadinessReportHeaderProps,
 } from './report_header';
 
-jest.mock('./report_header');
 
 const { ENGLISH, SPANISH } = LanguageCode;
 

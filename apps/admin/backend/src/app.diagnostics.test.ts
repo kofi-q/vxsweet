@@ -1,3 +1,16 @@
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    getBatteryInfo: jest.fn(),
+    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
+  })
+);
+
+jest.mock('./util/get_current_time', () => ({
+  getCurrentTime: () => reportPrintedTime.getTime(),
+}));
+
 import { LogEventId } from '@vx/libs/logging/src';
 import { HP_LASER_PRINTER_CONFIG } from '@vx/libs/printing/src';
 import {
@@ -17,14 +30,6 @@ import {
 
 jest.setTimeout(60_000);
 
-jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
-    initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
-  })
-);
 
 const MOCK_DISK_SPACE_SUMMARY: DiskSpaceSummary = {
   total: 10 * 1_000_000,
@@ -95,9 +100,6 @@ test('diagnostic records', async () => {
 });
 
 const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
-jest.mock('./util/get_current_time', () => ({
-  getCurrentTime: () => reportPrintedTime.getTime(),
-}));
 
 test('test print', async () => {
   const { apiClient, logger, mockPrinterHandler, auth } =

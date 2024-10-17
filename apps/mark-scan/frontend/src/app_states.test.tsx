@@ -1,3 +1,9 @@
+jest.mock('./pages/jam_cleared_page');
+
+jest.mock('./pages/jammed_page');
+
+jest.mock('./pages/start_screen');
+
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
@@ -14,9 +20,6 @@ import { BallotContext } from './contexts/ballot_context';
 import { StartScreen } from './pages/start_screen';
 import { JAM_CLEARED_STATES } from './pages/replace_jammed_sheet_screen';
 
-jest.mock('./pages/jam_cleared_page');
-jest.mock('./pages/jammed_page');
-jest.mock('./pages/start_screen');
 
 let apiMock: ApiMock;
 

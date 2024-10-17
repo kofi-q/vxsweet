@@ -1,23 +1,3 @@
-import { mockOf } from '@vx/libs/test-utils/src';
-import {
-  MarkScanControllerSandbox,
-  useIsPatDeviceConnected,
-} from '@vx/libs/ui/src';
-import React from 'react';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
-import { act, render, screen } from '../test/react_testing_library';
-import { VoterFlow, VoterFlowProps } from './voter_flow';
-import { mockMachineConfig } from '../test/helpers/mock_machine_config';
-import { Ballot } from './components/ballot';
-import { PatDeviceCalibrationPage } from './pages/pat_device_identification/pat_device_calibration_page';
-import { createApiMock } from '../test/helpers/mock_api_client';
-import { ApiProvider } from './api_provider';
-
-let setMockControllerHelpTriggered:
-  | ((shouldShowHelp: boolean) => void)
-  | undefined;
-
 jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
   ...jest.requireActual('@vx/libs/ui/src'),
 
@@ -44,7 +24,6 @@ jest.mock('./api', (): typeof import('./api') => ({
   confirmSessionEnd: { useMutation: jest.fn() },
 }));
 
-const MOCK_INVALID_BALLOT_SCREEN_CONTENTS = 'MockInvalidBallotScreen';
 jest.mock(
   './pages/reinserted_invalid_ballot_screen',
   (): typeof import('./pages/reinserted_invalid_ballot_screen') => ({
@@ -55,8 +34,6 @@ jest.mock(
   })
 );
 
-const MOCK_WAITING_FOR_REINSERTION_SCREEN_CONTENTS =
-  'MockWaitingForReinsertionScreen';
 jest.mock(
   './pages/waiting_for_ballot_reinsertion_screen',
   (): typeof import('./pages/waiting_for_ballot_reinsertion_screen') => ({
@@ -66,6 +43,35 @@ jest.mock(
     ),
   })
 );
+
+import { mockOf } from '@vx/libs/test-utils/src';
+import {
+  MarkScanControllerSandbox,
+  useIsPatDeviceConnected,
+} from '@vx/libs/ui/src';
+import React from 'react';
+import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { act, render, screen } from '../test/react_testing_library';
+import { VoterFlow, VoterFlowProps } from './voter_flow';
+import { mockMachineConfig } from '../test/helpers/mock_machine_config';
+import { Ballot } from './components/ballot';
+import { PatDeviceCalibrationPage } from './pages/pat_device_identification/pat_device_calibration_page';
+import { createApiMock } from '../test/helpers/mock_api_client';
+import { ApiProvider } from './api_provider';
+
+let setMockControllerHelpTriggered:
+  | ((shouldShowHelp: boolean) => void)
+  | undefined;
+
+
+
+
+
+const MOCK_INVALID_BALLOT_SCREEN_CONTENTS = 'MockInvalidBallotScreen';
+
+const MOCK_WAITING_FOR_REINSERTION_SCREEN_CONTENTS =
+  'MockWaitingForReinsertionScreen';
 
 const mockApi = createApiMock();
 

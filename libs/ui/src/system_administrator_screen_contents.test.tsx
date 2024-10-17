@@ -1,3 +1,10 @@
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isVxDev: jest.fn(),
+  };
+});
+
 import userEvent from '@testing-library/user-event';
 import { mockKiosk, mockOf } from '@vx/libs/test-utils/src';
 import { isVxDev } from '@vx/libs/utils/src';
@@ -10,12 +17,6 @@ import { SystemAdministratorScreenContents } from './system_administrator_screen
 import { newTestContext } from '../test/test_context';
 import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';
 
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isVxDev: jest.fn(),
-  };
-});
 
 const { render, mockApiClient } = newTestContext({ skipUiStringsApi: true });
 

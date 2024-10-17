@@ -1,3 +1,8 @@
+jest.mock('./exec', (): typeof import('./exec') => ({
+  ...jest.requireActual('./exec'),
+  execFile: jest.fn(),
+}));
+
 import { mockOf } from '@vx/libs/test-utils/src';
 import { Client } from '@vx/libs/db/src';
 import { tmpNameSync } from 'tmp';
@@ -14,10 +19,6 @@ import {
 } from './disk_space_summary';
 import { execFile } from './exec';
 
-jest.mock('./exec', (): typeof import('./exec') => ({
-  ...jest.requireActual('./exec'),
-  execFile: jest.fn(),
-}));
 
 const execFileMock = mockOf(execFile);
 

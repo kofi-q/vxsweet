@@ -1,3 +1,10 @@
+jest.mock(
+  '../hooks/use_audio_controls',
+  (): typeof import('../hooks/use_audio_controls') => ({
+    useAudioControls: () => audioControls,
+  })
+);
+
 import userEvent from '@testing-library/user-event';
 import { AudioControls, LanguageCode } from '@vx/libs/types/src';
 import { advancePromises, mockUseAudioControls } from '@vx/libs/test-utils/src';
@@ -10,12 +17,6 @@ import { Keybinding } from '..';
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 const audioControls: AudioControls = mockUseAudioControls();
 
-jest.mock(
-  '../hooks/use_audio_controls',
-  (): typeof import('../hooks/use_audio_controls') => ({
-    useAudioControls: () => audioControls,
-  })
-);
 
 test('Shift+L switches display language', async () => {
   const { mockApiClient, render: renderWithContext } = newTestContext();

@@ -1,3 +1,13 @@
+jest.mock('@vx/libs/backend/src');
+
+jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
+  return {
+    ...jest.requireActual('@vx/libs/utils/src'),
+    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
+      featureFlagMock.isEnabled(flag),
+  };
+});
+
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -13,15 +23,7 @@ import {
   PID_FILENAME,
 } from './hardware';
 
-jest.mock('@vx/libs/backend/src');
 const featureFlagMock = getFeatureFlagMock();
-jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/utils/src'),
-    isFeatureFlagEnabled: (flag: BooleanEnvironmentVariableName) =>
-      featureFlagMock.isEnabled(flag),
-  };
-});
 
 let workspaceDir: tmp.DirResult;
 const MOCK_PID = 12345;

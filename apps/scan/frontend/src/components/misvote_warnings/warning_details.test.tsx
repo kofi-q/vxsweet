@@ -1,11 +1,3 @@
-import { mockOf } from '@vx/libs/test-utils/src';
-import { Contest } from '@vx/libs/types/src';
-import { ContestList } from './contest_list';
-import { render, screen, within } from '../../../test/react_testing_library';
-import { WarningDetails } from './warning_details';
-import { generateContests } from './test_utils.test';
-import { useLayoutConfig } from './use_layout_config_hook';
-
 jest.mock('./contest_list', (): typeof import('./contest_list') => ({
   ...jest.requireActual('./contest_list'),
   ContestList: jest.fn(),
@@ -18,6 +10,16 @@ jest.mock(
     useLayoutConfig: jest.fn(),
   })
 );
+
+import { mockOf } from '@vx/libs/test-utils/src';
+import { Contest } from '@vx/libs/types/src';
+import { ContestList } from './contest_list';
+import { render, screen, within } from '../../../test/react_testing_library';
+import { WarningDetails } from './warning_details';
+import { generateContests } from './test_utils.test';
+import { useLayoutConfig } from './use_layout_config_hook';
+
+
 
 function expectMockContestListProps(
   container: HTMLElement,
