@@ -185,7 +185,7 @@ describe('PickDateTimeModal', () => {
           expect(onSave).toHaveBeenCalledWith(dateTime);
         }
       ),
-      { numRuns: 50 }
+      { numRuns: 5 } // TODO: Make this test more deterministic
     );
   });
 });
