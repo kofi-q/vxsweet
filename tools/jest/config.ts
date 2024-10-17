@@ -41,7 +41,6 @@ module.exports = {
   modulePathIgnorePatterns: [
     '<rootDir>[/\\\\](build|docs|node_modules|deploy|scripts)[/\\\\]',
   ],
-  reporters: ['jest-junit', 'default'],
   setupFilesAfterEnv: [
     `${__dirname}/setup_node`,
     testEnvironment === 'jsdom' && `${__dirname}/setup_dom`,
