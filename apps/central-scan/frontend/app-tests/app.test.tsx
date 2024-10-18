@@ -17,9 +17,15 @@ import {
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor, within, screen } from '../test/react_testing_library';
-import { App } from './app';
-import { ApiMock, createApiMock } from '../test/api';
-import { mockBatch, mockStatus } from '../test/fixtures';
+import { App } from '@vx/apps/central-scan/frontend/src/app';
+import {
+  ApiMock,
+  createApiMock,
+} from '@vx/apps/central-scan/frontend/test/api';
+import {
+  mockBatch,
+  mockStatus,
+} from '@vx/apps/central-scan/frontend/test/fixtures';
 
 const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);
