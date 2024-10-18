@@ -14,3 +14,10 @@ bazel-vxsweet
 coverage
 node_modules
 target
+
+#
+# These are symlinks into the bazel output directory to enable running various
+# tools without bazel (though, these require an initial bazel build to bootstrap
+# the referenced build outputs):
+#
+libs/ballot-interpreter/src/hmpb-ts/rust_addon.node
