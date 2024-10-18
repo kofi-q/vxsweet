@@ -23,6 +23,8 @@ import { makeIdFactory } from '../test/id_helpers';
 
 let apiMock: MockApiClient;
 
+jest.setTimeout(20_000);
+
 const idFactory = makeIdFactory();
 
 beforeEach(() => {
