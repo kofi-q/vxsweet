@@ -1,3 +1,5 @@
+import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,

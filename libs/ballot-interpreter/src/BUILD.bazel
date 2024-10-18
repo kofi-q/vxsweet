@@ -1,3 +1,4 @@
+load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
@@ -5,6 +6,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = [":rust_addon_copy"],
     deps = [
         "//:node_modules/@types/better-sqlite3",
         "//:node_modules/@types/chalk",
@@ -52,4 +54,10 @@ ts_tests(
         "//libs/types/src",
         "//libs/utils/src",
     ],
+)
+
+copy_file(
+    name = "rust_addon_copy",
+    src = "//libs/ballot-interpreter:rust",
+    out = "hmpb-ts/rust_addon.node",
 )
