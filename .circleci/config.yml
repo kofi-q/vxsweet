@@ -18,6 +18,7 @@ workflows:
     description: Build and test all targets on every commit.
     jobs:
       - build_and_test
+      - lint
 
   daily_cache_regenerate:
     description: Regenerate the Bazel cache from scratch daily to prune stale/unused artifacts.
@@ -37,9 +38,24 @@ jobs:
     resource_class: xlarge
     steps:
       - checkout
-      - restore_bazel_cache
+      - restore_bazel_cache:
+          key_prefix: build_cache
       - run_build_test
       - save_bazel_cache:
+          key_prefix: build_cache
+          key_suffix: additive
+      - save_test_outputs
+
+  lint:
+    executor: nodejs
+    resource_class: medium
+    steps:
+      - checkout
+      - restore_bazel_cache:
+          key_prefix: lint_cache
+      - run_lint_checks
+      - save_bazel_cache:
+          key_prefix: lint_cache
           key_suffix: additive
       - save_test_outputs
 
@@ -50,6 +66,7 @@ jobs:
       - checkout
       - run_build_test
       - save_bazel_cache:
+          key_prefix: build_cache
           key_suffix: clean
       - save_test_outputs
 
@@ -60,7 +77,15 @@ commands:
       - run:
           name: Build and Test
           command: |
-            bazel test //... --config=ci
+            bazel test //... --config=ci --test_tag_filters=-lint
+
+  run_lint_checks:
+    description: Lint all relevant source files in the build graph.
+    steps:
+      - run:
+          name: Lint
+          command: |
+            bazel test //... --config=ci --test_tag_filters=lint --build_tests_only
 
   save_test_outputs:
     description: Save test logs and artifacts
@@ -77,16 +102,21 @@ commands:
     description: |
         Restore a previous cache for the current branch, falling back to the
         most recent main, if a match isn't found.
+    parameters:
+      key_prefix:
+        type: string
     steps:
       - restore_cache:
           keys:
-            - build_cache-v1-{{ .Branch }}-{{ .Revision }}-
-            - build_cache-v1-{{ .Branch }}-
-            - build_cache-v1-main-
+            - << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-
+            - << parameters.key_prefix >>-v1-{{ .Branch }}-
+            - << parameters.key_prefix >>-v1-main-
 
   save_bazel_cache:
     description: Saves the Bazel cache to the CircleCI cache for future runs.
     parameters:
+      key_prefix:
+        type: string
       key_suffix:
         type: string
     steps:
@@ -98,7 +128,7 @@ commands:
           steps:
             - save_cache:
                 when: always
-                key: build_cache-v1-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
+                key: << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
                 paths:
                   # NOTE: Keep in sync with .bazel/ci.bazelrc:
                   - /root/bazel_build_cache
