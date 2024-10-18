@@ -26,6 +26,8 @@ def lint_test(
         name = name,
         srcs = list_all_files(),
         data = data,
+        size = size,
         tags = tags + ["lint"],
+        timeout = timeout,
         visibility = visibility,
     )

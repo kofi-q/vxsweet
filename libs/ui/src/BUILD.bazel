@@ -137,4 +137,7 @@ ts_stories(
     ],
 )
 
-lint_test(name = "lint")
+lint_test(
+    name = "lint",
+    size = "medium",
+)
