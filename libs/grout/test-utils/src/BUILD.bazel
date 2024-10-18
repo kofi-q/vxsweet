@@ -1,3 +1,4 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
@@ -22,3 +23,5 @@ ts_tests(
         "//libs/test-utils/src",
     ],
 )
+
+lint_test(name = "lint")

@@ -1,4 +1,5 @@
 load("@npm//:eslint/package_json.bzl", eslint = "bin")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
@@ -46,3 +47,5 @@ sh_binary(
 )
 
 eslint.eslint_binary(name = "binary")
+
+lint_test(name = "lint")
