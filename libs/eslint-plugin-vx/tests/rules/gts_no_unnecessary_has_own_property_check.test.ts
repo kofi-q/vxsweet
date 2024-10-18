@@ -6,7 +6,7 @@ const ruleTester = new RuleTester({
   parserOptions: {
     ecmaVersion: 2018,
     tsconfigRootDir: join(__dirname, '../fixtures'),
-    project: './tsconfig.json',
+    project: './tsconfig.fixtures.json',
   },
   parser: require.resolve('@typescript-eslint/parser'),
 });
@@ -38,7 +38,7 @@ ruleTester.run('gts-unnecessary-has-own-property-check', rule, {
       code: `
         const o = {}
         for (const k of Object.keys(o)) {
-          if (o.hasOwnProperty(k)) 
+          if (o.hasOwnProperty(k))
             o[k] = 1
         }
       `,

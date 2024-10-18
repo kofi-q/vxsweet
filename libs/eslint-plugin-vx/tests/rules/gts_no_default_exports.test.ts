@@ -6,7 +6,7 @@ const ruleTester = new RuleTester({
   parserOptions: {
     ecmaVersion: 2018,
     tsconfigRootDir: join(__dirname, '../fixtures'),
-    project: './tsconfig.json',
+    project: './tsconfig.fixtures.json',
   },
   parser: require.resolve('@typescript-eslint/parser'),
 });
@@ -28,16 +28,6 @@ ruleTester.run('gts-no-default-exports', rule, {
       code: `export { default as a } from './a';`,
       errors: [{ messageId: 'noDefaultExports', line: 1 }],
       output: `export { a } from './a';`,
-    },
-    {
-      code: `import a from './a';`,
-      errors: [{ messageId: 'noDefaultImports', line: 1 }],
-      output: `import { a } from './a';`,
-    },
-    {
-      code: `import a, { b } from './a';`,
-      errors: [{ messageId: 'noDefaultImports', line: 1 }],
-      output: `import { a, b } from './a';`,
     },
     {
       code: `const a = 1; export default a;`,

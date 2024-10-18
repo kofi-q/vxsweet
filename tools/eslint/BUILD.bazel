@@ -1,0 +1,24 @@
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "eslint",
+    deps = [
+        "//:node_modules/@eslint/js",
+        "//:node_modules/@types/eslint",
+        "//:node_modules/@types/eslint-plugin-jsx-a11y",
+        "//:node_modules/@types/eslint__js",
+        "//:node_modules/@typescript-eslint/parser",
+        "//:node_modules/@typescript-eslint/utils",
+        "//:node_modules/eslint",
+        "//:node_modules/eslint-plugin-import",
+        "//:node_modules/eslint-plugin-jest",
+        "//:node_modules/eslint-plugin-jsx-a11y",
+        "//:node_modules/eslint-plugin-n",
+        "//:node_modules/eslint-plugin-prettier",
+        "//:node_modules/eslint-plugin-react",
+        "//:node_modules/eslint-plugin-react-hooks",
+        "//:node_modules/globals",
+        "//:node_modules/typescript-eslint",
+        "//libs/eslint-plugin-vx/src",
+    ],
+)

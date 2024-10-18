@@ -46,7 +46,8 @@ const rule: TSESLint.RuleModule<'badMutationDependency', readonly unknown[]> =
             return;
           }
 
-          const { parserServices } = context.getSourceCode();
+          const { parserServices } = context.sourceCode;
+          assert(parserServices);
           const tsNodeMap = parserServices.esTreeNodeToTSNodeMap;
           assert(parserServices.program);
           const typeChecker = parserServices.program.getTypeChecker();
@@ -57,6 +58,7 @@ const rule: TSESLint.RuleModule<'badMutationDependency', readonly unknown[]> =
               return false;
             }
 
+            assert(tsNodeMap);
             const type = typeChecker.getTypeAtLocation(tsNodeMap.get(element));
             // istanbul ignore next - unsure how to reproduce aliasSymbol in tests
             const typeName = type.symbol?.name ?? type.aliasSymbol?.name;

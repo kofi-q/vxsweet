@@ -1,16 +1,10 @@
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
-# gazelle:js_mono_package
-
 ts_library(
     name = "src",
     deps = [
         "//:node_modules/@types/eslint",
-        "//:node_modules/@types/node",
-        "//:node_modules/@typescript-eslint/parser",
-        "//:node_modules/@typescript-eslint/utils",
-        "//:node_modules/comment-parser",
         "//:node_modules/eslint",
-        "//:node_modules/typescript",
+        "//libs/eslint-plugin-vx/src/rules",
     ],
 )

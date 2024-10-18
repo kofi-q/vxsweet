@@ -11,6 +11,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fetch-mock",
         "//:node_modules/react",
+        "//apps/central-scan/frontend/src",
         "//apps/central-scan/frontend/test",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
