@@ -28,7 +28,6 @@ import { getImageHash } from './build_cast_vote_record';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 beforeEach(() => {
   process.env['VX_MACHINE_TYPE'] = 'admin';
   mockFeatureFlagger.resetFeatureFlags();

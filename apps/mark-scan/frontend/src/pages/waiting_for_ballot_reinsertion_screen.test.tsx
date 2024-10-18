@@ -9,7 +9,6 @@ import { ResetVoterSessionButton } from '../components/deactivate_voter_session_
 import { useIsVoterAuth } from '../hooks/use_is_voter_auth';
 import { WaitingForBallotReinsertionBallotScreen } from './waiting_for_ballot_reinsertion_screen';
 
-
 const mockUseIsVoterAuth = jest.mocked(useIsVoterAuth);
 
 const MOCK_REST_SESSION_BUTTON_TEST_ID = 'MockResetSessionButton';

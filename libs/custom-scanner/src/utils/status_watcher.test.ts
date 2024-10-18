@@ -60,6 +60,7 @@ test('watchStatus sleeps 250ms between status checks by default', async () => {
   const writeTimestamps: number[] = [];
   const internalStatus = fc.sample(arbitraryStatusInternalMessage(), 1)[0]!;
   const { onRead } = mock<DuplexChannelListeners>();
+  // eslint-disable-next-line prefer-const
   let watcher!: StatusWatcher;
   const usbChannelMock = createDuplexChannelMock({
     onRead,

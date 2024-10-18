@@ -20,8 +20,6 @@ import {
   MIN_PIN_LENGTH,
 } from './pins';
 
-
-
 const WEAK_PIN_EXAMPLES: string[] = [
   '000000',
   '111111',

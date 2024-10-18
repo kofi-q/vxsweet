@@ -172,7 +172,6 @@ interface Props {
   manualContestResults?: Tabulation.ContestResults;
 }
 
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 function assertIsOptional<T>(value?: unknown): asserts value is Optional<T> {
   // noop
 }

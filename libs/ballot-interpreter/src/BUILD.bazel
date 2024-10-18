@@ -1,4 +1,5 @@
 load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
@@ -61,3 +62,5 @@ copy_file(
     src = "//libs/ballot-interpreter:rust",
     out = "hmpb-ts/rust_addon.node",
 )
+
+lint_test(name = "lint")

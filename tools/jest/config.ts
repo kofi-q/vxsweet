@@ -12,7 +12,7 @@ const REPO_ROOT = IS_BAZEL_TEST
 
 const testEnvironment = process.env.JEST_ENVIRONMENT || 'jsdom';
 
-module.exports = {
+const config: Config.InitialOptions = {
   cacheDirectory: '.jestcache',
   clearMocks: true,
   // TODO: Enable coverage
@@ -35,6 +35,7 @@ module.exports = {
     tsconfig.compilerOptions.paths,
     {
       prefix: REPO_ROOT,
+      // eslint-disable-next-line vx/gts-identifiers
       useESM: false,
     }
   ),
@@ -43,7 +44,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: [
     `${__dirname}/setup_node`,
-    testEnvironment === 'jsdom' && `${__dirname}/setup_dom`,
+    testEnvironment === 'jsdom' ? `${__dirname}/setup_dom` : '',
   ].filter(Boolean),
   testEnvironment,
   testMatch: ['<rootDir>/**/?(*.)test.ts?(x)'],
@@ -56,4 +57,6 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-} as Config.InitialOptions;
+};
+
+module.exports = config;

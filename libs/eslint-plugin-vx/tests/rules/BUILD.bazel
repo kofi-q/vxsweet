@@ -1,3 +1,4 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
@@ -8,8 +9,9 @@ ts_tests(
         "//:node_modules/@typescript-eslint/parser",
         "//:node_modules/@typescript-eslint/utils",
         "//:node_modules/react",
-        "//:node_modules/typescript",
-        "//libs/eslint-plugin-vx/src",
+        "//libs/eslint-plugin-vx/src/rules",
         "//libs/types/src",
     ],
 )
+
+lint_test(name = "lint")

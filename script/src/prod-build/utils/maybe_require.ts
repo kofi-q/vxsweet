@@ -1,4 +1,15 @@
-export function maybeRequire(id: string) {
+export interface PackageJson {
+  name: string;
+  dependencies: { [key: string]: string };
+  devDependencies: { [key: string]: string };
+  vx?: {
+    env: { [key: string]: string };
+    isBundled: boolean;
+    services: string[];
+  };
+}
+
+export function maybeRequire(id: string): PackageJson | undefined {
   try {
     return require(id);
   } catch (error) {

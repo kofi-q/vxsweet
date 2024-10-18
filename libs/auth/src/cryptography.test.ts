@@ -28,7 +28,6 @@ import {
   SignMessageInputExcludingMessage,
 } from './cryptography';
 
-
 let mockChildProcess: MockChildProcess;
 let nextTempFileName = 0;
 const tempFileRemoveCallbacks: jest.Mock[] = [];

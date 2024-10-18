@@ -13,7 +13,6 @@ import {
   mockPollWorkerAuth,
 } from '../../test/helpers/mock_auth';
 
-
 let apiMock: ApiMock;
 beforeEach(() => {
   apiMock = createApiMock();

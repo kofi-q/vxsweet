@@ -19,7 +19,6 @@ import {
 } from './disk_space_summary';
 import { execFile } from './exec';
 
-
 const execFileMock = mockOf(execFile);
 
 afterEach(() => {

@@ -12,7 +12,6 @@ interface IO {
   stderr: NodeJS.WritableStream;
 }
 
-// eslint-disable-next-line vx/gts-jsdoc
 export function main(argv: readonly string[], { stdout, stderr }: IO): number {
   if (argv.length !== 3) {
     stderr.write('Usage: generate-election <config.json>\n');

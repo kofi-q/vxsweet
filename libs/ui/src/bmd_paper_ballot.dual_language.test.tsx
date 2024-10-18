@@ -34,8 +34,6 @@ import {
   generateYesNoVote,
 } from './bmd_paper_ballot_test_utils';
 
-
-
 const mockUiStringRenderer = mockOf(UiString);
 
 const baseElection = electionGeneralDefinition.election;

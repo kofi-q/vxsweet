@@ -33,7 +33,6 @@ let startNewVoterSessionMock: jest.Mock;
 
 const featureFlagMock = getFeatureFlagMock();
 
-
 beforeEach(() => {
   featureFlagMock.resetFeatureFlags();
   startNewVoterSessionMock = jest.fn();

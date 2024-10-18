@@ -12,7 +12,6 @@ function notImplemented() {
 /**
  * Creates a mock coder.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function mockCoder<T>(): jest.Mocked<Coder<T>> {
   // due to overloads, we can't just use jest.Mocked<Coder<T>>
   // but we can at least ensure we use the right keys

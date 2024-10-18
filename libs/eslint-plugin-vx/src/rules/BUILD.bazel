@@ -1,0 +1,16 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "rules",
+    deps = [
+        "//:node_modules/@types/eslint",
+        "//:node_modules/@types/node",
+        "//:node_modules/@typescript-eslint/utils",
+        "//:node_modules/eslint",
+        "//:node_modules/typescript",
+        "//libs/eslint-plugin-vx/src/util",
+    ],
+)
+
+lint_test(name = "lint")

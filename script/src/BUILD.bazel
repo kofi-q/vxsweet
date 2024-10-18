@@ -1,6 +1,9 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "src",
     deps = ["//:node_modules/@types/node"],
 )
+
+lint_test(name = "lint")

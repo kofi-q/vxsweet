@@ -50,7 +50,7 @@ export function getEntryStream(entry: JSZipObject): NodeJS.ReadableStream {
   return entry.nodeStream();
 }
 
-export async function readEntry(entry: JSZipObject): Promise<Buffer> {
+export function readEntry(entry: JSZipObject): Promise<Buffer> {
   return entry.async('nodebuffer');
 }
 

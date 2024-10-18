@@ -31,7 +31,6 @@ import { mockElectionManagerAuth } from '../test/auth_helpers';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 const store = Store.memoryStore();
 const workspace = createWorkspace(tmp.dirSync().name, mockBaseLogger(), {
   store,

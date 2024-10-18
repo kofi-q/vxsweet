@@ -17,7 +17,6 @@ import {
   SignedHashValidationConfig,
 } from './config';
 
-
 beforeEach(() => {
   (process.env.NODE_ENV as string) = 'test';
   (process.env.VX_CONFIG_ROOT as string) = '/vx/config';

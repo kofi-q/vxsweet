@@ -626,6 +626,7 @@ function DevDock() {
     async () => (await apiClient.getMachineType()) ?? null
   );
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function onKeyDown(event: KeyboardEvent): void {
     if (event.key === 'd' && event.metaKey) {
       setIsOpen((previousIsOpen) => !previousIsOpen);
@@ -638,6 +639,7 @@ function DevDock() {
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!getMachineTypeQuery.isSuccess) return null;

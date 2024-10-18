@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { writeFileSync } from 'node:fs';
 import { PNPM_LOGLEVEL } from './globals';
 import { execSync } from './utils/exec_sync';

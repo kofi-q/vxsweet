@@ -17,7 +17,6 @@ import {
 } from './certs';
 import { openssl } from './cryptography';
 
-
 const cert = Buffer.of();
 const electionId = 'rhr6fw5qb077';
 const electionDate = '2024-07-10';

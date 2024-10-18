@@ -10,7 +10,6 @@ import { WarningDetails } from './warning_details';
 import { generateContests } from './test_utils.test';
 import { WarningDetailsModalButton } from './warning_details_modal_button';
 
-
 afterEach(() => {
   jest.resetAllMocks();
 });

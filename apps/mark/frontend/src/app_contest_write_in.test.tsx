@@ -31,7 +31,6 @@ import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 
-
 /**
  * Mocks the mark-flow-ui {@link ContestPage} to avoid re-testing the write-in
  * modal, which is already covered in mark-flow-ui.

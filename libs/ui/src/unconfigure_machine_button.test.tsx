@@ -14,7 +14,6 @@ import {
   UnconfigureMachineButton,
 } from './unconfigure_machine_button';
 
-
 test('UnconfigureMachineButton interactions', async () => {
   const unconfigureMachine = jest.fn();
   render(

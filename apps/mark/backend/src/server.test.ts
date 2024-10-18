@@ -14,7 +14,6 @@ import { PORT } from './globals';
 import { start } from './server';
 import { createWorkspace } from './util/workspace';
 
-
 test('can start server', async () => {
   const auth = buildMockInsertedSmartCardAuth();
   const baseLogger = mockBaseLogger();

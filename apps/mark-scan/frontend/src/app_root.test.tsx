@@ -23,7 +23,6 @@ import {
 import { screen } from '../test/react_testing_library';
 import { PollWorkerAuthEndedUnexpectedlyPage } from './pages/poll_worker_auth_ended_unexpectedly_page';
 
-
 let apiMock: ApiMock;
 
 beforeEach(() => {

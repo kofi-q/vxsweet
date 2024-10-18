@@ -64,10 +64,6 @@ let setMockControllerHelpTriggered:
   | ((shouldShowHelp: boolean) => void)
   | undefined;
 
-
-
-
-
 const MOCK_INVALID_BALLOT_SCREEN_CONTENTS = 'MockInvalidBallotScreen';
 
 const MOCK_WAITING_FOR_REINSERTION_SCREEN_CONTENTS =

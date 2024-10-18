@@ -5,7 +5,6 @@ import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtu
 import { interpret as interpretImpl } from './rust_addon';
 import { interpret } from './interpret';
 
-
 const interpretImplMock = interpretImpl as jest.MockedFunction<
   typeof interpretImpl
 >;

@@ -55,7 +55,6 @@ function MockPage({ pageNumber }: PageProps) {
   return <div>Mock Page {pageNumber}</div>;
 }
 
-
 let apiMock: MockApiClient;
 
 beforeEach(() => {

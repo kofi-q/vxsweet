@@ -7,7 +7,6 @@ import { ToggleAudioButton } from './toggle_audio_button';
 import { newTestContext } from '../../test/test_context';
 import { useHeadphonesPluggedIn } from '../hooks/use_headphones_plugged_in';
 
-
 const mockUseHeadphonesPluggedIn = mockOf(useHeadphonesPluggedIn);
 
 test('status text corresponds to audio state', async () => {

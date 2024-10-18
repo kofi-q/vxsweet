@@ -47,7 +47,6 @@ jest.setTimeout(20000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 const jurisdiction = TEST_JURISDICTION;
 const electionPackageHash = 'test-election-package-hash';
 

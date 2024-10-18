@@ -5,6 +5,7 @@ import (
 )
 
 var (
+	lintTestKindName    = "lint_test"
 	tsPackageKindName   = "ts_package"
 	tsLibraryKindName   = "ts_library"
 	tsTestsKindName     = "ts_tests"
@@ -28,6 +29,14 @@ var (
 				"name": true,
 				"deps": true,
 			},
+		},
+
+		lintTestKindName: {
+			MatchAny:        true,
+			MergeableAttrs:  map[string]bool{"name": true},
+			NonEmptyAttrs:   map[string]bool{"name": true},
+			ResolveAttrs:    map[string]bool{"name": true},
+			SubstituteAttrs: map[string]bool{},
 		},
 
 		tsTestsKindName: {
@@ -186,6 +195,10 @@ func (*tsPackage) ApparentLoads(_ func(string) string) []rule.LoadInfo {
 		{
 			Name:    "//tools/ts_build:ts_tests.bzl",
 			Symbols: []string{tsTestsKindName},
+		},
+		{
+			Name:    "//tools/ts_build:lint_test.bzl",
+			Symbols: []string{lintTestKindName},
 		},
 		{
 			Name:    "//tools/ts_build:ts_stories.bzl",

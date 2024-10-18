@@ -40,7 +40,6 @@ import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
 import { InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
-
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);
 });

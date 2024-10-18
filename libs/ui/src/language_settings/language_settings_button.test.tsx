@@ -24,7 +24,6 @@ import { act, screen } from '../../test/react_testing_library';
 const MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID = 'MockAltAudioPrimaryText';
 const MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID = 'MockAltAudioAltText';
 
-
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 
 test('displays current language', async () => {

@@ -10,6 +10,7 @@ export function inBuildDir(path: string, buildRoot: string): string {
 }
 
 function npmPackageArchiveFilename(pkgRoot: string): string {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const pkg = require(join(pkgRoot, 'package'));
 
   return `${pkg.name
@@ -18,7 +19,7 @@ function npmPackageArchiveFilename(pkgRoot: string): string {
     .replace(/-+/g, '-')}-${pkg.version}.tgz`;
 }
 
-export function doBuild(pkgRoot: string) {
+export function doBuild(pkgRoot: string): void {
   execSync('make', ['build'], { cwd: pkgRoot });
 }
 

@@ -7,7 +7,6 @@ import { mockCustomA4ScannerWebUsbDevice } from './mocks';
 import { openScanner } from './open_scanner';
 import { ErrorCode } from './types';
 
-
 const findByIdsMock = findByIds as jest.MockedFunction<typeof findByIds>;
 const createInstanceMock = WebUSBDevice.createInstance as jest.MockedFunction<
   typeof WebUSBDevice.createInstance

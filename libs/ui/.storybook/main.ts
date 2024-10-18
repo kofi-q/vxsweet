@@ -21,7 +21,7 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   staticDirs: ['../.storybook-static'],
-  async viteFinal(config: InlineConfig): Promise<InlineConfig> {
+  viteFinal(): InlineConfig {
     const workspacePackages = getWorkspacePackageInfo(
       path.join(__dirname, '../..')
     );

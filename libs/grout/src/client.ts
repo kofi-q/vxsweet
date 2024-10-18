@@ -59,7 +59,6 @@ export class ServerError extends Error {}
  * Each method will return a Promise that rejects in case of an unexpected
  * server error.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function createClient<Api extends AnyApi>(
   options: ClientOptions
 ): Client<Api> {

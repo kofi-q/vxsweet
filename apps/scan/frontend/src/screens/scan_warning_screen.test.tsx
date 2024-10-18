@@ -35,8 +35,6 @@ import {
   MisvoteWarnings,
 } from '../components/misvote_warnings';
 
-
-
 let apiMock: ApiMock;
 
 beforeEach(() => {

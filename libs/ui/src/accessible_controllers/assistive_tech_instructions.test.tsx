@@ -5,7 +5,6 @@ import { render } from '../../test/react_testing_library';
 import { AssistiveTechInstructions } from './assistive_tech_instructions';
 import { useIsPatDeviceConnected } from './pat_device_context';
 
-
 const mockUseIsPatDeviceConnected = mockOf(useIsPatDeviceConnected);
 
 test('renders controller string if PAT device is not connected', () => {

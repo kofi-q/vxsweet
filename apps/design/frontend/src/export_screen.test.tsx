@@ -25,7 +25,6 @@ const electionId = generalElectionRecord.election.id;
 
 const fileDownloadMock = jest.mocked(fileDownload);
 
-
 let apiMock: MockApiClient;
 
 beforeEach(() => {

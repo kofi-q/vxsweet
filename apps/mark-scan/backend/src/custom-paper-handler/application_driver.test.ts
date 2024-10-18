@@ -25,7 +25,6 @@ import {
 } from './application_driver';
 import { getDefaultPaperHandlerStatus } from './test_utils';
 
-
 let driver: PaperHandlerDriver;
 let webDevice: MinimalWebUsbDevice;
 

@@ -41,7 +41,6 @@ import { ManualResultsIdentifier, ManualResultsRecord } from './types';
 
 let mockNodeEnv: 'production' | 'test' = 'test';
 
-
 beforeEach(() => {
   mockNodeEnv = 'test';
   jest.restoreAllMocks();

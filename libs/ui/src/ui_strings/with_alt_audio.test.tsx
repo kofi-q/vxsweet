@@ -14,7 +14,6 @@ import { AudioOnly } from './audio_only';
 import { act, screen, waitFor } from '../../test/react_testing_library';
 import { useCurrentLanguage } from '../hooks/use_current_language';
 
-
 const { ENGLISH, SPANISH } = LanguageCode;
 
 function getMockAudioOnlyContentPrefix(languageCode: LanguageCode) {

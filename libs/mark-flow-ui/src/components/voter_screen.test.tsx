@@ -26,8 +26,6 @@ import { render, screen } from '../../test/react_testing_library';
 import { VoterScreen } from './voter_screen';
 import { VoterSettingsButton } from './voter_settings_button';
 
-
-
 test('renders language settings button/screen', () => {
   mockOf(LanguageSettingsButton).mockImplementation((props) => (
     <Button data-testid="mockLanguageSettingsButton" onPress={props.onPress} />

@@ -79,7 +79,7 @@ export function main({ stdout }: IO): void {
   for (const pkg of allPackages) {
     if (!prodPackages.has(pkg)) {
       stdout.write(`🪚 prune dev ${pkg.path}\n`);
-      const depBuildRoot = inBuildDir(pkg.path, outRoot);
+      // const _depBuildRoot = inBuildDir(pkg.path, outRoot);
       // rmrf(depBuildRoot);
     }
   }

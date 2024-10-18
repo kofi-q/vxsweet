@@ -459,7 +459,7 @@ function BallotPageFrame({
             }}
           >
             {pageNumber === 1 && (
-              <>
+              <React.Fragment>
                 <Header
                   election={election}
                   ballotStyleId={ballotStyleId}
@@ -467,7 +467,7 @@ function BallotPageFrame({
                   ballotMode={ballotMode}
                 />
                 <Instructions languageCode={languageCode} />
-              </>
+              </React.Fragment>
             )}
             <div
               style={{

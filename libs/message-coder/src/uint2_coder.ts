@@ -100,7 +100,6 @@ class Uint2Coder extends BaseCoder<Uint2> {
  * bits at a time, so it should be used with other sub-byte coders or with
  * `padding` to preserve alignment.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics -- TS does not have a way of saying "I want an enum of numbers"
 export function uint2<T extends Uint2>(enumeration?: unknown): Coder<T> {
   return new Uint2Coder(enumeration) as unknown as Coder<T>;
 }

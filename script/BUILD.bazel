@@ -1,3 +1,4 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 exports_files(
@@ -18,3 +19,5 @@ ts_library(
     name = "script",
     deps = ["//:node_modules/@types/node"],
 )
+
+lint_test(name = "lint")

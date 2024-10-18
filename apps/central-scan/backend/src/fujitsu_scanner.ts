@@ -273,7 +273,7 @@ export class FujitsuScanner implements BatchScanner {
           scanimage.stdin?.write('\n\n');
         }
 
-        return results.get();
+        return await results.get();
       },
 
       endBatch: async (): Promise<void> => {

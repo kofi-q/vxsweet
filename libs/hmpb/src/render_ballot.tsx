@@ -37,6 +37,7 @@ import {
   WRITE_IN_OPTION_CLASS,
 } from './ballot_components';
 import { BallotMode, PixelDimensions, Pixels, Point } from './types';
+import React from 'react';
 
 export type FrameComponent<P> = (
   props: P & { children: JSX.Element; pageNumber: number; totalPages: number }
@@ -372,7 +373,7 @@ async function addQrCodesAndBallotHashes(
     if (pageNumber % 2 === 1) {
       await document.setContent(
         `.${PAGE_CLASS}[data-page-number="${pageNumber}"] .${BALLOT_HASH_SLOT_CLASS}`,
-        <>{formatBallotHash(metadata.ballotHash)}</>
+        <React.Fragment>{formatBallotHash(metadata.ballotHash)}</React.Fragment>
       );
     }
   }
@@ -390,7 +391,7 @@ export async function renderBallotTemplate<P extends object>(
   const scratchpad = await renderer.createScratchpad();
   const pages = await paginateBallotContent(template, props, scratchpad);
   const document = scratchpad.convertToDocument();
-  await document.setContent('body', <>{pages}</>);
+  await document.setContent('body', <React.Fragment>{pages}</React.Fragment>);
   return document;
 }
 

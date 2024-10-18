@@ -135,7 +135,6 @@ function formatExpectedAndActualCalls(
  * - Always call mockFunction.assertComplete() to ensure that all expected calls were used
  * - If you are going to reuse a mock between test cases, call mockFunction.reset() in afterEach
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function mockFunction<Func extends AnyFunc>(
   name: string
 ): MockFunction<Func> {

@@ -32,7 +32,6 @@ import { createWorkspace, Workspace } from './util/workspace';
 import { buildCentralScannerApp } from './app';
 import { buildMockLogger } from '../test/helpers/setup_app';
 
-
 const jurisdiction = TEST_JURISDICTION;
 
 let app: Application;

@@ -31,7 +31,6 @@ import { newTestContext } from '../../test/test_context';
 
 let setMockHeadphonesPluggedIn: (isPluggedIn: boolean) => void;
 
-
 const { mockApiClient } = newTestContext();
 const mockUiStringsApi = createUiStringsApi(() => mockApiClient);
 

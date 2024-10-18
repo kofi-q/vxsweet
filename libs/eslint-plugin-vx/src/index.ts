@@ -1,11 +1,6 @@
+import { ESLint } from 'eslint';
 import rules from './rules';
-import react from './configs/react';
-import recommended from './configs/recommended';
 
-export = {
+export const pluginVx: ESLint.Plugin = {
   rules,
-  configs: {
-    react,
-    recommended,
-  },
 };

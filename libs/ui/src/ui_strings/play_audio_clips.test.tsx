@@ -14,7 +14,6 @@ import { act, screen, waitFor } from '../../test/react_testing_library';
 import { DEFAULT_AUDIO_VOLUME } from './audio_volume';
 import { DEFAULT_PLAYBACK_RATE } from './audio_playback_rate';
 
-
 const { ENGLISH, SPANISH } = LanguageCode;
 
 function initMockPlayer() {

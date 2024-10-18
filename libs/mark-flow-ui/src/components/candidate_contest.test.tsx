@@ -21,7 +21,6 @@ import { VirtualKeyboard, VirtualKeyboardProps } from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { CandidateContest } from './candidate_contest';
 
-
 function setUpMockVirtualKeyboard() {
   let checkIsKeyDisabled: (key: string) => boolean;
   let fireBackspaceEvent: () => void;

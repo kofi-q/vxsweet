@@ -6,7 +6,6 @@ import { LogEventId, mockLogger } from '@vx/libs/logging/src';
 import { execFile } from '../exec';
 import { AudioInfo, getAudioInfo } from './get_audio_info';
 
-
 const mockExecFile = mockOf(execFile);
 
 test('command successful - headphones active', async () => {

@@ -45,7 +45,6 @@ const systemSettings: SystemSettings = {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 let apiClient: grout.Client<Api>;
 let mockAuth: InsertedSmartCardAuthApi;
 let mockUsbDrive: MockUsbDrive;

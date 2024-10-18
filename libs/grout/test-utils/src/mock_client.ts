@@ -60,7 +60,6 @@ function createSafeMockMethod(methodName: string): AnyMockFunction {
  * debug test crashes if you are working with legacy code that has no error
  * handling.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function createMockClient<Api extends AnyApi>(options?: {
   catchUnexpectedErrors: boolean;
 }): MockClient<Api> {

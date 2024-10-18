@@ -47,7 +47,6 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 const pin = '123456';
 const wrongPin = '654321';
 

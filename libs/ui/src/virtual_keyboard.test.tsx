@@ -18,7 +18,6 @@ import { newTestContext as newUiStringsTestContext } from '../test/test_context'
 import { AudioOnly } from './ui_strings/audio_only';
 import { useCurrentLanguage } from './hooks/use_current_language';
 
-
 const { ENGLISH, SPANISH } = LanguageCode;
 
 function getMockAudioOnlyTextPrefix(languageCode: LanguageCode) {

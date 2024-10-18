@@ -22,8 +22,10 @@ export interface Package {
 export function getDependencyGraph(path: string, type: PackageType): Package {
   const lookup = new Map<string, Package>();
 
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   function addDependency(path: string, type: PackageType): Package {
     if (lookup.has(path)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return lookup.get(path)!;
     }
 
@@ -48,7 +50,8 @@ export function getDependencyGraph(path: string, type: PackageType): Package {
         { from: pkg.dependencies, to: deps },
         { from: pkg.devDependencies, to: devDeps },
       ]) {
-        for (const name in from) {
+        // eslint-disable-next-line @typescript-eslint/no-shadow
+        for (const name of Object.keys(from)) {
           if (from[name].startsWith('workspace:')) {
             const depPkgFile = resolveFrom(path, `${name}/package`);
             const depPkgRoot = dirname(depPkgFile);

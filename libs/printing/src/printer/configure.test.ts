@@ -6,7 +6,6 @@ import { BROTHER_THERMAL_PRINTER_CONFIG, getPpdPath } from '.';
 import { exec } from '../utils/exec';
 import { DEFAULT_MANAGED_PRINTER_NAME, configurePrinter } from './configure';
 
-
 const execMock = mockOf(exec);
 
 beforeEach(() => {

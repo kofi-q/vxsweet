@@ -53,6 +53,7 @@ function handleEnteredWriteInCandidateData({
               name: candidateTally.name,
             });
             contestResults.tallies[writeInCandidateRecord.id] = {
+              // eslint-disable-next-line vx/gts-spread-like-types
               ...candidateTally,
               id: writeInCandidateRecord.id,
             };

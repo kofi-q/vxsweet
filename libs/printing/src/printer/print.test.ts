@@ -8,7 +8,6 @@ import { DEFAULT_MANAGED_PRINTER_NAME } from './configure';
 import { print } from './print';
 import { PrintSides } from './types';
 
-
 const execMock = mockOf(exec);
 
 beforeEach(() => {

@@ -1,4 +1,3 @@
-/* eslint-disable vx/gts-jsdoc */
 import { assertDefined, find } from '@vx/libs/basics/src';
 import {
   AdjudicationInfo,

@@ -43,7 +43,6 @@ export class Uint8Coder extends UintCoder {
 /**
  * Builds a coder for a uint8.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics -- TS does not have a way of saying "I want an enum of numbers"
 export function uint8<T extends number = Uint8>(
   enumeration?: unknown
 ): Coder<T> {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   DecoratorFunction,
@@ -113,11 +114,11 @@ function StoryWrapper(props: {
 
   React.useEffect(() => {
     setColorMode(globals.colorMode);
-  }, [globals.colorMode]);
+  }, [globals.colorMode, setColorMode]);
 
   React.useEffect(() => {
     setSizeMode(globals.sizeMode);
-  }, [globals.sizeMode]);
+  }, [globals.sizeMode, setSizeMode]);
 
   return <React.Fragment>{children}</React.Fragment>;
 }
@@ -127,6 +128,7 @@ function StoryWrapper(props: {
 // rendering, or to add any desired visual scaffolding.
 export const decorators: DecoratorFunction[] = [
   (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Story: any, // Original type here isn't inferred as a React render function
     context
   ) => {

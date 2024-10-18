@@ -15,7 +15,6 @@ import { VoterSettings } from '.';
 
 const mockAudioControls = mockUseAudioControls();
 
-
 test('renders expected subcomponents', () => {
   render(<VoterSettings onClose={jest.fn()} />);
 

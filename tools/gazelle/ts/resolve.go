@@ -56,6 +56,9 @@ func (t *tsPackage) Imports(
 
 		return getImportSpecsForFiles(buildFile, srcFiles)
 
+	case lintTestKindName:
+		return []resolve.ImportSpec{}
+
 	case jsonPackageKindName:
 		jsonFiles, ok := buildRule.PrivateAttr("srcs").([]string)
 		if !ok {
@@ -171,6 +174,9 @@ func (t *tsPackage) Resolve(
 			buildRuleLabel,
 			jsImports,
 		)
+
+	case lintTestKindName:
+		// no-op
 
 	case jsonPackageKindName:
 		// no-op

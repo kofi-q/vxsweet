@@ -5,6 +5,7 @@ import { ServerStyleSheet } from 'styled-components';
 import { assert } from '@vx/libs/basics/src';
 import { PixelMeasurements } from './types';
 import { PAGE_CLASS } from './ballot_components';
+import React from 'react';
 
 export type Page = Pick<
   PlaywrightPage,
@@ -29,7 +30,9 @@ export function createDocument(page: Page) {
       const style = sheet.getStyleElement();
       sheet.seal();
       const htmlContent =
-        ReactDomServer.renderToString(<>{style}</>) + elementHtml;
+        ReactDomServer.renderToString(
+          <React.Fragment>{style}</React.Fragment>
+        ) + elementHtml;
       // Using the Playwright API to query/manipulate the DOM is much slower
       // than running JS directly in the browser. We use `evaluate` to run the
       // given function in the browser and return the result.

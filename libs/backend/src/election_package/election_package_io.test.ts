@@ -65,8 +65,6 @@ import {
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
-
 beforeEach(() => {
   mockOf(authenticateArtifactUsingSignatureFile).mockResolvedValue(ok());
   mockFeatureFlagger.resetFeatureFlags();
