@@ -54,6 +54,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    shard_count = 12,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",
