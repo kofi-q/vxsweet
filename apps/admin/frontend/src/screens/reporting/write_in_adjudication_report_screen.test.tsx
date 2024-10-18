@@ -1,3 +1,5 @@
+import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 
 import userEvent from '@testing-library/user-event';
