@@ -5,5 +5,8 @@ json_package(name = "json")
 
 ts_library(
     name = "fixtures",
-    deps = ["//:node_modules/@types/react"],
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+    ],
 )

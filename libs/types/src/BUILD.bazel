@@ -43,6 +43,7 @@ ts_tests(
         "//:node_modules/js-sha256",
         "//:node_modules/lodash.clonedeep",
         "//:node_modules/lodash.set",
+        "//:node_modules/react",
         "//:node_modules/zod",
         "//libs/basics/src",
         "//libs/cdf-schema-builder/src",

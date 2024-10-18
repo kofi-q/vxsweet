@@ -4,6 +4,7 @@ ts_library(
     name = "scripts",
     deps = [
         "//:node_modules/@types/react",
+        "//:node_modules/react",
         "//libs/fs/src",
         "//libs/printing/src",
         "//libs/ui/src",

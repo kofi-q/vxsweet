@@ -141,8 +141,13 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 		imports["@types/node"] = true
 	}
 
-	if extension == ".tsx" || regexReactTypes.Match([]byte(stringContent)) {
+	if regexReactTypes.Match([]byte(stringContent)) {
 		imports["@types/react"] = true
+	}
+
+	if extension == ".tsx" {
+		imports["@types/react"] = true
+		imports["react"] = true
 	}
 
 	return ParseResult{

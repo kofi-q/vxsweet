@@ -16,12 +16,10 @@ var (
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
 				"deps": true,
-				"data": true,
 			},
 			MergeableAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 			NonEmptyAttrs: map[string]bool{
 				"name": true,
@@ -29,7 +27,6 @@ var (
 			ResolveAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 		},
 
@@ -37,12 +34,10 @@ var (
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
 				"deps": true,
-				"data": true,
 			},
 			MergeableAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 			NonEmptyAttrs: map[string]bool{
 				"name": true,
@@ -50,7 +45,6 @@ var (
 			ResolveAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 		},
 
@@ -58,12 +52,10 @@ var (
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
 				"deps": true,
-				"data": true,
 			},
 			MergeableAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 			NonEmptyAttrs: map[string]bool{
 				"name": true,
@@ -71,7 +63,6 @@ var (
 			ResolveAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 		},
 
@@ -79,12 +70,10 @@ var (
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
 				"deps": true,
-				"data": true,
 			},
 			MergeableAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 			NonEmptyAttrs: map[string]bool{
 				"name": true,
@@ -92,7 +81,6 @@ var (
 			ResolveAttrs: map[string]bool{
 				"name": true,
 				"deps": true,
-				"data": true,
 			},
 		},
 
