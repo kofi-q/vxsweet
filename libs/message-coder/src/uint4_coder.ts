@@ -103,7 +103,6 @@ export class Uint4Coder extends BaseCoder<Uint4> {
  * byte at a time, so it should be used in pairs or with `padding` to preserve
  * alignment.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics -- TS does not have a way of saying "I want an enum of numbers"
 export function uint4<T extends number = Uint4>(
   enumeration?: unknown
 ): Coder<T> {

@@ -268,11 +268,11 @@ function buildApi({
       return qrCodeValue;
     },
 
-    async getUsbDriveStatus(): Promise<UsbDriveStatus> {
+    getUsbDriveStatus(): Promise<UsbDriveStatus> {
       return usbDrive.status();
     },
 
-    async ejectUsbDrive(): Promise<void> {
+    ejectUsbDrive(): Promise<void> {
       return usbDrive.eject();
     },
 

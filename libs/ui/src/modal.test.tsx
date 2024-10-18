@@ -74,7 +74,7 @@ describe('Modal', () => {
       />
     );
 
-    const modal = screen.getByRole('alertdialog');
+    screen.getByRole('alertdialog');
   });
 
   it('can configure fullscreen', () => {

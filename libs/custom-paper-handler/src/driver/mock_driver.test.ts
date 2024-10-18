@@ -19,7 +19,6 @@ import * as statusHelpers from './scanner_status';
 import { MinimalWebUsbDevice } from './minimal_web_usb_device';
 import { PaperHandlerDriver } from './driver';
 
-
 function expectMockStatus(params: {
   mockDriver: MockPaperHandlerDriver;
   mockStatus: MockPaperHandlerStatus;

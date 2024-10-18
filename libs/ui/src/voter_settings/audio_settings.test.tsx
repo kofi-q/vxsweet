@@ -14,7 +14,6 @@ import { newTestContext } from '../../test/test_context';
 
 const MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID = 'mockToggleAudioButton';
 
-
 test('renders audio toggle button', async () => {
   const { render } = newTestContext();
 

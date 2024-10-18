@@ -9,7 +9,6 @@ import {
 } from './deactivate_voter_session_button';
 import * as api from '../api';
 
-
 function renderButton(
   button: JSX.Element,
   options: {

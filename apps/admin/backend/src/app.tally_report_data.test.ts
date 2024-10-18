@@ -39,7 +39,6 @@ jest.setTimeout(60_000);
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
 
-
 beforeEach(() => {
   jest.restoreAllMocks();
   featureFlagMock.enableFeatureFlag(

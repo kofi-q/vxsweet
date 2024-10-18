@@ -21,7 +21,6 @@ function useCurrentLanguageMock() {
   return language;
 }
 
-
 const queryClient = new QueryClient({
   defaultOptions: QUERY_CLIENT_DEFAULT_OPTIONS,
 });

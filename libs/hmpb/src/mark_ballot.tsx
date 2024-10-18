@@ -51,7 +51,7 @@ export async function markBallotDocument(
     const grid = await measureTimingMarkGrid(markedBallotDocument, pageNumber);
 
     const marks = (
-      <>
+      <React.Fragment>
         {bubbles.flatMap((bubble) => {
           const optionInfo = JSON.parse(bubble.data.optionInfo) as OptionInfo;
           const contestVotes = votes[optionInfo.contestId];
@@ -143,7 +143,7 @@ export async function markBallotDocument(
               return throwIllegalValue(optionInfo);
           }
         })}
-      </>
+      </React.Fragment>
     );
 
     await markedBallotDocument.setContent(

@@ -1,4 +1,3 @@
-/* eslint-disable vx/gts-jsdoc */
 export const words = {
   locations: [
     'Springfield',

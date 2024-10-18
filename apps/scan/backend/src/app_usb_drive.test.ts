@@ -15,7 +15,6 @@ import { configureApp } from '../test/helpers/shared_helpers';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
   mockFeatureFlagger.enableFeatureFlag(

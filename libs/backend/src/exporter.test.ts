@@ -14,7 +14,6 @@ import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { Exporter, ExportDataResult } from './exporter';
 import { execFile } from './exec';
 
-
 const execFileMock = mockOf(execFile);
 const tmpDirs: DirResult[] = [];
 

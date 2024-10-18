@@ -15,7 +15,6 @@ import { LanguageOverride } from './language_override';
 import { Button } from '../button';
 import { AudioVolume } from './audio_volume';
 
-
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 
 function getMockClipOutput(clip: ClipParams) {

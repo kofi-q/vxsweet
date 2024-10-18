@@ -39,8 +39,9 @@ function npmBinCommand({
     env: {
       ...process.env,
       ...(env ?? {}),
-      PATH: `${join(cwd, 'node_modules', '.bin')}:${env?.['PATH'] ?? process.env['PATH']
-        }`,
+      PATH: `${join(cwd, 'node_modules', '.bin')}:${
+        env?.['PATH'] ?? process.env['PATH']
+      }`,
     },
     ...rest,
   };

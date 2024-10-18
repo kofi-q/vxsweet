@@ -11,7 +11,6 @@ import { AudioDiagnosticModalButton } from './audio_diagnostic_modal_button';
 import { useSound } from '../utils/use_sound';
 import { createApiMock, provideApi } from '../../test/helpers/mock_api_client';
 
-
 const mockUseSound = jest.mocked(useSound);
 
 function setUp() {

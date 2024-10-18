@@ -39,7 +39,6 @@ jest.setTimeout(30_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 function mockElectionManager(
   mockAuth: InsertedSmartCardAuthApi,
   electionDefinition: ElectionDefinition

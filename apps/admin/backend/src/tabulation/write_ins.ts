@@ -258,6 +258,7 @@ export function modifyElectionResultsWithWriteInSummary(
       if (!candidateTally.isWriteIn) {
         // add write-in tallies for official candidates to their existing tallies
         modifiedCandidateTallies[candidateId] = {
+          // eslint-disable-next-line vx/gts-spread-like-types
           ...candidateTally,
           tally:
             candidateTally.tally +

@@ -50,10 +50,8 @@ import {
 } from './bmd_paper_ballot';
 import * as QrCodeModule from './qrcode';
 
-
 const encodeBallotMock = mockOf(encodeBallot);
 const mockEncodedBallotData = new Uint8Array([0, 1, 2, 3]);
-
 
 beforeEach(() => {
   encodeBallotMock.mockReset();

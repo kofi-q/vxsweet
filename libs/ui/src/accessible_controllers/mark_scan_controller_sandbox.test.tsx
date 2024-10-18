@@ -17,7 +17,6 @@ import {
 import { Keybinding } from '../keybindings';
 import { MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME } from '.';
 
-
 test('all relevant buttons configured', () => {
   mockOf(AccessibleControllerSandbox).mockImplementation((props) => {
     const { feedbackStringKeys } = props;

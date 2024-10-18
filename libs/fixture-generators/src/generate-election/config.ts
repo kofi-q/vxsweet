@@ -1,4 +1,3 @@
-/* eslint-disable vx/gts-jsdoc */
 import z from 'zod';
 
 const positiveInt = z.number().int().min(1);

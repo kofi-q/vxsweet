@@ -25,7 +25,6 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
 };
 const mockUseCurrentLanguage = mockOf(useCurrentLanguage);
 
-
 const DEFAULT_THEME = {
   colorMode: 'contrastMedium',
   sizeMode: 'touchMedium',

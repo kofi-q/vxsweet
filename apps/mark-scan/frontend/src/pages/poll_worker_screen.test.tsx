@@ -67,8 +67,6 @@ const { election } = electionGeneralDefinition;
 let apiMock: ApiMock;
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
-
 const MOCK_BALLOT_REINSERTION_FLOW_CONTENT = 'MockBallotReinsertionFlow';
 
 beforeEach(() => {

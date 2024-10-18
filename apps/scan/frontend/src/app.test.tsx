@@ -32,7 +32,6 @@ import {
 import { App, AppProps } from './app';
 import { useSessionSettingsManager } from './utils/use_session_settings_manager';
 
-
 let apiMock: ApiMock;
 const startNewSessionMock = jest.fn();
 const pauseSessionMock = jest.fn();

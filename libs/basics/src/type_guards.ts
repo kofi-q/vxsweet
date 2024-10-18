@@ -1,5 +1,3 @@
-/* eslint-disable vx/gts-jsdoc */
-
 export function isBoolean(value: unknown): value is boolean {
   return typeof value === 'boolean';
 }

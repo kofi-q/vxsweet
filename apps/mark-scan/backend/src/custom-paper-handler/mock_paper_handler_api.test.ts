@@ -14,7 +14,6 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import { buildMockPaperHandlerApi } from './mock_paper_handler_api';
 
-
 beforeEach(() => {
   mockOf(isMockPaperHandler).mockReturnValue(true);
 });

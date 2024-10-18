@@ -16,7 +16,6 @@ import {
 
 const mockAudioControls = mockUseAudioControls();
 
-
 const now = DateTime.fromISO('2022-03-23T11:23:00.000Z');
 
 function renderScreen(

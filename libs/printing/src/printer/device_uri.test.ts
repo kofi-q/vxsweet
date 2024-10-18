@@ -5,7 +5,6 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { exec } from '../utils/exec';
 import { getConnectedDeviceUris } from './device_uri';
 
-
 const execMock = mockOf(exec);
 
 beforeEach(() => {

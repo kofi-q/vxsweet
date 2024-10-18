@@ -24,7 +24,6 @@ export interface Deferred<T> {
  *   }
  * })
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function deferred<T>(): Deferred<T> {
   let resolve!: Deferred<T>['resolve'];
   let reject!: Deferred<T>['reject'];
@@ -149,7 +148,6 @@ class DeferredQueue<T> {
 /**
  * Builds an async FIFO queue.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 export function deferredQueue<T>(): DeferredQueue<T> {
   return new DeferredQueue();
 }

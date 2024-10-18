@@ -36,7 +36,6 @@ const mockLanguageControls: jest.Mocked<LanguageControls> = {
   setLanguage: jest.fn(),
 };
 
-
 const mockUseAudioEnabled = mockOf(useAudioEnabled);
 const mockUseCurrentLanguage = mockOf(useCurrentLanguage);
 

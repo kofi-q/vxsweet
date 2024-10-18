@@ -29,7 +29,6 @@ import { createWorkspace } from './util/workspace';
 
 const featureFlagMock = getFeatureFlagMock();
 
-
 afterEach(() => {
   featureFlagMock.resetFeatureFlags();
 });

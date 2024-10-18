@@ -71,6 +71,7 @@ export async function printFullReport({
   })();
 
   const pdfData = (await renderToPdf({ document: report })).unsafeUnwrap();
+  // eslint-disable-next-line vx/no-floating-results
   await printer.print(pdfData);
 
   const pdfDocument = await getDocument(pdfData).promise;

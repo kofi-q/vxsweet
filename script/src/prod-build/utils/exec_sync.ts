@@ -4,7 +4,7 @@ export function execSync(
   command: string,
   args: readonly string[],
   { cwd }: { cwd?: string } = {}
-) {
+): void {
   const result = spawnSync(command, args, {
     cwd,
     stdio: 'inherit',

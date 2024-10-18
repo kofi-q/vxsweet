@@ -23,7 +23,6 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 const pollsTransitionTime = new Date('2021-01-01T00:00:00.000').getTime();
 
 beforeEach(() => {

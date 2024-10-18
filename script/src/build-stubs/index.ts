@@ -130,7 +130,7 @@ function usage(out: NodeJS.WritableStream): void {
   `);
 }
 
-export function main({ stdout, stderr }: IO) {
+export function main({ stdout, stderr }: IO): void {
   for (let i = 2; i < process.argv.length; i += 1) {
     const arg = process.argv[i] as string;
 

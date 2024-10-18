@@ -18,7 +18,6 @@ import { AUDIO_INFO_POLLING_INTERVAL_MS } from '../system_call_api';
 import { newTestContext } from '../../test/test_context';
 import { waitFor } from '../../test/react_testing_library';
 
-
 const mockFeatureFlagger = getFeatureFlagMock();
 
 function createTestContext() {

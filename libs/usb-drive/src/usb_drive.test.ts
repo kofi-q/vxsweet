@@ -46,7 +46,6 @@ import {
 
 const MOUNT_SCRIPT_PATH = join(__dirname, '../scripts');
 
-
 const featureFlagMock = getFeatureFlagMock();
 
 const readdirMock = fs.readdir as unknown as jest.Mock<Promise<string[]>>;

@@ -8,7 +8,6 @@ import { render } from '../../test/react_testing_library';
 import * as api from '../api';
 import { InsertedWrongTestModeBallotScreen } from './inserted_wrong_test_mode_ballot_screen';
 
-
 function setMockInterpretationQuery(params: {
   data?: Partial<PageInterpretation>;
   isSuccess: boolean;

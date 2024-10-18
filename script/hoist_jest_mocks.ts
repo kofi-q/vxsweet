@@ -172,8 +172,6 @@ const REGEX_JEST_MOCK =
   /^(jest\.mock\(.+?\);\n|jest\.mock\((?:.|\n)+?\n[})]*?\);\n)/gim;
 
 async function main() {
-  const pwd = process.argv[2] || process.cwd();
-
   for (const filename of FILES_WITH_MODULE_MOCKS) {
     const contents = await fs.readFile(
       path.join(__dirname, '..', filename),

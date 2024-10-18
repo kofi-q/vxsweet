@@ -9,7 +9,6 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { setClock } from './set_clock';
 import { execFile } from '../exec';
 
-
 const execMock = mockOf(execFile);
 
 test('setClock works in daylights savings', async () => {

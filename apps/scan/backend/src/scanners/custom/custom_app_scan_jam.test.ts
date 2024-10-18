@@ -32,7 +32,6 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 const needsReviewInterpretation: SheetInterpretation = {
   type: 'NeedsReviewSheet',
   reasons: [{ type: AdjudicationReason.BlankBallot }],

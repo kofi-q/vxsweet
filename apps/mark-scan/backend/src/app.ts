@@ -109,7 +109,7 @@ export function buildApi(
       return usbDrive.status();
     },
 
-    async ejectUsbDrive(): Promise<void> {
+    ejectUsbDrive(): Promise<void> {
       return usbDrive.eject();
     },
 

@@ -31,7 +31,6 @@ export const MOCK_MARKER_INFO: IppMarkerInfo = {
   type: 'toner-cartridge',
 };
 
-
 let apiMock: ApiMock;
 
 beforeEach(() => {

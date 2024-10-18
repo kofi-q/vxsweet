@@ -12,7 +12,6 @@ import { render, screen } from '../../test/react_testing_library';
 import { InsertedInvalidNewSheetScreen } from './inserted_invalid_new_sheet_screen';
 import * as api from '../api';
 
-
 function setMockInterpretationQuery(params: {
   isSuccess: boolean;
   metadata?: Partial<BallotMetadata>;

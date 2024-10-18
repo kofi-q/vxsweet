@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
 
-export async function zipFile(files: {
+export function zipFile(files: {
   [key: string]: Buffer | string;
 }): Promise<Buffer> {
   const zip = new JsZip();

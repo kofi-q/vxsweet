@@ -23,7 +23,6 @@ const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);
 const electionPackageHash = 'test-election-package-hash';
 
-
 const doesUsbDriveRequireCastVoteRecordSyncMock = mockOf(
   doesUsbDriveRequireCastVoteRecordSync
 );

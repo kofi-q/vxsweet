@@ -20,8 +20,6 @@ import {
 } from './status';
 import { exec } from '../utils/exec';
 
-
-
 const execMock = mockOf(exec);
 const writeFileMock = mockOf(writeFile);
 

@@ -23,7 +23,6 @@ import { YesNoContest } from './yes_no_contest';
 
 const MOCK_WITH_SCROLL_BUTTONS_TEST_ID = 'MockWithScrollButtons';
 
-
 const mockUseIsPatDeviceConnected = jest.mocked(useIsPatDeviceConnected);
 const MockWithScrollButtons = jest.mocked(WithScrollButtons);
 

@@ -68,7 +68,6 @@ export class Uint16Coder extends UintCoder {
 /**
  * Builds a coder for a uint16. Uses little-endian byte order.
  */
-// eslint-disable-next-line vx/gts-no-return-type-only-generics -- TS does not have a way of saying "I want an enum of numbers"
 export function uint16<T extends number = Uint16>(
   enumeration?: unknown,
   options?: Uint16CoderOptions

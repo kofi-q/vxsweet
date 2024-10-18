@@ -13,7 +13,6 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { usb } from 'usb';
 import { isDeviceAttached } from './is_device_attached';
 
-
 test('isDeviceAttached', () => {
   const getDeviceListMock = mockOf(usb.getDeviceList);
   const devices = [

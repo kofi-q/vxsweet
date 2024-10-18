@@ -5,7 +5,7 @@ import { getAbsoluteRootPath } from './dependencies';
 /**
  * Get all Rust crate paths.
  */
-export async function getRustPackageIds(root: string): Promise<string[]> {
+export function getRustPackageIds(root: string): Promise<string[]> {
   const absoluteRootPath = getAbsoluteRootPath(root);
   // Output is formatted like
   // "package-id v0.1.2 (/path/to/package)"

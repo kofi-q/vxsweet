@@ -17,7 +17,6 @@ import { Keybinding } from '..';
 const { CHINESE_SIMPLIFIED, ENGLISH, SPANISH } = LanguageCode;
 const audioControls: AudioControls = mockUseAudioControls();
 
-
 test('Shift+L switches display language', async () => {
   const { mockApiClient, render: renderWithContext } = newTestContext();
 

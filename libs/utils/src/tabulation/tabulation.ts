@@ -549,6 +549,7 @@ export function combineCandidateContestResults({
 
       if (!combinedCandidateTally) {
         combinedContestResults.tallies[candidateTally.id] = {
+          // eslint-disable-next-line vx/gts-spread-like-types
           ...candidateTally,
         };
       } else {
@@ -776,6 +777,7 @@ export function buildContestResultsFixture({
       )) {
         contestResults.tallies[candidateId] = {
           id: candidateId,
+          // eslint-disable-next-line vx/gts-spread-like-types
           ...candidateTally,
           isWriteIn: true,
         };
@@ -898,6 +900,7 @@ export function mergeWriteInTallies<
     }
 
     newElectionContestResults[contestResults.contestId] = {
+      // eslint-disable-next-line vx/gts-spread-like-types
       ...contestResults,
       tallies: newTallies,
     };

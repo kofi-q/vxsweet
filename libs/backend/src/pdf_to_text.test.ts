@@ -4,7 +4,6 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { pdfToText } from './pdf_to_text';
 import { execFile } from './exec';
 
-
 const execFileMock = mockOf(execFile);
 
 test('pdfToText', async () => {

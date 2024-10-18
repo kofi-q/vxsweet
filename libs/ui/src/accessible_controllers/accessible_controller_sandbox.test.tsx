@@ -34,8 +34,6 @@ import { newTestContext } from '../../test/test_context';
 
 const mockAudioControls = mockUseAudioControls();
 
-
-
 function newRenderer() {
   let lastReadElement: HTMLElement;
 

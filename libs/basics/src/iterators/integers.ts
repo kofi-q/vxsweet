@@ -20,7 +20,6 @@ export function integers(opts: {
   from: number;
   through: number;
 }): IteratorPlus<number>;
-// eslint-disable-next-line vx/gts-jsdoc
 export function integers({
   from = 0,
   through = Infinity,

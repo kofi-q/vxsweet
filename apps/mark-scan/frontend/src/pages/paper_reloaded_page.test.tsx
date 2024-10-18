@@ -8,7 +8,6 @@ import { render, screen } from '../../test/react_testing_library';
 import { PaperReloadedPage } from './paper_reloaded_page';
 import { RemoveJammedSheetScreen } from './remove_jammed_sheet_screen';
 
-
 let apiMock: ApiMock;
 beforeEach(() => {
   apiMock = createApiMock();

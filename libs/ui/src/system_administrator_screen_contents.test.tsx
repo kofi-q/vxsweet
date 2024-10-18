@@ -17,7 +17,6 @@ import { SystemAdministratorScreenContents } from './system_administrator_screen
 import { newTestContext } from '../test/test_context';
 import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';
 
-
 const { render, mockApiClient } = newTestContext({ skipUiStringsApi: true });
 
 beforeEach(() => {

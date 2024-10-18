@@ -65,7 +65,6 @@ jest.setTimeout(20_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-
 /**
  * Basic checks for logging. We don't try to be exhaustive here because paper
  * status polling can be a bit non-deterministic, so logs can vary between runs.

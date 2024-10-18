@@ -301,12 +301,12 @@ export function createPdiScannerClient() {
     debug(`pdictl child process exited with code ${code}`);
   });
 
-  async function sendCommand(command: PdictlCommand): Promise<PdictlResponse> {
+  function sendCommand(command: PdictlCommand): Promise<PdictlResponse> {
     if (pdictlIsClosed) {
-      return {
+      return Promise.resolve({
         response: 'error',
         code: 'exited',
-      };
+      });
     }
     const pendingResponse = pendingResponseQueue.get();
     pdictl.stdin.write(JSON.stringify(command));

@@ -34,7 +34,6 @@ const createWriteStreamMock = mockOf(createWriteStream) as jest.Mock;
 
 createReadStreamMock.mockImplementation(realCreateReadStream);
 
-
 const execFileMock = mockOf(execFile);
 
 let logger: Logger;

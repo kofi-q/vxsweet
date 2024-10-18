@@ -41,7 +41,6 @@ import {
   buildGenerateSignatureCardCommand,
 } from './common_access_card';
 
-
 const DEV_CERT_PEM = fs.readFileSync(join(__dirname, './cac-dev-cert.pem'));
 const CERTIFYING_PRIVATE_KEY_PATH = join(
   __dirname,

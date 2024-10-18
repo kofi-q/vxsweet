@@ -22,9 +22,7 @@ import {
 import { makeMockChildProcess } from '../test/util/mocks';
 import { streamExecFile } from './exec';
 
-
 const isDeviceAttachedMock = mockOf(isDeviceAttached);
-
 
 const exec = streamExecFile as unknown as jest.MockedFunction<
   (file: string, args: readonly string[]) => ChildProcess

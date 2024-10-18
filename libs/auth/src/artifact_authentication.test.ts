@@ -24,7 +24,6 @@ import {
 } from './artifact_authentication';
 import { ArtifactAuthenticationConfig } from './config';
 
-
 /**
  * The root hash for the mock cast vote records created in the beforeEach block
  */

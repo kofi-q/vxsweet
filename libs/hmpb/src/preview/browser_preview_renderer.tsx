@@ -9,6 +9,7 @@ import {
 } from '../renderer';
 import { baseStyleElements } from '../base_styles';
 import { PAGE_CLASS } from '../ballot_components';
+import React from 'react';
 
 function browserPage(): Page {
   return {
@@ -32,7 +33,7 @@ function browserPage(): Page {
 
 function createBrowserPreviewDocument(): RenderDocument {
   document.head.innerHTML += ReactDomServer.renderToString(
-    <>
+    <React.Fragment>
       {baseStyleElements}
       <style type="text/css">
         {`
@@ -48,7 +49,7 @@ function createBrowserPreviewDocument(): RenderDocument {
         }
       `}
       </style>
-    </>
+    </React.Fragment>
   );
 
   return createDocument(browserPage());

@@ -2,6 +2,7 @@ import {
   ROBOTO_REGULAR_FONT_DECLARATIONS,
   ROBOTO_ITALIC_FONT_DECLARATIONS,
 } from '@vx/libs/ui/src';
+import React from 'react';
 
 const baseStyles = `
   *,
@@ -53,7 +54,7 @@ const baseStyles = `
 `;
 
 export const baseStyleElements = (
-  <>
+  <React.Fragment>
     <style
       type="text/css"
       dangerouslySetInnerHTML={{
@@ -69,5 +70,5 @@ export const baseStyleElements = (
         __html: baseStyles,
       }}
     />
-  </>
+  </React.Fragment>
 );

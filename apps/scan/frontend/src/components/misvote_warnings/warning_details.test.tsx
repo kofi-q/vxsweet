@@ -19,8 +19,6 @@ import { WarningDetails } from './warning_details';
 import { generateContests } from './test_utils.test';
 import { useLayoutConfig } from './use_layout_config_hook';
 
-
-
 function expectMockContestListProps(
   container: HTMLElement,
   matchers: {

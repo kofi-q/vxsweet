@@ -74,7 +74,6 @@ import {
   VERIFY,
 } from './piv';
 
-
 let mockCardReader: MockCardReader;
 
 beforeEach(() => {

@@ -13,11 +13,11 @@ export function constructPrefixedMessage(
   messageType: string,
   messagePayload: string
 ): string;
-export function constructPrefixedMessage( // eslint-disable-line vx/gts-jsdoc
+export function constructPrefixedMessage(
   messageType: string,
   messagePayload: Buffer | NodeJS.ReadableStream
 ): Stream;
-export function constructPrefixedMessage( // eslint-disable-line vx/gts-jsdoc
+export function constructPrefixedMessage(
   messageType: string,
   messagePayload: string | Buffer | NodeJS.ReadableStream
 ): string | Stream {

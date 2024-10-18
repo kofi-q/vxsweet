@@ -20,7 +20,6 @@ import { BallotContext } from './contexts/ballot_context';
 import { StartScreen } from './pages/start_screen';
 import { JAM_CLEARED_STATES } from './pages/replace_jammed_sheet_screen';
 
-
 let apiMock: ApiMock;
 
 beforeEach(() => {

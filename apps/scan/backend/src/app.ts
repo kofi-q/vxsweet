@@ -135,7 +135,7 @@ export function buildApi({
       };
     },
 
-    async ejectUsbDrive(): Promise<void> {
+    ejectUsbDrive(): Promise<void> {
       return usbDrive.eject();
     },
 

@@ -337,7 +337,7 @@ it('logs when an auth error happens', async () => {
 describe('paper jam', () => {
   it('during voter session - logged out', async () => {
     const resetDriverResult = deferred<PaperHandlerDriverInterface>();
-    mockOf(resetAndReconnect).mockImplementation(async () => {
+    mockOf(resetAndReconnect).mockImplementation(() => {
       return resetDriverResult.promise;
     });
 
@@ -360,7 +360,7 @@ describe('paper jam', () => {
 
   it('during voter session - with poll worker auth', async () => {
     const resetDriverResult = deferred<PaperHandlerDriverInterface>();
-    mockOf(resetAndReconnect).mockImplementation(async () => {
+    mockOf(resetAndReconnect).mockImplementation(() => {
       return resetDriverResult.promise;
     });
 
@@ -390,7 +390,7 @@ describe('paper jam', () => {
 
   it('during voter session - with cardless voter auth', async () => {
     const resetDriverResult = deferred<PaperHandlerDriverInterface>();
-    mockOf(resetAndReconnect).mockImplementation(async () => {
+    mockOf(resetAndReconnect).mockImplementation(() => {
       return resetDriverResult.promise;
     });
 

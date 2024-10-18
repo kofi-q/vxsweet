@@ -24,9 +24,6 @@ import { WarningsSummary } from './warnings_summary';
 import { useLayoutConfig } from './use_layout_config_hook';
 import { MisvoteWarnings } from './misvote_warnings';
 
-
-
-
 const contests = generateContests(6);
 const blankContests = contests.slice(0, 3);
 const partiallyVotedContests = contests.slice(3, 5);

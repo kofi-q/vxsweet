@@ -26,7 +26,6 @@ import {
 } from './csv_shared';
 import { tabulateManualResults } from '../tabulation/manual_results';
 
-// eslint-disable-next-line vx/gts-no-return-type-only-generics
 function assertIsOptional<T>(_value?: unknown): asserts _value is Optional<T> {
   // noop
 }

@@ -50,7 +50,6 @@ export function arbitraryJobId(): fc.Arbitrary<Uint8> {
   return arbitraryUint8();
 }
 
-// eslint-disable-next-line vx/gts-no-return-type-only-generics -- there's no "numeric enum" type
 function arbitraryNumericEnumValue<T extends number>(
   enumeration: object
 ): fc.Arbitrary<T> {

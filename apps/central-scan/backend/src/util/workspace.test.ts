@@ -12,7 +12,6 @@ import tmp from 'tmp';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from './workspace';
 
-
 const initializeGetWorkspaceDiskSpaceSummaryMock = mockOf(
   initializeGetWorkspaceDiskSpaceSummary
 );

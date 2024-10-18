@@ -12,7 +12,6 @@ import { render, screen } from '../../test/react_testing_library';
 import { ReinsertedInvalidBallotScreen } from './reinserted_invalid_ballot_screen';
 import * as api from '../api';
 
-
 function setMockInterpretationQuery(params: {
   isSuccess: boolean;
   metadata?: Partial<BallotMetadata>;

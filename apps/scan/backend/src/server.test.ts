@@ -14,7 +14,6 @@ import {
   createPrecinctScannerStateMachineMock,
 } from '../test/helpers/shared_helpers';
 
-
 const buildAppMock = buildApp as jest.MockedFunction<typeof buildApp>;
 
 let workspace!: Workspace;

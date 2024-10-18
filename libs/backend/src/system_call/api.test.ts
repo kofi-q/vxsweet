@@ -20,9 +20,6 @@ import { SystemCallApi, createSystemCallApi } from './api';
 import { execFile } from '../exec';
 import { getAudioInfo } from './get_audio_info';
 
-
-
-
 const execMock = mockOf(execFile);
 
 let mockUsbDrive: MockUsbDrive;

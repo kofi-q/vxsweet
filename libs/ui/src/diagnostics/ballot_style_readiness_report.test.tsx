@@ -26,7 +26,6 @@ import {
   ReadinessReportHeaderProps,
 } from './report_header';
 
-
 const { ENGLISH, SPANISH } = LanguageCode;
 
 const MOCK_GENERATION_DATE = new Date('2024-01-02, 09:00');

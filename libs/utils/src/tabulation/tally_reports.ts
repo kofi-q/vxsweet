@@ -187,6 +187,7 @@ function getAggregatedWriteInRows({
   for (const nonCandidateWriteInTally of nonCandidateWriteInTallies) {
     hasSomeWriteInRow = true;
     rows.push({
+      // eslint-disable-next-line vx/gts-spread-like-types
       ...nonCandidateWriteInTally,
       scannedTally: nonCandidateWriteInTally.tally,
       manualTally: 0,
