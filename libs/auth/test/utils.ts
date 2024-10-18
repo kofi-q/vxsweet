@@ -9,6 +9,7 @@ import {
 } from '../src/card_reader';
 import { CardType } from '../src/certs';
 import { JavaCard } from '../src/java_card';
+import path from 'node:path';
 
 /**
  * A mock card reader
@@ -131,7 +132,13 @@ function isCardSpecificTestFile(
 export function getTestFilePath(testFile: TestFile): string {
   const setId: TestFileSetId = testFile.setId ?? '1';
   if (isCardSpecificTestFile(testFile)) {
-    return `./certs/test/set-${setId}/${testFile.cardType}/${testFile.fileType}`;
+    return path.join(
+      __dirname,
+      `../certs/test/set-${setId}/${testFile.cardType}/${testFile.fileType}`
+    );
   }
-  return `./certs/test/set-${setId}/${testFile.fileType}`;
+  return path.join(
+    __dirname,
+    `../certs/test/set-${setId}/${testFile.fileType}`
+  );
 }

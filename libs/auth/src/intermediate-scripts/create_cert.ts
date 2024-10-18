@@ -18,3 +18,5 @@ export async function main(): Promise<void> {
   process.stdout.write(cert);
   process.exit(0);
 }
+
+void main();
