@@ -18,6 +18,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    data = ["//libs/db:fixtures"],
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

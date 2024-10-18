@@ -23,6 +23,7 @@ ts_library(
         "//:node_modules/fs-extra",
         "//:node_modules/node-hid",
         "//:node_modules/path",
+        "//:node_modules/react",
         "//:node_modules/tmp",
         "//:node_modules/xstate",
         "//:node_modules/zod",
