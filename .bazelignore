@@ -20,4 +20,5 @@ target
 # tools without bazel (though, these require an initial bazel build to bootstrap
 # the referenced build outputs):
 #
+eslint.config.mjs
 libs/ballot-interpreter/src/hmpb-ts/rust_addon.node

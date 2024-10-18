@@ -1,7 +1,12 @@
+load("@npm//:eslint/package_json.bzl", eslint = "bin")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "eslint",
+    data = [
+        "//:.prettierrc.mjs",
+        "//:tsconfig_base",
+    ],
     deps = [
         "//:node_modules/@eslint/js",
         "//:node_modules/@types/eslint",
@@ -22,3 +27,22 @@ ts_library(
         "//libs/eslint-plugin-vx/src",
     ],
 )
+
+sh_binary(
+    name = "fix",
+    srcs = ["fix.sh"],
+    data = [
+        ":binary",
+        ":config.js",
+        ":eslint",
+        "//tools/eslint/formatter",
+        "//tools/eslint/formatter:formatter.js",
+    ],
+    env = {
+        "BAZEL_BINDIR": ".",
+        "BINARY_PATH": "$(location :binary)",
+        "ESLINT_USE_FLAT_CONFIG": "true",
+    },
+)
+
+eslint.eslint_binary(name = "binary")

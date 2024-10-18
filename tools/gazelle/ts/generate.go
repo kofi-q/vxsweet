@@ -168,6 +168,10 @@ func (t *tsPackage) addPackageRules(
 		return err
 	}
 
+	if err := t.addLintRule(jsFiles, result); err != nil {
+		return err
+	}
+
 	if err := t.addStoriesRule(args, jsFiles, result); err != nil {
 		return err
 	}
@@ -225,6 +229,30 @@ func (t *tsPackage) addTestsRule(
 	return nil
 }
 
+func (t *tsPackage) addLintRule(
+	jsFiles *JsFiles,
+	result *language.GenerateResult,
+) error {
+	if len(
+		jsFiles.sourceFiles,
+	)+len(
+		jsFiles.testFiles,
+	)+len(
+		jsFiles.storyFiles,
+	) == 0 {
+		result.Empty = append(result.Empty, newLintTestRule())
+		return nil
+	}
+
+	lintRule := newLintTestRule()
+	lintRule.SetName("lint")
+
+	result.Gen = append(result.Gen, lintRule)
+	result.Imports = append(result.Imports, JsImports{})
+
+	return nil
+}
+
 func (t *tsPackage) addStoriesRule(
 	args language.GenerateArgs,
 	jsFiles *JsFiles,
@@ -265,10 +293,7 @@ func (t *tsPackage) addJsonRule(
 	jsonRule.SetPrivateAttr("srcs", jsFiles.jsonFiles)
 
 	result.Gen = append(result.Gen, jsonRule)
-	result.Imports = append(
-		result.Imports,
-		map[ImportStatement]interface{}{},
-	)
+	result.Imports = append(result.Imports, JsImports{})
 
 	return nil
 }
@@ -334,6 +359,18 @@ func newTsTestsRule() *rule.Rule {
 	return testsRule
 }
 
+func newLintTestRule() *rule.Rule {
+	testsRule := rule.NewRule(lintTestKindName, "")
+	testsRule.SetSortedAttrs([]string{
+		"srcs",
+		"data",
+		"tags",
+		"visibility",
+	})
+
+	return testsRule
+}
+
 func newTsStoriesRule() *rule.Rule {
 	storiesRule := rule.NewRule(tsStoriesKindName, "")
 	storiesRule.SetSortedAttrs([]string{
@@ -375,6 +412,7 @@ func newEmptyLanguageResult() language.GenerateResult {
 			newTsLibraryRule(),
 			newTsStoriesRule(),
 			newTsTestsRule(),
+			newLintTestRule(),
 		},
 	}
 }
