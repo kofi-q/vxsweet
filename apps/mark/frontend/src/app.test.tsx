@@ -26,7 +26,6 @@ import { App } from './app';
 import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { buildApp } from '../test/helpers/build_app';
 
-
 let apiMock: ApiMock;
 
 beforeEach(() => {
@@ -158,6 +157,9 @@ it('uses window.location.reload by default', async () => {
   apiMock.expectGetElectionState({
     precinctSelection: ALL_PRECINCTS_SELECTION,
   });
+  apiMock.mockApiClient.updateCardlessVoterBallotStyle
+    .expectRepeatedCallsWith({ ballotStyleId: '1_es-US' as BallotStyleId })
+    .resolves();
 
   render(<App apiClient={apiMock.mockApiClient} />);
 
