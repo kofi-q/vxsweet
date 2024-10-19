@@ -7,6 +7,7 @@ import {
   generateMarkdownDocumentationContent,
 } from './log_documentation';
 import { AppName } from './base_types/log_source';
+import path from 'node:path';
 
 jest.useFakeTimers().setSystemTime(new Date('2020-07-24T00:00:00.000Z'));
 
@@ -88,7 +89,7 @@ describe('test markdown documentation generation', () => {
   test('generated documentation is up to date you need to run `pnpm build:generate-docs` if this fails', () => {
     const generatedFileContent = generateMarkdownDocumentationContent();
     const currentDocumentationContent = fs.readFileSync(
-      'VotingWorksLoggingDocumentation.md'
+      path.join(__dirname, '../VotingWorksLoggingDocumentation.md')
     );
     expect(generatedFileContent).toEqual(
       currentDocumentationContent.toString()
