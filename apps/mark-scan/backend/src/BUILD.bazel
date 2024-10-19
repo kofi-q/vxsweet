@@ -9,6 +9,10 @@ json_package(name = "json")
 
 ts_library(
     name = "src",
+    data = [
+        ":json",
+        "//apps/mark-scan/backend:db_schema",
+    ],
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/express",
@@ -50,6 +54,11 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    timeout = "short",
+    env = {"VX_MACHINE_TYPE": "mark-scan"},
+    shard_count = 15,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",

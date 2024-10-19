@@ -17,13 +17,16 @@ export const NODE_ENV = unsafeParse(
   process.env.NODE_ENV ?? 'development'
 );
 
+const REPO_ROOT =
+  process.env.BUILD_WORKSPACE_DIRECTORY || join(__dirname, '../../..');
+
 /**
  * Path for the database file and other files
  */
 export const ADMIN_WORKSPACE =
   process.env.ADMIN_WORKSPACE ??
   (NODE_ENV === 'development'
-    ? join(__dirname, '../dev-workspace')
+    ? join(REPO_ROOT, 'apps/admin/backend/dev-workspace')
     : undefined);
 
 /**
@@ -37,19 +40,20 @@ export const PORT = Number(process.env.PORT || 3004);
  */
 export const REAL_USB_DRIVE_GLOB_PATTERN = '/media/**/*';
 
+const { TMPDIR = '/tmp' } = process.env;
 const DEFAULT_ALLOWED_EXPORT_PATTERNS =
   NODE_ENV === 'production'
     ? [
         REAL_USB_DRIVE_GLOB_PATTERN,
-        '/tmp/**/*', // Where data is first written for signature file creation
+        `${TMPDIR}/**/*`, // Where data is first written for signature file creation
       ]
     : NODE_ENV === 'development'
     ? [
         REAL_USB_DRIVE_GLOB_PATTERN,
         DEV_MOCK_USB_DRIVE_GLOB_PATTERN,
-        '/tmp/**/*', // Where data is first written for signature file creation
+        `${TMPDIR}/**/*`, // Where data is first written for signature file creation
       ]
-    : ['/tmp/**/*']; // Where mock USB drives are created within tests
+    : [`${TMPDIR}/**/*`]; // Where mock USB drives are created within tests
 
 /**
  * Where are exported files allowed to be written to?

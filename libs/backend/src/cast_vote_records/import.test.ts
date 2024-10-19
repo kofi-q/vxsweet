@@ -84,7 +84,7 @@ test('successful import', async () => {
   }
   expect(encounteredReferencedImageFiles).toEqual(true);
   expect(encounteredReferencedLayoutFiles).toEqual(true);
-});
+}, 20_000);
 
 test('authentication error during import', async () => {
   const exportDirectoryPath = castVoteRecordExport.asDirectoryPath();

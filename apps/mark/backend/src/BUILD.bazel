@@ -6,6 +6,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = ["//apps/mark/backend:db_schema"],
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/express",
@@ -35,6 +36,11 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    timeout = "short",
+    env = {"VX_MACHINE_TYPE": "mark"},
+    shard_count = 6,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",

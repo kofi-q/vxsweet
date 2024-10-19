@@ -118,8 +118,7 @@ test('scanAndSave success', async () => {
 });
 
 test('scanAndSave errors when no paper', async () => {
-  const status: PaperHandlerStatus = getDefaultPaperHandlerStatus();
-  mockOf(driver.getPaperHandlerStatus).mockResolvedValue(status);
+  mockOf(isPaperAnywhere).mockReturnValue(false);
 
   await expect(scanAndSave(driver, 'backward')).rejects.toThrow(
     'Paper has been removed'

@@ -9,6 +9,10 @@ json_package(name = "json")
 
 ts_library(
     name = "src",
+    data = [
+        "//apps/design/backend:db_schema",
+        "//libs/ui/src:app_strings_catalog",
+    ],
     deps = [
         "//:node_modules/@google-cloud/text-to-speech",
         "//:node_modules/@google-cloud/translate",
@@ -42,6 +46,9 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    shard_count = 11,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.get",

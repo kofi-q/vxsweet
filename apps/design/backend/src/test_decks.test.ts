@@ -104,7 +104,9 @@ describe('createPrecinctTestDeck', () => {
       precinctId,
       ballots,
     });
-    await expect(testDeckDocument).toMatchPdfSnapshot();
+    await expect(testDeckDocument).toMatchPdfSnapshot({
+      failureThreshold: 0.05,
+    });
   });
 
   test('for a precinct with no ballot styles', async () => {

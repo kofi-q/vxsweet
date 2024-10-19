@@ -4,10 +4,8 @@ import { resolve } from 'node:path';
 
 let tmpFiles: string[] = [];
 
-const tmpFileRegex = /^\/tmp\/.+/;
-
 export function deleteTmpFileAfterTestSuiteCompletes(path: string): void {
-  if (!tmpFileRegex.test(resolve(path))) {
+  if (!resolve(path).startsWith(process.env.TMPDIR || '/tmp/')) {
     throw error(
       'only files under the /tmp directory can be automatically cleaned up'
     );

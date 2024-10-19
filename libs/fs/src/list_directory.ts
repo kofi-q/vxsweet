@@ -61,6 +61,38 @@ export async function* listDirectory(
 ): AsyncGenerator<Result<FileSystemEntry, ListDirectoryError>> {
   assert(isAbsolute(path));
 
+  // Workaround for potential bug in `aspect-build/rules_js` sandbox fs patch
+  // that throws incorrect errors on `fs.opendir` for non-dirs.
+  // TODO: Fix upstream:
+  // https://github.com/aspect-build/rules_js/blob/main/js/private/node-patches/src/fs.cts
+  try {
+    const dirStat = await fs.lstat(path);
+    if (!dirStat.isDirectory()) {
+      yield err({
+        type: 'not-directory',
+        message: `${path} is not a directory`,
+      });
+
+      return;
+    }
+  } catch (error) {
+    if (
+      error &&
+      typeof error === 'object' &&
+      'code' in error &&
+      error.code === 'ENOENT'
+    ) {
+      yield err({
+        type: 'no-entity',
+        message: `${path} does not exist`,
+      });
+
+      return;
+    }
+
+    throw error;
+  }
+
   try {
     const dir = await fs.opendir(path);
 

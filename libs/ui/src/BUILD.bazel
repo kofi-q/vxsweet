@@ -6,6 +6,8 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
 json_package(name = "json")
 
 ts_library(
@@ -140,4 +142,11 @@ ts_stories(
 lint_test(
     name = "lint",
     size = "medium",
+)
+
+js_library(
+    name = "app_strings_catalog",
+    data = ["ui_strings/app_strings_catalog/latest.json"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
 )
