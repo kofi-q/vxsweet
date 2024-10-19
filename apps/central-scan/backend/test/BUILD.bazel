@@ -3,6 +3,8 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 # gazelle:js_mono_package
 
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
 ts_library(
     name = "test",
     deps = [
@@ -29,3 +31,19 @@ ts_library(
 )
 
 lint_test(name = "lint")
+
+DATA_FILE_EXTENSIONS = [
+    "jpg",
+]
+
+DATA_FILE_PATTERNS = [
+    "fixtures/**/*.{}".format(ext)
+    for ext in DATA_FILE_EXTENSIONS
+]
+
+js_library(
+    name = "fixtures",
+    data = glob(DATA_FILE_PATTERNS),
+    tags = ["manual"],
+    visibility = ["//apps/central-scan/backend:__subpackages__"],
+)

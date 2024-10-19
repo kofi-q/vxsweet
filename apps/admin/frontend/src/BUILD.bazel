@@ -40,8 +40,9 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    timeout = "moderate",
+    size = "medium",
     shard_count = 41,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@testing-library/react",

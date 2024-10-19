@@ -23,11 +23,14 @@ export const NODE_ENV = unsafeParse(
   process.env.NODE_ENV ?? 'development'
 );
 
+const REPO_ROOT =
+  process.env.BUILD_WORKSPACE_DIRECTORY || join(__dirname, '../../..');
+
 /**
  * Where should the database, audio, and hardware status files go?
  */
 export const MARK_SCAN_WORKSPACE =
   process.env.MARK_SCAN_WORKSPACE ??
   (NODE_ENV === 'development'
-    ? join(__dirname, '../dev-workspace')
+    ? join(REPO_ROOT, 'apps/mark-scan/backend/dev-workspace')
     : undefined);
