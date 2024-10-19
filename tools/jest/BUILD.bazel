@@ -1,3 +1,4 @@
+load("@npm//:jest/package_json.bzl", jest = "bin")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
@@ -30,3 +31,19 @@ ts_library(
 )
 
 lint_test(name = "lint")
+
+sh_binary(
+    name = "watch",
+    srcs = ["watch.sh"],
+    data = [
+        ":binary",
+        ":config.js",
+        ":jest",
+    ],
+    env = {
+        "BAZEL_BINDIR": ".",
+        "BINARY_PATH": "$(location :binary)",
+    },
+)
+
+jest.jest_binary(name = "binary")

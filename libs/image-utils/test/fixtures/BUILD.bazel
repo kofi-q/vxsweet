@@ -1,0 +1,11 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "fixtures",
+    data = glob([
+        "**/*.png",
+        "**/*.pdf",
+    ]),
+    tags = ["manual"],
+    visibility = ["//libs/image-utils:__subpackages__"],
+)

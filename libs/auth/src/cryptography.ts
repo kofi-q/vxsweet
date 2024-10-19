@@ -404,15 +404,17 @@ export async function createCertHelper({
  *
  * Uses a slightly roundabout control flow for permissions purposes:
  *
- * createCert() --> ../src/create-cert --> createCertHelper()
+ * createCert() --> ../src/intermediate-scripts/create-cert --> createCertHelper()
  *
  * When using TPM keys in production, we need sudo access. Creating the intermediate create-cert
  * script allows us to grant password-less sudo access to the relevant system users for just that
  * operation, instead of having to grant password-less sudo access more globally.
  */
 export async function createCert(input: CreateCertInput): Promise<Buffer> {
-  // TODO: Clean this up - use env var?
-  const scriptPath = path.join(__dirname, 'create-cert_/create-cert');
+  const scriptPath = path.join(
+    __dirname,
+    '../src/intermediate-scripts/create-cert'
+  );
   const scriptInput = JSON.stringify(input);
   const usingTpm = input.signingPrivateKey.source === 'tpm';
   const command = usingTpm
@@ -509,7 +511,7 @@ export async function signMessageHelper({
  *
  * Uses a slightly roundabout control flow for permissions purposes:
  *
- * signMessage() --> ../src/sign-message --> signMessageHelper()
+ * signMessage() --> ../src/intermediate-scripts/sign-message --> signMessageHelper()
  *
  * When using TPM keys in production, we need sudo access. Creating the intermediate sign-message
  * script allows us to grant password-less sudo access to the relevant system users for just that
@@ -519,8 +521,10 @@ export async function signMessage({
   message,
   ...inputExcludingMessage
 }: SignMessageInput): Promise<Buffer> {
-  // TODO: Clean this up - use env var?
-  const scriptPath = path.join(__dirname, 'sign-message_/sign-message');
+  const scriptPath = path.join(
+    __dirname,
+    '../src/intermediate-scripts/sign-message'
+  );
   const scriptInput = JSON.stringify(inputExcludingMessage);
   const usingTpm = inputExcludingMessage.signingPrivateKey.source === 'tpm';
   const command = usingTpm

@@ -21,6 +21,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    data = ["//libs/image-utils/test/fixtures"],
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

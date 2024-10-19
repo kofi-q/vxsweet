@@ -6,6 +6,9 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = [
+        "//libs/logging:event_details",
+    ],
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/jest",
@@ -23,6 +26,11 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    data = [
+        "//libs/logging:documentation",
+        "//libs/logging:fixtures_js",
+    ],
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

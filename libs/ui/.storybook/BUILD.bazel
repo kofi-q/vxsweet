@@ -22,7 +22,6 @@ ts_library(
         "//:node_modules/util",
         "//:node_modules/vite",
         "//:types_env",
-        "//libs/monorepo-utils/src",
         "//libs/types/src",
         "//libs/ui/src",
     ],

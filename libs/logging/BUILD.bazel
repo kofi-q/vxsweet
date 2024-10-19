@@ -19,10 +19,9 @@ rust_test(
     crate = ":rust",
 )
 
-filegroup(
-    name = "data",
-    srcs = [
-        "VotingWorksLoggingDocumentation.md",
+js_library(
+    name = "event_details",
+    data = [
         "log_event_details.toml",
     ],
     tags = ["manual"],
@@ -30,10 +29,12 @@ filegroup(
 )
 
 js_library(
-    name = "data_js",
-    data = [":data"],
+    name = "documentation",
+    data = [
+        "VotingWorksLoggingDocumentation.md",
+    ],
     tags = ["manual"],
-    visibility = ["//visibility:public"],
+    visibility = [":__subpackages__"],
 )
 
 filegroup(

@@ -1,0 +1,21 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "scripts",
+    data = [
+        "cac/cac-get-cert",
+        "cac/configure-dev-simulated-cac-card",
+        "cac/configure-simulated-cac-card",
+        "check-pin",
+        "configure-dev-java-card",
+        "configure-java-card",
+        "mock-card",
+        "program-dev-system-administrator-java-card",
+        "program-dev-vendor-java-card",
+        "program-system-administrator-java-card",
+        "update-openfips201-applet",
+        "//libs/auth/scripts/src",
+    ],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

@@ -3,6 +3,9 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
     name = "tests",
+    data = ["//libs/eslint-plugin-vx/tests/fixtures:files"],
+    shard_count = 28,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/node",
         "//:node_modules/@types/react",

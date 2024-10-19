@@ -21,6 +21,7 @@ def jest_test(
         ],
         config = "//tools/jest:config.js",
         data = srcs + data + [
+            "//:node_modules/tsx",  # For running any script entry points.
             "//tools/jest",
             "//tools/jest:config.js",
         ] + native.glob(
