@@ -1,9 +1,7 @@
 import * as path from 'node:path';
 // @ts-expect-error - TS thinks there's an error with the module type but it works ok
-import { Alias, mergeConfig, InlineConfig } from 'vite';
+import { mergeConfig, InlineConfig } from 'vite';
 import { StorybookConfig } from '@storybook/react-vite';
-
-import { getWorkspacePackageInfo } from '@vx/libs/monorepo-utils/src';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
@@ -22,10 +20,6 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../.storybook-static'],
   viteFinal(): InlineConfig {
-    const workspacePackages = getWorkspacePackageInfo(
-      path.join(__dirname, '../..')
-    );
-
     return mergeConfig(config, {
       // Replace some code in Node modules, `#define`-style, to avoid referencing
       // Node-only globals like `process`.
@@ -80,30 +74,6 @@ const config: StorybookConfig = {
             find: 'node:zlib',
             replacement: require.resolve('browserify-zlib'),
           },
-
-          // Create aliases for all workspace packages, i.e.
-          //
-          //   {
-          //     '@vx/libs/types/src': '…/libs/types/src/index.ts',
-          //     '@vx/libs/utils/src': '…/libs/utils/src/index.ts',
-          //      …
-          //   }
-          //
-          // This allows re-mapping imports for workspace packages to their
-          // TypeScript source code rather than the built JavaScript.
-          ...Array.from(workspacePackages.values()).reduce<Alias[]>(
-            (aliases, p) =>
-              !p.source
-                ? aliases
-                : [
-                    ...aliases,
-                    {
-                      find: p.name,
-                      replacement: path.join(p.path, p.source),
-                    },
-                  ],
-            []
-          ),
         ],
       },
     });
