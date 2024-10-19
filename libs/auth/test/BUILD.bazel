@@ -6,6 +6,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 ts_library(
     name = "test",
     deps = [
+        "//:node_modules/@types/node",
         "//libs/auth/src",
         "//libs/test-utils/src",
     ],

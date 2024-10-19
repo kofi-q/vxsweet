@@ -23,6 +23,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    jest_environment = "node",
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",

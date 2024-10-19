@@ -33,7 +33,7 @@ filegroup(
 
 js_library(
     name = "fixtures_js",
-    data = [":data"],
+    data = [":fixtures"],
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )
