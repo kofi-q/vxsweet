@@ -1,0 +1,35 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+DATA_FILE_EXTENSIONS = [
+    "csv",
+    "jpeg",
+    "jpg",
+    "json",
+    "jsonl",
+    "pdf",
+    "png",
+    "txt",
+    "xml",
+    "vxsig",
+    "zip",
+]
+
+DATA_FILES = glob(
+    [
+        "data/**/*.{}".format(ext)
+        for ext in DATA_FILE_EXTENSIONS
+    ],
+    allow_empty = True,
+)
+
+js_library(
+    name = "data",
+    data = DATA_FILES,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+exports_files(
+    DATA_FILES,
+    visibility = ["//visibility:public"],
+)

@@ -99,11 +99,13 @@ export async function modifyCastVoteRecordExport(
     const { castVoteRecord, castVoteRecordReportContents } = readCastVoteRecord(
       castVoteRecordDirectoryPath
     );
+    const filePath = path.join(
+      castVoteRecordDirectoryPath,
+      CastVoteRecordExportFileName.CAST_VOTE_RECORD_REPORT
+    );
+    fs.chmodSync(filePath, 0o600);
     fs.writeFileSync(
-      path.join(
-        castVoteRecordDirectoryPath,
-        CastVoteRecordExportFileName.CAST_VOTE_RECORD_REPORT
-      ),
+      filePath,
       JSON.stringify({
         ...JSON.parse(castVoteRecordReportContents),
         CVR: [castVoteRecordModifier(castVoteRecord as NotReadOnly<CVR.CVR>)],
@@ -114,11 +116,13 @@ export async function modifyCastVoteRecordExport(
   const metadata = (
     await readCastVoteRecordExportMetadata(modifiedExportDirectoryPath)
   ).unsafeUnwrap();
+  const filePath = path.join(
+    modifiedExportDirectoryPath,
+    CastVoteRecordExportFileName.METADATA
+  );
+  fs.chmodSync(filePath, 0o600);
   fs.writeFileSync(
-    path.join(
-      modifiedExportDirectoryPath,
-      CastVoteRecordExportFileName.METADATA
-    ),
+    filePath,
     JSON.stringify({
       ...metadata,
       castVoteRecordReportMetadata: castVoteRecordReportMetadataModifier(

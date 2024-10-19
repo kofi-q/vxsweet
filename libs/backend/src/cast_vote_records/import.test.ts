@@ -88,10 +88,12 @@ test('successful import', async () => {
 
 test('authentication error during import', async () => {
   const exportDirectoryPath = castVoteRecordExport.asDirectoryPath();
-  fs.appendFileSync(
-    path.join(exportDirectoryPath, CastVoteRecordExportFileName.METADATA),
-    '\n'
+  const filePath = path.join(
+    exportDirectoryPath,
+    CastVoteRecordExportFileName.METADATA
   );
+  fs.chmodSync(filePath, 0o600);
+  fs.appendFileSync(filePath, '\n');
 
   expect(await readCastVoteRecordExport(exportDirectoryPath)).toEqual(
     err({ type: 'authentication-error' })
@@ -117,10 +119,12 @@ test('metadata file parse error during import', async () => {
     BooleanEnvironmentVariableName.SKIP_CAST_VOTE_RECORDS_AUTHENTICATION
   );
   const exportDirectoryPath = castVoteRecordExport.asDirectoryPath();
-  fs.appendFileSync(
-    path.join(exportDirectoryPath, CastVoteRecordExportFileName.METADATA),
-    '}'
+  const filePath = path.join(
+    exportDirectoryPath,
+    CastVoteRecordExportFileName.METADATA
   );
+  fs.chmodSync(filePath, 0o600);
+  fs.appendFileSync(filePath, '}');
 
   expect(await readCastVoteRecordExport(exportDirectoryPath)).toEqual(
     err({ type: 'metadata-file-parse-error' })

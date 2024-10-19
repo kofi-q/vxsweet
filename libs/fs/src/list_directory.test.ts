@@ -1,11 +1,22 @@
-import { err, iter, ok } from '@vx/libs/basics/src';
+import { err, iter, ok, Result } from '@vx/libs/basics/src';
 import { symlinkSync } from 'node:fs';
 import tmp from 'tmp';
 import {
+  FileSystemEntry,
   FileSystemEntryType,
   listDirectory,
+  ListDirectoryError,
   listDirectoryRecursive,
 } from './list_directory';
+
+function sortOkEntries(
+  entries: Array<Result<FileSystemEntry, ListDirectoryError>>
+) {
+  // eslint-disable-next-line vx/no-array-sort-mutation
+  return entries.sort((a, b) =>
+    a.unsafeUnwrap().name.localeCompare(b.unsafeUnwrap().name)
+  );
+}
 
 describe(listDirectory, () => {
   test('happy path', async () => {
@@ -19,7 +30,7 @@ describe(listDirectory, () => {
 
     const results = await iter(listDirectory(directory.name)).toArray();
 
-    expect(results).toMatchObject([
+    expect(sortOkEntries(results)).toMatchObject([
       ok(
         expect.objectContaining({
           name: 'file-1',
@@ -89,7 +100,7 @@ describe(listDirectoryRecursive, () => {
 
     const results = iter(listDirectoryRecursive(directory.name));
 
-    expect(await results.toArray()).toMatchObject([
+    expect(sortOkEntries(await results.toArray())).toMatchObject([
       ok(
         expect.objectContaining({
           name: 'file-1',
