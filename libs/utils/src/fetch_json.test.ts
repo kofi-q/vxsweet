@@ -50,6 +50,8 @@ test('throws on non-ok response', async () => {
 });
 
 test('interprets the response as JSON', async () => {
-  fetchMock.getOnce('/example', '{ "status": "ok" }');
+  fetchMock.getOnce('/example', '{ "status": "ok" }', {
+    overwriteRoutes: true,
+  });
   expect(await fetchJson('/example')).toEqual({ status: 'ok' });
 });

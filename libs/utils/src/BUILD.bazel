@@ -31,6 +31,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/fetch-mock",
