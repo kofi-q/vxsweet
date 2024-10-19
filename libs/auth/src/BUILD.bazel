@@ -1,5 +1,3 @@
-load("@aspect_rules_js//js:defs.bzl", "js_library")
-load("//tools/ts_build:js_binary.bzl", "js_binary")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
@@ -8,6 +6,13 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = [
+        "intermediate-scripts/create-cert",
+        "intermediate-scripts/sign-message",
+        "//libs/auth:certs",
+    ] + glob([
+        "cac/**/*.pem",
+    ]),
     deps = [
         "//:node_modules/@types/combined-stream",
         "//:node_modules/@types/debug",
@@ -36,7 +41,7 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "medium",
-    data = [":required_data"],
+    timeout = "short",
     shard_count = 19,
     tmp_enable_tests = True,
     deps = [
@@ -66,46 +71,3 @@ ts_tests(
 )
 
 lint_test(name = "lint")
-
-js_library(
-    name = "required_data",
-    data = [
-        ":cac_certs",
-        ":intermediate_scripts",
-        "//libs/auth:certs",
-    ],
-    tags = ["manual"],
-    visibility = ["//visibility:public"],
-)
-
-js_library(
-    name = "cac_certs",
-    data = glob([
-        "cac/**/*.pem",
-    ]),
-    tags = ["manual"],
-    visibility = [":__subpackages__"],
-)
-
-js_library(
-    name = "intermediate_scripts",
-    data = [
-        ":create-cert",
-        ":sign-message",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-js_binary(
-    name = "sign-message",
-    src = ":src",
-    entry_point = "intermediate-scripts/sign_message.js",
-    visibility = ["//visibility:public"],
-)
-
-js_binary(
-    name = "create-cert",
-    src = ":src",
-    entry_point = "intermediate-scripts/create_cert.js",
-    visibility = ["//visibility:public"],
-)

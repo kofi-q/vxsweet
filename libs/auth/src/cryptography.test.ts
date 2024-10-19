@@ -498,13 +498,13 @@ test.each<{
     expect(spawn).toHaveBeenCalledTimes(1);
     if (isSudoExpected) {
       expect(spawn).toHaveBeenNthCalledWith(1, 'sudo', [
-        expect.stringContaining('/src/create-cert'),
+        expect.stringContaining('/intermediate-scripts/create-cert'),
         expect.any(String),
       ]);
     } else {
       expect(spawn).toHaveBeenNthCalledWith(
         1,
-        expect.stringContaining('/src/create-cert'),
+        expect.stringContaining('/intermediate-scripts/create-cert'),
         [expect.any(String)]
       );
     }
@@ -634,13 +634,13 @@ test.each<{
   expect(spawn).toHaveBeenCalledTimes(1);
   if (isSudoExpected) {
     expect(spawn).toHaveBeenNthCalledWith(1, 'sudo', [
-      expect.stringContaining('/src/sign-message'),
+      expect.stringContaining('/intermediate-scripts/sign-message'),
       expect.any(String),
     ]);
   } else {
     expect(spawn).toHaveBeenNthCalledWith(
       1,
-      expect.stringContaining('/src/sign-message'),
+      expect.stringContaining('/intermediate-scripts/sign-message'),
       [expect.any(String)]
     );
   }

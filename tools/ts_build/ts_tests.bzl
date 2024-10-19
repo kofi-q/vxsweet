@@ -10,7 +10,7 @@ def ts_tests(
         shard_count = 1,
         size = "small",
         tags = [],
-        timeout = "short",
+        timeout = None,
         jest_environment = None,
         tmp_enable_tests = False,
         unsound_disable_node_fs_patch_for_tests = False,
@@ -58,9 +58,9 @@ def ts_tests(
     TEST_FILES = list_test_files()
     lib_name = "{}_lib".format(name)
 
-    jest_env = jest_environment or "node"
+    fallback_jest_env = "node"
     if "//:node_modules/react" in deps:
-        jest_env = "jsdom"
+        fallback_jest_env = "jsdom"
 
     if tmp_enable_tests:
         jest_test(
@@ -70,7 +70,7 @@ def ts_tests(
                 ":{}".format(lib_name),
             ],
             env = env,
-            jest_environment = jest_env,
+            jest_environment = jest_environment or fallback_jest_env,
             shard_count = shard_count,
             size = size,
             timeout = timeout,

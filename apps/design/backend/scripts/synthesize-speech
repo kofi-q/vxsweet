@@ -1,6 +1,4 @@
 #!/usr/bin/env node
 
-require('esbuild-runner').install({
-  type: 'transform',
-});
+require('tsx/cjs');
 require('./synthesize_speech.ts').main(process.argv.slice(2));

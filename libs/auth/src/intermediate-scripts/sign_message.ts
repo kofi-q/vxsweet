@@ -23,5 +23,3 @@ export async function main(): Promise<void> {
   process.stdout.write(messageSignature);
   process.exit(0);
 }
-
-void main();

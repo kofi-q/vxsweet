@@ -2,9 +2,7 @@
 
 // @ts-check
 
-require('esbuild-runner').install({
-  type: 'transform',
-});
+require('tsx/cjs');
 
 require('../src/cli')
   .main(process.argv)
