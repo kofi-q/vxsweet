@@ -1,3 +1,4 @@
+load("//tools/ts_build:defs.bzl", "json_package")
 load("//tools/ts_build:json_package.bzl", "json_package")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
@@ -13,3 +14,12 @@ ts_library(
 )
 
 lint_test(name = "lint")
+
+filegroup(
+    name = "files",
+    data = glob([
+        "*.ts",
+        "*.tsx",
+    ]) + ["tsconfig.fixtures.json"],
+    visibility = ["//libs/eslint-plugin-vx/tests:__subpackages__"],
+)
