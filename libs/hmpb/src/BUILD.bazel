@@ -6,7 +6,11 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = [
+        "//libs/hmpb:fixtures_js",
+    ],
     deps = [
+        "//:node_modules/@playwright/browser-chromium",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/node",
         "//:node_modules/@types/react",
@@ -30,6 +34,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

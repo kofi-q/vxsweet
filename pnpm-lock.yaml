@@ -36,9 +36,12 @@ dependencies:
   '@iarna/toml':
     specifier: 2.2.5
     version: 2.2.5
+  '@playwright/browser-chromium':
+    specifier: 1.40.1
+    version: 1.40.1
   '@playwright/test':
-    specifier: 1.37.1
-    version: 1.37.1
+    specifier: 1.40.1
+    version: 1.40.1
   '@rooks/use-interval':
     specifier: 4.5.0
     version: 4.5.0(react@18.3.1)
@@ -4209,16 +4212,21 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
-  /@playwright/test@1.37.1:
-    resolution: {integrity: sha512-bq9zTli3vWJo8S3LwB91U0qDNQDpEXnw7knhxLM0nwDvexQAwx9tO8iKDZSqqneVq+URd/WIoz+BALMqUTgdSg==}
+  /@playwright/browser-chromium@1.40.1:
+    resolution: {integrity: sha512-uNmjHYXBTYTfJkf89D6zVUcesCFzZ/yjkPj8FvBJQ6yf3na/j1rcjVNzx0PzOAGcWKioB/rnWRBi7b5ojOdCHA==}
+    engines: {node: '>=16'}
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.40.1
+    dev: false
+
+  /@playwright/test@1.40.1:
+    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
     engines: {node: '>=16'}
     deprecated: Please update to the latest version of Playwright to test up-to-date browsers.
     hasBin: true
     dependencies:
-      '@types/node': 20.16.0
-      playwright-core: 1.37.1
-    optionalDependencies:
-      fsevents: 2.3.2
+      playwright: 1.40.1
     dev: false
 
   /@popperjs/core@2.11.8:
@@ -15315,12 +15323,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 3.0.0
-    dev: false
-
-  /playwright-core@1.37.1:
-    resolution: {integrity: sha512-17EuQxlSIYCmEMwzMqusJ2ztDgJePjrbttaefgdsiqeLWidjYz9BxXaTaZWxH1J95SHGk6tjE+dwgWILJoUZfA==}
-    engines: {node: '>=16'}
-    hasBin: true
     dev: false
 
   /playwright-core@1.40.1:

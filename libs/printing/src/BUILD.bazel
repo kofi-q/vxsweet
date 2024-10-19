@@ -8,6 +8,7 @@ ts_library(
     name = "src",
     data = ["//libs/printing:config"],
     deps = [
+        "//:node_modules/@playwright/browser-chromium",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/node",
         "//:node_modules/@types/react",
@@ -31,6 +32,14 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    timeout = "short",
+    data = [
+        "//libs/printing/test:workers",
+    ],
+    jest_environment = "node",
+    shard_count = 11,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

@@ -97,9 +97,10 @@ it('uses ipptool to query and parse printer atttributes', async () => {
   ]);
 
   // confirm tmp file was written to
+  const { TMPDIR = '/tmp' } = process.env;
   const tmpFilename = (execMock.mock.calls[0][1] as string[]).pop();
   assert(tmpFilename !== undefined);
-  expect(tmpFilename.startsWith('/tmp/tmp-')).toEqual(true);
+  expect(tmpFilename.startsWith(`${TMPDIR}/tmp-`)).toEqual(true);
   expect(writeFileMock).toHaveBeenCalledWith(tmpFilename, IPP_QUERY);
 
   // confirm tmp file was cleaned up

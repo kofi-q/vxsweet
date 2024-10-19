@@ -35,14 +35,6 @@ ts_config(
     src = "tsconfig.json",
     tags = ["manual"],
     visibility = ["//visibility:public"],
-    deps = ["package.json"],
-)
-
-js_library(
-    name = "package_json",
-    srcs = ["package.json"],
-    tags = ["manual"],
-    visibility = ["//visibility:public"],
 )
 
 js_library(

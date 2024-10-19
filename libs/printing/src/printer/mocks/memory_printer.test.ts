@@ -5,6 +5,8 @@ import { HP_LASER_PRINTER_CONFIG, PrintSides } from '..';
 import { createMockPrinterHandler } from './memory_printer';
 import { MOCK_PRINTER_RICH_STATUS } from './fixtures';
 
+const { TMPDIR = '/tmp' } = process.env;
+
 test('memory printer', async () => {
   const printerHandler = createMockPrinterHandler();
   const { printer } = printerHandler;
@@ -29,7 +31,9 @@ test('memory printer', async () => {
   expect(printJobs1).toHaveLength(1);
   const [printJob1] = printJobs1;
   expect(printJob1).toEqual({
-    filename: expect.stringMatching(/^\/tmp\/mock-print-job-.*\.pdf$/),
+    filename: expect.stringMatching(
+      new RegExp(`^${TMPDIR}/mock-print-job-.*\\.pdf$`)
+    ),
     options: { copies: 1, sides: PrintSides.OneSided },
   });
   expect(printerHandler.getLastPrintPath()).toEqual(printJob1.filename);
@@ -44,7 +48,9 @@ test('memory printer', async () => {
   expect(printJobs2[0]).toEqual(printJob1);
   const [, printJob2] = printJobs2;
   expect(printJob2).toEqual({
-    filename: expect.stringMatching(/^\/tmp\/mock-print-job-.*\.pdf$/),
+    filename: expect.stringMatching(
+      new RegExp(`^${TMPDIR}/mock-print-job-.*\\.pdf$`)
+    ),
     options: { raw: { 'fit-to-page': 'true' } },
   });
   expect(printerHandler.getLastPrintPath()).toEqual(printJob2.filename);

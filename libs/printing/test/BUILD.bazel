@@ -1,1 +1,10 @@
-# gazelle:js_mono_package
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "workers",
+    srcs = [
+        "args_worker.js",
+        "echo_worker.js",
+    ],
+    visibility = ["//libs/printing:__subpackages__"],
+)
