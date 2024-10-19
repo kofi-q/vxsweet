@@ -14,6 +14,8 @@ import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { Exporter, ExportDataResult } from './exporter';
 import { execFile } from './exec';
 
+const TMPDIR = process.env.TMPDIR || '/tmp';
+
 const execFileMock = mockOf(execFile);
 const tmpDirs: DirResult[] = [];
 
@@ -27,7 +29,7 @@ const mockUsbDrive = createMockUsbDrive();
 const { usbDrive } = mockUsbDrive;
 
 const exporter = new Exporter({
-  allowedExportPatterns: ['/tmp/**'],
+  allowedExportPatterns: [`${TMPDIR}/**`],
   usbDrive,
 });
 
@@ -190,10 +192,10 @@ test('exportDataToUsbDrive with machineDirectoryToWriteToFirst', async () => {
     'bucket',
     'test.txt',
     Readable.from('1234'),
-    { machineDirectoryToWriteToFirst: '/tmp/abcd' }
+    { machineDirectoryToWriteToFirst: `${TMPDIR}/abcd` }
   );
   const usbFilePath = join(tmpDir, 'bucket/test.txt');
-  const machineFilePath = '/tmp/abcd/test.txt';
+  const machineFilePath = `${TMPDIR}/abcd/test.txt`;
   expect(result).toEqual(ok([usbFilePath]));
   expect(await readFile(usbFilePath, 'utf-8')).toEqual('1234');
   expect(await readFile(machineFilePath, 'utf-8')).toEqual('1234');

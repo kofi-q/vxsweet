@@ -36,6 +36,8 @@ createReadStreamMock.mockImplementation(realCreateReadStream);
 
 const execFileMock = mockOf(execFile);
 
+const TMPDIR = process.env.TMPDIR || '/tmp';
+
 let logger: Logger;
 
 beforeEach(() => {
@@ -301,7 +303,7 @@ test('exportLogsToUsb works for cdf format when all conditions are met', async (
 
   expect(execFileMock).toHaveBeenCalledWith('cp', [
     '-r',
-    expect.stringContaining('/tmp/'),
+    expect.stringContaining(`${TMPDIR}`),
     expect.stringMatching('^/media/usb-drive/logs/machine_TEST-MACHINE-ID/'),
   ]);
 
@@ -373,7 +375,7 @@ test('exportLogsToUsb works for error format when all conditions are met', async
 
   expect(execFileMock).toHaveBeenCalledWith('cp', [
     '-r',
-    expect.stringContaining('/tmp/'),
+    expect.stringContaining(`${TMPDIR}`),
     expect.stringMatching('^/media/usb-drive/logs/machine_TEST-MACHINE-ID/'),
   ]);
 

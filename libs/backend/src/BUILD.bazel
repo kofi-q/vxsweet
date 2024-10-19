@@ -6,6 +6,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = ["//libs/auth/src:required_data"],
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
@@ -38,6 +39,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    shard_count = 22,
+    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.set",
