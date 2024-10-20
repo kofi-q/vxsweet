@@ -34,7 +34,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "medium",
+    size = "enormous",
+    timeout = "moderate",
     tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",

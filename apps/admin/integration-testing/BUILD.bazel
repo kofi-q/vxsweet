@@ -1,0 +1,16 @@
+load("//tools/integration-testing:playwright_test.bzl", "playwright_test")
+load("//tools/integration-testing:ports.bzl", "INTEGRATION_TEST_PORTS")
+
+playwright_test(
+    name = "tests",
+    srcs = ["//apps/admin/integration-testing/e2e"],
+    additional_env_vars = {
+        "ADMIN_WORKSPACE": "$${TEST_TMPDIR}/admin-integration-testing",
+    },
+    port = INTEGRATION_TEST_PORTS.admin,
+    prod_app = "//apps/admin:prod",
+    test_dir = "e2e",
+    viewport_height = "1080",
+    viewport_width = "1920",
+    vx_machine_type = "admin",
+)

@@ -3,7 +3,9 @@
 import * as dotenv from 'dotenv';
 import * as dotenvExpand from 'dotenv-expand';
 import fs from 'node:fs';
+import path from 'node:path';
 import { isIntegrationTest } from '@vx/libs/utils/src';
+import { assertDefined } from '@vx/libs/basics/src';
 
 /**
  * Loads environment variables from .env* files. dotenv will never modify environment variables
@@ -16,22 +18,42 @@ export function loadEnvVarsFromDotenvFiles(): void {
   const nodeEnv = process.env.NODE_ENV;
   const isTestEnvironment = nodeEnv === 'test' || isIntegrationTest();
 
+  const repoRoot = isTestEnvironment
+    ? assertDefined(process.env.PWD)
+    : path.join(__dirname, '../../..');
+
+  const executionRoot = process.env.DOTENV_EXECUTION_ROOT;
+
   // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
   const dotenvPath = '.env';
   const dotenvFiles: string[] = [
-    `${dotenvPath}.${nodeEnv}.local`,
-    // Don't include `.env.local` in test environments since we expect tests to produce the same
-    // results for everyone
+    ...(executionRoot
+      ? [
+          // Don't include `.env.local` in test environments since we expect tests to produce the same
+          // results for everyone
+          !isTestEnvironment
+            ? path.join(executionRoot, `${dotenvPath}.${nodeEnv}.local`)
+            : '',
+          !isTestEnvironment
+            ? path.join(executionRoot, `${dotenvPath}.local`)
+            : '',
+
+          path.join(executionRoot, `${dotenvPath}.${nodeEnv}`),
+          path.join(executionRoot, dotenvPath),
+        ]
+      : []),
+
     !isTestEnvironment ? `${dotenvPath}.local` : '',
+
     `${dotenvPath}.${nodeEnv}`,
+
     dotenvPath,
-    !isTestEnvironment ? `../../../${dotenvPath}.local` : '',
-    `../../../${dotenvPath}`,
   ].filter(Boolean);
 
   for (const dotenvFile of dotenvFiles) {
-    if (fs.existsSync(dotenvFile)) {
-      dotenvExpand.expand(dotenv.config({ path: dotenvFile }));
+    const absolutePath = path.join(repoRoot, dotenvFile);
+    if (fs.existsSync(absolutePath)) {
+      dotenvExpand.expand(dotenv.config({ path: absolutePath }));
     }
   }
 }

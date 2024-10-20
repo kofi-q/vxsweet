@@ -27,6 +27,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
+    timeout = "moderate",
     shard_count = 3,
     tmp_enable_tests = True,
     deps = [

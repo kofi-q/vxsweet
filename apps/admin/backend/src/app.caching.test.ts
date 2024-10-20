@@ -45,6 +45,8 @@ async function getParsedExport({
   return parseCsv(readFileSync(path, 'utf-8').toString());
 }
 
+// TODO: Improve performance - loading a lot of files into the server, but we'd
+// get the same coverage with a small sample.
 it('uses and clears CVR tabulation cache appropriately', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
@@ -141,4 +143,4 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(6);
   expect(clearedResultsExport).toEqual(zeroExport);
-});
+}, 20_000);

@@ -40,6 +40,7 @@ import {
 import { saveReadinessReport } from './readiness_report';
 import { performScanDiagnostic, ScanDiagnosticOutcome } from './diagnostic';
 import { BatchScanner } from './fujitsu_scanner';
+import path from 'node:path';
 
 type NoParams = never;
 
@@ -435,6 +436,18 @@ export function buildCentralScannerApp({
   );
 
   app.use(deprecatedApiRouter);
+
+  // `STATIC_FILE_DIR` is set when running the in `production` mode - when its
+  // specified, set up static file serving routes for frontend files:
+  const { STATIC_FILE_DIR } = process.env;
+  if (STATIC_FILE_DIR) {
+    const STATIC_FILE_DIR_ABS = path.join(process.cwd(), STATIC_FILE_DIR);
+
+    app.use(express.static(STATIC_FILE_DIR_ABS));
+    app.get('*', (_, res) => {
+      res.sendFile(path.join(STATIC_FILE_DIR_ABS, 'index.html'));
+    });
+  }
 
   return app;
 }

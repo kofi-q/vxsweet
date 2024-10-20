@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TSX_PATH_ABSOLUTE="${PWD}/${TSX_PATH}"
+
+cd "${BUILD_WORKSPACE_DIRECTORY}/${BACKEND_PATH}"
+
+${TSX_PATH_ABSOLUTE} --watch "${BUILD_WORKSPACE_DIRECTORY}/${BACKEND_ENTRY_POINT}"

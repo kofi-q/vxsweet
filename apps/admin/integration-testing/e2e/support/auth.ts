@@ -55,7 +55,7 @@ export async function logOut(page: Page): Promise<void> {
  * for cleanup.
  */
 export async function forceLogOut(page: Page): Promise<void> {
-  await page.request.post(methodUrl('logOut', 'http://localhost:3000/api'), {
+  await page.request.post(methodUrl('logOut', '/api'), {
     data: '{}',
     headers: { 'Content-Type': 'application/json' },
   });

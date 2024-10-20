@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+VITE_PATH_ABSOLUTE="${PWD}/${VITE_PATH}"
+CONFIG_PATH_ABSOLUTE="${PWD}/${CONFIG_PATH}"
+
+cd "${BUILD_WORKSPACE_DIRECTORY}/${FRONTEND_PATH}"
+
+${VITE_PATH_ABSOLUTE} --clearScreen false -c "${CONFIG_PATH_ABSOLUTE}" .

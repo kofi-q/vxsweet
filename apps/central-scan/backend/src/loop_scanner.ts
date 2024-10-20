@@ -1,10 +1,11 @@
 import { readFileSync } from 'fs-extra';
-import { dirname, resolve } from 'node:path';
+import path from 'node:path';
 import {
   BatchControl,
   BatchScanner,
   ScannedSheetInfo,
 } from './fujitsu_scanner';
+import { REPO_ROOT } from './globals';
 
 type Batch = readonly ScannedSheetInfo[];
 
@@ -60,14 +61,14 @@ export function parseBatchesFromEnv(env?: string): Batch[] | undefined {
       readFileSync(batchManifestPath, 'utf8').split('\n')
     ).map((batch) =>
       batch.map((sheet) => ({
-        frontPath: resolve(
+        frontPath: path.resolve(
           process.cwd(),
-          dirname(batchManifestPath),
+          path.dirname(batchManifestPath),
           sheet.frontPath
         ),
-        backPath: resolve(
+        backPath: path.resolve(
           process.cwd(),
-          dirname(batchManifestPath),
+          path.dirname(batchManifestPath),
           sheet.backPath
         ),
       }))
@@ -75,7 +76,9 @@ export function parseBatchesFromEnv(env?: string): Batch[] | undefined {
     return batches;
   }
 
-  return parseBatches(env.split(','));
+  return parseBatches(
+    env.split(',').map((filePath) => filePath && path.join(REPO_ROOT, filePath))
+  );
 }
 
 /* eslint-disable @typescript-eslint/require-await */

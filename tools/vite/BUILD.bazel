@@ -1,0 +1,43 @@
+load("@npm//:vite/package_json.bzl", vite = "bin")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+vite.vite_binary(
+    name = "cli",
+    data = [
+        "//:node_modules/tsx",
+    ],
+    env = {
+        "BAZEL_BINDIR": ".",
+    },
+    node_options = [
+        "--import",
+        "tsx",
+    ],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+ts_library(
+    name = "vite",
+    deps = [
+        "//:node_modules/@types/connect",
+        "//:node_modules/@types/node",
+        "//:node_modules/@vitejs/plugin-react",
+        "//:node_modules/assert",
+        "//:node_modules/browserify-zlib",
+        "//:node_modules/buffer",
+        "//:node_modules/events",
+        "//:node_modules/http-proxy-middleware",
+        "//:node_modules/pagedjs",
+        "//:node_modules/path",
+        "//:node_modules/stream-browserify",
+        "//:node_modules/util",
+        "//:node_modules/vite",
+        "//:types_env",
+        "//libs/basics/src",
+        "//libs/browser-stubs",
+    ],
+)
+
+lint_test(name = "lint")

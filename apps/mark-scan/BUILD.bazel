@@ -1,0 +1,18 @@
+load("//tools/apps:dev_app.bzl", "dev_app")
+load("//tools/apps:prod_app.bzl", "prod_app")
+
+prod_app(
+    name = "prod",
+    backend_entry_point = "//apps/mark-scan/backend/src:main.js",
+    backend_src = "//apps/mark-scan/backend/src",
+    default_port = "3000",
+    frontend_bundle = "//apps/mark-scan/frontend:bundle",
+    vx_machine_type = "mark-scan",
+)
+
+dev_app(
+    name = "dev",
+    backend_server = "//apps/mark-scan/backend:dev_server",
+    frontend_server = "//apps/mark-scan/frontend:dev_server",
+    tags = ["manual"],
+)

@@ -65,6 +65,7 @@ import {
   testPrintFailureDiagnosticMessage,
 } from './util/diagnostics';
 import { saveReadinessReport } from './printing/readiness_report';
+import path from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function buildApi({
@@ -546,5 +547,18 @@ export function buildApp({
   const api = buildApi({ auth, machine, workspace, usbDrive, printer, logger });
   app.use('/api', grout.buildRouter(api, express));
   useDevDockRouter(app, express, 'scan');
+
+  // `STATIC_FILE_DIR` is set when running the in `production` mode - when its
+  // specified, set up static file serving routes for frontend files:
+  const { STATIC_FILE_DIR } = process.env;
+  if (STATIC_FILE_DIR) {
+    const STATIC_FILE_DIR_ABS = path.join(process.cwd(), STATIC_FILE_DIR);
+
+    app.use(express.static(STATIC_FILE_DIR_ABS));
+    app.get('*', (_, res) => {
+      res.sendFile(path.join(STATIC_FILE_DIR_ABS, 'index.html'));
+    });
+  }
+
   return app;
 }

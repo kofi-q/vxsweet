@@ -1,0 +1,18 @@
+load("//tools/apps:dev_app.bzl", "dev_app")
+load("//tools/apps:prod_app.bzl", "prod_app")
+
+prod_app(
+    name = "prod",
+    backend_entry_point = "//apps/scan/backend/src:main.js",
+    backend_src = "//apps/scan/backend/src",
+    default_port = "3000",
+    frontend_bundle = "//apps/scan/frontend:bundle",
+    vx_machine_type = "scan",
+)
+
+dev_app(
+    name = "dev",
+    backend_server = "//apps/scan/backend:dev_server",
+    frontend_server = "//apps/scan/frontend:dev_server",
+    tags = ["manual"],
+)

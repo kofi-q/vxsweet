@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { Buffer } from 'node:buffer';
 import {
   existsSync,
@@ -14,11 +14,28 @@ import { writeFile } from 'node:fs/promises';
 import { PrinterConfig, PrinterStatus } from '@vx/libs/types/src';
 import { PrintProps, Printer } from '../types';
 import { getMockConnectedPrinterStatus } from './fixtures';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 
 export const MOCK_PRINTER_STATE_FILENAME = 'state.json';
 export const MOCK_PRINTER_OUTPUT_DIRNAME = 'prints';
-export const DEFAULT_MOCK_PRINTER_DIR = '/tmp/mock-printer';
-export const DEV_MOCK_PRINTER_DIR = join(__dirname, '../../../dev-workspace');
+
+export const DEFAULT_MOCK_PRINTER_DIR = (() => {
+  if (isIntegrationTest()) {
+    return join(
+      process.env.TMPDIR || '/tmp',
+      `${process.env.VX_MACHINE_TYPE || 'vx'}-mock-printer`
+    );
+  }
+
+  return join(process.env.TMPDIR || '/tmp', 'mock-printer');
+})();
+
+// When running dev servers via Bazel, use `BUILD_WORKSPACE_DIRECTORY` so that
+// dev data gets persisted in the workspace instead of the Bazel output tree:
+export const DEV_MOCK_PRINTER_DIR = join(
+  process.env.BUILD_WORKSPACE_DIRECTORY || resolve(__dirname, '../../../..'),
+  'libs/printing/dev-workspace'
+);
 
 function getMockPrinterPath(): string {
   // istanbul ignore next

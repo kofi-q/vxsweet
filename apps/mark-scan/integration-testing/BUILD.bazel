@@ -1,0 +1,17 @@
+load("//tools/integration-testing:playwright_test.bzl", "playwright_test")
+load("//tools/integration-testing:ports.bzl", "INTEGRATION_TEST_PORTS")
+
+playwright_test(
+    name = "tests",
+    timeout = "short",
+    srcs = ["//apps/mark-scan/integration-testing/e2e"],
+    additional_env_vars = {
+        "MARK_SCAN_WORKSPACE": "$${TEST_TMPDIR}/mark-scan-integration-testing",
+    },
+    port = INTEGRATION_TEST_PORTS.mark_scan,
+    prod_app = "//apps/mark-scan:prod",
+    test_dir = "e2e",
+    viewport_height = "1920",
+    viewport_width = "1080",
+    vx_machine_type = "mark-scan",
+)
