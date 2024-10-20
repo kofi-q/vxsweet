@@ -7,13 +7,12 @@ def ts_tests(
         data = [],
         deps = [],
         env = {},
+        jest_environment = None,
         shard_count = 1,
         size = "small",
+        skip = False,
         tags = [],
         timeout = None,
-        jest_environment = None,
-        tmp_enable_tests = False,
-        unsound_disable_node_fs_patch_for_tests = False,
         visibility = None):
     """Declares build and test targets for Typescript test files in a package.
 
@@ -26,6 +25,9 @@ def ts_tests(
 
       env: Additional environment variables to set for the test target.
 
+      jest_environment: Jest test env ("jsdom" | "node"). Defaults to "jsdom" if .tsx
+          files are included, else "node".
+
       shard_count: Defaults to 1. Allows Bazel to split test files across
           multiple workers in parallel. Similar to adjusting test workers with
           jest, but resource management happens across all packages. Consider
@@ -34,23 +36,12 @@ def ts_tests(
 
       size: Size tag for the test target - defaults to "small".
 
-      skip_all: Skip all tests in this package. For local development only.
+      skip: Skip all tests in this package. For local development/manual tests only.
 
       tags: Additional tags to attach to the generated targets.
 
       timeout: Timeout ("short" | "moderate" | "long" | "eternal") for the
           test target. Default value will correspond to the `size`.
-
-      jest_environment: Jest test env ("jsdom" | "node"). Defaults to "jsdom" if .tsx
-          files are included, else "node".
-
-      tmp_enable_tests: Temporary flag to enable tests, so tests can be enabled
-          when they're passing. TODO: Remove once all tests are fixed.
-
-      unsound_disable_node_fs_patch_for_tests: Disables node:fs patching that's
-          put in place to prevent tests from accessing files outside of the
-          sandbox and breaking hermeticity. Useful for any tests that rely on
-          specific behaviour that may be modified by the patches.
 
       visibility: Defaults to public.
     """
@@ -62,7 +53,7 @@ def ts_tests(
     if "//:node_modules/react" in deps:
         fallback_jest_env = "jsdom"
 
-    if tmp_enable_tests:
+    if not skip:
         jest_test(
             name = name,
             srcs = TEST_FILES,
@@ -75,7 +66,6 @@ def ts_tests(
             size = size,
             timeout = timeout,
             tags = tags,
-            unsound_disable_node_fs_patch_for_tests = unsound_disable_node_fs_patch_for_tests,
             visibility = visibility,
         )
 

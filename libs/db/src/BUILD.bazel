@@ -22,7 +22,6 @@ ts_tests(
     size = "medium",
     timeout = "short",
     data = ["//libs/db:fixtures"],
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

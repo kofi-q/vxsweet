@@ -26,7 +26,6 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",

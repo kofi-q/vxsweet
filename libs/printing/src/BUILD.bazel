@@ -39,7 +39,6 @@ ts_tests(
     ],
     jest_environment = "node",
     shard_count = 11,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

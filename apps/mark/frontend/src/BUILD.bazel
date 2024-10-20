@@ -43,7 +43,6 @@ ts_library(
 ts_tests(
     name = "tests",
     shard_count = 30,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@testing-library/user-event",

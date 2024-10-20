@@ -30,7 +30,6 @@ ts_tests(
         "//libs/logging:documentation",
         "//libs/logging:fixtures_js",
     ],
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

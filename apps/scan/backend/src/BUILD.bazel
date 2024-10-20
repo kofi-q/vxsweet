@@ -56,7 +56,6 @@ ts_tests(
     timeout = "short",
     env = {"VX_MACHINE_TYPE": "scan"},
     shard_count = 33,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/express",
         "//:node_modules/@types/jest",

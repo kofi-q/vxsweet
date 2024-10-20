@@ -10,7 +10,6 @@ def jest_test(
         jest_environment = "jsdom",
         shard_count = 1,
         tags = [],
-        unsound_disable_node_fs_patch_for_tests = False,
         visibility = None):
     _jest_test(
         name = name,
@@ -38,7 +37,6 @@ def jest_test(
         size = size,
         shard_count = shard_count,
         node_modules = "//:node_modules",
-        patch_node_fs = not unsound_disable_node_fs_patch_for_tests,
         snapshots = native.glob(
             ["**/__snapshots__"],
             exclude_directories = 0,

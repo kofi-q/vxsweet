@@ -30,7 +30,6 @@ ts_tests(
     size = "large",
     timeout = "moderate",
     shard_count = 3,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

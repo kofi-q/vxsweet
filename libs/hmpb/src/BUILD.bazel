@@ -36,7 +36,6 @@ ts_tests(
     name = "tests",
     size = "enormous",
     timeout = "moderate",
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

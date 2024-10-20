@@ -3,6 +3,10 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
     name = "tests",
+    env = {
+        "VX_MACHINE_TYPE": "admin",
+    },
+    skip = True,  # Intended to be run manually, once in a while.
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

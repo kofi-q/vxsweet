@@ -38,7 +38,6 @@ ts_library(
 ts_tests(
     name = "tests",
     shard_count = 8,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/fetch-mock",

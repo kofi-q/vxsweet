@@ -19,7 +19,6 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@antongolub/iso8601",
         "//:node_modules/@types/jest",

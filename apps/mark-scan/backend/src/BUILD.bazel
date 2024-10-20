@@ -58,7 +58,6 @@ ts_tests(
     timeout = "short",
     env = {"VX_MACHINE_TYPE": "mark-scan"},
     shard_count = 15,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
