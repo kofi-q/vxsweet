@@ -7,14 +7,32 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { Optional, assert } from '@vx/libs/basics/src';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { MockFileTree, writeMockFileTree } from './helpers';
 import { UsbDrive, UsbDriveStatus } from '../types';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 
 export const MOCK_USB_DRIVE_STATE_FILENAME = 'mock-usb-state.json';
 export const MOCK_USB_DRIVE_DATA_DIRNAME = 'mock-usb-data';
-export const DEFAULT_MOCK_USB_DRIVE_DIR = '/tmp/mock-usb';
-export const DEV_MOCK_USB_DRIVE_DIR = join(__dirname, '../../dev-workspace');
+
+export const DEFAULT_MOCK_USB_DRIVE_DIR = (() => {
+  if (isIntegrationTest()) {
+    return join(
+      process.env.TMPDIR || '/tmp',
+      `${process.env.VX_MACHINE_TYPE || 'vx'}-mock-usb`
+    );
+  }
+
+  return join(process.env.TMPDIR || '/tmp', 'mock-usb');
+})();
+
+// When running dev servers via Bazel, use `BUILD_WORKSPACE_DIRECTORY` so that
+// dev data gets persisted in the workspace instead of the Bazel output tree:
+export const DEV_MOCK_USB_DRIVE_DIR = join(
+  process.env.BUILD_WORKSPACE_DIRECTORY || resolve(__dirname, '../../../..'),
+  'libs/usb-drive/dev-workspace'
+);
+
 export const DEV_MOCK_USB_DRIVE_GLOB_PATTERN = join(
   DEV_MOCK_USB_DRIVE_DIR,
   '**/*'

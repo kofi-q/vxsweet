@@ -1,6 +1,18 @@
 load("//tools/ts_build:json_package.bzl", "json_package")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "playwright",
+    deps = [
+        "//:node_modules/@playwright/test",
+        "//:node_modules/@types/node",
+        "//:node_modules/dotenv",
+        "//:node_modules/dotenv-expand",
+        "//:types_env",
+    ],
+)
 
 ts_tests(
     name = "tests",

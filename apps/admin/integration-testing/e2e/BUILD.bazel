@@ -3,6 +3,10 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "e2e",
+    data = glob(
+        ["**/*-snapshots"],
+        exclude_directories = 0,
+    ),
     deps = [
         "//:node_modules/@playwright/test",
         "//:node_modules/@types/jest",

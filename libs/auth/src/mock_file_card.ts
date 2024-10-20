@@ -14,11 +14,15 @@ import {
 } from '@vx/libs/types/src';
 
 import { Card, CardStatus, CheckPinResponse } from './card';
+import path from 'node:path';
 
 /**
  * The path of the file underlying a MockFileCard
  */
-export const MOCK_FILE_PATH = '/tmp/mock-file-card.json';
+export const MOCK_FILE_PATH = path.join(
+  process.env.TMPDIR || '/tmp',
+  `${process.env.VX_MACHINE_TYPE || 'vx'}-mock-file-card.json`
+);
 
 /**
  * The contents of the file underlying a MockFileCard

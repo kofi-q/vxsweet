@@ -1,0 +1,20 @@
+load("//tools/integration-testing:playwright_test.bzl", "playwright_test")
+load("//tools/integration-testing:ports.bzl", "INTEGRATION_TEST_PORTS")
+
+playwright_test(
+    name = "tests",
+    srcs = ["//apps/central-scan/integration-testing/e2e"],
+    additional_env_vars = {
+        "MOCK_SCANNER_FILES": ",".join([
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-front.jpeg",
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-back.jpeg",
+        ]),
+        "SCAN_WORKSPACE": "$${TEST_TMPDIR}/central-scan-integration-testing",
+    },
+    port = INTEGRATION_TEST_PORTS.central_scan,
+    prod_app = "//apps/central-scan:prod",
+    test_dir = "e2e",
+    viewport_height = "1080",
+    viewport_width = "1920",
+    vx_machine_type = "central-scan",
+)

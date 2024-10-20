@@ -50,13 +50,15 @@ test('mock file printer', async () => {
 
   await filePrinter.print({ data: Buffer.from('print-2') });
 
-  expect(filePrinterHandler.getDataPath()).toEqual('/tmp/mock-printer/prints');
+  expect(filePrinterHandler.getDataPath()).toEqual(
+    `${DEFAULT_MOCK_PRINTER_DIR}/prints`
+  );
   expect(readdirSync(filePrinterHandler.getDataPath())).toEqual([
     'print-job-2021-01-01T00:00:00.000Z.pdf',
     'print-job-2021-01-01T00:00:01.000Z.pdf',
   ]);
   expect(filePrinterHandler.getLastPrintPath()).toEqual(
-    '/tmp/mock-printer/prints/print-job-2021-01-01T00:00:01.000Z.pdf'
+    `${DEFAULT_MOCK_PRINTER_DIR}/prints/print-job-2021-01-01T00:00:01.000Z.pdf`
   );
 
   expect(readFileSync(filePrinterHandler.getLastPrintPath()!, 'utf-8')).toEqual(

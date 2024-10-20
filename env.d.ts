@@ -83,6 +83,23 @@ declare namespace NodeJS {
     BUILD_WORKSPACE_DIRECTORY?: string;
 
     /**
+     * The repo-relative path to the root of the currently running integration
+     * test package.
+     */
+    INTEGRATION_PACKAGE_PATH?: string;
+
+    /**
+     * Script/command to run to start the apps under test for integration tests.
+     */
+    INTEGRATION_SERVER_START_SCRIPT?: string;
+
+    /**
+     * Path to `*.spec.*` integration test files, relative to the root of the
+     * integration test package ({@link INTEGRATION_PACKAGE_PATH}).
+     */
+    INTEGRATION_TEST_DIR?: string;
+
+    /**
      * `true` if tests are being executed via Bazel. Enables configuration based
      * run type (i.e. under Bazel, or directly with, say, `pnpm jest`).
      */
