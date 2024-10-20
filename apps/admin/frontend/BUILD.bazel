@@ -1,0 +1,16 @@
+load("//tools/apps:dev_frontend.bzl", "dev_frontend")
+load("//tools/apps:frontend_bundle.bzl", "frontend_bundle")
+
+frontend_bundle(
+    name = "bundle",
+    srcs = ["//apps/admin/frontend/src"],
+    index_html_path = "index.html",
+    static_asset_dir = "public",
+)
+
+dev_frontend(
+    name = "dev_server",
+    frontend_path_from_root = package_name(),
+    port = "3000",
+    port_backend = "3004",
+)
