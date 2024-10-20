@@ -16,6 +16,7 @@ ts_library(
         "//:node_modules/fs-extra",
         "//:node_modules/tmp",
         "//:node_modules/uuid",
+        "//:types_env",
         "//apps/admin/backend/src",
         "//libs/auth/src",
         "//libs/basics/src",

@@ -38,9 +38,11 @@ jobs:
     resource_class: xlarge
     steps:
       - checkout
+      - restore_playwright_cache
       - restore_bazel_cache:
           key_prefix: build_cache
       - run_build_test
+      - save_playwright_cache
       - save_bazel_cache:
           key_prefix: build_cache
           key_suffix: additive
@@ -132,4 +134,22 @@ commands:
                 paths:
                   # NOTE: Keep in sync with .bazel/ci.bazelrc:
                   - /root/bazel_build_cache
-                  - /root/.cache/ms-playwright
+
+  restore_playwright_cache:
+    description: |
+        Restore a previous Playwright cache for the current Playwright version
+        (specified in .playwright-version).
+    steps:
+      - restore_cache:
+          key: playwright_cache-v1-{{checksum "tools/playwright/version.json" }}
+
+  save_playwright_cache:
+    description: Saves the Playwright cache, keyed by a hash of the .playwright-version file.
+    steps:
+      - save_cache:
+          when: always
+          # Bump the `-v[n]-` version to bust the cache and force a new
+          # one to be saved without changing Playwright versions.
+          key: playwright_cache-v1-{{checksum "tools/playwright/version.json" }}
+          paths:
+            - /root/.cache/ms-playwright

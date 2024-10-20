@@ -38,6 +38,13 @@ ts_config(
 )
 
 js_library(
+    name = "package_json",
+    srcs = ["package.json"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+js_library(
     name = "env",
     srcs = [".env"] + glob(
         ["**/.env.local"],

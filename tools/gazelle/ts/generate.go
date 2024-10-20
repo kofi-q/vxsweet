@@ -283,7 +283,9 @@ func (t *tsPackage) addJsonRule(
 	if len(jsFiles.jsonFiles) == 0 ||
 		// HACK: Only include `:json` target if there are source files in the
 		// directory (that may import it directly).
-		len(jsFiles.sourceFiles) == 0 {
+		len(jsFiles.sourceFiles)+
+			len(jsFiles.testFiles)+
+			len(jsFiles.storyFiles) == 0 {
 		result.Empty = append(result.Empty, newJsonPackageRule())
 		return nil
 	}
