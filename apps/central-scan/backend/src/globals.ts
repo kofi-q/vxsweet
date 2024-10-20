@@ -27,11 +27,14 @@ export const NODE_ENV = unsafeParse(
   process.env.NODE_ENV ?? 'development'
 );
 
+export const REPO_ROOT =
+  process.env.BUILD_WORKSPACE_DIRECTORY || join(__dirname, '../../../..');
+
 /**
  * Where should the database and image files etc go?
  */
 export const SCAN_WORKSPACE =
   process.env.SCAN_WORKSPACE ??
   (NODE_ENV === 'development'
-    ? join(__dirname, '../dev-workspace')
+    ? join(REPO_ROOT, 'apps/central-scan/backend/dev-workspace')
     : undefined);

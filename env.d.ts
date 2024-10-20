@@ -4,6 +4,14 @@ declare namespace NodeJS {
     ADMIN_WORKSPACE?: string;
     CI?: string;
     DISABLE_MARKSCAN_HOT_RELOAD?: 'true' | 'false';
+    /**
+     * The repo-relative path to a directory containing .env files.
+     * Used by the dotenv resolution script to figure out which .env files to
+     * load in addition to the root .env file.
+     *
+     * See libs/backend/src/dotenv.ts
+     */
+    DOTENV_EXECUTION_ROOT?: string;
     IS_INTEGRATION_TEST?: string;
     KIOSK_BROWSER_ALLOW_DEVTOOLS?: string;
     KIOSK_BROWSER_FILE_PERMISSIONS?: string;
@@ -41,6 +49,11 @@ declare namespace NodeJS {
     REACT_APP_VX_USE_MOCK_USB_DRIVE?: string;
     SCAN_ALLOWED_EXPORT_PATTERNS?: string;
     SCAN_WORKSPACE?: string;
+    /**
+     * App directory containing static frontend files to serve to the client.
+     * Used by app backend prod servers.
+     */
+    STATIC_FILE_DIR?: string;
     VX_CODE_VERSION?: string;
     VX_CONFIG_ROOT?: string;
     VX_MACHINE_ID?: string;

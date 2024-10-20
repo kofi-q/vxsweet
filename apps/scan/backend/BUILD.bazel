@@ -1,4 +1,14 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools/apps:dev_backend.bzl", "dev_backend")
+
+dev_backend(
+    name = "dev_server",
+    backend_entry_point_from_root = package_name() + "/src/main.ts",
+    backend_path_from_root = package_name(),
+    data = ["//libs/pdi-scanner/src/ts:pdictl_binary"],  # Pre-build to generate symlink
+    port = "3002",
+    vx_machine_type = "scan",
+)
 
 js_library(
     name = "db_schema",

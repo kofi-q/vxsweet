@@ -1,3 +1,4 @@
+load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
@@ -6,6 +7,9 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "ts",
+    data = [
+        ":pdictl_binary",
+    ],
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/node",
@@ -31,3 +35,14 @@ ts_tests(
 )
 
 lint_test(name = "lint")
+
+copy_file(
+    name = "pdictl_binary",
+    src = "//libs/pdi-scanner:pdictl",
+    out = "pdictl",
+    is_executable = True,
+    visibility = [
+        ":__pkg__",
+        "//apps/scan/backend:__pkg__",  # Used when running the dev server.
+    ],
+)

@@ -22,11 +22,14 @@ export const NODE_ENV = unsafeParse(
   process.env.NODE_ENV ?? 'development'
 );
 
+const REPO_ROOT =
+  process.env.BUILD_WORKSPACE_DIRECTORY || join(__dirname, '../../..');
+
 /**
  * Where should the database go?
  */
 export const WORKSPACE =
   process.env.WORKSPACE ??
   (NODE_ENV === 'development'
-    ? join(__dirname, '../dev-workspace')
+    ? join(REPO_ROOT, 'apps/design/backend/dev-workspace')
     : undefined);

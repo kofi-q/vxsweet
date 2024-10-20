@@ -4,7 +4,6 @@ import { createInterface } from 'node:readline';
 import {
   Result,
   assert,
-  assertDefined,
   deferredQueue,
   err,
   ok,
@@ -21,10 +20,7 @@ import makeDebug from 'debug';
 
 const debug = makeDebug('pdi-scanner');
 
-const PDICTL_PATH = path.join(
-  assertDefined(__dirname.split('libs')[0]),
-  'target/release/pdictl'
-);
+const PDICTL_PATH = path.join(__dirname, 'pdictl');
 
 /**
  * The width of the image produced by the scanner.
