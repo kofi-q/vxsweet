@@ -1,5 +1,7 @@
 # dependencies
 node_modules
+**/.pnpm-store
+.pnpm-store
 /.pnp
 .pnp.js
 
@@ -34,4 +36,3 @@ dev-workspace
 test-results
 
 /bazel-*
-

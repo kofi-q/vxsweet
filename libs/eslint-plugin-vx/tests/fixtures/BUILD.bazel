@@ -1,4 +1,3 @@
-load("//tools/ts_build:defs.bzl", "json_package")
 load("//tools/ts_build:json_package.bzl", "json_package")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
