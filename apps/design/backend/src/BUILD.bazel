@@ -47,7 +47,6 @@ ts_library(
 ts_tests(
     name = "tests",
     shard_count = 8,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

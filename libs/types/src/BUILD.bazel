@@ -32,7 +32,6 @@ ts_tests(
         ":json",
         "//libs/types/data",
     ],
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.clonedeep",

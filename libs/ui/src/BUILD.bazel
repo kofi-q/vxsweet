@@ -76,7 +76,6 @@ ts_tests(
         "fonts/font_awesome_styles.ts",  # Loaded at runtime by fonts/font_awesome_styles.test
     ],
     shard_count = 50,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@testing-library/react",

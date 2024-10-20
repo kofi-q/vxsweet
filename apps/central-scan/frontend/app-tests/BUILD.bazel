@@ -3,7 +3,6 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
     name = "tests",
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/fetch-mock",

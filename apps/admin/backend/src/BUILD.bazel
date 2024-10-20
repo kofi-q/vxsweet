@@ -58,7 +58,6 @@ ts_tests(
         "VX_MACHINE_TYPE": "admin",
     },
     shard_count = 32,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.set",

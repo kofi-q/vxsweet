@@ -44,7 +44,6 @@ ts_tests(
     size = "medium",
     timeout = "short",
     shard_count = 19,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",

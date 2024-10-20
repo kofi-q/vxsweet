@@ -58,7 +58,6 @@ ts_tests(
     size = "medium",
     timeout = "short",
     shard_count = 12,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",

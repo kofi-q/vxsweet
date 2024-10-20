@@ -50,7 +50,6 @@ ts_tests(
     data = ["//apps/central-scan/backend/test:fixtures"],
     env = {"VX_MACHINE_TYPE": "central-scan"},
     shard_count = 19,
-    tmp_enable_tests = True,
     deps = [
         "//:node_modules/@types/express",
         "//:node_modules/@types/fs-extra",
