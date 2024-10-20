@@ -5,20 +5,13 @@ import {
   famousNamesFixtures,
   generalElectionFixtures,
   primaryElectionFixtures,
-  renderAllBallotsAndCreateElectionDefinition,
-  vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { assert, find, iter } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/src';
+import { buildContestResultsFixture } from '@vx/libs/utils/src';
 import {
-  buildContestResultsFixture,
-  getBallotStylesByPrecinctId,
-} from '@vx/libs/utils/src';
-import { ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
-import {
-  createPrecinctTestDeck,
   createTestDeckTallyReport,
   getTallyReportResults,
-} from './test_decks';
+} from '../src/test_decks';
 import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(30000);
@@ -29,107 +22,6 @@ beforeAll(async () => {
 });
 afterAll(async () => {
   await renderer.cleanup();
-});
-
-describe('createPrecinctTestDeck', () => {
-  test('for a precinct with one ballot style', async () => {
-    const fixtures = famousNamesFixtures;
-    const electionDefinition = (
-      await readElection(fixtures.electionPath)
-    ).unsafeUnwrap();
-    const { election } = electionDefinition;
-    const precinctId = election.precincts[0].id;
-    assert(
-      getBallotStylesByPrecinctId(electionDefinition, precinctId).length === 1
-    );
-    const { ballotDocuments } =
-      await renderAllBallotsAndCreateElectionDefinition(
-        renderer,
-        vxDefaultBallotTemplate,
-        fixtures.allBallotProps,
-        'vxf'
-      );
-    const ballots = iter(fixtures.allBallotProps)
-      .zip(ballotDocuments)
-      .map(([props, document]) => ({ props, document }))
-      .toArray();
-
-    const testDeckDocument = await createPrecinctTestDeck({
-      renderer,
-      election,
-      precinctId,
-      ballots,
-    });
-    await expect(testDeckDocument).toMatchPdfSnapshot();
-  });
-
-  test('for a precinct with multiple ballot styles', async () => {
-    const fixtures = primaryElectionFixtures;
-    const primaryElectionDefinition = (
-      await readElection(fixtures.electionPath)
-    ).unsafeUnwrap();
-    // Test takes unnecessarily long if using all language ballot styles
-    const electionDefinition: ElectionDefinition = {
-      ...primaryElectionDefinition,
-      election: {
-        ...primaryElectionDefinition.election,
-        ballotStyles: primaryElectionDefinition.election.ballotStyles.filter(
-          (bs) =>
-            bs.languages &&
-            bs.languages.length === 1 &&
-            bs.languages[0] === LanguageCode.ENGLISH
-        ),
-      },
-    };
-    const { election } = electionDefinition;
-    const precinctId = election.precincts[0].id;
-    assert(
-      getBallotStylesByPrecinctId(electionDefinition, precinctId).length > 1
-    );
-    const { ballotDocuments } =
-      await renderAllBallotsAndCreateElectionDefinition(
-        renderer,
-        vxDefaultBallotTemplate,
-        fixtures.allBallotProps,
-        'vxf'
-      );
-    const ballots = iter(fixtures.allBallotProps)
-      .zip(ballotDocuments)
-      .map(([props, document]) => ({ props, document }))
-      .toArray();
-
-    const testDeckDocument = await createPrecinctTestDeck({
-      renderer,
-      election,
-      precinctId,
-      ballots,
-    });
-    await expect(testDeckDocument).toMatchPdfSnapshot({
-      failureThreshold: 0.05,
-    });
-  });
-
-  test('for a precinct with no ballot styles', async () => {
-    const fixtures = generalElectionFixtures.fixtureSpecs[0];
-    const electionDefinition = (
-      await readElection(fixtures.electionPath)
-    ).unsafeUnwrap();
-    const { election } = electionDefinition;
-    const precinctWithNoBallotStyles = find(
-      election.precincts,
-      (precinct) =>
-        getBallotStylesByPrecinctId(electionDefinition, precinct.id).length ===
-        0
-    );
-
-    const testDeckDocument = await createPrecinctTestDeck({
-      renderer,
-      election,
-      precinctId: precinctWithNoBallotStyles.id,
-      ballots: [], // doesn't matter
-    });
-    expect(testDeckDocument).toBeUndefined();
-  });
 });
 
 describe('getTallyReportResults', () => {

@@ -55,6 +55,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    timeout = "short",
     shard_count = 12,
     tmp_enable_tests = True,
     deps = [

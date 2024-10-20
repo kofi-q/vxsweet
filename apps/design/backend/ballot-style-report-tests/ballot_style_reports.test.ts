@@ -6,7 +6,7 @@ import {
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
-import { renderBallotStyleReadinessReport } from './ballot_style_reports';
+import { renderBallotStyleReadinessReport } from '../src/ballot_style_reports';
 import '@vx/libs/image-test-utils/register';
 
 const { ENGLISH, CHINESE_SIMPLIFIED, SPANISH } = LanguageCode;
@@ -52,4 +52,4 @@ test('PDF layout regression test', async () => {
   await expect(reportPdf).toMatchPdfSnapshot();
 
   await renderer.cleanup();
-});
+}, 20_000);

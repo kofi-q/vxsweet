@@ -19,6 +19,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "medium",
+    timeout = "short",
     data = ["//libs/db:fixtures"],
     tmp_enable_tests = True,
     deps = [

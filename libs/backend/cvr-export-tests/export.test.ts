@@ -22,12 +22,12 @@ import {
   interpretedHmpbPage1,
   interpretedHmpbWithUnmarkedWriteIn,
   interpretedHmpbWithWriteIn,
-} from '../../test/fixtures/interpretations';
+} from '../test/fixtures/interpretations';
 import {
   MockCentralScannerStore,
   MockPrecinctScannerStore,
   summarizeDirectoryContents,
-} from '../../test/utils';
+} from '../test/utils';
 import {
   AcceptedSheet,
   clearDoesUsbDriveRequireCastVoteRecordSyncCachedResult,
@@ -36,15 +36,15 @@ import {
   ExportOptions,
   RejectedSheet,
   Sheet,
-} from './export';
+} from '../src/cast_vote_records/export';
 import {
   readCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from './import';
+} from '../src/cast_vote_records/import';
 import {
   getCastVoteRecordExportDirectoryPaths,
   readCastVoteRecord,
-} from './test_utils';
+} from '../src/cast_vote_records/test_utils';
 
 jest.setTimeout(30_000);
 

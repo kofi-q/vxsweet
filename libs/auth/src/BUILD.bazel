@@ -30,6 +30,7 @@ ts_library(
         "//:node_modules/tmp",
         "//:node_modules/uuid",
         "//:node_modules/zod",
+        "//:types_env",
         "//libs/basics/src",
         "//libs/db/src",
         "//libs/logging/src",

@@ -18,13 +18,16 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 
-import { TEST_OTHER_REPORT_TYPE } from './build_report_metadata';
-import { isTestReport, readCastVoteRecordExport } from './import';
+import { TEST_OTHER_REPORT_TYPE } from '../src/cast_vote_records/build_report_metadata';
+import {
+  isTestReport,
+  readCastVoteRecordExport,
+} from '../src/cast_vote_records/import';
 import {
   CastVoteRecordExportModifications,
   modifyCastVoteRecordExport,
-} from './test_utils';
-import { getImageHash } from './build_cast_vote_record';
+} from '../src/cast_vote_records/test_utils';
+import { getImageHash } from '../src/cast_vote_records/build_cast_vote_record';
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
