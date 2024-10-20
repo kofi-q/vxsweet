@@ -42,6 +42,7 @@ import { printBallot } from './util/print_ballot';
 import { isAccessibleControllerAttached } from './util/accessible_controller';
 import { constructAuthMachineState } from './util/auth';
 import { ElectionRecord } from './store';
+import path from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function buildApi(
@@ -287,5 +288,18 @@ export function buildApp(
   const api = buildApi(auth, usbDrive, printer, logger, workspace);
   app.use('/api', grout.buildRouter(api, express));
   useDevDockRouter(app, express, 'mark');
+
+  // `STATIC_FILE_DIR` is set when running the in `production` mode - when its
+  // specified, set up static file serving routes for frontend files:
+  const { STATIC_FILE_DIR } = process.env;
+  if (STATIC_FILE_DIR) {
+    const STATIC_FILE_DIR_ABS = path.join(process.cwd(), STATIC_FILE_DIR);
+
+    app.use(express.static(STATIC_FILE_DIR_ABS));
+    app.get('*', (_, res) => {
+      res.sendFile(path.join(STATIC_FILE_DIR_ABS, 'index.html'));
+    });
+  }
+
   return app;
 }

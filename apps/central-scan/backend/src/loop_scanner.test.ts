@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { fileSync } from 'tmp';
 import { LoopScanner, parseBatches, parseBatchesFromEnv } from './loop_scanner';
 import { ScannedSheetInfo } from './fujitsu_scanner';
+import { REPO_ROOT } from './globals';
 
 function readFiles(sheetInfo: ScannedSheetInfo): string[] {
   return [sheetInfo.frontPath, sheetInfo.backPath].map((path) =>
@@ -38,8 +39,8 @@ test('copies files in pairs', async () => {
 test('parses an inline manifest from an environment variable', () => {
   expect(parseBatchesFromEnv('01.png,02.png,03.png,04.png')).toEqual([
     [
-      { frontPath: '01.png', backPath: '02.png' },
-      { frontPath: '03.png', backPath: '04.png' },
+      { frontPath: `${REPO_ROOT}/01.png`, backPath: `${REPO_ROOT}/02.png` },
+      { frontPath: `${REPO_ROOT}/03.png`, backPath: `${REPO_ROOT}/04.png` },
     ],
   ]);
 });
@@ -74,8 +75,8 @@ test('preserves absolute paths in a manifest file', () => {
 
 test('interprets multiple path separators in a row as a batch separator', () => {
   expect(parseBatchesFromEnv('01.png,02.png,,,03.png,04.png')).toEqual([
-    [{ frontPath: '01.png', backPath: '02.png' }],
-    [{ frontPath: '03.png', backPath: '04.png' }],
+    [{ frontPath: `${REPO_ROOT}/01.png`, backPath: `${REPO_ROOT}/02.png` }],
+    [{ frontPath: `${REPO_ROOT}/03.png`, backPath: `${REPO_ROOT}/04.png` }],
   ]);
 });
 

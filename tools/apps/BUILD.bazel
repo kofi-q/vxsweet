@@ -1,0 +1,7 @@
+exports_files(
+    [
+        "run_dev_backend.sh",
+        "run_dev_frontend.sh",
+    ],
+    visibility = ["//visibility:public"],
+)
