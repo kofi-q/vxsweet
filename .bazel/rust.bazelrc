@@ -6,3 +6,11 @@ common --action_env=CARGO_PKG_HOMEPAGE="https://github.com/votingworks/vxsuite"
 common --action_env=CARGO_PKG_LICENSE="AGPL-3.0"
 common --action_env=CARGO_PKG_REPOSITORY="https://github.com/votingworks/vxsuite"
 common --action_env=RUSTDOC="None"
+
+# Enable clippy checks on all Rust targets.
+# See https://bazelbuild.github.io/rules_rust/rust_clippy.html#setup
+build --aspects=@rules_rust//rust:defs.bzl%rust_clippy_aspect
+build --@rules_rust//:clippy_flag="-Wclippy::pedantic"
+build --@rules_rust//:clippy_flag="-Wclippy::nursery"
+build --@rules_rust//:clippy_flag="-Wclippy::unwrap_used"
+build --output_groups=+clippy_checks
