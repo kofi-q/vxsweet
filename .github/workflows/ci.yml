@@ -1,0 +1,44 @@
+name: Build and Test Commit
+run-name: ${{ github.ref_name }} - Commit Checks
+
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/kofiq/vxsweet:latest
+      credentials:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Restore Build Cache
+        uses: actions/cache/restore@v4.1.1
+        id: restore_bazel_cache
+        with:
+          key: build_cache-v1-${{ github.ref_name }}-${{ github.sha }}
+          path: /github/home/bazel_build_cache
+          restore-keys: |
+            build_cache-v1-${{ github.ref_name }}-${{ github.sha }}
+            build_cache-v1-${{ github.ref_name }}-
+            build_cache-v1-main-
+
+      - name: Build and Test
+        run: bazel test //libs/basics/... --config=ci --test_tag_filters=-lint --disk_cache="/github/home/bazel_build_cache"
+
+      - name: Save Build Cache
+        uses: actions/cache/save@v4.1.1
+        if: always() && github.ref_name == 'main' && !steps.restore_bazel_cache.outputs.cache-hit
+        with:
+          key: build_cache-v1-${{ github.ref_name }}-${{ github.sha }}
+          path: /github/home/bazel_build_cache
