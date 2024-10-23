@@ -34,7 +34,7 @@ jobs:
             build_cache-v1-main-
 
       - name: Build and Test
-        run: bazel test //libs/basics/... --config=ci --test_tag_filters=-lint --disk_cache="/github/home/bazel_build_cache"
+        run: bazel test //libs/basics/... //libs/types/... --config=ci --test_tag_filters=-lint --disk_cache="/github/home/bazel_build_cache"
 
       - name: Save Build Cache
         uses: actions/cache/save@v4.1.1
