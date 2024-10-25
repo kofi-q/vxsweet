@@ -66,6 +66,9 @@ jobs:
     resource_class: xlarge
     steps:
       - checkout
+      - restore_playwright_cache
+      - restore_bazel_cache_clean:
+          key_prefix: build_cache
       - run_build_test
       - save_bazel_cache:
           key_prefix: build_cache
@@ -113,6 +116,16 @@ commands:
             - << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-
             - << parameters.key_prefix >>-v1-{{ .Branch }}-
             - << parameters.key_prefix >>-v1-main-
+
+  restore_bazel_cache_clean:
+    description: |
+        Attempts to restore only a '-clean' cache for the most recent commit.
+    parameters:
+      key_prefix:
+        type: string
+    steps:
+      - restore_cache:
+          key: << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-clean
 
   save_bazel_cache:
     description: Saves the Bazel cache to the CircleCI cache for future runs.

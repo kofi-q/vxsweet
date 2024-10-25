@@ -38,7 +38,7 @@ jobs:
 
       - name: Save Build Cache
         uses: actions/cache/save@v4.1.1
-        if: always() && github.ref_name == 'main' && !steps.restore_bazel_cache.outputs.cache-hit
+        if: always() && github.ref_name == 'main' && !steps.restore_bazel_cache.outputs.cache-primary-key
         with:
           key: build_cache-v1-${{ github.ref_name }}-${{ github.sha }}
           path: /github/home/bazel_build_cache
