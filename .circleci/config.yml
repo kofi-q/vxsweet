@@ -142,7 +142,6 @@ commands:
                 - << pipeline.parameters.force_cache_save >>
           steps:
             - save_cache:
-                when: always
                 key: << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
                 paths:
                   # NOTE: Keep in sync with .bazel/ci.bazelrc:
