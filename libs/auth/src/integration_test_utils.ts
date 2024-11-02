@@ -1,4 +1,5 @@
-import { Election, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 
 import { mockCard } from './mock_file_card';
 

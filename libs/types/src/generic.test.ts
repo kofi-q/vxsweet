@@ -1,7 +1,8 @@
 import { z } from 'zod';
 import { DateWithoutTime } from '@vx/libs/basics/src';
-import { MachineId, safeParse } from '.';
 import {
+  MachineId,
+  safeParse,
   DateWithoutTimeSchema,
   maybeParse,
   safeParseJson,

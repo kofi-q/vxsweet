@@ -1,6 +1,6 @@
-import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
+import { Admin, type ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 import {
-  Result,
+  type Result,
   assertDefined,
   err,
   find,
@@ -11,8 +11,8 @@ import {
   getDistrictById,
   getPartyById,
   getPrecinctById,
-} from '@vx/libs/utils/src';
-import { ScannerBatch } from '../types';
+} from '@vx/libs/utils/src/tabulation';
+import { type ScannerBatch } from '../types';
 
 const MANUAL_BATCH_REPORT_LABEL = 'Manual Tallies';
 

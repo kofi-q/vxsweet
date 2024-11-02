@@ -5,7 +5,7 @@ import {
   Modal,
   ModalWidth,
   Button,
-  ElectronFile,
+  type ElectronFile,
   P,
   FileInputButton,
   UsbDriveImage,
@@ -17,13 +17,13 @@ import {
 } from '@vx/libs/utils/src';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
-import type {
-  ImportElectionResultsReportingError,
-  ManualResultsVotingMethod,
-} from '@vx/apps/admin/backend/src';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import {
+  type ImportElectionResultsReportingError,
+  type ManualResultsVotingMethod,
+} from '../../../../backend/src/types';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import { AppContext } from '../../contexts/app_context';
-import { InputEventFunction } from '../../config/types';
+import { type InputEventFunction } from '../../config/types';
 import { importElectionResultsReportingFile } from '../../api';
 
 const Content = styled.div`

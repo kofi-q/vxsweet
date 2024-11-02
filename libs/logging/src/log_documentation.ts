@@ -1,9 +1,13 @@
 import { EventLogging } from '@vx/libs/types/src';
-import { getDetailsForEventId, LogDetails, LogEventId } from './log_event_ids';
+import {
+  getDetailsForEventId,
+  type LogDetails,
+  LogEventId,
+} from './log_event_ids';
 import {
   getDocumentationForEventType,
   LogEventType,
-  LogEventTypeDocumentation,
+  type LogEventTypeDocumentation,
 } from './base_types/log_event_types';
 import { AppName } from './base_types/log_source';
 

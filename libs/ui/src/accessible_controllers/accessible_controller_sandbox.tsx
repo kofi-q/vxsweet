@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { AppStringKey, AudioOnly, ReadOnLoad, appStrings } from '../ui_strings';
+import { type AppStringKey, appStrings } from '../ui_strings/app_strings';
+import { AudioOnly } from '../ui_strings/audio_only';
+import { ReadOnLoad } from '../ui_strings/read_on_load';
 import { Keybinding } from '../keybindings';
 import { Screen } from '../screen';
 import { Main } from '../main';

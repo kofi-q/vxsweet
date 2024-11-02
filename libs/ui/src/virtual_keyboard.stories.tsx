@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { VirtualKeyboard, VirtualKeyboardProps } from '.';
+import { VirtualKeyboard, type VirtualKeyboardProps } from './virtual_keyboard';
 
 const initialArgs: Partial<VirtualKeyboardProps> = {
   keyDisabled: () => false,

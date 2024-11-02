@@ -3,14 +3,14 @@ import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtu
 import {
   AdjudicationReason,
   BallotIdSchema,
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
-  BlankPage,
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
-  PageInterpretation,
-  UnreadablePage,
+  type BlankPage,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
+  type UnreadablePage,
   unsafeParse,
 } from '@vx/libs/types/src';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';

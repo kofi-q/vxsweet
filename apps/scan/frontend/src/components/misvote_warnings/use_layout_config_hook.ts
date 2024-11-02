@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components';
 import { isTouchSizeMode } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import { CONFIG } from './constants';
-import { Layout, MisvoteWarningsProps } from './types';
+import { type Layout, type MisvoteWarningsProps } from './types';
 
 export function useLayoutConfig(props: MisvoteWarningsProps): Layout {
   const { blankContests, overvoteContests, partiallyVotedContests } = props;

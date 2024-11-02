@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { format } from '@vx/libs/utils/src';
-import { Optional, iter } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { Modal } from './modal';
 import { useSystemCallApi } from './system_call_api';
 import { Button } from './button';

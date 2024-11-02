@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '../../test/react_testing_library';
 import { TabBar } from './tab_bar';
-import { SettingsPaneId } from './types';
+import { type SettingsPaneId } from './types';
 
 test('renders all available voter settings tabs', () => {
   render(<TabBar activePaneId="voterSettingsSize" onChange={jest.fn()} />);

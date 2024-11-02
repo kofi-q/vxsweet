@@ -6,7 +6,7 @@ import {
   createInterfaceFromDefinition,
   parseJsonSchema,
 } from './json_schema';
-import { Enum, Interface, Type } from './types';
+import { type Enum, type Interface, type Type } from './types';
 
 test('parseJsonSchema', () => {
   expect(parseJsonSchema(`{`).unsafeUnwrapErr()).toBeInstanceOf(SyntaxError);

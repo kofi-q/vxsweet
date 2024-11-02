@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { VxRenderResult } from '@vx/libs/ui/src';
+import { type VxRenderResult } from '@vx/libs/ui/src';
 import { fireEvent, render, screen } from '../../../test/react_testing_library';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';

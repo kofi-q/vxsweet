@@ -1,4 +1,4 @@
-import { ElectionDefinition } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/src';
 import {
   Button,
   Modal,
@@ -6,17 +6,16 @@ import {
   SetClockButton,
   ChangePrecinctButton,
   P,
-  TabbedSection,
   ExportLogsButton,
   UnconfigureMachineButton,
   Icons,
-  TabConfig,
   PowerDownButton,
   SignedHashValidationButton,
 } from '@vx/libs/ui/src';
+import { TabbedSection, type TabConfig } from '@vx/libs/ui/src/tabbed_section';
 import React, { useState } from 'react';
-import type { PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type PrecinctScannerStatus } from '../../../backend/src/types';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import styled from 'styled-components';
 import { ExportResultsModal } from '../components/export_results_modal';
 import { Screen } from '../components/layout';

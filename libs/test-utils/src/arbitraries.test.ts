@@ -6,8 +6,8 @@ import {
 } from '@vx/libs/types/src';
 import fc from 'fast-check';
 import { assert } from '@vx/libs/basics/src';
-import { arbitraryDateTime } from '.';
 import {
+  arbitraryDateTime,
   arbitraryCandidateContest,
   arbitraryElection,
   arbitraryElectionDefinition,

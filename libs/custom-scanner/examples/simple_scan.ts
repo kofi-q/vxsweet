@@ -5,11 +5,11 @@ import {
   DoubleSheetDetectOpt,
   FormStanding,
   ImageColorDepthType,
-  ImageFromScanner,
+  type ImageFromScanner,
   ImageResolution,
-  openScanner,
   ScanSide,
-} from '../src';
+} from '../src/types';
+import { openScanner } from '../src/open_scanner';
 
 /**
  * Encodes the images as PGM files. We choose this format because it is simple

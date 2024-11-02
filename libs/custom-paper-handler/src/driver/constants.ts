@@ -1,5 +1,5 @@
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import { Uint8 } from '@vx/libs/message-coder/src';
+import { type Uint8 } from '@vx/libs/message-coder/src';
 
 /**
  * Maximum value of a `Uint16`

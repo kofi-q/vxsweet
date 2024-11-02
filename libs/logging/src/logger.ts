@@ -1,7 +1,7 @@
 import { LogEventId } from './log_event_ids';
 import { LogSource } from './base_types/log_source';
-import { LogLine, LoggingUserRole } from './types';
-import { LogData, BaseLogger } from './base_logger';
+import { type LogLine, type LoggingUserRole } from './types';
+import { type LogData, BaseLogger } from './base_logger';
 
 export class Logger extends BaseLogger {
   constructor(

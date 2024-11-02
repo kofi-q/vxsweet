@@ -1,4 +1,5 @@
-import { assertDefined, find, iter } from '@vx/libs/basics/src';
+import { assertDefined, find } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   H3,
   Icons,

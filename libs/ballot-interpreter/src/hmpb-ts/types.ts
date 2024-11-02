@@ -1,10 +1,10 @@
 import { ImageData } from 'canvas';
 import {
   HmpbBallotPaperSize,
-  GridPosition,
-  HmpbBallotPageMetadata,
+  type GridPosition,
+  type HmpbBallotPageMetadata,
 } from '@vx/libs/types/src';
-import { Optional, Result } from '@vx/libs/basics/src';
+import { type Optional, type Result } from '@vx/libs/basics/src';
 
 /*
  * Many of these types are from the Rust code.

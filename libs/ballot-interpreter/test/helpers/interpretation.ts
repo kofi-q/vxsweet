@@ -1,17 +1,13 @@
-import {
-  AsyncIteratorPlus,
-  assertDefined,
-  iter,
-  unique,
-} from '@vx/libs/basics/src';
+import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined, unique } from '@vx/libs/basics/src';
 import { voteToOptionId } from '@vx/libs/hmpb/src';
 import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {
-  ContestId,
-  GridLayout,
-  UnmarkedWriteIn,
-  Vote,
-  VotesDict,
+  type ContestId,
+  type GridLayout,
+  type UnmarkedWriteIn,
+  type Vote,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { readFileSync } from 'node:fs';

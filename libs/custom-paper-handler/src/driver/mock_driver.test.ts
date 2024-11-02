@@ -9,14 +9,14 @@ jest.mock(
 import { ImageData, writeImageData } from '@vx/libs/image-utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 
-import { PaperHandlerStatus } from './coders';
+import { type PaperHandlerStatus } from './coders';
 import {
   MockPaperHandlerDriver,
-  MockPaperHandlerStatus,
+  type MockPaperHandlerStatus,
   isMockPaperHandler,
 } from './mock_driver';
 import * as statusHelpers from './scanner_status';
-import { MinimalWebUsbDevice } from './minimal_web_usb_device';
+import { type MinimalWebUsbDevice } from './minimal_web_usb_device';
 import { PaperHandlerDriver } from './driver';
 
 function expectMockStatus(params: {

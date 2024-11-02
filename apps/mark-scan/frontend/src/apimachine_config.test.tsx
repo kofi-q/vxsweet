@@ -2,7 +2,7 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { advanceTimersAndPromises } from '@vx/libs/test-utils/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { render, screen } from '../test/react_testing_library';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';
 
 let apiMock: ApiMock;

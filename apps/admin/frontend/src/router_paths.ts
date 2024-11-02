@@ -1,7 +1,7 @@
 import {
-  ManualTallyFormContestParams,
-  ManualTallyFormParams,
-  WriteInsAdjudicationScreenParams,
+  type ManualTallyFormContestParams,
+  type ManualTallyFormParams,
+  type WriteInsAdjudicationScreenParams,
 } from './config/types';
 
 export const routerPaths = {

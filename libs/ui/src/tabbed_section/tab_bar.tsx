@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../button';
-import { IconName } from '../icons';
+import { type IconName } from '../icons';
 
 export interface TabBarProps<Id extends string = string> {
   activePaneId?: Id;

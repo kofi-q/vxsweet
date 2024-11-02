@@ -1,11 +1,8 @@
 import { P } from '@vx/libs/ui/src';
 import { useContext, useState } from 'react';
 import { assert } from '@vx/libs/basics/src';
-import {
-  isElectionManagerAuth,
-  isFilterEmpty,
-  isGroupByEmpty,
-} from '@vx/libs/utils/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
+import { isFilterEmpty, isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';

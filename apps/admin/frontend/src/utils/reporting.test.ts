@@ -1,7 +1,7 @@
 import {
   Admin,
-  BallotStyleGroupId,
-  Election,
+  type BallotStyleGroupId,
+  type Election,
   Tabulation,
 } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';

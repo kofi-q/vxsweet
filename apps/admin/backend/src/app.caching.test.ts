@@ -7,11 +7,11 @@ jest.mock('@vx/libs/utils/src', () => {
 });
 
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { Client } from '@vx/libs/grout/src';
+import { type Client } from '@vx/libs/grout/src';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { assert, ok } from '@vx/libs/basics/src';
-import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -22,7 +22,7 @@ import {
   mockElectionManagerAuth,
 } from '../test/app';
 import { parseCsv } from '../test/csv';
-import { Api } from './app';
+import { type Api } from './app';
 
 // enable us to use modified fixtures that don't pass authentication
 const featureFlagMock = getFeatureFlagMock();

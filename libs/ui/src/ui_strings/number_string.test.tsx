@@ -1,6 +1,7 @@
 import { LanguageCode } from '@vx/libs/types/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { H1, TestErrorBoundary } from '..';
+import { H1 } from '../typography';
+import { TestErrorBoundary } from '../error_boundary';
 import {
   act,
   render as renderWithoutContext,

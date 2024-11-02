@@ -1,4 +1,4 @@
-import { MachineConfig } from './types';
+import { type MachineConfig } from './types';
 
 export function getMachineConfig(): MachineConfig {
   return {

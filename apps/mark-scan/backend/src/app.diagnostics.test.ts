@@ -7,10 +7,16 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 jest.mock(
+  '@vx/libs/backend/src/system_call',
+  (): typeof import('@vx/libs/backend/src/system_call') => ({
+    ...jest.requireActual('@vx/libs/backend/src/system_call'),
+    getBatteryInfo: jest.fn(),
+  })
+);
+jest.mock(
   '@vx/libs/backend/src',
   (): typeof import('@vx/libs/backend/src') => ({
     ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -21,6 +27,7 @@ jest.mock('./util/hardware');
 
 jest.mock('./custom-paper-handler/application_driver');
 
+jest.mock('@vx/libs/ballot-interpreter/src/hmpb-ts');
 jest.mock('@vx/libs/ballot-interpreter/src');
 
 jest.mock('./util/get_current_time', () => ({
@@ -38,30 +45,30 @@ import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import tmp from 'tmp';
 import {
-  BallotId,
+  type BallotId,
   BallotType,
-  DiagnosticRecord,
-  PageInterpretation,
-  SheetOf,
+  type DiagnosticRecord,
+  type PageInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import {
-  DiskSpaceSummary,
-  getBatteryInfo,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
   pdfToText,
 } from '@vx/libs/backend/src';
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
-import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { assertDefined, deferred, ok } from '@vx/libs/basics/src';
 import {
-  InterpretFileResult,
+  type InterpretFileResult,
   interpretSimplexBmdBallot,
 } from '@vx/libs/ballot-interpreter/src';
 import { readElection } from '@vx/libs/fs/src';
 import { BLANK_PAGE_IMAGE_DATA } from '@vx/libs/image-utils/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
-import { Api } from './app';
+import { type Api } from './app';
 import { PatConnectionStatusReader } from './pat-input/connection_status_reader';
 import {
   configureApp,
@@ -70,14 +77,14 @@ import {
 } from '../test/app_helpers';
 import {
   delays,
-  PaperHandlerStateMachine,
+  type PaperHandlerStateMachine,
 } from './custom-paper-handler/state_machine';
 import { isAccessibleControllerDaemonRunning } from './util/hardware';
 import { mockSystemAdminAuth } from '../test/auth_helpers';
 import {
   DIAGNOSTIC_ELECTION_PATH,
   getDiagnosticMockBallotImagePath,
-} from './custom-paper-handler/diagnostic';
+} from './custom-paper-handler/diagnostic/utils';
 import {
   loadAndParkPaper,
   scanAndSave,

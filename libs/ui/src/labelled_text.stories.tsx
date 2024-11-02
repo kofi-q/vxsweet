@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { LabelledText, LabelledTextProps } from './labelled_text';
+import { LabelledText, type LabelledTextProps } from './labelled_text';
 
 const initialArgs: LabelledTextProps = {
   children: 'Main text',

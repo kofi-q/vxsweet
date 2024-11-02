@@ -1,13 +1,13 @@
 import userEvent from '@testing-library/user-event';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';
 import { render, screen, waitFor } from '../../../test/react_testing_library';
 import {
   PollWorkerLoadAndReprintButton,
-  PollWorkerLoadAndReprintButtonProps,
+  type PollWorkerLoadAndReprintButtonProps,
 } from './poll_worker_load_and_reprint_button';
 
 let apiMock: ApiMock;

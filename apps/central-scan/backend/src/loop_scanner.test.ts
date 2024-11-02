@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'fs-extra';
 import { join } from 'node:path';
 import { fileSync } from 'tmp';
 import { LoopScanner, parseBatches, parseBatchesFromEnv } from './loop_scanner';
-import { ScannedSheetInfo } from './fujitsu_scanner';
+import { type ScannedSheetInfo } from './fujitsu_scanner';
 import { REPO_ROOT } from './globals';
 
 function readFiles(sheetInfo: ScannedSheetInfo): string[] {

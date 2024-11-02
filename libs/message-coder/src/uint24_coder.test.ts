@@ -2,8 +2,8 @@ import { err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import { MAX_UINT24 } from './constants';
-import { CoderType } from './message_coder';
-import { DecodeResult } from './types';
+import { type CoderType } from './message_coder';
+import { type DecodeResult } from './types';
 import { uint24 } from './uint24_coder';
 
 test('uint24', () => {

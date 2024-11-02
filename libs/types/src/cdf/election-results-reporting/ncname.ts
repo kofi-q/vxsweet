@@ -1,12 +1,12 @@
 import { CDF_ERR_VX_ID_PREFIX } from './constants';
 import {
-  Candidate,
-  CandidateId,
-  Contest,
-  District,
-  Election,
-  Party,
-  YesNoContest,
+  type Candidate,
+  type CandidateId,
+  type Contest,
+  type District,
+  type Election,
+  type Party,
+  type YesNoContest,
 } from '../../election';
 
 // Helpers for formatting IDs as xmlschema NCNames.

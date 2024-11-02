@@ -1,4 +1,4 @@
-import { BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
 
 export function combineGroupSpecifierAndFilter(
   group: Tabulation.GroupSpecifier,

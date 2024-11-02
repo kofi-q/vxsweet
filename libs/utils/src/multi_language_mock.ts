@@ -1,6 +1,6 @@
 import {
-  Election,
-  ElectionDefinition,
+  type Election,
+  type ElectionDefinition,
   LanguageCode,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';

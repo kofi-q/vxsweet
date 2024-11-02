@@ -1,4 +1,4 @@
-import { Uint8Size, Uint8, Uint1, Uint8Index } from './types';
+import { Uint8Size, type Uint8, type Uint1, type Uint8Index } from './types';
 import { makeMasks } from './utils';
 
 /**

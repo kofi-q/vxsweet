@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Checkbox } from './checkbox';
 import { Icons } from './icons';
-import { Caption, Font, H5, HeadingProps, P } from './typography';
+import { Caption, Font, H5, type HeadingProps, P } from './typography';
 
 export interface VoterContestSummaryProps {
   districtName: React.ReactNode;

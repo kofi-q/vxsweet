@@ -6,10 +6,9 @@ import {
   Screen,
   useLock,
   PrintingBallotImage,
-  appStrings,
   Font,
-  ReadOnLoad,
 } from '@vx/libs/ui/src';
+import { appStrings, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
 
 export const printingMessageTimeoutSeconds = 5;
 

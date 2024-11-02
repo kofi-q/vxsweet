@@ -7,8 +7,8 @@ import {
   Loading,
   Modal,
   P,
-  appStrings,
 } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 
 import { exportCastVoteRecordsToUsbDrive } from '../api';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';

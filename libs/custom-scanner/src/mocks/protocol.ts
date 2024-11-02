@@ -1,11 +1,11 @@
-import { err, ok, Optional, Result } from '@vx/libs/basics/src';
-import { Coder } from '@vx/libs/message-coder/src';
+import { err, ok, type Optional, type Result } from '@vx/libs/basics/src';
+import { type Coder } from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';
 import { debug } from '../debug';
 import {
   AckResponseMessage,
-  AnyRequest,
+  type AnyRequest,
   DataResponseMessage,
   ErrorResponseMessage,
   FormMovementRequest,
@@ -24,9 +24,9 @@ import {
   StopScanRequest,
 } from '../protocol';
 import {
-  DuplexChannel,
+  type DuplexChannel,
   ErrorCode,
-  MaybePromise,
+  type MaybePromise,
   ResponseErrorCode,
 } from '../types';
 import { createDuplexChannelMock } from './usb_channel';

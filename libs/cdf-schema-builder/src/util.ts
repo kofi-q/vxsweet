@@ -1,5 +1,5 @@
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import { Type } from './types';
+import { type Type } from './types';
 
 /**
  * Determines whether a string matches a semver pattern.

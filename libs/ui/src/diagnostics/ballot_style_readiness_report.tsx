@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {
-  AnyContest,
-  ElectionDefinition,
+  type AnyContest,
+  type ElectionDefinition,
   LanguageCode,
   getContests,
   formatBallotHash,

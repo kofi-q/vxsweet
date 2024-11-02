@@ -23,9 +23,9 @@ import { find } from '@vx/libs/basics/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   BallotType,
-  Election,
+  type Election,
   LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
   mergeUiStrings,
 } from '@vx/libs/types/src';
 import {
@@ -34,8 +34,8 @@ import {
 } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
-  BallotMode,
-  BaseBallotProps,
+  type BallotMode,
+  type BaseBallotProps,
   hmpbStringsCatalog,
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,

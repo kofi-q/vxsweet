@@ -1,4 +1,4 @@
-import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+import '../../../test/set_up_react_pdf_mock';
 
 import { Buffer } from 'node:buffer';
 import { render, screen } from '../../../test/react_testing_library';

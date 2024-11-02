@@ -1,21 +1,21 @@
-import { assertDefined, find, err, ok, Result } from '@vx/libs/basics/src';
-import { Candidate, CandidateId } from '../../election';
+import { assertDefined, find, err, ok, type Result } from '@vx/libs/basics/src';
+import { type Candidate, type CandidateId } from '../../election';
 import { LanguageCode } from '../../language_code';
 import * as ResultsReporting from '.';
-import * as VxTabulation from '../../tabulation';
 import {
-  BallotMeasureContest,
-  CandidateContest,
+  type BallotMeasureContest,
+  type CandidateContest,
   CountItemType,
-  PartyContest,
-  RetentionContest,
+  type PartyContest,
+  type RetentionContest,
 } from '.';
+import * as VxTabulation from '../../tabulation';
 import {
   isBallotMeasureContest,
   isCandidateContest,
   isRetentionContest,
 } from './types';
-import { TEMPORARY_WRITE_IN_ID_PREFIX } from '../../admin';
+import { TEMPORARY_WRITE_IN_ID_PREFIX } from '../../admin/manual_results';
 import { CDF_ERR_VX_ID_PREFIX } from './constants';
 
 type CandidateNameRecord = Record<CandidateId, Candidate['name']>;

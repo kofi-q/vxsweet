@@ -1,6 +1,9 @@
 import fc from 'fast-check';
 import { WriteInEncoding } from '../src';
-import { BitReader, BitWriter, toUint8, Uint1, Uint8 } from '../src/bits';
+import { BitReader } from '../src/bits/bit_reader';
+import { BitWriter } from '../src/bits/bit_writer';
+import { toUint8 } from '../src/bits/utils';
+import { type Uint1, type Uint8 } from '../src/bits/types';
 
 /**
  * Generates arbitrary write-in characters.

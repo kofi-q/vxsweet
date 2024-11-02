@@ -1,5 +1,5 @@
 import { safeParse, unsafeParse } from '@vx/libs/types/src';
-import { ErrorsResponseSchema, OkResponseSchema } from '.';
+import { ErrorsResponseSchema, OkResponseSchema } from './base';
 
 test('OkResponse', () => {
   unsafeParse(OkResponseSchema, { status: 'ok' });

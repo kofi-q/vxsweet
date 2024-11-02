@@ -10,10 +10,10 @@ import {
   TD,
   Table,
 } from '@vx/libs/ui/src';
-import { BatchInfo } from '@vx/libs/types/src';
+import { type BatchInfo } from '@vx/libs/types/src';
 import styled from 'styled-components';
-import { iter } from '@vx/libs/basics/src';
-import type { ScanStatus } from '@vx/apps/central-scan/backend/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { type ScanStatus } from '../../../backend/src/types';
 import { DeleteBatchModal } from '../components/delete_batch_modal';
 import { NavigationScreen } from '../navigation_screen';
 import { ExportResultsModal } from '../components/export_results_modal';

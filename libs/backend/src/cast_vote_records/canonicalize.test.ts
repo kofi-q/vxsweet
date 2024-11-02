@@ -1,9 +1,9 @@
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  BlankPage,
-  SheetOf,
-  SheetValidationError,
+  type BlankPage,
+  type SheetOf,
+  type SheetValidationError,
 } from '@vx/libs/types/src';
 import { canonicalizeSheet } from './canonicalize';
 import {

@@ -1,9 +1,9 @@
 import {
-  AllPrecinctsSelection,
-  Precinct,
-  PrecinctId,
-  PrecinctSelection,
-  SinglePrecinctSelection,
+  type AllPrecinctsSelection,
+  type Precinct,
+  type PrecinctId,
+  type PrecinctSelection,
+  type SinglePrecinctSelection,
 } from '@vx/libs/types/src';
 import { find } from '@vx/libs/basics/src';
 

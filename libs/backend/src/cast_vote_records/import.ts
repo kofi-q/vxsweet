@@ -5,30 +5,29 @@ import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
-  AsyncIteratorPlus,
   err,
-  iter,
   ok,
-  Result,
+  type Result,
 } from '@vx/libs/basics/src';
+import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/src/iterators';
 import {
-  BallotPageLayout,
+  type BallotPageLayout,
   CastVoteRecordExportFileName,
-  CastVoteRecordExportMetadata,
+  type CastVoteRecordExportMetadata,
   CastVoteRecordExportMetadataSchema,
   CastVoteRecordReportWithoutMetadataSchema,
   CVR,
   mapSheet,
-  ReadCastVoteRecordError,
-  ReadCastVoteRecordExportError,
-  ReadCastVoteRecordExportMetadataError,
+  type ReadCastVoteRecordError,
+  type ReadCastVoteRecordExportError,
+  type ReadCastVoteRecordExportMetadataError,
   safeParseJson,
   safeParseNumber,
-  SheetOf,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
-  CastVoteRecordWriteIn,
+  type CastVoteRecordWriteIn,
   getCurrentSnapshot,
   getExportedCastVoteRecordIds,
   getWriteInsFromCastVoteRecord,
@@ -38,8 +37,8 @@ import {
 
 import { TEST_OTHER_REPORT_TYPE } from './build_report_metadata';
 import {
-  ReferencedFile,
-  ReferencedFiles,
+  type ReferencedFile,
+  type ReferencedFiles,
   referencedImageFile,
   referencedLayoutFile,
 } from './referenced_files';

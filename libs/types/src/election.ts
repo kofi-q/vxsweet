@@ -1,29 +1,29 @@
-import { Optional, DateWithoutTime } from '@vx/libs/basics/src';
+import { type Optional, DateWithoutTime } from '@vx/libs/basics/src';
 import { sha256 } from 'js-sha256';
 import * as z from 'zod';
 import {
-  Dictionary,
+  type Dictionary,
   Sha256Hash,
-  Id,
+  type Id,
   IdSchema,
-  Iso8601Timestamp,
+  type Iso8601Timestamp,
   Iso8601TimestampSchema,
-  NewType,
+  type NewType,
   DateWithoutTimeSchema,
 } from './generic';
 import {
-  Offset,
+  type Offset,
   OffsetSchema,
-  Outset,
+  type Outset,
   OutsetSchema,
-  Rect,
+  type Rect,
   RectSchema,
-  Size,
+  type Size,
   SizeSchema,
 } from './geometry';
 import { LanguageCode } from './language_code';
 import {
-  UiStringsPackage,
+  type UiStringsPackage,
   UiStringsPackageSchema,
 } from './ui_string_translations';
 

@@ -1,14 +1,14 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
-  BallotStyle,
-  BallotStyleId,
-  CandidateContest,
-  CandidateVote,
-  Dictionary,
-  Election,
+  type BallotStyle,
+  type BallotStyleId,
+  type CandidateContest,
+  type CandidateVote,
+  type Dictionary,
+  type Election,
   getBallotStyle,
   getContests,
-  YesNoVote,
+  type YesNoVote,
 } from '@vx/libs/types/src';
 import { deepEqual, unique } from '@vx/libs/basics/src';
 import {

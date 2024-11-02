@@ -1,16 +1,16 @@
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
-  AnyContest,
-  CandidateContest,
-  ContestOptionId,
+  type AdjudicationReasonInfo,
+  type AnyContest,
+  type CandidateContest,
+  type ContestOptionId,
   MarkStatus,
   WriteInAreaStatus,
-  YesNoContest,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { assert, find } from '@vx/libs/basics/src';
-import { allContestOptions } from '@vx/libs/utils/src';
+import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 import {
   getAllPossibleAdjudicationReasons,
   adjudicationReasonDescription,

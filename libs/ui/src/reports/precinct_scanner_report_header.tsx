@@ -1,17 +1,17 @@
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   formatElectionHashes,
-  PartyId,
-  PollsTransitionType,
-  PrecinctSelection,
+  type PartyId,
+  type PollsTransitionType,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
 import {
   formatFullDateTimeZone,
-  getPartyById,
   getPollsReportTitle,
   getPollsTransitionActionPastTense,
   getPrecinctSelectionName,
 } from '@vx/libs/utils/src';
+import { getPartyById } from '@vx/libs/utils/src/tabulation';
 import { DateTime } from 'luxon';
 import React from 'react';
 import { LogoMark } from '../logo_mark';

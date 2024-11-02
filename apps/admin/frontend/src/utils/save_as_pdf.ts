@@ -1,4 +1,4 @@
-import { Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
 
 export function generateDefaultReportFilename(
   fileNamePrefix: string,

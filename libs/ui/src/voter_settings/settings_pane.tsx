@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SettingsPaneId } from './types';
+import { type SettingsPaneId } from './types';
 
 export interface SettingsPaneProps {
   children: React.ReactNode;

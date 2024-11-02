@@ -1,4 +1,4 @@
-import { Admin, Election } from '@vx/libs/types/src';
+import { Admin, type Election } from '@vx/libs/types/src';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 
 /**

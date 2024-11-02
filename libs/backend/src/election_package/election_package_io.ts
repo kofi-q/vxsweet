@@ -2,14 +2,14 @@ import { join } from 'node:path';
 import { Buffer } from 'node:buffer';
 import readline from 'node:readline';
 import {
-  Result,
+  type Result,
   assert,
   assertDefined,
   deepEqual,
   err,
-  iter,
   ok,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   ELECTION_PACKAGE_FOLDER,
   BooleanEnvironmentVariableName,
@@ -24,28 +24,30 @@ import {
 import * as fs from 'node:fs/promises';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
-  ElectionPackage,
-  ElectionPackageConfigurationError,
-  DippedSmartCardAuth,
-  InsertedSmartCardAuth,
+  type ElectionPackage,
+  type ElectionPackageConfigurationError,
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
-  UiStringAudioClip,
+  type UiStringAudioClip,
   UiStringAudioClipSchema,
   UiStringAudioIdsPackageSchema,
   UiStringsPackageSchema,
   safeParseJson,
   safeParseSystemSettings,
-  ElectionPackageMetadata,
+  type ElectionPackageMetadata,
   ElectionPackageMetadataSchema,
   mergeUiStrings,
-  UiStringAudioIdsPackage,
+  type UiStringAudioIdsPackage,
   safeParseElectionDefinition,
-  constructElectionKey,
-  ElectionPackageWithHash,
+  type ElectionPackageWithHash,
 } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { sha256 } from 'js-sha256';
 
 /**

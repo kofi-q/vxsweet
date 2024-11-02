@@ -1,4 +1,4 @@
-import { Result, assert, err, ok } from '@vx/libs/basics/src';
+import { type Result, assert, err, ok } from '@vx/libs/basics/src';
 import { Dirent, promises as fs } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 

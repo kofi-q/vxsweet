@@ -4,7 +4,7 @@ import { Card, FullScreenIconWrapper, H2 } from '@vx/libs/ui/src';
 import styled from 'styled-components';
 import {
   CenteredPageLayout,
-  CenteredPageLayoutProps,
+  type CenteredPageLayoutProps,
 } from './centered_page_layout';
 
 export type CenteredCardPageLayoutProps = Omit<

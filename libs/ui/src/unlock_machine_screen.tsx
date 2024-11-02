@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/src/auth';
 import { assert } from '@vx/libs/basics/src';
 
 import { Screen } from './screen';

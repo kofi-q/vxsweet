@@ -1,8 +1,8 @@
 import {
-  ElectionManagerUser,
-  SystemAdministratorUser,
-  UserWithCard,
-  VendorUser,
+  type ElectionManagerUser,
+  type SystemAdministratorUser,
+  type UserWithCard,
+  type VendorUser,
 } from './auth';
 
 export interface LoggedOut {

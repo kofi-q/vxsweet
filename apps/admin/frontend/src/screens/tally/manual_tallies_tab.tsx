@@ -1,4 +1,5 @@
-import { assert, find, iter } from '@vx/libs/basics/src';
+import { assert, find } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
@@ -21,15 +22,15 @@ import {
   isElectionManagerAuth,
 } from '@vx/libs/utils/src';
 import {
-  BallotStyleGroup,
-  BallotStyleGroupId,
-  Election,
-  Precinct,
+  type BallotStyleGroup,
+  type BallotStyleGroupId,
+  type Election,
+  type Precinct,
 } from '@vx/libs/types/src';
-import type {
-  ManualResultsVotingMethod,
-  ManualResultsIdentifier,
-} from '@vx/apps/admin/backend/src';
+import {
+  type ManualResultsVotingMethod,
+  type ManualResultsIdentifier,
+} from '../../../../backend/src/types';
 import { routerPaths } from '../../router_paths';
 
 import { AppContext } from '../../contexts/app_context';

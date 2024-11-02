@@ -1,11 +1,12 @@
-import { BaseLogger, LogSource, LogEventId } from '@vx/libs/logging/src';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
 } from '@vx/libs/backend/src';
 import * as server from './server';
 import { MARK_WORKSPACE, PORT } from './globals';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 
 loadEnvVarsFromDotenvFiles();
 

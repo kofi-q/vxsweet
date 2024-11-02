@@ -6,7 +6,7 @@ import {
 import { PrintedReportPreview } from './layout';
 import {
   WriteInAdjudicationReport,
-  WriteInAdjudicationReportProps,
+  type WriteInAdjudicationReportProps,
 } from './write_in_adjudication_report';
 
 function WriteInTallyReportPreview(

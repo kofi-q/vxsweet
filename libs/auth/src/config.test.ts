@@ -8,13 +8,13 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { isIntegrationTest, isVxDev } from '@vx/libs/utils/src';
 
 import {
-  ArtifactAuthenticationConfig,
+  type ArtifactAuthenticationConfig,
   constructArtifactAuthenticationConfig,
   constructJavaCardConfig,
   constructJavaCardConfigForVxProgramming,
   constructSignedHashValidationConfig,
-  JavaCardConfig,
-  SignedHashValidationConfig,
+  type JavaCardConfig,
+  type SignedHashValidationConfig,
 } from './config';
 
 beforeEach(() => {

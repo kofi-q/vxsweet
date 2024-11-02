@@ -1,7 +1,7 @@
 import {
-  Election,
-  ElectionDefinition,
-  Id,
+  type Election,
+  type ElectionDefinition,
+  type Id,
   Tabulation,
 } from '@vx/libs/types/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
@@ -9,8 +9,8 @@ import {
   getParentBallotStyleById,
   getPartyById,
   getPrecinctById,
-} from '@vx/libs/utils/src';
-import { ScannerBatchLookup } from '../types';
+} from '@vx/libs/utils/src/tabulation';
+import { type ScannerBatchLookup } from '../types';
 import { Store } from '../store';
 
 /**

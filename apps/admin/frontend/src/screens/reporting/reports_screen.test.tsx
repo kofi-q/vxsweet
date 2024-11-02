@@ -1,9 +1,12 @@
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { ElectionDefinition } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/src';
 import { ReportsScreen } from './reports_screen';
 import { renderInAppContext } from '../../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { screen } from '../../../test/react_testing_library';
 
 let apiMock: ApiMock;

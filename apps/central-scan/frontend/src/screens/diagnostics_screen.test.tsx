@@ -2,7 +2,7 @@ import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
-import { createApiMock, ApiMock } from '../../test/api';
+import { createApiMock, type ApiMock } from '../../test/api';
 import { DiagnosticsScreen } from './diagnostics_screen';
 
 let apiMock: ApiMock;

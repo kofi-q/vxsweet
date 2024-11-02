@@ -1,12 +1,12 @@
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
 import { detectDevices } from '@vx/libs/backend/src';
 import { buildApp } from './app';
 import { PORT } from './globals';
-import { PrecinctScannerStateMachine } from './types';
-import { Workspace } from './util/workspace';
-import { Printer, getPrinter } from './printing/printer';
+import { type PrecinctScannerStateMachine } from './types';
+import { type Workspace } from './util/workspace';
+import { type Printer, getPrinter } from './printing/printer';
 
 export interface StartOptions {
   auth: InsertedSmartCardAuthApi;

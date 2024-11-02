@@ -1,4 +1,9 @@
-import { Election, Party, PartyId, District } from '@vx/libs/types/src';
+import {
+  type Election,
+  type Party,
+  type PartyId,
+  type District,
+} from '@vx/libs/types/src';
 import { find, unique } from '@vx/libs/basics/src';
 
 export function getPartiesWithPrimaryElections(election: Election): Party[] {

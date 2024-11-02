@@ -1,6 +1,6 @@
-import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@vx/libs/types/src';
+import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@vx/libs/types/src/auth';
 
-import { computeSessionEndTime, SessionConfig } from './sessions';
+import { computeSessionEndTime, type SessionConfig } from './sessions';
 
 test('computeSessionEndTime with default config params', () => {
   const defaultSessionConfig: SessionConfig = {

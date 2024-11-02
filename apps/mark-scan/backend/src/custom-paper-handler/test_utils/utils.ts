@@ -1,7 +1,7 @@
 import {
   DEFAULT_PAPER_HANDLER_STATUS,
-  PaperHandlerStatus,
-} from '@vx/libs/custom-paper-handler/src';
+  type PaperHandlerStatus,
+} from '@vx/libs/custom-paper-handler/src/driver';
 
 export function getDefaultPaperHandlerStatus(): PaperHandlerStatus {
   return { ...DEFAULT_PAPER_HANDLER_STATUS };

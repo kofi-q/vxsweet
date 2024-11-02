@@ -1,9 +1,9 @@
-import { integers } from '@vx/libs/basics/src';
+import { integers } from '@vx/libs/basics/src/iterators';
 import {
-  PaperMovementAfterScan,
-  Resolution,
-  ScanDataFormat,
-  ScanLight,
+  type PaperMovementAfterScan,
+  type Resolution,
+  type ScanDataFormat,
+  type ScanLight,
 } from './scanner_config';
 
 type ScanLightCapabilityOption = ScanLight | 'UV';

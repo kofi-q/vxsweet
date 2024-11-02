@@ -19,12 +19,12 @@ import {
   ExportLogsButton,
 } from '@vx/libs/ui/src';
 import {
-  ElectionDefinition,
-  PollsState,
-  PrecinctSelection,
+  type ElectionDefinition,
+  type PollsState,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
-import type { MachineConfig } from '@vx/apps/mark/backend/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type MachineConfig } from '../../../backend/src/types';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   ejectUsbDrive,
   logOut,

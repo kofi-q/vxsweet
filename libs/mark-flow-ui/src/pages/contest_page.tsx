@@ -3,24 +3,24 @@ import React, { useCallback, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import {
-  CandidateVote,
-  ContestId,
-  ElectionDefinition,
-  OptionalVote,
-  PrecinctId,
-  VotesDict,
+  type CandidateVote,
+  type ContestId,
+  type ElectionDefinition,
+  type OptionalVote,
+  type PrecinctId,
+  type VotesDict,
 } from '@vx/libs/types/src';
-import {
-  LinkButton,
-  appStrings,
-  Button,
-  PageNavigationButtonId,
-} from '@vx/libs/ui/src';
+import { LinkButton, Button } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { PageNavigationButtonId } from '@vx/libs/ui/src/accessible_controllers';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
-import { Contest, ContestProps } from '../components/contest';
-import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
-import { BreadcrumbMetadata, Breadcrumbs } from '../components/contest_header';
+import { Contest, type ContestProps } from '../components/contest';
+import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
+import {
+  type BreadcrumbMetadata,
+  Breadcrumbs,
+} from '../components/contest_header';
 import { VoterScreen } from '../components/voter_screen';
 
 export interface ContestPageProps {

@@ -1,11 +1,14 @@
-import { PrinterStatus as LegacyPrinterStatus } from '@vx/libs/types/src';
-import { detectPrinter, Printer as LegacyPrinter } from '@vx/libs/printing/src';
+import { type PrinterStatus as LegacyPrinterStatus } from '@vx/libs/types/src';
 import {
-  PrinterStatus as FujitsuPrinterStatus,
-  PrinterState as FujitsuPrinterState,
-  PrintResult as FujitsuPrintResult,
-  ErrorType as FujitsuErrorType,
-  FujitsuThermalPrinterInterface,
+  detectPrinter,
+  type Printer as LegacyPrinter,
+} from '@vx/libs/printing/src/printer';
+import {
+  type PrinterStatus as FujitsuPrinterStatus,
+  type PrinterState as FujitsuPrinterState,
+  type PrintResult as FujitsuPrintResult,
+  type ErrorType as FujitsuErrorType,
+  type FujitsuThermalPrinterInterface,
   getFujitsuThermalPrinter,
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import {
@@ -13,7 +16,7 @@ import {
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
 import { Logger } from '@vx/libs/logging/src';
-import { assert, Result } from '@vx/libs/basics/src';
+import { assert, type Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 
 export type PrinterStatus =

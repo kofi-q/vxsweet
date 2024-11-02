@@ -1,6 +1,10 @@
-import { integers, iter } from '@vx/libs/basics/src';
+import { integers, iter } from '@vx/libs/basics/src/iterators';
 import * as fc from 'fast-check';
-import { jsonStream, JsonStreamInput, JsonStreamOptions } from './json_stream';
+import {
+  jsonStream,
+  type JsonStreamInput,
+  type JsonStreamOptions,
+} from './json_stream';
 
 async function asString<T>(
   input: JsonStreamInput<T>,

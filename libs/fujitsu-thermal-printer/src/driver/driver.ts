@@ -1,22 +1,27 @@
 import { findByIds, WebUSBDevice } from 'usb';
-import { assert, Optional } from '@vx/libs/basics/src';
-import { byteArray, Coder, literal, message } from '@vx/libs/message-coder/src';
+import { assert, type Optional } from '@vx/libs/basics/src';
+import {
+  byteArray,
+  type Coder,
+  literal,
+  message,
+} from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import { Lock } from './lock';
-import { MinimalWebUsbDevice } from './minimal_web_usb_device';
+import { type MinimalWebUsbDevice } from './minimal_web_usb_device';
 import {
   BitImagePrintMode,
   PrinterResetCommand,
-  RawPrinterStatus,
+  type RawPrinterStatus,
   PrinterStatusResponse,
   SetReplyParameterCommand,
   FeedForwardCommand,
-  PrintQuality,
+  type PrintQuality,
   SetPrintQuality,
   convertPrintQualityToCoderValue,
 } from './coders';
-import { Uint16toUint8, Uint8 } from '../bits';
-import { CompressedBitImage } from './types';
+import { Uint16toUint8, type Uint8 } from '../bits';
+import { type CompressedBitImage } from './types';
 import { isInconsistentStatus } from './status';
 import { rootDebug } from '../debug';
 

@@ -5,7 +5,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { SheetOf, asSheet } from '@vx/libs/types/src';
+import { type SheetOf, asSheet } from '@vx/libs/types/src';
 import {
   renderBmdBallotFixture,
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
@@ -13,7 +13,7 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
 } from '@vx/libs/bmd-ballot-fixtures/src';
 import { ImageData, createCanvas } from 'canvas';
-import { InterpretResult, interpret } from './interpret';
+import { type InterpretResult, interpret } from './interpret';
 import { pdfToPageImages } from '../../test/helpers/interpretation';
 import '@vx/libs/image-test-utils/register';
 

@@ -1,6 +1,6 @@
-import { SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/src';
 import { render } from '../../../test/react_testing_library';
-import { Layout, MisvoteWarningsProps } from './types';
+import { type Layout, type MisvoteWarningsProps } from './types';
 import { useLayoutConfig } from './use_layout_config_hook';
 import { CONFIG } from './constants';
 import { generateContests } from './test_utils.test';

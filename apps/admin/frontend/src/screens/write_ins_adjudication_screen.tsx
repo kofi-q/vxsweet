@@ -2,12 +2,12 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import {
-  Candidate,
-  CandidateContest,
-  CandidateId,
+  type Candidate,
+  type CandidateContest,
+  type CandidateId,
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
-  Id,
+  type Id,
 } from '@vx/libs/types/src';
 import {
   Button,
@@ -24,10 +24,10 @@ import {
 import { format } from '@vx/libs/utils/src';
 import { assert, find } from '@vx/libs/basics/src';
 import { useQueryClient } from '@tanstack/react-query';
-import type {
-  WriteInCandidateRecord,
-  WriteInRecordAdjudicatedOfficialCandidate,
-} from '@vx/apps/admin/backend/src';
+import {
+  type WriteInCandidateRecord,
+  type WriteInRecordAdjudicatedOfficialCandidate,
+} from '../../../backend/src/types';
 import { useParams } from 'react-router-dom';
 import {
   getWriteInAdjudicationContext,
@@ -42,14 +42,14 @@ import {
 } from '../api';
 import { normalizeWriteInName } from '../utils/write_ins';
 import { AppContext } from '../contexts/app_context';
-import { WriteInsAdjudicationScreenParams } from '../config/types';
+import { type WriteInsAdjudicationScreenParams } from '../config/types';
 import { routerPaths } from '../router_paths';
 import {
   BallotStaticImageViewer,
   BallotZoomImageViewer,
 } from '../components/adjudication_ballot_image_viewer';
 import {
-  DoubleVoteAlert,
+  type DoubleVoteAlert,
   DoubleVoteAlertModal,
 } from '../components/adjudication_double_vote_alert_modal';
 import { HeaderActions } from '../components/navigation_screen';

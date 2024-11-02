@@ -1,7 +1,12 @@
 import { z } from 'zod';
 
 import { DateWithoutTime } from '@vx/libs/basics/src';
-import { BallotStyleId, Election, ElectionId, PrecinctId } from '../election';
+import {
+  type BallotStyleId,
+  type Election,
+  type ElectionId,
+  type PrecinctId,
+} from '../election';
 
 /**
  * An election key identifies an election. It can be encoded in a smart card and

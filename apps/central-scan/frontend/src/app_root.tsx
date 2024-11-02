@@ -17,7 +17,7 @@ import {
 } from '@vx/libs/ui/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { assert } from '@vx/libs/basics/src';
-import { AppContext, AppContextInterface } from './contexts/app_context';
+import { AppContext, type AppContextInterface } from './contexts/app_context';
 
 import { ScanBallotsScreen } from './screens/scan_ballots_screen';
 import { BallotEjectScreen } from './screens/ballot_eject_screen';

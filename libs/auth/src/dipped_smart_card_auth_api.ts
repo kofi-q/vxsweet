@@ -1,15 +1,15 @@
-import { Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/src';
 import {
   DippedSmartCardAuth,
-  ElectionKey,
-  ElectionManagerUser,
-  NumIncorrectPinAttemptsAllowedBeforeCardLockout,
-  OverallSessionTimeLimitHours,
-  PollWorkerUser,
-  StartingCardLockoutDurationSeconds,
-  SystemAdministratorUser,
-  VendorUser,
-} from '@vx/libs/types/src';
+  type ElectionKey,
+  type ElectionManagerUser,
+  type NumIncorrectPinAttemptsAllowedBeforeCardLockout,
+  type OverallSessionTimeLimitHours,
+  type PollWorkerUser,
+  type StartingCardLockoutDurationSeconds,
+  type SystemAdministratorUser,
+  type VendorUser,
+} from '@vx/libs/types/src/auth';
 
 /**
  * The API for a dipped smart card auth instance, "dipped" meaning that the card needs to be

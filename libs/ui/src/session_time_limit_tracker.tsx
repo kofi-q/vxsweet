@@ -6,8 +6,8 @@ import { useIdleTimer } from 'react-idle-timer';
 import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
-  SystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { type SystemSettings } from '@vx/libs/types/src';
 
 import styled from 'styled-components';
 import { Button } from './button';

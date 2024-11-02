@@ -1,6 +1,6 @@
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { pdfToImages, toImageBuffer } from '@vx/libs/image-utils/src';
-import { iter } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { readFile } from '@vx/libs/fs/src';
 import {
   renderBmdBallotFixture,

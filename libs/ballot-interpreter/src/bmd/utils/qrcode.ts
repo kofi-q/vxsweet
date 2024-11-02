@@ -2,12 +2,18 @@ import { detect as qrdetect } from '@votingworks/qrdetect';
 import { decode as quircDecode, QRCode } from 'node-quirc';
 import { isVxBallot } from '@vx/libs/ballot-encoder/src';
 import { ImageData, crop } from '@vx/libs/image-utils/src';
-import { Rect, Size } from '@vx/libs/types/src';
+import { type Rect, type Size } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
-import { Optional, Result, err, ok, assertDefined } from '@vx/libs/basics/src';
-import { DetectedQrCode } from '../types';
-import { stats, Stats } from './luminosity';
+import {
+  type Optional,
+  type Result,
+  err,
+  ok,
+  assertDefined,
+} from '@vx/libs/basics/src';
+import { type DetectedQrCode } from '../types';
+import { stats, type Stats } from './luminosity';
 
 const debug = makeDebug('ballot-interpreter:bmd:qrcode');
 

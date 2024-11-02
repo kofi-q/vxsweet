@@ -1,8 +1,8 @@
-import { assert, err, ok, Result } from '@vx/libs/basics/src';
+import { assert, err, ok, type Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
 import { inspect } from 'node:util';
-import { DuplexChannel, ErrorCode } from './types';
+import { type DuplexChannel, ErrorCode } from './types';
 
 const debug = makeDebug('custom:usb-channel');
 

@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { H1, H4, Prose, Select } from '@vx/libs/ui/src';

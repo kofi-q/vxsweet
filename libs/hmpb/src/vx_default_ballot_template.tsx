@@ -1,23 +1,23 @@
 import React from 'react';
 import {
   assertDefined,
-  iter,
   range,
   throwIllegalValue,
   unique,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { Buffer } from 'node:buffer';
 import styled from 'styled-components';
 import {
-  AnyContest,
-  BallotStyle,
-  BallotStyleId,
+  type AnyContest,
+  type BallotStyle,
+  type BallotStyleId,
   BallotType,
-  CandidateContest as CandidateContestStruct,
-  Election,
+  type CandidateContest as CandidateContestStruct,
+  type Election,
   LanguageCode,
-  PrecinctId,
-  YesNoContest,
+  type PrecinctId,
+  type YesNoContest,
   ballotPaperDimensions,
   getBallotStyle,
   getContests,
@@ -30,26 +30,26 @@ import {
   InEnglish,
   electionStrings,
   useLanguageContext,
-  RichText,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/ui_strings';
+import { RichText } from '@vx/libs/ui/src';
 import { format } from '@vx/libs/utils/src';
 import {
-  BallotPageTemplate,
-  BaseBallotProps,
-  PagedElementResult,
+  type BallotPageTemplate,
+  type BaseBallotProps,
+  type PagedElementResult,
 } from './render_ballot';
-import { RenderScratchpad } from './renderer';
+import { type RenderScratchpad } from './renderer';
 import {
   Bubble,
   BallotHashSlot,
-  OptionInfo,
+  type OptionInfo,
   Page,
   QrCodeSlot,
   TimingMarkGrid,
   WRITE_IN_OPTION_CLASS,
   pageMarginsInches,
 } from './ballot_components';
-import { BallotMode, PixelDimensions } from './types';
+import { type BallotMode, type PixelDimensions } from './types';
 import {
   ArrowRightCircle,
   InstructionsDiagramFillBubble,

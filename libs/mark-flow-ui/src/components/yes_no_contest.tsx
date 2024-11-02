@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import {
-  YesNoVote,
-  YesNoContest as YesNoContestInterface,
-  Election,
-  YesNoContestOptionId,
+  type YesNoVote,
+  type YesNoContest as YesNoContestInterface,
+  type Election,
+  type YesNoContestOptionId,
   getContestDistrict,
 } from '@vx/libs/types/src';
 import {
@@ -14,21 +14,25 @@ import {
   P,
   Caption,
   WithScrollButtons,
+  RichText,
+} from '@vx/libs/ui/src';
+import {
   AudioOnly,
   electionStrings,
   appStrings,
+} from '@vx/libs/ui/src/ui_strings';
+import {
   AssistiveTechInstructions,
   PageNavigationButtonId,
   useIsPatDeviceConnected,
-  RichText,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 
 import { getSingleYesNoVote } from '@vx/libs/utils/src';
-import { Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
 
 import { ContestFooter, ChoicesGrid } from './contest_screen_layout';
-import { BreadcrumbMetadata, ContestHeader } from './contest_header';
-import { UpdateVoteFunction } from '../config/types';
+import { type BreadcrumbMetadata, ContestHeader } from './contest_header';
+import { type UpdateVoteFunction } from '../config/types';
 
 interface Props {
   breadcrumbs?: BreadcrumbMetadata;

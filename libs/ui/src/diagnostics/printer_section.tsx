@@ -1,10 +1,10 @@
 import {
-  DiagnosticRecord,
-  PrinterStatus,
-  IppPrinterStateReason,
+  type DiagnosticRecord,
+  type PrinterStatus,
+  type IppPrinterStateReason,
 } from '@vx/libs/types/src';
 import React from 'react';
-import { Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { H2, P } from '../typography';
 import { InfoIcon, LoadingIcon, SuccessIcon, WarningIcon } from './icons';
 

@@ -1,12 +1,12 @@
 import { Server } from 'node:http';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   getPaperHandlerDriver,
   MaxPrintWidthDots,
   MockPaperHandlerDriver,
-  PaperHandlerDriverInterface,
-} from '@vx/libs/custom-paper-handler/src';
+  type PaperHandlerDriverInterface,
+} from '@vx/libs/custom-paper-handler/src/driver';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
@@ -14,12 +14,12 @@ import {
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
 import { detectDevices, initializeSystemAudio } from '@vx/libs/backend/src';
 import { buildApp } from './app';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getPaperHandlerStateMachine } from './custom-paper-handler/state_machine';
 import { getDefaultAuth, getUserRole } from './util/auth';
 import {
   PatConnectionStatusReader,
-  PatConnectionStatusReaderInterface,
+  type PatConnectionStatusReaderInterface,
 } from './pat-input/connection_status_reader';
 import { MockPatConnectionStatusReader } from './pat-input/mock_connection_status_reader';
 import { getMarkScanBmdModel } from './util/hardware';

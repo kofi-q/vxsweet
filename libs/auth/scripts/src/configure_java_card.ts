@@ -1,13 +1,14 @@
 import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { extractErrorMessage, lines } from '@vx/libs/basics/src';
-import { Byte } from '@vx/libs/types/src';
+import { extractErrorMessage } from '@vx/libs/basics/src';
+import { lines } from '@vx/libs/basics/src/iterators';
+import { type Byte } from '@vx/libs/types/src';
 
 import { CommandApdu, constructTlv } from '../../src/apdu';
 import {
   constructJavaCardConfigForVxProgramming,
-  JavaCardConfig,
+  type JavaCardConfig,
 } from '../../src/config';
 import {
   CARD_IDENTITY_CERT,

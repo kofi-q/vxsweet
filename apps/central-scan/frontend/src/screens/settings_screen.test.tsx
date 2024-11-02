@@ -8,8 +8,8 @@ import {
   within,
 } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
-import { SettingsScreenProps, SettingsScreen } from './settings_screen';
-import { ApiMock, createApiMock } from '../../test/api';
+import { type SettingsScreenProps, SettingsScreen } from './settings_screen';
+import { type ApiMock, createApiMock } from '../../test/api';
 
 let apiMock: ApiMock;
 

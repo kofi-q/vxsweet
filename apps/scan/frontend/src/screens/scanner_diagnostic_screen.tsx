@@ -12,7 +12,7 @@ import {
   P,
   Screen,
 } from '@vx/libs/ui/src';
-import type { PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
+import { type PrecinctScannerStatus } from '../../../backend/src/types';
 
 function DiagnosticScreen({ children }: { children: React.ReactNode }) {
   return (

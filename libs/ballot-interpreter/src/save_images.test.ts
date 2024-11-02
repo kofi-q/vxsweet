@@ -1,5 +1,5 @@
 import { createImageData, ImageData } from '@vx/libs/image-utils/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { tmpDir } from '../test/helpers/tmp';
 import { saveSheetImages } from './save_images';

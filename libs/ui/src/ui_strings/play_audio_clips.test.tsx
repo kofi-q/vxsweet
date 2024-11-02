@@ -9,7 +9,11 @@ import { deferred } from '@vx/libs/basics/src';
 
 import { newTestContext } from '../../test/test_context';
 import { PlayAudioClips } from './play_audio_clips';
-import { AudioPlayer, AudioPlayerParams, newAudioPlayer } from './audio_player';
+import {
+  type AudioPlayer,
+  type AudioPlayerParams,
+  newAudioPlayer,
+} from './audio_player';
 import { act, screen, waitFor } from '../../test/react_testing_library';
 import { DEFAULT_AUDIO_VOLUME } from './audio_volume';
 import { DEFAULT_PLAYBACK_RATE } from './audio_playback_rate';

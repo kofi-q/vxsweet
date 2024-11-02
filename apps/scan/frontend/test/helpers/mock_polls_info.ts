@@ -1,9 +1,9 @@
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import type {
-  PollsTransition,
-  PrecinctScannerPollsInfo,
-} from '@vx/apps/scan/backend/src';
-import { PollsState, PollsTransitionType } from '@vx/libs/types/src';
+import {
+  type PollsTransition,
+  type PrecinctScannerPollsInfo,
+} from '../../../backend/src/types';
+import { type PollsState, type PollsTransitionType } from '@vx/libs/types/src';
 
 /**
  * Because you can get to the opened state by either opening polls or resuming

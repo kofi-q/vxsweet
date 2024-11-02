@@ -1,17 +1,17 @@
 import { assertDefined, find } from '@vx/libs/basics/src';
 import {
-  AdjudicationInfo,
-  BallotMetadata,
-  BallotStyleId,
+  type AdjudicationInfo,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
-  BlankPage,
-  CandidateContest,
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
-  PageInterpretation,
-  SheetOf,
-  TargetShape,
-  YesNoContest,
+  type BlankPage,
+  type CandidateContest,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
+  type SheetOf,
+  type TargetShape,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 

@@ -7,7 +7,7 @@ import {
   REQUEST_CODERS,
 } from '../protocol';
 import { ErrorCode, ResponseErrorCode } from '../types';
-import { ProtocolListeners, usbChannelWithMockProtocol } from './protocol';
+import { type ProtocolListeners, usbChannelWithMockProtocol } from './protocol';
 
 test('usbChannelWithMockProtocol calls onUnhandledRequest for anything not specifically handled', async () => {
   const { onReleaseVersionRequest, onUnhandledRequest } =

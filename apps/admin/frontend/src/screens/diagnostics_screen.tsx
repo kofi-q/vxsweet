@@ -1,7 +1,5 @@
-import {
-  AdminReadinessReportContents,
-  SaveReadinessReportButton,
-} from '@vx/libs/ui/src';
+import { AdminReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
+import { SaveReadinessReportButton } from '@vx/libs/ui/src';
 
 import styled from 'styled-components';
 import { useContext } from 'react';

@@ -1,6 +1,6 @@
 import {
-  ExportDataResult,
-  ExportableData,
+  type ExportDataResult,
+  type ExportableData,
   Exporter,
 } from '@vx/libs/backend/src';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../globals';

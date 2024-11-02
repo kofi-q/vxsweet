@@ -1,14 +1,15 @@
 import { readElection } from '@vx/libs/fs/src';
 import {
-  Renderer,
+  type Renderer,
   createPlaywrightRenderer,
   primaryElectionFixtures,
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { assert, iter } from '@vx/libs/basics/src';
-import { getBallotStylesByPrecinctId } from '@vx/libs/utils/src';
-import { ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
+import { assert } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { getBallotStylesByPrecinctId } from '@vx/libs/utils/src/tabulation';
+import { type ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
 import { createPrecinctTestDeck } from '../../src/test_decks';
 import '@vx/libs/image-test-utils/register';
 

@@ -12,21 +12,21 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
-  buildManualResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
 import { Tabulation } from '@vx/libs/types/src';
-import { Client } from '@vx/libs/grout/src';
+import { type Client } from '@vx/libs/grout/src';
 import { parseCsv } from '../test/csv';
 import {
   buildTestEnvironment,
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
-import { Api } from './app';
+import { type Api } from './app';
 
 jest.setTimeout(60_000);
 

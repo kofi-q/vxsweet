@@ -1,14 +1,14 @@
 import {
-  CandidateContest,
-  Election,
+  type CandidateContest,
+  type Election,
   NcName,
   ResultsReporting,
   Tabulation,
-  YesNoContest,
+  type YesNoContest,
 } from '@vx/libs/types/src';
-import { getBallotCount } from '@vx/libs/utils/src';
+import { getBallotCount } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/src';
-import { MachineConfig, WriteInCandidateRecord } from '../types';
+import { type MachineConfig, type WriteInCandidateRecord } from '../types';
 
 const {
   asNcName,

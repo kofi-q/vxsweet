@@ -1,15 +1,13 @@
-import { assert, iter } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { EventLogging, safeParseJson } from '@vx/libs/types/src';
 import { createReadStream } from 'node:fs';
 import { join } from 'node:path';
-import {
-  LogEventId,
-  LogEventType,
-  LogLine,
-  LogSource,
-  mockLogger,
-  mockLoggerWithRoleAndSource,
-} from '.';
+import { LogEventId } from './log_event_ids';
+import { LogEventType } from './base_types/log_event_types';
+import { type LogLine } from './types';
+import { LogSource } from './base_types/log_source';
+import { mockLogger, mockLoggerWithRoleAndSource } from './test_utils';
 import { buildCdfLog, filterErrorLogs } from './export';
 
 jest.useFakeTimers().setSystemTime(new Date('2020-07-24T00:00:00.000Z'));

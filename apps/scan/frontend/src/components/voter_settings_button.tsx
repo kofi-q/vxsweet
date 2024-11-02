@@ -1,4 +1,5 @@
-import { Button, Icons, appStrings } from '@vx/libs/ui/src';
+import { Button, Icons } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Paths } from '../constants';

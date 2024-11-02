@@ -1,15 +1,16 @@
 import React from 'react';
 
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   formatElectionHashes,
-  PrecinctSelection,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
 import styled from 'styled-components';
 import { Seal } from './seal';
 import { Caption, Font } from './typography';
 import { LabelledText } from './labelled_text';
-import { electionStrings, PrecinctSelectionName } from './ui_strings';
+import { electionStrings } from './ui_strings/election_strings';
+import { PrecinctSelectionName } from './ui_strings/utils';
 
 const Bar = styled.div<{ inverse?: boolean }>`
   background: ${(p) => p.inverse && p.theme.colors.inverseBackground};

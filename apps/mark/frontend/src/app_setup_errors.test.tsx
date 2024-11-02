@@ -13,7 +13,7 @@ import { App } from './app';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
 import { withMarkup } from '../test/helpers/with_markup';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { ACCESSIBLE_CONTROLLER_POLLING_INTERVAL_MS } from './api';
 import { LOW_BATTERY_THRESHOLD } from './config/globals';
 

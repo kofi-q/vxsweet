@@ -1,7 +1,10 @@
-import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+import '../../../test/set_up_react_pdf_mock';
 
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import {
   FullElectionTallyReportScreen,
   TITLE,

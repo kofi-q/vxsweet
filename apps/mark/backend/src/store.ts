@@ -2,25 +2,34 @@
 // The durable datastore for configuration info.
 //
 
-import { UiStringsStore, createUiStringStore } from '@vx/libs/backend/src';
-import { assertDefined, DateWithoutTime, Optional } from '@vx/libs/basics/src';
+import {
+  type UiStringsStore,
+  createUiStringStore,
+} from '@vx/libs/backend/src/ui_strings';
+import {
+  assertDefined,
+  DateWithoutTime,
+  type Optional,
+} from '@vx/libs/basics/src';
 import { Client as DbClient } from '@vx/libs/db/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   safeParseElectionDefinition,
-  SystemSettings,
+  type SystemSettings,
   safeParseSystemSettings,
-  PrecinctSelection,
+  type PrecinctSelection,
   PrecinctSelectionSchema,
   safeParseJson,
-  PollsState,
+  type PollsState,
   safeParse,
   PollsStateSchema,
-  ElectionId,
-  ElectionKey,
-  constructElectionKey,
+  type ElectionId,
 } from '@vx/libs/types/src';
+import {
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import { join } from 'node:path';
 
 const SchemaPath = join(__dirname, '../schema.sql');

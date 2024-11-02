@@ -68,9 +68,9 @@ import {
   faEye,
 } from '@fortawesome/free-regular-svg-icons';
 
-import { UiTheme } from '@vx/libs/types/src';
-import { Font, FontProps } from './typography';
-import { ScreenInfo, useScreenInfo } from './hooks/use_screen_info';
+import { type UiTheme } from '@vx/libs/types/src';
+import { Font, type FontProps } from './typography';
+import { type ScreenInfo, useScreenInfo } from './hooks/use_screen_info';
 
 export const ICON_COLORS = [
   'neutral',

@@ -1,18 +1,18 @@
 import { ThemeProvider } from 'styled-components';
 import {
   CentralScannerSection,
-  CentralScannerSectionProps,
+  type CentralScannerSectionProps,
 } from './central_scanner_section';
 import { makeTheme } from '../themes/make_theme';
 import { PrintedReport } from '../reports/layout';
 import { ReadinessReportHeader } from './report_header';
 import {
-  ConfigurationSectionProps,
+  type ConfigurationSectionProps,
   ConfigurationSection,
 } from './configuration_section';
 import { ReportContents } from './components';
-import { BatterySection, BatterySectionProps } from './battery_section';
-import { StorageSection, StorageSectionProps } from './storage_section';
+import { BatterySection, type BatterySectionProps } from './battery_section';
+import { StorageSection, type StorageSectionProps } from './storage_section';
 
 type ReportContentsProps = ConfigurationSectionProps &
   BatterySectionProps &

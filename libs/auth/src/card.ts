@@ -1,10 +1,10 @@
 import { Buffer } from 'node:buffer';
 import {
-  ElectionManagerUser,
-  PollWorkerUser,
-  SystemAdministratorUser,
-  VendorUser,
-} from '@vx/libs/types/src';
+  type ElectionManagerUser,
+  type PollWorkerUser,
+  type SystemAdministratorUser,
+  type VendorUser,
+} from '@vx/libs/types/src/auth';
 
 import { ResponseApduError } from './apdu';
 import { UNIVERSAL_VENDOR_CARD_JURISDICTION } from './jurisdictions';

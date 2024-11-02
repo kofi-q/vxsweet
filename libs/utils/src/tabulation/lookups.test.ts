@@ -1,6 +1,6 @@
 import {
-  BallotStyleGroupId,
-  ElectionDefinition,
+  type BallotStyleGroupId,
+  type ElectionDefinition,
   Tabulation,
 } from '@vx/libs/types/src';
 import {

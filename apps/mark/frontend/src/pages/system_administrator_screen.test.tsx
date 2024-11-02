@@ -4,7 +4,7 @@ import { screen, waitFor } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../test/helpers/mock_api_client';

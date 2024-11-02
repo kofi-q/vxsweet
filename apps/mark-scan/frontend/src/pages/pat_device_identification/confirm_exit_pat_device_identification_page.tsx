@@ -1,5 +1,6 @@
 import React from 'react';
-import { H1, P, Button, Icons, ReadOnLoad, appStrings } from '@vx/libs/ui/src';
+import { H1, P, Button, Icons } from '@vx/libs/ui/src';
+import { ReadOnLoad, appStrings } from '@vx/libs/ui/src/ui_strings';
 import { VoterScreen } from '@vx/libs/mark-flow-ui/src';
 import { PortraitStepInnerContainer } from './portrait_step_inner_container';
 

@@ -4,21 +4,21 @@ import styled from 'styled-components';
 
 import { encodeBallot } from '@vx/libs/ballot-encoder/src';
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  CandidateContest,
-  CandidateVote,
-  Election,
-  ElectionDefinition,
+  type CandidateContest,
+  type CandidateVote,
+  type Election,
+  type ElectionDefinition,
   getBallotStyle,
   getContests,
   getPrecinctById,
   LanguageCode,
-  OptionalYesNoVote,
-  PrecinctId,
-  VotesDict,
-  YesNoContest,
-  YesNoVote,
+  type OptionalYesNoVote,
+  type PrecinctId,
+  type VotesDict,
+  type YesNoContest,
+  type YesNoVote,
 } from '@vx/libs/types/src';
 import { getSingleYesNoVote, randomBallotId } from '@vx/libs/utils/src';
 
@@ -29,15 +29,14 @@ import { Font, H4, H5, P } from './typography';
 import { VxThemeProvider } from './themes/vx_theme_provider';
 import { VX_DEFAULT_FONT_FAMILY_DECLARATION } from './fonts/font_family';
 import { Seal } from './seal';
+import { electionStrings } from './ui_strings/election_strings';
 import {
-  electionStrings,
   PrimaryElectionTitlePrefix,
-  appStrings,
-  LanguageOverride,
   CandidatePartyList,
-  InEnglish,
-  NumberString,
-} from './ui_strings';
+} from './ui_strings/utils';
+import { appStrings } from './ui_strings/app_strings';
+import { LanguageOverride, InEnglish } from './ui_strings/language_override';
+import { NumberString } from './ui_strings/number_string';
 
 export type MachineType = 'mark' | 'markScan';
 

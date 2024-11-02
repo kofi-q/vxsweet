@@ -1,28 +1,32 @@
 import {
-  BallotId,
+  type BallotId,
   BallotIdSchema,
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
   BallotTypeMaximumValue,
-  Candidate,
-  CandidateVote,
-  CompletedBallot,
-  Contests,
-  Election,
+  type Candidate,
+  type CandidateVote,
+  type CompletedBallot,
+  type Contests,
+  type Election,
   getBallotStyle,
   getContests,
   getPrecinctById,
-  HmpbBallotPageMetadata,
+  type HmpbBallotPageMetadata,
   isVotePresent,
-  PrecinctId,
+  type PrecinctId,
   unsafeParse,
   validateVotes,
-  VotesDict,
-  YesNoContest,
-  YesNoVote,
+  type VotesDict,
+  type YesNoContest,
+  type YesNoVote,
 } from '@vx/libs/types/src';
-import { assert, iter } from '@vx/libs/basics/src';
-import { BitReader, BitWriter, CustomEncoding, Uint8, Uint8Size } from './bits';
+import { assert } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { BitReader } from './bits/bit_reader';
+import { BitWriter } from './bits/bit_writer';
+import { CustomEncoding } from './bits/encoding';
+import { type Uint8, Uint8Size } from './bits/types';
 
 /**
  * Maximum number of characters in a write-in.

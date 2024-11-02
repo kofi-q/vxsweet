@@ -1,5 +1,5 @@
-import { Result } from '@vx/libs/basics/src';
-import { ElectionId, Id } from '@vx/libs/types/src';
+import { type Result } from '@vx/libs/basics/src';
+import { type ElectionId, type Id } from '@vx/libs/types/src';
 import {
   H1,
   P,

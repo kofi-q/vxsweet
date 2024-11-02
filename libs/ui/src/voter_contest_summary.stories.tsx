@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 
 import {
   VoterContestSummary,
-  VoterContestSummaryProps,
+  type VoterContestSummaryProps,
 } from './voter_contest_summary';
 
 const initialProps: VoterContestSummaryProps = {

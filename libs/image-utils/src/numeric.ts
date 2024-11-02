@@ -1,4 +1,4 @@
-import { float, int } from './types';
+import { type float, type int } from './types';
 
 /**
  * A tiny value that is effectively zero.

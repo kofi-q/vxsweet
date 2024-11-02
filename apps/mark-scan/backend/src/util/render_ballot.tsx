@@ -1,22 +1,19 @@
 import {
   PAPER_DIMENSIONS,
-  PaperDimensions,
+  type PaperDimensions,
   renderToPdf,
 } from '@vx/libs/printing/src';
 import {
-  BallotStyleId,
-  ElectionDefinition,
+  type BallotStyleId,
+  type ElectionDefinition,
   LanguageCode,
-  VotesDict,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 
 import { assertDefined } from '@vx/libs/basics/src';
-import {
-  BmdPaperBallot,
-  BackendLanguageContextProvider,
-  BmdBallotSheetSize,
-} from '@vx/libs/ui/src';
+import { BmdPaperBallot, type BmdBallotSheetSize } from '@vx/libs/ui/src';
+import { BackendLanguageContextProvider } from '@vx/libs/ui/src/ui_strings';
 import { randomBallotId } from '@vx/libs/utils/src';
 import { Store } from '../store';
 import { getMarkScanBmdModel } from './hardware';

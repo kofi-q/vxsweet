@@ -3,7 +3,8 @@ import React from 'react';
 import { SettingsPane } from './settings_pane';
 import { Button } from '../button';
 import { VoterSettingsManagerContext } from '../voter_settings_manager_context';
-import { appStrings, ToggleAudioButton } from '../ui_strings';
+import { appStrings } from '../ui_strings/app_strings';
+import { ToggleAudioButton } from '../ui_strings/toggle_audio_button';
 import { useAudioControls } from '../hooks/use_audio_controls';
 import { useCurrentTheme } from '../hooks/use_current_theme';
 

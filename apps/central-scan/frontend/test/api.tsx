@@ -1,21 +1,22 @@
 import React from 'react';
-import type {
-  Api,
-  MachineConfig,
-  ScanStatus,
-} from '@vx/apps/central-scan/backend/src';
-import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
+import { type Api } from '../../backend/src/app';
+import { type MachineConfig, type ScanStatus } from '../../backend/src/types';
+import {
+  createMockClient,
+  type MockClient,
+} from '@vx/libs/grout/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  DiagnosticRecord,
-  DippedSmartCardAuth,
-  ElectionDefinition,
-  SystemSettings,
+  type DiagnosticRecord,
+  type ElectionDefinition,
+  type SystemSettings,
 } from '@vx/libs/types/src';
+import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { SystemCallContextProvider, TestErrorBoundary } from '@vx/libs/ui/src';
-import type { BatteryInfo, DiskSpaceSummary } from '@vx/libs/backend/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type DiskSpaceSummary } from '@vx/libs/backend/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { ok } from '@vx/libs/basics/src';
 import { ApiClientContext, createQueryClient, systemCallApi } from '../src/api';
 import { DEFAULT_STATUS } from './fixtures';

@@ -8,7 +8,7 @@ import {
   err,
   extractErrorMessage,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import {
@@ -20,7 +20,7 @@ import {
 import { computeCastVoteRecordRootHashFromScratch } from './cast_vote_record_hashes';
 import { parseCert } from './certs';
 import {
-  ArtifactAuthenticationConfig,
+  type ArtifactAuthenticationConfig,
   constructArtifactAuthenticationConfig,
 } from './config';
 import {

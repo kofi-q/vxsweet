@@ -1,11 +1,11 @@
 import {
-  Election,
+  type Election,
   LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
   mergeUiStrings,
 } from '@vx/libs/types/src';
 import { hmpbStringsCatalog } from '@vx/libs/hmpb/src';
-import { BallotLanguageConfigs, getAllBallotLanguages } from '../types';
+import { type BallotLanguageConfigs, getAllBallotLanguages } from '../types';
 import { extractAndTranslateElectionStrings } from './election_strings';
 import { GoogleCloudTranslator } from './translator';
 import { setUiString } from './utils';

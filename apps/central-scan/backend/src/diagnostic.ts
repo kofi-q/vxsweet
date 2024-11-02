@@ -1,6 +1,6 @@
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src';
-import { BatchScanner, ScannedSheetInfo } from './fujitsu_scanner';
+import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src/hmpb-ts';
+import { type BatchScanner, type ScannedSheetInfo } from './fujitsu_scanner';
 import { Store } from './store';
 
 export type ScanDiagnosticOutcome = 'no-paper' | 'pass' | 'fail';

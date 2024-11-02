@@ -1,6 +1,9 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { screen } from '../../test/react_testing_library';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { render } from '../../test/test_utils';
 import { InsertCardScreen } from './insert_card_screen';
 import { electionDefinition } from '../../test/helpers/election';

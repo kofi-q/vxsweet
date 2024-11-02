@@ -1,8 +1,11 @@
 import { renderHook } from '@testing-library/react';
-import { AudioControls } from '@vx/libs/types/src';
+import { type AudioControls } from '@vx/libs/types/src';
 import { UiStringsAudioContext } from '../ui_strings/audio_context';
 import { useAudioControls } from './use_audio_controls';
-import { UiStringsReactQueryApi, createUiStringsApi } from './ui_strings_api';
+import {
+  type UiStringsReactQueryApi,
+  createUiStringsApi,
+} from './ui_strings_api';
 import { UiStringScreenReaderContext } from '../ui_strings/ui_string_screen_reader';
 import { newTestContext } from '../../test/test_context';
 import { DEFAULT_AUDIO_VOLUME } from '../ui_strings/audio_volume';

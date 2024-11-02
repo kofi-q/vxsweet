@@ -1,4 +1,4 @@
-import { Uint8 } from '@vx/libs/message-coder/src';
+import { type Uint8 } from '@vx/libs/message-coder/src';
 import {
   arbitraryUint16,
   arbitraryUint24,
@@ -8,8 +8,8 @@ import {
 import * as fc from 'fast-check';
 import {
   AckResponseMessage,
-  AnyRequest,
-  AnyResponse,
+  type AnyRequest,
+  type AnyResponse,
   DataResponseMessage,
   ErrorResponseMessage,
   FormMovementRequest,
@@ -38,7 +38,7 @@ import {
   ImageResolution,
   ReleaseType,
   ResponseErrorCode,
-  ScanParameters,
+  type ScanParameters,
   ScanSide,
   MultiSheetDetectionSensorLevelInternal,
 } from '../src/types';

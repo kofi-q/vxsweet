@@ -1,5 +1,5 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { CandidateContest } from '@vx/libs/types/src';
+import { type CandidateContest } from '@vx/libs/types/src';
 import { rotateCandidates } from './candidate_rotation';
 
 describe('rotateCandidates', () => {

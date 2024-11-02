@@ -1,13 +1,13 @@
-import { assert, Optional } from '@vx/libs/basics/src';
+import { assert, type Optional } from '@vx/libs/basics/src';
 import { readElection } from '@vx/libs/fs/src';
 import { allBubbleBallotFixtures } from '@vx/libs/hmpb/src';
 import {
   AdjudicationReason,
   asSheet,
-  Candidate,
-  CandidateVote,
+  type Candidate,
+  type CandidateVote,
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
+  type ElectionDefinition,
 } from '@vx/libs/types/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { pdfToPageImages, sortVotesDict } from '../test/helpers/interpretation';

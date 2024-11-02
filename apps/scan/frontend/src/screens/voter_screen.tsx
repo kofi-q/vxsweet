@@ -1,4 +1,7 @@
-import { ElectionDefinition, SystemSettings } from '@vx/libs/types/src';
+import {
+  type ElectionDefinition,
+  type SystemSettings,
+} from '@vx/libs/types/src';
 import { useQueryChangeListener } from '@vx/libs/ui/src';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { getScannerStatus } from '../api';

@@ -25,11 +25,11 @@ import {
   AdjudicationReason,
   HmpbBallotPaperSize,
   DEFAULT_SYSTEM_SETTINGS,
-  Election,
+  type Election,
   ElectionStringKey,
   LanguageCode,
-  SystemSettings,
-  UiStringsPackage,
+  type SystemSettings,
+  type UiStringsPackage,
   formatBallotHash,
   formatElectionPackageHash,
   mergeUiStrings,
@@ -38,7 +38,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { readElectionPackageFromFile } from '@vx/libs/backend/src';
+import { readElectionPackageFromFile } from '@vx/libs/backend/src/election_package';
 import {
   countObjectLeaves,
   getObjectLeaves,
@@ -52,7 +52,7 @@ import {
   mockCloudTranslatedText,
   testSetupHelpers,
 } from '../../test/helpers';
-import { forEachUiString } from '../../src/language_and_audio';
+import { forEachUiString } from '../../src/language_and_audio/utils';
 import { getAllBallotLanguages } from '../../src/types';
 import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';
 

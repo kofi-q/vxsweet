@@ -9,7 +9,7 @@ import { Readable, Writable } from 'node:stream';
 import { fileSync } from 'tmp';
 import {
   mockChildProcess as newMockChildProcess,
-  MockChildProcess,
+  type MockChildProcess,
   mockOf,
 } from '@vx/libs/test-utils/src';
 
@@ -17,15 +17,15 @@ import {
   createCert,
   createCertGivenCertSigningRequest,
   createCertHelper,
-  CreateCertInput,
+  type CreateCertInput,
   createCertSigningRequest,
   openssl,
   parseCreateCertInput,
   parseSignMessageInputExcludingMessage,
   signMessage,
   signMessageHelper,
-  SignMessageInput,
-  SignMessageInputExcludingMessage,
+  type SignMessageInput,
+  type SignMessageInputExcludingMessage,
 } from './cryptography';
 
 let mockChildProcess: MockChildProcess;

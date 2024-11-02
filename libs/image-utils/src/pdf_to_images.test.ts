@@ -1,11 +1,11 @@
-import { iter } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { electionGridLayoutNewHampshireHudsonFixtures } from '@vx/libs/fixtures/src';
-import { Size } from '@vx/libs/types/src';
+import { type Size } from '@vx/libs/types/src';
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  PdfPage,
+  type PdfPage,
   parsePdf,
   pdfToImages,
   setPdfRenderWorkerSrc,

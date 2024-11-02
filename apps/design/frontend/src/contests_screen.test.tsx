@@ -1,10 +1,14 @@
 import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
-import type { ElectionRecord } from '@vx/apps/design/backend/src';
-import { CandidateContest, ElectionId, YesNoContest } from '@vx/libs/types/src';
+import { type ElectionRecord } from '../../backend/src/store';
+import {
+  type CandidateContest,
+  type ElectionId,
+  type YesNoContest,
+} from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import {
-  MockApiClient,
+  type MockApiClient,
   createMockApiClient,
   provideApi,
 } from '../test/api_helpers';

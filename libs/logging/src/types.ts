@@ -1,9 +1,5 @@
-import {
-  UserRole,
-  UserRoleSchema,
-  Dictionary,
-  EventLogging,
-} from '@vx/libs/types/src';
+import { type UserRole, UserRoleSchema } from '@vx/libs/types/src/auth';
+import { type Dictionary, EventLogging } from '@vx/libs/types/src';
 import { z } from 'zod';
 import { LogEventId } from './log_event_ids';
 import { AppName, LogSource } from './base_types/log_source';

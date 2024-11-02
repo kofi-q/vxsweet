@@ -24,21 +24,21 @@ import { backendWaitFor } from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
 import {
   LogEventId,
-  LogSource,
   mockLogger,
   mockLoggerWithRoleAndSource,
 } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import {
-  BlockDeviceInfo,
+  type BlockDeviceInfo,
   VX_USB_LABEL_REGEXP,
   detectUsbDrive,
 } from './usb_drive';
 import { exec } from './exec';
-import { UsbDrive, UsbDriveStatus } from './types';
+import { type UsbDrive, type UsbDriveStatus } from './types';
 import {
   DEFAULT_MOCK_USB_DRIVE_DIR,
   MOCK_USB_DRIVE_STATE_FILENAME,

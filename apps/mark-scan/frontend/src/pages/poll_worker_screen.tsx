@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  PollsState,
-  PollsTransitionType,
-  InsertedSmartCardAuth,
-  PrecinctSelection,
-  VotesDict,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type PollsState,
+  type PollsTransitionType,
+  type PrecinctSelection,
+  type VotesDict,
   getBallotStyle,
 } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import {
   Button,
   ButtonList,
@@ -32,8 +32,8 @@ import {
   SearchSelect,
   SignedHashValidationButton,
   RemoveCardImage,
-  electionStrings,
 } from '@vx/libs/ui/src';
+import { electionStrings } from '@vx/libs/ui/src/ui_strings';
 
 import {
   getPollsTransitionDestinationState,
@@ -45,10 +45,8 @@ import {
   getGroupedBallotStyles,
 } from '@vx/libs/utils/src';
 
-import type {
-  AcceptedPaperType,
-  MachineConfig,
-} from '@vx/apps/mark-scan/backend/src';
+import { type AcceptedPaperType } from '../../../backend/src/custom-paper-handler/state_machine';
+import { type MachineConfig } from '../../../backend/src/types';
 import styled from 'styled-components';
 import {
   assertDefined,
@@ -58,6 +56,7 @@ import {
 } from '@vx/libs/basics/src';
 
 import { LoadPaperPage } from './load_paper_page';
+import * as api from '../api';
 import {
   getStateMachineState,
   setAcceptingPaperState,
@@ -65,7 +64,6 @@ import {
   setTestMode,
 } from '../api';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
-import * as api from '../api';
 import { InsertedInvalidNewSheetScreen } from './inserted_invalid_new_sheet_screen';
 import { InsertedPreprintedBallotScreen } from './inserted_preprinted_ballot_screen';
 import { LoadingNewSheetScreen } from './loading_new_sheet_screen';

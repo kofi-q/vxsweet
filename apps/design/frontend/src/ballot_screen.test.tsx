@@ -16,7 +16,7 @@ import { Buffer } from 'node:buffer';
 import { within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
-  MockApiClient,
+  type MockApiClient,
   createMockApiClient,
   provideApi,
 } from '../test/api_helpers';

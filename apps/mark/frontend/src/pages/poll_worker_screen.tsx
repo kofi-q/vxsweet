@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  PrecinctSelection,
-  PollsState,
-  PollsTransitionType,
-  InsertedSmartCardAuth,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type PrecinctSelection,
+  type PollsState,
+  type PollsTransitionType,
   getGroupIdFromBallotStyleId,
 } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import {
   Button,
   ButtonList,
@@ -41,7 +41,7 @@ import {
   getGroupedBallotStyles,
 } from '@vx/libs/utils/src';
 
-import type { MachineConfig } from '@vx/apps/mark/backend/src';
+import { type MachineConfig } from '../../../backend/src/types';
 import styled from 'styled-components';
 import { DateWithoutTime, find, throwIllegalValue } from '@vx/libs/basics/src';
 

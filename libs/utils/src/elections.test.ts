@@ -3,7 +3,7 @@ import {
   electionGeneralDefinition,
   electionGridLayoutNewHampshireTestBallotFixtures,
 } from '@vx/libs/fixtures/src';
-import { getMaxSheetsPerBallot } from '.';
+import { getMaxSheetsPerBallot } from './elections';
 
 test('getMaxSheetsPerBallot', () => {
   // election with no gridLayouts available

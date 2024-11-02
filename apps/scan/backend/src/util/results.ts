@@ -1,8 +1,8 @@
 import {
   BallotType,
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
-  PageInterpretation,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
   Tabulation,
   getGroupIdFromBallotStyleId,
 } from '@vx/libs/types/src';
@@ -11,8 +11,9 @@ import {
   getBallotStyleIdPartyIdLookup,
   groupMapToGroupList,
   tabulateCastVoteRecords,
-} from '@vx/libs/utils/src';
-import { assert, assertDefined, iter, typedAs } from '@vx/libs/basics/src';
+} from '@vx/libs/utils/src/tabulation';
+import { assert, assertDefined, typedAs } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { VX_MACHINE_ID } from '@vx/libs/backend/src';
 import { Store } from '../store';
 

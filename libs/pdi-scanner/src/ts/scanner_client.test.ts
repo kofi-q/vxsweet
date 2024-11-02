@@ -4,19 +4,20 @@ import { spawn } from 'node:child_process';
 import {
   backendWaitFor,
   mockChildProcess as createMockChildProcess,
-  MockChildProcess,
+  type MockChildProcess,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { err, iter, ok, sleep } from '@vx/libs/basics/src';
+import { err, ok, sleep } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { fromGrayScale } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
 import {
   createPdiScannerClient,
-  DoubleFeedDetectionCalibrationConfig,
-  PdictlEvent,
+  type DoubleFeedDetectionCalibrationConfig,
+  type PdictlEvent,
   SCAN_IMAGE_WIDTH,
-  ScannerEvent,
-  ScannerStatus,
+  type ScannerEvent,
+  type ScannerStatus,
 } from './scanner_client';
 
 let mockChildProcess: MockChildProcess;

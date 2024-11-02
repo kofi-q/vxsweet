@@ -1,6 +1,6 @@
 import { inspect } from 'node:util';
 import {
-  Result,
+  type Result,
   asyncResultBlock,
   err,
   isResult,
@@ -8,7 +8,7 @@ import {
   resultBlock,
   wrapException,
 } from './result';
-import { Optional } from './types';
+import { type Optional } from './types';
 import { assert } from './assert';
 
 test('ok is Ok', () => {

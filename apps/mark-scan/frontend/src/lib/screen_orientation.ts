@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@vx/apps/mark-scan/backend/src';
+import { type MachineConfig } from '../../../backend/src/types';
 
 interface ScreenOrientationReturnType {
   isLandscape: boolean;

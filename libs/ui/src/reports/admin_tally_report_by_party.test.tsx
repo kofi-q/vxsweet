@@ -2,7 +2,7 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
-import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src';
+import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src/tabulation';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { formatBallotHash } from '@vx/libs/types/src';
 import { render, screen, within } from '../../test/react_testing_library';

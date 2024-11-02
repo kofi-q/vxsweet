@@ -8,13 +8,13 @@ import { assert, assertDefined, find, typedAs } from '@vx/libs/basics/src';
 import {
   CVR,
   Tabulation,
-  YesNoContest,
+  type YesNoContest,
   safeParseJson,
   CastVoteRecordExportFileName,
-  CandidateContest,
+  type CandidateContest,
   BallotType,
-  BallotStyleId,
-  BallotStyleGroupId,
+  type BallotStyleId,
+  type BallotStyleGroupId,
   getGroupIdFromBallotStyleId,
 } from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
@@ -31,7 +31,7 @@ import {
   combineManualElectionResults,
   buildManualResultsFixture,
   buildElectionResultsFixture,
-  ContestResultsSummaries,
+  type ContestResultsSummaries,
   combineCardCounts,
   convertManualElectionResults,
   combineElectionResults,

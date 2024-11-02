@@ -1,4 +1,4 @@
-import { FujitsuPrinterStatus } from '../printing/printer';
+import { type FujitsuPrinterStatus } from '../printing/printer';
 import { testPrintFailureDiagnosticMessage } from './diagnostics';
 
 test.each<{ printerStatus: FujitsuPrinterStatus; message: string }>([

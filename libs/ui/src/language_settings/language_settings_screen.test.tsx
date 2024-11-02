@@ -1,7 +1,7 @@
 import {
   ElectionStringKey,
   LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import { newTestContext } from '../../test/test_context';

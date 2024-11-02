@@ -4,14 +4,14 @@ import {
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
 import { find } from '@vx/libs/basics/src';
-import { buildManualResultsFixture } from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import {
-  MockCastVoteRecordFile,
+  type MockCastVoteRecordFile,
   addMockCvrFileToStore,
 } from '../../test/mock_cvr_file';
 import { iterableToString, parseCsv } from '../../test/csv';

@@ -1,8 +1,8 @@
 import {
-  BallotStyle as VxfBallotStyle,
+  type BallotStyle as VxfBallotStyle,
   LanguageCode,
-  DistrictId,
-  PartyId,
+  type DistrictId,
+  type PartyId,
 } from '@vx/libs/types/src';
 import { convertToVxfBallotStyle } from './types';
 

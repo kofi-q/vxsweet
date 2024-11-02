@@ -4,7 +4,7 @@ import { Buffer } from 'node:buffer';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { mocks } from '@vx/libs/custom-scanner/src';
 import { findByIds, WebUSBDevice } from 'usb';
-import { Uint16 } from '@vx/libs/message-coder/src';
+import { type Uint16 } from '@vx/libs/message-coder/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   GENERIC_ENDPOINT_OUT,
@@ -26,7 +26,7 @@ import { setUpMockWebUsbDevice } from './test_utils';
 import {
   INVALID_ARGUMENT_RESPONSE_CODE,
   LoadPaperCommand,
-  PaperHandlerBitmap,
+  type PaperHandlerBitmap,
   PrinterStatusRealTimeExchangeResponse,
   SensorStatusRealTimeExchangeResponse,
 } from './coders';

@@ -1,5 +1,6 @@
 import React from 'react';
-import type { Api, BallotMode } from '@vx/apps/design/backend/src';
+import { type Api } from '../../backend/src/app';
+import { type BallotMode } from '@vx/libs/hmpb/src';
 import * as grout from '@vx/libs/grout/src';
 import {
   QueryClient,
@@ -8,7 +9,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import { BallotStyleId, BallotType, Id } from '@vx/libs/types/src';
+import { type BallotStyleId, BallotType, type Id } from '@vx/libs/types/src';
 
 export type ApiClient = grout.Client<Api>;
 

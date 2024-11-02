@@ -1,24 +1,19 @@
 import { Application } from 'express';
-import {
-  LogSource,
-  Logger,
-  mockBaseLogger,
-  mockLogger,
-} from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { Logger, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
 import * as grout from '@vx/libs/grout/src';
 import {
-  DippedSmartCardAuthApi,
+  type DippedSmartCardAuthApi,
   buildMockDippedSmartCardAuth,
 } from '@vx/libs/auth/src';
 import { dirSync } from 'tmp';
 import getPort from 'get-port';
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { Workspace, createWorkspace } from '../../src/util/workspace';
-import { MockScanner, makeMockScanner } from '../util/mocks';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type Workspace, createWorkspace } from '../../src/util/workspace';
+import { type MockScanner, makeMockScanner } from '../util/mocks';
 import { Importer } from '../../src/importer';
-import { Api } from '../../src';
-import { buildCentralScannerApp } from '../../src/app';
+import { type Api, buildCentralScannerApp } from '../../src/app';
 import { start } from '../../src/server';
 import { Store } from '../../src/store';
 import { getUserRole } from '../../src/util/auth';

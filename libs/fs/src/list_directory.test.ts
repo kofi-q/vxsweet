@@ -1,11 +1,12 @@
-import { err, iter, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { symlinkSync } from 'node:fs';
 import tmp from 'tmp';
 import {
-  FileSystemEntry,
+  type FileSystemEntry,
   FileSystemEntryType,
   listDirectory,
-  ListDirectoryError,
+  type ListDirectoryError,
   listDirectoryRecursive,
 } from './list_directory';
 

@@ -3,22 +3,22 @@ import {
   assert,
   assertDefined,
   extractErrorMessage,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
 } from '@vx/libs/basics/src';
 import {
-  ExportCastVoteRecordsToUsbDriveError,
-  Id,
-  SheetInterpretationWithPages,
+  type ExportCastVoteRecordsToUsbDriveError,
+  type Id,
+  type SheetInterpretationWithPages,
 } from '@vx/libs/types/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
-import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
+import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/src/cast_vote_records';
 import { ImageData } from 'canvas';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Store } from '../store';
 import { rootDebug } from '../util/debug';
-import { Workspace } from '../util/workspace';
-import { InterpretationResult } from '../types';
+import { type Workspace } from '../util/workspace';
+import { type InterpretationResult } from '../types';
 
 const debug = rootDebug.extend('state-machine');
 

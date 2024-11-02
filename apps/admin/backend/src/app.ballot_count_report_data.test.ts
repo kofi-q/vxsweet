@@ -9,10 +9,10 @@ jest.mock('@vx/libs/utils/src', () => {
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
-  buildManualResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import {
   buildTestEnvironment,
   configureMachine,

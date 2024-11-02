@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { useState } from 'react';
 import {
   FileInputButton as Component,
-  FileInputButtonProps,
+  type FileInputButtonProps,
 } from './file_input_button';
 
 const meta: Meta<typeof Component> = {

@@ -1,7 +1,7 @@
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { Tabulation } from '@vx/libs/types/src';
 import { getCastVoteRecordAdjudicationFlags } from './cast_vote_records';
-import { CastVoteRecordAdjudicationFlags } from '..';
+import { type CastVoteRecordAdjudicationFlags } from '../types';
 
 const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 

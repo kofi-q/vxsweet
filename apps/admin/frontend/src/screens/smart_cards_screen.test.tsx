@@ -7,21 +7,24 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
-  DEFAULT_SYSTEM_SETTINGS,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { deferred, err, ok } from '@vx/libs/basics/src';
-import { Api } from '@vx/apps/admin/backend/src';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import { type Api } from '../../../backend/src/app';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import {
   renderInAppContext,
-  RenderInAppContextParams,
+  type RenderInAppContextParams,
 } from '../../test/render_in_app_context';
 import { SmartCardsScreen } from './smart_cards_screen';
 

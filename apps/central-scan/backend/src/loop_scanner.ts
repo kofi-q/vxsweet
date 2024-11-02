@@ -1,9 +1,9 @@
 import { readFileSync } from 'fs-extra';
 import path from 'node:path';
 import {
-  BatchControl,
-  BatchScanner,
-  ScannedSheetInfo,
+  type BatchControl,
+  type BatchScanner,
+  type ScannedSheetInfo,
 } from './fujitsu_scanner';
 import { REPO_ROOT } from './globals';
 

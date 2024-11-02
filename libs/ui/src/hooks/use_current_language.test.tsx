@@ -3,10 +3,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LanguageCode } from '@vx/libs/types/src';
 import { act } from 'react';
 import { createUiStringsApi } from './ui_strings_api';
-import { UiStringsContextProvider, useCurrentLanguage } from '..';
+import { UiStringsContextProvider } from '../ui_strings/ui_strings_context';
+import { useCurrentLanguage } from './use_current_language';
 import {
   DEFAULT_LANGUAGE_CODE,
-  FrontendLanguageContextInterface,
+  type FrontendLanguageContextInterface,
   useFrontendLanguageContext,
 } from '../ui_strings/language_context';
 

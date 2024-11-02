@@ -1,14 +1,14 @@
 import { Buffer } from 'node:buffer';
-import { Result, assert, err } from '@vx/libs/basics/src';
+import { type Result, assert, err } from '@vx/libs/basics/src';
 import { BaseCoder } from './base_coder';
 import {
-  BitLength,
-  Coder,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
+  type BitLength,
+  type Coder,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
 } from './types';
-import { CoderType } from './message_coder';
+import { type CoderType } from './message_coder';
 
 /**
  * A coder that encodes/decodes one of a set of coders.

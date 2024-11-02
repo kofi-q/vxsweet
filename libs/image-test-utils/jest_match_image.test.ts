@@ -2,7 +2,7 @@ import { sampleBallotImages } from '@vx/libs/fixtures/src';
 import { createImageData } from 'canvas';
 import { basename } from 'node:path';
 import { crop } from '@vx/libs/image-utils/src';
-import '@vx/libs/image-test-utils/register';
+import './register';
 
 test('matching images', async () => {
   const image = createImageData(1, 1);

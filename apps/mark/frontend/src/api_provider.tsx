@@ -1,11 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
+import { SystemCallContextProvider } from '@vx/libs/ui/src';
+import { UiStringsContextProvider } from '@vx/libs/ui/src/ui_strings';
 import {
-  SystemCallContextProvider,
-  UiStringsContextProvider,
-} from '@vx/libs/ui/src';
-import {
-  ApiClient,
+  type ApiClient,
   ApiClientContext,
   createQueryClient,
   systemCallApi,

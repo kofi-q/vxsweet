@@ -1,14 +1,14 @@
 import {
   mockFunction,
-  MockFunction,
+  type MockFunction,
   MockFunctionError,
 } from '@vx/libs/test-utils/src';
 import {
-  AnyApi,
-  AnyMethods,
-  AsyncRpcMethod,
-  inferApiMethods,
-} from '@vx/libs/grout/src';
+  type AnyApi,
+  type AnyMethods,
+  type inferApiMethods,
+} from '../../src/server';
+import { type AsyncRpcMethod } from '../../src/client';
 
 type MockMethods<Methods extends AnyMethods> = {
   [Method in keyof Methods]: MockFunction<AsyncRpcMethod<Methods[Method]>>;

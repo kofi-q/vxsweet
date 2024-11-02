@@ -1,14 +1,14 @@
 import {
   HmpbBallotPaperSize,
-  BallotStyleGroupId,
-  BallotStyleId,
+  type BallotStyleGroupId,
+  type BallotStyleId,
   BallotType,
-  CandidateContest,
-  DistrictId,
-  Election,
-  ElectionId,
-  GridPositionOption,
-  VotesDict,
+  type CandidateContest,
+  type DistrictId,
+  type Election,
+  type ElectionId,
+  type GridPositionOption,
+  type VotesDict,
   ballotPaperDimensions,
 } from '@vx/libs/types/src';
 import { DateWithoutTime, assertDefined, range } from '@vx/libs/basics/src';
@@ -22,14 +22,14 @@ import {
   pageMarginsInches,
 } from './ballot_components';
 import {
-  BallotPageTemplate,
-  BaseBallotProps,
-  PagedElementResult,
+  type BallotPageTemplate,
+  type BaseBallotProps,
+  type PagedElementResult,
   renderAllBallotsAndCreateElectionDefinition,
 } from './render_ballot';
 import { Footer } from './vx_default_ballot_template';
-import { RenderScratchpad, Renderer } from './renderer';
-import { PixelDimensions } from './types';
+import { type RenderScratchpad, type Renderer } from './renderer';
+import { type PixelDimensions } from './types';
 import { markBallotDocument } from './mark_ballot';
 import { concatenatePdfs } from './concatenate_pdfs';
 

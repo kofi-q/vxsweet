@@ -5,7 +5,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   ResetVoterSessionButton,
-  ResetVoterSessionButtonProps,
+  type ResetVoterSessionButtonProps,
 } from './deactivate_voter_session_button';
 import * as api from '../api';
 

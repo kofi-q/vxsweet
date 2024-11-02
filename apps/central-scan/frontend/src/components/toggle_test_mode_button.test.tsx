@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { render, screen, within } from '../../test/react_testing_library';
 import { ToggleTestModeButton } from './toggle_test_mode_button';
-import { ApiMock, createApiMock, provideApi } from '../../test/api';
+import { type ApiMock, createApiMock, provideApi } from '../../test/api';
 
 let apiMock: ApiMock;
 

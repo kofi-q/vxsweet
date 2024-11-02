@@ -1,6 +1,6 @@
 import { Button } from '@vx/libs/ui/src';
 import React from 'react';
-import type { BallotCountReportSpec } from '@vx/apps/admin/backend/src';
+import { type BallotCountReportSpec } from '../../../../backend/src/reports/ballot_count_report';
 import {
   exportBallotCountReportCsv,
   exportBallotCountReportPdf,

@@ -1,4 +1,4 @@
-import { Admin, Id, Tabulation } from '@vx/libs/types/src';
+import { Admin, type Id, Tabulation } from '@vx/libs/types/src';
 import {
   GROUP_KEY_ROOT,
   getEmptyCardCounts,
@@ -6,8 +6,8 @@ import {
   groupBySupportsZeroSplits,
   isGroupByEmpty,
   mergeTabulationGroupMaps,
-} from '@vx/libs/utils/src';
-import { CardTally } from '../types';
+} from '@vx/libs/utils/src/tabulation';
+import { type CardTally } from '../types';
 import { Store } from '../store';
 import { tabulateManualBallotCounts } from './manual_results';
 import { rootDebug } from '../util/debug';

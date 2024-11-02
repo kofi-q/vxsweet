@@ -1,5 +1,5 @@
 import { Exporter } from '@vx/libs/backend/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../globals';
 
 /**

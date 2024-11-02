@@ -1,4 +1,10 @@
-import { Optional, Result, assert, err, ok } from '@vx/libs/basics/src';
+import {
+  type Optional,
+  type Result,
+  assert,
+  err,
+  ok,
+} from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
@@ -8,13 +14,16 @@ import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { print } from './printing';
 import {
   FujitsuThermalPrinterDriver,
-  FujitsuThermalPrinterDriverInterface,
+  type FujitsuThermalPrinterDriverInterface,
   getDevice,
-} from './driver';
+} from './driver/driver';
 import { rootDebug } from './debug';
 import { IDLE_REPLY_PARAMETER, LINE_FEED_REPLY_PARAMETER } from './globals';
 import { summarizeRawStatus, waitForPrintReadyStatus } from './status';
-import { FujitsuThermalPrinterInterface, PrinterStatus } from './types';
+import {
+  type FujitsuThermalPrinterInterface,
+  type PrinterStatus,
+} from './types';
 import { MockFileFujitsuPrinter } from './mocks/file_printer';
 import { logPrinterStatusIfChanged } from './logging';
 

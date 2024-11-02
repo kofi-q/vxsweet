@@ -1,5 +1,5 @@
-import { Optional } from '@vx/libs/basics/src';
-import { Election } from '@vx/libs/types/src';
+import { type Optional } from '@vx/libs/basics/src';
+import { type Election } from '@vx/libs/types/src';
 
 export function getMaxSheetsPerBallot(election: Election): Optional<number> {
   if (!election.gridLayouts) {

@@ -1,4 +1,5 @@
-import { P, appStrings, Icons } from '@vx/libs/ui/src';
+import { P, Icons } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 export function UnrecoverableErrorPage(): JSX.Element {

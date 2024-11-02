@@ -1,5 +1,5 @@
 import { encodeImageData, ImageData } from '@vx/libs/image-utils/src';
-import { mapSheet, SheetOf } from '@vx/libs/types/src';
+import { mapSheet, type SheetOf } from '@vx/libs/types/src';
 import { time } from '@vx/libs/utils/src';
 import makeDebug from 'debug';
 import { writeFile } from 'node:fs/promises';

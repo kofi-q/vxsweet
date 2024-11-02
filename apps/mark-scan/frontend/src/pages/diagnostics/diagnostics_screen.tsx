@@ -4,11 +4,11 @@ import {
   Main,
   Screen,
   P,
-  MarkScanReadinessReportContents,
   Loading,
   SaveReadinessReportButton,
-  appStrings,
 } from '@vx/libs/ui/src';
+import { MarkScanReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { useHistory, Switch, Route, Redirect } from 'react-router-dom';
 import { AccessibleControllerDiagnosticScreen } from './accessible_controller_diagnostic_screen';
 import {

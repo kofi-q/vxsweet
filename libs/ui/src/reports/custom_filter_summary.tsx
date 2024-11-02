@@ -1,15 +1,19 @@
-import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
+import { Admin, type ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 
 import {
   getDistrictById,
   getPartyById,
   getPrecinctById,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 
 import pluralize from 'pluralize';
 import styled from 'styled-components';
 import { Font } from '../typography';
-import { getBatchLabel, getScannerLabel, LabeledScannerBatch } from './utils';
+import {
+  getBatchLabel,
+  getScannerLabel,
+  type LabeledScannerBatch,
+} from './utils';
 import { Box } from './layout';
 
 interface Props {

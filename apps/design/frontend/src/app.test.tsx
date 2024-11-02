@@ -1,7 +1,7 @@
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import { ElectionId } from '@vx/libs/types/src';
-import { MockApiClient, createMockApiClient } from '../test/api_helpers';
+import { type ElectionId } from '@vx/libs/types/src';
+import { type MockApiClient, createMockApiClient } from '../test/api_helpers';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
 

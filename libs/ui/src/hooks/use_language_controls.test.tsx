@@ -5,7 +5,7 @@ import { LanguageCode } from '@vx/libs/types/src';
 import { useLanguageControls } from './use_language_controls';
 import { createUiStringsApi } from './ui_strings_api';
 import { useCurrentLanguage } from './use_current_language';
-import { UiStringsContextProvider } from '../ui_strings';
+import { UiStringsContextProvider } from '../ui_strings/ui_strings_context';
 import { act, renderHook, waitFor } from '../../test/react_testing_library';
 
 const { ENGLISH, SPANISH } = LanguageCode;

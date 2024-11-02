@@ -1,5 +1,5 @@
 import { Button } from '../button';
-import { AudioOnly } from '.';
+import { AudioOnly } from './audio_only';
 import { render, screen } from '../../test/react_testing_library';
 
 test('hides content without removing from a11y tree', () => {

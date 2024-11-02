@@ -4,7 +4,7 @@ import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import { LogEventType } from '../src/base_types/log_event_types';
 import { AppName } from '../src/base_types/log_source';
-import { BaseLogEventDetails } from '../src';
+import { type BaseLogEventDetails } from '../src/base_types/base_log_event_details';
 
 export interface ParsedLogDetails extends Omit<BaseLogEventDetails, 'eventId'> {
   // We haven't yet generated the final type for `eventId`, `LogEventId`.

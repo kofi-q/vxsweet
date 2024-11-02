@@ -1,4 +1,7 @@
-import { BallotStyleId, ElectionDefinition } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  type ElectionDefinition,
+} from '@vx/libs/types/src';
 import { useCurrentLanguage } from '@vx/libs/ui/src';
 import { getRelatedBallotStyle } from '@vx/libs/utils/src';
 import React from 'react';

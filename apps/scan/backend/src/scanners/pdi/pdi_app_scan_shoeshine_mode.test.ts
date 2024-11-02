@@ -12,7 +12,7 @@ import {
 } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
+  type SheetInterpretation,
 } from '@vx/libs/types/src';
 import {
   ballotImages,

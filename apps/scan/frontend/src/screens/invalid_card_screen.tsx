@@ -1,4 +1,4 @@
-import { InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { InvalidCardScreen as SharedInvalidCardScreen } from '@vx/libs/ui/src';
 
 import { ScreenMainCenterChild } from '../components/layout';

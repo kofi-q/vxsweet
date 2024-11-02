@@ -2,17 +2,12 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { H1, WithScrollButtons, Button, P } from '@vx/libs/ui/src';
+import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
 import {
-  H1,
-  WithScrollButtons,
-  Button,
-  appStrings,
-  AudioOnly,
-  ReadOnLoad,
   PageNavigationButtonId,
   AssistiveTechInstructions,
-  P,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { VoterScreen, Review } from '@vx/libs/mark-flow-ui/src';

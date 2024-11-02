@@ -1,13 +1,13 @@
 import {
   LanguageCode,
-  UiStringAudioIds,
-  UiStringsPackage,
+  type UiStringAudioIds,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
 import {
   cleanText,
   forEachUiString,
   prepareTextForSpeechSynthesis,
-  Segment,
+  type Segment,
   setUiString,
   setUiStringAudioIds,
   splitInterpolatedText,

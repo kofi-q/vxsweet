@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useReducer } from 'react';
 import {
-  OptionalVote,
-  VotesDict,
+  type OptionalVote,
+  type VotesDict,
   getBallotStyle,
   getContests,
-  ContestId,
-  PrecinctId,
-  BallotStyleId,
-  InsertedSmartCardAuth,
+  type ContestId,
+  type PrecinctId,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 
 import { useHistory } from 'react-router-dom';
 import {
@@ -34,10 +34,8 @@ import {
   useBallotStyleManager,
   useSessionSettingsManager,
 } from '@vx/libs/mark-flow-ui/src';
-import type {
-  ElectionState,
-  SimpleServerStatus,
-} from '@vx/apps/mark-scan/backend/src';
+import { type ElectionState } from '../../backend/src/types';
+import { type SimpleServerStatus } from '../../backend/src/custom-paper-handler/types';
 import {
   checkPin,
   endCardlessVoterSession,

@@ -3,8 +3,8 @@ import { z } from 'zod';
 import {
   err,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
   wrapException,
   DateWithoutTime,
 } from '@vx/libs/basics/src';

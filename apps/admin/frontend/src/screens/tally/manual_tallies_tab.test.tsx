@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 
 import userEvent from '@testing-library/user-event';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../../../test/react_testing_library';
 import {
@@ -12,7 +12,10 @@ import {
   ManualTalliesTab,
 } from './manual_tallies_tab';
 import { renderInAppContext } from '../../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { mockManualResultsMetadata } from '../../../test/api_mock_data';
 
 let apiMock: ApiMock;

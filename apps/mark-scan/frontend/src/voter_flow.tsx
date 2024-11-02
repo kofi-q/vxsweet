@@ -1,23 +1,23 @@
 import React from 'react';
 import {
   CastBallotPage,
-  ContestsWithMsEitherNeither,
-  MachineConfig,
-  UpdateVoteFunction,
+  type ContestsWithMsEitherNeither,
+  type MachineConfig,
+  type UpdateVoteFunction,
 } from '@vx/libs/mark-flow-ui/src';
 import { randomBallotId } from '@vx/libs/utils/src';
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  VotesDict,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type VotesDict,
 } from '@vx/libs/types/src';
-import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../backend/src/custom-paper-handler/types';
 import {
   MarkScanControllerSandbox,
   PatDeviceContextProvider,
   useAccessibleControllerHelpTrigger,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 import { Ballot } from './components/ballot';
 import { ValidateBallotPage } from './pages/validate_ballot_page';
 import { BallotContext } from './contexts/ballot_context';

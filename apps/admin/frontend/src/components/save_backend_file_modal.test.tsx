@@ -1,12 +1,15 @@
 import { advancePromises, mockKiosk } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import { err, ok } from '@vx/libs/basics/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { screen, waitFor } from '../../test/react_testing_library';
 import { SaveBackendFileModal } from './save_backend_file_modal';
 import { renderInAppContext } from '../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 let kiosk = mockKiosk();
 let apiMock: ApiMock;

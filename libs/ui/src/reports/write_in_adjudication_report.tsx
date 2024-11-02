@@ -1,12 +1,12 @@
 import {
-  AnyContest,
-  CandidateContest,
-  ElectionDefinition,
+  type AnyContest,
+  type CandidateContest,
+  type ElectionDefinition,
   Tabulation,
 } from '@vx/libs/types/src';
 import { ThemeProvider } from 'styled-components';
 import { unique } from '@vx/libs/basics/src';
-import { getPartyById } from '@vx/libs/utils/src';
+import { getPartyById } from '@vx/libs/utils/src/tabulation';
 import {
   printedReportThemeFn,
   PrintedReport,

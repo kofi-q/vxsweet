@@ -14,7 +14,7 @@ import {
   ResponseApduError,
   STATUS_WORD,
 } from './apdu';
-import { CardReader, PcscLite } from './card_reader';
+import { CardReader, type PcscLite } from './card_reader';
 
 type ConnectCallback = (error?: Error, protocol?: number) => void;
 type Connect = (options: { share_mode: number }, cb: ConnectCallback) => void;

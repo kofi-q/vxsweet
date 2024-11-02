@@ -14,10 +14,10 @@ import { election, defaultPrecinctId } from '../../test/helpers/election';
 
 import { advanceTimers } from '../../test/helpers/timers';
 
-import { AdminScreen, AdminScreenProps } from './admin_screen';
+import { AdminScreen, type AdminScreenProps } from './admin_screen';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../test/helpers/mock_api_client';

@@ -2,14 +2,14 @@ import {
   assert,
   err,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
-import { Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';
-import { FileKey, TpmKey } from '../keys';
+import { type FileKey, type TpmKey } from '../keys';
 
 import {
   CardCommand,
@@ -19,7 +19,7 @@ import {
   ResponseApduError,
   SELECT,
 } from '../apdu';
-import { CardStatus, CheckPinResponse } from '../card';
+import { type CardStatus, type CheckPinResponse } from '../card';
 import { CardReader } from '../card_reader';
 import { CERT_EXPIRY_IN_DAYS } from '../certs';
 import {
@@ -44,9 +44,9 @@ import {
   VERIFY,
 } from '../piv';
 import {
-  CommonAccessCardCompatibleCard,
-  CommonAccessCardDetails,
-  GenerateSignatureError,
+  type CommonAccessCardCompatibleCard,
+  type CommonAccessCardDetails,
+  type GenerateSignatureError,
 } from './common_access_card_api';
 import {
   constructCardCertSubject,

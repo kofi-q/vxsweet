@@ -2,22 +2,22 @@ import {
   assert,
   err,
   find,
-  iter,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import tmp from 'tmp';
 import { writeImageData } from '@vx/libs/image-utils/src';
 import {
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
+  type ElectionDefinition,
   mapSheet,
-  MarkThresholds,
+  type MarkThresholds,
   safeParseElectionDefinition,
   safeParseJson,
-  SheetOf,
-  SystemSettings,
+  type SheetOf,
+  type SystemSettings,
   safeParseSystemSettings,
 } from '@vx/libs/types/src';
 import { jsonStream } from '@vx/libs/utils/src';
@@ -27,7 +27,7 @@ import { promises as fs } from 'node:fs';
 import { basename, dirname, isAbsolute, join } from 'node:path';
 import { once } from 'node:stream';
 import { interpret } from './interpret';
-import { InterpretedBallotCard, InterpretError } from './types';
+import { type InterpretedBallotCard, type InterpretError } from './types';
 
 interface IO {
   stdout: NodeJS.WritableStream;

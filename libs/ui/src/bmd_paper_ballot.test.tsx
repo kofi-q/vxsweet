@@ -20,14 +20,14 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  Candidate,
-  CandidateContest,
-  ElectionDefinition,
+  type Candidate,
+  type CandidateContest,
+  type ElectionDefinition,
   getBallotStyle,
   getContests,
-  PrecinctId,
+  type PrecinctId,
   vote,
 } from '@vx/libs/types/src';
 import {
@@ -43,10 +43,10 @@ import { assertDefined, find } from '@vx/libs/basics/src';
 import { render, screen } from '../test/react_testing_library';
 import {
   ORDERED_BMD_BALLOT_LAYOUTS,
-  MachineType,
+  type MachineType,
   BmdPaperBallot,
   MAX_MARK_SCAN_TOP_MARGIN,
-  BmdBallotSheetSize,
+  type BmdBallotSheetSize,
 } from './bmd_paper_ballot';
 import * as QrCodeModule from './qrcode';
 

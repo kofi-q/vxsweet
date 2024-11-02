@@ -2,8 +2,8 @@ import { sha256 } from 'js-sha256';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   LanguageCode,
-  UiStringAudioIdsPackage,
-  UiStringsPackage,
+  type UiStringAudioIdsPackage,
+  type UiStringsPackage,
   isLanguageCode,
 } from '@vx/libs/types/src';
 

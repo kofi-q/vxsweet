@@ -6,7 +6,7 @@ import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
-import type { ExportDataResult } from '@vx/apps/admin/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 
 import { Button, Modal, P, Font, ModalWidth } from '@vx/libs/ui/src';
 

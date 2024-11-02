@@ -10,7 +10,7 @@ import { DefaultTheme, ThemeContext } from 'styled-components';
 import React from 'react';
 import {
   VoterSettingsManagerContext,
-  LanguageControls,
+  type LanguageControls,
   useCurrentLanguage,
   useAudioEnabled,
   AppBase,
@@ -22,11 +22,8 @@ import {
   mockUseAudioControls,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import {
-  AudioControls,
-  InsertedSmartCardAuth,
-  LanguageCode,
-} from '@vx/libs/types/src';
+import { type AudioControls, LanguageCode } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { act, renderHook } from '../../test/react_testing_library';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 

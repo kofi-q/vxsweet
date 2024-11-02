@@ -1,0 +1,9 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "ast",
+    srcs = ["nodes.go"],
+    importpath = "github.com/kofi-q/vxsweet/tools/ts-refactor/ast",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

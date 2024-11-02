@@ -1,14 +1,14 @@
-import { Result, ok, resultBlock } from '@vx/libs/basics/src';
+import { type Result, ok, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { MAX_UINT8, MIN_UINT8 } from './constants';
 import {
-  BitLength,
-  BitOffset,
-  Coder,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
-  Uint8,
+  type BitLength,
+  type BitOffset,
+  type Coder,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
+  type Uint8,
 } from './types';
 import { UintCoder } from './uint_coder';
 

@@ -1,4 +1,4 @@
-import type { BallotCountReportWarning } from '@vx/apps/admin/backend/src';
+import { type BallotCountReportWarning } from '../../../../backend/src/reports/warnings';
 import { getBallotCountReportWarningText } from './ballot_count_report_warnings';
 
 test('getBallotCountReportWarningText', () => {

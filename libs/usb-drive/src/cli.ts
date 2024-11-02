@@ -1,8 +1,9 @@
 /* istanbul ignore file */
 import { sleep } from '@vx/libs/basics/src';
-import { LogSource, Logger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { Logger } from '@vx/libs/logging/src';
 import { detectUsbDrive } from './usb_drive';
-import { UsbDrive } from './types';
+import { type UsbDrive } from './types';
 
 async function printStatus(usbDrive: UsbDrive, stdout: NodeJS.WriteStream) {
   const status = await usbDrive.status();

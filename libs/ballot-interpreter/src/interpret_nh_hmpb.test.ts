@@ -11,9 +11,9 @@ import {
   AdjudicationReason,
   DEFAULT_MARK_THRESHOLDS,
   mapSheet,
-  PageInterpretation,
+  type PageInterpretation,
   safeParseElectionDefinition,
-  SheetOf,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
@@ -23,7 +23,7 @@ import { ImageData } from 'canvas';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { interpretSheet } from './interpret';
-import { InterpreterOptions } from './types';
+import { type InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
 beforeEach(() => {

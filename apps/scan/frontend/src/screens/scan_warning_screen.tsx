@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
   AdjudicationReason,
-  CandidateContest,
-  ElectionDefinition,
-  AdjudicationReasonInfo,
-  OvervoteAdjudicationReasonInfo,
-  UndervoteAdjudicationReasonInfo,
-  AnyContest,
-  SystemSettings,
+  type CandidateContest,
+  type ElectionDefinition,
+  type AdjudicationReasonInfo,
+  type OvervoteAdjudicationReasonInfo,
+  type UndervoteAdjudicationReasonInfo,
+  type AnyContest,
+  type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/src';
 import {
@@ -19,8 +19,8 @@ import {
   ModalWidth,
   P,
   WithScrollButtons,
-  appStrings,
 } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { assert } from '@vx/libs/basics/src';
 
 import { Screen } from '../components/layout';
@@ -28,10 +28,8 @@ import { Screen } from '../components/layout';
 import { acceptBallot, returnBallot } from '../api';
 import { usePreviewContext } from '../preview_dashboard';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
-import {
-  MisvoteWarnings,
-  WarningDetails as MisvoteWarningDetails,
-} from '../components/misvote_warnings';
+import { MisvoteWarnings } from '../components/misvote_warnings/misvote_warnings';
+import { WarningDetails as MisvoteWarningDetails } from '../components/misvote_warnings/warning_details';
 
 interface ConfirmModalProps {
   content?: React.ReactNode;

@@ -24,7 +24,7 @@ import {
   readCastVoteRecordExport,
 } from '../src/cast_vote_records/import';
 import {
-  CastVoteRecordExportModifications,
+  type CastVoteRecordExportModifications,
   modifyCastVoteRecordExport,
 } from '../src/cast_vote_records/test_utils';
 import { getImageHash } from '../src/cast_vote_records/build_cast_vote_record';

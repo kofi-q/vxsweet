@@ -1,14 +1,14 @@
 import {
-  AnyContest,
-  BallotStyleGroupId,
+  type AnyContest,
+  type BallotStyleGroupId,
   BallotType,
-  Candidate,
-  CandidateId,
-  ContestId,
-  ContestOptionId,
-  PrecinctId,
+  type Candidate,
+  type CandidateId,
+  type ContestId,
+  type ContestOptionId,
+  type PrecinctId,
 } from './election';
-import { Id } from './generic';
+import { type Id } from './generic';
 
 export interface ContestResultsMetadata {
   overvotes: number;

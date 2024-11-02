@@ -1,16 +1,15 @@
-export type { ElectionRecord } from './store';
-export type {
-  BallotLanguageConfig,
-  BallotLanguageConfigs,
-  BallotStyle,
-  Precinct,
-  PrecinctSplit,
-  PrecinctWithSplits,
-  PrecinctWithoutSplits,
+export { type ElectionRecord } from './store';
+export {
+  type BallotLanguageConfig,
+  type BallotLanguageConfigs,
+  type BallotStyle,
+  type Precinct,
+  type PrecinctSplit,
+  type PrecinctWithSplits,
+  type PrecinctWithoutSplits,
 } from './types';
-export type { Api } from './app';
-export type { BallotMode } from '@vx/libs/hmpb/src';
+export { type Api, createBlankElection, convertVxfPrecincts } from './app';
+export { type BallotMode } from '@vx/libs/hmpb/src';
 
 // Frontend tests import these for generating test data
 export { generateBallotStyles } from './ballot_styles';
-export { createBlankElection, convertVxfPrecincts } from './app';

@@ -13,10 +13,10 @@ jest.mock('./get_audio_info');
 /* istanbul ignore file - test util */
 /* eslint-disable prefer-regex-literals */
 
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { LogEventId, Logger, mockLogger } from '@vx/libs/logging/src';
-import { SystemCallApi, createSystemCallApi } from './api';
+import { type SystemCallApi, createSystemCallApi } from './api';
 import { execFile } from '../exec';
 import { getAudioInfo } from './get_audio_info';
 

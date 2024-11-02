@@ -1,5 +1,5 @@
 import * as grout from '@vx/libs/grout/src';
-import type { Api } from '@vx/libs/dev-dock/backend/src';
+import { type Api } from '../../backend/src/dev_dock_api';
 import React from 'react';
 
 export type ApiClient = grout.Client<Api>;

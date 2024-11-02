@@ -1,13 +1,12 @@
 import { resolve } from 'node:path';
 import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { WORKSPACE } from './globals';
 import * as server from './server';
 import { createWorkspace } from './workspace';
-import {
-  GoogleCloudSpeechSynthesizer,
-  GoogleCloudTranslator,
-} from './language_and_audio';
+import { GoogleCloudSpeechSynthesizer } from './language_and_audio/speech_synthesizer';
+import { GoogleCloudTranslator } from './language_and_audio/translator';
 
 loadEnvVarsFromDotenvFiles();
 

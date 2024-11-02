@@ -1,4 +1,8 @@
-import { ColorMode, ColorString, SizeMode } from '@vx/libs/types/src';
+import {
+  type ColorMode,
+  type ColorString,
+  type SizeMode,
+} from '@vx/libs/types/src';
 
 import { DesktopPalette, TouchscreenPalette, makeTheme } from './make_theme';
 

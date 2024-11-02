@@ -1,19 +1,19 @@
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
-  ExportDataResult,
+  type ExportDataResult,
   Exporter,
   SCAN_ALLOWED_EXPORT_PATTERNS,
   VX_MACHINE_ID,
 } from '@vx/libs/backend/src';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
-import { ScanReadinessReport } from '@vx/libs/ui/src';
+import { ScanReadinessReport } from '@vx/libs/ui/src/diagnostics';
 import { assert } from '@vx/libs/basics/src';
-import { Workspace } from '../util/workspace';
+import { type Workspace } from '../util/workspace';
 import { getCurrentTime } from '../util/get_current_time';
-import { Printer } from './printer';
-import { PrecinctScannerStateMachine } from '../types';
+import { type Printer } from './printer';
+import { type PrecinctScannerStateMachine } from '../types';
 
 /**
  * Saves the VxCentralScan hardware readiness report to the USB drive.

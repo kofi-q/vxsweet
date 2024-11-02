@@ -1,5 +1,5 @@
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
-import { BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
+import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
 
 import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
 import { assert, assertDefined, find } from '@vx/libs/basics/src';
@@ -15,7 +15,7 @@ import { App } from './app';
 import { withMarkup } from '../test/helpers/with_markup';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 const electionDefinition = electionWithMsEitherNeitherDefinition;

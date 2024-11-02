@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { H1 } from './typography';
 import { LabelledText } from './labelled_text';
-import { NumberString } from './ui_strings';
+import { NumberString } from './ui_strings/number_string';
 
 /** Props for {@link BigMetric}. */
 export interface BigMetricProps {

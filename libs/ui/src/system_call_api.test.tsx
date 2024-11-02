@@ -1,4 +1,4 @@
-import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
+import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
 import { renderHook, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ok } from '@vx/libs/basics/src';

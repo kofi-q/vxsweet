@@ -1,14 +1,14 @@
 import React from 'react';
 import getDeepValue from 'lodash.get';
 
-import { Optional, assertDefined } from '@vx/libs/basics/src';
+import { type Optional, assertDefined } from '@vx/libs/basics/src';
 import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/src';
 
 import { useAudioContext } from './audio_context';
-import { ClipParams, PlayAudioClips } from './play_audio_clips';
+import { type ClipParams, PlayAudioClips } from './play_audio_clips';
 import { useCurrentLanguage } from '../hooks/use_current_language';
 import { UiStringAudioDataAttributeName } from './with_audio';
-import { AppStringKey } from './app_strings';
+import { type AppStringKey } from './app_strings';
 import {
   AudioVolume,
   getDecreasedVolume,

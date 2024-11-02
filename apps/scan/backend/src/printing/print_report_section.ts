@@ -1,24 +1,24 @@
 import memoizeOne from 'memoize-one';
-import { PollsTransitionType } from '@vx/libs/types/src';
+import { type PollsTransitionType } from '@vx/libs/types/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,
   PrecinctScannerTallyReports,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/reports';
 import {
   DEFAULT_MARGIN_DIMENSIONS,
-  MarginDimensions,
+  type MarginDimensions,
   PAPER_DIMENSIONS,
   renderToPdf,
 } from '@vx/libs/printing/src';
-import { PrintResult } from '@vx/libs/fujitsu-thermal-printer/src';
+import { type PrintResult } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Store } from '../store';
 import { getMachineConfig } from '../machine_config';
 import { getScannerResults } from '../util/results';
 import { getCurrentTime } from '../util/get_current_time';
 import { rootDebug } from '../util/debug';
-import { Printer } from './printer';
+import { type Printer } from './printer';
 
 const debug = rootDebug.extend('print-report-section');
 

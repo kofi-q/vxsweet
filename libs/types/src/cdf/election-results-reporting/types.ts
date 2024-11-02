@@ -1,8 +1,8 @@
 import {
-  BallotMeasureContest,
-  CandidateContest,
-  PartyContest,
-  RetentionContest,
+  type BallotMeasureContest,
+  type CandidateContest,
+  type PartyContest,
+  type RetentionContest,
 } from '.';
 
 export function isBallotMeasureContest(

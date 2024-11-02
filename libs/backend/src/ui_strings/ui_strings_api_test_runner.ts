@@ -1,8 +1,8 @@
 /* istanbul ignore file - test util */
 
-import { LanguageCode, UiStringAudioClips } from '@vx/libs/types/src';
-import { UiStringsStore } from './ui_strings_store';
-import { UiStringsApi } from './ui_strings_api';
+import { LanguageCode, type UiStringAudioClips } from '@vx/libs/types/src';
+import { type UiStringsStore } from './ui_strings_store';
+import { type UiStringsApi } from './ui_strings_api';
 
 /** Shared tests for the {@link UiStringsApi} and underlying store. */
 export function runUiStringApiTests(params: {

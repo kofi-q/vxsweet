@@ -9,10 +9,11 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert, iter } from '@vx/libs/basics/src';
+import { type Optional, assert } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { writeFile } from 'node:fs/promises';
-import { PrinterConfig, PrinterStatus } from '@vx/libs/types/src';
-import { PrintProps, Printer } from '../types';
+import { type PrinterConfig, type PrinterStatus } from '@vx/libs/types/src';
+import { type PrintProps, type Printer } from '../types';
 import { getMockConnectedPrinterStatus } from './fixtures';
 import { isIntegrationTest } from '@vx/libs/utils/src';
 

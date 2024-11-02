@@ -3,10 +3,10 @@ import sampleSize from 'lodash.samplesize';
 
 import { assertDefined } from '@vx/libs/basics/src';
 import {
-  Candidate,
-  CandidateContest,
-  Vote,
-  YesNoContest,
+  type Candidate,
+  type CandidateContest,
+  type Vote,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 
 export function generateCandidateVotes(contest: CandidateContest): Vote {

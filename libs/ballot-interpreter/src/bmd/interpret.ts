@@ -1,9 +1,9 @@
 import { ImageData } from 'canvas';
-import { Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/src';
 import {
-  CompletedBallot,
-  ElectionDefinition,
-  SheetOf,
+  type CompletedBallot,
+  type ElectionDefinition,
+  type SheetOf,
   mapSheet,
 } from '@vx/libs/types/src';
 import {
@@ -11,8 +11,8 @@ import {
   decodeBallot,
   decodeBallotHash,
 } from '@vx/libs/ballot-encoder/src';
-import { DetectQrCodeError, detectInBallot } from './utils/qrcode';
-import { DetectedQrCode } from './types';
+import { type DetectQrCodeError, detectInBallot } from './utils/qrcode';
+import { type DetectedQrCode } from './types';
 import { rotateImageData180 } from './utils/rotate';
 
 export interface Interpretation {

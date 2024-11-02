@@ -5,14 +5,14 @@ import { v4 as uuid } from 'uuid';
 import { assert, assertDefined, err, ok, sleep } from '@vx/libs/basics/src';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
-  BatchInfo,
+  type BatchInfo,
   CastVoteRecordExportFileName,
   CVR,
   DEFAULT_SYSTEM_SETTINGS,
-  PageInterpretation,
-  SheetOf,
+  type PageInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
-import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 
 import {
   interpretedBmdBallot,
@@ -29,13 +29,13 @@ import {
   summarizeDirectoryContents,
 } from '../test/utils';
 import {
-  AcceptedSheet,
+  type AcceptedSheet,
   clearDoesUsbDriveRequireCastVoteRecordSyncCachedResult,
   doesUsbDriveRequireCastVoteRecordSync,
   exportCastVoteRecordsToUsbDrive,
-  ExportOptions,
-  RejectedSheet,
-  Sheet,
+  type ExportOptions,
+  type RejectedSheet,
+  type Sheet,
 } from '../src/cast_vote_records/export';
 import {
   readCastVoteRecordExport,

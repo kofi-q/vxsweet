@@ -8,18 +8,19 @@ import {
   getDaysInMonth,
   MONTHS_SHORT,
 } from '@vx/libs/utils/src';
-import { SelectChangeEventFunction } from '@vx/libs/types/src';
-import { assertDefined, integers } from '@vx/libs/basics/src';
+import { type SelectChangeEventFunction } from '@vx/libs/types/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { integers } from '@vx/libs/basics/src/iterators';
 import styled from 'styled-components';
 import { Select } from './select';
 import { Modal } from './modal';
 import { InputGroup } from './input_group';
-import { Button, ButtonProps } from './button';
+import { Button, type ButtonProps } from './button';
 import { useNow } from './hooks/use_now';
 import { H2, P } from './typography';
 import { Icons } from './icons';
 import { Card } from './card';
-import { ScreenInfo, useScreenInfo } from './hooks/use_screen_info';
+import { type ScreenInfo, useScreenInfo } from './hooks/use_screen_info';
 import { useSystemCallApi } from './system_call_api';
 
 const Form = styled(Card).attrs({ color: 'neutral' })<{

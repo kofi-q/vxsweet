@@ -9,7 +9,7 @@ import {
   Table,
   TD,
   Button,
-  ElectronFile,
+  type ElectronFile,
   useExternalStateChangeListener,
   P,
   Font,
@@ -23,15 +23,15 @@ import {
 } from '@vx/libs/utils/src';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
-import type {
-  CvrFileImportInfo,
-  ImportCastVoteRecordsError,
-} from '@vx/apps/admin/backend/src';
+import {
+  type CvrFileImportInfo,
+  type ImportCastVoteRecordsError,
+} from '../../../../backend/src/types';
 import { AppContext } from '../../contexts/app_context';
 import { Loading } from '../../components/loading';
 import {
-  CastVoteRecordFilePreprocessedData,
-  InputEventFunction,
+  type CastVoteRecordFilePreprocessedData,
+  type InputEventFunction,
 } from '../../config/types';
 import { TIME_FORMAT } from '../../config/globals';
 import {

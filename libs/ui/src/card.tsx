@@ -1,4 +1,4 @@
-import { UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/src';
 import React from 'react';
 import styled from 'styled-components';
 

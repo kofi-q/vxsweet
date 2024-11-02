@@ -1,6 +1,10 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { BallotStyleId, CandidateContest, Election } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  type CandidateContest,
+  type Election,
+} from '@vx/libs/types/src';
 import {
   asElectionDefinition,
   electionGeneralDefinition,
@@ -11,7 +15,7 @@ import { App } from './app';
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

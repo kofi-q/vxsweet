@@ -1,6 +1,10 @@
-import type { TallyReportWarning } from '@vx/apps/admin/backend/src';
+import { type TallyReportWarning } from '../../../../backend/src/reports/warnings';
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import { Election, Tabulation, getContestsFromIds } from '@vx/libs/types/src';
+import {
+  type Election,
+  Tabulation,
+  getContestsFromIds,
+} from '@vx/libs/types/src';
 
 function oxfordCommaJoin(items: string[]): string {
   if (items.length === 1) {

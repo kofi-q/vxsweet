@@ -1,4 +1,4 @@
-import { Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { spawn } from 'node:child_process';
 import makeDebug from 'debug';

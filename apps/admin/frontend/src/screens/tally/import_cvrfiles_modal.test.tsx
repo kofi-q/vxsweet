@@ -1,9 +1,9 @@
 import { mockKiosk } from '@vx/libs/test-utils/src';
 
-import { ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { type ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
 import userEvent from '@testing-library/user-event';
 import { ok } from '@vx/libs/basics/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   waitFor,
   fireEvent,
@@ -13,7 +13,10 @@ import {
 } from '../../../test/react_testing_library';
 import { ImportCvrFilesModal } from './import_cvrfiles_modal';
 import { renderInAppContext } from '../../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import {
   mockCastVoteRecordFileMetadata,
   mockCastVoteRecordFileRecord,

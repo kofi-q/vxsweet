@@ -1,7 +1,7 @@
 import {
   AdjudicationReason,
-  PageInterpretation,
-  SheetOf,
+  type PageInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
 
 /**

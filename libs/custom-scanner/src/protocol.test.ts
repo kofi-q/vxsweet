@@ -1,5 +1,10 @@
 import { err, ok, typedAs } from '@vx/libs/basics/src';
-import { CoderError, message, Uint8, uint8 } from '@vx/libs/message-coder/src';
+import {
+  type CoderError,
+  message,
+  type Uint8,
+  uint8,
+} from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import {
@@ -23,7 +28,8 @@ import {
   arbitraryStopScanRequest,
 } from '../test/arbitraries';
 import { makeDuplexChannelListeners } from '../test/helpers';
-import { createDuplexChannelMock, mockCoder } from './mocks';
+import { createDuplexChannelMock } from './mocks/usb_channel';
+import { mockCoder } from './mocks/coder';
 import {
   AckResponseMessage,
   checkAnswer,
@@ -57,10 +63,10 @@ import {
   StopScanRequest,
 } from './protocol';
 import {
-  AckResponse,
-  CheckAnswerResult,
+  type AckResponse,
+  type CheckAnswerResult,
   ErrorCode,
-  ErrorResponse,
+  type ErrorResponse,
   ReleaseType,
   ResponseErrorCode,
   ScanSide,

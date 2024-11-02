@@ -3,9 +3,9 @@ import '@playwright/browser-chromium';
 import ReactDomServer from 'react-dom/server';
 import { Browser, chromium } from 'playwright';
 import {
-  RenderDocument,
-  RenderScratchpad,
-  Renderer,
+  type RenderDocument,
+  type RenderScratchpad,
+  type Renderer,
   createDocument,
   createScratchpad,
 } from './renderer';

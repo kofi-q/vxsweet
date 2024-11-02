@@ -1,11 +1,11 @@
 import tmp from 'tmp-promise';
-import { Optional, assert } from '@vx/libs/basics/src';
+import { type Optional, assert } from '@vx/libs/basics/src';
 import { writeFile } from 'node:fs/promises';
 import {
-  IppMarkerInfo,
-  IppPrinterState,
-  IppPrinterStateReason,
-  PrinterRichStatus,
+  type IppMarkerInfo,
+  type IppPrinterState,
+  type IppPrinterStateReason,
+  type PrinterRichStatus,
   safeParseInt,
 } from '@vx/libs/types/src';
 import { exec } from '../utils/exec';

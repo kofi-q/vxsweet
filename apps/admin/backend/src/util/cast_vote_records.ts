@@ -1,6 +1,10 @@
-import { AnyContest, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
-import { getContestById } from '@vx/libs/utils/src';
-import { CastVoteRecordAdjudicationFlags } from '../types';
+import {
+  type AnyContest,
+  type ElectionDefinition,
+  Tabulation,
+} from '@vx/libs/types/src';
+import { getContestById } from '@vx/libs/utils/src/tabulation';
+import { type CastVoteRecordAdjudicationFlags } from '../types';
 
 function getNumberVotesAllowed(contest: AnyContest): number {
   if (contest.type === 'yesno') {

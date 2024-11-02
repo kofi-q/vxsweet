@@ -1,8 +1,8 @@
 import { err, ok } from '@vx/libs/basics/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-import { Admin, BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { Admin, type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
 import { generateTitleForReport } from './titles';
-import { ScannerBatch } from '../types';
+import { type ScannerBatch } from '../types';
 
 const MOCK_SCANNER_BATCHES: ScannerBatch[] = [
   {

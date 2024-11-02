@@ -1,13 +1,13 @@
 /* eslint-disable max-classes-per-file */
-import { MockFunction, mockFunction } from '@vx/libs/test-utils/src';
+import { type MockFunction, mockFunction } from '@vx/libs/test-utils/src';
 
-import { Card, CardStatus } from '../src/card';
+import { type Card, type CardStatus } from '../src/card';
 import {
   CardReader,
-  OnReaderStatusChange,
-  ReaderStatus,
+  type OnReaderStatusChange,
+  type ReaderStatus,
 } from '../src/card_reader';
-import { CardType } from '../src/certs';
+import { type CardType } from '../src/certs';
 import { JavaCard } from '../src/java_card';
 import path from 'node:path';
 

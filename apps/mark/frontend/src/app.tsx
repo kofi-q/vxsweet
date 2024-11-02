@@ -1,16 +1,21 @@
 import { BrowserRouter } from 'react-router-dom';
 
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { QueryClient } from '@tanstack/react-query';
 import {
   AppBase,
   AppErrorBoundary,
   VisualModeDisabledOverlay,
 } from '@vx/libs/ui/src';
-import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
+import {
+  type ColorMode,
+  type ScreenType,
+  type SizeMode,
+} from '@vx/libs/types/src';
 
 import { AppRoot } from './app_root';
-import { ApiClient, createApiClient, createQueryClient } from './api';
+import { type ApiClient, createApiClient, createQueryClient } from './api';
 import { SessionTimeLimitTracker } from './components/session_time_limit_tracker';
 import { ApiProvider } from './api_provider';
 

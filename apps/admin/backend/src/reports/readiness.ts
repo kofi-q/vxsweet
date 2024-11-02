@@ -1,15 +1,16 @@
-import { AdminReadinessReport } from '@vx/libs/ui/src';
-import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { AdminReadinessReport } from '@vx/libs/ui/src/diagnostics';
+import { type Printer } from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
-  ExportDataResult,
+  type ExportDataResult,
   Exporter,
   VX_MACHINE_ID,
-  getBatteryInfo,
 } from '@vx/libs/backend/src';
+import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
-import { Workspace } from '../util/workspace';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
+import { type Workspace } from '../util/workspace';
 import { getCurrentTime } from '../util/get_current_time';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../globals';
 

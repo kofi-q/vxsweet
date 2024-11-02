@@ -2,12 +2,12 @@ import yargs from 'yargs/yargs';
 import {
   assert,
   extractErrorMessage,
-  Optional,
+  type Optional,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import { readElection } from '@vx/libs/fs/src';
 
-import { ElectionKey } from '@vx/libs/types/src';
+import { type ElectionKey } from '@vx/libs/types/src/auth';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { mockCard } from '../../src/mock_file_card';
 

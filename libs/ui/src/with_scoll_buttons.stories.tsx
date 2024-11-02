@@ -4,7 +4,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import styled from 'styled-components';
 import {
   WithScrollButtons,
-  WithScrollButtonsProps,
+  type WithScrollButtonsProps,
 } from './with_scroll_buttons';
 import { H1 } from './typography';
 import { Card } from './card';

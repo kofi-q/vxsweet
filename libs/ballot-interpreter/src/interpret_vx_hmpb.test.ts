@@ -1,7 +1,8 @@
 jest.mock('./validation');
 
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
-import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { readElection } from '@vx/libs/fs/src';
 import {
   famousNamesFixtures,
@@ -15,8 +16,8 @@ import {
   HmpbBallotPaperSize,
   BallotType,
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
-  PageInterpretation,
+  type ElectionDefinition,
+  type PageInterpretation,
 } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
@@ -31,7 +32,7 @@ import {
   votesForSheet,
 } from '../test/helpers/interpretation';
 import { interpretSheet } from './interpret';
-import { InterpreterOptions } from './types';
+import { type InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 import '@vx/libs/image-test-utils/register';
 

@@ -1,10 +1,10 @@
 import userEvent from '@testing-library/user-event';
-import { Election, ElectionId } from '@vx/libs/types/src';
+import { type Election, type ElectionId } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { createMemoryHistory } from 'history';
 import { DateWithoutTime } from '@vx/libs/basics/src';
 import {
-  MockApiClient,
+  type MockApiClient,
   createMockApiClient,
   provideApi,
 } from '../test/api_helpers';

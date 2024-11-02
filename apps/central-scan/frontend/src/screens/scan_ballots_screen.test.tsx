@@ -1,13 +1,13 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import type { ScanStatus } from '@vx/apps/central-scan/backend/src';
+import { type ScanStatus } from '../../../backend/src/types';
 import { screen, waitFor } from '../../test/react_testing_library';
 import {
   ScanBallotsScreen,
-  ScanBallotsScreenProps,
+  type ScanBallotsScreenProps,
 } from './scan_ballots_screen';
 import { renderInAppContext } from '../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../test/api';
+import { type ApiMock, createApiMock } from '../../test/api';
 import { mockBatch, mockStatus } from '../../test/fixtures';
 
 let apiMock: ApiMock;

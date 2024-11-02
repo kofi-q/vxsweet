@@ -1,10 +1,16 @@
 import {
-  ManualResultsIdentifier,
-  ImportElectionResultsReportingError,
-} from '@vx/apps/admin/backend/src';
+  type ManualResultsIdentifier,
+  type ImportElectionResultsReportingError,
+} from '../../../../backend/src/types';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { assertDefined, deferred, err, ok, Result } from '@vx/libs/basics/src';
-import { ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import {
+  assertDefined,
+  deferred,
+  err,
+  ok,
+  type Result,
+} from '@vx/libs/basics/src';
+import { type ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
 import userEvent from '@testing-library/user-event';
 import {
   mockKiosk,
@@ -12,9 +18,13 @@ import {
   mockSystemAdministratorUser,
 } from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
-import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { BallotStyleGroupId, DippedSmartCardAuth } from '@vx/libs/types/src';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ImportElectionsResultReportingFileModal } from './import_election_results_reporting_file_modal';
 import { fireEvent, screen } from '../../../test/react_testing_library';

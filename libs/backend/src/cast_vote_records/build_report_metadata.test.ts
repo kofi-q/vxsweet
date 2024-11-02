@@ -1,6 +1,11 @@
-import { assert, find, iter } from '@vx/libs/basics/src';
+import { assert, find } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-import { CandidateContest, CVR, YesNoContest } from '@vx/libs/types/src';
+import {
+  type CandidateContest,
+  CVR,
+  type YesNoContest,
+} from '@vx/libs/types/src';
 import {
   buildBatchManifest,
   buildCastVoteRecordReportMetadata,

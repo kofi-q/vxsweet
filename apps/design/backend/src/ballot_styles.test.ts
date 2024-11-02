@@ -1,11 +1,11 @@
 import { typedAs } from '@vx/libs/basics/src';
 import {
-  AnyContest,
-  District,
-  DistrictId,
+  type AnyContest,
+  type District,
+  type DistrictId,
   LanguageCode,
-  Party,
-  PartyId,
+  type Party,
+  type PartyId,
 } from '@vx/libs/types/src';
 import {
   generateBallotStyleGroupId,
@@ -13,7 +13,7 @@ import {
 } from '@vx/libs/utils/src';
 
 import { generateBallotStyles } from './ballot_styles';
-import { BallotStyle, Precinct, PrecinctSplit } from './types';
+import { type BallotStyle, type Precinct, type PrecinctSplit } from './types';
 
 function makeContest(
   id: string,

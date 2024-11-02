@@ -1,7 +1,7 @@
 import { safeParseJson } from './generic';
 import { LanguageCode } from './language_code';
 import {
-  UiStringsPackage,
+  type UiStringsPackage,
   UiStringsPackageSchema,
   filterUiStrings,
   mergeUiStrings,

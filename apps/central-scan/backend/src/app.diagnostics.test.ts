@@ -1,8 +1,14 @@
 jest.mock(
+  '@vx/libs/backend/src/system_call',
+  (): typeof import('@vx/libs/backend/src/system_call') => ({
+    ...jest.requireActual('@vx/libs/backend/src/system_call'),
+    getBatteryInfo: jest.fn(),
+  })
+);
+jest.mock(
   '@vx/libs/backend/src',
   (): typeof import('@vx/libs/backend/src') => ({
     ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -13,14 +19,15 @@ jest.mock('./util/get_current_time', () => ({
 
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
-  DiskSpaceSummary,
-  getBatteryInfo,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
   pdfToText,
 } from '@vx/libs/backend/src';
+import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { LogEventId } from '@vx/libs/logging/src';
 import { join } from 'node:path';
-import { DiagnosticRecord, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { mockSystemAdministratorAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';

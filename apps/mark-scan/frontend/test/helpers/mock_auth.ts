@@ -5,9 +5,9 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
-  ElectionDefinition,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { type ElectionDefinition } from '@vx/libs/types/src';
 
 export function mockPollWorkerAuth(
   electionDefinition: ElectionDefinition

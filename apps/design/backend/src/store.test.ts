@@ -1,7 +1,7 @@
 import { assertDefined } from '@vx/libs/basics/src';
 import { LanguageCode } from '@vx/libs/types/src';
 
-import { Store, TaskName } from './store';
+import { Store, type TaskName } from './store';
 
 test('Translation cache', () => {
   const store = Store.memoryStore();

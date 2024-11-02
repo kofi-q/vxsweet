@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { err } from '@vx/libs/basics/src';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';

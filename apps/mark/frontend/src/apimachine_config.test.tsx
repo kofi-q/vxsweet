@@ -1,7 +1,7 @@
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { render, screen } from '../test/react_testing_library';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';
 
 let apiMock: ApiMock;

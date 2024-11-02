@@ -1,7 +1,7 @@
-import { Admin, Election, Tabulation } from '@vx/libs/types/src';
+import { Admin, type Election, Tabulation } from '@vx/libs/types/src';
 import { mapObject } from '@vx/libs/basics/src';
 import {
-  ContestResultsSummaries,
+  type ContestResultsSummaries,
   buildElectionResultsFixture,
 } from './tabulation';
 

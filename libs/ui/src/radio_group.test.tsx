@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '../test/react_testing_library';
-import { RadioGroup } from '.';
+import { RadioGroup } from './radio_group';
 import { makeTheme } from './themes/make_theme';
 
 test('renders all provided options', () => {

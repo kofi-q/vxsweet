@@ -1,7 +1,7 @@
 import { assert } from '../assert';
-import { Optional } from '../types';
+import { type Optional } from '../types';
 import { AsyncIteratorPlusImpl } from './async_iterator_plus';
-import { AsyncIteratorPlus, IteratorPlus } from './types';
+import { type AsyncIteratorPlus, type IteratorPlus } from './types';
 
 /**
  * A wrapper around {@link Iterable} that provides additional methods.

@@ -3,8 +3,8 @@ import React from 'react';
 import { render, screen } from '../test/react_testing_library';
 import {
   SearchSelect,
-  SearchSelectProps,
-  SearchSelectSingleProps,
+  type SearchSelectProps,
+  type SearchSelectSingleProps,
 } from './search_select';
 import { makeTheme } from './themes/make_theme';
 

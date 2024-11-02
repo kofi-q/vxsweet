@@ -1,4 +1,4 @@
-import { PageInterpretationType } from '@vx/libs/types/src';
+import { type PageInterpretationType } from '@vx/libs/types/src';
 import { DiagnosticError } from './diagnostic_error';
 
 export class UnknownInterpretationDiagnosticError extends DiagnosticError {

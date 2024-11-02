@@ -4,18 +4,18 @@ import {
   electionWithMsEitherNeitherDefinition,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  GridLayout,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type GridLayout,
   Tabulation,
 } from '@vx/libs/types/src';
 import styled from 'styled-components';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import {
   BallotCountReport,
-  BallotCountReportProps,
+  type BallotCountReportProps,
 } from './ballot_count_report';
-import { LabeledScannerBatch } from './utils';
+import { type LabeledScannerBatch } from './utils';
 
 const ReportPreview = styled.div`
   section {

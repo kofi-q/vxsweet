@@ -2,15 +2,15 @@ import React from 'react';
 import i18next, { InitOptions, i18n } from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
-import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
+import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
 import {
-  Optional,
+  type Optional,
   assert,
   assertDefined,
   mapObject,
 } from '@vx/libs/basics/src';
 import { Screen } from '../screen';
-import { UiStringsReactQueryApi } from '../hooks/ui_strings_api';
+import { type UiStringsReactQueryApi } from '../hooks/ui_strings_api';
 
 export const DEFAULT_LANGUAGE_CODE = LanguageCode.ENGLISH;
 export const DEFAULT_I18NEXT_NAMESPACE = 'translation';

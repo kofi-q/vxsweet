@@ -1,4 +1,4 @@
-import { isTouchSizeMode, isTouchscreen } from '.';
+import { isTouchSizeMode, isTouchscreen } from './ui_theme';
 
 test('isTouchSizeMode', () => {
   expect(isTouchSizeMode('desktop')).toEqual(false);

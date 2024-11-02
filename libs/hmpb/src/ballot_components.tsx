@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
-import { BALLOT_HASH_DISPLAY_LENGTH, Outset } from '@vx/libs/types/src';
+import { BALLOT_HASH_DISPLAY_LENGTH, type Outset } from '@vx/libs/types/src';
 import { range } from '@vx/libs/basics/src';
-import { InchDimensions, InchMargins } from './types';
+import { type InchDimensions, type InchMargins } from './types';
 
 /**
  * Include 5mm margins by default to create room for an imprinting ID

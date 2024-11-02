@@ -8,7 +8,7 @@ import {
   BUTTON_FILLS,
   BUTTON_VARIANTS,
   Button,
-  ButtonProps,
+  type ButtonProps,
 } from './button';
 import { H1, H4, P } from './typography';
 import { Card } from './card';

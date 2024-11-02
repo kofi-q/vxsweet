@@ -7,7 +7,7 @@ import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, sep } from 'node:path';
 import {
-  ElectionPackage,
+  type ElectionPackage,
   safeParseElectionDefinition,
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/src';

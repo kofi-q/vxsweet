@@ -1,4 +1,4 @@
-import { Uint8 } from './types';
+import { type Uint8 } from './types';
 
 /**
  * Generates a series of bitmasks in little-endian order.

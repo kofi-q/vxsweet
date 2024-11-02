@@ -3,15 +3,15 @@ jest.mock('./importer');
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
   DEFAULT_SYSTEM_SETTINGS,
-  InterpretedHmpbPage,
-  PageInterpretationWithFiles,
-  SheetOf,
-  TEST_JURISDICTION,
+  type InterpretedHmpbPage,
+  type PageInterpretationWithFiles,
+  type SheetOf,
 } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import { Scan } from '@vx/libs/api/src';
 import { Application } from 'express';
 import * as fs from 'node:fs/promises';
@@ -21,14 +21,14 @@ import { v4 as uuid } from 'uuid';
 import { typedAs } from '@vx/libs/basics/src';
 import {
   buildMockDippedSmartCardAuth,
-  DippedSmartCardAuthApi,
+  type DippedSmartCardAuthApi,
 } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMock, makeMockScanner } from '../test/util/mocks';
 import { Importer } from './importer';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 import { buildCentralScannerApp } from './app';
 import { buildMockLogger } from '../test/helpers/setup_app';
 

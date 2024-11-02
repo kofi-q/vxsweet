@@ -1,4 +1,4 @@
-import { RawPrinterStatus } from './coders';
+import { type RawPrinterStatus } from './coders';
 
 /**
  * Checks whether the printer status from the driver indicates an error that

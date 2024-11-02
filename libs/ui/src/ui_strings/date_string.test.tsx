@@ -1,6 +1,6 @@
 import { LanguageCode } from '@vx/libs/types/src';
 import { format } from '@vx/libs/utils/src';
-import { H1 } from '..';
+import { H1 } from '../typography';
 import {
   act,
   render as renderWithoutContext,

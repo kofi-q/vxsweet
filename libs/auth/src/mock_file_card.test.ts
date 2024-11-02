@@ -8,13 +8,13 @@ import {
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
 
-import { constructElectionKey } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
   deserializeMockFileContents,
   MOCK_FILE_PATH,
   mockCard,
   MockFileCard,
-  MockFileContents,
+  type MockFileContents,
   serializeMockFileContents,
 } from './mock_file_card';
 

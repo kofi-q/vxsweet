@@ -3,7 +3,11 @@ import fc from 'fast-check';
 import { arbitraryStatusInternalMessage } from '../test/arbitraries';
 import { StatusInternalMessage } from './protocol';
 import { convertFromInternalStatus } from './status';
-import { DocumentSensorStatus, ScannerA4Status, ScannerStatus } from './types';
+import {
+  DocumentSensorStatus,
+  type ScannerA4Status,
+  type ScannerStatus,
+} from './types';
 
 test('convertFromInternalStatus', () => {
   fc.assert(

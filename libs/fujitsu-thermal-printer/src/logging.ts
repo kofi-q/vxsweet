@@ -1,5 +1,5 @@
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
-import { PrinterStatus } from './types';
+import { type PrinterStatus } from './types';
 
 export async function logPrinterStatusIfChanged(
   logger: BaseLogger,

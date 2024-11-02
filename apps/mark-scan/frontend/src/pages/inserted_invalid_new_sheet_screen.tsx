@@ -1,5 +1,5 @@
 import { assertDefined } from '@vx/libs/basics/src';
-import { PageInterpretationType } from '@vx/libs/types/src';
+import { type PageInterpretationType } from '@vx/libs/types/src';
 
 import * as api from '../api';
 import { InsertedWrongElectionBallotScreen } from './inserted_wrong_election_ballot_screen';

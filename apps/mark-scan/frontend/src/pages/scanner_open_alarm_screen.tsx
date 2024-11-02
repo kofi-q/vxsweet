@@ -1,5 +1,5 @@
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import {
-  appStrings,
   Caption,
   H6,
   Icons,

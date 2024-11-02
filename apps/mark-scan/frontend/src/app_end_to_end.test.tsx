@@ -5,11 +5,11 @@ import {
 } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import {
-  BallotStyleId,
+  type BallotStyleId,
   LanguageCode,
-  constructElectionKey,
   getContestDistrictName,
 } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { assert } from '@vx/libs/basics/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
@@ -24,7 +24,7 @@ import {
   measure102Contest,
   voterContests,
 } from '../test/helpers/election';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { configureFromUsbThenRemove } from '../test/helpers/election_package';
 import { getMockInterpretation } from '../test/helpers/interpretation';
 

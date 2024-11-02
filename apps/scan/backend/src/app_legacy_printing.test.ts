@@ -14,7 +14,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src';
+import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';

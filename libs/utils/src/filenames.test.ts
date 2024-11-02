@@ -1,13 +1,13 @@
 import fc from 'fast-check';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
 import {
   generateElectionBasedSubfolderName,
   generateFilenameForElectionPackage,
   generateLogFilename,
   LogFileType,
   generateCastVoteRecordExportDirectoryName,
-  CastVoteRecordExportDirectoryNameComponents,
+  type CastVoteRecordExportDirectoryNameComponents,
   parseCastVoteRecordReportExportDirectoryName,
   generateReadinessReportFilename,
 } from './filenames';

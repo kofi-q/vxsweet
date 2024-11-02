@@ -1,10 +1,10 @@
-import { iter } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  CandidateContest,
-  Election,
-  Vote,
-  VotesDict,
-  YesNoContest,
+  type CandidateContest,
+  type Election,
+  type Vote,
+  type VotesDict,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 
 function generateMockCandidateVote(contest: CandidateContest, seed = 0): Vote {

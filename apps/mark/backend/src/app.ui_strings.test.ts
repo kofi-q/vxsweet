@@ -11,10 +11,10 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/ui_strings';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
-  constructElectionKey,
   safeParseElectionDefinition,
   testCdfBallotDefinition,
 } from '@vx/libs/types/src';
@@ -27,12 +27,12 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { createMockPrinterHandler } from '@vx/libs/printing/src';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { createWorkspace } from './util/workspace';
-import { Api, buildApi } from './app';
+import { type Api, buildApi } from './app';
 import { buildMockLogger } from '../test/app_helpers';
 
 const mockFeatureFlagger = getFeatureFlagMock();

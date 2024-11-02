@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Meta } from '@storybook/react';
 import {
-  CheckboxGroupProps,
+  type CheckboxGroupProps,
   CheckboxGroup as Component,
 } from './checkbox_group';
 

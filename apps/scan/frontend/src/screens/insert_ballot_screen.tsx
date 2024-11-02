@@ -1,4 +1,5 @@
-import { InsertBallotImage, P, appStrings } from '@vx/libs/ui/src';
+import { InsertBallotImage, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { Screen } from '../components/layout';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
 

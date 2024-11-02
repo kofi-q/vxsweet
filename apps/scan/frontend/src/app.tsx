@@ -1,10 +1,11 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { QueryClient } from '@tanstack/react-query';
 import { AppErrorBoundary } from '@vx/libs/ui/src';
 import { AppRoot } from './app_root';
-import { ApiClient, createApiClient, createQueryClient } from './api';
+import { type ApiClient, createApiClient, createQueryClient } from './api';
 import { ScanAppBase } from './scan_app_base';
 import { SessionTimeLimitTracker } from './components/session_time_limit_tracker';
 import { Paths } from './constants';

@@ -1,4 +1,4 @@
-import { Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/src';
 import { z } from 'zod';
 import { AdjudicationReason, AdjudicationReasonSchema } from './election';
 import {
@@ -6,15 +6,15 @@ import {
   DEFAULT_NUM_INCORRECT_PIN_ATTEMPTS_ALLOWED_BEFORE_CARD_LOCKOUT,
   DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS,
   DEFAULT_STARTING_CARD_LOCKOUT_DURATION_SECONDS,
-  InactiveSessionTimeLimitMinutes,
+  type InactiveSessionTimeLimitMinutes,
   InactiveSessionTimeLimitMinutesSchema,
-  NumIncorrectPinAttemptsAllowedBeforeCardLockout,
+  type NumIncorrectPinAttemptsAllowedBeforeCardLockout,
   NumIncorrectPinAttemptsAllowedBeforeCardLockoutSchema,
-  OverallSessionTimeLimitHours,
+  type OverallSessionTimeLimitHours,
   OverallSessionTimeLimitHoursSchema,
-  StartingCardLockoutDurationSeconds,
+  type StartingCardLockoutDurationSeconds,
   StartingCardLockoutDurationSecondsSchema,
-} from './auth';
+} from './auth/auth';
 import { safeParseJson } from './generic';
 
 interface AuthSettings {

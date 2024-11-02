@@ -5,11 +5,11 @@ import {
   electionWithMsEitherNeither,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotTargetMark,
-  CandidateContest,
+  type BallotTargetMark,
+  type CandidateContest,
   Tabulation,
-  WriteInCandidate,
-  YesNoContest,
+  type WriteInCandidate,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { find, typedAs } from '@vx/libs/basics/src';
 import {

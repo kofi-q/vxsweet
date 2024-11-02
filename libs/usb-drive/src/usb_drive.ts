@@ -8,7 +8,7 @@ import {
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
 import { exec } from './exec';
-import { UsbDriveStatus, UsbDrive } from './types';
+import { type UsbDriveStatus, type UsbDrive } from './types';
 import { MockFileUsbDrive } from './mocks/file_usb_drive';
 
 const debug = makeDebug('usb-drive');

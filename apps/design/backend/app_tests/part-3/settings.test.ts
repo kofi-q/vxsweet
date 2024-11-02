@@ -21,8 +21,8 @@ import { Buffer } from 'node:buffer';
 import {
   AdjudicationReason,
   DEFAULT_SYSTEM_SETTINGS,
-  ElectionId,
-  SystemSettings,
+  type ElectionId,
+  type SystemSettings,
 } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,

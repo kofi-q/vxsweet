@@ -5,12 +5,12 @@ import {
   Admin,
   ElectionPackageFileName,
   CastVoteRecordExportFileName,
-  ContestId,
+  type ContestId,
   DEFAULT_SYSTEM_SETTINGS,
-  DiagnosticRecord,
-  Id,
-  PrinterStatus,
-  SystemSettings,
+  type DiagnosticRecord,
+  type Id,
+  type PrinterStatus,
+  type SystemSettings,
   Tabulation,
   convertElectionResultsReportingReportToVxManualResults,
 } from '@vx/libs/types/src';
@@ -20,70 +20,74 @@ import {
   deferred,
   err,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
 } from '@vx/libs/basics/src';
 import express, { Application } from 'express';
 import {
-  DippedSmartCardAuthApi,
+  type DippedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
   prepareSignatureFile,
 } from '@vx/libs/auth/src';
 import * as grout from '@vx/libs/grout/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
-import { Printer } from '@vx/libs/printing/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
 import { createReadStream, promises as fs } from 'node:fs';
 import path, { join } from 'node:path';
 import {
   ELECTION_PACKAGE_FOLDER,
   generateElectionBasedSubfolderName,
   generateFilenameForElectionPackage,
-  getBallotCount,
-  groupMapToGroupList,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
+import {
+  getBallotCount,
+  groupMapToGroupList,
+} from '@vx/libs/utils/src/tabulation';
 import { dirSync } from 'tmp';
 import {
-  DiskSpaceSummary,
-  ElectionPackageError,
-  ElectionPackageWithFileContents,
-  ExportDataError,
-  createSystemCallApi,
-  readElectionPackageFromBuffer,
-  readElectionPackageFromFile,
+  type DiskSpaceSummary,
+  type ExportDataError,
+  type ExportDataResult,
 } from '@vx/libs/backend/src';
 import {
-  FileSystemEntry,
+  type ElectionPackageError,
+  type ElectionPackageWithFileContents,
+  readElectionPackageFromBuffer,
+  readElectionPackageFromFile,
+} from '@vx/libs/backend/src/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+import {
+  type FileSystemEntry,
   FileSystemEntryType,
   readElection,
 } from '@vx/libs/fs/src';
 import {
-  ListDirectoryOnUsbDriveError,
+  type ListDirectoryOnUsbDriveError,
   listDirectoryOnUsbDrive,
-  UsbDrive,
-  UsbDriveStatus,
+  type UsbDrive,
+  type UsbDriveStatus,
 } from '@vx/libs/usb-drive/src';
 import ZipStream from 'zip-stream';
 import {
-  CastVoteRecordFileRecord,
-  CvrFileImportInfo,
-  CvrFileMode,
-  ElectionRecord,
-  ExportDataResult,
-  ImportCastVoteRecordsError,
-  ManualResultsIdentifier,
-  ManualResultsRecord,
-  ScannerBatch,
-  WriteInAdjudicationAction,
-  WriteInAdjudicationQueueMetadata,
-  WriteInAdjudicationStatus,
-  WriteInCandidateRecord,
-  WriteInAdjudicationContext,
-  WriteInImageView,
-  ImportElectionResultsReportingError,
-  ManualResultsMetadata,
+  type CastVoteRecordFileRecord,
+  type CvrFileImportInfo,
+  type CvrFileMode,
+  type ElectionRecord,
+  type ImportCastVoteRecordsError,
+  type ManualResultsIdentifier,
+  type ManualResultsRecord,
+  type ScannerBatch,
+  type WriteInAdjudicationAction,
+  type WriteInAdjudicationQueueMetadata,
+  type WriteInAdjudicationStatus,
+  type WriteInCandidateRecord,
+  type WriteInAdjudicationContext,
+  type WriteInImageView,
+  type ImportElectionResultsReportingError,
+  type ManualResultsMetadata,
 } from './types';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getMachineConfig } from './machine_config';
 import {
   getWriteInAdjudicationContext,
@@ -115,18 +119,18 @@ import {
   exportWriteInAdjudicationReportPdf,
   generateWriteInAdjudicationReportPreview,
   printWriteInAdjudicationReport,
-  WriteInAdjudicationReportPreview,
+  type WriteInAdjudicationReportPreview,
 } from './reports/write_in_adjudication_report';
 import {
-  BallotCountReportPreview,
-  BallotCountReportSpec,
+  type BallotCountReportPreview,
+  type BallotCountReportSpec,
   exportBallotCountReportPdf,
   generateBallotCountReportPreview,
   printBallotCountReport,
 } from './reports/ballot_count_report';
 import {
-  TallyReportSpec,
-  TallyReportPreview,
+  type TallyReportSpec,
+  type TallyReportPreview,
   generateTallyReportPreview,
   printTallyReport,
   exportTallyReportPdf,

@@ -1,5 +1,5 @@
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import type { PrinterStatus } from '@vx/apps/scan/backend/src';
+import { type PrinterStatus } from '../../../backend/src/printing/printer';
 
 export type PollsFlowPrinterSummary =
   | {

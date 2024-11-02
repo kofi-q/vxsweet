@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import { BreadcrumbsProps, Breadcrumbs as Component } from './breadcrumbs';
+import { type BreadcrumbsProps, Breadcrumbs as Component } from './breadcrumbs';
 import { H1 } from './typography';
 
 const meta: Meta<typeof Component> = {

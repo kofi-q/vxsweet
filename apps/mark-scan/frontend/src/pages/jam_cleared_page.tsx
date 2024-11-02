@@ -1,8 +1,9 @@
-import { appStrings, P } from '@vx/libs/ui/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { P } from '@vx/libs/ui/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import {
-  JamClearedState,
+  type JamClearedState,
   ReplaceJammedSheetScreen,
 } from './replace_jammed_sheet_screen';
 

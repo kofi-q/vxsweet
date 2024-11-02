@@ -1,9 +1,13 @@
 import userEvent from '@testing-library/user-event';
-import { HmpbBallotPaperSize, Election, ElectionId } from '@vx/libs/types/src';
+import {
+  HmpbBallotPaperSize,
+  type Election,
+  type ElectionId,
+} from '@vx/libs/types/src';
 import {
   provideApi,
   createMockApiClient,
-  MockApiClient,
+  type MockApiClient,
 } from '../test/api_helpers';
 import { generalElectionRecord, primaryElectionRecord } from '../test/fixtures';
 import { render, screen, within } from '../test/react_testing_library';

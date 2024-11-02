@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ContestPage } from '@vx/libs/mark-flow-ui/src';
 
-import { ContestId } from '@vx/libs/types/src';
+import { type ContestId } from '@vx/libs/types/src';
 import { BallotContext } from '../contexts/ballot_context';
 
 function getContestUrl(contestIndex: number) {

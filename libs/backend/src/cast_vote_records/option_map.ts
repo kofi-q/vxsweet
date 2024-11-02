@@ -1,4 +1,8 @@
-import { ContestId, ContestOptionId, Election } from '@vx/libs/types/src';
+import {
+  type ContestId,
+  type ContestOptionId,
+  type Election,
+} from '@vx/libs/types/src';
 
 /**
  * Options for a contest mapped to their position on the ballot.

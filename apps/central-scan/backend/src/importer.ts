@@ -1,9 +1,9 @@
-import { Result, assert, ok, sleep } from '@vx/libs/basics/src';
+import { type Result, assert, ok, sleep } from '@vx/libs/basics/src';
 import {
-  ElectionDefinition,
-  PageInterpretation,
-  PageInterpretationWithFiles,
-  SheetOf,
+  type ElectionDefinition,
+  type PageInterpretation,
+  type PageInterpretationWithFiles,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import makeDebug from 'debug';
@@ -15,17 +15,17 @@ import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { ImageData } from 'canvas';
 import { loadImageData } from '@vx/libs/image-utils/src';
 import {
-  BatchControl,
-  BatchScanner,
-  ScannedSheetInfo,
+  type BatchControl,
+  type BatchScanner,
+  type ScannedSheetInfo,
 } from './fujitsu_scanner';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import {
   describeValidationError,
   validateSheetInterpretation,
 } from './validation';
 import { logBatchComplete, logScanSheetSuccess } from './util/logging';
-import { ScanStatus } from './types';
+import { type ScanStatus } from './types';
 
 const debug = makeDebug('scan:importer');
 

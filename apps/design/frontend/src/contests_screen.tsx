@@ -23,17 +23,17 @@ import {
   useParams,
 } from 'react-router-dom';
 import {
-  AnyContest,
-  Candidate,
-  CandidateContest,
-  ContestId,
-  Contests,
-  DistrictId,
-  Election,
-  Id,
-  Party,
-  PartyId,
-  YesNoContest,
+  type AnyContest,
+  type Candidate,
+  type CandidateContest,
+  type ContestId,
+  type Contests,
+  type DistrictId,
+  type Election,
+  type Id,
+  type Party,
+  type PartyId,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { assert, find } from '@vx/libs/basics/src';
 import styled from 'styled-components';
@@ -47,7 +47,7 @@ import {
   TableActionsRow,
 } from './layout';
 import { ElectionNavScreen } from './nav_screen';
-import { ElectionIdParams, electionParamRoutes, routes } from './routes';
+import { type ElectionIdParams, electionParamRoutes, routes } from './routes';
 import { getElection, updateElection } from './api';
 import { generateId, reorderElement, replaceAtIndex } from './utils';
 import { RichTextEditor } from './rich_text_editor';

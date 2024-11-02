@@ -1,5 +1,5 @@
 import { Icons, P } from '@vx/libs/ui/src';
-import type { PrinterStatus } from '@vx/apps/scan/backend/src';
+import { type PrinterStatus } from '../../../../backend/src/printing/printer';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import React from 'react';
 import styled from 'styled-components';

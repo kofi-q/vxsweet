@@ -1,32 +1,36 @@
 import * as z from 'zod';
 import {
-  AdjudicationInfo,
+  type AdjudicationInfo,
   AdjudicationInfoSchema,
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   AdjudicationReasonSchema,
-  BallotId,
+  type BallotId,
   BallotIdSchema,
-  BallotMetadata,
+  type BallotMetadata,
   BallotMetadataSchema,
-  ContestId,
+  type ContestId,
   ContestIdSchema,
-  HmpbBallotPageMetadata,
+  type HmpbBallotPageMetadata,
   HmpbBallotPageMetadataSchema,
-  MarkInfo,
+  type MarkInfo,
   MarkInfoSchema,
-  VotesDict,
+  type VotesDict,
   VotesDictSchema,
-  WriteInId,
+  type WriteInId,
   WriteInIdSchema,
 } from './election';
 import {
-  Id,
+  type Id,
   IdSchema,
-  Iso8601Timestamp,
+  type Iso8601Timestamp,
   Iso8601TimestampSchema,
 } from './generic';
-import { BallotPageLayout, BallotPageLayoutSchema, SheetOf } from './hmpb';
+import {
+  type BallotPageLayout,
+  BallotPageLayoutSchema,
+  type SheetOf,
+} from './hmpb';
 
 export interface BlankPage {
   type: 'BlankPage';

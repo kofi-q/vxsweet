@@ -1,16 +1,17 @@
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
+jest.mock(
+  '@vx/libs/ui/src/accessible_controllers',
+  (): typeof import('@vx/libs/ui/src/accessible_controllers') => ({
+    ...jest.requireActual('@vx/libs/ui/src/accessible_controllers'),
+    MarkScanControllerSandbox: jest.fn(),
+    useAccessibleControllerHelpTrigger: () => {
+      const [shouldShowControllerSandbox, setShouldShowControllerSandbox] =
+        React.useState(false);
+      setMockControllerHelpTriggered = setShouldShowControllerSandbox;
 
-  MarkScanControllerSandbox: jest.fn(),
-
-  useAccessibleControllerHelpTrigger: () => {
-    const [shouldShowControllerSandbox, setShouldShowControllerSandbox] =
-      React.useState(false);
-    setMockControllerHelpTriggered = setShouldShowControllerSandbox;
-
-    return { shouldShowControllerSandbox };
-  },
-}));
+      return { shouldShowControllerSandbox };
+    },
+  })
+);
 
 jest.mock('./components/ballot', (): typeof import('./components/ballot') => ({
   ...jest.requireActual('./components/ballot'),
@@ -48,12 +49,12 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import {
   MarkScanControllerSandbox,
   useIsPatDeviceConnected,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 import React from 'react';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../backend/src/custom-paper-handler/types';
 import { act, render, screen } from '../test/react_testing_library';
-import { VoterFlow, VoterFlowProps } from './voter_flow';
+import { VoterFlow, type VoterFlowProps } from './voter_flow';
 import { mockMachineConfig } from '../test/helpers/mock_machine_config';
 import { Ballot } from './components/ballot';
 import { PatDeviceCalibrationPage } from './pages/pat_device_identification/pat_device_calibration_page';

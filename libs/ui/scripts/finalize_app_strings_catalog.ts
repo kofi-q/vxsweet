@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 import {
-  UiStringTranslations,
+  type UiStringTranslations,
   UiStringTranslationsSchema,
   safeParseJson,
 } from '@vx/libs/types/src';

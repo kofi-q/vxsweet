@@ -1,4 +1,4 @@
-import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
+import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
 import { act } from 'react';
 import {
   render as renderWithoutContext,
@@ -7,7 +7,8 @@ import {
 } from '../../test/react_testing_library';
 import { newTestContext } from '../../test/test_context';
 import { InEnglish, LanguageOverride } from './language_override';
-import { Button, appStrings } from '..';
+import { Button } from '../button';
+import { appStrings } from './app_strings';
 
 test('LanguageOverride overrides current active language', async () => {
   const { getLanguageContext, mockApiClient, render } = newTestContext();

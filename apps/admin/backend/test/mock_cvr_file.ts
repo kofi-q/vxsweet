@@ -1,9 +1,9 @@
 import {
-  BallotId,
-  BallotPageLayout,
-  BallotStyleId,
+  type BallotId,
+  type BallotPageLayout,
+  type BallotStyleId,
   BallotType,
-  Id,
+  type Id,
   Tabulation,
 } from '@vx/libs/types/src';
 import { v4 as uuid } from 'uuid';

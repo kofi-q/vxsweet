@@ -1,22 +1,22 @@
 import { z } from 'zod';
 
 import {
-  CastVoteRecordReport,
+  type CastVoteRecordReport,
   CastVoteRecordReportSchema,
   CVRSchema,
 } from './cdf/cast-vote-records';
 import {
-  BallotStyle,
+  type BallotStyle,
   BallotType,
   BallotTypeSchema,
-  ElectionDefinition,
-  HmpbBallotPageMetadata,
-  Precinct,
+  type ElectionDefinition,
+  type HmpbBallotPageMetadata,
+  type Precinct,
 } from './election';
-import { ExportDataError } from './errors';
-import { Iso8601Timestamp, Iso8601TimestampSchema } from './generic';
-import { SheetOf } from './hmpb';
-import { PageInterpretation } from './interpretation';
+import { type ExportDataError } from './errors';
+import { type Iso8601Timestamp, Iso8601TimestampSchema } from './generic';
+import { type SheetOf } from './hmpb';
+import { type PageInterpretation } from './interpretation';
 
 export interface CVRSnapshotOtherStatus {
   ballotType: BallotType;

@@ -1,7 +1,7 @@
 import { useLayoutConfig } from './use_layout_config_hook';
 import { WarningsSummary } from './warnings_summary';
 import { WarningDetails } from './warning_details';
-import { MisvoteWarningsProps } from './types';
+import { type MisvoteWarningsProps } from './types';
 
 export function MisvoteWarnings(props: MisvoteWarningsProps): JSX.Element {
   const { blankContests, overvoteContests, partiallyVotedContests } = props;

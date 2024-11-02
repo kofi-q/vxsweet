@@ -1,5 +1,5 @@
 import {
-  ConverterClientType,
+  type ConverterClientType,
   ConverterClientTypeSchema,
   unsafeParse,
 } from '@vx/libs/types/src';

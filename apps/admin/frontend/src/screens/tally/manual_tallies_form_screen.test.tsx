@@ -2,23 +2,24 @@ import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { Route } from 'react-router-dom';
 
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   getContests,
   Tabulation,
 } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
-import {
-  buildManualResultsFixture,
-  getBallotStyleGroup,
-} from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
+import { getBallotStyleGroup } from '@vx/libs/utils/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
-import { ManualResultsIdentifier } from '@vx/apps/admin/backend/src';
+import { type ManualResultsIdentifier } from '../../../../backend/src/types';
 import { assert, mapObject } from '@vx/libs/basics/src';
 import { screen, waitFor } from '../../../test/react_testing_library';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { ManualTalliesFormScreen } from './manual_tallies_form_screen';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

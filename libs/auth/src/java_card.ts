@@ -2,14 +2,14 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';
-import { assert, Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, type Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Byte } from '@vx/libs/types/src';
 import {
-  Byte,
-  ElectionManagerUser,
-  PollWorkerUser,
-  SystemAdministratorUser,
-  VendorUser,
-} from '@vx/libs/types/src';
+  type ElectionManagerUser,
+  type PollWorkerUser,
+  type SystemAdministratorUser,
+  type VendorUser,
+} from '@vx/libs/types/src/auth';
 
 import {
   CardCommand,
@@ -22,10 +22,10 @@ import {
 } from './apdu';
 import {
   arePollWorkerCardDetails,
-  Card,
-  CardDetails,
-  CardStatus,
-  CheckPinResponse,
+  type Card,
+  type CardDetails,
+  type CardStatus,
+  type CheckPinResponse,
 } from './card';
 import { CardReader } from './card_reader';
 import {
@@ -36,15 +36,15 @@ import {
   parseCert,
 } from './certs';
 import {
-  CardProgrammingConfig,
+  type CardProgrammingConfig,
   constructJavaCardConfig,
-  JavaCardConfig,
+  type JavaCardConfig,
 } from './config';
 import {
   certDerToPem,
   certPemToDer,
   createCert,
-  CreateCertInput,
+  type CreateCertInput,
   extractPublicKeyFromCert,
   PUBLIC_KEY_IN_DER_FORMAT_HEADER,
   publicKeyDerToPem,

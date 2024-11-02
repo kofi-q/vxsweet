@@ -1,9 +1,5 @@
-import {
-  LogEventId,
-  BaseLogger,
-  LogSource,
-  Logger,
-} from '@vx/libs/logging/src';
+import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Application } from 'express';
 import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
@@ -12,11 +8,11 @@ import {
   isFeatureFlagEnabled,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
-import { detectUsbDrive, UsbDrive } from '@vx/libs/usb-drive/src';
-import { Printer, detectPrinter } from '@vx/libs/printing/src';
+import { detectUsbDrive, type UsbDrive } from '@vx/libs/usb-drive/src';
+import { type Printer, detectPrinter } from '@vx/libs/printing/src/printer';
 import { detectDevices } from '@vx/libs/backend/src';
 import { ADMIN_WORKSPACE, PORT } from './globals';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 import { buildApp } from './app';
 import { rootDebug } from './util/debug';
 import { getUserRole } from './util/auth';

@@ -4,7 +4,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 
 import { LogEventId, mockLogger } from '@vx/libs/logging/src';
 import { execFile } from '../exec';
-import { AudioInfo, getAudioInfo } from './get_audio_info';
+import { type AudioInfo, getAudioInfo } from './get_audio_info';
 
 const mockExecFile = mockOf(execFile);
 

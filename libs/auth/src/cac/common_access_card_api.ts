@@ -1,8 +1,12 @@
-import { Result } from '@vx/libs/basics/src';
-import { Byte, Id } from '@vx/libs/types/src';
+import { type Result } from '@vx/libs/basics/src';
+import { type Byte, type Id } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { ResponseApduError } from '../apdu';
-import { BaseCard, PinProtectedCard, StatefulCard } from '../card';
+import {
+  type BaseCard,
+  type PinProtectedCard,
+  type StatefulCard,
+} from '../card';
 
 /**
  * Details about a Common Access Card.

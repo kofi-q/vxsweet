@@ -1,5 +1,5 @@
-import { Result, sleep } from '@vx/libs/basics/src';
-import { CoderError } from '@vx/libs/message-coder/src';
+import { type Result, sleep } from '@vx/libs/basics/src';
+import { type CoderError } from '@vx/libs/message-coder/src';
 import makeDebug from 'debug';
 import {
   BLANK_PAGE_IMAGE_DATA,
@@ -7,13 +7,13 @@ import {
   writeImageData,
 } from '@vx/libs/image-utils/src';
 import {
-  PaperHandlerStatus,
+  type PaperHandlerStatus,
   PrinterStatusRealTimeExchangeResponse,
   SensorStatusRealTimeExchangeResponse,
 } from './coders';
-import { ScannerCapability } from './scanner_capability';
-import { PaperHandlerDriverInterface } from './driver_interface';
-import { PrintingSpeed } from './constants';
+import { type ScannerCapability } from './scanner_capability';
+import { type PaperHandlerDriverInterface } from './driver_interface';
+import { type PrintingSpeed } from './constants';
 import { defaultPaperHandlerStatus } from './test_utils';
 
 const debug = makeDebug('custom-paper-handler:mock-driver');

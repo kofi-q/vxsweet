@@ -3,77 +3,77 @@ import {
   assert,
   assertDefined,
   find,
-  iter,
   ok,
-  Ok,
-  Result,
+  type Ok,
+  type Result,
   throwIllegalValue,
   typedAs,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { fromGrayScale } from '@vx/libs/image-utils/src';
 import {
-  AdjudicationInfo,
+  type AdjudicationInfo,
   AdjudicationReason,
-  AnyContest,
+  type AnyContest,
   asSheet,
-  BallotMetadata,
-  BallotPageContestLayout,
-  BallotPageContestOptionLayout,
-  BallotStyleId,
-  BallotTargetMark,
+  type BallotMetadata,
+  type BallotPageContestLayout,
+  type BallotPageContestOptionLayout,
+  type BallotStyleId,
+  type BallotTargetMark,
   BallotType,
-  ContestOption,
-  Contests,
-  Corners,
-  ElectionDefinition,
+  type ContestOption,
+  type Contests,
+  type Corners,
+  type ElectionDefinition,
   getBallotStyle,
   getContests,
-  GridPosition,
-  HmpbBallotPageMetadata,
-  Id,
-  InterpretedHmpbPage,
-  InvalidBallotHashPage,
-  InvalidPrecinctPage,
-  InvalidTestModePage,
+  type GridPosition,
+  type HmpbBallotPageMetadata,
+  type Id,
+  type InterpretedHmpbPage,
+  type InvalidBallotHashPage,
+  type InvalidPrecinctPage,
+  type InvalidTestModePage,
   mapSheet,
-  MarkInfo,
+  type MarkInfo,
   MarkStatus,
-  PageInterpretation,
-  PageInterpretationWithFiles,
-  Rect,
-  SheetOf,
-  VotesDict,
+  type PageInterpretation,
+  type PageInterpretationWithFiles,
+  type Rect,
+  type SheetOf,
+  type VotesDict,
   WriteInAreaStatus,
-  WriteInId,
+  type WriteInId,
 } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
-  allContestOptions,
   convertMarksToVotesDict,
   time,
 } from '@vx/libs/utils/src';
+import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 import { ImageData } from 'canvas';
 import makeDebug from 'debug';
 import {
   getAllPossibleAdjudicationReasons,
   getAllPossibleAdjudicationReasonsForBmdVotes,
 } from './adjudication_reasons';
-import { interpret as interpretVxBmdBallotSheet } from './bmd';
+import { interpret as interpretVxBmdBallotSheet } from './bmd/interpret';
 import {
-  BallotConfig,
-  Geometry,
-  InterpretedBallotCard,
-  InterpretedContestLayout,
-  InterpretedContestOptionLayout,
-  interpret as interpretHmpbBallotSheetRust,
-  HmpbInterpretResult,
-  Rect as NextRect,
-  ScoredBubbleMark,
-  ScoredBubbleMarks,
-  ScoredPositionArea,
-} from './hmpb-ts';
+  type BallotConfig,
+  type Geometry,
+  type InterpretedBallotCard,
+  type InterpretedContestLayout,
+  type InterpretedContestOptionLayout,
+  type HmpbInterpretResult,
+  type Rect as NextRect,
+  type ScoredBubbleMark,
+  type ScoredBubbleMarks,
+  type ScoredPositionArea,
+} from './hmpb-ts/types';
+import { interpret as interpretHmpbBallotSheetRust } from './hmpb-ts/interpret';
 import { saveSheetImages } from './save_images';
-import { InterpreterOptions } from './types';
+import { type InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
 const debug = makeDebug('ballot-interpreter:scan:interpreter');

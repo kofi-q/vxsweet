@@ -7,7 +7,7 @@ jest.mock('node:fs/promises', (): typeof import('node:fs/promises') => {
   };
 });
 
-import { IppMarkerInfo } from '@vx/libs/types/src';
+import { type IppMarkerInfo } from '@vx/libs/types/src';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
 import { assert, err, ok } from '@vx/libs/basics/src';
 import { existsSync } from 'node:fs';
@@ -15,7 +15,7 @@ import { writeFile } from 'node:fs/promises';
 import {
   CUPS_DEFAULT_IPP_URI,
   IPP_QUERY,
-  QueriedIppAttribute,
+  type QueriedIppAttribute,
   getPrinterRichStatus,
 } from './status';
 import { exec } from '../utils/exec';

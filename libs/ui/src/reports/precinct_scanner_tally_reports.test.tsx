@@ -4,9 +4,9 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   ALL_PRECINCTS_SELECTION,
-  buildElectionResultsFixture,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
+import { buildElectionResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { render, screen, within } from '../../test/react_testing_library';
 import { PrecinctScannerTallyReports } from './precinct_scanner_tally_reports';
 

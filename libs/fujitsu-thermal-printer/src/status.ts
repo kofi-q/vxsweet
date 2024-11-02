@@ -1,12 +1,10 @@
-import { Result, err, ok, sleep } from '@vx/libs/basics/src';
-import {
-  FujitsuThermalPrinterDriverInterface,
-  RawPrinterStatus,
-} from './driver';
+import { type Result, err, ok, sleep } from '@vx/libs/basics/src';
+import { type FujitsuThermalPrinterDriverInterface } from './driver/driver';
+import { type RawPrinterStatus } from './driver/coders';
 import { isErrorStatus, isPrinterStopped } from './driver/status';
 import { rootDebug } from './debug';
-import { Uint8 } from './bits';
-import { ErrorType, PrinterStatus } from './types';
+import { type Uint8 } from './bits';
+import { type ErrorType, type PrinterStatus } from './types';
 
 const debug = rootDebug.extend('wait_for_status');
 

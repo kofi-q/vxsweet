@@ -6,14 +6,14 @@ jest.mock('./pages/start_screen');
 
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../backend/src/custom-paper-handler/types';
 import userEvent from '@testing-library/user-event';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import React from 'react';
 import { electionDefinition } from '../test/helpers/election';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
-import { createApiMock, ApiMock } from '../test/helpers/mock_api_client';
+import { createApiMock, type ApiMock } from '../test/helpers/mock_api_client';
 import { JammedPage } from './pages/jammed_page';
 import { JamClearedPage } from './pages/jam_cleared_page';
 import { BallotContext } from './contexts/ballot_context';

@@ -1,8 +1,8 @@
 import { electionTwoPartyPrimary } from '@vx/libs/fixtures/src';
-import type { TallyReportWarning } from '@vx/apps/admin/backend/src';
+import { type TallyReportWarning } from '../../../../backend/src/reports/warnings';
 import {
   getTallyReportWarningText,
-  TallyReportWarningText,
+  type TallyReportWarningText,
 } from './tally_report_warnings';
 
 test('getTallyReportWarningText', () => {

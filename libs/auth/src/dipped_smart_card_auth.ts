@@ -4,7 +4,7 @@ import {
   err,
   extractErrorMessage,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import {
@@ -12,7 +12,7 @@ import {
   LogDispositionStandardTypes,
   LogEventId,
 } from '@vx/libs/logging/src';
-import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@vx/libs/types/src';
+import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@vx/libs/types/src/auth';
 import {
   BooleanEnvironmentVariableName,
   generatePin,
@@ -21,15 +21,15 @@ import {
 import {
   arePollWorkerCardDetails,
   areUniversalVendorCardDetails,
-  Card,
-  CardDetails,
-  CardStatus,
-  CheckPinResponse,
+  type Card,
+  type CardDetails,
+  type CardStatus,
+  type CheckPinResponse,
 } from './card';
 import {
-  DippedSmartCardAuthApi,
-  DippedSmartCardAuthConfig,
-  DippedSmartCardAuthMachineState,
+  type DippedSmartCardAuthApi,
+  type DippedSmartCardAuthConfig,
+  type DippedSmartCardAuthMachineState,
 } from './dipped_smart_card_auth_api';
 import { computeCardLockoutEndTime } from './lockout';
 import { computeSessionEndTime } from './sessions';

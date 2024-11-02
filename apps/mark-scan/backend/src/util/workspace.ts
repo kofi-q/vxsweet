@@ -1,7 +1,7 @@
 import { ensureDirSync } from 'fs-extra';
 import { join, resolve } from 'node:path';
 import {
-  DiskSpaceSummary,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
 } from '@vx/libs/backend/src';
 import { BaseLogger } from '@vx/libs/logging/src';

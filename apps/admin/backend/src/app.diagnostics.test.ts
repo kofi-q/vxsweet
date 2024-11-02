@@ -1,8 +1,14 @@
 jest.mock(
+  '@vx/libs/backend/src/system_call',
+  (): typeof import('@vx/libs/backend/src/system_call') => ({
+    ...jest.requireActual('@vx/libs/backend/src/system_call'),
+    getBatteryInfo: jest.fn(),
+  })
+);
+jest.mock(
   '@vx/libs/backend/src',
   (): typeof import('@vx/libs/backend/src') => ({
     ...jest.requireActual('@vx/libs/backend/src'),
-    getBatteryInfo: jest.fn(),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -12,15 +18,15 @@ jest.mock('./util/get_current_time', () => ({
 }));
 
 import { LogEventId } from '@vx/libs/logging/src';
-import { HP_LASER_PRINTER_CONFIG } from '@vx/libs/printing/src';
+import { HP_LASER_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
 import {
-  DiskSpaceSummary,
-  getBatteryInfo,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
   pdfToText,
 } from '@vx/libs/backend/src';
+import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildTestEnvironment,

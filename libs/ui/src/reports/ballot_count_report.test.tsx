@@ -3,13 +3,13 @@ import {
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyleGroupId,
-  Dictionary,
+  type BallotStyleGroupId,
+  type Dictionary,
   formatElectionHashes,
   Tabulation,
 } from '@vx/libs/types/src';
 import { within } from '@testing-library/react';
-import { Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import {

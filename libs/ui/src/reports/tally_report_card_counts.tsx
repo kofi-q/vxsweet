@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { Tabulation } from '@vx/libs/types/src';
 
-import { format, getBallotCount } from '@vx/libs/utils/src';
+import { format } from '@vx/libs/utils/src';
+import { getBallotCount } from '@vx/libs/utils/src/tabulation';
 import { TD, TH } from '../table';
 import { reportColors } from './layout';
 

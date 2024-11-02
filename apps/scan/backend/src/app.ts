@@ -2,12 +2,12 @@ import * as grout from '@vx/libs/grout/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
-  ElectionPackageConfigurationError,
+  type ElectionPackageConfigurationError,
   DEFAULT_SYSTEM_SETTINGS,
-  PrecinctSelection,
-  SinglePrecinctSelection,
-  DiagnosticRecord,
-  DiagnosticOutcome,
+  type PrecinctSelection,
+  type SinglePrecinctSelection,
+  type DiagnosticRecord,
+  type DiagnosticOutcome,
 } from '@vx/libs/types/src';
 import {
   getPrecinctSelectionName,
@@ -17,40 +17,40 @@ import {
 import express, { Application } from 'express';
 import {
   createUiStringsApi,
-  createSystemCallApi,
-  readSignedElectionPackageFromUsb,
-  doesUsbDriveRequireCastVoteRecordSync as doesUsbDriveRequireCastVoteRecordSyncFn,
   configureUiStrings,
-  DiskSpaceSummary,
-} from '@vx/libs/backend/src';
-import { assert, assertDefined, ok, Result } from '@vx/libs/basics/src';
+} from '@vx/libs/backend/src/ui_strings';
+import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
+import { doesUsbDriveRequireCastVoteRecordSync as doesUsbDriveRequireCastVoteRecordSyncFn } from '@vx/libs/backend/src/cast_vote_records';
+import { type DiskSpaceSummary } from '@vx/libs/backend/src';
+import { assert, assertDefined, ok, type Result } from '@vx/libs/basics/src';
 import {
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
 } from '@vx/libs/auth/src';
-import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
-  FujitsuPrintResult,
-  Printer,
-  PrinterStatus,
-  PrintResult,
+  type FujitsuPrintResult,
+  type Printer,
+  type PrinterStatus,
+  type PrintResult,
 } from './printing/printer';
 import {
-  PrecinctScannerStateMachine,
-  PrecinctScannerConfig,
-  PrecinctScannerStatus,
-  PrecinctScannerPollsInfo,
+  type PrecinctScannerStateMachine,
+  type PrecinctScannerConfig,
+  type PrecinctScannerStatus,
+  type PrecinctScannerPollsInfo,
 } from './types';
 import { constructAuthMachineState } from './util/auth';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getMachineConfig } from './machine_config';
 import {
   exportCastVoteRecordsToUsbDrive,
-  ExportCastVoteRecordsToUsbDriveResult,
+  type ExportCastVoteRecordsToUsbDriveResult,
 } from './export';
 import {
   openPolls,
-  OpenPollsResult,
+  type OpenPollsResult,
   closePolls,
   pauseVoting,
   resumeVoting,

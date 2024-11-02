@@ -3,17 +3,17 @@ import fs from 'node:fs';
 import {
   assert,
   DateWithoutTime,
-  Optional,
+  type Optional,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import {
-  ElectionManagerUser,
-  PollWorkerUser,
-  SystemAdministratorUser,
-  VendorUser,
-} from '@vx/libs/types/src';
+  type ElectionManagerUser,
+  type PollWorkerUser,
+  type SystemAdministratorUser,
+  type VendorUser,
+} from '@vx/libs/types/src/auth';
 
-import { Card, CardStatus, CheckPinResponse } from './card';
+import { type Card, type CardStatus, type CheckPinResponse } from './card';
 import path from 'node:path';
 
 /**

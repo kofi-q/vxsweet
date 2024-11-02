@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { ApiMock, createApiMock, provideApi } from '../../test/api';
+import { type ApiMock, createApiMock, provideApi } from '../../test/api';
 import { render, screen, waitFor } from '../../test/react_testing_library';
 import { DeleteBatchModal } from './delete_batch_modal';
 

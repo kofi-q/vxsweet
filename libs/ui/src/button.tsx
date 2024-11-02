@@ -1,11 +1,15 @@
 import React, { PureComponent } from 'react';
 
 import styled, { css, CSSObject, DefaultTheme } from 'styled-components';
-import { SizeMode, SizeTheme, UiTheme } from '@vx/libs/types/src';
+import {
+  type SizeMode,
+  type SizeTheme,
+  type UiTheme,
+} from '@vx/libs/types/src';
 
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { rgba } from 'polished';
-import { IconName, Icons } from './icons';
+import { type IconName, Icons } from './icons';
 
 const FONT_SIZE_REM = 1;
 

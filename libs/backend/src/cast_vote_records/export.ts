@@ -5,9 +5,9 @@ import path from 'node:path';
 import {
   computeCastVoteRecordRootHashFromScratch,
   computeSingleCastVoteRecordHash,
-  HashableFile,
+  type HashableFile,
   prepareSignatureFile,
-  ReadableFile,
+  type ReadableFile,
   readableFileFromData,
   readableFileFromDisk,
 } from '@vx/libs/auth/src';
@@ -16,28 +16,28 @@ import {
   assertDefined,
   err,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import {
   BallotIdSchema,
-  BatchInfo,
+  type BatchInfo,
   CastVoteRecordExportFileName,
-  CastVoteRecordExportMetadata,
-  CastVoteRecordReportWithoutMetadata,
+  type CastVoteRecordExportMetadata,
+  type CastVoteRecordReportWithoutMetadata,
   CVR,
-  ElectionDefinition,
-  ExportCastVoteRecordsToUsbDriveError,
-  Id,
+  type ElectionDefinition,
+  type ExportCastVoteRecordsToUsbDriveError,
+  type Id,
   mapSheet,
-  MarkThresholds,
-  PageInterpretation,
-  PollsState,
-  SheetOf,
-  SystemSettings,
+  type MarkThresholds,
+  type PageInterpretation,
+  type PollsState,
+  type SheetOf,
+  type SystemSettings,
   unsafeParse,
 } from '@vx/libs/types/src';
-import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   generateCastVoteRecordExportDirectoryName,
   generateElectionBasedSubfolderName,
@@ -50,13 +50,13 @@ import { Exporter } from '../exporter';
 import { SCAN_ALLOWED_EXPORT_PATTERNS, VX_MACHINE_ID } from '../scan_globals';
 import {
   buildCastVoteRecord as baseBuildCastVoteRecord,
-  CvrImageDataInput,
+  type CvrImageDataInput,
 } from './build_cast_vote_record';
 import {
   buildBatchManifest,
   buildCastVoteRecordReportMetadata as baseBuildCastVoteRecordReportMetadata,
 } from './build_report_metadata';
-import { CanonicalizedSheet, canonicalizeSheet } from './canonicalize';
+import { type CanonicalizedSheet, canonicalizeSheet } from './canonicalize';
 import {
   recoverAfterInterruptedCreationTimestampUpdate,
   updateCreationTimestampOfDirectoryAndChildrenFiles,

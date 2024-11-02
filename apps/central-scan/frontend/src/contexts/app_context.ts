@@ -1,7 +1,9 @@
-import type { MachineConfig } from '@vx/apps/central-scan/backend/src';
-import { LogSource, BaseLogger } from '@vx/libs/logging/src';
-import { DippedSmartCardAuth, ElectionDefinition } from '@vx/libs/types/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type MachineConfig } from '../../../backend/src/types';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { type ElectionDefinition } from '@vx/libs/types/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { createContext } from 'react';
 
 export interface AppContextInterface {

@@ -4,49 +4,53 @@
 
 import { Client as DbClient } from '@vx/libs/db/src';
 import {
-  AdjudicationStatus,
+  type AdjudicationStatus,
   HmpbBallotPaperSize,
-  BallotSheetInfo,
-  BatchInfo,
-  Iso8601Timestamp,
+  type BallotSheetInfo,
+  type BatchInfo,
+  type Iso8601Timestamp,
   mapSheet,
-  MarkThresholds,
+  type MarkThresholds,
   PageInterpretationSchema,
-  PageInterpretationWithFiles,
-  PollsState as PollsStateType,
+  type PageInterpretationWithFiles,
+  type PollsState as PollsStateType,
   PollsStateSchema,
-  PrecinctSelection as PrecinctSelectionType,
+  type PrecinctSelection as PrecinctSelectionType,
   PrecinctSelectionSchema,
   safeParse,
   safeParseElectionDefinition,
   safeParseJson,
-  SheetOf,
-  Side,
-  SystemSettings,
+  type SheetOf,
+  type Side,
+  type SystemSettings,
   safeParseSystemSettings,
   AdjudicationReason,
-  DiagnosticRecord,
-  DiagnosticType,
-  ElectionId,
-  ElectionKey,
-  constructElectionKey,
+  type DiagnosticRecord,
+  type DiagnosticType,
+  type ElectionId,
 } from '@vx/libs/types/src';
+import {
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import {
   assert,
   assertDefined,
   DateWithoutTime,
   find,
-  Optional,
+  type Optional,
 } from '@vx/libs/basics/src';
 import makeDebug from 'debug';
 import { DateTime } from 'luxon';
 import { dirname, join } from 'node:path';
 import { v4 as uuid } from 'uuid';
 import {
-  AcceptedSheet,
-  ElectionRecord,
-  RejectedSheet,
-  Sheet,
+  type AcceptedSheet,
+  type ElectionRecord,
+  type RejectedSheet,
+  type Sheet,
+} from '@vx/libs/backend/src/cast_vote_records';
+import {
   addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,

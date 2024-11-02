@@ -1,4 +1,4 @@
-import { AppStringKey, appStrings } from './app_strings';
+import { type AppStringKey, appStrings } from './app_strings';
 
 // TODO(kofi): Quick-and-dirty placeholder -- convert to a lint check.
 test('uiStringKeys match object keys', () => {

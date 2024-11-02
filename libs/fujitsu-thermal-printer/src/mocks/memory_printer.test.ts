@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import { err, ok } from '@vx/libs/basics/src';
 import { existsSync, readFileSync } from 'node:fs';
 import { createMockFujitsuPrinterHandler } from './memory_printer';
-import { PrinterStatus } from '../types';
+import { type PrinterStatus } from '../types';
 
 test('status management', async () => {
   const printerHandler = createMockFujitsuPrinterHandler();

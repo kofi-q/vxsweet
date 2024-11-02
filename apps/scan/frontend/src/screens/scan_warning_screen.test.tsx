@@ -6,10 +6,16 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 jest.mock(
-  '../components/misvote_warnings',
-  (): typeof import('../components/misvote_warnings') => ({
-    ...jest.requireActual('../components/misvote_warnings'),
+  '../components/misvote_warnings/warning_details',
+  (): typeof import('../components/misvote_warnings/warning_details') => ({
+    ...jest.requireActual('../components/misvote_warnings/warning_details'),
     WarningDetails: jest.fn(),
+  })
+);
+jest.mock(
+  '../components/misvote_warnings/misvote_warnings',
+  (): typeof import('../components/misvote_warnings/misvote_warnings') => ({
+    ...jest.requireActual('../components/misvote_warnings/misvote_warnings'),
     MisvoteWarnings: jest.fn(),
   })
 );
@@ -18,22 +24,20 @@ import userEvent from '@testing-library/user-event';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
-  CandidateContest,
+  type CandidateContest,
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
-import { ScanWarningScreen, Props } from './scan_warning_screen';
+import { ScanWarningScreen, type Props } from './scan_warning_screen';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
   statusNoPaper,
 } from '../../test/helpers/mock_api_client';
-import {
-  WarningDetails as MisvoteWarningDetails,
-  MisvoteWarnings,
-} from '../components/misvote_warnings';
+import { WarningDetails as MisvoteWarningDetails } from '../components/misvote_warnings/warning_details';
+import { MisvoteWarnings } from '../components/misvote_warnings/misvote_warnings';
 
 let apiMock: ApiMock;
 

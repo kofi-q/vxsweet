@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../backend/src/custom-paper-handler/types';
 import { assert } from '@vx/libs/basics/src';
 import { ReinsertedInvalidBallotScreen } from './pages/reinserted_invalid_ballot_screen';
 import { WaitingForBallotReinsertionBallotScreen } from './pages/waiting_for_ballot_reinsertion_screen';

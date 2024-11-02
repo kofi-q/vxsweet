@@ -3,7 +3,7 @@ import { SetScanParametersRequestData } from './protocol';
 import {
   DoubleSheetDetectOpt,
   ImageResolution,
-  ScanParameters,
+  type ScanParameters,
   MultiSheetDetectionSensorLevelInternal,
 } from './types';
 

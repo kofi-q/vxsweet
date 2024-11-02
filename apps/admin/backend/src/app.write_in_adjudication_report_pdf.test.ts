@@ -24,15 +24,16 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
-  buildManualResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { HP_LASER_PRINTER_CONFIG, renderToPdf } from '@vx/libs/printing/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
+import { HP_LASER_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { assert, err } from '@vx/libs/basics/src';
 import { tmpNameSync } from 'tmp';
 import { LogEventId } from '@vx/libs/logging/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import {
   buildTestEnvironment,
   configureMachine,

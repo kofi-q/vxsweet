@@ -6,7 +6,7 @@ import {
   mockSystemAdministratorCardInsertion,
 } from '@vx/libs/auth/src';
 import { methodUrl } from '@vx/libs/grout/src';
-import { Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
 
 /**
  * Enters the PIN into the PIN pad.

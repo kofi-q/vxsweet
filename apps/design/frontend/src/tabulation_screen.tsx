@@ -10,10 +10,14 @@ import {
   CheckboxButton,
 } from '@vx/libs/ui/src';
 import { useParams } from 'react-router-dom';
-import { AdjudicationReason, Id, SystemSettings } from '@vx/libs/types/src';
+import {
+  AdjudicationReason,
+  type Id,
+  type SystemSettings,
+} from '@vx/libs/types/src';
 import { Form, Column, Row, FormActionsRow, InputGroup } from './layout';
 import { ElectionNavScreen } from './nav_screen';
-import { ElectionIdParams } from './routes';
+import { type ElectionIdParams } from './routes';
 import { updateSystemSettings, getElection } from './api';
 
 type TabulationSettings = Pick<

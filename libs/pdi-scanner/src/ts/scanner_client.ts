@@ -2,7 +2,7 @@ import * as path from 'node:path';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import {
-  Result,
+  type Result,
   assert,
   deferredQueue,
   err,
@@ -15,7 +15,7 @@ import {
   fromGrayScale,
 } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
-import { SheetOf, mapSheet } from '@vx/libs/types/src';
+import { type SheetOf, mapSheet } from '@vx/libs/types/src';
 import makeDebug from 'debug';
 
 const debug = makeDebug('pdi-scanner');

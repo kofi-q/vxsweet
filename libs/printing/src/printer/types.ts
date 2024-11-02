@@ -1,4 +1,4 @@
-import { PrinterStatus } from '@vx/libs/types/src';
+import { type PrinterStatus } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 
 export enum PrintSides {

@@ -1,6 +1,6 @@
 import {
-  DiagnosticRecord,
-  PrecinctScannerMachineStatus,
+  type DiagnosticRecord,
+  type PrecinctScannerMachineStatus,
 } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import { H2, P } from '../typography';

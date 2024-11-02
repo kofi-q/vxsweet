@@ -1,8 +1,13 @@
 import { createInterface } from 'node:readline';
 import { extractErrorMessage, throwIllegalValue } from '@vx/libs/basics/src';
 
-import { CommonAccessCard, CommonAccessCardDetails } from '../../src/cac';
-import { CardDetails, PinProtectedCard, StatefulCard } from '../../src/card';
+import { CommonAccessCard } from '../../src/cac/common_access_card';
+import { type CommonAccessCardDetails } from '../../src/cac/common_access_card_api';
+import {
+  type CardDetails,
+  type PinProtectedCard,
+  type StatefulCard,
+} from '../../src/card';
 import { JavaCard } from '../../src/java_card';
 import { waitForReadyCardStatus } from './utils';
 

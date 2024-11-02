@@ -1,15 +1,15 @@
 import { err } from '@vx/libs/basics/src';
 
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor } from '../../test/react_testing_library';
 import {
   ExportResultsModal,
-  ExportResultsModalProps,
+  type ExportResultsModalProps,
 } from './export_results_modal';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../test/helpers/mock_api_client';

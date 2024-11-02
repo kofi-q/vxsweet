@@ -13,7 +13,7 @@ import {
   PAT_CONNECTION_STATUS_PIN,
   PAT_GPIO_OFFSET,
 } from './constants';
-import { BmdModelNumber } from '../types';
+import { type BmdModelNumber } from '../types';
 
 export interface PatConnectionStatusReaderInterface {
   readonly logger: BaseLogger;

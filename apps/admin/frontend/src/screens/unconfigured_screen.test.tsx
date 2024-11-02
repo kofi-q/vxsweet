@@ -5,7 +5,10 @@ import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { UnconfiguredScreen } from './unconfigured_screen';
 
 let apiMock: ApiMock;

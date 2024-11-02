@@ -1,9 +1,10 @@
 import { createContext } from 'react';
-import { DippedSmartCardAuth, ElectionDefinition } from '@vx/libs/types/src';
-import type { MachineConfig } from '@vx/apps/admin/backend/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { type ElectionDefinition } from '@vx/libs/types/src';
+import { type MachineConfig } from '../../../backend/src/types';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
-import { Iso8601Timestamp } from '../config/types';
+import { type Iso8601Timestamp } from '../config/types';
 
 export interface AppContextInterface {
   electionDefinition?: ElectionDefinition;

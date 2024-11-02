@@ -1,10 +1,10 @@
 import {
-  CardlessVoterUser,
-  ElectionManagerUser,
-  PollWorkerUser,
-  SystemAdministratorUser,
-  UserWithCard,
-  VendorUser,
+  type CardlessVoterUser,
+  type ElectionManagerUser,
+  type PollWorkerUser,
+  type SystemAdministratorUser,
+  type UserWithCard,
+  type VendorUser,
 } from './auth';
 
 export interface LoggedOut {

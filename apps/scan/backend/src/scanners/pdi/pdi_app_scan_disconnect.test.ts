@@ -9,13 +9,13 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import { Result, deferred, err, ok, typedAs } from '@vx/libs/basics/src';
-import { ScannerError } from '@vx/libs/pdi-scanner/src/ts';
+import { type Result, deferred, err, ok, typedAs } from '@vx/libs/basics/src';
+import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
+  type SheetInterpretation,
 } from '@vx/libs/types/src';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
@@ -25,7 +25,7 @@ import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import waitForExpect from 'wait-for-expect';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
-  MockPdiScannerClient,
+  type MockPdiScannerClient,
   ballotImages,
   createMockPdiScannerClient,
   mockStatus,

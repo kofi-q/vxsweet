@@ -1,4 +1,7 @@
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/src/auth';
 
 export function isVendorAuth(
   auth: DippedSmartCardAuth.AuthStatus

@@ -2,11 +2,8 @@ import { Admin, Tabulation } from '@vx/libs/types/src';
 import { Button, Callout, H6 } from '@vx/libs/ui/src';
 import React, { useContext } from 'react';
 import { assert } from '@vx/libs/basics/src';
-import {
-  isElectionManagerAuth,
-  isFilterEmpty,
-  isGroupByEmpty,
-} from '@vx/libs/utils/src';
+import { isElectionManagerAuth } from '@vx/libs/utils/src';
+import { isFilterEmpty, isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
 import {
   exportCdfElectionResultsReport,
   exportTallyReportCsv,

@@ -1,0 +1,37 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "parse",
+    srcs = [
+        "export_updater.go",
+        "exports.go",
+        "fs.go",
+        "imports.go",
+        "jest_mocks.go",
+        "paths.go",
+        "queries.go",
+        "reader.go",
+        "record.go",
+        "repo.go",
+        "source_file.go",
+        "updater.go",
+    ],
+    importpath = "github.com/kofi-q/vxsweet/tools/ts-refactor/parse",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//tools/ts-refactor/ast",
+        "@com_github_smacker_go_tree_sitter//:go-tree-sitter",
+        "@com_github_smacker_go_tree_sitter//typescript/tsx",
+        "@com_github_smacker_go_tree_sitter//typescript/typescript",
+    ],
+)
+
+go_test(
+    name = "parse_test",
+    size = "small",
+    srcs = ["exports_test.go"],
+    embed = [":parse"],
+    tags = ["manual"],
+    deps = ["@com_github_stretchr_testify//require"],
+)

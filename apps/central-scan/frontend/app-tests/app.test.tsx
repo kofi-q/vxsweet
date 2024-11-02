@@ -10,22 +10,16 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  ElectionDefinition,
+  type ElectionDefinition,
   formatElectionHashes,
 } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor, within, screen } from '../test/react_testing_library';
-import { App } from '@vx/apps/central-scan/frontend/src/app';
-import {
-  ApiMock,
-  createApiMock,
-} from '@vx/apps/central-scan/frontend/test/api';
-import {
-  mockBatch,
-  mockStatus,
-} from '@vx/apps/central-scan/frontend/test/fixtures';
+import { App } from '../src/app';
+import { type ApiMock, createApiMock } from '../test/api';
+import { mockBatch, mockStatus } from '../test/fixtures';
 
 const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);

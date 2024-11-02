@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { PrinterRichStatus } from '@vx/libs/types/src';
+import { type PrinterRichStatus } from '@vx/libs/types/src';
+import { Button, Icons, Modal, P } from '@vx/libs/ui/src';
 import {
-  Button,
   IPP_PRINTER_STATE_REASON_MESSAGES,
-  Icons,
-  Modal,
-  P,
   parseHighestPriorityIppPrinterStateReason,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/diagnostics';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { getAuthStatus, getPrinterStatus } from '../api';
 

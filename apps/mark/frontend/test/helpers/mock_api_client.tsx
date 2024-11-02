@@ -1,27 +1,32 @@
 import React from 'react';
 
-import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
-import type {
-  Api,
-  MachineConfig,
-  ElectionState,
-  PrintBallotProps,
-} from '@vx/apps/mark/backend/src';
 import {
-  ElectionPackageConfigurationError,
-  BallotStyleId,
+  createMockClient,
+  type MockClient,
+} from '@vx/libs/grout/test-utils/src';
+import { type Api } from '../../../backend/src/app';
+import {
+  type MachineConfig,
+  type ElectionState,
+  type PrintBallotProps,
+} from '../../../backend/src/types';
+import {
+  type ElectionPackageConfigurationError,
+  type BallotStyleId,
   DEFAULT_SYSTEM_SETTINGS,
-  ElectionDefinition,
-  InsertedSmartCardAuth,
-  PollsState,
-  PrecinctId,
-  PrecinctSelection,
-  SystemSettings,
+  type ElectionDefinition,
+  type PollsState,
+  type PrecinctId,
+  type PrecinctSelection,
+  type SystemSettings,
   LanguageCode,
-  PrinterStatus,
-  PrinterConfig,
-  constructElectionKey,
+  type PrinterStatus,
+  type PrinterConfig,
 } from '@vx/libs/types/src';
+import {
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
@@ -30,10 +35,10 @@ import {
   mockSystemAdministratorUser,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import type { BatteryInfo } from '@vx/libs/backend/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { mockMachineConfig } from './mock_machine_config';
 import { initialElectionState } from '../../src/app_root';
 import { ApiProvider } from '../../src/api_provider';

@@ -1,18 +1,22 @@
-jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
-  ...jest.requireActual('../ui_strings'),
-
-  WithAltAudio: ({ audioText, children }) => (
-    <React.Fragment>
-      <span data-testid={MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID}>{children}</span>
-      <span data-testid={MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID}>{audioText}</span>
-    </React.Fragment>
-  ),
-}));
+jest.mock(
+  '../ui_strings/with_alt_audio',
+  (): typeof import('../ui_strings/with_alt_audio') => ({
+    ...jest.requireActual('../ui_strings/with_alt_audio'),
+    WithAltAudio: ({ audioText, children }) => (
+      <React.Fragment>
+        <span data-testid={MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID}>
+          {children}
+        </span>
+        <span data-testid={MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID}>{audioText}</span>
+      </React.Fragment>
+    ),
+  })
+);
 
 import {
   ElectionStringKey,
   LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import React from 'react';

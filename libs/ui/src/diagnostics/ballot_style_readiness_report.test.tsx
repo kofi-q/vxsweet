@@ -5,17 +5,17 @@ import {
   electionGeneralDefinition,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyle,
-  BallotStyleGroupId,
-  BallotStyleId,
-  District,
-  DistrictId,
-  Election,
-  ElectionDefinition,
+  type BallotStyle,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type District,
+  type DistrictId,
+  type Election,
+  type ElectionDefinition,
   LanguageCode,
-  Party,
-  PartyId,
-  Precinct,
+  type Party,
+  type PartyId,
+  type Precinct,
   getContests,
 } from '@vx/libs/types/src';
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
@@ -23,7 +23,7 @@ import { render, screen } from '../../test/react_testing_library';
 import { BallotStyleReadinessReport } from './ballot_style_readiness_report';
 import {
   ReadinessReportHeader,
-  ReadinessReportHeaderProps,
+  type ReadinessReportHeaderProps,
 } from './report_header';
 
 const { ENGLISH, SPANISH } = LanguageCode;

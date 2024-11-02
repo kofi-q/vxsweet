@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import pluralize from 'pluralize';
 
 import {
-  Election,
+  type Election,
   getContestDistrictName,
   Tabulation,
-  AnyContest,
+  type AnyContest,
 } from '@vx/libs/types/src';
-import { format, getTallyReportCandidateRows } from '@vx/libs/utils/src';
-import { throwIllegalValue, assert, Optional } from '@vx/libs/basics/src';
+import { format } from '@vx/libs/utils/src';
+import { getTallyReportCandidateRows } from '@vx/libs/utils/src/tabulation';
+import { throwIllegalValue, assert, type Optional } from '@vx/libs/basics/src';
 
 import { NoWrap } from '../text';
 import { reportColors } from './layout';

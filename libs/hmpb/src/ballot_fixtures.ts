@@ -1,4 +1,5 @@
-import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { Buffer } from 'node:buffer';
 import {
   electionGeneral,
@@ -7,25 +8,25 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   HmpbBallotPaperSize,
-  BallotStyle,
-  BallotStyleId,
+  type BallotStyle,
+  type BallotStyleId,
   BallotType,
-  Election,
+  type Election,
   getBallotStyle,
   getContests,
   LanguageCode,
-  VotesDict,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import makeDebug from 'debug';
 import { pdfToImages } from '@vx/libs/image-utils/src';
 import { markBallotDocument, voteIsCandidate } from './mark_ballot';
 import {
-  BaseBallotProps,
+  type BaseBallotProps,
   renderAllBallotsAndCreateElectionDefinition,
 } from './render_ballot';
 import { vxDefaultBallotTemplate } from './vx_default_ballot_template';
-import { Renderer } from './renderer';
+import { type Renderer } from './renderer';
 
 const debug = makeDebug('hmpb:ballot_fixtures');
 

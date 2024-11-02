@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 
 import {
   UnconfiguredElectionScreen,
-  UnconfiguredElectionScreenProps,
+  type UnconfiguredElectionScreenProps,
 } from './unconfigured_election_screen';
 import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';
 

@@ -14,10 +14,11 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { find, iter } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
-import { PrecinctScannerPollsInfo } from '.';
+import { type PrecinctScannerPollsInfo } from './types';
 
 jest.setTimeout(60_000);
 

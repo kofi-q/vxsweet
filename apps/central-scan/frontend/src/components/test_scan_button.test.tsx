@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { deferred } from '@vx/libs/basics/src';
-import { ScanDiagnosticOutcome } from '@vx/apps/central-scan/backend/src';
-import { ApiMock, createApiMock } from '../../test/api';
+import { type ScanDiagnosticOutcome } from '../../../backend/src/diagnostic';
+import { type ApiMock, createApiMock } from '../../test/api';
 import { mockStatus } from '../../test/fixtures';
 import {
   screen,

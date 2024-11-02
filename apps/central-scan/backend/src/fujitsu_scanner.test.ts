@@ -8,11 +8,12 @@ jest.mock(
 
 jest.mock('./exec');
 
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { HmpbBallotPaperSize } from '@vx/libs/types/src';
 import { ChildProcess } from 'node:child_process';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { Device, isDeviceAttached } from '@vx/libs/backend/src';
+import { type Device, isDeviceAttached } from '@vx/libs/backend/src';
 import {
   EXPECTED_IMPRINTER_UNATTACHED_ERROR,
   FUJITSU_VENDOR_ID,

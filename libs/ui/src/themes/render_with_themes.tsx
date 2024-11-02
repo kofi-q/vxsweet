@@ -17,7 +17,11 @@ import {
   within,
 } from '@testing-library/react';
 
-import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
+import {
+  type ColorMode,
+  type ScreenType,
+  type SizeMode,
+} from '@vx/libs/types/src';
 import { AppBase } from '../app_base';
 
 /**

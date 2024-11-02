@@ -3,14 +3,14 @@ import path from 'node:path';
 import { z } from 'zod';
 import {
   LanguageCode,
-  MachineVersion,
+  type MachineVersion,
   safeParseJson,
-  UiStringsPackage,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
 
 import { GoogleCloudTranslator } from './translator';
 import { setUiString } from './utils';
-import { BallotLanguageConfigs, getAllBallotLanguages } from '../types';
+import { type BallotLanguageConfigs, getAllBallotLanguages } from '../types';
 
 export async function translateAppStrings(
   translator: GoogleCloudTranslator,

@@ -1,5 +1,5 @@
 import { mkdir, rm, writeFile } from 'node:fs/promises';
-import { iter } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { writeImageData } from '@vx/libs/image-utils/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {
@@ -8,7 +8,7 @@ import {
   generalElectionFixtures,
   primaryElectionFixtures,
 } from './ballot_fixtures';
-import { Renderer } from './renderer';
+import { type Renderer } from './renderer';
 import { createPlaywrightRenderer } from './playwright_renderer';
 
 async function generateAllBubbleBallotFixtures(renderer: Renderer) {

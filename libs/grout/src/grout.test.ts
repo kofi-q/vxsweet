@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { AddressInfo } from 'node:net';
 import express from 'express';
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 import { expectTypeOf } from 'expect-type';
 import { createClient } from './client';
-import { AnyApi, buildRouter, createApi } from './server';
+import { type AnyApi, buildRouter, createApi } from './server';
 
 function createTestApp(api: AnyApi) {
   const app = express();

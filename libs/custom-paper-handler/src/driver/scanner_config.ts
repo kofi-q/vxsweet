@@ -1,4 +1,4 @@
-import { Uint16toUint8, Uint32toUint8, Uint8 } from '../bits';
+import { Uint16toUint8, Uint32toUint8, type Uint8 } from '../bits';
 import { ConfigureScannerCommand } from './coders';
 
 export type PaperMovementAfterScan =

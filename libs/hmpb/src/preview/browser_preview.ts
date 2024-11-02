@@ -1,24 +1,29 @@
 import './polyfills';
 import {
   HmpbBallotPaperSize,
-  BallotStyle,
+  type BallotStyle,
   BallotType,
   LanguageCode,
-  VotesDict,
+  type VotesDict,
   getContests,
 } from '@vx/libs/types/src';
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { assertDefined, iter } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { vxDefaultBallotTemplate } from '../vx_default_ballot_template';
 import {
-  BaseBallotProps,
+  type BaseBallotProps,
   gridWidthToPixels,
   measureTimingMarkGrid,
   renderBallotTemplate,
 } from '../render_ballot';
 import { createBrowserPreviewRenderer } from './browser_preview_renderer';
 import { markBallotDocument, voteIsCandidate } from '../mark_ballot';
-import { BUBBLE_CLASS, OptionInfo, PAGE_CLASS } from '../ballot_components';
+import {
+  BUBBLE_CLASS,
+  type OptionInfo,
+  PAGE_CLASS,
+} from '../ballot_components';
 
 const election = electionGeneral;
 const ballotStyle: BallotStyle = {

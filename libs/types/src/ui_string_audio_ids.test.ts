@@ -1,7 +1,7 @@
 import { safeParseJson } from './generic';
 import { LanguageCode } from './language_code';
 import {
-  UiStringAudioIdsPackage,
+  type UiStringAudioIdsPackage,
   UiStringAudioIdsPackageSchema,
 } from './ui_string_audio_ids';
 

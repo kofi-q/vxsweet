@@ -5,7 +5,11 @@ import {
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
 import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
-import { QrCodePageResult, detectInBallot, getSearchAreas } from './qrcode';
+import {
+  type QrCodePageResult,
+  detectInBallot,
+  getSearchAreas,
+} from './qrcode';
 import { pdfToPageImages } from '../../../test/helpers/interpretation';
 
 test('does not find QR codes when there are none to find', async () => {

@@ -1,8 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { appStrings, P } from '@vx/libs/ui/src';
-import { InsertedSmartCardAuth, VotesDict } from '@vx/libs/types/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { P } from '@vx/libs/ui/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { type VotesDict } from '@vx/libs/types/src';
 
 import { AskPollWorkerPage } from './ask_poll_worker_page';
 import { RemoveJammedSheetScreen } from './remove_jammed_sheet_screen';

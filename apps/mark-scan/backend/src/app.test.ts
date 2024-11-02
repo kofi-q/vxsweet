@@ -20,7 +20,7 @@ import {
   electionGeneral,
 } from '@vx/libs/fixtures/src';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,
@@ -31,23 +31,23 @@ import {
   getMockMultiLanguageElectionDefinition,
 } from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { Server } from 'node:http';
 import * as grout from '@vx/libs/grout/src';
 import {
-  BallotStyleId,
-  CandidateVote,
+  type BallotStyleId,
+  type CandidateVote,
   DEFAULT_SYSTEM_SETTINGS,
-  ElectionDefinition,
+  type ElectionDefinition,
   LanguageCode,
-  UiStringsPackage,
-  VotesDict,
+  type UiStringsPackage,
+  type VotesDict,
   convertVxfElectionToCdfBallotDefinition,
   safeParseElectionDefinition,
   safeParseSystemSettings,
 } from '@vx/libs/types/src';
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { LogEventId, Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { AddressInfo } from 'node:net';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
@@ -55,13 +55,13 @@ import {
   createApp,
   waitForStatus as waitForStatusHelper,
 } from '../test/app_helpers';
-import { Api, buildApp } from './app';
+import { type Api, buildApp } from './app';
 import {
   ACCEPTED_PAPER_TYPES,
   delays,
-  PaperHandlerStateMachine,
-} from './custom-paper-handler';
-import { ElectionState } from './types';
+  type PaperHandlerStateMachine,
+} from './custom-paper-handler/state_machine';
+import { type ElectionState } from './types';
 import {
   mockCardlessVoterAuth,
   mockElectionManagerAuth,

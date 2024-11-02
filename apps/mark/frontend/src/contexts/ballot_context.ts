@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { BallotContextInterface } from '../config/types';
+import { type BallotContextInterface } from '../config/types';
 
 const ballot: BallotContextInterface = {
   machineConfig: {

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { extractErrorMessage } from '@vx/libs/basics/src';
 import { LanguageCode } from '@vx/libs/types/src';
 
-import { GoogleCloudSpeechSynthesizer } from '../src/language_and_audio';
+import { GoogleCloudSpeechSynthesizer } from '../src/language_and_audio/speech_synthesizer';
 import { Store } from '../src/store';
 
 const languageCodes: string[] = Object.values(LanguageCode);

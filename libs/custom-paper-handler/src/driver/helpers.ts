@@ -1,5 +1,5 @@
-import { Optional } from '@vx/libs/basics/src';
-import { PaperHandlerDriverInterface } from './driver_interface';
+import { type Optional } from '@vx/libs/basics/src';
+import { type PaperHandlerDriverInterface } from './driver_interface';
 import { PaperHandlerDriver, getPaperHandlerWebDevice } from './driver';
 import { MaxPrintWidthDots } from './constants';
 

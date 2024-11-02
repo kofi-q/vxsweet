@@ -1,6 +1,6 @@
 import { DateWithoutTime } from '@vx/libs/basics/src';
 import {
-  BallotDefinition,
+  type BallotDefinition,
   ElectionType,
   IdentifierType,
   ReportingUnitType,
@@ -13,12 +13,12 @@ import {
 import { LanguageCode } from '../../language_code';
 import {
   HmpbBallotPaperSize,
-  BallotStyleGroupId,
-  BallotStyleId,
-  DistrictId,
-  Election,
-  ElectionId,
-  PartyId,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type DistrictId,
+  type Election,
+  type ElectionId,
+  type PartyId,
 } from '../../election';
 
 export const testVxfElection: Election = {

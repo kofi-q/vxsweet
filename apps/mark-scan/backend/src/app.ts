@@ -1,28 +1,28 @@
 import express, { Application } from 'express';
 import {
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
 } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import * as grout from '@vx/libs/grout/src';
 import {
-  ElectionPackageConfigurationError,
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  SystemSettings,
+  type ElectionPackageConfigurationError,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-  PrecinctSelection,
-  PollsState,
-  DiagnosticRecord,
-  DiagnosticType,
-  PageInterpretation,
+  type PrecinctSelection,
+  type PollsState,
+  type DiagnosticRecord,
+  type DiagnosticType,
+  type PageInterpretation,
 } from '@vx/libs/types/src';
 import {
   getPrecinctSelectionName,
@@ -33,35 +33,41 @@ import {
 
 import {
   createUiStringsApi,
-  readSignedElectionPackageFromUsb,
   configureUiStrings,
-  createSystemCallApi,
-  DiskSpaceSummary,
-  ExportDataResult,
+} from '@vx/libs/backend/src/ui_strings';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+import {
+  type DiskSpaceSummary,
+  type ExportDataResult,
 } from '@vx/libs/backend/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
-import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
-  MockPaperHandlerStatus,
-  PaperHandlerDriverInterface,
-} from '@vx/libs/custom-paper-handler/src';
+  type MockPaperHandlerStatus,
+  type PaperHandlerDriverInterface,
+} from '@vx/libs/custom-paper-handler/src/driver';
 import { getMachineConfig } from './machine_config';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import {
-  PaperHandlerStateMachine,
-  AcceptedPaperType,
-  SimpleServerStatus,
-  buildMockPaperHandlerApi,
-} from './custom-paper-handler';
-import { BmdModelNumber, ElectionState, PrintBallotProps } from './types';
+  type PaperHandlerStateMachine,
+  type AcceptedPaperType,
+} from './custom-paper-handler/state_machine';
+import { type SimpleServerStatus } from './custom-paper-handler/types';
+import { buildMockPaperHandlerApi } from './custom-paper-handler/mock_paper_handler_api';
+import {
+  type BmdModelNumber,
+  type ElectionState,
+  type PrintBallotProps,
+} from './types';
 import {
   getMarkScanBmdModel,
   isAccessibleControllerDaemonRunning,
 } from './util/hardware';
 import { saveReadinessReport } from './readiness_report';
 import { renderBallot } from './util/render_ballot';
-import { ElectionRecord, Store } from './store';
+import { type ElectionRecord, Store } from './store';
 import { constructAuthMachineState } from './util/auth';
 import path from 'node:path';
 

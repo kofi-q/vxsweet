@@ -1,7 +1,7 @@
 import { assert } from '@vx/libs/basics/src';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { FujitsuPrintResult, Printer } from './printer';
+import { type FujitsuPrintResult, type Printer } from './printer';
 
 const TEST_PRINT_PDF_PATH = join(__dirname, 'test-print.pdf');
 

@@ -10,7 +10,7 @@ import { mocks } from '@vx/libs/custom-scanner/src';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
+  type SheetInterpretation,
 } from '@vx/libs/types/src';
 import {
   getFeatureFlagMock,

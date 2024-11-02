@@ -6,9 +6,9 @@ import {
 } from '@typescript-eslint/utils';
 import { strict as assert } from 'node:assert';
 import {
-  CollectionType,
+  type CollectionType,
   createRule,
-  FunctionType,
+  type FunctionType,
   getCollectionType,
   isBindingName,
   isFunction,

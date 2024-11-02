@@ -1,5 +1,5 @@
 import { findDocForProperty, findDocForType } from './docs';
-import { DocumentedEntity } from './types';
+import { type DocumentedEntity } from './types';
 
 test('findDocForType', () => {
   const docs: DocumentedEntity[] = [

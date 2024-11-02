@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SettingsPaneId } from './types';
+import { type SettingsPaneId } from './types';
 import { TabBar } from './tab_bar';
-import { ColorSettings, ColorSettingsProps } from './color_settings';
-import { SizeSettings, SizeSettingsProps } from './size_settings';
+import { ColorSettings, type ColorSettingsProps } from './color_settings';
+import { SizeSettings, type SizeSettingsProps } from './size_settings';
 import { H2 } from '../typography';
 import { Button } from '../button';
 import { VoterSettingsManagerContext } from '../voter_settings_manager_context';
 import { useScreenInfo } from '../hooks/use_screen_info';
-import { appStrings } from '../ui_strings';
+import { appStrings } from '../ui_strings/app_strings';
 import { Header } from './header';
 import { AudioSettings } from './audio_settings';
 import { useAudioControls } from '../hooks/use_audio_controls';

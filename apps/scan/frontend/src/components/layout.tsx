@@ -3,14 +3,16 @@ import {
   Screen as ScreenBase,
   Main,
   ElectionInfoBar,
-  InfoBarMode,
+  type InfoBarMode,
   TestMode,
   H1,
+} from '@vx/libs/ui/src';
+import {
   LanguageSettingsButton,
   LanguageSettingsScreen,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/language_settings';
 import styled, { DefaultTheme, ThemeContext } from 'styled-components';
-import { SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';
 import { getConfig, getMachineConfig, getScannerStatus } from '../api';
 import { ScannedBallotCount } from './scanned_ballot_count';

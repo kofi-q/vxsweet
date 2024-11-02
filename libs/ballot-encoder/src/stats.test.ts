@@ -1,11 +1,11 @@
 import { asElectionDefinition } from '@vx/libs/fixtures/src';
 import {
   HmpbBallotPaperSize,
-  BallotStyleGroupId,
-  BallotStyleId,
+  type BallotStyleGroupId,
+  type BallotStyleId,
   BallotType,
   DistrictIdSchema,
-  Election,
+  type Election,
   ElectionIdSchema,
   unsafeParse,
 } from '@vx/libs/types/src';

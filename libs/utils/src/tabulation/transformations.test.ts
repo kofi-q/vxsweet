@@ -1,5 +1,5 @@
-import { BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
-import { iter } from '@vx/libs/basics/src';
+import { type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   coalesceGroupsAcrossParty,
   groupMapToGroupList,

@@ -1,4 +1,5 @@
-import { Main, Screen, Text, H1, P, appStrings } from '@vx/libs/ui/src';
+import { Main, Screen, Text, H1, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 
 export function NoPaperHandlerPage(): JSX.Element {
   return (

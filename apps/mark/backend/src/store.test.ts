@@ -1,4 +1,5 @@
-import { safeParseSystemSettings, TEST_JURISDICTION } from '@vx/libs/types/src';
+import { safeParseSystemSettings } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { Store } from './store';
 

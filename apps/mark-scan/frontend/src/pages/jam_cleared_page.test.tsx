@@ -2,7 +2,10 @@ jest.mock('./replace_jammed_sheet_screen');
 
 import { mockOf } from '@vx/libs/test-utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { createApiMock, ApiMock } from '../../test/helpers/mock_api_client';
+import {
+  createApiMock,
+  type ApiMock,
+} from '../../test/helpers/mock_api_client';
 import { render, screen } from '../../test/react_testing_library';
 import { JamClearedPage } from './jam_cleared_page';
 import { ReplaceJammedSheetScreen } from './replace_jammed_sheet_screen';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Keybinding } from '../keybindings';
-import { MarkScanControllerButton } from './types';
+import { type MarkScanControllerButton } from './types';
 
 interface MarkScanControllerIllustrationProps {
   highlight?: MarkScanControllerButton;

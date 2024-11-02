@@ -1,10 +1,10 @@
 import {
-  BallotStyleGroupId,
-  ContestId,
-  PrecinctId,
-  PromiseOr,
+  type BallotStyleGroupId,
+  type ContestId,
+  type PrecinctId,
+  type PromiseOr,
 } from '@vx/libs/types/src';
-import type { ManualResultsVotingMethod } from '@vx/apps/admin/backend/src';
+import { type ManualResultsVotingMethod } from '../../../backend/src/types';
 
 // Events
 export type InputEventFunction = (

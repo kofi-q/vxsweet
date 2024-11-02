@@ -5,28 +5,28 @@ import {
   isTestReport,
   readCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
 import {
   assert,
   assertDefined,
   err,
-  iter,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { FileSystemEntryType } from '@vx/libs/fs/src';
 import {
-  BallotId,
-  BallotStyleId,
+  type BallotId,
+  type BallotStyleId,
   CVR,
-  ElectionDefinition,
+  type ElectionDefinition,
   getBallotStyle,
   getContests,
   getGroupIdFromBallotStyleId,
   getPrecinctById,
 } from '@vx/libs/types/src';
-import { listDirectoryOnUsbDrive, UsbDrive } from '@vx/libs/usb-drive/src';
+import { listDirectoryOnUsbDrive, type UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   BooleanEnvironmentVariableName,
   castVoteRecordHasValidContestReferences,
@@ -40,11 +40,11 @@ import {
 
 import { Store } from './store';
 import {
-  CastVoteRecordElectionDefinitionValidationError,
-  CastVoteRecordFileMetadata,
-  CvrFileImportInfo,
-  CvrFileMode,
-  ImportCastVoteRecordsError,
+  type CastVoteRecordElectionDefinitionValidationError,
+  type CastVoteRecordFileMetadata,
+  type CvrFileImportInfo,
+  type CvrFileMode,
+  type ImportCastVoteRecordsError,
 } from './types';
 import { getCastVoteRecordAdjudicationFlags } from './util/cast_vote_records';
 

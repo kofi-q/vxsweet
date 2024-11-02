@@ -1,15 +1,21 @@
-import { Admin, Election, Id, Tabulation } from '@vx/libs/types/src';
+import { Admin, type Election, type Id, Tabulation } from '@vx/libs/types/src';
 import {
-  BallotStyleIdPartyIdLookup,
+  type BallotStyleIdPartyIdLookup,
   combineManualElectionResults,
   getBallotStyleIdPartyIdLookup,
   getGroupKey,
-} from '@vx/libs/utils/src';
-import { Result, assert, assertDefined, err, ok } from '@vx/libs/basics/src';
+} from '@vx/libs/utils/src/tabulation';
 import {
-  ManualResultsFilter,
-  ManualResultsIdentifier,
-  ManualResultsRecord,
+  type Result,
+  assert,
+  assertDefined,
+  err,
+  ok,
+} from '@vx/libs/basics/src';
+import {
+  type ManualResultsFilter,
+  type ManualResultsIdentifier,
+  type ManualResultsRecord,
 } from '../types';
 import { Store } from '../store';
 

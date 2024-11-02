@@ -1,6 +1,6 @@
 import React from 'react';
 import { deepEqual } from '@vx/libs/basics/src';
-import type { Api } from '@vx/apps/admin/backend/src';
+import { type Api } from '../../backend/src/app';
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,
   QUERY_CLIENT_DEFAULT_OPTIONS,
@@ -15,7 +15,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import * as grout from '@vx/libs/grout/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 

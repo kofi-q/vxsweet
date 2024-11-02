@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { OverallSessionTimeLimitHours } from '@vx/libs/types/src';
+import { type OverallSessionTimeLimitHours } from '@vx/libs/types/src/auth';
 
 /**
  * Config params for sessions

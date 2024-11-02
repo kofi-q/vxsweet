@@ -1,34 +1,34 @@
 import { Scan } from '@vx/libs/api/src';
 import {
-  DippedSmartCardAuthApi,
+  type DippedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
 } from '@vx/libs/auth/src';
-import { Result, assert, ok } from '@vx/libs/basics/src';
+import { type Result, assert, ok } from '@vx/libs/basics/src';
+import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+import { type DiskSpaceSummary } from '@vx/libs/backend/src';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
 import {
-  createSystemCallApi,
-  DiskSpaceSummary,
-  readSignedElectionPackageFromUsb,
   exportCastVoteRecordsToUsbDrive,
-  ElectionRecord,
-} from '@vx/libs/backend/src';
+  type ElectionRecord,
+} from '@vx/libs/backend/src/cast_vote_records';
 import {
-  ElectionPackageConfigurationError,
-  BallotPageLayout,
+  type ElectionPackageConfigurationError,
+  type BallotPageLayout,
   DEFAULT_SYSTEM_SETTINGS,
-  ElectionDefinition,
-  SystemSettings,
-  ExportCastVoteRecordsToUsbDriveError,
-  DiagnosticRecord,
+  type ElectionDefinition,
+  type SystemSettings,
+  type ExportCastVoteRecordsToUsbDriveError,
+  type DiagnosticRecord,
 } from '@vx/libs/types/src';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import express, { Application } from 'express';
 import * as grout from '@vx/libs/grout/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
-import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Importer } from './importer';
-import { Workspace } from './util/workspace';
-import { MachineConfig, ScanStatus } from './types';
+import { type Workspace } from './util/workspace';
+import { type MachineConfig, type ScanStatus } from './types';
 import { getMachineConfig } from './machine_config';
 import { constructAuthMachineState } from './util/auth';
 import {
@@ -38,8 +38,11 @@ import {
   logScanBatchContinueSuccess,
 } from './util/logging';
 import { saveReadinessReport } from './readiness_report';
-import { performScanDiagnostic, ScanDiagnosticOutcome } from './diagnostic';
-import { BatchScanner } from './fujitsu_scanner';
+import {
+  performScanDiagnostic,
+  type ScanDiagnosticOutcome,
+} from './diagnostic';
+import { type BatchScanner } from './fujitsu_scanner';
 import path from 'node:path';
 
 type NoParams = never;

@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { HmpbBallotPaperSize } from '@vx/libs/types/src';
 import { pdfToImages } from '@vx/libs/image-utils/src';
-import { iter } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { readElection } from '@vx/libs/fs/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {
@@ -11,7 +11,7 @@ import {
   primaryElectionFixtures,
 } from './ballot_fixtures';
 import { createPlaywrightRenderer } from './playwright_renderer';
-import { Renderer } from './renderer';
+import { type Renderer } from './renderer';
 import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(120_000);

@@ -24,20 +24,20 @@ import {
   mockOf,
   suppressingConsoleOutput,
 } from '@vx/libs/test-utils/src';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   safeParseSystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
   safeParseJson,
   SystemSettingsSchema,
-  ElectionDefinition,
-  PrinterStatus,
-  UiStringsPackage,
+  type ElectionDefinition,
+  type PrinterStatus,
+  type UiStringsPackage,
   LanguageCode,
-  constructElectionKey,
   convertVxfElectionToCdfBallotDefinition,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,
@@ -49,18 +49,18 @@ import {
 } from '@vx/libs/utils/src';
 
 import { Buffer } from 'node:buffer';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { Server } from 'node:http';
 import * as grout from '@vx/libs/grout/src';
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
   HP_LASER_PRINTER_CONFIG,
-  MemoryPrinterHandler,
-} from '@vx/libs/printing/src';
+  type MemoryPrinterHandler,
+} from '@vx/libs/printing/src/printer';
 import { createApp } from '../test/app_helpers';
-import { Api } from './app';
-import { ElectionState } from '.';
+import { type Api } from './app';
+import { type ElectionState } from './types';
 import { isAccessibleControllerAttached } from './util/accessible_controller';
 import '@vx/libs/image-test-utils/register';
 

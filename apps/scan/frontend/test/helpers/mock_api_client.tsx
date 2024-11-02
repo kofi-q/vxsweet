@@ -3,27 +3,31 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  ElectionDefinition,
-  InsertedSmartCardAuth,
-  PollsState,
-  PrecinctSelection,
-  PrinterStatus,
-  DiagnosticRecord,
-  DiagnosticOutcome,
+  type ElectionDefinition,
+  type PollsState,
+  type PrecinctSelection,
+  type PrinterStatus,
+  type DiagnosticRecord,
+  type DiagnosticOutcome,
 } from '@vx/libs/types/src';
+import {
+  constructElectionKey,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/src/auth';
 import { createMockClient } from '@vx/libs/grout/test-utils/src';
-import type {
-  Api,
-  FujitsuPrintResult,
-  FujitsuPrinterStatus,
-  MachineConfig,
-  OpenPollsResult,
-  PollsTransition,
-  PrecinctScannerConfig,
-  PrecinctScannerStatus,
-  PrintResult,
-} from '@vx/apps/scan/backend/src';
+import { type Api } from '../../../backend/src/app';
+import {
+  type FujitsuPrintResult,
+  type FujitsuPrinterStatus,
+  type PrintResult,
+} from '../../../backend/src/printing/printer';
+import {
+  type MachineConfig,
+  type PollsTransition,
+  type PrecinctScannerConfig,
+  type PrecinctScannerStatus,
+} from '../../../backend/src/types';
+import { type OpenPollsResult } from '../../../backend/src/polls';
 import { deferred, err, ok } from '@vx/libs/basics/src';
 import {
   mockElectionManagerUser,
@@ -32,10 +36,13 @@ import {
   mockSystemAdministratorUser,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
-import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { TestErrorBoundary, mockUsbDriveStatus } from '@vx/libs/ui/src';
-import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src';
-import type { DiskSpaceSummary, ExportDataResult } from '@vx/libs/backend/src';
+import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
+import {
+  type DiskSpaceSummary,
+  type ExportDataResult,
+} from '@vx/libs/backend/src';
 import { mockPollsInfo } from './mock_polls_info';
 import { ApiProvider } from '../../src/api_provider';
 

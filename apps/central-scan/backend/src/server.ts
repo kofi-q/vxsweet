@@ -1,9 +1,5 @@
-import {
-  BaseLogger,
-  LogEventId,
-  LogSource,
-  Logger,
-} from '@vx/libs/logging/src';
+import { BaseLogger, LogEventId, Logger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Application } from 'express';
 import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
@@ -12,12 +8,16 @@ import {
   isFeatureFlagEnabled,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
-import { UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
 import { detectDevices } from '@vx/libs/backend/src';
 import { PORT, SCAN_WORKSPACE } from './globals';
 import { Importer } from './importer';
-import { FujitsuScanner, BatchScanner, ScannerMode } from './fujitsu_scanner';
-import { createWorkspace, Workspace } from './util/workspace';
+import {
+  FujitsuScanner,
+  type BatchScanner,
+  ScannerMode,
+} from './fujitsu_scanner';
+import { createWorkspace, type Workspace } from './util/workspace';
 import { buildCentralScannerApp } from './app';
 import { getUserRole } from './util/auth';
 

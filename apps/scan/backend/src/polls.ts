@@ -1,9 +1,9 @@
-import { Result, assert, err, ok } from '@vx/libs/basics/src';
+import { type Result, assert, err, ok } from '@vx/libs/basics/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { Store } from './store';
 import { exportCastVoteRecordsToUsbDrive } from './export';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getCurrentTime } from './util/get_current_time';
 
 export type OpenPollsResult = Result<void, 'ballots-already-scanned'>;

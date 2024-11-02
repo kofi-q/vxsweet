@@ -5,15 +5,15 @@ import {
   err,
   isNonExistentFileOrDirectoryError,
   ok,
-  Result,
+  type Result,
 } from '@vx/libs/basics/src';
 import {
-  BallotPageLayout,
+  type BallotPageLayout,
   BallotPageLayoutSchema,
-  ReadCastVoteRecordError,
-  ReferencedFileType,
+  type ReadCastVoteRecordError,
+  type ReferencedFileType,
   safeParseJson,
-  SheetOf,
+  type SheetOf,
 } from '@vx/libs/types/src';
 
 /**

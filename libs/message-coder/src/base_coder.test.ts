@@ -1,14 +1,14 @@
-import { Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import { BaseCoder } from './base_coder';
 import { bufferContainsBitOffset, toByteOffset } from './bits';
 import {
-  BitLength,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
-  Uint8,
+  type BitLength,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
+  type Uint8,
 } from './types';
 
 class TestCoder extends BaseCoder<number> {

@@ -1,21 +1,21 @@
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { MarkScanReadinessReport } from '@vx/libs/ui/src';
+import { MarkScanReadinessReport } from '@vx/libs/ui/src/diagnostics';
 import {
-  ExportDataResult,
+  type ExportDataResult,
   Exporter,
   SCAN_ALLOWED_EXPORT_PATTERNS,
   VX_MACHINE_ID,
 } from '@vx/libs/backend/src';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getCurrentTime } from './util/get_current_time';
 import {
   getMarkScanBmdModel,
   isAccessibleControllerDaemonRunning,
 } from './util/hardware';
-import { PaperHandlerStateMachine } from './custom-paper-handler';
+import { type PaperHandlerStateMachine } from './custom-paper-handler/state_machine';
 
 /**
  * Saves the VxMark hardware readiness report to the USB drive.

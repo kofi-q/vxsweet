@@ -17,11 +17,14 @@ import {
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
 import { err } from '@vx/libs/basics/src';
-import { PollsState } from '@vx/libs/types/src';
+import { type PollsState } from '@vx/libs/types/src';
 import { screen, render } from '../../test/react_testing_library';
-import { PollWorkerScreen, PollWorkerScreenProps } from './poll_worker_screen';
 import {
-  ApiMock,
+  PollWorkerScreen,
+  type PollWorkerScreenProps,
+} from './poll_worker_screen';
+import {
+  type ApiMock,
   createApiMock,
   provideApi,
   statusNoPaper,

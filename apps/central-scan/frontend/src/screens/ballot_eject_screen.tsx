@@ -1,9 +1,9 @@
 import { LogEventId } from '@vx/libs/logging/src';
 import {
   AdjudicationReason,
-  Contest,
-  PageInterpretation,
-  Side,
+  type Contest,
+  type PageInterpretation,
+  type Side,
   formatBallotHash,
 } from '@vx/libs/types/src';
 import { Scan } from '@vx/libs/api/src';

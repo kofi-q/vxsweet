@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   Admin,
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -10,10 +10,10 @@ import {
   GROUP_KEY_ROOT,
   buildManualResultsFixture,
   groupMapToGroupList,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { Store } from '../store';
 import {
-  MockCastVoteRecordFile,
+  type MockCastVoteRecordFile,
   addMockCvrFileToStore,
 } from '../../test/mock_cvr_file';
 import {

@@ -9,13 +9,14 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert, err, iter, ok, sleep } from '@vx/libs/basics/src';
+import { type Optional, assert, err, ok, sleep } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { writeFile } from 'node:fs/promises';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {
-  FujitsuThermalPrinterInterface,
-  PrintResult,
-  PrinterStatus,
+  type FujitsuThermalPrinterInterface,
+  type PrintResult,
+  type PrinterStatus,
 } from '../types';
 import { logPrinterStatusIfChanged } from '../logging';
 
