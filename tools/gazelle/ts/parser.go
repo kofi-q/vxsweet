@@ -52,7 +52,7 @@ var (
 			`)`,
 	)
 	regexJestStyledComponents = regexp.MustCompile(`\.toHaveStyleRule\(`)
-	regexProcessEnv           = regexp.MustCompile(`\bprocess\.env(\.|\[])`)
+	regexProcessEnv           = regexp.MustCompile(`\bprocess\.env\b`)
 	regexNodeTypes            = regexp.MustCompile(`\bNodeJS\..+`)
 	regexKioskBrowser         = regexp.MustCompile(
 		`\b(?:KioskBrowser\.|window\.kiosk)`,
@@ -113,6 +113,10 @@ func ParseSourceFile(rootDir, filePath string) (ParseResult, []error) {
 				)
 			}
 			imports["@types/"+typesPackageName] = true
+
+			if moduleNameOrPath == "styled-components" {
+				imports["@vx/libs/ui/styled-components"] = true
+			}
 		}
 	}
 

@@ -15,6 +15,7 @@ ts_library(
         "//:node_modules/tmp",
         "//:node_modules/wait-for-expect",
         "//:node_modules/xstate",
+        "//:types_env",
         "//apps/scan/backend/src",
         "//libs/auth/src",
         "//libs/backend/src",

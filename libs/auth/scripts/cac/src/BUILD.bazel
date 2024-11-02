@@ -7,6 +7,7 @@ ts_library(
     name = "src",
     deps = [
         "//:node_modules/@types/node",
+        "//:types_env",
         "//libs/auth/scripts/src",
         "//libs/auth/src",
         "//libs/basics/src",

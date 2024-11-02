@@ -69,6 +69,7 @@ ts_tests(
         "//:node_modules/supertest",
         "//:node_modules/tmp",
         "//:node_modules/uuid",
+        "//:types_env",
         "//apps/central-scan/backend/src",
         "//apps/central-scan/backend/test",
         "//libs/api/src",

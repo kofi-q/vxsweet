@@ -48,6 +48,7 @@ ts_tests(
         "//:node_modules/@types/tmp",
         "//:node_modules/luxon",
         "//:node_modules/tmp",
+        "//:types_env",
         "//apps/mark/backend/src",
         "//apps/mark/backend/test",
         "//libs/auth/src",

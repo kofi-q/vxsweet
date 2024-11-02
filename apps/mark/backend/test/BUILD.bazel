@@ -13,6 +13,7 @@ ts_library(
         "//:node_modules/@types/tmp",
         "//:node_modules/express",
         "//:node_modules/tmp",
+        "//:types_env",
         "//apps/mark/backend/src",
         "//libs/auth/src",
         "//libs/backend/src",

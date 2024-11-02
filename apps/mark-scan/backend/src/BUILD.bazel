@@ -69,6 +69,7 @@ ts_tests(
         "//:node_modules/node-hid",
         "//:node_modules/tmp",
         "//:node_modules/xstate",
+        "//:types_env",
         "//apps/mark-scan/backend/src",
         "//apps/mark-scan/backend/test",
         "//libs/auth/src",
