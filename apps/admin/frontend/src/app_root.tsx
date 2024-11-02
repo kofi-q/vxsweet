@@ -1,11 +1,11 @@
-import { AppContext } from './contexts/app_context';
-import { AppRoutes } from './components/app_routes';
+import { AppContext } from '../contexts/app_context';
+import { AppRoutes } from '../router/app_routes';
 import {
   getAuthStatus,
   getCurrentElectionMetadata,
   getMachineConfig,
   getUsbDriveStatus,
-} from './api';
+} from '../api/api';
 
 export function AppRoot(): JSX.Element | null {
   const authStatusQuery = getAuthStatus.useQuery();

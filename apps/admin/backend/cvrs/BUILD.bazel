@@ -1,0 +1,23 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "cvrs",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/uuid",
+        "//:node_modules/js-sha256",
+        "//:node_modules/uuid",
+        "//apps/admin/backend/store",
+        "//apps/admin/backend/types",
+        "//apps/admin/backend/util/cvrs",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/fs/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

@@ -3,7 +3,7 @@ import {
   type CastVoteRecordFileRecord,
   type CvrFileImportInfo,
   type ManualResultsMetadata,
-} from '../../backend/src/types';
+} from '../../backend/types/types';
 import { type BallotStyleGroupId } from '@vx/libs/types/src';
 
 export const mockCastVoteRecordFileRecord: CastVoteRecordFileRecord = {

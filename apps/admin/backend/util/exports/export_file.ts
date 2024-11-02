@@ -1,0 +1,53 @@
+import {
+  type ExportDataResult,
+  type ExportableData,
+  Exporter,
+} from '@vx/libs/backend/src';
+import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../../globals/globals';
+import { rootDebug } from '../logging/debug';
+
+const debug = rootDebug.extend('export-file');
+
+/**
+ * Save a file to disk.
+ */
+export function exportFile({
+  path,
+  data,
+}: {
+  path: string;
+  data: ExportableData;
+}): Promise<ExportDataResult> {
+  const exporter = new Exporter({
+    allowedExportPatterns: ADMIN_ALLOWED_EXPORT_PATTERNS,
+    /* We're not using `exportDataToUsbDrive` here, so a mock `usbDrive` is OK */
+    usbDrive: {
+      status:
+        /* istanbul ignore next */
+        () => {
+          return Promise.resolve({
+            status: 'no_drive',
+          });
+        },
+
+      eject:
+        /* istanbul ignore next */
+        () => {
+          return Promise.resolve();
+        },
+      format:
+        /* istanbul ignore next */
+        () => {
+          return Promise.resolve();
+        },
+      sync:
+        /* istanbul ignore next */
+        () => {
+          return Promise.resolve();
+        },
+    },
+  });
+
+  debug('exporting data to file %s', path);
+  return exporter.exportData(path, data);
+}

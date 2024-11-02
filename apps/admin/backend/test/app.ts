@@ -17,8 +17,8 @@ import {
   type SystemSettings,
 } from '@vx/libs/types/src';
 import {
-  DippedSmartCardAuth,
   constructElectionKey,
+  DippedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 import * as grout from '@vx/libs/grout/src';
 import { AddressInfo } from 'node:net';
@@ -33,10 +33,10 @@ import { writeFileSync } from 'node:fs';
 import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { Logger, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import { type Api, buildApp } from '../src/app';
-import { createWorkspace, type Workspace } from '../src/util/workspace';
+import { type Api, buildApp } from '../app/app';
+import { createWorkspace, type Workspace } from '../workspace/workspace';
 import { deleteTmpFileAfterTestSuiteCompletes } from './cleanup';
-import { getUserRole } from '../src/util/auth';
+import { getUserRole } from '../util/auth/auth';
 
 type ActualDirectory = string;
 type MockFileTree = MockFile | MockDirectory | ActualDirectory;

@@ -1,16 +1,16 @@
 import {
   type BallotId,
-  type BallotPageLayout,
   type BallotStyleId,
   BallotType,
+  type BallotPageLayout,
   type Id,
   Tabulation,
 } from '@vx/libs/types/src';
 import { v4 as uuid } from 'uuid';
 import { Buffer } from 'node:buffer';
 import { assertDefined } from '@vx/libs/basics/src';
-import { Store } from '../src/store';
-import { getCastVoteRecordAdjudicationFlags } from '../src/util/cast_vote_records';
+import { Store } from '../store/store';
+import { getCastVoteRecordAdjudicationFlags } from '../util/cvrs/cast_vote_records';
 
 export type MockCastVoteRecordFile = Array<
   Tabulation.CastVoteRecord & { multiplier?: number }

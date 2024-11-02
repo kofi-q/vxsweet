@@ -22,7 +22,7 @@ import {
   createApiClient,
   createQueryClient,
   systemCallApi,
-} from './api';
+} from '../api/api';
 
 const apiClient = createApiClient();
 const queryClient = createQueryClient();
