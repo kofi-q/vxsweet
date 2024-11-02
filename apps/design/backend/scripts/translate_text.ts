@@ -1,8 +1,8 @@
 import { extractErrorMessage } from '@vx/libs/basics/src';
 import { LanguageCode, type NonEnglishLanguageCode } from '@vx/libs/types/src';
 
-import { GoogleCloudTranslator } from '../src/language_and_audio/translator';
-import { Store } from '../src/store';
+import { GoogleCloudTranslator } from '../language_and_audio/translation/translator';
+import { Store } from '../store/store';
 
 const nonEnglishLanguageCodes: Set<string> = (() => {
   const set = new Set<string>(Object.values(LanguageCode));

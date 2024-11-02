@@ -1,0 +1,52 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "rich-text",
+    deps = [
+        "//:node_modules/@tiptap/extension-bold",
+        "//:node_modules/@tiptap/extension-bullet-list",
+        "//:node_modules/@tiptap/extension-document",
+        "//:node_modules/@tiptap/extension-dropcursor",
+        "//:node_modules/@tiptap/extension-gapcursor",
+        "//:node_modules/@tiptap/extension-hard-break",
+        "//:node_modules/@tiptap/extension-history",
+        "//:node_modules/@tiptap/extension-image",
+        "//:node_modules/@tiptap/extension-italic",
+        "//:node_modules/@tiptap/extension-list-item",
+        "//:node_modules/@tiptap/extension-ordered-list",
+        "//:node_modules/@tiptap/extension-paragraph",
+        "//:node_modules/@tiptap/extension-strike",
+        "//:node_modules/@tiptap/extension-table",
+        "//:node_modules/@tiptap/extension-table-cell",
+        "//:node_modules/@tiptap/extension-table-header",
+        "//:node_modules/@tiptap/extension-table-row",
+        "//:node_modules/@tiptap/extension-text",
+        "//:node_modules/@tiptap/extension-underline",
+        "//:node_modules/@tiptap/react",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//apps/design/frontend/image-input",
+        "//libs/ui/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//apps/design/frontend/rich-text",
+        "//apps/design/frontend/test",
+    ],
+)
+
+lint_test(name = "lint")

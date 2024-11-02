@@ -5,7 +5,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-jest.mock('../../src/ballot_style_reports');
+jest.mock('../../ballot-styles/ballot_style_reports');
 
 jest.mock('@vx/libs/hmpb/src', () => {
   const original = jest.requireActual('@vx/libs/hmpb/src');
@@ -36,13 +36,13 @@ import {
   type BallotStyle,
   type Precinct,
   convertToVxfBallotStyle,
-} from '../../src/types';
-import { generateBallotStyles } from '../../src/ballot_styles';
+} from '../../types/types';
+import { generateBallotStyles } from '../../ballot-styles/ballot_styles';
 import {
   type ElectionRecord,
   getTempBallotLanguageConfigsForCert,
-} from '../../src/store';
-import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';
+} from '../../store/store';
+import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 

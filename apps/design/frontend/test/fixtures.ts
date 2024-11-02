@@ -1,10 +1,10 @@
-import { type ElectionRecord } from '../../backend/src/store';
+import { type ElectionRecord } from '../../backend/store/store';
 import {
   createBlankElection,
   convertVxfPrecincts,
-} from '../../backend/src/app';
-import { generateBallotStyles } from '../../backend/src/ballot_styles';
-import { type BallotLanguageConfigs } from '../../backend/src/types';
+} from '../../backend/app/app';
+import { generateBallotStyles } from '../../backend/ballot-styles/ballot_styles';
+import { type BallotLanguageConfigs } from '../../backend/types/types';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionGeneral,
@@ -15,7 +15,7 @@ import {
   type ElectionId,
   LanguageCode,
 } from '@vx/libs/types/src';
-import { generateId } from '../src/utils';
+import { generateId } from '../util/utils';
 
 export function makeElectionRecord(baseElection: Election): ElectionRecord {
   const ballotLanguageConfigs: BallotLanguageConfigs = [

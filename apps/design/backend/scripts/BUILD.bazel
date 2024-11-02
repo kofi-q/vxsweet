@@ -5,7 +5,9 @@ ts_library(
     name = "scripts",
     deps = [
         "//:node_modules/@types/node",
-        "//apps/design/backend/src",
+        "//apps/design/backend/language_and_audio/translation",
+        "//apps/design/backend/language_and_audio/tts",
+        "//apps/design/backend/store",
         "//libs/basics/src",
         "//libs/types/src",
     ],
