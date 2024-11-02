@@ -126,7 +126,7 @@ func getImportSpecsForFile(
 	if path.Base(extensionlessFilePath) == "index" {
 		importSpecs = append(importSpecs, resolve.ImportSpec{
 			Lang: languageName,
-			Imp:  workspaceRelativeDirectoryPath,
+			Imp:  path.Dir(extensionlessFilePath),
 		})
 	}
 
