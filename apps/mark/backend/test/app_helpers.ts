@@ -29,9 +29,9 @@ import {
   createMockPrinterHandler,
   type MemoryPrinterHandler,
 } from '@vx/libs/printing/src/printer';
-import { type Api, buildApp } from '../src/app';
-import { createWorkspace, type Workspace } from '../src/util/workspace';
-import { getUserRole } from '../src/util/auth';
+import { type Api, buildApp } from '../app/app';
+import { createWorkspace, type Workspace } from '../workspace/workspace';
+import { getUserRole } from '../auth/auth';
 
 interface MockAppContents {
   apiClient: grout.Client<Api>;

@@ -1,0 +1,33 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "review",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//apps/mark/frontend/contexts",
+        "//libs/mark-flow-ui/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/history",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/history",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//apps/mark/frontend/pages/review",
+        "//apps/mark/frontend/test",
+        "//libs/fixtures/src",
+        "//libs/mark-flow-ui/src",
+    ],
+)
+
+lint_test(name = "lint")
