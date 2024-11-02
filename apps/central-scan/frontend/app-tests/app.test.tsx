@@ -17,7 +17,7 @@ import { constructElectionKey } from '@vx/libs/types/src/auth';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { render, waitFor, within, screen } from '../test/react_testing_library';
-import { App } from '../src/app';
+import { App } from '../app/app';
 import { type ApiMock, createApiMock } from '../test/api';
 import { mockBatch, mockStatus } from '../test/fixtures';
 

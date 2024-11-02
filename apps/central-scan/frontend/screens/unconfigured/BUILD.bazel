@@ -1,0 +1,16 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "unconfigured",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/central-scan/frontend/api",
+        "//apps/central-scan/frontend/screens/nav",
+        "//libs/basics/src",
+        "//libs/ui/src",
+    ],
+)
+
+lint_test(name = "lint")

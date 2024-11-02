@@ -1,0 +1,430 @@
+jest.mock(
+  '@vx/libs/backend/src',
+  (): typeof import('@vx/libs/backend/src') => ({
+    ...jest.requireActual('@vx/libs/backend/src'),
+    isDeviceAttached: jest.fn(),
+  })
+);
+
+jest.mock('../../exec/exec');
+
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { HmpbBallotPaperSize } from '@vx/libs/types/src';
+import { ChildProcess } from 'node:child_process';
+import { mockOf } from '@vx/libs/test-utils/src';
+import { type Device, isDeviceAttached } from '@vx/libs/backend/src';
+import {
+  EXPECTED_IMPRINTER_UNATTACHED_ERROR,
+  FUJITSU_VENDOR_ID,
+  FujitsuScanner,
+  ScannerMode,
+} from './fujitsu_scanner';
+import { makeMockChildProcess } from '../../test/util/mocks';
+import { streamExecFile } from '../../exec/exec';
+
+const isDeviceAttachedMock = mockOf(isDeviceAttached);
+
+const exec = streamExecFile as unknown as jest.MockedFunction<
+  (file: string, args: readonly string[]) => ChildProcess
+>;
+
+test('fujitsu scanner calls scanimage with fujitsu device type', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  const sheets = scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  scanimage.stdout.append('/tmp/image-0001.png\n');
+  scanimage.stdout.append('/tmp/image-0002.png\n');
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['-d', 'fujitsu'])
+  );
+
+  scanimage.emit('exit', 0, null);
+  await expect(sheets.scanSheet()).resolves.toEqual({
+    frontPath: '/tmp/image-0001.png',
+    backPath: '/tmp/image-0002.png',
+  });
+  await expect(sheets.scanSheet()).resolves.toBeUndefined();
+});
+
+test('fujitsu scanner returns ballot audit id on scans when imprinting', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  const sheets = scanner.scanSheets({ imprintIdPrefix: 'test-batch' });
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  scanimage.stdout.append('/tmp/image-0001.png\n');
+  scanimage.stdout.append('/tmp/image-0002.png\n');
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['-d', 'fujitsu'])
+  );
+
+  scanimage.emit('exit', 0, null);
+  await expect(sheets.scanSheet()).resolves.toEqual({
+    frontPath: '/tmp/image-0001.png',
+    backPath: '/tmp/image-0002.png',
+    ballotAuditId: 'test-batch_0000',
+  });
+  await expect(sheets.scanSheet()).resolves.toBeUndefined();
+});
+
+test('fujitsu scanner can scans with expected params on letter size election', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets({ pageSize: HmpbBallotPaperSize.Letter });
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining([
+      '--page-width',
+      '215.872',
+      '--page-height',
+      '336.506',
+      '--bgcolor=black',
+    ])
+  );
+});
+
+test('fujitsu scanner can scan with expected params on legal size election', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets({ pageSize: HmpbBallotPaperSize.Legal });
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining([
+      '--page-width',
+      '215.872',
+      '--page-height',
+      '355.554',
+      '--bgcolor=black',
+    ])
+  );
+});
+
+test('fujitsu scanner does not specify a mode by default', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).not.toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--mode'])
+  );
+});
+
+test('fujitsu scanner does not imprint by default', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).not.toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--endorser=yes'])
+  );
+  expect(exec).not.toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--endorser-string'])
+  );
+});
+
+test('fujitsu scanner does imprint as expected when given an imprint ID prefix', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets({
+    imprintIdPrefix: 'TEST-BATCH-ID',
+  });
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--endorser=yes'])
+  );
+
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--endorser-string', 'TEST-BATCH-ID_%04ud'])
+  );
+});
+
+test('fujitsu scanner can scan with lineart mode', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+    mode: ScannerMode.Lineart,
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--mode', 'lineart'])
+  );
+});
+
+test('fujitsu scanner can scan with gray mode', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+    mode: ScannerMode.Gray,
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--mode', 'gray'])
+  );
+});
+
+test('fujitsu scanner can scan with color mode', () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+    mode: ScannerMode.Color,
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['--mode', 'color'])
+  );
+});
+
+test('fujitsu scanner requests two images at a time from scanimage', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  const sheets = scanner.scanSheets();
+
+  scanimage.stderr.append(
+    [
+      'Scanning infinity pages, incrementing by 1, numbering from 1\n',
+      'Place document no. 1 on the scanner.\n',
+      'Press <RETURN> to continue.\n',
+      'Press Ctrl + D to terminate.\n',
+    ].join('')
+  );
+  // scanimage.stdout.append('/tmp/image-0001.png\n')
+  // scanimage.stdout.append('/tmp/image-0002.png\n')
+  expect(exec).toHaveBeenCalledWith(
+    'scanimage',
+    expect.arrayContaining(['-d', 'fujitsu'])
+  );
+
+  expect(scanimage.stdin?.write).not.toHaveBeenCalled();
+  const sheetPromise = sheets.scanSheet();
+  expect(scanimage.stdin?.write).toHaveBeenCalledWith('\n\n');
+
+  scanimage.stdout.append('/tmp/front.png\n');
+  scanimage.stdout.append('/tmp/back.png\n');
+  await expect(sheetPromise).resolves.toEqual({
+    frontPath: '/tmp/front.png',
+    backPath: '/tmp/back.png',
+  });
+});
+
+test('fujitsu scanner ends the scanimage process on generator return', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+  exec.mockReturnValueOnce(scanimage);
+  const sheets = scanner.scanSheets();
+
+  // we haven't already ended it…
+  expect(scanimage.stdin?.end).not.toHaveBeenCalled();
+
+  // tell `scanimage` to exit
+  await sheets.endBatch();
+  expect(scanimage.stdin?.end).toHaveBeenCalledTimes(1);
+
+  // ending the batch again does nothing
+  await sheets.endBatch();
+  expect(scanimage.stdin?.end).toHaveBeenCalledTimes(1);
+});
+
+test('fujitsu scanner fails if scanSheet fails', async () => {
+  const scanimage = makeMockChildProcess();
+  exec.mockReturnValueOnce(scanimage);
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+  const sheets = scanner.scanSheets();
+
+  scanimage.emit('exit', 1, null);
+  await expect(sheets.scanSheet()).rejects.toThrowError();
+});
+
+test('attached based on detected USB devices', () => {
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  isDeviceAttachedMock.mockReturnValue(true);
+  expect(scanner.isAttached()).toEqual(true);
+
+  isDeviceAttachedMock.mockReturnValue(false);
+  expect(scanner.isAttached()).toEqual(false);
+
+  const isDeviceFn = isDeviceAttachedMock.mock.calls[0][0];
+
+  expect(
+    isDeviceFn({
+      deviceDescriptor: {
+        idVendor: FUJITSU_VENDOR_ID,
+      },
+    } as unknown as Device)
+  ).toEqual(true);
+
+  expect(
+    isDeviceFn({
+      deviceDescriptor: {
+        idVendor: 0x0000,
+      },
+    } as unknown as Device)
+  ).toEqual(false);
+});
+
+test('fujitsu scanner calls scanimage to determine if imprinter is attached', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  const isImprinterAttached = scanner.isImprinterAttached();
+  scanimage.emit('close', 0, null);
+  await expect(isImprinterAttached).resolves.toEqual(true);
+});
+
+test('fujitsu scanner calls scanimage to determine if imprinter is attached handles unattached state as expected', async () => {
+  const scanimage = makeMockChildProcess();
+  const scanner = new FujitsuScanner({
+    logger: new BaseLogger(LogSource.VxScanService),
+  });
+
+  exec.mockReturnValueOnce(scanimage);
+  const isImprinterAttached = scanner.isImprinterAttached();
+  scanimage.stderr.append(
+    `some text ${EXPECTED_IMPRINTER_UNATTACHED_ERROR} more text`
+  );
+  scanimage.emit('close', 0, null);
+  await expect(isImprinterAttached).resolves.toEqual(false);
+});

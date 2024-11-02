@@ -1,0 +1,14 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "diagnostic",
+    deps = [
+        "//apps/central-scan/backend/scanners/fujitsu",
+        "//apps/central-scan/backend/store",
+        "//libs/ballot-interpreter/src",
+        "//libs/logging/src",
+    ],
+)
+
+lint_test(name = "lint")
