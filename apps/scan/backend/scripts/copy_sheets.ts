@@ -12,9 +12,9 @@ import { safeParseInt } from '@vx/libs/types/src';
 
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import { SCAN_WORKSPACE } from '../src/globals';
-import { Store } from '../src/store';
-import { createWorkspace } from '../src/util/workspace';
+import { SCAN_WORKSPACE } from '../globals/globals';
+import { Store } from '../store/store';
+import { createWorkspace } from '../workspace/workspace';
 
 const usageMessage = `Usage: copy-sheets <target-sheet-count>
 

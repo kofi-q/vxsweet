@@ -1,5 +1,7 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools/apps:dev_backend.bzl", "dev_backend")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 dev_backend(
     name = "dev_server",
@@ -16,3 +18,28 @@ js_library(
     tags = ["manual"],
     visibility = [":__subpackages__"],
 )
+
+ts_library(
+    name = "backend",
+    deps = [
+        "//apps/scan/backend/app",
+        "//apps/scan/backend/auth",
+        "//apps/scan/backend/globals",
+        "//apps/scan/backend/polls",
+        "//apps/scan/backend/printing",
+        "//apps/scan/backend/scanners/custom",
+        "//apps/scan/backend/scanners/pdi",
+        "//apps/scan/backend/server",
+        "//apps/scan/backend/types",
+        "//apps/scan/backend/workspace",
+        "//libs/auth/src",
+        "//libs/backend/src",
+        "//libs/custom-scanner/src",
+        "//libs/logging/src",
+        "//libs/pdi-scanner/src/ts",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

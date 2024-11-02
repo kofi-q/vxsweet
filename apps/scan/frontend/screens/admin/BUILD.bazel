@@ -1,0 +1,19 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "admin",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/scan/frontend/api",
+        "//apps/scan/frontend/components/layout",
+        "//apps/scan/frontend/preview-helpers",
+        "//apps/scan/frontend/screens/diagnostics",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

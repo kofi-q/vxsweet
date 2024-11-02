@@ -1,0 +1,15 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "scanning",
+    deps = [
+        "//apps/scan/backend/store",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

@@ -1,0 +1,36 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "interpret",
+    deps = [
+        "//:node_modules/canvas",
+        "//apps/scan/backend/util",
+        "//libs/ballot-interpreter/src",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//:types_env",
+        "//apps/scan/backend/interpret",
+        "//libs/basics/src",
+        "//libs/bmd-ballot-fixtures/src",
+        "//libs/fixtures/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

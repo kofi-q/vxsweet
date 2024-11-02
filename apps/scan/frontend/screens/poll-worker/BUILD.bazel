@@ -1,0 +1,48 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "poll-worker",
+    deps = [
+        "//:node_modules/@types/pluralize",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/pluralize",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//apps/scan/backend/printing",
+        "//apps/scan/backend/types",
+        "//apps/scan/frontend/api",
+        "//apps/scan/frontend/components/full-screen-prompt",
+        "//apps/scan/frontend/components/layout",
+        "//apps/scan/frontend/components/printer_management",
+        "//apps/scan/frontend/printer",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//:types_kiosk_browser",
+        "//apps/scan/frontend/screens/poll-worker",
+        "//apps/scan/frontend/test",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

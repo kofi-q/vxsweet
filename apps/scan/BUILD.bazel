@@ -3,8 +3,8 @@ load("//tools/apps:prod_app.bzl", "prod_app")
 
 prod_app(
     name = "prod",
-    backend_entry_point = "//apps/scan/backend/src:main.js",
-    backend_src = "//apps/scan/backend/src",
+    backend_entry_point = "//apps/scan/backend:main.js",
+    backend_src = "//apps/scan/backend",
     default_port = "3000",
     frontend_bundle = "//apps/scan/frontend:bundle",
     vx_machine_type = "scan",

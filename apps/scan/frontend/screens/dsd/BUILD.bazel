@@ -1,0 +1,31 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "dsd",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/scan/frontend/api",
+        "//apps/scan/frontend/components/full-screen-prompt",
+        "//apps/scan/frontend/components/layout",
+        "//apps/scan/frontend/config",
+        "//libs/basics/src",
+        "//libs/ui/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//apps/scan/frontend/screens/dsd",
+        "//apps/scan/frontend/test",
+    ],
+)
+
+lint_test(name = "lint")

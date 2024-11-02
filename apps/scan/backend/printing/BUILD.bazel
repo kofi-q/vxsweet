@@ -1,0 +1,34 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "printing",
+    data = [
+        "test-print.pdf",
+    ],
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/pdfjs-dist",
+        "//:node_modules/@types/react",
+        "//:node_modules/memoize-one",
+        "//:node_modules/pdfjs-dist",
+        "//apps/scan/backend/config",
+        "//apps/scan/backend/scanning",
+        "//apps/scan/backend/store",
+        "//apps/scan/backend/time",
+        "//apps/scan/backend/types",
+        "//apps/scan/backend/util",
+        "//apps/scan/backend/workspace",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/fujitsu-thermal-printer/src",
+        "//libs/logging/src",
+        "//libs/printing/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

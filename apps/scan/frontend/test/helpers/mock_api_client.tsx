@@ -4,8 +4,8 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
-  type PollsState,
   type PrecinctSelection,
+  type PollsState,
   type PrinterStatus,
   type DiagnosticRecord,
   type DiagnosticOutcome,
@@ -15,19 +15,19 @@ import {
   InsertedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 import { createMockClient } from '@vx/libs/grout/test-utils/src';
-import { type Api } from '../../../backend/src/app';
+import { type Api } from '../../../backend/app/app';
 import {
   type FujitsuPrintResult,
   type FujitsuPrinterStatus,
   type PrintResult,
-} from '../../../backend/src/printing/printer';
+} from '../../../backend/printing/printer';
 import {
   type MachineConfig,
   type PollsTransition,
   type PrecinctScannerConfig,
   type PrecinctScannerStatus,
-} from '../../../backend/src/types';
-import { type OpenPollsResult } from '../../../backend/src/polls';
+} from '../../../backend/types/types';
+import { type OpenPollsResult } from '../../../backend/polls/polls';
 import { deferred, err, ok } from '@vx/libs/basics/src';
 import {
   mockElectionManagerUser,
@@ -44,7 +44,7 @@ import {
   type ExportDataResult,
 } from '@vx/libs/backend/src';
 import { mockPollsInfo } from './mock_polls_info';
-import { ApiProvider } from '../../src/api_provider';
+import { ApiProvider } from '../../api/api_provider';
 
 export const machineConfig: MachineConfig = {
   machineId: '0002',

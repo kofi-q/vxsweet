@@ -12,9 +12,9 @@ import {
 import {
   type ElectionPackage,
   type PrecinctId,
-  type PrecinctScannerState,
   type SheetOf,
   asSheet,
+  type PrecinctScannerState,
 } from '@vx/libs/types/src';
 import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
@@ -27,14 +27,14 @@ import { Logger, mockLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { pdfToImages, ImageData } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
-import { type Api } from '../../src/app';
+import { type Api } from '../../app/app';
 import {
   type PrecinctScannerStateMachine,
   type PrecinctScannerStatus,
-} from '../../src/types';
-import { Store } from '../../src/store';
-import { getUserRole } from '../../src/util/auth';
-import { type Workspace } from '../../src/util/workspace';
+} from '../../types/types';
+import { Store } from '../../store/store';
+import { getUserRole } from '../../auth/auth';
+import { type Workspace } from '../../workspace/workspace';
 
 export async function expectStatus(
   apiClient: grout.Client<Api>,
