@@ -1,15 +1,15 @@
 import React from 'react';
-import { type Api } from '../../backend/src/app';
-import { type MachineConfig, type ScanStatus } from '../../backend/src/types';
+import { type Api } from '../../backend/app/app';
+import { type MachineConfig, type ScanStatus } from '../../backend/types/types';
 import {
   createMockClient,
   type MockClient,
 } from '@vx/libs/grout/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  type DiagnosticRecord,
   type ElectionDefinition,
   type SystemSettings,
+  type DiagnosticRecord,
 } from '@vx/libs/types/src';
 import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { QueryClientProvider } from '@tanstack/react-query';
@@ -18,7 +18,7 @@ import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { ok } from '@vx/libs/basics/src';
-import { ApiClientContext, createQueryClient, systemCallApi } from '../src/api';
+import { ApiClientContext, createQueryClient, systemCallApi } from '../api/api';
 import { DEFAULT_STATUS } from './fixtures';
 
 export type MockApiClient = Omit<MockClient<Api>, 'getBatteryInfo'> & {

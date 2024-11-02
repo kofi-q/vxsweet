@@ -10,13 +10,13 @@ import {
 import { dirSync } from 'tmp';
 import getPort from 'get-port';
 import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { type Workspace, createWorkspace } from '../../src/util/workspace';
+import { type Workspace, createWorkspace } from '../../workspace/workspace';
 import { type MockScanner, makeMockScanner } from '../util/mocks';
-import { Importer } from '../../src/importer';
-import { type Api, buildCentralScannerApp } from '../../src/app';
-import { start } from '../../src/server';
-import { Store } from '../../src/store';
-import { getUserRole } from '../../src/util/auth';
+import { Importer } from '../../importer/importer';
+import { type Api, buildCentralScannerApp } from '../../app/app';
+import { start } from '../../server/server';
+import { Store } from '../../store/store';
+import { getUserRole } from '../../auth/auth';
 
 export function buildMockLogger(
   auth: DippedSmartCardAuthApi,

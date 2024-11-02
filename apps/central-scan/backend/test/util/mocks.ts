@@ -13,7 +13,7 @@ import {
   type BatchControl,
   type BatchScanner,
   type ScannedSheetInfo,
-} from '../../src/fujitsu_scanner';
+} from '../../scanners/fujitsu/fujitsu_scanner';
 
 export function makeMock<T>(Cls: new (...args: never[]) => T): jest.Mocked<T> {
   if (!jest.isMockFunction(Cls)) {

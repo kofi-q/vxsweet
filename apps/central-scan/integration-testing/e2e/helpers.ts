@@ -1,9 +1,9 @@
 import { Page } from '@playwright/test';
 import {
   INTEGRATION_TEST_DEFAULT_PIN,
-  mockCard,
   mockElectionManagerCardInsertion,
   mockSystemAdministratorCardInsertion,
+  mockCard,
 } from '@vx/libs/auth/src';
 import { methodUrl } from '@vx/libs/grout/src';
 import { type Election } from '@vx/libs/types/src';

@@ -1,4 +1,4 @@
-import { type ScanStatus } from '../../backend/src/types';
+import { type ScanStatus } from '../../backend/types/types';
 import { type BatchInfo } from '@vx/libs/types/src';
 
 export const DEFAULT_STATUS: ScanStatus = {

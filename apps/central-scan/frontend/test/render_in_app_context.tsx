@@ -17,11 +17,8 @@ import {
 } from '@vx/libs/test-utils/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { render, type RenderResult } from './react_testing_library';
-import { ApiClientContext, createQueryClient, systemCallApi } from '../src/api';
-import {
-  AppContext,
-  type AppContextInterface,
-} from '../src/contexts/app_context';
+import { ApiClientContext, createQueryClient, systemCallApi } from '../api/api';
+import { AppContext, type AppContextInterface } from '../contexts/app_context';
 import { type ApiMock } from './api';
 
 interface RenderInAppContextParams {

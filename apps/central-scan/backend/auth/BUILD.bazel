@@ -1,0 +1,40 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "auth",
+    deps = [
+        "//apps/central-scan/backend/workspace",
+        "//libs/auth/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/get-port",
+        "//:node_modules/luxon",
+        "//:node_modules/tmp",
+        "//apps/central-scan/backend/app",
+        "//apps/central-scan/backend/importer",
+        "//apps/central-scan/backend/server",
+        "//apps/central-scan/backend/test",
+        "//apps/central-scan/backend/workspace",
+        "//libs/auth/src",
+        "//libs/fixtures/src",
+        "//libs/grout/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")
