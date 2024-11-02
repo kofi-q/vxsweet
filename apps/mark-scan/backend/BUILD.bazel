@@ -1,9 +1,11 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools/apps:dev_backend.bzl", "dev_backend")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 dev_backend(
     name = "dev_server",
-    backend_entry_point_from_root = package_name() + "/src/main.ts",
+    backend_entry_point_from_root = package_name() + "/main.ts",
     backend_path_from_root = package_name(),
     data = ["//libs/ballot-interpreter/src:rust_addon"],  # Pre-build to generate symlink
     port = "3002",
@@ -16,3 +18,16 @@ js_library(
     tags = ["manual"],
     visibility = [":__subpackages__"],
 )
+
+ts_library(
+    name = "backend",
+    deps = [
+        "//apps/mark-scan/backend/globals",
+        "//apps/mark-scan/backend/server",
+        "//apps/mark-scan/backend/util",
+        "//libs/backend/src",
+        "//libs/logging/src",
+    ],
+)
+
+lint_test(name = "lint")

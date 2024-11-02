@@ -1,0 +1,14 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "idle",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/mark-scan/frontend/contexts",
+        "//libs/mark-flow-ui/src",
+    ],
+)
+
+lint_test(name = "lint")

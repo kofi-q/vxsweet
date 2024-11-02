@@ -1,0 +1,25 @@
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "diagnostic",
+    data = [
+        ":json",
+    ],
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//apps/mark-scan/backend/util",
+        "//libs/basics/src",
+        "//libs/fs/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")
+
+json_package(name = "json")

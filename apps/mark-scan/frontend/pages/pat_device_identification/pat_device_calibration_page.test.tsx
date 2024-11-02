@@ -1,0 +1,117 @@
+import userEvent from '@testing-library/user-event';
+import { Keybinding } from '@vx/libs/ui/src';
+import { render, screen } from '../../test/react_testing_library';
+import {
+  PatDeviceCalibrationPage,
+  type PatDeviceCalibrationPageProps,
+} from './pat_device_calibration_page';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
+import { ApiProvider } from '../../api/api_provider';
+
+let apiMock: ApiMock;
+
+beforeEach(() => {
+  apiMock = createApiMock();
+});
+
+afterEach(() => {
+  apiMock.mockApiClient.assertComplete();
+});
+
+function identifyInputs(): void {
+  // Continue past intructions
+  userEvent.keyboard(Keybinding.PAT_MOVE);
+
+  // Identify first input
+  userEvent.keyboard(Keybinding.PAT_MOVE);
+  userEvent.keyboard(Keybinding.PAT_MOVE);
+
+  // Identify second input
+  userEvent.keyboard(Keybinding.PAT_SELECT);
+  userEvent.keyboard(Keybinding.PAT_SELECT);
+
+  screen.getByText('Device Inputs Identified');
+}
+
+function renderComponent(props: Partial<PatDeviceCalibrationPageProps> = {}) {
+  render(
+    <ApiProvider apiClient={apiMock.mockApiClient} noAudio>
+      <PatDeviceCalibrationPage {...props} />
+    </ApiProvider>
+  );
+}
+
+test('can restart the device ID flow', () => {
+  renderComponent();
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+
+  identifyInputs();
+  userEvent.click(screen.getByText('Back'));
+
+  screen.getByText('Test Your Device');
+});
+
+test('sets backend calibration state if "Skip" button is pressed', () => {
+  renderComponent();
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+  apiMock.expectSetPatDeviceIsCalibrated();
+  userEvent.click(screen.getByText('Skip Identification'));
+});
+
+test('calls optional passed function if "Skip" button is pressed', () => {
+  const skipFn = jest.fn();
+  renderComponent({ onSkipCalibration: skipFn });
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+  apiMock.expectSetPatDeviceIsCalibrated();
+  userEvent.click(screen.getByText('Skip Identification'));
+  expect(skipFn).toHaveBeenCalledTimes(1);
+});
+
+test('sets backend calibration state if "Continue with Voting" button is pressed', () => {
+  renderComponent();
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+
+  identifyInputs();
+  apiMock.expectSetPatDeviceIsCalibrated();
+  userEvent.click(screen.getByText('Continue with Voting'));
+});
+
+test('calls optional passed function if "Continue" button is pressed', () => {
+  const continueFn = jest.fn();
+  renderComponent({ onSuccessfulCalibration: continueFn });
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+  identifyInputs();
+  apiMock.expectSetPatDeviceIsCalibrated();
+  userEvent.click(screen.getByText('Continue with Voting'));
+  expect(continueFn).toHaveBeenCalledTimes(1);
+});
+
+test('renders button label override', () => {
+  renderComponent({ successScreenButtonLabel: <p>button override</p> });
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+  identifyInputs();
+  expect(screen.queryByText('Continue with Voting')).toBeNull();
+  screen.getByText('button override');
+});
+
+test('renders description override', () => {
+  renderComponent({ successScreenDescription: <p>description override</p> });
+
+  screen.getByText('Personal Assistive Technology Device Identification');
+  identifyInputs();
+  expect(
+    screen.queryByText(
+      /You may continue with voting or go back to the previous screen./
+    )
+  ).toBeNull();
+  screen.getByText('description override');
+});

@@ -1,0 +1,69 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "custom-paper-handler",
+    deps = [
+        "//:node_modules/@types/debug",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/node-hid",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/debug",
+        "//:node_modules/node-hid",
+        "//:node_modules/tmp",
+        "//:node_modules/xstate",
+        "//:node_modules/zod",
+        "//apps/mark-scan/backend/audio",
+        "//apps/mark-scan/backend/custom-paper-handler/diagnostic",
+        "//apps/mark-scan/backend/pat-input",
+        "//apps/mark-scan/backend/util",
+        "//libs/auth/src",
+        "//libs/ballot-interpreter/src",
+        "//libs/basics/src",
+        "//libs/custom-paper-handler/src",
+        "//libs/fs/src",
+        "//libs/grout/src",
+        "//libs/image-utils/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    size = "medium",
+    timeout = "short",
+    shard_count = 3,
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/node-hid",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/node-hid",
+        "//:node_modules/tmp",
+        "//:node_modules/xstate",
+        "//apps/mark-scan/backend/audio",
+        "//apps/mark-scan/backend/custom-paper-handler",
+        "//apps/mark-scan/backend/custom-paper-handler/test_utils",
+        "//apps/mark-scan/backend/pat-input",
+        "//apps/mark-scan/backend/test",
+        "//apps/mark-scan/backend/util",
+        "//libs/auth/src",
+        "//libs/ballot-interpreter/src",
+        "//libs/basics/src",
+        "//libs/bmd-ballot-fixtures/src",
+        "//libs/custom-paper-handler/src",
+        "//libs/fixtures/src",
+        "//libs/image-test-utils",
+        "//libs/image-utils/src",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

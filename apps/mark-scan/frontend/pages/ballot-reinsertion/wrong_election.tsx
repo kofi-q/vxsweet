@@ -1,0 +1,20 @@
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Caption, Icons, P } from '@vx/libs/ui/src';
+
+import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';
+
+export function ReinsertedWrongElectionBallotScreen(): JSX.Element {
+  return (
+    <CenteredCardPageLayout
+      icon={<Icons.Warning color="warning" />}
+      title={appStrings.titleBmdInvalidBallotWrongElection()}
+      voterFacing
+    >
+      <P>{appStrings.warningBmdInvalidBallotWrongElection()}</P>
+      <P>{appStrings.instructionsBmdInsertPreviouslyPrintedBallot()}</P>
+      <Caption>
+        <Icons.Question /> {appStrings.noteAskPollWorkerForHelp()}
+      </Caption>
+    </CenteredCardPageLayout>
+  );
+}

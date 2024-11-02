@@ -1,4 +1,4 @@
-import { type MachineConfig } from '../../../backend/src/types';
+import { type MachineConfig } from '../../../backend/types/types';
 
 export function mockMachineConfig({
   machineId = '000',
