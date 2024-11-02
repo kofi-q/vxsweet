@@ -5,7 +5,7 @@ import {
   handleUncaughtExceptions,
   loadEnvVarsFromDotenvFiles,
 } from '@vx/libs/backend/src';
-import * as server from './server';
+import * as server from '../server/server';
 
 loadEnvVarsFromDotenvFiles();
 

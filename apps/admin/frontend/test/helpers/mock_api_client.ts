@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
-import { type Api } from '../../../backend/src/app';
-import { type BallotCountReportSpec } from '../../../backend/src/reports/ballot_count_report';
+import { type Api } from '../../../backend/app/app';
+import { type BallotCountReportSpec } from '../../../backend/reports/ballot_count_report';
 import {
   type BallotCountReportWarning,
   type TallyReportWarning,
-} from '../../../backend/src/reports/warnings';
+} from '../../../backend/reports/warnings';
 import {
   type CastVoteRecordFileMetadata,
   type CastVoteRecordFileRecord,
@@ -17,15 +17,15 @@ import {
   type WriteInAdjudicationQueueMetadata,
   type WriteInImageView,
   type ManualResultsMetadata,
-} from '../../../backend/src/types';
+} from '../../../backend/types/types';
 import {
   type ExportDataError,
   type DiskSpaceSummary,
 } from '@vx/libs/backend/src';
-import { type TallyReportSpec } from '../../../backend/src/reports/tally_report';
+import { type TallyReportSpec } from '../../../backend/reports/tally_report';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type FileSystemEntry, FileSystemEntryType } from '@vx/libs/fs/src';
-import { type Result, deferred, ok } from '@vx/libs/basics/src';
+import { type Result, ok, deferred } from '@vx/libs/basics/src';
 import {
   createMockClient,
   type MockClient,
@@ -40,20 +40,20 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   Admin,
-  type ContestId,
-  DEFAULT_SYSTEM_SETTINGS,
   type DiagnosticRecord,
-  type ElectionDefinition,
   type Id,
   type PrinterConfig,
   type PrinterStatus,
   type Rect,
-  type SystemSettings,
   Tabulation,
+  type ContestId,
+  DEFAULT_SYSTEM_SETTINGS,
+  type ElectionDefinition,
+  type SystemSettings,
 } from '@vx/libs/types/src';
 import {
-  DippedSmartCardAuth,
   constructElectionKey,
+  DippedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';

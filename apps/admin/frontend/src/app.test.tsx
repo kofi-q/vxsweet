@@ -28,7 +28,7 @@ import {
   mockCastVoteRecordFileRecord,
   mockManualResultsMetadata,
 } from '../test/api_mock_data';
-import { MARK_RESULTS_OFFICIAL_BUTTON_TEXT } from './components/mark_official_button';
+import { MARK_RESULTS_OFFICIAL_BUTTON_TEXT } from '../components/mark_official_button';
 
 let apiMock: ApiMock;
 

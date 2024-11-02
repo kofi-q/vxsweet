@@ -1,0 +1,14 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "exports",
+    deps = [
+        "//apps/admin/backend/globals",
+        "//apps/admin/backend/util/logging",
+        "//libs/backend/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

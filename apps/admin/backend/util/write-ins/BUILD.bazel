@@ -1,0 +1,16 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "write-ins",
+    deps = [
+        "//apps/admin/backend/store",
+        "//apps/admin/backend/types",
+        "//apps/admin/backend/util/logging",
+        "//libs/basics/src",
+        "//libs/image-utils/src",
+        "//libs/types/src",
+    ],
+)
+
+lint_test(name = "lint")

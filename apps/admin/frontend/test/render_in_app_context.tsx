@@ -5,8 +5,8 @@ import { Router } from 'react-router-dom';
 import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
 import { type ElectionDefinition } from '@vx/libs/types/src';
 import {
-  DippedSmartCardAuth,
   constructElectionKey,
+  DippedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -14,7 +14,7 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
-import { type MachineConfig } from '../../backend/src/types';
+import { type MachineConfig } from '../../backend/types/types';
 import {
   mockUsbDriveStatus,
   SystemCallContextProvider,
@@ -25,14 +25,14 @@ import {
   render as testRender,
   type RenderResult,
 } from './react_testing_library';
-import { AppContext } from '../src/contexts/app_context';
-import { type Iso8601Timestamp } from '../src/config/types';
+import { AppContext } from '../contexts/app_context';
+import { type Iso8601Timestamp } from '../config/types';
 import {
   type ApiClient,
   ApiClientContext,
   createQueryClient,
   systemCallApi,
-} from '../src/api';
+} from '../api/api';
 import { type ApiMock } from './helpers/mock_api_client';
 
 export const eitherNeitherElectionDefinition =

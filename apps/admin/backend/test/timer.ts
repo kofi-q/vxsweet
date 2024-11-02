@@ -1,6 +1,6 @@
 import { type Timer, time } from '@vx/libs/utils/src';
 import { enable as enableDebugger, disable as disableDebugger } from 'debug';
-import { rootDebug } from '../src/util/debug';
+import { rootDebug } from '../util/logging/debug';
 
 export function getPerformanceTimer(): Timer {
   const performanceTimer = time(rootDebug, '');

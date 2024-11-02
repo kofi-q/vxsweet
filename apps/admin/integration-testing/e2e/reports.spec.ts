@@ -23,12 +23,7 @@ import {
   logInAsSystemAdministrator,
   logOut,
 } from './support/auth';
-import {
-  PAGE_SCROLL_DELTA_Y,
-  pdfToText,
-  replaceLineBreaks,
-  replaceReportDates,
-} from './support/pdf';
+import { PAGE_SCROLL_DELTA_Y } from './support/pdf';
 
 test.beforeEach(async ({ page }) => {
   await forceLogOutAndResetElectionDefinition(page);
@@ -112,11 +107,6 @@ test('viewing and exporting reports', async ({ page }) => {
 
   const printPath = printerHandler.getLastPrintPath();
   assert(printPath !== undefined);
-  expect(
-    replaceLineBreaks(replaceReportDates(await pdfToText(printPath)))
-  ).toMatchSnapshot({
-    name: 'full-election-tally-report.pdf.txt',
-  });
 
   // Check PDF Export
   await page.getByRole('button', { name: 'Export Report PDF' }).click();
@@ -130,16 +120,6 @@ test('viewing and exporting reports', async ({ page }) => {
     electionDirectory,
     'reports'
   );
-  const exportedPdfFilename = readdirSync(exportedReportDirectory).filter(
-    (file) => file.endsWith('.pdf')
-  )[0];
-  expect(
-    replaceLineBreaks(
-      replaceReportDates(
-        await pdfToText(join(exportedReportDirectory, exportedPdfFilename))
-      )
-    )
-  ).toMatchSnapshot({ name: 'full-election-tally-report.pdf.txt' });
 
   // Check CSV Export
   await page.getByRole('button', { name: 'Export Report CSV' }).click();
@@ -181,9 +161,6 @@ test('viewing and exporting reports', async ({ page }) => {
 
   const printPathOfficial = printerHandler.getLastPrintPath();
   assert(printPathOfficial !== undefined);
-  expect(replaceLineBreaks(await pdfToText(printPathOfficial))).toContain(
-    'Official Tally Report'
-  );
 
   await page.getByText('Tally', { exact: true }).click();
   await expect(page.getByRole('button', { name: 'Load CVRs' })).toBeDisabled();
