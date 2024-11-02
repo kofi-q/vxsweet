@@ -4,28 +4,28 @@ import {
   createMockClient,
   type MockClient,
 } from '@vx/libs/grout/test-utils/src';
-import { type Api } from '../../../backend/src/app';
+import { type Api } from '../../../backend/app/app';
 import {
   type MachineConfig,
   type ElectionState,
   type PrintBallotProps,
-} from '../../../backend/src/types';
+} from '../../../backend/types/types';
 import {
   type ElectionPackageConfigurationError,
+  type PollsState,
+  type PrecinctSelection,
   type BallotStyleId,
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
-  type PollsState,
   type PrecinctId,
-  type PrecinctSelection,
   type SystemSettings,
   LanguageCode,
   type PrinterStatus,
   type PrinterConfig,
 } from '@vx/libs/types/src';
 import {
-  InsertedSmartCardAuth,
   constructElectionKey,
+  InsertedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 import {
   mockCardlessVoterUser,
@@ -40,8 +40,8 @@ import { TestErrorBoundary } from '@vx/libs/ui/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { mockMachineConfig } from './mock_machine_config';
-import { initialElectionState } from '../../src/app_root';
-import { ApiProvider } from '../../src/api_provider';
+import { initialElectionState } from '../../app/app_root';
+import { ApiProvider } from '../../api/api_provider';
 
 // the below is copied from libs/printing to avoid importing a backend package
 export const MOCK_PRINTER_CONFIG: PrinterConfig = {

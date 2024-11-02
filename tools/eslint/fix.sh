@@ -6,4 +6,4 @@ BINARY_PATH_ABS="${PWD}/${BINARY_PATH}"
 
 cd "${BUILD_WORKSPACE_DIRECTORY}"
 
-exec ${BINARY_PATH_ABS} --fix --color "${@-'.'}"
+exec ${BINARY_PATH_ABS} --fix --color "${@-.}"

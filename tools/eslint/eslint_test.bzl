@@ -5,12 +5,10 @@ def eslint_test(
         srcs,
         data = [],
         tags = [],
-        size = "small",
-        timeout = None,
+        size = "medium",
+        timeout = "short",
         **kwargs):
-    """
-    Runs eslint checks on the given source files and fails the test if any
-    lint errors are found.
+    """Runs eslint checks on the given source files and fails the test if any lint errors are found.
 
     Args:
       name: Name of the target

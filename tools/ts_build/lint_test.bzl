@@ -4,16 +4,15 @@ load(":files.bzl", "list_all_files")
 def lint_test(
         name = "lib",
         data = [],
-        size = "small",
+        size = "medium",
         tags = [],
-        timeout = None,
+        timeout = "short",
         visibility = ["//visibility:public"]):
     """Declares a build target for transpiling Typescript source files in a package.
 
     Args:
       name: Name for the build target. This should usually match the name of
           the package/directory.
-      deps: Source file dependencies, including node_modules dependencies.
       data: Data/script/asset files that are written/read at runtime.
       size: Size tag for the test target - defaults to "small".
       tags: Additional tags to attach to the generated targets.

@@ -14,6 +14,7 @@ ts_library(
         "//:node_modules/express",
         "//:node_modules/tmp",
         "//:node_modules/xstate",
+        "//:types_env",
         "//apps/mark-scan/backend/src",
         "//libs/auth/src",
         "//libs/backend/src",

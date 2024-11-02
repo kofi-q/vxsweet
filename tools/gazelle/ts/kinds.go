@@ -57,24 +57,6 @@ var (
 			},
 		},
 
-		tsStoriesKindName: {
-			MatchAny: true,
-			SubstituteAttrs: map[string]bool{
-				"deps": true,
-			},
-			MergeableAttrs: map[string]bool{
-				"name": true,
-				"deps": true,
-			},
-			NonEmptyAttrs: map[string]bool{
-				"name": true,
-			},
-			ResolveAttrs: map[string]bool{
-				"name": true,
-				"deps": true,
-			},
-		},
-
 		tsLibraryKindName: {
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{

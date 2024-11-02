@@ -13,6 +13,7 @@ ts_tests(
         "//:node_modules/@types/uuid",
         "//:node_modules/tmp",
         "//:node_modules/uuid",
+        "//:types_env",
         "//libs/backend/src",
         "//libs/backend/test",
         "//libs/basics/src",

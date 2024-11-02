@@ -70,6 +70,7 @@ ts_tests(
         "//:node_modules/lodash.set",
         "//:node_modules/luxon",
         "//:node_modules/tmp",
+        "//:types_env",
         "//apps/admin/backend/src",
         "//apps/admin/backend/test",
         "//libs/auth/src",

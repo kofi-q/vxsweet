@@ -19,6 +19,7 @@ ts_library(
         "//:node_modules/js-sha256",
         "//:node_modules/jszip",
         "//:node_modules/luxon",
+        "//:types_env",
         "//:types_kiosk_browser",
         "//libs/basics/src",
         "//libs/types/src",

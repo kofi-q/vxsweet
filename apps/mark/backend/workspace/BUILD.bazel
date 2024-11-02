@@ -1,0 +1,28 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "workspace",
+    deps = [
+        "//:node_modules/@types/fs-extra",
+        "//:node_modules/@types/node",
+        "//:node_modules/fs-extra",
+        "//apps/mark/backend/store",
+        "//libs/logging/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//apps/mark/backend/workspace",
+        "//libs/logging/src",
+    ],
+)
+
+lint_test(name = "lint")

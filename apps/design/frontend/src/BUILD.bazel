@@ -47,6 +47,7 @@ ts_library(
         "//apps/design/backend/src",
         "//libs/basics/src",
         "//libs/grout/src",
+        "//libs/hmpb/src",
         "//libs/types/src",
         "//libs/ui/src",
         "//libs/utils/src",

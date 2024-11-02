@@ -8,6 +8,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:node_modules/chalk",
         "//:node_modules/concurrently",
+        "//:types_env",
     ],
 )
 

@@ -1,0 +1,67 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "app",
+    deps = [
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-gamepad",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-gamepad",
+        "//:node_modules/react-router-dom",
+        "//:types_kiosk_browser",
+        "//apps/mark/backend/types",
+        "//apps/mark/frontend/api",
+        "//apps/mark/frontend/components",
+        "//apps/mark/frontend/config",
+        "//apps/mark/frontend/contexts",
+        "//apps/mark/frontend/lib",
+        "//apps/mark/frontend/pages/admin",
+        "//apps/mark/frontend/pages/auth",
+        "//apps/mark/frontend/pages/configuration",
+        "//apps/mark/frontend/pages/poll-woker",
+        "//apps/mark/frontend/pages/setup",
+        "//libs/basics/src",
+        "//libs/logging/src",
+        "//libs/mark-flow-ui/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    size = "large",
+    timeout = "short",
+    shard_count = 16,
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/fetch-mock",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/fetch-mock",
+        "//:node_modules/react",
+        "//:node_modules/react-idle-timer",
+        "//:node_modules/react-router-dom",
+        "//apps/mark/frontend/api",
+        "//apps/mark/frontend/app",
+        "//apps/mark/frontend/config",
+        "//apps/mark/frontend/test",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/logging/src",
+        "//libs/mark-flow-ui/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

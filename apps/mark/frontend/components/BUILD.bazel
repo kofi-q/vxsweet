@@ -1,0 +1,24 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "components",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-idle-timer",
+        "//:node_modules/react-router-dom",
+        "//apps/mark/frontend/api",
+        "//apps/mark/frontend/pages/contest",
+        "//apps/mark/frontend/pages/idle",
+        "//apps/mark/frontend/pages/not-found",
+        "//apps/mark/frontend/pages/print",
+        "//apps/mark/frontend/pages/review",
+        "//apps/mark/frontend/pages/start",
+        "//libs/mark-flow-ui/src",
+        "//libs/ui/src",
+    ],
+)
+
+lint_test(name = "lint")
