@@ -1,0 +1,31 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "translation",
+    deps = [
+        "//:node_modules/@google-cloud/translate",
+        "//apps/design/backend/language_and_audio/gcloud",
+        "//apps/design/backend/language_and_audio/vendored-translations",
+        "//apps/design/backend/logging",
+        "//apps/design/backend/store",
+        "//libs/basics/src",
+        "//libs/types/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//apps/design/backend/language_and_audio/translation",
+        "//apps/design/backend/language_and_audio/vendored-translations",
+        "//apps/design/backend/store",
+        "//apps/design/backend/test",
+        "//libs/types/src",
+    ],
+)
+
+lint_test(name = "lint")

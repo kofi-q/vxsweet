@@ -3,8 +3,8 @@ import fs from 'node:fs';
 import { extractErrorMessage } from '@vx/libs/basics/src';
 import { LanguageCode } from '@vx/libs/types/src';
 
-import { GoogleCloudSpeechSynthesizer } from '../src/language_and_audio/speech_synthesizer';
-import { Store } from '../src/store';
+import { GoogleCloudSpeechSynthesizer } from '../language_and_audio/tts/speech_synthesizer';
+import { Store } from '../store/store';
 
 const languageCodes: string[] = Object.values(LanguageCode);
 const usageMessage = `Usage: synthesize-speech 'Text to convert to speech' <language-code> <output-file-path>

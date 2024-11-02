@@ -5,7 +5,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-jest.mock('../../src/ballot_style_reports');
+jest.mock('../../ballot-styles/ballot_style_reports');
 
 jest.mock('@vx/libs/hmpb/src', () => {
   const original = jest.requireActual('@vx/libs/hmpb/src');
@@ -39,8 +39,8 @@ import {
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
 import { testSetupHelpers } from '../../test/helpers';
-import { FULL_TEST_DECK_TALLY_REPORT_FILE_NAME } from '../../src/test_decks';
-import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';
+import { FULL_TEST_DECK_TALLY_REPORT_FILE_NAME } from '../../test-decks/test_decks';
+import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 

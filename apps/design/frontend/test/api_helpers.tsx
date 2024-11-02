@@ -1,11 +1,11 @@
 import { QueryClientProvider } from '@tanstack/react-query';
-import { type Api } from '../../backend/src/app';
+import { type Api } from '../../backend/app/app';
 import {
   createMockClient,
   type MockClient,
 } from '@vx/libs/grout/test-utils/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';
-import { ApiClientContext, createQueryClient } from '../src/api';
+import { ApiClientContext, createQueryClient } from '../api/api';
 
 export type MockApiClient = MockClient<Api>;
 

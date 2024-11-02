@@ -1,9 +1,11 @@
 load("//tools/apps:dev_frontend.bzl", "dev_frontend")
 load("//tools/apps:frontend_bundle.bzl", "frontend_bundle")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 frontend_bundle(
     name = "bundle",
-    srcs = ["//apps/design/frontend/src"],
+    srcs = ["//apps/design/frontend"],
     index_html_path = "index.html",
     static_asset_dir = "public",
 )
@@ -14,3 +16,17 @@ dev_frontend(
     port = "3000",
     port_backend = "3002",
 )
+
+ts_library(
+    name = "frontend",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-dom",
+        "//apps/design/frontend/app",
+        "//libs/basics/src",
+    ],
+)
+
+lint_test(name = "lint")

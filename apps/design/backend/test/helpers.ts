@@ -11,18 +11,18 @@ import {
   LanguageCode,
 } from '@vx/libs/types/src';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import { buildApp, type Api } from '../src/app';
+import { buildApp, type Api } from '../app/app';
 import {
   GoogleCloudSpeechSynthesizer,
   type MinimalGoogleCloudTextToSpeechClient,
-} from '../src/language_and_audio/speech_synthesizer';
+} from '../language_and_audio/tts/speech_synthesizer';
 import {
   GoogleCloudTranslator,
   type MinimalGoogleCloudTranslationClient,
-} from '../src/language_and_audio/translator';
-import { type VendoredTranslations } from '../src/language_and_audio/vendored_translations';
-import { type Workspace, createWorkspace } from '../src/workspace';
-import * as worker from '../src/worker/worker';
+} from '../language_and_audio/translation/translator';
+import { type VendoredTranslations } from '../language_and_audio/vendored-translations/translations';
+import { type Workspace, createWorkspace } from '../app/workspace';
+import * as worker from '../worker/worker';
 
 tmp.setGracefulCleanup();
 

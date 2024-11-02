@@ -5,7 +5,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-jest.mock('../../src/ballot_style_reports');
+jest.mock('../../ballot-styles/ballot_style_reports');
 
 jest.mock('@vx/libs/hmpb/src', () => {
   const original = jest.requireActual('@vx/libs/hmpb/src');
@@ -26,7 +26,7 @@ import {
 import { readElectionPackageFromFile } from '@vx/libs/backend/src/election_package';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { exportElectionPackage, testSetupHelpers } from '../../test/helpers';
-import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';
+import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 

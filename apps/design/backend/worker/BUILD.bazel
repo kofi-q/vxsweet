@@ -1,0 +1,26 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "worker",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/js-sha256",
+        "//:node_modules/jszip",
+        "//:node_modules/zod",
+        "//apps/design/backend/app",
+        "//apps/design/backend/globals",
+        "//apps/design/backend/language_and_audio/audio",
+        "//apps/design/backend/language_and_audio/strings",
+        "//apps/design/backend/language_and_audio/translation",
+        "//apps/design/backend/language_and_audio/tts",
+        "//apps/design/backend/store",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/hmpb/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+    ],
+)
+
+lint_test(name = "lint")

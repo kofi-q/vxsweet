@@ -1,0 +1,20 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_tests(
+    name = "tests",
+    size = "large",
+    timeout = "moderate",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//apps/design/backend/test-decks",
+        "//libs/basics/src",
+        "//libs/fs/src",
+        "//libs/hmpb/src",
+        "//libs/image-test-utils",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")
