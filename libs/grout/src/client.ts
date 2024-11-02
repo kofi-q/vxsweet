@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch';
 import { deserialize, serialize } from './serialization';
-import { AnyApi, AnyRpcMethod, inferApiMethods } from './server';
+import { type AnyApi, type AnyRpcMethod, type inferApiMethods } from './server';
 import { rootDebug } from './debug';
 
 const debug = rootDebug.extend('client');

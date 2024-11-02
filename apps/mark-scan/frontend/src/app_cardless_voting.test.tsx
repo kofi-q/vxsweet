@@ -4,7 +4,7 @@ import {
 } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { BallotStyleId, LanguageCode } from '@vx/libs/types/src';
+import { type BallotStyleId, LanguageCode } from '@vx/libs/types/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import {
   fireEvent,
@@ -17,7 +17,7 @@ import { App } from './app';
 
 import { presidentContest, voterContests } from '../test/helpers/election';
 import { withMarkup } from '../test/helpers/with_markup';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { getMockInterpretation } from '../test/helpers/interpretation';
 
 let apiMock: ApiMock;

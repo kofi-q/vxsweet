@@ -1,6 +1,6 @@
 import { render, screen } from '../test/react_testing_library';
 
-import { InvalidCardScreen, Props } from './invalid_card_screen';
+import { InvalidCardScreen, type Props } from './invalid_card_screen';
 
 const testCases: Array<{
   description: string;

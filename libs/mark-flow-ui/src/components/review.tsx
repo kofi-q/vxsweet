@@ -1,38 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  CandidateVote,
-  YesNoVote,
-  OptionalYesNoVote,
-  Election,
-  VotesDict,
-  PrecinctId,
+  type CandidateVote,
+  type YesNoVote,
+  type OptionalYesNoVote,
+  type Election,
+  type VotesDict,
+  type PrecinctId,
   getContestDistrict,
-  ContestId,
+  type ContestId,
 } from '@vx/libs/types/src';
 import {
   Caption,
   Card,
-  ContestVote,
+  type ContestVote,
   Icons,
   VoterContestSummary,
   Button,
+} from '@vx/libs/ui/src';
+import {
   appStrings,
   CandidatePartyList,
   electionStrings,
   NumberString,
   WithAltAudio,
-  AssistiveTechInstructions,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/ui_strings';
+import { AssistiveTechInstructions } from '@vx/libs/ui/src/accessible_controllers';
 
 import { getSingleYesNoVote } from '@vx/libs/utils/src';
 import {
-  CandidateContestResultInterface,
-  MsEitherNeitherContestResultInterface,
-  YesNoContestResultInterface,
+  type CandidateContestResultInterface,
+  type MsEitherNeitherContestResultInterface,
+  type YesNoContestResultInterface,
 } from '../config/types';
 
-import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
+import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 
 const Contest = styled.div`
   display: block;

@@ -13,7 +13,7 @@ import {
 import fileDownload from 'js-file-download';
 import { useParams } from 'react-router-dom';
 import {
-  ElectionSerializationFormat,
+  type ElectionSerializationFormat,
   formatBallotHash,
 } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';
@@ -24,7 +24,7 @@ import {
   getElectionPackage,
 } from './api';
 import { ElectionNavScreen } from './nav_screen';
-import { ElectionIdParams } from './routes';
+import { type ElectionIdParams } from './routes';
 import { downloadFile } from './utils';
 
 export function ExportScreen(): JSX.Element | null {

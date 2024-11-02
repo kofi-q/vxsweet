@@ -2,26 +2,26 @@ import { promises as fs } from 'node:fs';
 import {
   assert,
   err,
-  integers,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
   throwIllegalValue,
   typedAs,
 } from '@vx/libs/basics/src';
+import { integers } from '@vx/libs/basics/src/iterators';
 import {
-  AnyContest,
+  type AnyContest,
   BallotType,
   CastVoteRecordExportFileName,
-  ContestId,
-  ContestOptionId,
-  Contests,
+  type ContestId,
+  type ContestOptionId,
+  type Contests,
   CVR,
-  CVRSnapshotOtherStatus,
+  type CVRSnapshotOtherStatus,
   CVRSnapshotOtherStatusSchema,
   safeParse,
   safeParseJson,
-  Side,
+  type Side,
   Tabulation,
 } from '@vx/libs/types/src';
 

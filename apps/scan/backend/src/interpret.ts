@@ -1,16 +1,16 @@
 import {
-  InterpreterOptions,
+  type InterpreterOptions,
   interpretSheetAndSaveImages,
 } from '@vx/libs/ballot-interpreter/src';
-import { ok, Result } from '@vx/libs/basics/src';
+import { ok, type Result } from '@vx/libs/basics/src';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
-  InterpretedBmdPage,
-  PageInterpretationWithFiles,
-  SheetInterpretation,
-  SheetInterpretationWithPages,
-  SheetOf,
+  type AdjudicationReasonInfo,
+  type InterpretedBmdPage,
+  type PageInterpretationWithFiles,
+  type SheetInterpretation,
+  type SheetInterpretationWithPages,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import { time } from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';

@@ -1,7 +1,7 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import { createPlaywrightRenderer } from '@vx/libs/hmpb/src';
 import {
-  Election,
+  type Election,
   LanguageCode,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';

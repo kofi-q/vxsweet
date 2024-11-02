@@ -14,19 +14,19 @@ import {
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
   convertVxfElectionToCdfBallotDefinition,
-  PageInterpretationWithFiles,
+  type PageInterpretationWithFiles,
   safeParseElectionDefinition,
-  SheetOf,
-  TEST_JURISDICTION,
+  type SheetOf,
 } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import { v4 as uuid } from 'uuid';
 import { LogEventId } from '@vx/libs/logging/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

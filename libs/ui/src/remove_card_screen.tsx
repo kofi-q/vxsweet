@@ -1,7 +1,10 @@
 import { Screen } from './screen';
 import { Main } from './main';
 import { H1 } from './typography';
-import { CardInsertionDirection, RemoveCardImage } from './smart_card_images';
+import {
+  type CardInsertionDirection,
+  RemoveCardImage,
+} from './smart_card_images';
 
 interface Props {
   productName: string;

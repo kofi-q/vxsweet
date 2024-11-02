@@ -7,7 +7,7 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { DateWithoutTime } from '@vx/libs/basics/src';
 import { render, screen, waitFor } from '../test/react_testing_library';
 
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';
 
 let apiMock: ApiMock;

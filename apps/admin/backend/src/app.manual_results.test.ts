@@ -1,7 +1,11 @@
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 
-import { BallotStyleGroupId, PrecinctId, Tabulation } from '@vx/libs/types/src';
-import { buildManualResultsFixture } from '@vx/libs/utils/src';
+import {
+  type BallotStyleGroupId,
+  type PrecinctId,
+  Tabulation,
+} from '@vx/libs/types/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/src';
 import { LogEventId } from '@vx/libs/logging/src';
 import {
@@ -9,7 +13,7 @@ import {
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
-import { ManualResultsIdentifier } from './types';
+import { type ManualResultsIdentifier } from './types';
 
 beforeEach(() => {
   jest.restoreAllMocks();

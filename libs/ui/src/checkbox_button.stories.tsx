@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Meta } from '@storybook/react';
 import {
-  CheckboxButtonProps,
+  type CheckboxButtonProps,
   CheckboxButton as Component,
 } from './checkbox_button';
 

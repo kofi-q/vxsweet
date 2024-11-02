@@ -10,7 +10,7 @@ import {
   Table,
   UsbDriveImage,
 } from '@vx/libs/ui/src';
-import type { FileSystemEntry } from '@vx/libs/fs/src';
+import { type FileSystemEntry } from '@vx/libs/fs/src';
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { Loading } from '../components/loading';
 import { NavigationScreen } from '../components/navigation_screen';

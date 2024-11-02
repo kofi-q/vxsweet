@@ -1,16 +1,16 @@
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   getPartyIdsWithContests,
-  PartyId,
-  PrecinctSelection,
-  StandardPollsTransitionType,
+  type PartyId,
+  type PrecinctSelection,
+  type StandardPollsTransitionType,
   Tabulation,
 } from '@vx/libs/types/src';
 import {
   combineElectionResults,
   getContestsForPrecinct,
   getEmptyElectionResults,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { PrecinctScannerTallyReport } from './precinct_scanner_tally_report';
 
 export function getPartyIdsForPrecinctScannerTallyReports(

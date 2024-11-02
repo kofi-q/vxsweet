@@ -1,5 +1,5 @@
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
-import { FujitsuPrinterStatus } from '../printing/printer';
+import { type FujitsuPrinterStatus } from '../printing/printer';
 
 export function testPrintFailureDiagnosticMessage(
   failureStatus: FujitsuPrinterStatus

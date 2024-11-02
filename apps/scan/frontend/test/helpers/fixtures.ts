@@ -1,4 +1,4 @@
-import { PrinterConfig } from '@vx/libs/types/src';
+import { type PrinterConfig } from '@vx/libs/types/src';
 
 export const BROTHER_THERMAL_PRINTER_CONFIG: PrinterConfig = {
   label: 'Brother PJ-822',

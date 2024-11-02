@@ -1,12 +1,13 @@
 import { readElection } from '@vx/libs/fs/src';
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   ElectionPackageFileName,
 } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { generateMockVotes } from '@vx/libs/utils/src';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
-import { iter, assert, assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/src';
 import tmp from 'tmp';
 import { Buffer } from 'node:buffer';
 import { renderTestModeBallotWithoutLanguageContext } from '../../util/render_ballot';

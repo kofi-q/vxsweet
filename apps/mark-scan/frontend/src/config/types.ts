@@ -1,13 +1,13 @@
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  VotesDict,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type VotesDict,
 } from '@vx/libs/types/src';
-import type { MachineConfig } from '@vx/apps/mark-scan/backend/src';
+import { type MachineConfig } from '../../../backend/src/types';
 import {
-  ContestsWithMsEitherNeither,
-  UpdateVoteFunction,
+  type ContestsWithMsEitherNeither,
+  type UpdateVoteFunction,
 } from '@vx/libs/mark-flow-ui/src';
 
 // Ballot

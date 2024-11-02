@@ -23,16 +23,16 @@ import {
   useHistory,
 } from 'react-router-dom';
 import {
-  District,
-  DistrictId,
-  Election,
-  Id,
-  PrecinctId,
+  type District,
+  type DistrictId,
+  type Election,
+  type Id,
+  type PrecinctId,
 } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
-import type { Precinct, PrecinctSplit } from '@vx/apps/design/backend/src';
+import { type Precinct, type PrecinctSplit } from '../../backend/src/types';
 import { ElectionNavScreen } from './nav_screen';
-import { ElectionIdParams, electionParamRoutes, routes } from './routes';
+import { type ElectionIdParams, electionParamRoutes, routes } from './routes';
 import {
   Form,
   NestedTr,

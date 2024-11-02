@@ -3,8 +3,8 @@ import { Buffer } from 'node:buffer';
 import {
   mockCustomA4ScannerWebUsbDevice,
   mockCustomA4ScannerWebUsbDeviceWithoutEndpoints,
-  mockWebUsbDevice,
-} from './mocks';
+} from './mocks/custom_a4_scanner_web_usb_device';
+import { mockWebUsbDevice } from './mocks/web_usb_device';
 import { UsbChannel } from './usb_channel';
 import { ErrorCode } from './types';
 import { CustomA4ScannerChannelOptions } from './open_scanner';

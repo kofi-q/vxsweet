@@ -2,12 +2,12 @@ import {
   asyncResultBlock,
   err,
   ok,
-  Result,
+  type Result,
   sleep,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import { MAX_UINT24 } from '@vx/libs/message-coder/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import { time, Mutex } from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
 import { debug as baseDebug } from './debug';
@@ -27,17 +27,17 @@ import {
 } from './protocol';
 import { convertFromInternalStatus } from './status';
 import {
-  DuplexChannel,
+  type DuplexChannel,
   ErrorCode,
   FormMovement,
   ImageFileFormat,
-  ImageFromScanner,
+  type ImageFromScanner,
   ReleaseType,
-  ScannerStatus,
-  ScanParameters,
+  type ScannerStatus,
+  type ScanParameters,
   ScanSide,
 } from './types';
-import { CustomScanner } from './types/custom_scanner';
+import { type CustomScanner } from './types/custom_scanner';
 
 const debug = baseDebug.extend('scanner');
 

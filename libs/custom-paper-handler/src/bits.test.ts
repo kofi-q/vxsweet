@@ -1,4 +1,4 @@
-import { Uint8, Uint8ToBitArray, Uint8ToBinaryArray } from './bits';
+import { type Uint8, Uint8ToBitArray, Uint8ToBinaryArray } from './bits';
 
 const bitArrayTests = [
   {

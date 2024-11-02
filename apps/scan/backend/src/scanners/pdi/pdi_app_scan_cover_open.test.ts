@@ -9,8 +9,8 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import { Result, deferred, ok } from '@vx/libs/basics/src';
-import { ScannerError } from '@vx/libs/pdi-scanner/src/ts';
+import { type Result, deferred, ok } from '@vx/libs/basics/src';
+import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import {
   configureApp,
   waitForStatus,

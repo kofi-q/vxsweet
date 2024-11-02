@@ -1,13 +1,12 @@
-import { Optional, Result } from '@vx/libs/basics/src';
+import { type Optional, type Result } from '@vx/libs/basics/src';
+import { type BallotStyleId, type PrecinctId } from '@vx/libs/types/src';
 import {
-  BallotStyleId,
-  ElectionKey,
+  type ElectionKey,
   InsertedSmartCardAuth,
-  NumIncorrectPinAttemptsAllowedBeforeCardLockout,
-  OverallSessionTimeLimitHours,
-  PrecinctId,
-  StartingCardLockoutDurationSeconds,
-} from '@vx/libs/types/src';
+  type NumIncorrectPinAttemptsAllowedBeforeCardLockout,
+  type OverallSessionTimeLimitHours,
+  type StartingCardLockoutDurationSeconds,
+} from '@vx/libs/types/src/auth';
 
 /**
  * The API for an inserted smart card auth instance, "inserted" meaning that the card needs to be

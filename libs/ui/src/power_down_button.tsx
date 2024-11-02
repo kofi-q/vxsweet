@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, ButtonProps } from './button';
+import { Button, type ButtonProps } from './button';
 import { Loading } from './loading';
 import { Modal } from './modal';
 import { useSystemCallApi } from './system_call_api';

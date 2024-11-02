@@ -1,7 +1,7 @@
 import {
   renderWithThemes,
-  VxRenderOptions,
-  VxRenderResult,
+  type VxRenderOptions,
+  type VxRenderResult,
   vxTestingLibraryScreen,
   vxTestingLibraryWithinFn,
 } from '@vx/libs/ui/src';

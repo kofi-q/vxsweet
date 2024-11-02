@@ -2,14 +2,14 @@ import React from 'react';
 import parseCssColor from 'parse-css-color';
 import { assert } from '@vx/libs/basics/src';
 import { ServerStyleSheet, ThemeConsumer } from 'styled-components';
-import { UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/src';
 import { act, render } from '@testing-library/react';
 
-import { AppBaseProps, AppBase as OriginalAppBase } from './app_base';
+import { type AppBaseProps, AppBase as OriginalAppBase } from './app_base';
 import { makeTheme } from './themes/make_theme';
 import {
   VoterSettingsManagerContext,
-  VoterSettingsManagerContextInterface,
+  type VoterSettingsManagerContextInterface,
 } from './voter_settings_manager_context';
 
 function AppBase(props: AppBaseProps) {

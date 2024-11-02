@@ -1,9 +1,12 @@
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import type { CastVoteRecordFileRecord } from '@vx/apps/admin/backend/src';
+import { type CastVoteRecordFileRecord } from '../../../../backend/src/types';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { ok } from '@vx/libs/basics/src';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { screen, within, waitFor } from '../../../test/react_testing_library';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { CastVoteRecordsTab } from './cast_vote_records_tab';

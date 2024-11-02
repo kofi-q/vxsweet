@@ -1,23 +1,23 @@
 import express, { Application } from 'express';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
   ok,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import * as grout from '@vx/libs/grout/src';
 import {
-  ElectionPackageConfigurationError,
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
-  SystemSettings,
+  type ElectionPackageConfigurationError,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
+  type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-  PollsState,
-  PrecinctSelection,
-  PrinterStatus,
+  type PollsState,
+  type PrecinctSelection,
+  type PrinterStatus,
 } from '@vx/libs/types/src';
 import {
   getPrecinctSelectionName,
@@ -27,21 +27,21 @@ import {
 
 import {
   createUiStringsApi,
-  readSignedElectionPackageFromUsb,
   configureUiStrings,
-  createSystemCallApi,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/ui_strings';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
-import { UsbDrive, UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { Printer } from '@vx/libs/printing/src';
+import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
 import { getMachineConfig } from './machine_config';
-import { Workspace } from './util/workspace';
-import { ElectionState, PrintBallotProps } from './types';
+import { type Workspace } from './util/workspace';
+import { type ElectionState, type PrintBallotProps } from './types';
 import { printBallot } from './util/print_ballot';
 import { isAccessibleControllerAttached } from './util/accessible_controller';
 import { constructAuthMachineState } from './util/auth';
-import { ElectionRecord } from './store';
+import { type ElectionRecord } from './store';
 import path from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

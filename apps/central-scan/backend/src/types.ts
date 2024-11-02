@@ -1,4 +1,4 @@
-import { BatchInfo } from '@vx/libs/types/src';
+import { type BatchInfo } from '@vx/libs/types/src';
 
 export interface MachineConfig {
   machineId: string;

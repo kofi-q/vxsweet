@@ -1,9 +1,13 @@
-import { BallotStyleId, Election, GridLayout } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  type Election,
+  type GridLayout,
+} from '@vx/libs/types/src';
 import { election } from './election.json';
 import { asElectionDefinition } from '../../util';
 
-export { election, electionDefinition } from './election.json';
 export * as electionJson from './election.json';
+export { election, electionDefinition } from './election.json';
 
 const partialMockGridPosition = {
   type: 'option',

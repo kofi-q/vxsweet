@@ -1,17 +1,17 @@
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
-  CandidateContest,
-  Election,
+  type CandidateContest,
+  type Election,
   ElectionStringKey,
   LanguageCode,
-  UiStringsPackage,
-  YesNoContest,
+  type UiStringsPackage,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { format } from '@vx/libs/utils/src';
 
 import { GoogleCloudTranslator } from './translator';
 import { setUiString } from './utils';
-import { BallotLanguageConfigs, getAllBallotLanguages } from '../types';
+import { type BallotLanguageConfigs, getAllBallotLanguages } from '../types';
 
 interface ElectionString {
   stringKey: ElectionStringKey | [ElectionStringKey, string];

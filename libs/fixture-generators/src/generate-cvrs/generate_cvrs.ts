@@ -3,30 +3,31 @@ import {
   buildCVRContestsFromVotes,
   buildCvrImageData,
   combineImageAndLayoutHashes,
-} from '@vx/libs/backend/src';
-import { assertDefined, iter, throwIllegalValue } from '@vx/libs/basics/src';
+} from '@vx/libs/backend/src/cast_vote_records';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  BallotMetadata,
-  BallotPageContestLayout,
-  BallotPageContestOptionLayout,
-  BallotPageLayout,
+  type BallotMetadata,
+  type BallotPageContestLayout,
+  type BallotPageContestOptionLayout,
+  type BallotPageLayout,
   ballotPaperDimensions,
   BallotType,
-  Candidate,
-  CandidateContest,
-  CandidateVote,
-  ContestId,
+  type Candidate,
+  type CandidateContest,
+  type CandidateVote,
+  type ContestId,
   CVR,
-  Election,
-  ElectionDefinition,
+  type Election,
+  type ElectionDefinition,
   getContests,
   mapSheet,
-  Size,
-  Vote,
-  VotesDict,
+  type Size,
+  type Vote,
+  type VotesDict,
 } from '@vx/libs/types/src';
+import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 import {
-  allContestOptions,
   buildCVRSnapshotBallotTypeMetadata,
   hasWriteIns,
 } from '@vx/libs/utils/src';

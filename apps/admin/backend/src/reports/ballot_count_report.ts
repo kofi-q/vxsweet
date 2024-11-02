@@ -1,16 +1,17 @@
 import { assert } from '@vx/libs/basics/src';
-import { BallotCountReport } from '@vx/libs/ui/src';
+import { BallotCountReport } from '@vx/libs/ui/src/reports';
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
-import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { Store } from '../store';
 import { generateTitleForReport } from './titles';
 import { getCurrentTime } from '../util/get_current_time';
-import { ExportDataResult } from '../types';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 import { exportFile } from '../util/export_file';
 import {
-  BallotCountReportWarning,
+  type BallotCountReportWarning,
   getBallotCountReportWarning,
 } from './warnings';
 

@@ -5,7 +5,7 @@ import {
   REAL_TIME_ENDPOINT_OUT,
   PACKET_SIZE,
 } from './driver';
-import { PaperHandlerStatus } from './coders';
+import { type PaperHandlerStatus } from './coders';
 
 type MockWebUsbDevice = mocks.MockWebUsbDevice;
 

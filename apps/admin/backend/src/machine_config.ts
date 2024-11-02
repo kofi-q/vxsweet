@@ -1,4 +1,4 @@
-import { MachineConfig } from './types';
+import { type MachineConfig } from './types';
 
 /**
  * Returns the ID of the current machine and the version of the currently

@@ -13,14 +13,15 @@ import {
   SignedHashValidationButton,
 } from '@vx/libs/ui/src';
 import { getPollsReportTitle } from '@vx/libs/utils/src';
-import { ElectionDefinition, PollsTransitionType } from '@vx/libs/types/src';
-import { Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
+import {
+  type ElectionDefinition,
+  type PollsTransitionType,
+} from '@vx/libs/types/src';
+import { type Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
 import styled from 'styled-components';
-import type {
-  PrecinctScannerPollsInfo,
-  PrintResult,
-} from '@vx/apps/scan/backend/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type PrecinctScannerPollsInfo } from '../../../backend/src/types';
+import { type PrintResult } from '../../../backend/src/printing/printer';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   getUsbDriveStatus,
   printReport,
@@ -34,7 +35,7 @@ import {
 } from '../api';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';
 import {
-  PollsFlowPrinterSummary,
+  type PollsFlowPrinterSummary,
   getPollsFlowPrinterSummary,
 } from '../utils/printer';
 import { LegacyPostPrintScreen } from './poll_worker_legacy_post_print_screen';

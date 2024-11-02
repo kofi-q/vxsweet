@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  CandidateVote,
-  Election,
-  OptionalYesNoVote,
-  VotesDict,
+  type CandidateVote,
+  type Election,
+  type OptionalYesNoVote,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import { CandidateContest } from './candidate_contest';
 import { MsEitherNeitherContest } from './ms_either_neither_contest';
 import { YesNoContest } from './yes_no_contest';
-import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
-import { UpdateVoteFunction } from '../config/types';
-import { BreadcrumbMetadata } from './contest_header';
+import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
+import { type UpdateVoteFunction } from '../config/types';
+import { type BreadcrumbMetadata } from './contest_header';
 
 export interface ContestProps {
   /**

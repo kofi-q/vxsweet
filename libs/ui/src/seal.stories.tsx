@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 
-import { Seal, SealProps } from './seal';
+import { Seal, type SealProps } from './seal';
 
 const meta: Meta<typeof Seal> = {
   title: 'libs-ui/Seal',

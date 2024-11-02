@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LinkButton, LinkButtonProps } from './link_button';
+import { LinkButton, type LinkButtonProps } from './link_button';
 import { Icons } from './icons';
 
 /**

@@ -1,6 +1,6 @@
-import { Admin, ElectionDefinition, Tabulation } from '@vx/libs/types/src';
+import { Admin, type ElectionDefinition, Tabulation } from '@vx/libs/types/src';
 import {
-  Optional,
+  type Optional,
   assert,
   assertDefined,
   find,
@@ -10,15 +10,14 @@ import styled, { ThemeProvider } from 'styled-components';
 import {
   combineCardCounts,
   determinePartyId,
-  format,
   getBallotCount,
-  getMaxSheetsPerBallot,
   getGroupKey,
   getHmpbBallotCount,
   getPartyById,
   getPrecinctById,
   isGroupByEmpty,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
+import { format, getMaxSheetsPerBallot } from '@vx/libs/utils/src';
 import React from 'react';
 import { printedReportThemeFn, PrintedReport, reportColors } from './layout';
 import { LogoMark } from '../logo_mark';
@@ -26,7 +25,7 @@ import { CustomFilterSummary } from './custom_filter_summary';
 import {
   getBatchLabel,
   getScannerLabel,
-  LabeledScannerBatch,
+  type LabeledScannerBatch,
   prefixedTitle,
 } from './utils';
 import {

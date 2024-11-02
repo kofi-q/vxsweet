@@ -1,7 +1,12 @@
-import { Result, err, ok, resultBlock } from '@vx/libs/basics/src';
+import { type Result, err, ok, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
-import { CoderError, EncodeResult, DecodeResult, Coder } from './types';
+import {
+  type CoderError,
+  type EncodeResult,
+  type DecodeResult,
+  type Coder,
+} from './types';
 import { toBitLength, toByteOffset, bufferContainsBitOffset } from './bits';
 
 /**

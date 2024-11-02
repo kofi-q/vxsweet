@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { useCallback, useMemo } from 'react';
 import { render, screen, waitFor } from '../../test/react_testing_library';
-import { AutocompleteProps, useAutocomplete } from './use_autocomplete';
+import { type AutocompleteProps, useAutocomplete } from './use_autocomplete';
 
 type onSuggestType<Option> = Exclude<
   AutocompleteProps<Option>['onSuggest'],

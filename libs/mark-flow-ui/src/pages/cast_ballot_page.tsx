@@ -6,10 +6,9 @@ import {
   Icons,
   InsertBallotImage,
   P,
-  ReadOnLoad,
   VerifyBallotImage,
-  appStrings,
 } from '@vx/libs/ui/src';
+import { ReadOnLoad, appStrings } from '@vx/libs/ui/src/ui_strings';
 import { VoterScreen } from '../components/voter_screen';
 
 const Instructions = styled.ol`

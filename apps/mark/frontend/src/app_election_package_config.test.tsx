@@ -1,7 +1,7 @@
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
 

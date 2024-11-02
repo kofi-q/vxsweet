@@ -17,7 +17,7 @@ jest.mock('./device_uri', (): typeof import('./device_uri') => ({
 }));
 
 jest.mock('./status', (): typeof import('./status') => ({
-  ...jest.requireActual('./device_uri'),
+  ...jest.requireActual('./status'),
   getPrinterRichStatus: () => mockGetPrinterRichStatus(),
 }));
 
@@ -27,9 +27,12 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { PrinterRichStatus } from '@vx/libs/types/src';
+import { type PrinterRichStatus } from '@vx/libs/types/src';
 import { detectPrinter } from './printer';
-import { BROTHER_THERMAL_PRINTER_CONFIG, HP_LASER_PRINTER_CONFIG } from '.';
+import {
+  BROTHER_THERMAL_PRINTER_CONFIG,
+  HP_LASER_PRINTER_CONFIG,
+} from './supported';
 import { MockFilePrinter } from './mocks/file_printer';
 
 const featureFlagMock = getFeatureFlagMock();

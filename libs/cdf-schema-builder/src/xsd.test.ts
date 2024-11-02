@@ -1,4 +1,4 @@
-import { DocumentedEntity } from './types';
+import { type DocumentedEntity } from './types';
 import {
   extractDocumentation,
   extractDocumentationForSchema,

@@ -1,5 +1,5 @@
 import test from '@playwright/test';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { logInAsElectionManager, forceReset } from './helpers';

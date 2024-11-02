@@ -1,4 +1,4 @@
-import { Admin, Id, Tabulation } from '@vx/libs/types/src';
+import { Admin, type Id, Tabulation } from '@vx/libs/types/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   coalesceGroupsAcrossParty,
@@ -9,7 +9,7 @@ import {
   getEmptyElectionResults,
   groupMapToGroupList,
   mergeTabulationGroupMaps,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { Store } from '../store';
 import { tabulateElectionResults } from './full_results';
 import { tabulateManualResults } from './manual_results';

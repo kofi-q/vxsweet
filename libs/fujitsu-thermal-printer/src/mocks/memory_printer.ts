@@ -3,9 +3,9 @@ import { writeFile } from 'node:fs/promises';
 import { rmSync } from 'node:fs';
 import { err, ok } from '@vx/libs/basics/src';
 import {
-  FujitsuThermalPrinterInterface,
-  PrintResult,
-  PrinterStatus,
+  type FujitsuThermalPrinterInterface,
+  type PrintResult,
+  type PrinterStatus,
 } from '../types';
 
 /**

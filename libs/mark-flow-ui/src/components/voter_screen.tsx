@@ -6,12 +6,10 @@ import styled, { DefaultTheme } from 'styled-components';
 import {
   LanguageSettingsButton,
   LanguageSettingsScreen,
-  Main,
-  Screen,
-  VoterSettings,
-  useScreenInfo,
-} from '@vx/libs/ui/src';
-import { SizeMode } from '@vx/libs/types/src';
+} from '@vx/libs/ui/src/language_settings';
+import { Main, Screen, useScreenInfo } from '@vx/libs/ui/src';
+import { VoterSettings } from '@vx/libs/ui/src/voter_settings';
+import { type SizeMode } from '@vx/libs/types/src';
 
 import { VoterSettingsButton } from './voter_settings_button';
 

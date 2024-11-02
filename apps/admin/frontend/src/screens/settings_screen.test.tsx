@@ -4,7 +4,10 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
 } from '@vx/libs/test-utils/src';
-import { DippedSmartCardAuth, constructElectionKey } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { ok } from '@vx/libs/basics/src';
 import {
@@ -19,7 +22,10 @@ import {
   renderInAppContext,
 } from '../../test/render_in_app_context';
 import { SettingsScreen } from './settings_screen';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

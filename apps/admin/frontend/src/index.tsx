@@ -14,7 +14,8 @@ import {
   SystemCallContextProvider,
 } from '@vx/libs/ui/src';
 import { assert } from '@vx/libs/basics/src';
-import { LogSource, BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { App } from './app';
 import {
   ApiClientContext,

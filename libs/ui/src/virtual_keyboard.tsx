@@ -5,7 +5,8 @@ import { LanguageCode } from '@vx/libs/types/src';
 
 import { Button } from './button';
 import { Icons } from './icons';
-import { WithAltAudio, appStrings } from './ui_strings';
+import { WithAltAudio } from './ui_strings/with_alt_audio';
+import { appStrings } from './ui_strings/app_strings';
 
 /* istanbul ignore next */
 function getBorderWidthRem(p: { theme: DefaultTheme }): number {

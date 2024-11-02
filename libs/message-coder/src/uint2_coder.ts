@@ -1,15 +1,15 @@
-import { Result, err, ok, resultBlock } from '@vx/libs/basics/src';
+import { type Result, err, ok, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { BITS_PER_BYTE, toByteOffset } from './bits';
 import {
-  BitLength,
-  BitOffset,
-  Coder,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
-  Uint2,
+  type BitLength,
+  type BitOffset,
+  type Coder,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
+  type Uint2,
 } from './types';
 import { defaultEnumValue, validateEnumValue } from './uint_coder';
 

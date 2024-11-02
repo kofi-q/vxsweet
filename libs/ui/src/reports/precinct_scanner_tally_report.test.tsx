@@ -3,12 +3,12 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionFamousNames2021Fixtures,
 } from '@vx/libs/fixtures/src';
-import { formatElectionHashes, PartyId } from '@vx/libs/types/src';
+import { formatElectionHashes, type PartyId } from '@vx/libs/types/src';
 import {
   ALL_PRECINCTS_SELECTION,
-  buildElectionResultsFixture,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
+import { buildElectionResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../../test/react_testing_library';
 

@@ -12,7 +12,7 @@ import {
   TH,
 } from '@vx/libs/ui/src';
 import {
-  CandidateContest,
+  type CandidateContest,
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
 } from '@vx/libs/types/src';

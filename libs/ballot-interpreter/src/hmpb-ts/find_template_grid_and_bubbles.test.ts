@@ -4,9 +4,9 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import { findTemplateGridAndBubbles } from './find_template_grid_and_bubbles';
-import { TimingMarkGrid } from './types';
+import { type TimingMarkGrid } from './types';
 
 test('find layout from template images', async () => {
   const ballotImages: SheetOf<ImageData> = [

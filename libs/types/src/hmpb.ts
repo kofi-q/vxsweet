@@ -1,25 +1,25 @@
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { z } from 'zod';
 import {
-  ContestId,
-  ContestOption,
+  type ContestId,
+  type ContestOption,
   ContestOptionSchema,
-  HmpbBallotPageMetadata,
+  type HmpbBallotPageMetadata,
   HmpbBallotPageMetadataSchema,
-  Side,
-  TargetShape,
+  type Side,
+  type TargetShape,
   TargetShapeSchema,
 } from './election';
 import { IdSchema } from './generic';
 import {
-  Corners,
+  type Corners,
   CornersSchema,
-  Rect,
+  type Rect,
   RectSchema,
-  Size,
+  type Size,
   SizeSchema,
 } from './geometry';
-import { ImageData, ImageDataSchema } from './image';
+import { type ImageData, ImageDataSchema } from './image';
 
 export type BallotPageMetadata = HmpbBallotPageMetadata;
 export const BallotPageMetadataSchema = HmpbBallotPageMetadataSchema;

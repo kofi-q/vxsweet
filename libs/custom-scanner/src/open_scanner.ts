@@ -1,10 +1,10 @@
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 import { findByIds, WebUSBDevice } from 'usb';
-import { UsbChannel, UsbChannelOptions } from './usb_channel';
+import { UsbChannel, type UsbChannelOptions } from './usb_channel';
 import { CustomA4Scanner } from './custom_a4_scanner';
 import { debug as baseDebug } from './debug';
 import { ErrorCode } from './types';
-import { CustomScanner } from './types/custom_scanner';
+import { type CustomScanner } from './types/custom_scanner';
 
 const debug = baseDebug.extend('scanner');
 

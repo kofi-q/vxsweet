@@ -4,7 +4,7 @@ import { LanguageCode } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';
 
 import { useAudioContext } from './audio_context';
-import { AudioPlayer, newAudioPlayer } from './audio_player';
+import { type AudioPlayer, newAudioPlayer } from './audio_player';
 
 export interface ClipParams {
   audioId: string;

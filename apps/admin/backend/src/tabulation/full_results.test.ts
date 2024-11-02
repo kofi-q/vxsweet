@@ -13,14 +13,16 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
+  getFeatureFlagMock,
+} from '@vx/libs/utils/src';
+import {
   GROUP_KEY_ROOT,
   buildElectionResultsFixture,
   buildManualResultsFixture,
-  getFeatureFlagMock,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/src';
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -32,7 +34,7 @@ import {
 import { Store } from '../store';
 import { importCastVoteRecords } from '../cast_vote_records';
 import {
-  MockCastVoteRecordFile,
+  type MockCastVoteRecordFile,
   addMockCvrFileToStore,
 } from '../../test/mock_cvr_file';
 import { adjudicateWriteIn } from '../adjudication';

@@ -4,7 +4,7 @@ import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen } from '../test/react_testing_library';
 import { renderRootElement } from '../test/render_in_app_context';
 import { AppRoot } from './app_root';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

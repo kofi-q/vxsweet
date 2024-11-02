@@ -11,18 +11,18 @@ import { z } from 'zod';
 import { assert, err, ok } from '@vx/libs/basics/src';
 import {
   CastVoteRecordExportFileName,
-  CastVoteRecordExportMetadata,
+  type CastVoteRecordExportMetadata,
   CVR,
 } from '@vx/libs/types/src';
 
 import { getTestFilePath } from '../test/utils';
 import {
-  ArtifactToExport,
-  ArtifactToImport,
+  type ArtifactToExport,
+  type ArtifactToImport,
   authenticateArtifactUsingSignatureFile,
   prepareSignatureFile,
 } from './artifact_authentication';
-import { ArtifactAuthenticationConfig } from './config';
+import { type ArtifactAuthenticationConfig } from './config';
 
 /**
  * The root hash for the mock cast vote records created in the beforeEach block

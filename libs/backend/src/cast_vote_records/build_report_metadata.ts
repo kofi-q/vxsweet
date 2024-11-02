@@ -1,12 +1,12 @@
-import { integers } from '@vx/libs/basics/src';
+import { integers } from '@vx/libs/basics/src/iterators';
 import {
-  AnyContest,
-  BatchInfo,
-  CandidateContest,
-  CastVoteRecordBatchMetadata,
+  type AnyContest,
+  type BatchInfo,
+  type CandidateContest,
+  type CastVoteRecordBatchMetadata,
   CVR,
-  Election,
-  YesNoContest,
+  type Election,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 
 /**

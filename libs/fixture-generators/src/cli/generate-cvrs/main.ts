@@ -1,18 +1,19 @@
 import {
   HmpbBallotPaperSize,
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  BatchInfo,
+  type BatchInfo,
   CVR,
   CastVoteRecordExportFileName,
-  CastVoteRecordExportMetadata,
+  type CastVoteRecordExportMetadata,
   ballotPaperDimensions,
 } from '@vx/libs/types/src';
-import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   buildCastVoteRecordReportMetadata,
   buildBatchManifest,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
 import { readElection } from '@vx/libs/fs/src';
 import * as fs from 'node:fs/promises';
 import yargs from 'yargs/yargs';
@@ -27,9 +28,11 @@ import {
   generateBallotPageLayouts,
   generateCvrs,
   populateImageAndLayoutFileHashes,
+} from '../../generate-cvrs/generate_cvrs';
+import {
   replaceUniqueId,
   getBatchIdForScannerId,
-} from '../../generate-cvrs';
+} from '../../generate-cvrs/utils';
 
 /**
  * Script to generate a cast vote record file for a given election.

@@ -1,11 +1,12 @@
-import { assert, lines } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/src';
+import { lines } from '@vx/libs/basics/src/iterators';
 import {
-  Dictionary,
+  type Dictionary,
   EventLogging,
   safeParse,
   safeParseJson,
 } from '@vx/libs/types/src';
-import { JsonStreamInput, jsonStream } from '@vx/libs/utils/src';
+import { type JsonStreamInput, jsonStream } from '@vx/libs/utils/src';
 import { z } from 'zod';
 import { LogEventId } from './log_event_ids';
 // import { CLIENT_SIDE_LOG_SOURCES } from './base_types/log_source';

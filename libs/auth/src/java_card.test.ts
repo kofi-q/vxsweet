@@ -21,16 +21,16 @@ import {
   mockOf,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
+import { type Byte } from '@vx/libs/types/src';
 import {
-  Byte,
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
 
 import {
   getTestFilePath,
   MockCardReader,
-  TestFileSetId,
+  type TestFileSetId,
   TestJavaCard,
 } from '../test/utils';
 import {
@@ -40,10 +40,14 @@ import {
   SELECT,
   STATUS_WORD,
 } from './apdu';
-import { CardDetails, CheckPinResponse, ProgrammableCard } from './card';
+import {
+  type CardDetails,
+  type CheckPinResponse,
+  type ProgrammableCard,
+} from './card';
 import { CardReader } from './card_reader';
-import { CardType } from './certs';
-import { JavaCardConfig } from './config';
+import { type CardType } from './certs';
+import { type JavaCardConfig } from './config';
 import {
   certDerToPem,
   createCert,

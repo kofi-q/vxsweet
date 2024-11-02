@@ -1,11 +1,15 @@
 import { assert, err, ok } from '@vx/libs/basics/src';
 import { ImageData } from 'canvas';
-import { ElectionDefinition, safeParseJson, SheetOf } from '@vx/libs/types/src';
+import {
+  type ElectionDefinition,
+  safeParseJson,
+  type SheetOf,
+} from '@vx/libs/types/src';
 import { interpret as interpretImpl } from './rust_addon';
 import {
-  InterpretedBallotCard,
-  InterpretError,
-  HmpbInterpretResult,
+  type InterpretedBallotCard,
+  type InterpretError,
+  type HmpbInterpretResult,
 } from './types';
 
 function assertImageData(imageData: unknown): asserts imageData is ImageData {

@@ -15,9 +15,9 @@ import {
   isSystemAdministratorAuth,
   isVendorAuth,
 } from '@vx/libs/utils/src';
-import type { ManualResultsVotingMethod } from '@vx/apps/admin/backend/src';
+import { type ManualResultsVotingMethod } from '../../../backend/src/types';
 import { assert } from '@vx/libs/basics/src';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import { AppContext } from '../contexts/app_context';
 import { routerPaths } from '../router_paths';
 import { ElectionScreen } from '../screens/election_screen';

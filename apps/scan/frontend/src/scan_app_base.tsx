@@ -1,7 +1,11 @@
 import React from 'react';
 
 import { AppBase } from '@vx/libs/ui/src';
-import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
+import {
+  type ColorMode,
+  type ScreenType,
+  type SizeMode,
+} from '@vx/libs/types/src';
 
 export interface AppBaseProps {
   children: React.ReactNode;

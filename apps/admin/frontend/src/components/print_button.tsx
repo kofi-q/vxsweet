@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 
 import {
   Button,
-  StyledButtonProps,
+  type StyledButtonProps,
   Modal,
   useCancelablePromise,
   P,

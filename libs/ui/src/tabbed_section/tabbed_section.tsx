@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TabBar, TabInfo } from './tab_bar';
+import { TabBar, type TabInfo } from './tab_bar';
 
 export interface TabbedSectionProps<Id extends string = string> {
   ariaLabel: string;

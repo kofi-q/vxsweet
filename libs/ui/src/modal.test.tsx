@@ -14,10 +14,10 @@ import { Modal, ModalWidth } from './modal';
 import { Button } from './button';
 import { fontSizeTheme } from './themes';
 import { FONT_SIZES, LARGE_DISPLAY_FONT_SIZE } from './globals';
-import { ReadOnLoad, ReadOnLoadProps } from './ui_strings/read_on_load';
+import { ReadOnLoad, type ReadOnLoadProps } from './ui_strings/read_on_load';
 import { UiStringsAudioContextProvider } from './ui_strings/audio_context';
 import {
-  UiStringsReactQueryApi,
+  type UiStringsReactQueryApi,
   createUiStringsApi,
 } from './hooks/ui_strings_api';
 

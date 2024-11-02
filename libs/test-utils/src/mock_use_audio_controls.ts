@@ -1,4 +1,4 @@
-import { AudioControls } from '@vx/libs/types/src';
+import { type AudioControls } from '@vx/libs/types/src';
 
 export function mockUseAudioControls(): jest.Mocked<AudioControls> {
   return {

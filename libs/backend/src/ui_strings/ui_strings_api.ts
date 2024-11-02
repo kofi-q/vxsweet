@@ -4,11 +4,11 @@ import { BaseLogger } from '@vx/libs/logging/src';
 import * as grout from '@vx/libs/grout/src';
 import {
   LanguageCode,
-  UiStringAudioClips,
-  UiStringAudioIds,
-  UiStringTranslations,
+  type UiStringAudioClips,
+  type UiStringAudioIds,
+  type UiStringTranslations,
 } from '@vx/libs/types/src';
-import { UiStringsStore } from './ui_strings_store';
+import { type UiStringsStore } from './ui_strings_store';
 
 /** App context for {@link UiStringsApi} endpoints. */
 export interface UiStringsApiContext {

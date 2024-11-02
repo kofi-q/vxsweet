@@ -8,7 +8,7 @@ import {
   SignedHashValidationButton,
   SystemAdministratorScreenContents,
 } from '@vx/libs/ui/src';
-import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut, useApiClient } from '../api';
 import { DiagnosticsScreen } from './diagnostics/diagnostics_screen';
 

@@ -1,4 +1,4 @@
-import { deferred, Optional } from '@vx/libs/basics/src';
+import { deferred, type Optional } from '@vx/libs/basics/src';
 
 interface LockResult<T> {
   value: T;

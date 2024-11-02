@@ -1,10 +1,6 @@
 import * as customScanner from '@vx/libs/custom-scanner/src';
-import {
-  BaseLogger,
-  LogEventId,
-  Logger,
-  LogSource,
-} from '@vx/libs/logging/src';
+import { BaseLogger, LogEventId, Logger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   InsertedSmartCardAuth,
@@ -25,7 +21,7 @@ import { SCAN_WORKSPACE } from './globals';
 import * as customStateMachine from './scanners/custom/state_machine';
 import * as pdiStateMachine from './scanners/pdi/state_machine';
 import * as server from './server';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 import { getUserRole } from './util/auth';
 import { getPrinter } from './printing/printer';
 

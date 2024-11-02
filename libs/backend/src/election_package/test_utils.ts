@@ -1,10 +1,13 @@
-import { ElectionPackage, ElectionPackageFileName } from '@vx/libs/types/src';
+import {
+  type ElectionPackage,
+  ElectionPackageFileName,
+} from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import {
   ELECTION_PACKAGE_FOLDER,
   generateElectionBasedSubfolderName,
 } from '@vx/libs/utils/src';
-import { MockFileTree } from '@vx/libs/usb-drive/src';
+import { type MockFileTree } from '@vx/libs/usb-drive/src';
 import { zipFile } from '@vx/libs/test-utils/src';
 
 /**

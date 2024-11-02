@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Modal as Component, ModalProps } from './modal';
+import { Modal as Component, type ModalProps } from './modal';
 import { Button } from './button';
 
 const initialProps: ModalProps = {

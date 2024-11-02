@@ -3,40 +3,49 @@ import {
   assert,
   assertDefined,
   deepEqual,
-  iter,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  Election,
-  ElectionDefinition,
-  ElectionSerializationFormat,
-  GridLayout,
-  GridPosition,
-  HmpbBallotPageMetadata,
-  Outset,
-  PrecinctId,
+  type Election,
+  type ElectionDefinition,
+  type ElectionSerializationFormat,
+  type GridLayout,
+  type GridPosition,
+  type HmpbBallotPageMetadata,
+  type Outset,
+  type PrecinctId,
   convertVxfElectionToCdfBallotDefinition,
   formatBallotHash,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { QrCode } from '@vx/libs/ui/src';
 import { encodeHmpbBallotPageMetadata } from '@vx/libs/ballot-encoder/src';
-import { RenderDocument, RenderScratchpad, Renderer } from './renderer';
+import {
+  type RenderDocument,
+  type RenderScratchpad,
+  type Renderer,
+} from './renderer';
 import {
   BUBBLE_CLASS,
   CONTENT_SLOT_CLASS,
   ContentSlot,
   BALLOT_HASH_SLOT_CLASS,
-  OptionInfo,
+  type OptionInfo,
   PAGE_CLASS,
   QR_CODE_SIZE,
   QR_CODE_SLOT_CLASS,
   TIMING_MARK_CLASS,
   WRITE_IN_OPTION_CLASS,
 } from './ballot_components';
-import { BallotMode, PixelDimensions, Pixels, Point } from './types';
+import {
+  type BallotMode,
+  type PixelDimensions,
+  type Pixels,
+  type Point,
+} from './types';
 import React from 'react';
 
 export type FrameComponent<P> = (

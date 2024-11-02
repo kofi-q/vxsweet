@@ -2,8 +2,9 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { Keybinding, simulateKeyPress } from '@vx/libs/ui/src';
-import { BallotStyleId } from '@vx/libs/types/src';
+import { Keybinding } from '@vx/libs/ui/src';
+import { simulateKeyPress } from '@vx/libs/ui/src/accessible_controllers';
+import { type BallotStyleId } from '@vx/libs/types/src';
 import { render, screen, waitFor } from '../../test/react_testing_library';
 
 import { App } from '../app';
@@ -16,7 +17,10 @@ import {
   contest1candidate0,
 } from '../../test/helpers/election';
 
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

@@ -6,7 +6,7 @@ import { ReadOnLoad } from './read_on_load';
 import { render, screen } from '../../test/react_testing_library';
 import { UiStringsAudioContextProvider } from './audio_context';
 import {
-  UiStringsReactQueryApi,
+  type UiStringsReactQueryApi,
   createUiStringsApi,
 } from '../hooks/ui_strings_api';
 

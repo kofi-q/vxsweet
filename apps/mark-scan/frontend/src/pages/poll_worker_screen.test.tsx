@@ -24,11 +24,11 @@ import {
   electionGeneralDefinition,
 } from '@vx/libs/fixtures/src';
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   formatElectionHashes,
-  InsertedSmartCardAuth,
   LanguageCode,
 } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 
 import {
   BooleanEnvironmentVariableName,
@@ -44,14 +44,20 @@ import {
 import userEvent from '@testing-library/user-event';
 
 import { assertDefined, DateWithoutTime } from '@vx/libs/basics/src';
-import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../../backend/src/custom-paper-handler/types';
 import { fireEvent, screen } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';
 
-import { PollWorkerScreen, PollworkerScreenProps } from './poll_worker_screen';
+import {
+  PollWorkerScreen,
+  type PollworkerScreenProps,
+} from './poll_worker_screen';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import {
   mockCardlessVoterAuth,
   mockPollWorkerAuth,

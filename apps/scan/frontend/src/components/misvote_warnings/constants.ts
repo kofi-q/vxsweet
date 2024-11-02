@@ -1,5 +1,5 @@
-import { TouchSizeMode } from '@vx/libs/types/src';
-import { MisvoteWarningsConfig } from './types';
+import { type TouchSizeMode } from '@vx/libs/types/src';
+import { type MisvoteWarningsConfig } from './types';
 
 /**
  * Layout configuration params for each {@link TouchSizeMode} - these were manually

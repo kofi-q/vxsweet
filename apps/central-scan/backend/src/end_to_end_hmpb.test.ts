@@ -9,9 +9,9 @@ jest.mock('@vx/libs/utils/src', () => {
 import {
   getCastVoteRecordExportDirectoryPaths,
   isTestReport,
-  mockElectionPackageFileTree,
   readCastVoteRecordExport,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { BallotType, CVR, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import {

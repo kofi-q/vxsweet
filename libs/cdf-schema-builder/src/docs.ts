@@ -1,4 +1,8 @@
-import { DocumentedEntity, DocumentedProperty, DocumentedType } from './types';
+import {
+  type DocumentedEntity,
+  type DocumentedProperty,
+  type DocumentedType,
+} from './types';
 
 /**
  * Finds the documentation for a given type.

@@ -1,10 +1,8 @@
 import { safeParseJson } from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
 import { assertDefined } from '@vx/libs/basics/src';
-import {
-  generateElection,
-  GenerateElectionConfigSchema,
-} from '../../generate-election';
+import { generateElection } from '../../generate-election/generate_election';
+import { GenerateElectionConfigSchema } from '../../generate-election/config';
 
 interface IO {
   stdin: NodeJS.ReadableStream;

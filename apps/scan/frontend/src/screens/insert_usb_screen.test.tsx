@@ -4,7 +4,7 @@ import { render as baseRender } from '../../test/react_testing_library';
 import { InsertUsbScreen } from './insert_usb_screen';
 import { useSound } from '../utils/use_sound';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
   statusNoPaper,

@@ -1,16 +1,14 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
-import { LanguageCode, SizeMode } from '@vx/libs/types/src';
+import { LanguageCode, type SizeMode } from '@vx/libs/types/src';
 
 import { Screen } from '../screen';
 import { Button } from '../button';
-import {
-  AudioOnly,
-  ReadOnLoad,
-  appStrings,
-  electionStrings,
-} from '../ui_strings';
+import { AudioOnly } from '../ui_strings/audio_only';
+import { ReadOnLoad } from '../ui_strings/read_on_load';
+import { appStrings } from '../ui_strings/app_strings';
+import { electionStrings } from '../ui_strings/election_strings';
 import { useCurrentLanguage } from '../hooks/use_current_language';
 import { useAvailableLanguages } from '../hooks/use_available_languages';
 import { useLanguageControls } from '../hooks/use_language_controls';
@@ -19,10 +17,8 @@ import { RadioGroup } from '../radio_group';
 import { DEFAULT_LANGUAGE_CODE } from '../ui_strings/language_context';
 import { useScreenInfo } from '../hooks/use_screen_info';
 import { WithScrollButtons } from '../with_scroll_buttons';
-import {
-  PageNavigationButtonId,
-  AssistiveTechInstructions,
-} from '../accessible_controllers';
+import { PageNavigationButtonId } from '../accessible_controllers/navigation';
+import { AssistiveTechInstructions } from '../accessible_controllers/assistive_tech_instructions';
 
 export interface LanguageSettingsScreenProps {
   onDone: () => void;

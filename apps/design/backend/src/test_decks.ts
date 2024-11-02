@@ -1,12 +1,12 @@
 import { assert, assertDefined, find, uniqueBy } from '@vx/libs/basics/src';
 import {
   Admin,
-  BallotStyleId,
-  ContestId,
-  Election,
-  ElectionDefinition,
-  GridLayout,
-  PrecinctId,
+  type BallotStyleId,
+  type ContestId,
+  type Election,
+  type ElectionDefinition,
+  type GridLayout,
+  type PrecinctId,
   Tabulation,
   getGroupIdFromBallotStyleId,
 } from '@vx/libs/types/src';
@@ -14,19 +14,21 @@ import {
   combineElectionResults,
   convertVotesDictToTabulationVotes,
   filterVotesByContestIds,
-  generateTestDeckBallots,
   getBallotStyleIdPartyIdLookup,
   groupMapToGroupList,
   tabulateCastVoteRecords,
-  TestDeckBallot as TestDeckBallotSpec,
+} from '@vx/libs/utils/src/tabulation';
+import {
+  generateTestDeckBallots,
+  type TestDeckBallot as TestDeckBallotSpec,
 } from '@vx/libs/utils/src';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { Buffer } from 'node:buffer';
-import { AdminTallyReportByParty } from '@vx/libs/ui/src';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src/reports';
 import {
-  BaseBallotProps,
-  RenderDocument,
-  Renderer,
+  type BaseBallotProps,
+  type RenderDocument,
+  type Renderer,
   markBallotDocument,
   concatenatePdfs,
 } from '@vx/libs/hmpb/src';

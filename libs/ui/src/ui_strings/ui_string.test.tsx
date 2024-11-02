@@ -1,5 +1,5 @@
-import { LanguageCode, UiStringsPackage } from '@vx/libs/types/src';
-import { H1 } from '..';
+import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
+import { H1 } from '../typography';
 import {
   act,
   render as renderWithoutContext,

@@ -1,6 +1,6 @@
 import { extractErrorMessage } from '@vx/libs/basics/src';
 
-import { constructMachineCertSubject, MachineType } from '../../src/certs';
+import { constructMachineCertSubject, type MachineType } from '../../src/certs';
 import { createCertSigningRequest } from '../../src/cryptography';
 import { getRequiredEnvVar } from '../../src/env_vars';
 

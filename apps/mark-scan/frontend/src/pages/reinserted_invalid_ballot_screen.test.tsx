@@ -1,9 +1,9 @@
 jest.mock('../api');
 
 import {
-  BallotMetadata,
-  PageInterpretation,
-  PageInterpretationType,
+  type BallotMetadata,
+  type PageInterpretation,
+  type PageInterpretationType,
 } from '@vx/libs/types/src';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';

@@ -2,12 +2,11 @@ import path from 'node:path';
 import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
 import { assertDefined } from '@vx/libs/basics/src';
 
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { WORKSPACE } from '../globals';
-import {
-  GoogleCloudSpeechSynthesizer,
-  GoogleCloudTranslator,
-} from '../language_and_audio';
+import { GoogleCloudSpeechSynthesizer } from '../language_and_audio/speech_synthesizer';
+import { GoogleCloudTranslator } from '../language_and_audio/translator';
 import { createWorkspace } from '../workspace';
 import * as worker from './worker';
 

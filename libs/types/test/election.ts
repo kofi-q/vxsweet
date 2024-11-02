@@ -1,5 +1,9 @@
 import { assertDefined } from '@vx/libs/basics/src';
-import { BallotStyle, Election, PartyIdSchema } from '../src/election';
+import {
+  type BallotStyle,
+  type Election,
+  PartyIdSchema,
+} from '../src/election';
 import { safeParseElection } from '../src/election_parsing';
 import { unsafeParse } from '../src/generic';
 

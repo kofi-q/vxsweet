@@ -4,14 +4,15 @@ jest.mock('./exec', (): typeof import('./exec') => ({
 }));
 
 import { mockOf } from '@vx/libs/test-utils/src';
-import { err, iter, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { Buffer } from 'node:buffer';
 import { readFile, symlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { DirResult, dirSync } from 'tmp';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { Exporter, ExportDataResult } from './exporter';
+import { Exporter, type ExportDataResult } from './exporter';
 import { execFile } from './exec';
 
 const TMPDIR = process.env.TMPDIR || '/tmp';

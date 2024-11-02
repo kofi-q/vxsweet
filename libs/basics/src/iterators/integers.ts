@@ -1,5 +1,5 @@
 import { iter } from './iter';
-import { IteratorPlus } from './types';
+import { type IteratorPlus } from './types';
 
 /**
  * Builds an infinite generator starting at 0 yielding successive integers.

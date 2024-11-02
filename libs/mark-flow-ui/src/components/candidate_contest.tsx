@@ -3,10 +3,10 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import {
-  Candidate,
-  CandidateVote,
-  CandidateContest as CandidateContestInterface,
-  Election,
+  type Candidate,
+  type CandidateVote,
+  type CandidateContest as CandidateContestInterface,
+  type Election,
   getContestDistrict,
 } from '@vx/libs/types/src';
 import {
@@ -22,22 +22,26 @@ import {
   WithScrollButtons,
   ModalWidth,
   useScreenInfo,
+} from '@vx/libs/ui/src';
+import {
   appStrings,
   CandidatePartyList,
   NumberString,
   AudioOnly,
   electionStrings,
   ReadOnLoad,
+} from '@vx/libs/ui/src/ui_strings';
+import {
   AssistiveTechInstructions,
   PageNavigationButtonId,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 import { assert } from '@vx/libs/basics/src';
 
-import { UpdateVoteFunction } from '../config/types';
+import { type UpdateVoteFunction } from '../config/types';
 
 import { WRITE_IN_CANDIDATE_MAX_LENGTH } from '../config/globals';
 import { ChoicesGrid } from './contest_screen_layout';
-import { BreadcrumbMetadata, ContestHeader } from './contest_header';
+import { type BreadcrumbMetadata, ContestHeader } from './contest_header';
 
 interface Props {
   breadcrumbs?: BreadcrumbMetadata;

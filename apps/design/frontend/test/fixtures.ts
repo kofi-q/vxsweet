@@ -1,18 +1,18 @@
-import type { ElectionRecord } from '@vx/apps/design/backend/src';
+import { type ElectionRecord } from '../../backend/src/store';
 import {
   createBlankElection,
   convertVxfPrecincts,
-  generateBallotStyles,
-  BallotLanguageConfigs,
-} from '@vx/apps/design/backend/src';
+} from '../../backend/src/app';
+import { generateBallotStyles } from '../../backend/src/ballot_styles';
+import { type BallotLanguageConfigs } from '../../backend/src/types';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionGeneral,
 } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  Election,
-  ElectionId,
+  type Election,
+  type ElectionId,
   LanguageCode,
 } from '@vx/libs/types/src';
 import { generateId } from '../src/utils';

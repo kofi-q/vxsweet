@@ -1,5 +1,6 @@
 import { assert } from '@vx/libs/basics/src';
-import { BaseLogger, LogEventId, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Buffer } from 'node:buffer';
 import { createHash } from 'node:crypto';
 import makeDebug from 'debug';

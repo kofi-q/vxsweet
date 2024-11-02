@@ -9,7 +9,7 @@ import { Store } from './store';
 import { createWorkspace } from './util/workspace';
 import { buildApi } from './app';
 import { buildMockLogger } from '../test/app_helpers';
-import { PaperHandlerStateMachine } from './custom-paper-handler';
+import { type PaperHandlerStateMachine } from './custom-paper-handler/state_machine';
 
 function getMockStateMachine() {
   return typedAs<Partial<PaperHandlerStateMachine>>({

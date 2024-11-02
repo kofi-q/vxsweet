@@ -16,14 +16,14 @@ import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { assertDefined } from '@vx/libs/basics/src';
 import {
   HmpbBallotPaperSize,
-  Election,
+  type Election,
   getPartyForBallotStyle,
 } from '@vx/libs/types/src';
 import { useState } from 'react';
 import { getElection, updateElection } from './api';
 import { Form, FormActionsRow, NestedTr } from './layout';
 import { ElectionNavScreen } from './nav_screen';
-import { ElectionIdParams, electionParamRoutes, routes } from './routes';
+import { type ElectionIdParams, electionParamRoutes, routes } from './routes';
 import { hasSplits } from './utils';
 import { BallotScreen, paperSizeLabels } from './ballot_screen';
 

@@ -1,6 +1,8 @@
 import fc from 'fast-check';
 import { WriteInEncoding } from '../src';
-import { BitReader, BitWriter, toUint8 } from '../src/bits';
+import { BitReader } from '../src/bits/bit_reader';
+import { BitWriter } from '../src/bits/bit_writer';
+import { toUint8 } from '../src/bits/utils';
 import { anyWritable, doReads, doWrites, writeInChar } from './utils';
 
 test('read/write booleans', () => {

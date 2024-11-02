@@ -3,12 +3,16 @@ import React from 'react';
 import styled, { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { rgba } from 'polished';
-import { SizeMode, TouchSizeMode, isTouchSizeMode } from '@vx/libs/types/src';
+import {
+  type SizeMode,
+  type TouchSizeMode,
+  isTouchSizeMode,
+} from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import { Button } from './button';
 import { Icons } from './icons';
 import { makeTheme } from './themes/make_theme';
-import { appStrings } from './ui_strings';
+import { appStrings } from './ui_strings/app_strings';
 
 export interface WithScrollButtonsProps {
   children: React.ReactNode;

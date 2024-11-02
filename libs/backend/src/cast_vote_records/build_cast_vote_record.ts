@@ -1,42 +1,42 @@
 import {
-  Optional,
+  type Optional,
   assert,
   assertDefined,
   find,
-  iter,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  AnyContest,
-  BallotId,
-  BallotMark,
+  type AnyContest,
+  type BallotId,
+  type BallotMark,
   BallotType,
-  Candidate,
-  CandidateContest,
-  CandidateVote,
+  type Candidate,
+  type CandidateContest,
+  type CandidateVote,
   CVR,
-  Election,
-  ElectionDefinition,
+  type Election,
+  type ElectionDefinition,
   getBallotStyle,
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
   MarkStatus,
   safeParseInt,
-  SheetOf,
-  VotesDict,
-  YesNoContest,
-  YesNoVote,
+  type SheetOf,
+  type VotesDict,
+  type YesNoContest,
+  type YesNoVote,
 } from '@vx/libs/types/src';
 import {
   UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS,
   buildCVRSnapshotBallotTypeMetadata,
-  getContestById,
   getMarkStatus,
 } from '@vx/libs/utils/src';
+import { getContestById } from '@vx/libs/utils/src/tabulation';
 
 import {
-  ContestOptionPositionMap,
-  ElectionOptionPositionMap,
+  type ContestOptionPositionMap,
+  type ElectionOptionPositionMap,
 } from './option_map';
 
 /**

@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components';
 
-import { ColorMode, SizeMode } from '@vx/libs/types/src';
+import { type ColorMode, type SizeMode } from '@vx/libs/types/src';
 
 import { makeTheme } from '../themes/make_theme';
 

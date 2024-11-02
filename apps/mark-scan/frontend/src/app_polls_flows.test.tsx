@@ -4,7 +4,7 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../test/react_testing_library';
 import { buildApp } from '../test/helpers/build_app';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

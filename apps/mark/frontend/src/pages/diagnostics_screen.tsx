@@ -10,16 +10,16 @@ import {
   P,
   Caption,
   Icons,
-  PrinterStatusDisplay,
 } from '@vx/libs/ui/src';
+import { PrinterStatusDisplay } from '@vx/libs/ui/src/diagnostics';
 import { format, formatTime } from '@vx/libs/utils/src';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { PrinterStatus } from '@vx/libs/types/src';
-import type { BatteryInfo } from '@vx/libs/backend/src';
+import { type PrinterStatus } from '@vx/libs/types/src';
+import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import {
   AccessibleControllerDiagnosticScreen,
-  AccessibleControllerDiagnosticResults,
+  type AccessibleControllerDiagnosticResults,
 } from './accessible_controller_diagnostic_screen';
 import {
   getAccessibleControllerConnected,

@@ -4,7 +4,9 @@
  */
 
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import { BaseLogEventDetails, AppName, LogEventType } from './base_types';
+import { type BaseLogEventDetails } from './base_types/base_log_event_details';
+import { AppName } from './base_types/log_source';
+import { LogEventType } from './base_types/log_event_types';
 
 export interface LogDetails extends Omit<BaseLogEventDetails, 'eventId'> {
   // LogEventId is generated later in this file

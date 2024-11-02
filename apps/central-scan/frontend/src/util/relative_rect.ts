@@ -1,4 +1,4 @@
-import { Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/src';
 
 /**
  * Builds a function to convert rect absolute values to relative percentage

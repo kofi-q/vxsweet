@@ -1,7 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
+import {
+  type ColorMode,
+  type ScreenType,
+  type SizeMode,
+} from '@vx/libs/types/src';
 
 import { makeTheme } from './make_theme';
 

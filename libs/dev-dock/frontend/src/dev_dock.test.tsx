@@ -9,8 +9,11 @@ jest.mock('@vx/libs/utils/src', () => {
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { Buffer } from 'node:buffer';
 import userEvent from '@testing-library/user-event';
-import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
-import type { Api } from '@vx/libs/dev-dock/backend/src';
+import {
+  createMockClient,
+  type MockClient,
+} from '@vx/libs/grout/test-utils/src';
+import { type Api } from '../../backend/src/dev_dock_api';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -22,7 +25,7 @@ import {
   mockKiosk,
   mockFileWriter,
 } from '@vx/libs/test-utils/src';
-import { CardStatus } from '@vx/libs/auth/src';
+import { type CardStatus } from '@vx/libs/auth/src';
 import { DevDock } from './dev_dock';
 
 const noCardStatus: CardStatus = {

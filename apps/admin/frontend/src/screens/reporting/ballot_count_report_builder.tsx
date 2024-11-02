@@ -4,18 +4,18 @@ import { assert } from '@vx/libs/basics/src';
 import {
   getMaxSheetsPerBallot,
   isElectionManagerAuth,
-  isGroupByEmpty,
 } from '@vx/libs/utils/src';
+import { isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';
 import {
   FilterEditor,
-  FilterType,
+  type FilterType,
 } from '../../components/reporting/filter_editor';
 import {
   GroupByEditor,
-  GroupByEditorOption,
+  type GroupByEditorOption,
 } from '../../components/reporting/group_by_editor';
 import {
   canonicalizeFilter,

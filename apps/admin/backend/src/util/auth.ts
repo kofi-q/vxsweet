@@ -1,12 +1,13 @@
 import {
   DEV_JURISDICTION,
-  DippedSmartCardAuthApi,
-  DippedSmartCardAuthMachineState,
+  type DippedSmartCardAuthApi,
+  type DippedSmartCardAuthMachineState,
 } from '@vx/libs/auth/src';
 import { isIntegrationTest } from '@vx/libs/utils/src';
-import { DEFAULT_SYSTEM_SETTINGS, TEST_JURISDICTION } from '@vx/libs/types/src';
-import { LoggingUserRole } from '@vx/libs/logging/src';
-import { Workspace } from './workspace';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+import { type LoggingUserRole } from '@vx/libs/logging/src';
+import { type Workspace } from './workspace';
 
 /**
  * Construct the auth state machine based on the election state in the store.

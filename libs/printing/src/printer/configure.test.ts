@@ -2,7 +2,7 @@ jest.mock('../utils/exec');
 
 import { ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { BROTHER_THERMAL_PRINTER_CONFIG, getPpdPath } from '.';
+import { BROTHER_THERMAL_PRINTER_CONFIG, getPpdPath } from './supported';
 import { exec } from '../utils/exec';
 import { DEFAULT_MANAGED_PRINTER_NAME, configurePrinter } from './configure';
 

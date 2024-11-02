@@ -4,10 +4,9 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   constructElectionKey,
-  ElectionDefinition,
   InsertedSmartCardAuth,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { type ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
 
 import {
   singlePrecinctSelectionFor,
@@ -27,9 +26,15 @@ import { render } from '../../test/test_utils';
 
 import { defaultPrecinctId } from '../../test/helpers/election';
 
-import { PollWorkerScreen, PollworkerScreenProps } from './poll_worker_screen';
+import {
+  PollWorkerScreen,
+  type PollworkerScreenProps,
+} from './poll_worker_screen';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { ApiProvider } from '../api_provider';
 
 const { election } = electionGeneralDefinition;

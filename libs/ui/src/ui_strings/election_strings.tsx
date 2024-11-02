@@ -1,18 +1,18 @@
 /* eslint-disable react/destructuring-assignment */
 
 import {
-  BallotStyle,
-  Candidate,
-  CandidateContest,
-  ContestLike,
-  County,
-  District,
-  Election,
+  type BallotStyle,
+  type Candidate,
+  type CandidateContest,
+  type ContestLike,
+  type County,
+  type District,
+  type Election,
   ElectionStringKey as Key,
   LanguageCode,
-  Party,
-  Precinct,
-  YesNoOption,
+  type Party,
+  type Precinct,
+  type YesNoOption,
 } from '@vx/libs/types/src';
 import { format } from '@vx/libs/utils/src';
 

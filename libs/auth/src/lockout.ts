@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
-import { Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
 import {
-  NumIncorrectPinAttemptsAllowedBeforeCardLockout,
-  StartingCardLockoutDurationSeconds,
-} from '@vx/libs/types/src';
+  type NumIncorrectPinAttemptsAllowedBeforeCardLockout,
+  type StartingCardLockoutDurationSeconds,
+} from '@vx/libs/types/src/auth';
 
 /**
  * Config params for card lockout

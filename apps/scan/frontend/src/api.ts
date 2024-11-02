@@ -1,4 +1,5 @@
-import type { Api, PrecinctScannerStatus } from '@vx/apps/scan/backend/src';
+import { type Api } from '../../backend/src/app';
+import { type PrecinctScannerStatus } from '../../backend/src/types';
 import React from 'react';
 import * as grout from '@vx/libs/grout/src';
 import {
@@ -16,7 +17,7 @@ import {
   createUiStringsApi,
   createSystemCallApi,
 } from '@vx/libs/ui/src';
-import { DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 

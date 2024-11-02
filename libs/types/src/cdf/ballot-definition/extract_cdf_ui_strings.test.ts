@@ -1,6 +1,6 @@
 import { assertDefined } from '@vx/libs/basics/src';
 import { extractCdfUiStrings } from './convert';
-import * as BallotDefinition from './index';
+import * as BallotDefinition from '.';
 import { testCdfBallotDefinition } from './fixtures';
 import { ElectionStringKey } from '../../ui_string_translations';
 import { LanguageCode } from '../../language_code';

@@ -2,13 +2,13 @@ import { createMemoryHistory, History } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';
 import {
-  BallotStyleId,
-  Contests,
-  ElectionDefinition,
-  PrecinctId,
-  VotesDict,
+  type BallotStyleId,
+  type Contests,
+  type ElectionDefinition,
+  type PrecinctId,
+  type VotesDict,
 } from '@vx/libs/types/src';
-import { MachineConfig } from '@vx/apps/mark/backend/src';
+import { type MachineConfig } from '../../backend/src/types';
 
 import { randomBallotId } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';

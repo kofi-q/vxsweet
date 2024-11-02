@@ -1,6 +1,6 @@
 import { AsyncIteratorPlusImpl } from './async_iterator_plus';
 import { IteratorPlusImpl } from './iterator_plus';
-import { AsyncIteratorPlus, IteratorPlus } from './types';
+import { type AsyncIteratorPlus, type IteratorPlus } from './types';
 
 /**
  * Wraps iterables to make working with them easier. See {@link IteratorPlus}

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { Optional, sleep } from '@vx/libs/basics/src';
+import { type Optional, sleep } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { writeFile } from 'node:fs/promises';
 import * as readline from 'node:readline';
@@ -13,11 +13,11 @@ import {
   ImageColorDepthType,
   ImageResolution,
   ReleaseType,
-  ScanParameters,
+  type ScanParameters,
   ScanSide,
   SensorStatus,
 } from '../../types';
-import { CustomScanner } from '../../types/custom_scanner';
+import { type CustomScanner } from '../../types/custom_scanner';
 import { watchStatus } from '../../utils/status_watcher';
 
 function readlines(prompt = '> '): AsyncIterableIterator<string> {

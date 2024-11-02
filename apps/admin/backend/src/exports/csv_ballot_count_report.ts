@@ -1,21 +1,21 @@
 import { stringify } from 'csv-stringify/sync';
 import {
   Tabulation,
-  ElectionDefinition,
-  Id,
-  Election,
+  type ElectionDefinition,
+  type Id,
+  type Election,
 } from '@vx/libs/types/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import {
   combineGroupSpecifierAndFilter,
   getBallotCount,
-  getMaxSheetsPerBallot,
   getHmpbBallotCount,
   groupMapToGroupList,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
+import { getMaxSheetsPerBallot } from '@vx/libs/utils/src';
 import { Store } from '../store';
 import {
-  CsvMetadataStructure,
+  type CsvMetadataStructure,
   determineCsvMetadataStructure,
   generateBatchLookup,
   generateCsvMetadataHeaders,

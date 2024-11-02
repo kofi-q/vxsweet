@@ -5,7 +5,7 @@ import { LanguageCode } from '@vx/libs/types/src';
 
 import { useAudioContext } from './audio_context';
 import { useCurrentLanguage } from '../hooks/use_current_language';
-import { UiStringsReactQueryApi } from '../hooks/ui_strings_api';
+import { type UiStringsReactQueryApi } from '../hooks/ui_strings_api';
 
 export enum UiStringAudioDataAttributeName {
   I18N_KEY = 'data-i18n-key',

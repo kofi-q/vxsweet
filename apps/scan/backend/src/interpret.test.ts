@@ -1,4 +1,5 @@
-import { assertDefined, iter, typedAs } from '@vx/libs/basics/src';
+import { assertDefined, typedAs } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
@@ -14,11 +15,11 @@ import {
   AdjudicationReason,
   BallotType,
   DEFAULT_MARK_THRESHOLDS,
-  HmpbBallotPageMetadata,
-  InterpretedHmpbPage,
-  PageInterpretation,
-  SheetInterpretation,
-  SheetOf,
+  type HmpbBallotPageMetadata,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
+  type SheetInterpretation,
+  type SheetOf,
   asSheet,
 } from '@vx/libs/types/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';

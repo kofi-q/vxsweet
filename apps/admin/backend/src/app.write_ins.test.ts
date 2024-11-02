@@ -15,23 +15,25 @@ import { toDataUrl, loadImageData } from '@vx/libs/image-utils/src';
 import { join } from 'node:path';
 import {
   BooleanEnvironmentVariableName,
-  ContestResultsSummary,
   UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS,
-  buildElectionResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { CVR, Id, Rect, Tabulation } from '@vx/libs/types/src';
-import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
+import {
+  type ContestResultsSummary,
+  buildElectionResultsFixture,
+} from '@vx/libs/utils/src/tabulation';
+import { CVR, type Id, type Rect, Tabulation } from '@vx/libs/types/src';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
 import {
   buildTestEnvironment,
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
 import {
-  BmdWriteInImageView,
-  HmpbWriteInImageView,
-  WriteInAdjudicationContext,
-  WriteInRecord,
+  type BmdWriteInImageView,
+  type HmpbWriteInImageView,
+  type WriteInAdjudicationContext,
+  type WriteInRecord,
 } from './types';
 
 jest.setTimeout(30_000);

@@ -1,16 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { v4 as uuid } from 'uuid';
-import { AcceptedSheet } from '@vx/libs/backend/src';
+import { type AcceptedSheet } from '@vx/libs/backend/src/cast_vote_records';
 import {
   assert,
   assertDefined,
   extractErrorMessage,
-  iter,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { safeParseInt } from '@vx/libs/types/src';
 
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { SCAN_WORKSPACE } from '../src/globals';
 import { Store } from '../src/store';
 import { createWorkspace } from '../src/util/workspace';

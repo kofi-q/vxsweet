@@ -5,11 +5,11 @@ import {
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
-import { getEmptyElectionResults } from '@vx/libs/utils/src';
+import { getEmptyElectionResults } from '@vx/libs/utils/src/tabulation';
 import {
   convertContestWriteInSummaryToWriteInTallies,
   getEmptyContestWriteInSummary,
@@ -19,7 +19,7 @@ import {
   combineElectionWriteInSummaries,
 } from './write_ins';
 import {
-  MockCastVoteRecordFile,
+  type MockCastVoteRecordFile,
   addMockCvrFileToStore,
 } from '../../test/mock_cvr_file';
 import { Store } from '../store';

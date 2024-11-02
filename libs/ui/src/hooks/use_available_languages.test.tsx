@@ -4,7 +4,7 @@ import { LanguageCode } from '@vx/libs/types/src';
 
 import { createUiStringsApi } from './ui_strings_api';
 import { useAvailableLanguages } from './use_available_languages';
-import { UiStringsContextProvider } from '../ui_strings';
+import { UiStringsContextProvider } from '../ui_strings/ui_strings_context';
 import { DEFAULT_LANGUAGE_CODE } from '../ui_strings/language_context';
 import { renderHook, waitFor } from '../../test/react_testing_library';
 

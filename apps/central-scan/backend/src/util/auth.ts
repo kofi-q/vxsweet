@@ -1,10 +1,10 @@
 import {
-  DippedSmartCardAuthApi,
-  DippedSmartCardAuthMachineState,
+  type DippedSmartCardAuthApi,
+  type DippedSmartCardAuthMachineState,
 } from '@vx/libs/auth/src';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
-import { LoggingUserRole } from '@vx/libs/logging/src';
-import { Workspace } from './workspace';
+import { type LoggingUserRole } from '@vx/libs/logging/src';
+import { type Workspace } from './workspace';
 
 export function constructAuthMachineState(
   workspace: Workspace

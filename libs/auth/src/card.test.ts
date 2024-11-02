@@ -10,7 +10,7 @@ import {
   arePollWorkerCardDetails,
   areSystemAdministratorCardDetails,
   areVendorCardDetails,
-  CardDetails,
+  type CardDetails,
 } from './card';
 
 const vendorUser = mockVendorUser();

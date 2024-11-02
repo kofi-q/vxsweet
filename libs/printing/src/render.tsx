@@ -12,7 +12,7 @@ import {
   VxThemeProvider,
   FONT_AWESOME_STYLES,
 } from '@vx/libs/ui/src';
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 
 const PLAYWRIGHT_PIXELS_PER_INCH = 96;
 const MAX_HTML_CHARACTERS = 5_000_000;

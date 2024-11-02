@@ -1,6 +1,6 @@
 import { err, ok } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { screen } from '../test/react_testing_library';
 import { ExportLogsButton } from './export_logs_modal';
 import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';

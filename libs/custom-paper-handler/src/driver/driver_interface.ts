@@ -1,26 +1,31 @@
-import { Coder, CoderError, Uint16, Uint8 } from '@vx/libs/message-coder/src';
-import { Result } from '@vx/libs/basics/src';
+import {
+  type Coder,
+  type CoderError,
+  type Uint16,
+  type Uint8,
+} from '@vx/libs/message-coder/src';
+import { type Result } from '@vx/libs/basics/src';
 import { ImageData } from '@vx/libs/image-utils/src';
 import {
-  PrintingDensity,
-  PrintingSpeed,
+  type PrintingDensity,
+  type PrintingSpeed,
   RealTimeRequestIds,
 } from './constants';
 import {
-  PaperHandlerBitmap,
-  PaperHandlerStatus,
+  type PaperHandlerBitmap,
+  type PaperHandlerStatus,
   PrinterStatusRealTimeExchangeResponse,
   RealTimeExchangeResponseWithoutData,
   SensorStatusRealTimeExchangeResponse,
 } from './coders';
 import {
-  PaperMovementAfterScan,
-  Resolution,
-  ScanDataFormat,
-  ScanDirection,
-  ScanLight,
+  type PaperMovementAfterScan,
+  type Resolution,
+  type ScanDataFormat,
+  type ScanDirection,
+  type ScanLight,
 } from './scanner_config';
-import { ScannerCapability } from './scanner_capability';
+import { type ScannerCapability } from './scanner_capability';
 
 export interface PaperHandlerDriverInterface {
   connect(): Promise<void>;

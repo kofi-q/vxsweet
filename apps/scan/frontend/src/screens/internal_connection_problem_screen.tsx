@@ -1,11 +1,6 @@
-import {
-  CenteredLargeProse,
-  H1,
-  P,
-  PowerDownButton,
-  appStrings,
-} from '@vx/libs/ui/src';
-import type { PrinterStatus } from '@vx/apps/scan/backend/src';
+import { CenteredLargeProse, H1, P, PowerDownButton } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { type PrinterStatus } from '../../../backend/src/printing/printer';
 import { ScreenMainCenterChild } from '../components/layout';
 
 function PrinterErrorMessage({

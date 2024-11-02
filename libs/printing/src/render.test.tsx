@@ -1,20 +1,20 @@
 import {
   getEmptyCardCounts,
   getEmptyElectionResults,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   AdminTallyReportByParty,
-  AdminTallyReportByPartyProps,
-  P,
-  useCurrentTheme,
-} from '@vx/libs/ui/src';
+  type AdminTallyReportByPartyProps,
+} from '@vx/libs/ui/src/reports';
+import { P, useCurrentTheme } from '@vx/libs/ui/src';
 import { tmpNameSync } from 'tmp';
 import { parsePdf } from '@vx/libs/image-utils/src';
 import { writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
-import { err, iter } from '@vx/libs/basics/src';
-import { PAPER_DIMENSIONS, RenderSpec, renderToPdf } from './render';
+import { err } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { PAPER_DIMENSIONS, type RenderSpec, renderToPdf } from './render';
 import '@vx/libs/image-test-utils/register';
 
 const { electionDefinition } = electionFamousNames2021Fixtures;

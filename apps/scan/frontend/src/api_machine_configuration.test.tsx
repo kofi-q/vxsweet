@@ -3,7 +3,7 @@ import { ok } from '@vx/libs/basics/src';
 import React from 'react';
 import { renderHook, waitFor } from '../test/react_testing_library';
 import {
-  ApiClient,
+  type ApiClient,
   configureFromElectionPackageOnUsbDrive,
   createApiClient,
   uiStringsApi,

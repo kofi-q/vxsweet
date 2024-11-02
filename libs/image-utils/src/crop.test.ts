@@ -1,10 +1,10 @@
-import { Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/src';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';
 import { arbitraryImageData, arbitraryRect } from '../test/arbitraries';
 import { crop } from './crop';
-import { int } from './types';
-import { RGBA_CHANNEL_COUNT } from '.';
+import { type int } from './types';
+import { RGBA_CHANNEL_COUNT } from './image_data';
 
 /**
  * A slow-but-accurate implementation of `crop` to compare against.

@@ -1,8 +1,8 @@
 import {
-  IppMarkerInfo,
-  PrinterConfig,
-  PrinterRichStatus,
-  PrinterStatus,
+  type IppMarkerInfo,
+  type PrinterConfig,
+  type PrinterRichStatus,
+  type PrinterStatus,
 } from '@vx/libs/types/src';
 
 export const MOCK_MARKER_INFO: IppMarkerInfo = {

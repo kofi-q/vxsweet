@@ -1,5 +1,5 @@
-jest.mock('@vx/libs/backend/src', () => ({
-  ...jest.requireActual('@vx/libs/backend/src'),
+jest.mock('@vx/libs/backend/src/cast_vote_records', () => ({
+  ...jest.requireActual('@vx/libs/backend/src/cast_vote_records'),
   doesUsbDriveRequireCastVoteRecordSync: jest.fn(),
 }));
 
@@ -14,8 +14,11 @@ import {
 } from '@vx/libs/test-utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
-import { constructElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
-import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/src';
+import {
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
+import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/src/cast_vote_records';
 import { isReadyToScan } from './app_flow';
 import { Store } from './store';
 

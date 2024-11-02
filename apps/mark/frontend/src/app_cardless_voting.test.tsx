@@ -4,7 +4,7 @@ import {
 } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/src';
 import { render, screen, within } from '../test/react_testing_library';
 import * as GLOBALS from './config/globals';
 
@@ -13,7 +13,7 @@ import { App } from './app';
 import { presidentContest, voterContests } from '../test/helpers/election';
 import { withMarkup } from '../test/helpers/with_markup';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

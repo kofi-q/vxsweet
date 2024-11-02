@@ -1,10 +1,11 @@
 import {
-  Candidate,
-  CandidateContest,
-  CandidateId,
+  type Candidate,
+  type CandidateContest,
+  type CandidateId,
   Tabulation,
 } from '@vx/libs/types/src';
-import { assertDefined, iter } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { combineCandidateContestResults } from './tabulation';
 
 type TallyReportCandidateRow = Candidate & {

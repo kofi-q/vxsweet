@@ -3,8 +3,8 @@ import { readElection } from '@vx/libs/fs/src';
 import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {
   DEFAULT_MARK_THRESHOLDS,
-  InterpretedHmpbPage,
-  PageInterpretation,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
   asSheet,
 } from '@vx/libs/types/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';

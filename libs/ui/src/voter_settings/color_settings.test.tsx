@@ -1,4 +1,4 @@
-import { UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/src';
 import { ThemeConsumer } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../../test/react_testing_library';

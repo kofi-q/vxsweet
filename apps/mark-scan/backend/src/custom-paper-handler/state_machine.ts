@@ -2,8 +2,8 @@
 import makeDebug from 'debug';
 import HID from 'node-hid';
 import {
-  PaperHandlerStatus,
-  PaperHandlerDriverInterface,
+  type PaperHandlerStatus,
+  type PaperHandlerDriverInterface,
   isPaperInScanner,
   isPaperReadyToLoad,
   isPaperInOutput,
@@ -12,7 +12,7 @@ import {
   isPaperInInput,
   isPaperParked,
   isCoverOpen,
-} from '@vx/libs/custom-paper-handler/src';
+} from '@vx/libs/custom-paper-handler/src/driver';
 import {
   assign as xassign,
   BaseActionObject,
@@ -29,19 +29,19 @@ import {
   EventObject,
 } from 'xstate';
 import { Buffer } from 'node:buffer';
-import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
+import { type Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
-  ElectionDefinition,
-  MarkThresholds,
-  PageInterpretationType,
-  SheetOf,
+  type ElectionDefinition,
+  type MarkThresholds,
+  type PageInterpretationType,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import {
-  InterpretFileResult,
+  type InterpretFileResult,
   interpretSimplexBmdBallot,
 } from '@vx/libs/ballot-interpreter/src';
-import { LogEventId, LogLine, Logger } from '@vx/libs/logging/src';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { LogEventId, type LogLine, Logger } from '@vx/libs/logging/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   BooleanEnvironmentVariableName,
   isCardlessVoterAuth,
@@ -53,8 +53,8 @@ import {
 import { readElection } from '@vx/libs/fs/src';
 import { loadImageData } from '@vx/libs/image-utils/src';
 import { Clock } from 'xstate/lib/interpreter';
-import { Workspace } from '../util/workspace';
-import { SimpleServerStatus } from './types';
+import { type Workspace } from '../util/workspace';
+import { type SimpleServerStatus } from './types';
 import { MAX_BALLOT_BOX_CAPACITY } from './constants';
 import {
   scanAndSave,
@@ -63,7 +63,7 @@ import {
   loadAndParkPaper,
   printBallotChunks,
 } from './application_driver';
-import { PatConnectionStatusReaderInterface } from '../pat-input/connection_status_reader';
+import { type PatConnectionStatusReaderInterface } from '../pat-input/connection_status_reader';
 import {
   ORIGIN_SWIFTY_PRODUCT_ID,
   ORIGIN_VENDOR_ID,
@@ -71,7 +71,7 @@ import {
 import {
   DIAGNOSTIC_ELECTION_PATH,
   renderDiagnosticMockBallot,
-} from './diagnostic';
+} from './diagnostic/utils';
 import { constructAuthMachineState } from '../util/auth';
 import { AudioOutput, setAudioOutput } from '../audio/outputs';
 import { BlankPageInterpretationDiagnosticError } from './diagnostic/blank_page_interpretation_diagnostic_error';

@@ -1,4 +1,4 @@
-import { CandidateContest, Tabulation } from '@vx/libs/types/src';
+import { type CandidateContest, Tabulation } from '@vx/libs/types/src';
 import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,
@@ -10,7 +10,7 @@ import { compressTally, readCompressedTally } from './compressed_tallies';
 import {
   buildElectionResultsFixture,
   getEmptyElectionResults,
-} from './tabulation';
+} from './tabulation/tabulation';
 
 describe('compressTally', () => {
   test('compressTally returns empty tally when no contest tallies provided', () => {

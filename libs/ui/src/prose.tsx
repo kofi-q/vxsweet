@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Theme } from './themes';
+import { type Theme } from './themes';
 
 // Prose!
 // Readable text content with typographic hierarchy using simple semantic html.

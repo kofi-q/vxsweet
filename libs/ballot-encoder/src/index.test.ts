@@ -1,19 +1,20 @@
 import { electionGeneralDefinition as electionDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotIdSchema,
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
   BallotTypeMaximumValue,
-  CompletedBallot,
+  type CompletedBallot,
   getContests,
-  HmpbBallotPageMetadata,
+  type HmpbBallotPageMetadata,
   isVotePresent,
   unsafeParse,
   vote,
-  VotesDict,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import '../test/expect';
-import { BitReader, BitWriter } from './bits';
+import { BitReader } from './bits/bit_reader';
+import { BitWriter } from './bits/bit_writer';
 import {
   decodeBallot,
   decodeBallotHash,
@@ -32,7 +33,7 @@ import {
   decodeBallotConfigFromReader,
   MAXIMUM_PRECINCTS,
   MAXIMUM_BALLOT_STYLES,
-} from './index';
+} from '.';
 
 const precinctBallotTypeIndex = Object.values(BallotType).indexOf(
   BallotType.Precinct

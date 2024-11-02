@@ -1,5 +1,5 @@
 import {
-  Result,
+  type Result,
   err,
   ok,
   throwIllegalValue,

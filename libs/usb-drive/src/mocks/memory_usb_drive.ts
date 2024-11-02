@@ -1,8 +1,12 @@
-import { MockFunction, mockFunction } from '@vx/libs/test-utils/src';
+import { type MockFunction, mockFunction } from '@vx/libs/test-utils/src';
 import { readdirSync, rmSync } from 'node:fs';
 import tmp from 'tmp';
-import { MockFileTree, TMP_DIR_PREFIX, writeMockFileTree } from './helpers';
-import { UsbDrive } from '../types';
+import {
+  type MockFileTree,
+  TMP_DIR_PREFIX,
+  writeMockFileTree,
+} from './helpers';
+import { type UsbDrive } from '../types';
 
 type MockedUsbDrive = {
   [Method in keyof UsbDrive]: MockFunction<UsbDrive[Method]>;

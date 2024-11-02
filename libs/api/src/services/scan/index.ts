@@ -1,9 +1,9 @@
 import {
-  BallotPageLayout,
+  type BallotPageLayout,
   BallotPageLayoutSchema,
-  BallotSheetInfo,
+  type BallotSheetInfo,
   BallotSheetInfoSchema,
-  Contest,
+  type Contest,
   IdSchema,
 } from '@vx/libs/types/src';
 import * as z from 'zod';

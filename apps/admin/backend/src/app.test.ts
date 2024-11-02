@@ -14,11 +14,11 @@ import {
 import { LogEventId } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   convertVxfElectionToCdfBallotDefinition,
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
-  PrinterStatus,
+  type PrinterStatus,
   safeParseElectionDefinition,
   testElectionReport,
   testElectionReportUnsupportedContestType,
@@ -27,7 +27,7 @@ import { suppressingConsoleOutput, zipFile } from '@vx/libs/test-utils/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   getMockConnectedPrinterStatus,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import { tmpNameSync } from 'tmp';
 import { writeFile } from 'node:fs/promises';
 import {
@@ -37,7 +37,10 @@ import {
   mockSystemAdministratorAuth,
   saveTmpFile,
 } from '../test/app';
-import { ManualResultsIdentifier, ManualResultsRecord } from './types';
+import {
+  type ManualResultsIdentifier,
+  type ManualResultsRecord,
+} from './types';
 
 let mockNodeEnv: 'production' | 'test' = 'test';
 

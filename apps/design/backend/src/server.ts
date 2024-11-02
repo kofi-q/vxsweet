@@ -1,5 +1,5 @@
 import { buildApp } from './app';
-import { AppContext } from './context';
+import { type AppContext } from './context';
 import { PORT } from './globals';
 
 /**

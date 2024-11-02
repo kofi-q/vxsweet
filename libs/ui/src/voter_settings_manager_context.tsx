@@ -1,7 +1,7 @@
 // istanbul ignore file: tested via AppBase
 import React from 'react';
 
-import { ColorMode, SizeMode } from '@vx/libs/types/src';
+import { type ColorMode, type SizeMode } from '@vx/libs/types/src';
 
 /** Provides an API for managing themes. */
 export interface VoterSettingsManagerContextInterface {

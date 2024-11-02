@@ -1,15 +1,15 @@
-import { Result, resultBlock } from '@vx/libs/basics/src';
+import { type Result, resultBlock } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { LiteralCoder } from './literal_coder';
 import { PaddingCoder } from './padding_coder';
 import {
-  BitLength,
-  BitOffset,
-  Coder,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
+  type BitLength,
+  type BitOffset,
+  type Coder,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
 } from './types';
 
 /**

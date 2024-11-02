@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { sleep } from '@vx/libs/basics/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 
-import { SignedHashValidationQrCodeValue } from '@vx/libs/types/src';
+import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';
 import { newTestContext } from '../test/test_context';
 import { SignedHashValidationButton } from './signed_hash_validation_button';
 

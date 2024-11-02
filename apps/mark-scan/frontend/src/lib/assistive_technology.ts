@@ -1,9 +1,9 @@
+import { Keybinding } from '@vx/libs/ui/src';
 import {
-  Keybinding,
   PageNavigationButtonId,
   advanceElementFocus,
   triggerPageNavigationButton,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 
 function handleClick() {
   if (document.activeElement instanceof HTMLElement) {

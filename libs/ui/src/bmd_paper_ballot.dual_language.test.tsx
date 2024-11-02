@@ -9,13 +9,13 @@ jest.mock('./ui_strings/ui_string', () => ({
 }));
 
 import {
-  CandidateContest,
-  Election,
-  ElectionDefinition,
+  type CandidateContest,
+  type Election,
+  type ElectionDefinition,
   ElectionStringKey,
   LanguageCode,
-  VotesDict,
-  YesNoContest,
+  type VotesDict,
+  type YesNoContest,
   getContests,
 } from '@vx/libs/types/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
@@ -25,10 +25,10 @@ import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { assertDefined, find } from '@vx/libs/basics/src';
 import { BmdPaperBallot } from './bmd_paper_ballot';
 import { newTestContext as newUiStringsTestContext } from '../test/test_context';
-import { UiString, UiStringProps } from './ui_strings/ui_string';
+import { UiString, type UiStringProps } from './ui_strings/ui_string';
 import { useLanguageContext } from './ui_strings/language_context';
 import { act, screen, waitFor } from '../test/react_testing_library';
-import { AppStringKey } from '.';
+import { type AppStringKey } from './ui_strings/app_strings';
 import {
   generateCandidateVotes,
   generateYesNoVote,

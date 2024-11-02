@@ -14,8 +14,8 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
-import { Result, deferred } from '@vx/libs/basics/src';
-import { ScannerError } from '@vx/libs/pdi-scanner/src/ts';
+import { type Result, deferred } from '@vx/libs/basics/src';
+import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import {
   configureApp,
   waitForStatus,

@@ -12,7 +12,7 @@ import {
 import makeDebug from 'debug';
 import { writeFile } from 'node:fs/promises';
 import { assertInteger } from './numeric';
-import { int, u8, usize } from './types';
+import { type int, type u8, type usize } from './types';
 
 const debug = makeDebug('image-utils');
 

@@ -3,19 +3,22 @@ import { makeTheme } from '../themes/make_theme';
 import { PrintedReport } from '../reports/layout';
 import { ReadinessReportHeader } from './report_header';
 import {
-  ConfigurationSectionProps,
+  type ConfigurationSectionProps,
   ConfigurationSection,
 } from './configuration_section';
 import { ReportContents } from './components';
 import {
   ThermalPrinterSection,
-  ThermalPrinterSectionProps,
+  type ThermalPrinterSectionProps,
 } from './thermal_printer_section';
-import { StorageSection, StorageSectionProps } from './storage_section';
-import { ScanAudioSection, ScanAudioSectionProps } from './scan_audio_section';
+import { StorageSection, type StorageSectionProps } from './storage_section';
+import {
+  ScanAudioSection,
+  type ScanAudioSectionProps,
+} from './scan_audio_section';
 import {
   PrecinctScannerSection,
-  PrecinctScannerSectionProps,
+  type PrecinctScannerSectionProps,
 } from './precinct_scanner_section';
 
 type ReportContentsProps = ConfigurationSectionProps &

@@ -1,5 +1,5 @@
-import { Result, err } from '@vx/libs/basics/src';
-import { readFile, ReadFileError } from '@vx/libs/fs/src';
+import { type Result, err } from '@vx/libs/basics/src';
+import { readFile, type ReadFileError } from '@vx/libs/fs/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { safeParseJson, ResultsReporting } from '@vx/libs/types/src';
 import z from 'zod';

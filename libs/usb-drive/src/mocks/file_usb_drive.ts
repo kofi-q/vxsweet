@@ -6,10 +6,10 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { Optional, assert } from '@vx/libs/basics/src';
+import { type Optional, assert } from '@vx/libs/basics/src';
 import { join, resolve } from 'node:path';
-import { MockFileTree, writeMockFileTree } from './helpers';
-import { UsbDrive, UsbDriveStatus } from '../types';
+import { type MockFileTree, writeMockFileTree } from './helpers';
+import { type UsbDrive, type UsbDriveStatus } from '../types';
 import { isIntegrationTest } from '@vx/libs/utils/src';
 
 export const MOCK_USB_DRIVE_STATE_FILENAME = 'mock-usb-state.json';

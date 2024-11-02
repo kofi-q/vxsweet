@@ -8,11 +8,11 @@ import { throwIllegalValue } from '@vx/libs/basics/src';
 import { unsafeParse } from '@vx/libs/types/src';
 
 import {
-  FileKey,
+  type FileKey,
   FileKeySchema,
-  InlineKey,
+  type InlineKey,
   InlineKeySchema,
-  TpmKey,
+  type TpmKey,
   TpmKeySchema,
 } from './keys';
 import { runCommand } from './shell';

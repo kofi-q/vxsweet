@@ -1,8 +1,8 @@
 import {
-  AnyContest,
-  ContestId,
-  Election,
-  Id,
+  type AnyContest,
+  type ContestId,
+  type Election,
+  type Id,
   Tabulation,
 } from '@vx/libs/types/src';
 import {
@@ -10,9 +10,9 @@ import {
   extractGroupSpecifier,
   getGroupKey,
   isGroupByEmpty,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
-import { WriteInTally } from '../types';
+import { type WriteInTally } from '../types';
 import { Store } from '../store';
 import { extractWriteInSummary, tabulateManualResults } from './manual_results';
 import { rootDebug } from '../util/debug';

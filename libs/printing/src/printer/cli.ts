@@ -1,9 +1,10 @@
 /* istanbul ignore file */
 import { sleep } from '@vx/libs/basics/src';
 import { readFileSync } from 'node:fs';
-import { LogSource, BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
+import { BaseLogger } from '@vx/libs/logging/src';
 import { detectPrinter } from './printer';
-import { Printer } from './types';
+import { type Printer } from './types';
 
 async function printStatus(printer: Printer, stdout: NodeJS.WriteStream) {
   const status = await printer.status();

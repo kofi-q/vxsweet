@@ -2,9 +2,9 @@ import { assert } from '@vx/libs/basics/src';
 import {
   DEFAULT_NUM_INCORRECT_PIN_ATTEMPTS_ALLOWED_BEFORE_CARD_LOCKOUT,
   DEFAULT_STARTING_CARD_LOCKOUT_DURATION_SECONDS,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
 
-import { CardLockoutConfig, computeCardLockoutEndTime } from './lockout';
+import { type CardLockoutConfig, computeCardLockoutEndTime } from './lockout';
 
 test.each<{
   numIncorrectPinAttempts: number;

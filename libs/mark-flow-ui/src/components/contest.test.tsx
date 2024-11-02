@@ -4,13 +4,13 @@ import {
 } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { find } from '@vx/libs/basics/src';
-import { CandidateContest, YesNoContest } from '@vx/libs/types/src';
+import { type CandidateContest, type YesNoContest } from '@vx/libs/types/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 
 import { Contest } from './contest';
 import {
-  MsEitherNeitherContest,
+  type MsEitherNeitherContest,
   mergeMsEitherNeitherContests,
 } from '../utils/ms_either_neither_contests';
 

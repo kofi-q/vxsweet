@@ -1,13 +1,13 @@
 import {
-  BallotStyleGroupId,
-  BallotStyleId,
-  Candidate,
-  Election,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type Candidate,
+  type Election,
   LanguageCode,
-  Parties,
-  Party,
-  PartyId,
-  Precinct,
+  type Parties,
+  type Party,
+  type PartyId,
+  type Precinct,
 } from '@vx/libs/types/src';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import { assertDefined } from '@vx/libs/basics/src';
@@ -21,7 +21,7 @@ import {
   PrimaryElectionTitlePrefix,
 } from './utils';
 import { newTestContext } from '../../test/test_context';
-import { H1 } from '..';
+import { H1 } from '../typography';
 import { screen } from '../../test/react_testing_library';
 
 const ELECTION_PARTIES: Readonly<Parties> = [

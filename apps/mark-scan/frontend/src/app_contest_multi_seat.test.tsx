@@ -2,7 +2,7 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import userEvent from '@testing-library/user-event';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/src';
 import {
   fireEvent,
   render,
@@ -14,7 +14,7 @@ import { App } from './app';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
 import { countyCommissionersContest } from '../test/helpers/election';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

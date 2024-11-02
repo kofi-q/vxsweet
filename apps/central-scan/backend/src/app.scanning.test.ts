@@ -1,13 +1,10 @@
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import {
-  BatchInfo,
-  DEFAULT_SYSTEM_SETTINGS,
-  TEST_JURISDICTION,
-} from '@vx/libs/types/src';
+import { type BatchInfo, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';
 import { generateBmdBallotFixture } from '../test/helpers/ballots';
-import { ScannedSheetInfo } from './fujitsu_scanner';
+import { type ScannedSheetInfo } from './fujitsu_scanner';
 
 const jurisdiction = TEST_JURISDICTION;
 

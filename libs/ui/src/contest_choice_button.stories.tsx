@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 
 import {
   ContestChoiceButton as Component,
-  ContestChoiceButtonProps as Props,
+  type ContestChoiceButtonProps as Props,
 } from './contest_choice_button';
 
 const initialProps: Props = {

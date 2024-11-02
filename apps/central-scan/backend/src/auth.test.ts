@@ -4,24 +4,26 @@ import { DateTime } from 'luxon';
 import { dirSync } from 'tmp';
 import {
   buildMockDippedSmartCardAuth,
-  DippedSmartCardAuthApi,
+  type DippedSmartCardAuthApi,
 } from '@vx/libs/auth/src';
 import * as grout from '@vx/libs/grout/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  SystemSettings,
-  TEST_JURISDICTION,
+  type SystemSettings,
 } from '@vx/libs/types/src';
+import {
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
 
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMockScanner } from '../test/util/mocks';
-import { Api, buildCentralScannerApp } from './app';
+import { type Api, buildCentralScannerApp } from './app';
 import { Importer } from './importer';
 import { start } from './server';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 import { buildMockLogger } from '../test/helpers/setup_app';
 
 let apiClient: grout.Client<Api>;

@@ -1,11 +1,17 @@
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/src/auth';
 
 import { Main } from './main';
 import { Screen } from './screen';
 import { FullScreenIconWrapper, Icons } from './icons';
 import { FullScreenMessage } from './full_screen_message';
 import { H3 } from './typography';
-import { CardInsertionDirection, RotateCardImage } from './smart_card_images';
+import {
+  type CardInsertionDirection,
+  RotateCardImage,
+} from './smart_card_images';
 
 type ReasonAndContext = Pick<
   DippedSmartCardAuth.LoggedOut | InsertedSmartCardAuth.LoggedOut,

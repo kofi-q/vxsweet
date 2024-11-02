@@ -1,4 +1,4 @@
-import { AnyContest } from '@vx/libs/types/src';
+import { type AnyContest } from '@vx/libs/types/src';
 
 export interface MisvoteWarningsProps {
   blankContests: readonly AnyContest[];

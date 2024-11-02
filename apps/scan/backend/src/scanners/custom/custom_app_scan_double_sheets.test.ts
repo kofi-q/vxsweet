@@ -5,19 +5,19 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-import { deferred, err, ok, Result } from '@vx/libs/basics/src';
+import { deferred, err, ok, type Result } from '@vx/libs/basics/src';
 import {
   ErrorCode,
-  ImageFromScanner,
+  type ImageFromScanner,
   mocks,
 } from '@vx/libs/custom-scanner/src';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
-  SheetOf,
+  type SheetInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,

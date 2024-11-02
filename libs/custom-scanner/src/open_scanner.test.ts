@@ -3,7 +3,7 @@ jest.mock('usb');
 import { err, ok } from '@vx/libs/basics/src';
 import { Device, findByIds, WebUSBDevice } from 'usb';
 import { CustomA4Scanner } from './custom_a4_scanner';
-import { mockCustomA4ScannerWebUsbDevice } from './mocks';
+import { mockCustomA4ScannerWebUsbDevice } from './mocks/custom_a4_scanner_web_usb_device';
 import { openScanner } from './open_scanner';
 import { ErrorCode } from './types';
 

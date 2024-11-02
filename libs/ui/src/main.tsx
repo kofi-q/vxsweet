@@ -1,7 +1,7 @@
 import styled, { DefaultTheme } from 'styled-components';
 import { assert } from '@vx/libs/basics/src';
-import { SizeMode } from '@vx/libs/types/src';
-import { JustifyContent } from './layout';
+import { type SizeMode } from '@vx/libs/types/src';
+import { type JustifyContent } from './layout';
 
 export interface MainProps {
   padded?: boolean;

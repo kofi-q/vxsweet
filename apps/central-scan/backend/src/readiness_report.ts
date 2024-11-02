@@ -1,16 +1,16 @@
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { CentralScanReadinessReport } from '@vx/libs/ui/src';
+import { CentralScanReadinessReport } from '@vx/libs/ui/src/diagnostics';
 import {
-  ExportDataResult,
+  type ExportDataResult,
   Exporter,
   SCAN_ALLOWED_EXPORT_PATTERNS,
   VX_MACHINE_ID,
-  getBatteryInfo,
 } from '@vx/libs/backend/src';
+import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getCurrentTime } from './util/get_current_time';
 
 /**

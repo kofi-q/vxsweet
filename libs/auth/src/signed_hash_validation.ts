@@ -3,14 +3,12 @@ import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import { Readable } from 'node:stream';
 import { assert, sleep } from '@vx/libs/basics/src';
-import {
-  formatElectionHashes,
-  SignedHashValidationQrCodeValue,
-} from '@vx/libs/types/src';
+import { formatElectionHashes } from '@vx/libs/types/src';
+import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';
 
 import {
   constructSignedHashValidationConfig,
-  SignedHashValidationConfig,
+  type SignedHashValidationConfig,
 } from './config';
 import { signMessage } from './cryptography';
 import { runCommand } from './shell';

@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import { join } from 'node:path';
 import * as tmp from 'tmp';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import { Client, Statement } from './client';
+import { Client, type Statement } from './client';
 
 test('file database client', () => {
   const dbFile = tmp.fileSync();

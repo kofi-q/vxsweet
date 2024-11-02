@@ -1,7 +1,7 @@
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
-  ExportCastVoteRecordsToUsbDriveError,
+  type ExportCastVoteRecordsToUsbDriveError,
 } from '@vx/libs/types/src';
 
 import { userReadableMessageFromExportError } from './cast_vote_records';

@@ -1,4 +1,4 @@
-import { PrinterConfig } from '@vx/libs/types/src';
+import { type PrinterConfig } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { find } from '@vx/libs/basics/src';

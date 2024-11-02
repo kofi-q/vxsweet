@@ -10,7 +10,7 @@ jest.mock('../cryptography', (): typeof import('../cryptography') => ({
 
 import { assertDefined, err, ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { join } from 'node:path';
@@ -23,7 +23,7 @@ import {
   STATUS_WORD,
   constructTlv,
 } from '../apdu';
-import { CheckPinResponse } from '../card';
+import { type CheckPinResponse } from '../card';
 import { CardReader } from '../card_reader';
 import { certDerToPem, certPemToDer, createCert } from '../cryptography';
 import {

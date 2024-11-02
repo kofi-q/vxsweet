@@ -1,7 +1,7 @@
 import { BitCursor } from './bit_cursor';
-import { Uint1, Uint8, Uint8Size } from './types';
+import { type Uint1, type Uint8, Uint8Size } from './types';
 import { sizeof, makeMasks, toUint8 } from './utils';
-import { Utf8Encoding, Encoding } from './encoding';
+import { Utf8Encoding, type Encoding } from './encoding';
 
 /**
  * Reads structured data from a `Uint8Array`. Data is read in little-endian

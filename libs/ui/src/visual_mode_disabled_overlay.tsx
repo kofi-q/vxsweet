@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { VoterSettingsManagerContext } from './voter_settings_manager_context';
 import { Button } from './button';
-import { appStrings } from './ui_strings';
+import { appStrings } from './ui_strings/app_strings';
 import { H2 } from './typography';
 import { useScreenInfo } from './hooks/use_screen_info';
 import { Header } from './voter_settings/header';

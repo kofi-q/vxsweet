@@ -36,14 +36,14 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import {
-  CastVoteRecordExportModifications,
+  type CastVoteRecordExportModifications,
   combineImageAndLayoutHashes,
   getImageHash,
   getLayoutHash,
   modifyCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '@vx/libs/backend/src';
-import { MockFileTree } from '@vx/libs/usb-drive/src';
+} from '@vx/libs/backend/src/cast_vote_records';
+import { type MockFileTree } from '@vx/libs/usb-drive/src';
 import {
   buildTestEnvironment,
   configureMachine,
@@ -51,10 +51,10 @@ import {
   mockElectionManagerAuth,
 } from '../test/app';
 import {
-  ListCastVoteRecordExportsOnUsbDriveResult,
+  type ListCastVoteRecordExportsOnUsbDriveResult,
   listCastVoteRecordExportsOnUsbDrive,
 } from './cast_vote_records';
-import { CvrFileImportInfo } from './types';
+import { type CvrFileImportInfo } from './types';
 
 jest.setTimeout(60_000);
 

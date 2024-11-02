@@ -23,7 +23,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { readElectionPackageFromFile } from '@vx/libs/backend/src';
+import { readElectionPackageFromFile } from '@vx/libs/backend/src/election_package';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { exportElectionPackage, testSetupHelpers } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';

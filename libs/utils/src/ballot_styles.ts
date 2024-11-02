@@ -1,19 +1,19 @@
 import {
-  Result,
+  type Result,
   assertDefined,
   err,
   deepEqual,
-  iter,
   ok,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  BallotStyle,
-  BallotStyleGroupId,
-  BallotStyleId,
+  type BallotStyle,
+  type BallotStyleGroupId,
+  type BallotStyleId,
   LanguageCode,
-  BallotStyleGroup,
-  Party,
-  Election,
+  type BallotStyleGroup,
+  type Party,
+  type Election,
 } from '@vx/libs/types/src';
 
 const ID_LANGUAGES_SEPARATOR = '_';

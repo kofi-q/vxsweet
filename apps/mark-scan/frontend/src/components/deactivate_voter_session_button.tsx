@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, ButtonProps } from '@vx/libs/ui/src';
+import { Button, type ButtonProps } from '@vx/libs/ui/src';
 
 import * as api from '../api';
 

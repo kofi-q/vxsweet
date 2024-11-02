@@ -1,8 +1,11 @@
 import { assertDefined, find, assert } from '@vx/libs/basics/src';
-import { Id, safeParseNumber } from '@vx/libs/types/src';
+import { type Id, safeParseNumber } from '@vx/libs/types/src';
 import { loadImageData, toDataUrl } from '@vx/libs/image-utils/src';
 import { Store } from '../store';
-import { WriteInAdjudicationContext, WriteInImageView } from '../types';
+import {
+  type WriteInAdjudicationContext,
+  type WriteInImageView,
+} from '../types';
 import { rootDebug } from './debug';
 
 const debug = rootDebug.extend('write-ins');

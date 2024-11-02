@@ -11,15 +11,18 @@ import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
 import { MemoryRouter } from 'react-router-dom';
 import { DateTime } from 'luxon';
 import { act } from 'react';
-import { IppMarkerInfo } from '@vx/libs/types/src';
+import { type IppMarkerInfo } from '@vx/libs/types/src';
 import { render, screen } from '../../test/react_testing_library';
 import {
   DiagnosticsScreen,
-  DiagnosticsScreenProps,
+  type DiagnosticsScreenProps,
 } from './diagnostics_screen';
 import { AccessibleControllerDiagnosticScreen } from './accessible_controller_diagnostic_screen';
 import { ApiProvider } from '../api_provider';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { ACCESSIBLE_CONTROLLER_POLLING_INTERVAL_MS } from '../api';
 
 export const MOCK_MARKER_INFO: IppMarkerInfo = {

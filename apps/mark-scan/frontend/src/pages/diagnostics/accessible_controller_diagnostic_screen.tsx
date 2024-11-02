@@ -1,15 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Button, H2, H3, Main, P, Screen, Keybinding } from '@vx/libs/ui/src';
 import {
-  Button,
-  H2,
-  H3,
-  Main,
-  P,
-  Screen,
   MarkScanControllerIllustration,
-  MarkScanControllerButton,
-  Keybinding,
-} from '@vx/libs/ui/src';
+  type MarkScanControllerButton,
+} from '@vx/libs/ui/src/accessible_controllers';
 import { addDiagnosticRecord } from '../../api';
 import {
   CancelButtonContainer,

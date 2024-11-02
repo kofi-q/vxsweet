@@ -1,17 +1,20 @@
-import { assert, iter, sleep } from '@vx/libs/basics/src';
+import { assert, sleep } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import makeDebug from 'debug';
 import { Buffer } from 'node:buffer';
 import {
-  ImageConversionOptions,
-  PaperHandlerDriverInterface,
-  VERTICAL_DOTS_IN_CHUNK,
+  type ImageConversionOptions,
   chunkBinaryBitmap,
-  getPaperHandlerDriver,
   imageDataToBinaryBitmap,
+} from '@vx/libs/custom-paper-handler/src';
+import {
+  type PaperHandlerDriverInterface,
+  VERTICAL_DOTS_IN_CHUNK,
+  getPaperHandlerDriver,
   isPaperAnywhere,
   isMockPaperHandler,
-  ScanDirection,
-} from '@vx/libs/custom-paper-handler/src';
+  type ScanDirection,
+} from '@vx/libs/custom-paper-handler/src/driver';
 import { pdfToImages } from '@vx/libs/image-utils/src';
 import { tmpNameSync } from 'tmp';
 import { PRINT_DPI, PAPER_HANDLER_RESET_DELAY_MS, SCAN_DPI } from './constants';

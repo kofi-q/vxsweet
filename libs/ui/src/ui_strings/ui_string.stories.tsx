@@ -5,22 +5,23 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import { assertDefined } from '@vx/libs/basics/src';
 
-import { UiString as Component, UiStringProps as Props } from './ui_string';
+import {
+  UiString as Component,
+  type UiStringProps as Props,
+} from './ui_string';
 import {
   TEST_UI_STRING_TRANSLATIONS,
   testUiStrings,
   NumPlanets,
 } from '../../test/test_ui_strings';
+import { Caption, H4, P } from '../typography';
+import { QUERY_CLIENT_DEFAULT_OPTIONS } from '../react_query';
+import { SegmentedButton } from '../segmented_button';
+import { UiStringsContextProvider } from './ui_strings_context';
 import {
-  Caption,
-  H4,
-  P,
-  QUERY_CLIENT_DEFAULT_OPTIONS,
-  SegmentedButton,
-  UiStringsContextProvider,
-  UiStringsReactQueryApi,
+  type UiStringsReactQueryApi,
   createUiStringsApi,
-} from '..';
+} from '../hooks/ui_strings_api';
 import { useFrontendLanguageContext } from './language_context';
 
 const initialProps: Partial<Props> = {

@@ -1,4 +1,8 @@
+jest.mock('@vx/libs/backend/src/cast_vote_records');
+jest.mock('@vx/libs/backend/src/election_package');
 jest.mock('@vx/libs/backend/src');
+jest.mock('@vx/libs/backend/src/system_call');
+jest.mock('@vx/libs/backend/src/ui_strings');
 
 jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {

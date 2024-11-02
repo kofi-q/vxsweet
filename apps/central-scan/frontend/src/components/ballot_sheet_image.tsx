@@ -1,5 +1,5 @@
-import { BallotPageLayout, Contest } from '@vx/libs/types/src';
-import { iter } from '@vx/libs/basics/src';
+import { type BallotPageLayout, type Contest } from '@vx/libs/types/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import React, { useCallback, useRef, useState } from 'react';
 
 export interface Props {

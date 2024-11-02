@@ -3,15 +3,15 @@ import makeDebug from 'debug';
 import {
   assert,
   assertDefined,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
   sleep,
 } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import {
   byteArray,
-  Coder,
-  CoderError,
+  type Coder,
+  type CoderError,
   literal,
   message,
   oneOf,
@@ -22,29 +22,29 @@ import {
   ImageData,
   writeImageData,
 } from '@vx/libs/image-utils/src';
-import { Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/src';
 import {
   assertNumberIsInRangeInclusive,
   assertUint16,
   BytesPerUint32,
-  Uint16,
+  type Uint16,
   Uint16toUint8,
-  Uint8,
+  type Uint8,
 } from '../bits';
 import { Lock } from './lock';
 import {
   parseScannerCapability,
-  ScannerCapability,
+  type ScannerCapability,
 } from './scanner_capability';
 import {
   getDefaultConfig,
   getScannerConfigCoderValues,
-  PaperMovementAfterScan,
-  Resolution,
-  ScanDataFormat,
-  ScanDirection,
-  ScanLight,
-  ScannerConfig,
+  type PaperMovementAfterScan,
+  type Resolution,
+  type ScanDataFormat,
+  type ScanDirection,
+  type ScanLight,
+  type ScannerConfig,
 } from './scanner_config';
 import {
   getBitsPerPixelForScanType,
@@ -55,8 +55,8 @@ import {
   OK_NO_MORE_DATA,
   PRINTING_DENSITY_CODES,
   PRINTING_SPEED_CODES,
-  PrintingDensity,
-  PrintingSpeed,
+  type PrintingDensity,
+  type PrintingSpeed,
   PrintModeDotDensity,
   RealTimeRequestIds,
   SCAN_HEADER_LENGTH_BYTES,
@@ -73,8 +73,8 @@ import {
   InitializeRequestCommand,
   InvalidArgumentErrorCode,
   LoadPaperCommand,
-  PaperHandlerBitmap,
-  PaperHandlerStatus,
+  type PaperHandlerBitmap,
+  type PaperHandlerStatus,
   ParkPaperCommand,
   PresentPaperAndHoldCommand,
   PrintAndFeedPaperCommand,
@@ -96,8 +96,8 @@ import {
   SetRelativeVerticalPrintPositionCommand,
   TransferOutRealTimeRequest,
 } from './coders';
-import { PaperHandlerDriverInterface } from './driver_interface';
-import { MinimalWebUsbDevice } from './minimal_web_usb_device';
+import { type PaperHandlerDriverInterface } from './driver_interface';
+import { type MinimalWebUsbDevice } from './minimal_web_usb_device';
 
 const serverDebug = makeDebug('mark-scan:custom-paper-handler:driver');
 

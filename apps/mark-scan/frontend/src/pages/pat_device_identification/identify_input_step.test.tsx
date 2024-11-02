@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../../../test/react_testing_library';
-import { IdentifyInputStep, InputBehavior } from './identify_input_step';
+import { IdentifyInputStep, type InputBehavior } from './identify_input_step';
 
 const testSpecs: Array<{
   desiredInput: InputBehavior;

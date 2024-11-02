@@ -6,25 +6,25 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 import {
-  AcceptedSheet,
-  RejectedSheet,
-  Sheet,
+  type AcceptedSheet,
+  type RejectedSheet,
+  type Sheet,
   doesUsbDriveRequireCastVoteRecordSync,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
 import {
   AdjudicationReason,
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
-  CandidateContest,
-  InterpretedHmpbPage,
+  type CandidateContest,
+  type InterpretedHmpbPage,
   mapSheet,
-  PageInterpretationWithFiles,
+  type PageInterpretationWithFiles,
   safeParseSystemSettings,
-  SheetOf,
-  TEST_JURISDICTION,
-  YesNoContest,
+  type SheetOf,
+  type YesNoContest,
 } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import {
   ALL_PRECINCTS_SELECTION,
   getFeatureFlagMock,

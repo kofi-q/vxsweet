@@ -5,7 +5,7 @@ import { ok } from '@vx/libs/basics/src';
 import { mockWritable } from '../../../test/helpers/mock_writable';
 import {
   AllocationStatus,
-  CastVoteRecordReport,
+  type CastVoteRecordReport,
   CastVoteRecordReportSchema,
   CastVoteRecordVersion,
   CVRType,

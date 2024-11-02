@@ -1,12 +1,12 @@
 import {
-  BallotStyle,
-  BallotStyleGroupId,
-  BallotStyleId,
-  DistrictId,
-  Election,
+  type BallotStyle,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type DistrictId,
+  type Election,
   LanguageCode,
-  Party,
-  PartyId,
+  type Party,
+  type PartyId,
 } from '@vx/libs/types/src';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import {

@@ -7,24 +7,24 @@ import { mockKiosk } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { ok } from '@vx/libs/basics/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
-import { FujitsuPrinterStatus } from '@vx/apps/scan/backend/src';
+import { type FujitsuPrinterStatus } from '../../../backend/src/printing/printer';
 import {
   act,
   render,
-  RenderResult,
+  type RenderResult,
   screen,
   waitFor,
   within,
 } from '../../test/react_testing_library';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
   statusNoPaper,
 } from '../../test/helpers/mock_api_client';
 import {
   ElectionManagerScreen,
-  ElectionManagerScreenProps,
+  type ElectionManagerScreenProps,
 } from './election_manager_screen';
 import { RELOAD_REMINDER_TEXT } from '../components/printer_management/election_manager_printer_tab_content';
 

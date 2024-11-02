@@ -1,6 +1,6 @@
 import React from 'react';
 import { deepEqual } from '@vx/libs/basics/src';
-import type { Api } from '@vx/apps/central-scan/backend/src';
+import { type Api } from '../../backend/src/app';
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,
   QUERY_CLIENT_DEFAULT_OPTIONS,

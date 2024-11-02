@@ -1,6 +1,6 @@
 import { extractErrorMessage, sleep } from '@vx/libs/basics/src';
 
-import { WorkerContext } from './context';
+import { type WorkerContext } from './context';
 import { processBackgroundTask } from './tasks';
 
 export async function processNextBackgroundTaskIfAny(

@@ -1,10 +1,13 @@
-import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+import '../../../test/set_up_react_pdf_mock';
 
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { screen } from '../../../test/react_testing_library';
 import {

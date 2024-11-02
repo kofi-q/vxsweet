@@ -1,4 +1,4 @@
-import type { BatteryInfo } from '@vx/libs/backend/src';
+import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { format } from '@vx/libs/utils/src';
 import { H2, P } from '../typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';

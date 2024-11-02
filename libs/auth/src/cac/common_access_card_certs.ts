@@ -2,7 +2,7 @@ import { assert } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
 import { openssl } from '../cryptography';
-import { CommonAccessCardDetails } from './common_access_card_api';
+import { type CommonAccessCardDetails } from './common_access_card_api';
 
 const debug = makeDebug('auth: cac:certs');
 

@@ -1,18 +1,18 @@
 import {
   InsertedSmartCardAuth,
-  InsertedSmartCardAuthApi,
-  InsertedSmartCardAuthMachineState,
+  type InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthMachineState,
   JavaCard,
   MockFileCard,
 } from '@vx/libs/auth/src';
-import { BaseLogger, LoggingUserRole } from '@vx/libs/logging/src';
+import { BaseLogger, type LoggingUserRole } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
-import { Workspace } from './workspace';
+import { type Workspace } from './workspace';
 
 export function getDefaultAuth(logger: BaseLogger): InsertedSmartCardAuth {
   return new InsertedSmartCardAuth({

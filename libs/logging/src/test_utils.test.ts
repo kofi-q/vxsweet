@@ -1,5 +1,7 @@
 import { typedAs } from '@vx/libs/basics/src';
-import { LogEventType, LogLine, LogSource } from '.';
+import { LogEventType } from './base_types/log_event_types';
+import { type LogLine } from './types';
+import { LogSource } from './base_types/log_source';
 import { LogEventId } from './log_event_ids';
 import {
   mockBaseLogger,

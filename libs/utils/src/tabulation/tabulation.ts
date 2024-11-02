@@ -1,21 +1,17 @@
+import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  assert,
-  assertDefined,
-  iter,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
-import {
-  AnyContest,
-  BallotStyleGroupId,
-  CandidateContest,
-  CandidateId,
-  ContestId,
-  ContestOptionId,
-  Election,
-  Id,
-  PartyId,
+  type AnyContest,
+  type BallotStyleGroupId,
+  type CandidateContest,
+  type CandidateId,
+  type ContestId,
+  type ContestOptionId,
+  type Election,
+  type Id,
+  type PartyId,
   Tabulation,
-  YesNoContest,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { isGroupByEmpty } from './arguments';
 import { getGroupedBallotStyles } from '../ballot_styles';

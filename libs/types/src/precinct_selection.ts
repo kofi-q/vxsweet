@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PrecinctId, PrecinctIdSchema } from './election';
+import { type PrecinctId, PrecinctIdSchema } from './election';
 
 export type PrecinctSelectionKind = 'SinglePrecinct' | 'AllPrecincts';
 export const PrecinctSelectionKindSchema: z.ZodSchema<PrecinctSelectionKind> =

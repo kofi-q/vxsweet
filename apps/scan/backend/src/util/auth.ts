@@ -1,11 +1,11 @@
 import {
-  InsertedSmartCardAuthApi,
-  InsertedSmartCardAuthMachineState,
+  type InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthMachineState,
 } from '@vx/libs/auth/src';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
-import { LoggingUserRole } from '@vx/libs/logging/src';
+import { type LoggingUserRole } from '@vx/libs/logging/src';
 import { Store } from '../store';
-import { Workspace } from './workspace';
+import { type Workspace } from './workspace';
 
 export function constructAuthMachineState(
   store: Store

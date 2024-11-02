@@ -1,11 +1,11 @@
-import { Result, err, ok, throwIllegalValue } from '@vx/libs/basics/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type Result, err, ok, throwIllegalValue } from '@vx/libs/basics/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import * as fs from 'node:fs/promises';
 import { join } from 'node:path';
 
 import {
   LogEventId,
-  LogExportFormat,
+  type LogExportFormat,
   Logger,
   buildCdfLog,
   filterErrorLogs,

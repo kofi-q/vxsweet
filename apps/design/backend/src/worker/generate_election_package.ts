@@ -2,12 +2,12 @@ import JsZip from 'jszip';
 import path from 'node:path';
 import {
   BallotType,
-  ElectionSerializationFormat,
+  type ElectionSerializationFormat,
   ElectionPackageFileName,
-  ElectionPackageMetadata,
-  Id,
+  type ElectionPackageMetadata,
+  type Id,
   mergeUiStrings,
-  Election,
+  type Election,
   formatElectionHashes,
 } from '@vx/libs/types/src';
 
@@ -19,12 +19,10 @@ import {
 import { sha256 } from 'js-sha256';
 import { writeFile } from 'node:fs/promises';
 import { PORT } from '../globals';
-import {
-  extractAndTranslateElectionStrings,
-  generateAudioIdsAndClips,
-  translateAppStrings,
-} from '../language_and_audio';
-import { WorkerContext } from './context';
+import { extractAndTranslateElectionStrings } from '../language_and_audio/election_strings';
+import { generateAudioIdsAndClips } from '../language_and_audio/audio';
+import { translateAppStrings } from '../language_and_audio/app_strings';
+import { type WorkerContext } from './context';
 import { translateHmpbStrings } from '../language_and_audio/ballot_strings';
 
 export async function generateElectionPackage(

@@ -5,7 +5,7 @@ import {
   findBallotMeasureSelectionWithContent,
   findLanguageString,
   convertElectionResultsReportingReportToVxManualResults,
-  LanguageStringQueryParams,
+  type LanguageStringQueryParams,
 } from './convert';
 import {
   testElectionReport,
@@ -17,8 +17,8 @@ import {
   testElectionReportYesNoContest,
   testElectionReportYesNoContestWithoutTextMatch,
 } from './fixtures';
-import { ManualElectionResults } from '../../tabulation';
-import { ElectionReport } from '.';
+import { type ManualElectionResults } from '../../tabulation';
+import { type ElectionReport } from '.';
 
 function makeLanguageString(
   content: string,

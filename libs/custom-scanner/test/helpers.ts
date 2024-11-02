@@ -1,4 +1,5 @@
-import { DuplexChannelListeners, ProtocolListeners } from '../src/mocks';
+import { type DuplexChannelListeners } from '../src/mocks/usb_channel';
+import { type ProtocolListeners } from '../src/mocks/protocol';
 
 /**
  * Creates protocol listeners that are all Jest mocks.

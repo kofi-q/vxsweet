@@ -1,6 +1,10 @@
 import { Logger } from './logger';
 import { LogSource } from './base_types/log_source';
-import { LogDispositionStandardTypes, LogLine, LoggingUserRole } from './types';
+import {
+  LogDispositionStandardTypes,
+  type LogLine,
+  type LoggingUserRole,
+} from './types';
 import { BaseLogger } from './base_logger';
 import { getDetailsForEventId } from './log_event_ids';
 

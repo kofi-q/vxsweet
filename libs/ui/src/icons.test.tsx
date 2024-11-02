@@ -1,6 +1,6 @@
 import { render, screen } from '../test/react_testing_library';
 
-import { FullScreenIconWrapper, IconColor, Icons } from './icons';
+import { FullScreenIconWrapper, type IconColor, Icons } from './icons';
 import { makeTheme } from './themes/make_theme';
 
 for (const [name, Component] of Object.entries(Icons)) {

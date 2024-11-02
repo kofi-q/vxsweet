@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { BigMetric, BigMetricProps } from './big_metric';
+import { BigMetric, type BigMetricProps } from './big_metric';
 
 const initialArgs: BigMetricProps = {
   label: 'Ballots Scanned',

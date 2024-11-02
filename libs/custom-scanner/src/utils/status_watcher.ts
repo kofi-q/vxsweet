@@ -1,9 +1,9 @@
-import { ok, Result, sleep, Optional } from '@vx/libs/basics/src';
+import { ok, type Result, sleep, type Optional } from '@vx/libs/basics/src';
 import { valuesEncodeEquivalently } from '@vx/libs/message-coder/src';
-import { ErrorCode, ScannerStatus } from '../types';
+import { ErrorCode, type ScannerStatus } from '../types';
 import { debug as rootDebug } from '../debug';
 import { StatusInternalMessage } from '../protocol';
-import { CustomScanner } from '../types/custom_scanner';
+import { type CustomScanner } from '../types/custom_scanner';
 import { convertFromInternalStatus } from '../status';
 
 const debug = rootDebug.extend('watchStatus');

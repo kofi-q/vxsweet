@@ -1,4 +1,4 @@
-import { Admin, ElectionDefinition } from '@vx/libs/types/src';
+import { Admin, type ElectionDefinition } from '@vx/libs/types/src';
 import React from 'react';
 
 import { unique } from '@vx/libs/basics/src';
@@ -6,9 +6,9 @@ import {
   getContestById,
   getEmptyCardCounts,
   getPartyById,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { AdminTallyReport } from './admin_tally_report';
-import { LabeledScannerBatch } from './utils';
+import { type LabeledScannerBatch } from './utils';
 
 export interface AdminTallyReportByPartyProps {
   electionDefinition: ElectionDefinition;

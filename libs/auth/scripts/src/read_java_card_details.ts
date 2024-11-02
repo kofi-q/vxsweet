@@ -1,6 +1,6 @@
 import { extractErrorMessage } from '@vx/libs/basics/src';
 
-import { CardDetails } from '../../src/card';
+import { type CardDetails } from '../../src/card';
 import {
   DEV_VX_CERT_AUTHORITY_CERT_PATH,
   PROD_VX_CERT_AUTHORITY_CERT_PATH,

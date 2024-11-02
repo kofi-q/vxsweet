@@ -1,12 +1,12 @@
 import React from 'react';
-import { TouchColorMode } from '@vx/libs/types/src';
+import { type TouchColorMode } from '@vx/libs/types/src';
 import { ThemeConsumer } from 'styled-components';
 import { SettingsPane } from './settings_pane';
 import { RadioGroup } from '../radio_group';
 import { VoterSettingsManagerContext } from '../voter_settings_manager_context';
 import { ThemeLabel } from './theme_label';
 import { useScreenInfo } from '../hooks/use_screen_info';
-import { appStrings } from '../ui_strings';
+import { appStrings } from '../ui_strings/app_strings';
 
 export interface ColorSettingsProps {
   /** @default ['contrastLow', 'contrastMedium', 'contrastHighLight', 'contrastHighDark'] */

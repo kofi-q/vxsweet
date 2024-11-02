@@ -1,6 +1,6 @@
 import { act, waitFor } from '@testing-library/react';
 
-export const IDLE_TIMEOUT_SECONDS = 5 * 60; // 5 minute
+export const IDLE_TIMEOUT_SECONDS = 5 * 60;
 
 export function advanceTimers(seconds = 0): void {
   const maxSeconds = IDLE_TIMEOUT_SECONDS;

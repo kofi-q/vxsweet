@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@vx/apps/mark/backend/src';
+import { type MachineConfig } from '../../../backend/src/types';
 import { screenOrientation } from './screen_orientation';
 
 test('Portrait orientation booleans', () => {

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import {
   LanguageCode,
-  NonEnglishLanguageCode,
+  type NonEnglishLanguageCode,
   safeParse,
 } from '@vx/libs/types/src';
 

@@ -1,5 +1,5 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { Admin, BallotStyleGroupId } from '@vx/libs/types/src';
+import { Admin, type BallotStyleGroupId } from '@vx/libs/types/src';
 import { assertIsBackendFilter, convertFrontendFilter } from './filters';
 
 test('convertFrontendFilter', () => {

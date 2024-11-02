@@ -1,21 +1,19 @@
 import {
-  Id,
+  type Id,
   Tabulation,
   Admin as AdminTypes,
-  BallotStyleGroupId,
-  Election,
+  type BallotStyleGroupId,
+  type Election,
   getContests,
 } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';
-import {
-  areContestResultsValid,
-  getBallotStyleGroup,
-} from '@vx/libs/utils/src';
+import { areContestResultsValid } from '@vx/libs/utils/src/tabulation';
+import { getBallotStyleGroup } from '@vx/libs/utils/src';
 import { Store } from '../store';
 import {
-  ManualResultsRecord,
-  ManualResultsValidationError,
-  ManualResultsVotingMethod,
+  type ManualResultsRecord,
+  type ManualResultsValidationError,
+  type ManualResultsVotingMethod,
 } from '../types';
 
 /**

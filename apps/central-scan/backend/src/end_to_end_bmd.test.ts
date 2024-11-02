@@ -8,9 +8,9 @@ jest.mock('@vx/libs/utils/src', () => {
 
 import {
   getCastVoteRecordExportDirectoryPaths,
-  mockElectionPackageFileTree,
   readCastVoteRecordExport,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { CVR } from '@vx/libs/types/src';
 import {
@@ -22,7 +22,7 @@ import { ok, sleep } from '@vx/libs/basics/src';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 import { generateBmdBallotFixture } from '../test/helpers/ballots';
-import { ScannedSheetInfo } from './fujitsu_scanner';
+import { type ScannedSheetInfo } from './fujitsu_scanner';
 
 // we need more time for ballot interpretation
 jest.setTimeout(20000);

@@ -3,7 +3,7 @@ import { find } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';
 import {
-  MsEitherNeitherContest as MsEitherNeitherContestType,
+  type MsEitherNeitherContest as MsEitherNeitherContestType,
   mergeMsEitherNeitherContests,
 } from '../utils/ms_either_neither_contests';
 import { MsEitherNeitherContest } from './ms_either_neither_contest';

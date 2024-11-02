@@ -6,8 +6,8 @@ import {
   err,
   extractErrorMessage,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
   throwIllegalValue,
   wrapException,
 } from '@vx/libs/basics/src';
@@ -16,12 +16,11 @@ import {
   LogEventId,
   BaseLogger,
 } from '@vx/libs/logging/src';
+import { type BallotStyleId, type PrecinctId } from '@vx/libs/types/src';
 import {
-  BallotStyleId,
-  CardlessVoterUser,
+  type CardlessVoterUser,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
-  PrecinctId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
@@ -30,15 +29,15 @@ import {
 import {
   arePollWorkerCardDetails,
   areUniversalVendorCardDetails,
-  Card,
-  CardDetails,
-  CardStatus,
-  CheckPinResponse,
+  type Card,
+  type CardDetails,
+  type CardStatus,
+  type CheckPinResponse,
 } from './card';
 import {
-  InsertedSmartCardAuthApi,
-  InsertedSmartCardAuthConfig,
-  InsertedSmartCardAuthMachineState,
+  type InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthConfig,
+  type InsertedSmartCardAuthMachineState,
 } from './inserted_smart_card_auth_api';
 import { computeCardLockoutEndTime } from './lockout';
 import { computeSessionEndTime } from './sessions';

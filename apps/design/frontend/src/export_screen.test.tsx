@@ -12,7 +12,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import {
   provideApi,
   createMockApiClient,
-  MockApiClient,
+  type MockApiClient,
 } from '../test/api_helpers';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import { withRoute } from '../test/routing_helpers';

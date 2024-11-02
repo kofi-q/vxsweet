@@ -1,8 +1,8 @@
 import {
   AdjudicationReason,
-  ElectionDefinition,
-  MarkThresholds,
-  PrecinctSelection,
+  type ElectionDefinition,
+  type MarkThresholds,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
 
 /**

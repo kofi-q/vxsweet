@@ -7,8 +7,13 @@ import {
   StoryContext,
 } from '@storybook/types';
 
-import { AppBase, VoterSettingsManagerContext } from '../src';
-import { ColorMode, ScreenType, SizeMode } from '@vx/libs/types/src';
+import { AppBase } from '../src/app_base';
+import { VoterSettingsManagerContext } from '../src/voter_settings_manager_context';
+import {
+  type ColorMode,
+  type ScreenType,
+  type SizeMode,
+} from '@vx/libs/types/src';
 import { createGlobalStyle } from 'styled-components';
 
 // TODO: Find the storybook.js type declaration for this. Doesn't seem to be in

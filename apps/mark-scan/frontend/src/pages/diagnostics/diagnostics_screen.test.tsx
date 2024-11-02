@@ -1,13 +1,12 @@
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
+import { MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME } from '@vx/libs/ui/src/accessible_controllers';
 import {
-  MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME,
   expectConnectionStatus,
   expectDiagnosticResult,
-  mockUsbDriveStatus,
   DiagnosticSectionTitle,
-  Keybinding,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/diagnostics';
+import { mockUsbDriveStatus, Keybinding } from '@vx/libs/ui/src';
 import { ok } from '@vx/libs/basics/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
@@ -19,10 +18,10 @@ import {
 } from '../../../test/react_testing_library';
 import {
   DiagnosticsScreen,
-  DiagnosticsScreenProps,
+  type DiagnosticsScreenProps,
 } from './diagnostics_screen';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';

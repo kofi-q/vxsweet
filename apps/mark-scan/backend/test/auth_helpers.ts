@@ -1,4 +1,4 @@
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
@@ -8,10 +8,10 @@ import {
   mockOf,
 } from '@vx/libs/test-utils/src';
 import {
-  CardlessVoterUser,
+  type CardlessVoterUser,
   constructElectionKey,
-  ElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { type ElectionDefinition } from '@vx/libs/types/src';
 
 export function mockLoggedOutAuth(auth: InsertedSmartCardAuthApi): void {
   mockOf(auth.getAuthStatus).mockImplementation(() =>

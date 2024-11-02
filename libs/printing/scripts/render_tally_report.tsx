@@ -1,7 +1,7 @@
 import { readElection } from '@vx/libs/fs/src';
-import { AdminTallyReportByParty } from '@vx/libs/ui/src';
-import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src';
-import { renderToPdf } from '../src';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src/reports';
+import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src/tabulation';
+import { renderToPdf } from '../src/render';
 
 export async function main(args: readonly string[]): Promise<void> {
   if (args.length !== 2) {

@@ -1,4 +1,4 @@
-import type { MachineConfig } from '@vx/apps/mark/backend/src';
+import { type MachineConfig } from '../../../backend/src/types';
 
 export function mockMachineConfig({
   machineId = '000',

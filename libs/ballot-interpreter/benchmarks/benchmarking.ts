@@ -1,5 +1,6 @@
 /* eslint-disable vx/gts-safe-number-parse */
-import { assertDefined, iter, range } from '@vx/libs/basics/src';
+import { assertDefined, range } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 

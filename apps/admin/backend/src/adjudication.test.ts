@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import {
-  BallotStyleGroupId,
-  ContestOptionId,
+  type BallotStyleGroupId,
+  type ContestOptionId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -9,12 +9,12 @@ import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { assert } from '@vx/libs/basics/src';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
-  MockCastVoteRecordFile,
+  type MockCastVoteRecordFile,
   addMockCvrFileToStore,
 } from '../test/mock_cvr_file';
 import { Store } from './store';
 import { adjudicateVote, adjudicateWriteIn } from './adjudication';
-import { WriteInRecord } from '.';
+import { type WriteInRecord } from './types';
 
 const contestId = 'zoo-council-mammal';
 

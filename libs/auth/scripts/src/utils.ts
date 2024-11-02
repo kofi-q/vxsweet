@@ -1,10 +1,13 @@
 import { Buffer } from 'node:buffer';
 import { sleep, throwIllegalValue } from '@vx/libs/basics/src';
-import { SystemAdministratorUser, VendorUser } from '@vx/libs/types/src';
+import {
+  type SystemAdministratorUser,
+  type VendorUser,
+} from '@vx/libs/types/src/auth';
 import { generatePin, hyphenatePin } from '@vx/libs/utils/src';
 
 import { ResponseApduError } from '../../src/apdu';
-import { CardStatusReady, StatefulCard } from '../../src/card';
+import { type CardStatusReady, type StatefulCard } from '../../src/card';
 import { openssl } from '../../src/cryptography';
 import { JavaCard } from '../../src/java_card';
 

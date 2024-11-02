@@ -12,19 +12,21 @@ import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
-  ElectionPackageMetadata,
-  InsertedSmartCardAuth,
+  type ElectionPackageMetadata,
   LanguageCode,
-  SystemSettings,
-  UiStringAudioClips,
-  UiStringAudioIdsPackage,
-  UiStringsPackage,
-  constructElectionKey,
+  type SystemSettings,
+  type UiStringAudioClips,
+  type UiStringAudioIdsPackage,
+  type UiStringsPackage,
   safeParseElection,
   safeParseElectionDefinition,
   safeParseSystemSettings,
   testCdfBallotDefinition,
 } from '@vx/libs/types/src';
+import {
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
@@ -50,7 +52,7 @@ import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import { join } from 'node:path';
 import * as fs from 'node:fs';
 import { Buffer } from 'node:buffer';
-import { UsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { tmpNameSync } from 'tmp';
 import { sha256 } from 'js-sha256';
 import {
@@ -58,7 +60,7 @@ import {
   mockElectionPackageFileTree,
 } from './test_utils';
 import {
-  ElectionPackageWithFileContents,
+  type ElectionPackageWithFileContents,
   readElectionPackageFromFile,
   readSignedElectionPackageFromUsb,
 } from './election_package_io';

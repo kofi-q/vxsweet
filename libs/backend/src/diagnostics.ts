@@ -1,8 +1,8 @@
 import { Client } from '@vx/libs/db/src';
 import {
-  DiagnosticOutcome,
-  DiagnosticRecord,
-  DiagnosticType,
+  type DiagnosticOutcome,
+  type DiagnosticRecord,
+  type DiagnosticType,
 } from '@vx/libs/types/src';
 
 /**

@@ -1,23 +1,19 @@
 /* istanbul ignore file - tested via Mark/Mark-Scan */
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import styled, { keyframes } from 'styled-components';
-import {
-  Button,
-  appStrings,
-  AudioOnly,
-  ReadOnLoad,
-  PageNavigationButtonId,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/src';
+import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
+import { PageNavigationButtonId } from '@vx/libs/ui/src/accessible_controllers';
 
 import { assert } from '@vx/libs/basics/src';
 
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctId,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctId,
 } from '@vx/libs/types/src';
 import { ElectionInfo } from '../components/election_info';
-import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
+import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 import { VoterScreen } from '../components/voter_screen';
 
 const wobbleKeyframes = keyframes`

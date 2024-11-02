@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import { throwIllegalValue } from '@vx/libs/basics/src';
 
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 
 export function mockUsbDriveStatus(
   status: UsbDriveStatus['status']

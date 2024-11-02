@@ -1,16 +1,16 @@
-import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
+import { type Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
-  AnyContest,
-  BallotStyle,
-  BallotStyleGroupId,
-  BallotStyleId,
-  District,
-  Election,
-  ElectionDefinition,
-  BallotStyleGroup,
-  Party,
-  Precinct,
-  PrecinctId,
+  type AnyContest,
+  type BallotStyle,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type District,
+  type Election,
+  type ElectionDefinition,
+  type BallotStyleGroup,
+  type Party,
+  type Precinct,
+  type PrecinctId,
   Tabulation,
 } from '@vx/libs/types/src';
 import { getBallotStyleGroup, getGroupedBallotStyles } from '../ballot_styles';

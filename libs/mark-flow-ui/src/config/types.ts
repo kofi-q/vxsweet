@@ -1,19 +1,19 @@
 import {
-  BallotStyleId,
-  CandidateContest,
-  CandidateVote,
-  ContestId,
-  Election,
-  ElectionDefinition,
-  OptionalVote,
-  OptionalYesNoVote,
-  PrecinctId,
-  VotesDict,
-  YesNoContest,
+  type BallotStyleId,
+  type CandidateContest,
+  type CandidateVote,
+  type ContestId,
+  type Election,
+  type ElectionDefinition,
+  type OptionalVote,
+  type OptionalYesNoVote,
+  type PrecinctId,
+  type VotesDict,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import {
-  ContestsWithMsEitherNeither,
-  MsEitherNeitherContest,
+  type ContestsWithMsEitherNeither,
+  type MsEitherNeitherContest,
 } from '../utils/ms_either_neither_contests';
 
 // Ballot

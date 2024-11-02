@@ -2,7 +2,7 @@ import { ok } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import {
-  MockApiClient,
+  type MockApiClient,
   createMockApiClient,
   provideApi,
 } from '../test/api_helpers';

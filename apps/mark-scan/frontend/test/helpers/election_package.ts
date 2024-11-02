@@ -1,9 +1,9 @@
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  ElectionDefinition,
+  type ElectionDefinition,
 } from '@vx/libs/types/src';
-import { VxScreen, mockUsbDriveStatus } from '@vx/libs/ui/src';
-import { ApiMock } from './mock_api_client';
+import { type VxScreen, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { type ApiMock } from './mock_api_client';
 
 /**
  * Simulates inserting a USB drive, configuring the backend with an election definition,

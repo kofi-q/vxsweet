@@ -1,11 +1,11 @@
-import { Admin, Election, Tabulation } from '@vx/libs/types/src';
+import { Admin, type Election, Tabulation } from '@vx/libs/types/src';
 import { find, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   TEST_FILE_PREFIX,
   sanitizeStringForFilename,
-  isFilterEmpty as isTabulationFilterEmpty,
   generateFileTimeSuffix,
 } from '@vx/libs/utils/src';
+import { isFilterEmpty as isTabulationFilterEmpty } from '@vx/libs/utils/src/tabulation';
 
 const FAT_FILENAME_CHAR_LIMIT = 255;
 

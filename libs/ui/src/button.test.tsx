@@ -1,13 +1,13 @@
 import React from 'react';
-import { ColorMode, SizeMode } from '@vx/libs/types/src';
+import { type ColorMode, type SizeMode } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen } from '../test/react_testing_library';
 import {
   BUTTON_VARIANTS,
   Button,
-  ButtonColor,
-  ButtonFill,
+  type ButtonColor,
+  type ButtonFill,
   LabelButton,
   LoadingButton,
 } from './button';

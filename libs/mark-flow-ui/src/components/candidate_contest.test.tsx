@@ -4,7 +4,7 @@ jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
 }));
 
 import {
-  CandidateContest as CandidateContestInterface,
+  type CandidateContest as CandidateContestInterface,
   getCandidateParties,
 } from '@vx/libs/types/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
@@ -17,7 +17,7 @@ import {
   hasTextAcrossElements,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { VirtualKeyboard, VirtualKeyboardProps } from '@vx/libs/ui/src';
+import { VirtualKeyboard, type VirtualKeyboardProps } from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { CandidateContest } from './candidate_contest';
 

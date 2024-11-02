@@ -4,7 +4,7 @@ import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {
   asSheet,
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
+  type ElectionDefinition,
 } from '@vx/libs/types/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import {
@@ -14,7 +14,7 @@ import {
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import { interpretSheet } from '../src';
+import { interpretSheet } from '../src/interpret';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { benchmarkRegressionTest } from './benchmarking';
 

@@ -26,14 +26,15 @@ import {
 } from '@vx/libs/fixtures/src';
 import { Server } from 'node:http';
 import { typedAs } from '@vx/libs/basics/src';
-import { constructElectionKey, PrinterStatus } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
+import { type PrinterStatus } from '@vx/libs/types/src';
 import {
   getMockConnectedPrinterStatus,
   getMockFilePrinterHandler,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import {
-  Api,
-  MachineType,
+  type Api,
+  type MachineType,
   DEFAULT_PRINTERS,
   useDevDockRouter,
 } from './dev_dock_api';

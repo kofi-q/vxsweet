@@ -7,19 +7,19 @@ import {
 } from '@vx/libs/auth/src';
 import { Client } from '@vx/libs/db/src';
 import {
-  BatchInfo,
+  type BatchInfo,
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
-  MarkThresholds,
-  PollsState,
-  SystemSettings,
+  type ElectionDefinition,
+  type MarkThresholds,
+  type PollsState,
+  type SystemSettings,
 } from '@vx/libs/types/src';
 import { FileSystemEntryType, listDirectoryRecursive } from '@vx/libs/fs/src';
 import {
-  CentralScannerStore,
-  ElectionRecord,
-  PrecinctScannerStore,
-  ScannerStoreBase,
+  type CentralScannerStore,
+  type ElectionRecord,
+  type PrecinctScannerStore,
+  type ScannerStoreBase,
 } from '../src/cast_vote_records/export';
 
 class MockScannerStoreBase implements ScannerStoreBase {

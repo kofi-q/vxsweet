@@ -6,25 +6,24 @@ import {
   err,
   find,
   groupBy,
-  iter,
-  naturals,
   ok,
-  Optional,
-  Result,
+  type Optional,
+  type Result,
   throwIllegalValue,
   unique,
   wrapException,
 } from '@vx/libs/basics/src';
+import { iter, naturals } from '@vx/libs/basics/src/iterators';
 import setWith from 'lodash.setwith';
 import * as Cdf from '.';
 import * as Vxf from '../../election';
 import { ballotPaperDimensions, getContests } from '../../election_utils';
-import { Id, safeParse } from '../../generic';
+import { type Id, safeParse } from '../../generic';
 import { safeParseInt } from '../../numeric';
 import { LanguageCode } from '../../language_code';
 import {
   ElectionStringKey,
-  UiStringsPackage,
+  type UiStringsPackage,
 } from '../../ui_string_translations';
 
 function officeId(contestId: Vxf.ContestId): string {

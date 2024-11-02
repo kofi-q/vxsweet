@@ -15,7 +15,7 @@ import { PollWorkerScreen } from './pages/poll_worker_screen';
 import { VoterFlow } from './voter_flow';
 import { AppRoot, POLL_WORKER_AUTH_REQUIRED_STATES } from './app_root';
 import { render } from '../test/test_utils';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import {
   mockCardlessVoterLoggedInAuth,
   mockPollWorkerAuth,

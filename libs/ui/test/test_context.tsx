@@ -1,34 +1,32 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Optional } from '@vx/libs/basics/src';
-import { AudioControls, LanguageCode } from '@vx/libs/types/src';
-import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
+import { type Optional } from '@vx/libs/basics/src';
+import { type AudioControls, LanguageCode } from '@vx/libs/types/src';
+import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
 import {
-  UiStringsApiClient,
-  UiStringsReactQueryApi,
+  type UiStringsApiClient,
+  type UiStringsReactQueryApi,
   createUiStringsApi,
 } from '../src/hooks/ui_strings_api';
 import {
-  FrontendLanguageContextInterface,
+  type FrontendLanguageContextInterface,
   useFrontendLanguageContext,
 } from '../src/ui_strings/language_context';
 import {
-  UiStringsAudioContextInterface,
+  type UiStringsAudioContextInterface,
   useAudioContext,
 } from '../src/ui_strings/audio_context';
 import { UiStringsContextProvider } from '../src/ui_strings/ui_strings_context';
-import { RenderResult, render, renderHook } from './react_testing_library';
+import { type RenderResult, render, renderHook } from './react_testing_library';
+import { QUERY_CLIENT_DEFAULT_OPTIONS } from '../src/react_query';
+import { type VxRenderOptions } from '../src/themes/render_with_themes';
+import { useAudioControls } from '../src/hooks/use_audio_controls';
 import {
-  QUERY_CLIENT_DEFAULT_OPTIONS,
-  VxRenderOptions,
-  useAudioControls,
-} from '../src';
-import {
-  SystemCallReactQueryApi,
+  type SystemCallReactQueryApi,
   createSystemCallApi,
   SystemCallContextProvider,
 } from '../src/system_call_api';
-import { SignedHashValidationApiClient } from '../src/signed_hash_validation_button';
+import { type SignedHashValidationApiClient } from '../src/signed_hash_validation_button';
 
 type ApiClient = UiStringsApiClient &
   SystemCallApiClient &

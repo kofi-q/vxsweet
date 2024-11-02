@@ -1,17 +1,17 @@
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
-  AnyContest,
-  CandidateVote,
-  ContestOption,
-  ContestOptionId,
-  Contests,
+  type AdjudicationReasonInfo,
+  type AnyContest,
+  type CandidateVote,
+  type ContestOption,
+  type ContestOptionId,
+  type Contests,
   MarkStatus,
-  VotesDict,
+  type VotesDict,
   WriteInAreaStatus,
 } from '@vx/libs/types/src';
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
-import { allContestOptions } from '@vx/libs/utils/src';
+import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 
 function rankMarkStatus(markStatus: MarkStatus): number {
   switch (markStatus) {

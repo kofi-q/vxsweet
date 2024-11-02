@@ -1,4 +1,4 @@
-import type { Api } from '@vx/apps/mark/backend/src';
+import { type Api } from '../../backend/src/app';
 import React from 'react';
 import { deepEqual } from '@vx/libs/basics/src';
 import * as grout from '@vx/libs/grout/src';

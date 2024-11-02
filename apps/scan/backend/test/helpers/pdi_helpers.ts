@@ -3,28 +3,28 @@ import * as grout from '@vx/libs/grout/src';
 import * as tmp from 'tmp';
 import { Application } from 'express';
 import {
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
 } from '@vx/libs/auth/src';
 import {
-  Listener,
-  ScannerClient,
-  ScannerError,
-  ScannerEvent,
-  ScannerStatus,
+  type Listener,
+  type ScannerClient,
+  type ScannerError,
+  type ScannerEvent,
+  type ScannerStatus,
 } from '@vx/libs/pdi-scanner/src/ts';
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
-  MemoryPrinterHandler,
+  type MemoryPrinterHandler,
   createMockPrinterHandler,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import {
-  MemoryFujitsuPrinterHandler,
+  type MemoryFujitsuPrinterHandler,
   createMockFujitsuPrinterHandler,
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
-import { Result, deferred, ok } from '@vx/libs/basics/src';
+import { type Result, deferred, ok } from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
@@ -37,7 +37,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
@@ -48,8 +48,8 @@ import {
   createPrecinctScannerStateMachine,
   delays,
 } from '../../src/scanners/pdi/state_machine';
-import { Workspace, createWorkspace } from '../../src/util/workspace';
-import { Api, buildApp } from '../../src/app';
+import { type Workspace, createWorkspace } from '../../src/util/workspace';
+import { type Api, buildApp } from '../../src/app';
 import {
   wrapFujitsuThermalPrinter,
   wrapLegacyPrinter,

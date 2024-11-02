@@ -4,8 +4,8 @@ import {
   DocumentSensorStatus,
   HomeSensorStatus,
   JobStatus,
-  ScannerA4Status,
-  ScannerStatus,
+  type ScannerA4Status,
+  type ScannerStatus,
   SensorStatus,
 } from './types';
 

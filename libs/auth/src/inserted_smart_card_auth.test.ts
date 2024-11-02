@@ -32,21 +32,25 @@ import {
   constructElectionKey,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
   TEST_JURISDICTION,
-  BallotStyleId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
+import { type BallotStyleId } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   generatePin,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 
-import { buildMockCard, MockCard, mockCardAssertComplete } from '../test/utils';
-import { CardDetails, CardStatus } from './card';
-import { DippedSmartCardAuthMachineState } from './dipped_smart_card_auth_api';
+import {
+  buildMockCard,
+  type MockCard,
+  mockCardAssertComplete,
+} from '../test/utils';
+import { type CardDetails, type CardStatus } from './card';
+import { type DippedSmartCardAuthMachineState } from './dipped_smart_card_auth_api';
 import { InsertedSmartCardAuth } from './inserted_smart_card_auth';
 import {
-  InsertedSmartCardAuthConfig,
-  InsertedSmartCardAuthMachineState,
+  type InsertedSmartCardAuthConfig,
+  type InsertedSmartCardAuthMachineState,
 } from './inserted_smart_card_auth_api';
 
 const mockFeatureFlagger = getFeatureFlagMock();

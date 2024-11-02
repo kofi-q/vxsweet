@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import {
-  SmartCardImageProps,
+  type SmartCardImageProps,
   InsertCardImage,
   RemoveCardImage,
   RotateCardImage,

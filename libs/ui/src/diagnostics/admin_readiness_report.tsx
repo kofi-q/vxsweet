@@ -1,15 +1,15 @@
 import { ThemeProvider } from 'styled-components';
-import { PrinterSection, PrinterSectionProps } from './printer_section';
+import { PrinterSection, type PrinterSectionProps } from './printer_section';
 import { PrintedReport } from '../reports/layout';
 import { makeTheme } from '../themes/make_theme';
 import { ReadinessReportHeader } from './report_header';
 import {
-  ConfigurationSectionProps,
+  type ConfigurationSectionProps,
   ConfigurationSection,
 } from './configuration_section';
 import { ReportContents } from './components';
-import { BatterySection, BatterySectionProps } from './battery_section';
-import { StorageSection, StorageSectionProps } from './storage_section';
+import { BatterySection, type BatterySectionProps } from './battery_section';
+import { StorageSection, type StorageSectionProps } from './storage_section';
 
 type ReportContentsProps = ConfigurationSectionProps &
   BatterySectionProps &

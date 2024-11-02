@@ -4,52 +4,58 @@
 
 import { Client as DbClient } from '@vx/libs/db/src';
 import {
-  AdjudicationStatus,
+  type AdjudicationStatus,
   HmpbBallotPaperSize,
-  BallotSheetInfo,
-  BatchInfo,
-  Iso8601Timestamp,
+  type BallotSheetInfo,
+  type BatchInfo,
+  type Iso8601Timestamp,
   mapSheet,
-  MarkThresholds,
+  type MarkThresholds,
   PageInterpretationSchema,
-  PageInterpretationWithFiles,
-  PollsState as PollsStateType,
+  type PageInterpretationWithFiles,
+  type PollsState as PollsStateType,
   PollsStateSchema,
-  PrecinctSelection as PrecinctSelectionType,
+  type PrecinctSelection as PrecinctSelectionType,
   PrecinctSelectionSchema,
   safeParse,
   safeParseElectionDefinition,
   safeParseJson,
-  SheetOf,
-  SystemSettings,
+  type SheetOf,
+  type SystemSettings,
   safeParseSystemSettings,
   AdjudicationReason,
-  PollsTransitionType,
-  DiagnosticRecord,
-  DiagnosticType,
-  ElectionKey,
-  ElectionId,
-  constructElectionKey,
+  type PollsTransitionType,
+  type DiagnosticRecord,
+  type DiagnosticType,
+  type ElectionId,
 } from '@vx/libs/types/src';
+import {
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import {
   assert,
   assertDefined,
   DateWithoutTime,
-  Optional,
+  type Optional,
   typedAs,
 } from '@vx/libs/basics/src';
 import { DateTime } from 'luxon';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';
 import {
-  AcceptedSheet,
-  ElectionRecord,
-  RejectedSheet,
-  Sheet,
-  UiStringsStore,
-  addDiagnosticRecord,
+  type AcceptedSheet,
+  type ElectionRecord,
+  type RejectedSheet,
+  type Sheet,
   clearDoesUsbDriveRequireCastVoteRecordSyncCachedResult,
+} from '@vx/libs/backend/src/cast_vote_records';
+import {
+  type UiStringsStore,
   createUiStringStore,
+} from '@vx/libs/backend/src/ui_strings';
+import {
+  addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
@@ -63,7 +69,7 @@ import { getPollsTransitionDestinationState } from '@vx/libs/utils/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 import { rootDebug } from './util/debug';
-import { PollsTransition } from './types';
+import { type PollsTransition } from './types';
 
 const debug = rootDebug.extend('store');
 

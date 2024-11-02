@@ -3,7 +3,7 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { advancePromises } from '@vx/libs/test-utils/src';
 import { useIsVoterAuth } from './use_is_voter_auth';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../test/helpers/mock_api_client';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Prose, ProseProps } from './prose';
+import { Prose, type ProseProps } from './prose';
 
 interface Props extends ProseProps {
   density?: number;

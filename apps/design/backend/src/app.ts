@@ -1,44 +1,44 @@
 import * as grout from '@vx/libs/grout/src';
 import { Buffer } from 'node:buffer';
 import {
-  Election,
+  type Election,
   getPrecinctById,
-  Id,
+  type Id,
   safeParseElection,
   HmpbBallotPaperSize,
-  SystemSettings,
+  type SystemSettings,
   BallotType,
-  ElectionSerializationFormat,
-  ElectionId,
-  BallotStyleId,
+  type ElectionSerializationFormat,
+  type ElectionId,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
 import express, { Application } from 'express';
 import {
   assertDefined,
   DateWithoutTime,
   groupBy,
-  iter,
   ok,
-  Result,
+  type Result,
 } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import JsZip from 'jszip';
 import {
-  BallotMode,
+  type BallotMode,
   BALLOT_MODES,
-  BaseBallotProps,
+  type BaseBallotProps,
   createPlaywrightRenderer,
   renderAllBallotsAndCreateElectionDefinition,
   renderBallotPreviewToPdf,
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { ElectionPackage, ElectionRecord } from './store';
-import { Precinct } from './types';
+import { type ElectionPackage, type ElectionRecord } from './store';
+import { type Precinct } from './types';
 import {
   createPrecinctTestDeck,
   FULL_TEST_DECK_TALLY_REPORT_FILE_NAME,
   createTestDeckTallyReport,
 } from './test_decks';
-import { AppContext } from './context';
+import { type AppContext } from './context';
 import { rotateCandidates } from './candidate_rotation';
 import { renderBallotStyleReadinessReport } from './ballot_style_reports';
 import { translateBallotStrings } from './language_and_audio/ballot_strings';

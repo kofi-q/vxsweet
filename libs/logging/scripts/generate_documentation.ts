@@ -2,7 +2,8 @@ import { safeParse } from '@vx/libs/types/src';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 import yargs from 'yargs/yargs';
 import * as fs from 'node:fs';
-import { AppName, AppNameSchema } from '../src';
+import { AppName } from '../src/base_types/log_source';
+import { AppNameSchema } from '../src/types';
 import {
   generateCdfLogDocumentationFileContent,
   generateMarkdownDocumentationContent,

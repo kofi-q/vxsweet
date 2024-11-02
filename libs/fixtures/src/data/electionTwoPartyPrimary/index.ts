@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
 import { asElectionDefinition } from '../../util';
 import { asText as batchResultsCsvAsText } from './csvFiles/batchResults.csv';
 import { asText as finalResultsCsvAsText } from './csvFiles/finalResults.csv';
@@ -10,8 +10,8 @@ import * as castVoteRecords from './castVoteRecords';
 export const batchCsvData = batchResultsCsvAsText();
 export const finalCsvData = finalResultsCsvAsText();
 
-export { election, electionDefinition } from './election.json';
 export * as electionJson from './election.json';
+export { election, electionDefinition } from './election.json';
 
 export const singlePrecinctElection: Election = {
   ...election,

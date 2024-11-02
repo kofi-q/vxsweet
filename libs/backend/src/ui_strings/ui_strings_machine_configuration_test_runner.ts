@@ -1,16 +1,16 @@
 /* istanbul ignore file - test util */
 
 import {
-  ElectionDefinition,
-  ElectionPackage,
+  type ElectionDefinition,
+  type ElectionPackage,
   LanguageCode,
-  UiStringAudioClips,
-  UiStringAudioIdsPackage,
-  UiStringsPackage,
+  type UiStringAudioClips,
+  type UiStringAudioIdsPackage,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { Result, assertDefined } from '@vx/libs/basics/src';
-import { UiStringsStore } from './ui_strings_store';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type Result, assertDefined } from '@vx/libs/basics/src';
+import { type UiStringsStore } from './ui_strings_store';
 import { mockElectionPackageFileTree } from '../election_package/test_utils';
 
 type MockUsbDriveLike = Pick<MockUsbDrive, 'insertUsbDrive'>;

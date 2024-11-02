@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
 
-import { UiStringsReactQueryApi } from '../hooks/ui_strings_api';
+import { type UiStringsReactQueryApi } from '../hooks/ui_strings_api';
 import {
   DEFAULT_PLAYBACK_RATE,
   MAX_PLAYBACK_RATE,

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Buffer } from 'node:buffer';
 
-import { ColorMode } from '@vx/libs/types/src';
+import { type ColorMode } from '@vx/libs/types/src';
 
 const DARK_COLOR_MODES: ReadonlySet<ColorMode> = new Set<ColorMode>([
   'contrastHighDark',

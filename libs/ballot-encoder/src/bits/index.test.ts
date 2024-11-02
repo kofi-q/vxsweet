@@ -1,4 +1,6 @@
-import { BitReader, BitWriter, CustomEncoding } from '.';
+import { BitReader } from './bit_reader';
+import { BitWriter } from './bit_writer';
+import { CustomEncoding } from './encoding';
 
 test('can round-trip a bit', () => {
   expect(

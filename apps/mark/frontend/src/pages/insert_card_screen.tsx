@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  ElectionDefinition,
-  PollsState,
-  PrecinctSelection,
+  type ElectionDefinition,
+  type PollsState,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
 import {
   Main,

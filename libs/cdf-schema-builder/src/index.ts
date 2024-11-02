@@ -1,11 +1,11 @@
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 import { findDocForProperty, findDocForType } from './docs';
 import {
   createInterfaceFromDefinition,
   createEnumFromDefinition,
   parseJsonSchema,
 } from './json_schema';
-import { Enum, Interface, StringAlias } from './types';
+import { type Enum, type Interface, type StringAlias } from './types';
 import {
   makeIdentifier,
   isValidIdentifier,

@@ -8,7 +8,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 import {
   getCastVoteRecordExportDirectoryPaths,
   readCastVoteRecordExport,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/cast_vote_records';
 import { assertDefined, err, ok } from '@vx/libs/basics/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { CVR } from '@vx/libs/types/src';

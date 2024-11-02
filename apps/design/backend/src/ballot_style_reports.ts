@@ -2,10 +2,10 @@ import { Buffer } from 'node:buffer';
 
 import {
   BallotStyleReadinessReport,
-  BallotStyleReadinessReportProps,
-} from '@vx/libs/ui/src';
+  type BallotStyleReadinessReportProps,
+} from '@vx/libs/ui/src/diagnostics';
 import { renderToPdf } from '@vx/libs/printing/src';
-import { PlaywrightRenderer } from '@vx/libs/hmpb/src';
+import { type PlaywrightRenderer } from '@vx/libs/hmpb/src';
 
 export interface BallotStyleReadinessReportParams {
   componentProps: BallotStyleReadinessReportProps;

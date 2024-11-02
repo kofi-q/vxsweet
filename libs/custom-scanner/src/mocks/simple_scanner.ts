@@ -1,6 +1,6 @@
 import { ok } from '@vx/libs/basics/src';
-import { ScannerStatus, SensorStatus } from '../types';
-import { CustomScanner } from '../types/custom_scanner';
+import { type ScannerStatus, SensorStatus } from '../types';
+import { type CustomScanner } from '../types/custom_scanner';
 
 /**
  * Mock ScannerStatus object for when the custom scanner has no paper and nothing is happening.

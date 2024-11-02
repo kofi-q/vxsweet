@@ -2,7 +2,7 @@ import { err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import * as fc from 'fast-check';
 import { BITS_PER_BYTE, toByteOffset } from './bits';
-import { CoderType } from './message_coder';
+import { type CoderType } from './message_coder';
 import { uint1 } from './uint1_coder';
 
 test('uint1 offset=0', () => {

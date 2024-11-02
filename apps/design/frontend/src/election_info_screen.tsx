@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Election, Id } from '@vx/libs/types/src';
+import { type Election, type Id } from '@vx/libs/types/src';
 import {
   Button,
   H1,

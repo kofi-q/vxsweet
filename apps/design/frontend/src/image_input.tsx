@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import sanitizeHtml from 'sanitize-html';
-import { FileInputButton, FileInputButtonProps } from '@vx/libs/ui/src';
+import { FileInputButton, type FileInputButtonProps } from '@vx/libs/ui/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 
 const MAX_IMAGE_UPLOAD_BYTES = 5 * 1_000 * 1_000; // 5 MB

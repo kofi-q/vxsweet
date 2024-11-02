@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 
 import { useState } from 'react';
-import { SearchSelect, SearchSelectMultiProps } from './search_select';
+import { SearchSelect, type SearchSelectMultiProps } from './search_select';
 
 const initialProps: SearchSelectMultiProps = {
   onChange: () => undefined,

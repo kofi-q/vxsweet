@@ -5,11 +5,8 @@ import {
 } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import {
-  BallotStyleId,
-  constructElectionKey,
-  getContestDistrictName,
-} from '@vx/libs/types/src';
+import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 import * as GLOBALS from './config/globals';
@@ -26,7 +23,7 @@ import {
   measure102Contest,
   voterContests,
 } from '../test/helpers/election';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { configureFromUsbThenRemove } from '../test/helpers/election_package';
 
 let apiMock: ApiMock;

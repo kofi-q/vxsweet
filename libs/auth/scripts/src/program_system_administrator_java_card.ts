@@ -1,6 +1,6 @@
 import { extractErrorMessage } from '@vx/libs/basics/src';
 
-import { constructJavaCardConfig, JavaCardConfig } from '../../src/config';
+import { constructJavaCardConfig, type JavaCardConfig } from '../../src/config';
 import { getRequiredEnvVar, isNodeEnvProduction } from '../../src/env_vars';
 import { JavaCard } from '../../src/java_card';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';

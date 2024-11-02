@@ -6,14 +6,14 @@ import {
 } from '@vx/libs/basics/src';
 import {
   Admin,
-  BallotStyleGroupId,
-  Election,
+  type BallotStyleGroupId,
+  type Election,
   Tabulation,
 } from '@vx/libs/types/src';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { SearchSelect, SelectOption, Button } from '@vx/libs/ui/src';
-import type { ScannerBatch } from '@vx/apps/admin/backend/src';
+import { SearchSelect, type SelectOption, Button } from '@vx/libs/ui/src';
+import { type ScannerBatch } from '../../../../backend/src/types';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { getScannerBatches } from '../../api';
 import {

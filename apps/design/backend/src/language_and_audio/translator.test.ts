@@ -6,7 +6,7 @@ import {
 } from '../../test/helpers';
 import { Store } from '../store';
 import { GoogleCloudTranslator } from './translator';
-import { VendoredTranslations } from './vendored_translations';
+import { type VendoredTranslations } from './vendored_translations';
 
 test('GoogleCloudTranslator', async () => {
   const store = Store.memoryStore();

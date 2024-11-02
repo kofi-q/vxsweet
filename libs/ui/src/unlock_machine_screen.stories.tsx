@@ -2,10 +2,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { DateWithoutTime } from '@vx/libs/basics/src';
-import { ElectionId } from '@vx/libs/types/src';
+import { type ElectionId } from '@vx/libs/types/src';
 import {
   UnlockMachineScreen as UnlockMachineScreenComponent,
-  UnlockMachineScreenProps,
+  type UnlockMachineScreenProps,
 } from './unlock_machine_screen';
 import { SECURITY_PIN_LENGTH } from './globals';
 import { PinLength } from './utils/pin_length';

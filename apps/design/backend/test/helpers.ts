@@ -6,18 +6,22 @@ import * as tmp from 'tmp';
 import * as grout from '@vx/libs/grout/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/src';
-import { ElectionSerializationFormat, LanguageCode } from '@vx/libs/types/src';
+import {
+  type ElectionSerializationFormat,
+  LanguageCode,
+} from '@vx/libs/types/src';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import { buildApp } from '../src/app';
-import type { Api } from '../src/app';
+import { buildApp, type Api } from '../src/app';
 import {
   GoogleCloudSpeechSynthesizer,
+  type MinimalGoogleCloudTextToSpeechClient,
+} from '../src/language_and_audio/speech_synthesizer';
+import {
   GoogleCloudTranslator,
-  MinimalGoogleCloudTextToSpeechClient,
-  MinimalGoogleCloudTranslationClient,
-  VendoredTranslations,
-} from '../src/language_and_audio';
-import { Workspace, createWorkspace } from '../src/workspace';
+  type MinimalGoogleCloudTranslationClient,
+} from '../src/language_and_audio/translator';
+import { type VendoredTranslations } from '../src/language_and_audio/vendored_translations';
+import { type Workspace, createWorkspace } from '../src/workspace';
 import * as worker from '../src/worker/worker';
 
 tmp.setGracefulCleanup();

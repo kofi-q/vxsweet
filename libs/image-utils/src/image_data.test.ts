@@ -4,7 +4,7 @@ import fc from 'fast-check';
 import { writeFile } from 'node:fs/promises';
 import { fileSync } from 'tmp';
 import { randomFillSync } from 'node:crypto';
-import { MaybePromise } from '@vx/libs/basics/src';
+import { type MaybePromise } from '@vx/libs/basics/src';
 import { arbitraryImageData } from '../test/arbitraries';
 import {
   RGBA_CHANNEL_COUNT,

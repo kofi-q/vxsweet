@@ -3,11 +3,14 @@ import fc from 'fast-check';
 import { mock } from 'jest-mock-extended';
 import { arbitraryStatusInternalMessage } from '../../test/arbitraries';
 import { CustomA4Scanner } from '../custom_a4_scanner';
-import { createDuplexChannelMock, DuplexChannelListeners } from '../mocks';
+import {
+  createDuplexChannelMock,
+  type DuplexChannelListeners,
+} from '../mocks/usb_channel';
 import { ErrorResponseMessage, StatusInternalMessage } from '../protocol';
 import { convertFromInternalStatus } from '../status';
 import { ErrorCode, ResponseErrorCode } from '../types';
-import { StatusWatcher, watchStatus } from './status_watcher';
+import { type StatusWatcher, watchStatus } from './status_watcher';
 
 test('watchStatus yields initial status', async () => {
   const { onRead } = mock<DuplexChannelListeners>();

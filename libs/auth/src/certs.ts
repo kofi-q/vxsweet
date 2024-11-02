@@ -5,8 +5,9 @@ import {
   DateWithoutTime,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
-import { ElectionId, ElectionKey } from '@vx/libs/types/src';
-import { arePollWorkerCardDetails, CardDetails } from './card';
+import { type ElectionId } from '@vx/libs/types/src';
+import { type ElectionKey } from '@vx/libs/types/src/auth';
+import { arePollWorkerCardDetails, type CardDetails } from './card';
 import { openssl } from './cryptography';
 
 /**

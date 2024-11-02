@@ -3,8 +3,8 @@ import { Meta } from '@storybook/react';
 
 import {
   SegmentedButton as Component,
-  SegmentedButtonOptionId,
-  SegmentedButtonProps,
+  type SegmentedButtonOptionId,
+  type SegmentedButtonProps,
 } from './segmented_button';
 
 const initialProps: SegmentedButtonProps<string> = {

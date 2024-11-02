@@ -1,8 +1,9 @@
 import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { extractErrorMessage, lines } from '@vx/libs/basics/src';
-import { Byte } from '@vx/libs/types/src';
+import { extractErrorMessage } from '@vx/libs/basics/src';
+import { lines } from '@vx/libs/basics/src/iterators';
+import { type Byte } from '@vx/libs/types/src';
 
 import { CommandApdu, constructTlv } from '../../../src/apdu';
 import { getRequiredEnvVar } from '../../../src/env_vars';
@@ -18,7 +19,11 @@ import {
 import { runCommand } from '../../../src/shell';
 import { waitForReadyCardStatus } from '../../src/utils';
 
-import { CARD_DOD_CERT, CommonAccessCard, DEFAULT_PIN } from '../../../src/cac';
+import {
+  CARD_DOD_CERT,
+  CommonAccessCard,
+  DEFAULT_PIN,
+} from '../../../src/cac/common_access_card';
 
 const APPLET_PATH = path.join(
   __dirname,

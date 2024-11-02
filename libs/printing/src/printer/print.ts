@@ -1,6 +1,6 @@
 import { assert } from '@vx/libs/basics/src';
 import { rootDebug } from '../utils/debug';
-import { PrintProps, PrintSides } from './types';
+import { type PrintProps, PrintSides } from './types';
 import { DEFAULT_MANAGED_PRINTER_NAME } from './configure';
 import { exec } from '../utils/exec';
 

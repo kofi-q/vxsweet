@@ -1,16 +1,20 @@
-import { IteratorPlus, Result, assert, iter, ok } from '@vx/libs/basics/src';
+import { type IteratorPlus, iter } from '@vx/libs/basics/src/iterators';
+import { type Result, assert, ok } from '@vx/libs/basics/src';
 import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
 import { readFileSync } from 'node:fs';
 import { Buffer } from 'node:buffer';
 import {
   FujitsuThermalPrinterDriver,
-  FujitsuThermalPrinterDriverInterface,
+  type FujitsuThermalPrinterDriverInterface,
 } from './driver/driver';
-import { CompressedBitImage, UncompressedBitImage } from './driver/types';
-import { BitArray, bitArrayToByte } from './bits';
+import {
+  type CompressedBitImage,
+  type UncompressedBitImage,
+} from './driver/types';
+import { type BitArray, bitArrayToByte } from './bits';
 import { rootDebug } from './debug';
-import { RawPrinterStatus } from './driver';
+import { type RawPrinterStatus } from './driver/coders';
 import {
   IDLE_REPLY_PARAMETER,
   PRINT_ONGOING_REPLY_PARAMETER,

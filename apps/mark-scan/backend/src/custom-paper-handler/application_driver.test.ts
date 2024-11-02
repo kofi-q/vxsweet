@@ -1,17 +1,20 @@
+jest.mock('@vx/libs/custom-paper-handler/src/driver');
 jest.mock('@vx/libs/custom-paper-handler/src');
 
 import {
-  MinimalWebUsbDevice,
+  type MinimalWebUsbDevice,
   PaperHandlerDriver,
-  imageDataToBinaryBitmap,
-  chunkBinaryBitmap,
   VERTICAL_DOTS_IN_CHUNK,
   getPaperHandlerDriver,
-  PaperHandlerStatus,
+  type PaperHandlerStatus,
   isPaperAnywhere,
   MockPaperHandlerDriver,
   isMockPaperHandler,
   MaxPrintWidthDots,
+} from '@vx/libs/custom-paper-handler/src/driver';
+import {
+  imageDataToBinaryBitmap,
+  chunkBinaryBitmap,
 } from '@vx/libs/custom-paper-handler/src';
 import { Buffer } from 'node:buffer';
 import { mockOf } from '@vx/libs/test-utils/src';
@@ -23,7 +26,7 @@ import {
   resetAndReconnect,
   scanAndSave,
 } from './application_driver';
-import { getDefaultPaperHandlerStatus } from './test_utils';
+import { getDefaultPaperHandlerStatus } from './test_utils/utils';
 
 let driver: PaperHandlerDriver;
 let webDevice: MinimalWebUsbDevice;

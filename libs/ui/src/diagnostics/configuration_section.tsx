@@ -1,14 +1,15 @@
 import {
-  BallotStyleGroup,
-  Election,
-  ElectionDefinition,
+  type BallotStyleGroup,
+  type Election,
+  type ElectionDefinition,
   LanguageCode,
-  MarkThresholds,
-  PrecinctSelection,
+  type MarkThresholds,
+  type PrecinctSelection,
   formatElectionHashes,
   getPrecinctById,
 } from '@vx/libs/types/src';
-import { assert, assertDefined, iter } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { format, getGroupedBallotStyles } from '@vx/libs/utils/src';
 import styled from 'styled-components';
 import { H2, P } from '../typography';

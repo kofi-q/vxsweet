@@ -23,10 +23,10 @@ import {
 } from '@vx/libs/utils/src';
 import { err } from '@vx/libs/basics/src';
 import { LogEventId } from '@vx/libs/logging/src';
-import { DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
-  DiskSpaceSummary,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
 } from '@vx/libs/backend/src';
 import { withApp } from '../test/helpers/pdi_helpers';

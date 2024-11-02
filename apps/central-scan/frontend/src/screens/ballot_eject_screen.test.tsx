@@ -1,8 +1,8 @@
 import { mockBaseLogger, LogEventId } from '@vx/libs/logging/src';
 import {
   AdjudicationReason,
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
   DEFAULT_SYSTEM_SETTINGS,
   formatBallotHash,
@@ -16,7 +16,7 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { BallotEjectScreen } from './ballot_eject_screen';
-import { createApiMock, ApiMock } from '../../test/api';
+import { createApiMock, type ApiMock } from '../../test/api';
 
 let apiMock: ApiMock;
 

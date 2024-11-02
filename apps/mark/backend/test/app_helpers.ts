@@ -1,18 +1,14 @@
 import {
   buildMockInsertedSmartCardAuth,
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
 } from '@vx/libs/auth/src';
 import * as grout from '@vx/libs/grout/src';
 import { Application } from 'express';
 import { AddressInfo } from 'node:net';
-import {
-  mockLogger,
-  LogSource,
-  Logger,
-  mockBaseLogger,
-} from '@vx/libs/logging/src';
+import { mockLogger, Logger, mockBaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import tmp from 'tmp';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { Server } from 'node:http';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
@@ -22,17 +18,19 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  SystemSettings,
-  TEST_JURISDICTION,
+  type SystemSettings,
 } from '@vx/libs/types/src';
-import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
+import {
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
+import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   createMockPrinterHandler,
-  MemoryPrinterHandler,
-} from '@vx/libs/printing/src';
-import { Api, buildApp } from '../src/app';
-import { createWorkspace, Workspace } from '../src/util/workspace';
+  type MemoryPrinterHandler,
+} from '@vx/libs/printing/src/printer';
+import { type Api, buildApp } from '../src/app';
+import { createWorkspace, type Workspace } from '../src/util/workspace';
 import { getUserRole } from '../src/util/auth';
 
 interface MockAppContents {

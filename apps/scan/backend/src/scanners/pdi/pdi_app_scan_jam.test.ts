@@ -9,14 +9,14 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import { Result, deferred, ok, typedAs } from '@vx/libs/basics/src';
-import { ScannerError } from '@vx/libs/pdi-scanner/src/ts';
+import { type Result, deferred, ok, typedAs } from '@vx/libs/basics/src';
+import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
+  type SheetInterpretation,
 } from '@vx/libs/types/src';
 import {
   ballotImages,

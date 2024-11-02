@@ -5,8 +5,8 @@ import {
   safeParseJson,
 } from '@vx/libs/types/src';
 
-import { BackgroundTask } from '../store';
-import { WorkerContext } from './context';
+import { type BackgroundTask } from '../store';
+import { type WorkerContext } from './context';
 import { generateElectionPackage } from './generate_election_package';
 
 export async function processBackgroundTask(

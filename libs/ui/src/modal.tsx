@@ -5,8 +5,8 @@ import { rgba } from 'polished';
 
 import { assert } from '@vx/libs/basics/src';
 
-import { SizeMode } from '@vx/libs/types/src';
-import { Theme } from './themes';
+import { type SizeMode } from '@vx/libs/types/src';
+import { type Theme } from './themes';
 import { H2 } from './typography';
 import { ReadOnLoad } from './ui_strings/read_on_load';
 import { useAudioContext } from './ui_strings/audio_context';

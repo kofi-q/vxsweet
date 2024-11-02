@@ -1,9 +1,9 @@
-import { SimpleServerStatus } from '@vx/apps/mark-scan/backend/src';
+import { type SimpleServerStatus } from '../../../../backend/src/custom-paper-handler/types';
 import userEvent from '@testing-library/user-event';
-import { DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
 import { render, screen } from '../../../test/react_testing_library';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { deferred, err, ok } from '@vx/libs/basics/src';
-import { ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 import {
   QueryClient,
   QueryClientProvider,
@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-query';
 import {
   SaveReadinessReportButton,
-  SaveReadinessReportProps,
+  type SaveReadinessReportProps,
 } from './save_readiness_report_button';
 
 import { render, screen } from '../test/react_testing_library';

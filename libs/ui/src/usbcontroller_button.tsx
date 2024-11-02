@@ -1,6 +1,6 @@
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Button } from './button';
-import { IconName } from './icons';
+import { type IconName } from './icons';
 
 type ExtendedUsbDriveStatus = UsbDriveStatus['status'] | 'ejecting';
 

@@ -1,10 +1,11 @@
 import { Meta } from '@storybook/react';
-import { ColorMode } from '@vx/libs/types/src';
+import { type ColorMode } from '@vx/libs/types/src';
 import styled, { useTheme } from 'styled-components';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 import contrastLib from 'get-contrast';
-import { H2, H4, Icons } from '..';
+import { H2, H4 } from '../typography';
+import { Icons } from '../icons';
 
 function contrastGrade(colorMode: ColorMode, ratio: number): string {
   switch (colorMode) {

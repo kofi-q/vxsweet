@@ -12,7 +12,7 @@ import {
   P,
   UsbControllerButton,
 } from '@vx/libs/ui/src';
-import type { ExportDataError } from '@vx/apps/admin/backend/src';
+import { type ExportDataError } from '@vx/libs/backend/src';
 
 import { ejectUsbDrive, saveElectionPackageToUsb } from '../api';
 import { AppContext } from '../contexts/app_context';

@@ -1,25 +1,28 @@
 import {
-  ContestId,
-  ContestOptionId,
-  ElectionDefinition,
+  type ContestId,
+  type ContestOptionId,
+  type ElectionDefinition,
   ElectionDefinitionSchema,
-  Id,
+  type Id,
   IdSchema,
-  Iso8601Timestamp,
+  type Iso8601Timestamp,
   Iso8601TimestampSchema,
-  Rect,
-  CandidateId,
-  PrecinctId,
+  type Rect,
+  type CandidateId,
+  type PrecinctId,
   Tabulation,
-  ReadCastVoteRecordExportError,
-  ReadCastVoteRecordError,
+  type ReadCastVoteRecordExportError,
+  type ReadCastVoteRecordError,
   Admin,
   Sha256Hash,
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
 } from '@vx/libs/types/src';
 import * as z from 'zod';
 
-export type { ExportDataResult, ExportDataError } from '@vx/libs/backend/src';
+export {
+  type ExportDataResult,
+  type ExportDataError,
+} from '@vx/libs/backend/src';
 
 /**
  * Environment variables that identify the machine and its software. Set at the

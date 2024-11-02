@@ -1,4 +1,4 @@
-import { lines } from '@vx/libs/basics/src';
+import { lines } from '@vx/libs/basics/src/iterators';
 import { safeParseNumber } from '@vx/libs/types/src';
 import { createReadStream } from 'node:fs';
 

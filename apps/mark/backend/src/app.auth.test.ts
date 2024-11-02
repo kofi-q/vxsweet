@@ -9,11 +9,13 @@ import { DateTime } from 'luxon';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  SystemSettings,
-  TEST_JURISDICTION,
-  BallotStyleId,
+  type SystemSettings,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
+import {
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

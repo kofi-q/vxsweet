@@ -1,13 +1,8 @@
-import {
-  Caption,
-  List,
-  ListItem,
-  NumberString,
-  appStrings,
-} from '@vx/libs/ui/src';
+import { Caption, List, ListItem } from '@vx/libs/ui/src';
+import { NumberString, appStrings } from '@vx/libs/ui/src/ui_strings';
 import React from 'react';
 import { WarningDetailsModalButton } from './warning_details_modal_button';
-import { MisvoteWarningsProps } from './types';
+import { type MisvoteWarningsProps } from './types';
 
 export function WarningsSummary(props: MisvoteWarningsProps): JSX.Element {
   const { blankContests, overvoteContests, partiallyVotedContests } = props;

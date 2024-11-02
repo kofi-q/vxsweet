@@ -1,4 +1,4 @@
-import { Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/src';
 import { ImageData } from 'canvas';
 import { type TemplateGridAndBubbles } from './find_template_grid_and_bubbles';
 

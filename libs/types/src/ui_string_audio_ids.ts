@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Dictionary } from './generic';
+import { type Dictionary } from './generic';
 import { LanguageCode } from './language_code';
 
 type AudioIdList = string[];

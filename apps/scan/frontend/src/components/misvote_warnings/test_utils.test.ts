@@ -1,5 +1,5 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { AnyContest } from '@vx/libs/types/src';
+import { type AnyContest } from '@vx/libs/types/src';
 
 const CONTEST_TEMPLATE: AnyContest = electionGeneral.contests[0];
 

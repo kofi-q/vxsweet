@@ -1,9 +1,9 @@
 import {
-  Contests,
-  ElectionDefinition,
-  PartyId,
-  PrecinctSelection,
-  StandardPollsTransitionType,
+  type Contests,
+  type ElectionDefinition,
+  type PartyId,
+  type PrecinctSelection,
+  type StandardPollsTransitionType,
   Tabulation,
 } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';

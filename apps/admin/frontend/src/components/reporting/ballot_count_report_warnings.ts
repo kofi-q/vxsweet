@@ -1,4 +1,4 @@
-import type { BallotCountReportWarning } from '@vx/apps/admin/backend/src';
+import { type BallotCountReportWarning } from '../../../../backend/src/reports/warnings';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 
 interface BallotCountReportWarningProps {

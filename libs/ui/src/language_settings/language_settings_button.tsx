@@ -3,12 +3,10 @@ import React from 'react';
 import { useCurrentLanguage } from '../hooks/use_current_language';
 import { useAvailableLanguages } from '../hooks/use_available_languages';
 import { Button } from '../button';
-import {
-  appStrings,
-  electionStrings,
-  LanguageOverride,
-  WithAltAudio,
-} from '../ui_strings';
+import { appStrings } from '../ui_strings/app_strings';
+import { electionStrings } from '../ui_strings/election_strings';
+import { LanguageOverride } from '../ui_strings/language_override';
+import { WithAltAudio } from '../ui_strings/with_alt_audio';
 
 export interface LanguageSettingsButtonProps {
   onPress: () => void;

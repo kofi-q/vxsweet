@@ -1,7 +1,12 @@
 import { Meta } from '@storybook/react';
 import styled from 'styled-components';
 
-import { ICON_COLORS, IconComponent, IconProps, Icons } from './icons';
+import {
+  ICON_COLORS,
+  type IconComponent,
+  type IconProps,
+  Icons,
+} from './icons';
 import { H1, H5, P } from './typography';
 
 const meta: Meta<IconComponent> = {

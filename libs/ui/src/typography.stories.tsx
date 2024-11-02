@@ -13,8 +13,8 @@ import {
   H5,
   H6,
   P,
-  FontProps,
-  HeadingProps,
+  type FontProps,
+  type HeadingProps,
 } from './typography';
 
 const loremIpsum = new LoremIpsum({

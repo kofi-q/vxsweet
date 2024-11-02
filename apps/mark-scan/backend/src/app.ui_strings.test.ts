@@ -11,7 +11,7 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/ui_strings';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import {
   safeParseElectionDefinition,
@@ -21,11 +21,11 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { createWorkspace } from './util/workspace';
-import { Api, buildApi } from './app';
+import { type Api, buildApi } from './app';
 import { buildMockLogger } from '../test/app_helpers';
 import { mockElectionManagerAuth } from '../test/auth_helpers';
 

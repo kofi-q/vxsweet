@@ -3,15 +3,14 @@ import styled from 'styled-components';
 
 import {
   AudioOnly,
-  Caption,
-  H2,
   NumberString,
   ReadOnLoad,
   appStrings,
   electionStrings,
-} from '@vx/libs/ui/src';
-import { Contest, District } from '@vx/libs/types/src';
-import { MsEitherNeitherContest } from '../utils/ms_either_neither_contests';
+} from '@vx/libs/ui/src/ui_strings';
+import { Caption, H2 } from '@vx/libs/ui/src';
+import { type Contest, type District } from '@vx/libs/types/src';
+import { type MsEitherNeitherContest } from '../utils/ms_either_neither_contests';
 
 export interface ContestHeaderProps {
   breadcrumbs?: BreadcrumbMetadata;

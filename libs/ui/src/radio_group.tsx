@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { isTouchscreen } from '@vx/libs/types/src';
 
-import { Button, ButtonProps } from './button';
+import { Button, type ButtonProps } from './button';
 import { useCurrentTheme } from './hooks/use_current_theme';
 
 /** Option value type for the RadioGroup component. */

@@ -1,6 +1,7 @@
-import { MockFunction } from '@vx/libs/test-utils/src';
+import { type MockFunction } from '@vx/libs/test-utils/src';
 import { expectTypeOf } from 'expect-type';
-import { createApi, createClient } from '@vx/libs/grout/src';
+import { createApi } from '../../src/server';
+import { createClient } from '../../src/client';
 import { createMockClient } from './mock_client';
 
 const api = createApi({

@@ -3,7 +3,7 @@ import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotIdSchema,
   BallotType,
-  CandidateContest,
+  type CandidateContest,
   CVR,
   unsafeParse,
 } from '@vx/libs/types/src';

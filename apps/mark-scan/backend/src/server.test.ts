@@ -20,7 +20,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src';
+import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { initializeSystemAudio, testDetectDevices } from '@vx/libs/backend/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { PORT } from './globals';

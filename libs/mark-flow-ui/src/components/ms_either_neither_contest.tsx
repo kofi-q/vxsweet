@@ -5,23 +5,25 @@ import {
   Main,
   Caption,
   WithScrollButtons,
+  RichText,
+} from '@vx/libs/ui/src';
+import {
   appStrings,
   AudioOnly,
   electionStrings,
-  AssistiveTechInstructions,
-  RichText,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/ui_strings';
+import { AssistiveTechInstructions } from '@vx/libs/ui/src/accessible_controllers';
 
 import {
-  YesNoVote,
-  Election,
+  type YesNoVote,
+  type Election,
   getContestDistrict,
-  YesNoOption,
+  type YesNoOption,
 } from '@vx/libs/types/src';
 
-import { UpdateVoteFunction } from '../config/types';
-import { MsEitherNeitherContest as MsEitherNeitherContestInterface } from '../utils/ms_either_neither_contests';
-import { BreadcrumbMetadata, ContestHeader } from './contest_header';
+import { type UpdateVoteFunction } from '../config/types';
+import { type MsEitherNeitherContest as MsEitherNeitherContestInterface } from '../utils/ms_either_neither_contests';
+import { type BreadcrumbMetadata, ContestHeader } from './contest_header';
 
 const ChoicesGrid = styled.div`
   display: grid;

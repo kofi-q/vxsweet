@@ -3,7 +3,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotStyleId,
+  type BallotStyleId,
   BallotType,
   getBallotStyle,
   getContests,

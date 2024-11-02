@@ -13,9 +13,9 @@ import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtu
 import { err, typedAs } from '@vx/libs/basics/src';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  SheetInterpretation,
+  type SheetInterpretation,
 } from '@vx/libs/types/src';
 import { DEFAULT_FAMOUS_NAMES_PRECINCT_ID } from '@vx/libs/bmd-ballot-fixtures/src';
 import {

@@ -1,7 +1,7 @@
-import { BallotCountReport } from '@vx/libs/ui/src';
+import { BallotCountReport } from '@vx/libs/ui/src/reports';
 import {
-  ElectionDefinition,
-  ElectionId,
+  type ElectionDefinition,
+  type ElectionId,
   HmpbBallotPaperSize,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -11,7 +11,8 @@ import {
   assertDefined,
   range,
 } from '@vx/libs/basics/src';
-import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { getCurrentTime } from '../util/get_current_time';
 

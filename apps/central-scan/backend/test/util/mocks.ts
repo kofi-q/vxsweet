@@ -1,18 +1,18 @@
 import { createImageData, writeImageData } from '@vx/libs/image-utils/src';
 import {
-  MockReadable,
+  type MockReadable,
   mockReadable,
-  MockWritable,
+  type MockWritable,
   mockWritable,
 } from '@vx/libs/test-utils/src';
-import { Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Optional, throwIllegalValue } from '@vx/libs/basics/src';
 import { ChildProcess } from 'node:child_process';
 import { EventEmitter } from 'node:events';
 import { fileSync } from 'tmp';
 import {
-  BatchControl,
-  BatchScanner,
-  ScannedSheetInfo,
+  type BatchControl,
+  type BatchScanner,
+  type ScannedSheetInfo,
 } from '../../src/fujitsu_scanner';
 
 export function makeMock<T>(Cls: new (...args: never[]) => T): jest.Mocked<T> {

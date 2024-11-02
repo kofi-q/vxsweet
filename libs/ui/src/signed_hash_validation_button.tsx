@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
 import { assert } from '@vx/libs/basics/src';
-import { SignedHashValidationQrCodeValue } from '@vx/libs/types/src';
+import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';
 
 import { DateTime } from 'luxon';
 import { Button } from './button';

@@ -1,4 +1,4 @@
-import '@vx/apps/admin/frontend/test/set_up_react_pdf_mock';
+import '../../../test/set_up_react_pdf_mock';
 
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 
@@ -6,7 +6,10 @@ import userEvent from '@testing-library/user-event';
 import { ok } from '@vx/libs/basics/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
 import { renderInAppContext } from '../../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import {
   TITLE,
   TallyWriteInReportScreen,

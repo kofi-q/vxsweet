@@ -1,4 +1,5 @@
-import { Caption, CenteredLargeProse, H1, appStrings } from '@vx/libs/ui/src';
+import { Caption, CenteredLargeProse, H1 } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function ScanReturnedBallotScreen(): JSX.Element {

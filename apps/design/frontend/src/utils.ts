@@ -1,5 +1,8 @@
 import { assert } from '@vx/libs/basics/src';
-import type { Precinct, PrecinctWithSplits } from '@vx/apps/design/backend/src';
+import {
+  type Precinct,
+  type PrecinctWithSplits,
+} from '../../backend/src/types';
 import { customAlphabet } from 'nanoid';
 
 export function hasSplits(precinct: Precinct): precinct is PrecinctWithSplits {

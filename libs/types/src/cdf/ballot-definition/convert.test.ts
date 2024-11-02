@@ -15,10 +15,10 @@ import {
 import { testCdfBallotDefinition, testVxfElection } from './fixtures';
 import {
   ElectionStringKey,
-  LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
   mergeUiStrings,
-} from '../..';
+} from '../../ui_string_translations';
+import { LanguageCode } from '../../language_code';
 import * as Cdf from '.';
 import { normalizeVxfAfterCdfConversion } from '../../../test/cdf_conversion_helpers';
 

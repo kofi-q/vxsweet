@@ -2,7 +2,7 @@ import { assertDefined } from '@vx/libs/basics/src';
 import { promises as fs } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { writeImageData } from '../image_data';
-import { pdfToImages } from '..';
+import { pdfToImages } from '../pdf_to_images';
 
 /**
  * Reads a PDF file at the given path and writes a series of image files - one

@@ -2,7 +2,7 @@ import { err, ok, typedAs } from '@vx/libs/basics/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { writeFileSync } from 'node:fs';
 import { makeTmpFile } from '../test/utils';
-import { ReadElectionError, readElection } from './election';
+import { type ReadElectionError, readElection } from './election';
 
 test('syntax error', async () => {
   const path = makeTmpFile();

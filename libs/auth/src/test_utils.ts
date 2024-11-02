@@ -1,10 +1,10 @@
 import {
   DippedSmartCardAuth as DippedSmartCardAuthTypes,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
 
-import { DippedSmartCardAuthApi } from './dipped_smart_card_auth_api';
-import { InsertedSmartCardAuthApi } from './inserted_smart_card_auth_api';
+import { type DippedSmartCardAuthApi } from './dipped_smart_card_auth_api';
+import { type InsertedSmartCardAuthApi } from './inserted_smart_card_auth_api';
 
 /**
  * Builds a mock dipped smart card auth instance for application-level tests

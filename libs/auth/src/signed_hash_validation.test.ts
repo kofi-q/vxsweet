@@ -1,5 +1,5 @@
 import { getTestFilePath } from '../test/utils';
-import { SignedHashValidationConfig } from './config';
+import { type SignedHashValidationConfig } from './config';
 import {
   generateSignedHashValidationQrCodeValue,
   SIGNED_HASH_VALIDATION_MESSAGE_PAYLOAD_SEPARATOR,

@@ -4,10 +4,10 @@ import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {
   asSheet,
   DEFAULT_MARK_THRESHOLDS,
-  ElectionDefinition,
+  type ElectionDefinition,
 } from '@vx/libs/types/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
-import { interpretSheet } from '../src';
+import { interpretSheet } from '../src/interpret';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { benchmarkRegressionTest } from './benchmarking';
 

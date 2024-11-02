@@ -1,13 +1,16 @@
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/src';
-import type { ExportDataResult } from '@vx/apps/admin/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 import { ok } from '@vx/libs/basics/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { act } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { renderInAppContext } from '../../../test/render_in_app_context';
 import { screen, within } from '../../../test/react_testing_library';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { ExportFileButton } from './export_file_button';
 import { generateReportFilename } from '../../utils/reporting';
 

@@ -24,27 +24,27 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
-  buildManualResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import {
   HP_LASER_PRINTER_CONFIG,
-  MemoryPrinterHandler,
-  renderToPdf,
-} from '@vx/libs/printing/src';
+  type MemoryPrinterHandler,
+} from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { assert, err } from '@vx/libs/basics/src';
 import { tmpNameSync } from 'tmp';
-import { Client } from '@vx/libs/grout/src';
+import { type Client } from '@vx/libs/grout/src';
 import { LogEventId } from '@vx/libs/logging/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import {
   buildTestEnvironment,
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
-import { Api } from './app';
-import { TallyReportSpec } from './reports/tally_report';
+import { type Api } from './app';
+import { type TallyReportSpec } from './reports/tally_report';
 import '@vx/libs/image-test-utils/register';
 
 jest.setTimeout(60_000);

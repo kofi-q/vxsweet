@@ -1,6 +1,6 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-import { CentralScanReadinessReport } from '.';
+import { CentralScanReadinessReport } from './central_scan_readiness_report';
 import { render, screen } from '../../test/react_testing_library';
 
 test('CentralScanReadinessReport', () => {

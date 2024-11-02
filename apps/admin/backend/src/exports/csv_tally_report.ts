@@ -1,24 +1,24 @@
 import { stringify } from 'csv-stringify/sync';
 import {
-  Contest,
+  type Contest,
   Tabulation,
-  ElectionDefinition,
-  Id,
-  AnyContest,
-  Election,
+  type ElectionDefinition,
+  type Id,
+  type AnyContest,
+  type Election,
 } from '@vx/libs/types/src';
-import { Optional, assert, assertDefined } from '@vx/libs/basics/src';
+import { type Optional, assert, assertDefined } from '@vx/libs/basics/src';
 import {
   combineGroupSpecifierAndFilter,
   getEmptyElectionResults,
   getTallyReportCandidateRows,
   groupMapToGroupList,
   mergeTabulationGroupMaps,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { Store } from '../store';
 import { tabulateElectionResults } from '../tabulation/full_results';
 import {
-  CsvMetadataStructure,
+  type CsvMetadataStructure,
   determineCsvMetadataStructure,
   generateBatchLookup,
   generateCsvMetadataHeaders,

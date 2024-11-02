@@ -1,5 +1,5 @@
 import {
-  Result,
+  type Result,
   err,
   ok,
   assertDefined,
@@ -13,11 +13,11 @@ import { safeParseCdfBallotDefinition } from './cdf/ballot-definition/convert';
 import * as Cdf from './cdf/ballot-definition';
 import {
   HmpbBallotPaperSize,
-  Candidate,
-  Election,
-  ElectionDefinition,
+  type Candidate,
+  type Election,
+  type ElectionDefinition,
   ElectionSchema,
-  PartyId,
+  type PartyId,
 } from './election';
 import { safeParse, safeParseJson } from './generic';
 

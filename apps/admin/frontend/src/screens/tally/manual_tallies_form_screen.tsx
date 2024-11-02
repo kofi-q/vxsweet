@@ -8,17 +8,17 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Route, Switch, useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  ContestId,
+  type ContestId,
   getContestDistrictName,
   getContests,
   Tabulation,
-  CandidateId,
+  type CandidateId,
   Admin as AdminTypes,
-  AnyContest,
+  type AnyContest,
   getPrecinctById,
-  BallotStyleGroupId,
-  Contests,
-  Precinct,
+  type BallotStyleGroupId,
+  type Contests,
+  type Precinct,
 } from '@vx/libs/types/src';
 import {
   Button,
@@ -38,18 +38,17 @@ import {
   Callout,
   H3,
 } from '@vx/libs/ui/src';
+import { format, getBallotStyleGroup } from '@vx/libs/utils/src';
 import {
-  format,
   getContestById,
-  getBallotStyleGroup,
   areContestResultsValid,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 
-import type {
-  ManualResultsRecord,
-  ManualResultsVotingMethod,
-  WriteInCandidateRecord,
-} from '@vx/apps/admin/backend/src';
+import {
+  type ManualResultsRecord,
+  type ManualResultsVotingMethod,
+  type WriteInCandidateRecord,
+} from '../../../../backend/src/types';
 import { routerPaths } from '../../router_paths';
 
 import { AppContext } from '../../contexts/app_context';
@@ -61,8 +60,8 @@ import {
 } from '../../api';
 import { normalizeWriteInName } from '../../utils/write_ins';
 import {
-  ManualTallyFormContestParams,
-  ManualTallyFormParams,
+  type ManualTallyFormContestParams,
+  type ManualTallyFormParams,
 } from '../../config/types';
 
 const TallyTaskControls = styled(TaskControls)`

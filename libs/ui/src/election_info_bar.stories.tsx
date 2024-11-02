@@ -2,7 +2,10 @@ import { Meta } from '@storybook/react';
 
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 
-import { ElectionInfoBar, ElectionInfoBarProps } from './election_info_bar';
+import {
+  ElectionInfoBar,
+  type ElectionInfoBarProps,
+} from './election_info_bar';
 
 const initialArgs: ElectionInfoBarProps = {
   codeVersion: '00986543',

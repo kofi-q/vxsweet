@@ -1,11 +1,6 @@
-import {
-  LinkButton,
-  appStrings,
-  AudioOnly,
-  P,
-  PageNavigationButtonId,
-  Icons,
-} from '@vx/libs/ui/src';
+import { LinkButton, P, Icons } from '@vx/libs/ui/src';
+import { appStrings, AudioOnly } from '@vx/libs/ui/src/ui_strings';
+import { PageNavigationButtonId } from '@vx/libs/ui/src/accessible_controllers';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 // This page is rendered as part of the blank ballot interpretation flow immediately after

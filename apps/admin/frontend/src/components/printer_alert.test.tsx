@@ -1,4 +1,4 @@
-import { PrinterRichStatus, PrinterStatus } from '@vx/libs/types/src';
+import { type PrinterRichStatus, type PrinterStatus } from '@vx/libs/types/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -6,7 +6,7 @@ import {
 } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 import {
-  ApiMock,
+  type ApiMock,
   MOCK_PRINTER_CONFIG,
   createApiMock,
 } from '../../test/helpers/mock_api_client';

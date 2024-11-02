@@ -1,11 +1,11 @@
 import {
-  BallotStyleId,
-  ContestId,
-  Election,
-  ElectionDefinition,
-  PrecinctId,
-  AnyContest,
-  Contests,
+  type BallotStyleId,
+  type ContestId,
+  type Election,
+  type ElectionDefinition,
+  type PrecinctId,
+  type AnyContest,
+  type Contests,
 } from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 import {

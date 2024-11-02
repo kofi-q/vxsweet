@@ -2,7 +2,7 @@
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';
 import { assert, assertDefined } from '@vx/libs/basics/src';
-import { asHexString, Byte, isByte } from '@vx/libs/types/src';
+import { asHexString, type Byte, isByte } from '@vx/libs/types/src';
 
 /**
  * The max length of an APDU

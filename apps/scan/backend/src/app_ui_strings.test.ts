@@ -11,7 +11,7 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/src/ui_strings';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 
@@ -23,12 +23,12 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
-  constructElectionKey,
   safeParseElectionDefinition,
   testCdfBallotDefinition,
 } from '@vx/libs/types/src';
-import { createMockPrinterHandler } from '@vx/libs/printing/src';
+import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from './store';
 import { buildApi } from './app';

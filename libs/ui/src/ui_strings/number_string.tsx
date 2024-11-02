@@ -1,7 +1,7 @@
 import { format } from '@vx/libs/utils/src';
 import { assert } from '@vx/libs/basics/src';
 import { useLanguageContext } from './language_context';
-import { Font, FontProps } from '../typography';
+import { Font, type FontProps } from '../typography';
 import { WithAudio } from './with_audio';
 import {
   MAXIMUM_SUPPORTED_NUMBER_FOR_TTS,

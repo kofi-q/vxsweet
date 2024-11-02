@@ -7,8 +7,8 @@ import {
   generateElectionBasedSubfolderName,
 } from '@vx/libs/utils/src';
 import { UseMutationResult } from '@tanstack/react-query';
-import type { ExportDataResult } from '@vx/apps/admin/backend/src';
-import { Election } from '@vx/libs/types/src';
+import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type Election } from '@vx/libs/types/src';
 import { AppContext } from '../../contexts/app_context';
 import { getCastVoteRecordFileMode } from '../../api';
 import { SaveBackendFileModal } from '../save_backend_file_modal';

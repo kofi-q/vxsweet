@@ -8,9 +8,9 @@ import { Client } from '@vx/libs/db/src';
 import { tmpNameSync } from 'tmp';
 import { writeFileSync } from 'node:fs';
 import {
-  DiskSpaceSummary,
+  type DiskSpaceSummary,
   SYSTEM_INFORMATION_DISK_SPACE_TABLE_SCHEMA,
-  UsableDiskSpaceStore,
+  type UsableDiskSpaceStore,
   getDiskSpaceSummary,
   getMaximumUsableDiskSpace,
   getWorkspaceDiskSpaceSummary,

@@ -1,7 +1,12 @@
-import { assertDefined, iter, ok, unique } from '@vx/libs/basics/src';
+import { assertDefined, ok, unique } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { ImageData } from 'canvas';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { Election, ElectionDefinition, SheetOf } from '@vx/libs/types/src';
+import {
+  type Election,
+  type ElectionDefinition,
+  type SheetOf,
+} from '@vx/libs/types/src';
 import { interpret } from './interpret';
 
 test('interpret exists', () => {

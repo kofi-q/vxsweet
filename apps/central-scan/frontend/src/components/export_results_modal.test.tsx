@@ -1,7 +1,7 @@
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { err } from '@vx/libs/basics/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '../../test/react_testing_library';
 import { ExportResultsModal } from './export_results_modal';
@@ -9,7 +9,7 @@ import {
   renderInAppContext,
   wrapInAppContext,
 } from '../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../test/api';
+import { type ApiMock, createApiMock } from '../../test/api';
 
 let apiMock: ApiMock;
 

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { appStrings } from '@vx/libs/ui/src';
-import { SizeMode } from '@vx/libs/types/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { type SizeMode } from '@vx/libs/types/src';
 import { ContestList } from './contest_list';
 import { useLayoutConfig } from './use_layout_config_hook';
-import { MisvoteWarningsProps } from './types';
+import { type MisvoteWarningsProps } from './types';
 
 interface ContainerProps {
   numCardsPerRow: number;

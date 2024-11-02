@@ -1,12 +1,12 @@
-import { Result } from '@vx/libs/basics/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type Result } from '@vx/libs/basics/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import {
   ErrorCode,
   FormMovement,
-  ImageFromScanner,
+  type ImageFromScanner,
   ReleaseType,
-  ScannerStatus,
-  ScanParameters,
+  type ScannerStatus,
+  type ScanParameters,
 } from '../types';
 import { StatusInternalMessage } from '../protocol';
 

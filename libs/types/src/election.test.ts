@@ -33,14 +33,14 @@ import {
 import {
   BallotIdSchema,
   HmpbBallotPaperSize,
-  BallotStyleId,
+  type BallotStyleId,
   BallotStyleSchema,
-  CandidateContest,
+  type CandidateContest,
   CandidateSchema,
   ElectionDefinitionSchema,
   PartyIdSchema,
   WriteInIdSchema,
-  YesNoContest,
+  type YesNoContest,
   BmdBallotPaperSize,
 } from './election';
 import { safeParse, safeParseJson, unsafeParse } from './generic';
@@ -52,7 +52,7 @@ import {
   safeParseElection,
   safeParseElectionDefinition,
 } from './election_parsing';
-import { LanguageCode } from '.';
+import { LanguageCode } from './language_code';
 import { normalizeVxfAfterCdfConversion } from '../test/cdf_conversion_helpers';
 
 test('can build votes from a candidate ID', () => {

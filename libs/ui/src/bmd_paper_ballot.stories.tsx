@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react';
 
 import {
-  CandidateContest,
-  Election,
+  type CandidateContest,
+  type Election,
   ElectionStringKey,
   LanguageCode,
-  UiStringsPackage,
-  YesNoContest,
+  type UiStringsPackage,
+  type YesNoContest,
   getContests,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
@@ -17,15 +17,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { assert, find } from '@vx/libs/basics/src';
 import {
   BmdPaperBallot as Component,
-  BmdPaperBallotProps,
+  type BmdPaperBallotProps,
   MAX_BMD_PAPER_BALLOT_CONTESTS,
 } from './bmd_paper_ballot';
 import {
-  UiStringsReactQueryApi,
+  type UiStringsReactQueryApi,
   createUiStringsApi,
 } from './hooks/ui_strings_api';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from './react_query';
-import { UiStringsContextProvider } from './ui_strings';
+import { UiStringsContextProvider } from './ui_strings/ui_strings_context';
 import {
   generateCandidateVotes,
   generateYesNoVote,

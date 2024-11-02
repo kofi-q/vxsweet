@@ -1,14 +1,14 @@
 import userEvent from '@testing-library/user-event';
 import { err } from '@vx/libs/basics/src';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
 } from '../../../test/helpers/mock_api_client';
 import { render, screen, waitFor } from '../../../test/react_testing_library';
 import {
   ElectionManagerLoadPaperButton,
-  ElectionManagerLoadPaperButtonProps,
+  type ElectionManagerLoadPaperButtonProps,
 } from './election_manager_load_paper_button';
 
 let apiMock: ApiMock;

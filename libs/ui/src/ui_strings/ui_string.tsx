@@ -1,7 +1,7 @@
 import { Trans } from 'react-i18next';
 
 import sanitizeHtml from 'sanitize-html';
-import { ReactUiString } from './types';
+import { type ReactUiString } from './types';
 import { useLanguageContext } from './language_context';
 import { WithAudio } from './with_audio';
 

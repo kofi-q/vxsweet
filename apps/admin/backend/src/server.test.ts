@@ -5,7 +5,7 @@ import { Server } from 'node:http';
 import { dirSync } from 'tmp';
 import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { createMockPrinterHandler } from '@vx/libs/printing/src';
+import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { testDetectDevices } from '@vx/libs/backend/src';
 import { start } from './server';
 import { createWorkspace } from './util/workspace';

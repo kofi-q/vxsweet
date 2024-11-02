@@ -1,15 +1,15 @@
 import {
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
-  BlankPage,
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
+  type BlankPage,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
 } from '@vx/libs/types/src';
 import {
   describeValidationError,
   validateSheetInterpretation,
-  ValidationError,
+  type ValidationError,
   ValidationErrorType,
 } from './validation';
 

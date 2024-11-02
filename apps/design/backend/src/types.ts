@@ -1,12 +1,12 @@
 import {
-  BallotStyle as VxfBallotStyle,
-  BallotStyleId,
-  DistrictId,
-  Id,
+  type BallotStyle as VxfBallotStyle,
+  type BallotStyleId,
+  type DistrictId,
+  type Id,
   LanguageCode,
-  PartyId,
-  PrecinctId,
-  BallotStyleGroupId,
+  type PartyId,
+  type PrecinctId,
+  type BallotStyleGroupId,
 } from '@vx/libs/types/src';
 
 export interface BallotLanguageConfig {

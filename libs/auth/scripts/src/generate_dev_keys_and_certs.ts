@@ -4,16 +4,19 @@ import path from 'node:path';
 import yargs from 'yargs/yargs';
 import { extractErrorMessage } from '@vx/libs/basics/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import { constructElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src';
-
-import { CardDetails } from '../../src/card';
 import {
-  CardType,
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
+
+import { type CardDetails } from '../../src/card';
+import {
+  type CardType,
   CERT_EXPIRY_IN_DAYS,
   constructCardCertSubject,
   constructCardCertSubjectWithoutJurisdictionAndCardType,
   constructMachineCertSubject,
-  MachineType,
+  type MachineType,
   STANDARD_CERT_FIELDS,
 } from '../../src/certs';
 import {

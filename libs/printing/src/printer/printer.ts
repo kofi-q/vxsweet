@@ -7,7 +7,7 @@ import {
 import { rootDebug } from '../utils/debug';
 import { getConnectedDeviceUris } from './device_uri';
 import { configurePrinter } from './configure';
-import { Printer } from './types';
+import { type Printer } from './types';
 import { print as printData } from './print';
 import { getPrinterConfig } from './supported';
 import { MockFilePrinter } from './mocks/file_printer';

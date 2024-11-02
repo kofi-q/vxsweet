@@ -2,13 +2,13 @@ import { createMemoryHistory, History } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';
 import {
-  BallotStyleId,
-  Contests,
-  ElectionDefinition,
-  PrecinctId,
-  VotesDict,
+  type BallotStyleId,
+  type Contests,
+  type ElectionDefinition,
+  type PrecinctId,
+  type VotesDict,
 } from '@vx/libs/types/src';
-import { MachineConfig } from '@vx/apps/mark-scan/backend/src';
+import { type MachineConfig } from '../../backend/src/types';
 
 import { randomBallotId } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
@@ -16,7 +16,7 @@ import { render as testRender } from './react_testing_library';
 
 import { BallotContext } from '../src/contexts/ballot_context';
 import { mockMachineConfig } from './helpers/mock_machine_config';
-import { ApiMock, createApiMock } from './helpers/mock_api_client';
+import { type ApiMock, createApiMock } from './helpers/mock_api_client';
 import { ApiProvider } from '../src/api_provider';
 
 export function render(

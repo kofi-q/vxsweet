@@ -23,17 +23,17 @@ import {
   mockSessionExpiresAt,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
-  constructElectionKey,
   convertVxfElectionToCdfBallotDefinition,
-  ElectionDefinition,
+  type ElectionDefinition,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { withApp } from '../test/helpers/pdi_helpers';
-import { PrecinctScannerPollsInfo } from '.';
+import { type PrecinctScannerPollsInfo } from './types';
 
 jest.setTimeout(30_000);
 

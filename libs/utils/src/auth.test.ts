@@ -6,7 +6,10 @@ import {
   mockSystemAdministratorUser,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
-import { DippedSmartCardAuth, InsertedSmartCardAuth } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/src/auth';
 
 import {
   isCardlessVoterAuth,

@@ -1,16 +1,16 @@
 import type Express from 'express';
 import * as grout from '@vx/libs/grout/src';
 import * as fs from 'node:fs';
-import { Optional, assert } from '@vx/libs/basics/src';
+import { type Optional, assert } from '@vx/libs/basics/src';
 import {
-  PrinterConfig,
-  PrinterStatus,
+  type PrinterConfig,
+  type PrinterStatus,
   safeParseElectionDefinition,
-  UserRole,
 } from '@vx/libs/types/src';
+import { type UserRole } from '@vx/libs/types/src/auth';
 import { isAbsolute, join } from 'node:path';
 import {
-  CardStatus,
+  type CardStatus,
   readFromMockFile as readFromCardMockFile,
 } from '@vx/libs/auth/src';
 import {
@@ -20,13 +20,13 @@ import {
 import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   getMockFileFujitsuPrinterHandler,
-  PrinterStatus as FujitsuPrinterStatus,
+  type PrinterStatus as FujitsuPrinterStatus,
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import {
   BROTHER_THERMAL_PRINTER_CONFIG,
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import { execFile } from './utils';
 
 export type DevDockUserRole = Exclude<UserRole, 'cardless_voter'>;

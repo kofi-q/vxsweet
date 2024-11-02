@@ -4,7 +4,7 @@ import {
 } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
+import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import {
   fireEvent,
@@ -20,7 +20,7 @@ import { withMarkup } from '../test/helpers/with_markup';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
 import { measure102Contest } from '../test/helpers/election';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 

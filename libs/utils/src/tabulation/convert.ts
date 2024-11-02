@@ -1,5 +1,5 @@
 import { assert } from '@vx/libs/basics/src';
-import { Candidate, Tabulation, VotesDict } from '@vx/libs/types/src';
+import { type Candidate, Tabulation, type VotesDict } from '@vx/libs/types/src';
 
 export function convertVotesDictToTabulationVotes(
   votesDict: VotesDict

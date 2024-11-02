@@ -9,14 +9,16 @@ import { DateTime } from 'luxon';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  SystemSettings,
-  TEST_JURISDICTION,
-  BallotStyleId,
+  type SystemSettings,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
+import {
+  constructElectionKey,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/src/auth';
 import * as grout from '@vx/libs/grout/src';
 
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { Server } from 'node:http';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
@@ -24,10 +26,10 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { configureApp, createApp } from '../test/app_helpers';
-import { Api } from './app';
-import { PaperHandlerStateMachine } from './custom-paper-handler';
+import { type Api } from './app';
+import { type PaperHandlerStateMachine } from './custom-paper-handler/state_machine';
 
 const jurisdiction = TEST_JURISDICTION;
 const { election } = electionFamousNames2021Fixtures;

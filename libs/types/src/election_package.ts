@@ -1,14 +1,14 @@
 import {
-  BallotStyleId,
-  ContestId,
-  ElectionDefinition,
-  PrecinctId,
+  type BallotStyleId,
+  type ContestId,
+  type ElectionDefinition,
+  type PrecinctId,
 } from './election';
-import { SystemSettings } from './system_settings';
-import { ElectionPackageMetadata } from './election_package_metadata';
-import { UiStringAudioClips } from './ui_string_audio_clips';
-import { UiStringAudioIdsPackage } from './ui_string_audio_ids';
-import { UiStringsPackage } from './ui_string_translations';
+import { type SystemSettings } from './system_settings';
+import { type ElectionPackageMetadata } from './election_package_metadata';
+import { type UiStringAudioClips } from './ui_string_audio_clips';
+import { type UiStringAudioIdsPackage } from './ui_string_audio_ids';
+import { type UiStringsPackage } from './ui_string_translations';
 
 export enum ElectionPackageFileName {
   APP_STRINGS = 'appStrings.json',

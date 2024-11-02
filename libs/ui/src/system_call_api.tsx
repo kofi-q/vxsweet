@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/src';
 import { QueryKey, useMutation, useQuery } from '@tanstack/react-query';
-import type { SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src';
+import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
 
 export const BATTERY_POLLING_INTERVAL_GROUT = 3000;
 export const AUDIO_INFO_POLLING_INTERVAL_MS = 1000;

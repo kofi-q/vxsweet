@@ -1,13 +1,19 @@
-import { Optional, Result, err, ok, resultBlock } from '@vx/libs/basics/src';
+import {
+  type Optional,
+  type Result,
+  err,
+  ok,
+  resultBlock,
+} from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { toBitLength, toByteOffset } from './bits';
 import {
-  BitLength,
-  BitOffset,
-  CoderError,
-  DecodeResult,
-  EncodeResult,
+  type BitLength,
+  type BitOffset,
+  type CoderError,
+  type DecodeResult,
+  type EncodeResult,
 } from './types';
 
 function concatLiteralParts<T extends Array<string | number | Buffer>>(

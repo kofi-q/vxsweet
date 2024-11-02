@@ -1,13 +1,13 @@
 import { assert, assertDefined, find } from '@vx/libs/basics/src';
 import {
-  AnyContest,
-  Contest,
-  ContestId,
-  Contests,
-  YesNoOption,
+  type AnyContest,
+  type Contest,
+  type ContestId,
+  type Contests,
+  type YesNoOption,
   getContestDistrictName as getContestDistrictNameBase,
-  Election,
-  YesNoContest,
+  type Election,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 
 /**

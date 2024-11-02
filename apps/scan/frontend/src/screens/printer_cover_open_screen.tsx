@@ -1,4 +1,5 @@
-import { CenteredLargeProse, H1, P, appStrings } from '@vx/libs/ui/src';
+import { CenteredLargeProse, H1, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { ScreenMainCenterChild } from '../components/layout';
 
 export function PrinterCoverOpenScreen(): JSX.Element {

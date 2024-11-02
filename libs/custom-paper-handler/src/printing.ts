@@ -1,8 +1,9 @@
-import { assert, iter } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
 import { ImageData } from '@vx/libs/image-utils/src';
-import { BitArray, bitArrayToByte, Uint8Max } from './bits';
-import { PaperHandlerBitmap } from './driver/coders';
+import { type BitArray, bitArrayToByte, Uint8Max } from './bits';
+import { type PaperHandlerBitmap } from './driver/coders';
 
 export interface BinaryBitmap {
   width: number;

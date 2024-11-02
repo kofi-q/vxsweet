@@ -1,12 +1,12 @@
 import {
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
-  InvalidPrecinctPage,
-  InvalidTestModePage,
-  PageInterpretation,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type InvalidPrecinctPage,
+  type InvalidTestModePage,
+  type PageInterpretation,
 } from '@vx/libs/types/src';
 
-import { InterpreterOptions } from './types';
+import { type InterpreterOptions } from './types';
 
 type PageInterpretationWithMetadata =
   | InterpretedBmdPage

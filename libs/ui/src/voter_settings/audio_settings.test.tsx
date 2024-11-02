@@ -1,11 +1,14 @@
-jest.mock('../ui_strings', (): typeof import('../ui_strings') => ({
-  ...jest.requireActual('../ui_strings'),
-  ToggleAudioButton: jest.fn(() => (
-    <div data-testid={MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID} />
-  )),
-}));
+jest.mock(
+  '../ui_strings/toggle_audio_button',
+  (): typeof import('../ui_strings/toggle_audio_button') => ({
+    ...jest.requireActual('../ui_strings/toggle_audio_button'),
+    ToggleAudioButton: jest.fn(() => (
+      <div data-testid={MOCK_TOGGLE_AUDIO_BUTTON_TEST_ID} />
+    )),
+  })
+);
 
-import { UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/src';
 import { ThemeConsumer } from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { act, screen, waitFor } from '../../test/react_testing_library';

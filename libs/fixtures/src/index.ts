@@ -15,13 +15,13 @@ export * as electionGeneralFixtures from './data/electionGeneral';
 export {
   electionDefinition as multiPartyPrimaryElectionDefinition,
   election as multiPartyPrimaryElection,
-} from './data/electionMultiPartyPrimary';
+} from './data/electionMultiPartyPrimary/electionMultiPartyPrimarySample.json';
 export {
   electionDefinition as electionTwoPartyPrimaryDefinition,
   election as electionTwoPartyPrimary,
-} from './data/electionTwoPartyPrimary';
+} from './data/electionTwoPartyPrimary/election.json';
 export {
   electionDefinition as electionWithMsEitherNeitherDefinition,
   election as electionWithMsEitherNeither,
-} from './data/electionWithMsEitherNeither';
+} from './data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 export * as systemSettings from './data/systemSettings.json';

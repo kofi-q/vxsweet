@@ -3,7 +3,7 @@ import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
   getEmptyElectionResults,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { formatElectionHashes } from '@vx/libs/types/src';
 import { render, screen, within } from '../../test/react_testing_library';

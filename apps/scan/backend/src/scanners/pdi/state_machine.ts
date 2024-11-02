@@ -1,24 +1,24 @@
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
-import { Logger, LogEventId, LogLine } from '@vx/libs/logging/src';
+import { Logger, LogEventId, type LogLine } from '@vx/libs/logging/src';
 import {
-  ScannerClient,
-  ScannerError,
-  ScannerEvent,
-  ScannerStatus,
+  type ScannerClient,
+  type ScannerError,
+  type ScannerEvent,
+  type ScannerStatus,
 } from '@vx/libs/pdi-scanner/src/ts';
 import {
   HmpbBallotPaperSize,
-  InsertedSmartCardAuth,
   PrecinctScannerError,
-  PrecinctScannerMachineStatus,
-  SheetInterpretation,
-  SheetOf,
+  type PrecinctScannerMachineStatus,
+  type SheetInterpretation,
+  type SheetOf,
   ballotPaperDimensions,
   mapSheet,
 } from '@vx/libs/types/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
-import { time, Timer } from '@vx/libs/utils/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
+import { time, type Timer } from '@vx/libs/utils/src';
 import assert from 'node:assert';
 import { ImageData } from 'canvas';
 import { v4 as uuid } from 'uuid';
@@ -36,14 +36,17 @@ import {
   spawn,
 } from 'xstate';
 import { Clock } from 'xstate/lib/interpreter';
-import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src';
+import { runBlankPaperDiagnostic } from '@vx/libs/ballot-interpreter/src/hmpb-ts';
 import { writeImageData } from '@vx/libs/image-utils/src';
 import { join } from 'node:path';
 import { isReadyToScan } from '../../app_flow';
 import { interpret } from '../../interpret';
-import { InterpretationResult, PrecinctScannerStateMachine } from '../../types';
+import {
+  type InterpretationResult,
+  type PrecinctScannerStateMachine,
+} from '../../types';
 import { rootDebug } from '../../util/debug';
-import { Workspace } from '../../util/workspace';
+import { type Workspace } from '../../util/workspace';
 import {
   cleanLogData,
   recordAcceptedSheet,

@@ -2,19 +2,20 @@ import React from 'react';
 import { renderToPdf } from '@vx/libs/printing/src';
 import tmp from 'tmp';
 import {
-  ElectionDefinition,
-  VotesDict,
-  BallotStyleId,
-  PrecinctId,
+  type ElectionDefinition,
+  type VotesDict,
+  type BallotStyleId,
+  type PrecinctId,
   vote,
 } from '@vx/libs/types/src';
-import { BmdPaperBallot, BmdPaperBallotProps } from '@vx/libs/ui/src';
+import { BmdPaperBallot, type BmdPaperBallotProps } from '@vx/libs/ui/src';
 import { Buffer } from 'node:buffer';
 import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
 } from '@vx/libs/fixtures/src';
-import { assertDefined, iter } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
 
 export async function renderBmdBallotFixture(

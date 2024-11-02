@@ -1,17 +1,17 @@
 import {
   AdjudicationReason,
-  BallotMetadata,
-  BallotStyleId,
+  type BallotMetadata,
+  type BallotStyleId,
   BallotType,
-  CandidateContest,
+  type CandidateContest,
   DEFAULT_SYSTEM_SETTINGS,
-  InterpretedHmpbPage,
+  type InterpretedHmpbPage,
   mapSheet,
-  PageInterpretationWithFiles,
-  SheetOf,
-  TEST_JURISDICTION,
-  YesNoContest,
+  type PageInterpretationWithFiles,
+  type SheetOf,
+  type YesNoContest,
 } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
@@ -19,7 +19,10 @@ import {
 import * as tmp from 'tmp';
 import { v4 as uuid } from 'uuid';
 import { sleep } from '@vx/libs/basics/src';
-import { AcceptedSheet, RejectedSheet } from '@vx/libs/backend/src';
+import {
+  type AcceptedSheet,
+  type RejectedSheet,
+} from '@vx/libs/backend/src/cast_vote_records';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { sha256 } from 'js-sha256';
 import { mockBaseLogger } from '@vx/libs/logging/src';

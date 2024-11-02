@@ -1,17 +1,18 @@
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import React from 'react';
-import { combineGroupSpecifierAndFilter } from '@vx/libs/utils/src';
+import { combineGroupSpecifierAndFilter } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/src';
-import { AdminTallyReportByParty } from '@vx/libs/ui/src';
+import { AdminTallyReportByParty } from '@vx/libs/ui/src/reports';
 import { Buffer } from 'node:buffer';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { Printer, renderToPdf } from '@vx/libs/printing/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
+import { renderToPdf } from '@vx/libs/printing/src';
 import { generateTitleForReport } from './titles';
 import { Store } from '../store';
 import { getCurrentTime } from '../util/get_current_time';
-import { TallyReportWarning, getTallyReportWarning } from './warnings';
+import { type TallyReportWarning, getTallyReportWarning } from './warnings';
 import { exportFile } from '../util/export_file';
-import { ExportDataResult } from '../types';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 
 /**
  * Parameters that define a tally report.

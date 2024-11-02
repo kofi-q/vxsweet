@@ -1,13 +1,14 @@
 import { assert } from '@vx/libs/basics/src';
-import { WriteInAdjudicationReport } from '@vx/libs/ui/src';
-import { PdfError, Printer, renderToPdf } from '@vx/libs/printing/src';
+import { WriteInAdjudicationReport } from '@vx/libs/ui/src/reports';
+import { type PdfError, renderToPdf } from '@vx/libs/printing/src';
+import { type Printer } from '@vx/libs/printing/src/printer';
 import { Buffer } from 'node:buffer';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Tabulation } from '@vx/libs/types/src';
 import { Store } from '../store';
 import { getCurrentTime } from '../util/get_current_time';
 import { exportFile } from '../util/export_file';
-import { ExportDataResult } from '../types';
+import { type ExportDataResult } from '@vx/libs/backend/src';
 
 function buildWriteInAdjudicationReport({
   store,

@@ -1,8 +1,8 @@
-import { LanguageCode, UiStringAudioClips } from '@vx/libs/types/src';
+import { LanguageCode, type UiStringAudioClips } from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { act } from 'react';
 import { renderHook, waitFor } from '../../test/react_testing_library';
-import { createUiStringsApi, UiStringsApiClient } from './ui_strings_api';
+import { createUiStringsApi, type UiStringsApiClient } from './ui_strings_api';
 
 const queryClient = new QueryClient();
 function QueryWrapper(props: { children: React.ReactNode }) {

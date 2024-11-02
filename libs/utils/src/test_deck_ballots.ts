@@ -1,14 +1,15 @@
-import { assert, assertDefined, find, iter } from '@vx/libs/basics/src';
+import { assert, assertDefined, find } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
-  AnyContest,
-  WriteInCandidate,
-  CandidateContest,
-  Candidate,
-  Election,
-  PrecinctId,
+  type AnyContest,
+  type WriteInCandidate,
+  type CandidateContest,
+  type Candidate,
+  type Election,
+  type PrecinctId,
   getContests,
-  VotesDict,
-  BallotStyleId,
+  type VotesDict,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
 
 export interface TestDeckBallot {

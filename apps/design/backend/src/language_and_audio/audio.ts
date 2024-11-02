@@ -1,9 +1,9 @@
 import { Readable } from 'node:stream';
 import {
   LanguageCode,
-  UiStringAudioClip,
-  UiStringAudioIdsPackage,
-  UiStringsPackage,
+  type UiStringAudioClip,
+  type UiStringAudioIdsPackage,
+  type UiStringsPackage,
 } from '@vx/libs/types/src';
 
 import {

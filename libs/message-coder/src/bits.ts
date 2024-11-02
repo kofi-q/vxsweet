@@ -1,6 +1,6 @@
 import { err, ok } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
-import { BitOffset, EncodeResult } from './types';
+import { type BitOffset, type EncodeResult } from './types';
 
 /**
  * How many bits are in a byte.

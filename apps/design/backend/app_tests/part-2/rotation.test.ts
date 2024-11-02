@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import { CandidateContest } from '@vx/libs/types/src';
+import { type CandidateContest } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

@@ -1,7 +1,7 @@
 import {
-  ElectionDefinition,
-  PollsSuspensionTransitionType,
-  PrecinctSelection,
+  type ElectionDefinition,
+  type PollsSuspensionTransitionType,
+  type PrecinctSelection,
 } from '@vx/libs/types/src';
 import {
   formatFullDateTimeZone,

@@ -1,4 +1,11 @@
-import { Uint16, Uint2, Uint24, Uint32, Uint4, Uint8 } from './types';
+import {
+  type Uint16,
+  type Uint2,
+  type Uint24,
+  type Uint32,
+  type Uint4,
+  type Uint8,
+} from './types';
 
 /**
  * Minimum uint2 value.

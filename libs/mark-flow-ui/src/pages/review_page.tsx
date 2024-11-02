@@ -1,21 +1,21 @@
 /* istanbul ignore file - tested via Mark/Mark-Scan */
 import styled from 'styled-components';
+import { LinkButton, H1, WithScrollButtons } from '@vx/libs/ui/src';
+import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
 import {
-  LinkButton,
-  H1,
-  WithScrollButtons,
-  appStrings,
-  AudioOnly,
-  ReadOnLoad,
   PageNavigationButtonId,
   AssistiveTechInstructions,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/accessible_controllers';
 
 import { assert } from '@vx/libs/basics/src';
 
-import { ElectionDefinition, PrecinctId, VotesDict } from '@vx/libs/types/src';
-import { Review, ReviewProps } from '../components/review';
-import { ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
+import {
+  type ElectionDefinition,
+  type PrecinctId,
+  type VotesDict,
+} from '@vx/libs/types/src';
+import { Review, type ReviewProps } from '../components/review';
+import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 import { VoterScreen } from '../components/voter_screen';
 
 const ContentHeader = styled(ReadOnLoad)`

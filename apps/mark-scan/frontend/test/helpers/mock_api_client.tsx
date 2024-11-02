@@ -1,30 +1,37 @@
 import React from 'react';
-import { createMockClient, MockClient } from '@vx/libs/grout/test-utils/src';
+import {
+  createMockClient,
+  type MockClient,
+} from '@vx/libs/grout/test-utils/src';
 import {
   ACCEPTED_PAPER_TYPES,
-  BmdModelNumber,
   type AcceptedPaperType,
-  type Api,
+} from '../../../backend/src/custom-paper-handler/state_machine';
+import {
+  type BmdModelNumber,
   type ElectionState,
   type MachineConfig,
   type PrintBallotProps,
-  type SimpleServerStatus,
-} from '@vx/apps/mark-scan/backend/src';
+} from '../../../backend/src/types';
+import { type Api } from '../../../backend/src/app';
+import { type SimpleServerStatus } from '../../../backend/src/custom-paper-handler/types';
 import {
-  ElectionPackageConfigurationError,
-  BallotStyleId,
+  type ElectionPackageConfigurationError,
+  type BallotStyleId,
   DEFAULT_SYSTEM_SETTINGS,
-  DiagnosticRecord,
-  ElectionDefinition,
-  InsertedSmartCardAuth,
-  InterpretedBmdPage,
-  PollsState,
-  PrecinctId,
-  PrecinctSelection,
-  SystemSettings,
-  DiagnosticType,
-  constructElectionKey,
+  type DiagnosticRecord,
+  type ElectionDefinition,
+  type InterpretedBmdPage,
+  type PollsState,
+  type PrecinctId,
+  type PrecinctSelection,
+  type SystemSettings,
+  type DiagnosticType,
 } from '@vx/libs/types/src';
+import {
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,
@@ -33,10 +40,11 @@ import {
   mockSystemAdministratorUser,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
-import { err, ok, Result } from '@vx/libs/basics/src';
-import type { BatteryInfo, DiskSpaceSummary } from '@vx/libs/backend/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
+import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockMachineConfig } from './mock_machine_config';
 import { initialElectionState } from '../../src/app_root';
 import { ApiProvider } from '../../src/api_provider';

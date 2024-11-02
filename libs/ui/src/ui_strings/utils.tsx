@@ -1,12 +1,12 @@
 import React from 'react';
 
 import {
-  BallotStyleId,
-  Candidate,
-  Election,
-  Parties,
-  Precinct,
-  PrecinctSelection,
+  type BallotStyleId,
+  type Candidate,
+  type Election,
+  type Parties,
+  type Precinct,
+  type PrecinctSelection,
   getCandidateParties,
   getPartyForBallotStyle,
 } from '@vx/libs/types/src';

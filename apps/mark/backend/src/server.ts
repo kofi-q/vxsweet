@@ -1,7 +1,7 @@
 import { Server } from 'node:http';
 import {
   InsertedSmartCardAuth,
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   JavaCard,
   MockFileCard,
 } from '@vx/libs/auth/src';
@@ -13,9 +13,9 @@ import {
 } from '@vx/libs/utils/src';
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
 import { initializeSystemAudio } from '@vx/libs/backend/src';
-import { detectPrinter } from '@vx/libs/printing/src';
+import { detectPrinter } from '@vx/libs/printing/src/printer';
 import { buildApp } from './app';
-import { Workspace } from './util/workspace';
+import { type Workspace } from './util/workspace';
 import { getUserRole } from './util/auth';
 
 export interface StartOptions {

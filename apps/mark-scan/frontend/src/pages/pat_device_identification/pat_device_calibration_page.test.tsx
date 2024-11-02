@@ -3,9 +3,12 @@ import { Keybinding } from '@vx/libs/ui/src';
 import { render, screen } from '../../../test/react_testing_library';
 import {
   PatDeviceCalibrationPage,
-  PatDeviceCalibrationPageProps,
+  type PatDeviceCalibrationPageProps,
 } from './pat_device_calibration_page';
-import { ApiMock, createApiMock } from '../../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../../test/helpers/mock_api_client';
 import { ApiProvider } from '../../api_provider';
 
 let apiMock: ApiMock;

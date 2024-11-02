@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {
-  Election,
+  type Election,
   getContestDistrictName,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -10,7 +10,7 @@ import { find } from '@vx/libs/basics/src';
 import pluralize from 'pluralize';
 import { format } from '@vx/libs/utils/src';
 import { TD, TH } from '../table';
-import { Font, FontProps } from '../typography';
+import { Font, type FontProps } from '../typography';
 import { NoWrap, Text } from '../text';
 import { reportColors } from './layout';
 

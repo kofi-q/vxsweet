@@ -1,6 +1,6 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-import { IppMarkerInfo, PrinterConfig } from '@vx/libs/types/src';
+import { type IppMarkerInfo, type PrinterConfig } from '@vx/libs/types/src';
 import { AdminReadinessReport } from './admin_readiness_report';
 import { render, screen } from '../../test/react_testing_library';
 

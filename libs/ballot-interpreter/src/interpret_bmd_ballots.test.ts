@@ -18,14 +18,14 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   AdjudicationReason,
-  BallotStyleId,
+  type BallotStyleId,
   DEFAULT_MARK_THRESHOLDS,
-  InterpretedBmdPage,
-  InvalidBallotHashPage,
-  PageInterpretation,
-  PrecinctId,
-  SheetOf,
-  VotesDict,
+  type InterpretedBmdPage,
+  type InvalidBallotHashPage,
+  type PageInterpretation,
+  type PrecinctId,
+  type SheetOf,
+  type VotesDict,
   asSheet,
   getBallotStyle,
   getContests,
@@ -41,7 +41,7 @@ import { assert } from 'node:console';
 import { assertDefined } from '@vx/libs/basics/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
-import { InterpreterOptions } from './types';
+import { type InterpreterOptions } from './types';
 import { normalizeBallotMode } from './validation';
 
 beforeEach(() => {

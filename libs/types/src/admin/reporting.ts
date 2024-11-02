@@ -1,4 +1,4 @@
-import { ContestId } from '../election';
+import { type ContestId } from '../election';
 import * as Tabulation from '../tabulation';
 
 export const ADJUDICATION_FLAGS = [

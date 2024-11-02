@@ -14,22 +14,22 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,
-  ElectionPackageConfigurationError,
-  SheetInterpretation,
+  type ElectionPackageConfigurationError,
+  type SheetInterpretation,
   formatElectionHashes,
 } from '@vx/libs/types/src';
-import { Result, deferred, err, ok } from '@vx/libs/basics/src';
+import { type Result, deferred, err, ok } from '@vx/libs/basics/src';
 
-import type { PrecinctScannerConfig } from '@vx/apps/scan/backend/src';
+import { type PrecinctScannerConfig } from '../../backend/src/types';
 import { waitFor, screen, within, render } from '../test/react_testing_library';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from './config/globals';
 import { scannerStatus } from '../test/helpers/helpers';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   statusNoPaper,
 } from '../test/helpers/mock_api_client';
-import { App, AppProps } from './app';
+import { App, type AppProps } from './app';
 import { useSessionSettingsManager } from './utils/use_session_settings_manager';
 
 let apiMock: ApiMock;

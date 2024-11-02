@@ -1,6 +1,7 @@
-import { appStrings, Caption, H6, Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Caption, H6, Icons, P } from '@vx/libs/ui/src';
 
-import { InsertedSmartCardAuth } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { isPollWorkerAuth } from '@vx/libs/utils/src';
 import React from 'react';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';

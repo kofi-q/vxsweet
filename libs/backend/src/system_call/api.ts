@@ -1,7 +1,7 @@
 import * as grout from '@vx/libs/grout/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 
-import { LogExportFormat, Logger } from '@vx/libs/logging/src';
+import { type LogExportFormat, Logger } from '@vx/libs/logging/src';
 import { exportLogsToUsb } from './export_logs_to_usb';
 import { rebootToBios } from './reboot_to_bios';
 import { rebootToVendorMenu } from './reboot_to_vendor_menu';

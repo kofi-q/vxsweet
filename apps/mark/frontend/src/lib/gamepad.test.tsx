@@ -1,7 +1,7 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { Button } from 'react-gamepad';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/src';
 import {
   act,
   fireEvent,
@@ -21,7 +21,10 @@ import {
 } from '../../test/helpers/election';
 
 import { handleGamepadButtonDown as unwrappedHandleGamepadButtonDown } from './gamepad';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 function handleGamepadButtonDown(button: Button) {
   act(() => {

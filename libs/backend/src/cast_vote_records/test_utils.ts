@@ -12,7 +12,7 @@ import {
   CVR,
   safeParseJson,
 } from '@vx/libs/types/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   getExportedCastVoteRecordIds,
   SCANNER_RESULTS_FOLDER,

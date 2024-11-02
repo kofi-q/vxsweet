@@ -6,7 +6,7 @@ import {
   Screen,
   SystemAdministratorScreenContents,
 } from '@vx/libs/ui/src';
-import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut } from '../api';
 
 const resetPollsToPausedText =

@@ -4,13 +4,13 @@ import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,
   PrecinctScannerTallyReports,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/reports';
 import { getDocument } from 'pdfjs-dist';
 import { Store } from '../store';
 import { rootDebug } from '../util/debug';
 import { getMachineConfig } from '../machine_config';
 import { getScannerResults } from '../util/results';
-import { Printer } from './printer';
+import { type Printer } from './printer';
 import { getCurrentTime } from '../util/get_current_time';
 
 const debug = rootDebug.extend('print-full-report');

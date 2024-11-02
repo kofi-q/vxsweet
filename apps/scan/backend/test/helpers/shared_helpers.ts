@@ -1,6 +1,7 @@
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
-import { iter, ok } from '@vx/libs/basics/src';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { iter } from '@vx/libs/basics/src/iterators';
+import { ok } from '@vx/libs/basics/src';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import * as grout from '@vx/libs/grout/src';
 import {
@@ -9,30 +10,31 @@ import {
   mockOf,
 } from '@vx/libs/test-utils/src';
 import {
-  ElectionPackage,
-  PrecinctId,
-  PrecinctScannerState,
-  SheetOf,
+  type ElectionPackage,
+  type PrecinctId,
+  type PrecinctScannerState,
+  type SheetOf,
   asSheet,
-  constructElectionKey,
 } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
 import waitForExpect from 'wait-for-expect';
-import { MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { Logger, mockLogger, LogSource } from '@vx/libs/logging/src';
+import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { Logger, mockLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import { pdfToImages, ImageData } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
-import { Api } from '../../src/app';
+import { type Api } from '../../src/app';
 import {
-  PrecinctScannerStateMachine,
-  PrecinctScannerStatus,
+  type PrecinctScannerStateMachine,
+  type PrecinctScannerStatus,
 } from '../../src/types';
 import { Store } from '../../src/store';
 import { getUserRole } from '../../src/util/auth';
-import { Workspace } from '../../src/util/workspace';
+import { type Workspace } from '../../src/util/workspace';
 
 export async function expectStatus(
   apiClient: grout.Client<Api>,

@@ -22,16 +22,16 @@ import JsZip from 'jszip';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotType,
-  Election,
+  type Election,
   LanguageCode,
-  UiStringsPackage,
+  type UiStringsPackage,
   mergeUiStrings,
 } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
-  getBallotStylesByPrecinctId,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
+import { getBallotStylesByPrecinctId } from '@vx/libs/utils/src/tabulation';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   hmpbStringsCatalog,

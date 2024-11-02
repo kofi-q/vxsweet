@@ -1,11 +1,11 @@
 import {
-  InterpretedBmdPage,
-  InterpretedHmpbPage,
-  PageInterpretation,
-  SheetOf,
-  SheetValidationError,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
+  type SheetOf,
+  type SheetValidationError,
 } from '@vx/libs/types/src';
-import { Result, ok, err } from '@vx/libs/basics/src';
+import { type Result, ok, err } from '@vx/libs/basics/src';
 
 /**
  * The back of a BMD ballot should be empty, which could be interpreted as

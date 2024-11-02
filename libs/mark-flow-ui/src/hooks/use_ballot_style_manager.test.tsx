@@ -5,11 +5,15 @@ jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
 
 import React from 'react';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';
-import { Election, ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
+import {
+  type Election,
+  type ElectionDefinition,
+  LanguageCode,
+} from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { useBallotStyleManager } from '..';
+import { useBallotStyleManager } from './use_ballot_style_manager';
 import { act, renderHook } from '../../test/react_testing_library';
 
 let setMockLanguage: (languageCode: LanguageCode) => void;

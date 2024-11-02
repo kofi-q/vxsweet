@@ -6,7 +6,7 @@ import {
   HmpbBallotPaperSize,
   BallotType,
   getPartyForBallotStyle,
-  BallotStyleId,
+  type BallotStyleId,
 } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import React, { useMemo, useState } from 'react';
@@ -25,7 +25,7 @@ import {
 } from '@vx/libs/ui/src';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { format } from '@vx/libs/utils/src';
-import type { BallotMode } from '@vx/apps/design/backend/src';
+import { type BallotMode } from '@vx/libs/hmpb/src';
 import { getElection, getBallotPreviewPdf } from './api';
 import { routes } from './routes';
 import { Column, FieldName as BaseFieldName, Row } from './layout';

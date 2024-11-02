@@ -1,7 +1,11 @@
 import React from 'react';
 
 import { Button, Icons, P } from '@vx/libs/ui/src';
-import { BallotStyleId, PrecinctId, VotesDict } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  type PrecinctId,
+  type VotesDict,
+} from '@vx/libs/types/src';
 import { assert } from '@vx/libs/basics/src';
 
 import * as api from '../api';

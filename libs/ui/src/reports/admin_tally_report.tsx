@@ -1,7 +1,7 @@
 import {
   Admin,
-  Contests,
-  ElectionDefinition,
+  type Contests,
+  type ElectionDefinition,
   Tabulation,
 } from '@vx/libs/types/src';
 import { assert, assertDefined } from '@vx/libs/basics/src';
@@ -15,7 +15,7 @@ import { LogoMark } from '../logo_mark';
 import { ContestResultsTable } from './contest_results_table';
 import { TallyReportCardCounts } from './tally_report_card_counts';
 import { CustomFilterSummary } from './custom_filter_summary';
-import { LabeledScannerBatch, prefixedTitle } from './utils';
+import { type LabeledScannerBatch, prefixedTitle } from './utils';
 import { CertificationSignatures } from './certification_signatures';
 import {
   ReportHeader,

@@ -1,6 +1,6 @@
-import { err, ok, Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/src';
 import { Buffer } from 'node:buffer';
-import { DuplexChannel, ErrorCode, MaybePromise } from '../types';
+import { type DuplexChannel, ErrorCode, type MaybePromise } from '../types';
 
 /**
  * Listeners for actions on a {@link DuplexChannel}.

@@ -1,8 +1,6 @@
-import {
-  GoogleCloudSpeechSynthesizer,
-  GoogleCloudTranslator,
-} from '../language_and_audio';
-import { Workspace } from '../workspace';
+import { GoogleCloudSpeechSynthesizer } from '../language_and_audio/speech_synthesizer';
+import { GoogleCloudTranslator } from '../language_and_audio/translator';
+import { type Workspace } from '../workspace';
 
 export interface WorkerContext {
   speechSynthesizer: GoogleCloudSpeechSynthesizer;

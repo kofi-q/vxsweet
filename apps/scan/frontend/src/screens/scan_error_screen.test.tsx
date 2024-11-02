@@ -1,7 +1,7 @@
 import { render, screen } from '../../test/react_testing_library';
 import { ScanErrorScreen } from './scan_error_screen';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   provideApi,
   statusNoPaper,

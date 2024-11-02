@@ -6,7 +6,7 @@ jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
 
 import {
   AppBase,
-  LanguageControls,
+  type LanguageControls,
   useCurrentLanguage,
   VoterSettingsManagerContext,
 } from '@vx/libs/ui/src';
@@ -16,7 +16,10 @@ import { LanguageCode } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 import { renderHook, act } from '../../test/react_testing_library';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 let apiMock: ApiMock;
 const mockLanguageControls: jest.Mocked<LanguageControls> = {

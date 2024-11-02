@@ -3,33 +3,41 @@
 //
 
 import {
-  UiStringsStore,
-  addDiagnosticRecord,
+  type UiStringsStore,
   createUiStringStore,
+} from '@vx/libs/backend/src/ui_strings';
+import {
+  addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
 } from '@vx/libs/backend/src';
-import { assertDefined, DateWithoutTime, Optional } from '@vx/libs/basics/src';
+import {
+  assertDefined,
+  DateWithoutTime,
+  type Optional,
+} from '@vx/libs/basics/src';
 import { Client as DbClient } from '@vx/libs/db/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {
-  ElectionDefinition,
-  PrecinctSelection,
+  type ElectionDefinition,
+  type PrecinctSelection,
   PrecinctSelectionSchema,
   safeParseElectionDefinition,
   safeParseJson,
-  SystemSettings,
+  type SystemSettings,
   safeParseSystemSettings,
-  PollsState,
+  type PollsState,
   safeParse,
   PollsStateSchema,
-  DiagnosticRecord,
-  DiagnosticType,
-  ElectionId,
-  ElectionKey,
-  constructElectionKey,
+  type DiagnosticRecord,
+  type DiagnosticType,
+  type ElectionId,
 } from '@vx/libs/types/src';
+import {
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/src/auth';
 import { join } from 'node:path';
 
 const SchemaPath = join(__dirname, '../schema.sql');

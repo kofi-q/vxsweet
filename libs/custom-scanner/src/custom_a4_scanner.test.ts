@@ -1,5 +1,5 @@
 import { err, ok, typedAs } from '@vx/libs/basics/src';
-import { SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { randomBytes } from 'node:crypto';
 import fc from 'fast-check';
@@ -7,10 +7,10 @@ import { arbitraryStatusInternalMessage } from '../test/arbitraries';
 import { makeProtocolListeners } from '../test/helpers';
 import { CustomA4Scanner } from './custom_a4_scanner';
 import {
-  ProtocolListeners,
+  type ProtocolListeners,
   usbChannelWithMockProtocol,
-  createDuplexChannelMock,
-} from './mocks';
+} from './mocks/protocol';
+import { createDuplexChannelMock } from './mocks/usb_channel';
 import {
   AckResponseMessage,
   ErrorResponseMessage,
@@ -24,7 +24,7 @@ import {
   FormStanding,
   ImageColorDepthType,
   ImageFileFormat,
-  ImageFromScanner,
+  type ImageFromScanner,
   ImageResolution,
   ReleaseType,
   ResponseErrorCode,

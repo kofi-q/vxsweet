@@ -1,4 +1,4 @@
-import { MachineConfig } from '../config/types';
+import { type MachineConfig } from '../config/types';
 
 interface ScreenOrientationReturnType {
   isLandscape: boolean;

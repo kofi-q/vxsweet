@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 import { assert, unique } from '@vx/libs/basics/src';
 import {
-  ElectionDefinition,
-  SheetOf,
+  type ElectionDefinition,
+  type SheetOf,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { mkdir, readFile, readdir } from 'node:fs/promises';
@@ -10,7 +10,7 @@ import { ImageData, writeImageData } from '@vx/libs/image-utils/src';
 import { basename, join } from 'node:path';
 import { CanvasRenderingContext2D, createCanvas } from 'canvas';
 import { interpret } from './interpret';
-import { InterpretedBallotPage, getQuadrilateralBounds } from './types';
+import { type InterpretedBallotPage, getQuadrilateralBounds } from './types';
 
 interface ImagePathSheet {
   sheetName: string;

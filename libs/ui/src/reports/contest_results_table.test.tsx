@@ -1,4 +1,4 @@
-import { buildContestResultsFixture } from '@vx/libs/utils/src';
+import { buildContestResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { assert } from '@vx/libs/basics/src';

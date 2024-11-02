@@ -1,4 +1,5 @@
-import { Button, appStrings } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 
 export interface VoterSettingsButtonProps {
   onPress: () => void;

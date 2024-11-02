@@ -1,4 +1,5 @@
-import { Icons, P, appStrings } from '@vx/libs/ui/src';
+import { Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { CenteredCardPageLayout } from '../components/centered_card_page_layout';
 
 export function BallotSuccessfullyCastPage(): JSX.Element {

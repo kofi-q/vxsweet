@@ -5,8 +5,9 @@ import { assert, assertDefined, sleep } from '@vx/libs/basics/src';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { getPaperHandlerDriver } from '../driver/helpers';
-import { MaxPrintWidthDots, PaperHandlerDriverInterface } from '../driver';
-import { ScanDirection, scanDirections } from '../driver/scanner_config';
+import { MaxPrintWidthDots } from '../driver/constants';
+import { type PaperHandlerDriverInterface } from '../driver/driver_interface';
+import { type ScanDirection, scanDirections } from '../driver/scanner_config';
 
 /**
  * Command line interface for interacting with the paper handler driver.

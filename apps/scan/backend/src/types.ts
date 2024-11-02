@@ -1,13 +1,13 @@
 import {
-  ElectionDefinition,
-  Id,
-  PageInterpretation,
-  PollsState,
-  PollsTransitionType,
-  PrecinctSelection,
-  SheetInterpretationWithPages,
-  SystemSettings,
-  PrecinctScannerMachineStatus,
+  type ElectionDefinition,
+  type Id,
+  type PageInterpretation,
+  type PollsState,
+  type PollsTransitionType,
+  type PrecinctSelection,
+  type SheetInterpretationWithPages,
+  type SystemSettings,
+  type PrecinctScannerMachineStatus,
 } from '@vx/libs/types/src';
 
 export interface MachineConfig {

@@ -3,7 +3,7 @@ import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import {
   SCANNER_RESULTS_FOLDER,
   generateElectionBasedSubfolderName,

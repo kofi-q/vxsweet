@@ -1,5 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
-import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+import { BaseLogger } from '@vx/libs/logging/src';
+import { LogSource } from '@vx/libs/logging/src/base_types';
 import {
   AppBase,
   AppErrorBoundary,
@@ -7,9 +8,9 @@ import {
   SystemCallContextProvider,
 } from '@vx/libs/ui/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AppRoot, AppRootProps } from './app_root';
+import { AppRoot, type AppRootProps } from './app_root';
 import {
-  ApiClient,
+  type ApiClient,
   ApiClientContext,
   createApiClient,
   createQueryClient,

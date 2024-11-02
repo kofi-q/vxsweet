@@ -1,18 +1,18 @@
 import {
-  ContestResultsSummary,
+  type ContestResultsSummary,
   buildElectionResultsFixture,
   buildManualResultsFixture,
   buildSimpleMockTallyReportResults,
   getEmptyCardCounts,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
-import { Admin, ContestId, Tabulation } from '@vx/libs/types/src';
+import { Admin, type ContestId, Tabulation } from '@vx/libs/types/src';
 import {
-  BallotCountReportWarning,
-  TallyReportWarning,
+  type BallotCountReportWarning,
+  type TallyReportWarning,
   getBallotCountReportWarning,
   getTallyReportWarning,
 } from './warnings';

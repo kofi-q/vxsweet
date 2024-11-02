@@ -1,3 +1,4 @@
+jest.mock('@vx/libs/ballot-interpreter/src/hmpb-ts');
 jest.mock('@vx/libs/ballot-interpreter/src');
 
 jest.mock('./application_driver');
@@ -19,9 +20,9 @@ jest.mock('../audio/outputs');
 import HID from 'node-hid';
 import {
   MockPaperHandlerDriver,
-  MockPaperHandlerStatus,
-  PaperHandlerDriverInterface,
-} from '@vx/libs/custom-paper-handler/src';
+  type MockPaperHandlerStatus,
+  type PaperHandlerDriverInterface,
+} from '@vx/libs/custom-paper-handler/src/driver';
 import { Buffer } from 'node:buffer';
 import { dirSync } from 'tmp';
 import {
@@ -31,25 +32,26 @@ import {
   mockLogger,
 } from '@vx/libs/logging/src';
 import {
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
 } from '@vx/libs/auth/src';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
-import { assert, Deferred, deferred, iter, sleep } from '@vx/libs/basics/src';
+import { assert, type Deferred, deferred, sleep } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/src/iterators';
 import {
   electionGeneralDefinition,
   electionGridLayoutNewHampshireHudsonFixtures,
   systemSettings,
 } from '@vx/libs/fixtures/src';
 import {
-  BallotId,
-  BallotStyleId,
+  type BallotId,
+  type BallotStyleId,
   BallotType,
-  PageInterpretationType,
-  SheetOf,
-  TEST_JURISDICTION,
+  type PageInterpretationType,
+  type SheetOf,
   safeParseSystemSettings,
 } from '@vx/libs/types/src';
+import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -60,7 +62,7 @@ import {
   writeFirstBallotPageToImageFile,
 } from '@vx/libs/bmd-ballot-fixtures/src';
 import {
-  InterpretFileResult,
+  type InterpretFileResult,
   interpretSimplexBmdBallot,
 } from '@vx/libs/ballot-interpreter/src';
 import {
@@ -72,18 +74,18 @@ import { join } from 'node:path';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
   ACCEPTED_PAPER_TYPES,
-  PaperHandlerStateMachine,
+  type PaperHandlerStateMachine,
   delays,
   getPaperHandlerStateMachine,
   paperHandlerStatusToEvent,
 } from './state_machine';
-import { Workspace, createWorkspace } from '../util/workspace';
+import { type Workspace, createWorkspace } from '../util/workspace';
 import {
   PatConnectionStatusReader,
-  PatConnectionStatusReaderInterface,
+  type PatConnectionStatusReaderInterface,
 } from '../pat-input/connection_status_reader';
-import { getPaperInRearStatus } from './test_utils';
-import { SimpleServerStatus } from '.';
+import { getPaperInRearStatus } from './test_utils/utils';
+import { type SimpleServerStatus } from './types';
 import {
   loadAndParkPaper,
   printBallotChunks,

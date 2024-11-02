@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '../../test/react_testing_library';
 import { ScanButton } from './scan_button';
-import { ApiMock, createApiMock } from '../../test/api';
+import { type ApiMock, createApiMock } from '../../test/api';
 import { renderInAppContext } from '../../test/render_in_app_context';
 
 let apiMock: ApiMock;

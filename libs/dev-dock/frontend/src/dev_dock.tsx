@@ -16,11 +16,11 @@ import {
   throwIllegalValue,
   uniqueBy,
 } from '@vx/libs/basics/src';
-import type {
-  Api,
-  DevDockUserRole,
-  MachineType,
-} from '@vx/libs/dev-dock/backend/src';
+import {
+  type Api,
+  type DevDockUserRole,
+  type MachineType,
+} from '../../backend/src/dev_dock_api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCamera,
@@ -36,7 +36,7 @@ import {
 import { UsbDriveIcon } from './usb_drive_icon';
 import { Colors } from './colors';
 import { FujitsuPrinterMockControl } from './fujitsu_printer_mock';
-import { ApiClient, ApiClientContext, useApiClient } from './api_client';
+import { type ApiClient, ApiClientContext, useApiClient } from './api_client';
 
 const Row = styled.div`
   display: flex;

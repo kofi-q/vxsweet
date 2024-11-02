@@ -1,8 +1,8 @@
 import {
-  IppMarkerInfo,
-  PrinterConfig,
-  PrinterRichStatus,
-  PrinterStatus,
+  type IppMarkerInfo,
+  type PrinterConfig,
+  type PrinterRichStatus,
+  type PrinterStatus,
 } from '@vx/libs/types/src';
 import { render, screen } from '../../test/react_testing_library';
 import {

@@ -1,9 +1,9 @@
 import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
-  VoteAdjudication,
-  WriteInAdjudicationAction,
-  WriteInRecord,
+  type VoteAdjudication,
+  type WriteInAdjudicationAction,
+  type WriteInRecord,
 } from './types';
 import { type Store } from './store';
 

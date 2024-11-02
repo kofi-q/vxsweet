@@ -11,7 +11,8 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
-import { constructElectionKey, formatElectionHashes } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
+import { formatElectionHashes } from '@vx/libs/types/src';
 import {
   fireEvent,
   screen,
@@ -21,7 +22,7 @@ import {
 
 import { eitherNeitherElectionDefinition } from '../test/render_in_app_context';
 import { buildApp } from '../test/helpers/build_app';
-import { ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 import {
   mockCastVoteRecordFileRecord,

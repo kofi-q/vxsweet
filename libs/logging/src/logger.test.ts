@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
-import {
-  BaseLogger,
-  LogDispositionStandardTypes,
-  LogEventId,
-  LogEventType,
-  LogSource,
-  Logger,
-} from '.';
+import { BaseLogger } from './base_logger';
+import { LogDispositionStandardTypes } from './types';
+import { LogEventId } from './log_event_ids';
+import { LogEventType } from './base_types/log_event_types';
+import { LogSource } from './base_types/log_source';
+import { Logger } from './logger';
 
 test('logger can log with passed user role', async () => {
   console.log = jest.fn();

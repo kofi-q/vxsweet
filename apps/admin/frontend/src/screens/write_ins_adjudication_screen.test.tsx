@@ -1,19 +1,22 @@
 import { electionTwoPartyPrimaryDefinition as electionDefinition } from '@vx/libs/fixtures/src';
-import { ContestId } from '@vx/libs/types/src';
+import { type ContestId } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import {
-  WriteInCandidateRecord,
-  WriteInImageView,
-} from '@vx/apps/admin/backend/src';
+  type WriteInCandidateRecord,
+  type WriteInImageView,
+} from '../../../backend/src/types';
 import { Route } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { screen, waitFor } from '../../test/react_testing_library';
 import {
-  RenderInAppContextParams,
+  type RenderInAppContextParams,
   renderInAppContext,
 } from '../../test/render_in_app_context';
 import { WriteInsAdjudicationScreen } from './write_ins_adjudication_screen';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 
 const mockPartialWriteInIdentifier = {
   contestId: 'contest-id',

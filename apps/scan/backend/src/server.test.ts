@@ -8,7 +8,7 @@ import { testDetectDevices } from '@vx/libs/backend/src';
 import { buildApp } from './app';
 import { PORT } from './globals';
 import { start } from './server';
-import { createWorkspace, Workspace } from './util/workspace';
+import { createWorkspace, type Workspace } from './util/workspace';
 import {
   buildMockLogger,
   createPrecinctScannerStateMachineMock,

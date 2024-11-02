@@ -1,19 +1,19 @@
 import {
-  Candidate,
-  ContestId,
-  Id,
-  Vote,
-  VotesDict,
-  WriteInCandidate,
+  type Candidate,
+  type ContestId,
+  type Id,
+  type Vote,
+  type VotesDict,
+  type WriteInCandidate,
 } from '@vx/libs/types/src';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 import React from 'react';
-import { RenderDocument, Renderer } from './renderer';
+import { type RenderDocument, type Renderer } from './renderer';
 import {
   BUBBLE_CLASS,
   BubbleShape,
   MARK_OVERLAY_CLASS,
-  OptionInfo,
+  type OptionInfo,
   PAGE_CLASS,
 } from './ballot_components';
 import {

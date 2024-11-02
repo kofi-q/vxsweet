@@ -11,7 +11,7 @@ import {
 } from '@vx/libs/ui/src';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { ejectUsbDrive, exportCastVoteRecordsToUsbDrive } from '../api';
 
 const UsbImage = styled.img`

@@ -1,9 +1,9 @@
 import { Buffer } from 'node:buffer';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
-import { buildManualResultsFixture } from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/src';
 import {
-  BallotStyleGroupId,
+  type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
@@ -14,7 +14,7 @@ import {
   tabulateManualBallotCounts,
   tabulateManualResults,
 } from './manual_results';
-import { ManualResultsFilter } from '../types';
+import { type ManualResultsFilter } from '../types';
 
 test('isFilterCompatibleWithManualResults', () => {
   expect(

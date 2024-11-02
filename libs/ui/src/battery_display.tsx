@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import type { BatteryInfo as BatteryInfoType } from '@vx/libs/backend/src';
+import { type BatteryInfo as BatteryInfoType } from '@vx/libs/backend/src/system_call';
 import { format } from '@vx/libs/utils/src';
 import { assert } from '@vx/libs/basics/src';
-import { IconProps, Icons } from './icons';
+import { type IconProps, Icons } from './icons';
 import { Font } from './typography';
 import { useSystemCallApi } from './system_call_api';
 

@@ -1,12 +1,12 @@
-import { InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import {
   assert,
   assertDefined,
-  Result,
+  type Result,
   throwIllegalValue,
 } from '@vx/libs/basics/src';
 import {
-  CustomScanner,
+  type CustomScanner,
   DoubleSheetDetectOpt,
   ErrorCode,
   FormMovement,
@@ -14,20 +14,20 @@ import {
   ImageColorDepthType,
   ImageResolution,
   openScanner,
-  ScannerStatus,
+  type ScannerStatus,
   ScanSide,
   SensorStatus,
 } from '@vx/libs/custom-scanner/src';
 import { fromGrayScale, ImageData } from '@vx/libs/image-utils/src';
-import { Logger, LogEventId, LogLine } from '@vx/libs/logging/src';
+import { Logger, LogEventId, type LogLine } from '@vx/libs/logging/src';
 import {
   mapSheet,
   PrecinctScannerError,
-  PrecinctScannerMachineStatus,
-  SheetInterpretation,
-  SheetOf,
+  type PrecinctScannerMachineStatus,
+  type SheetInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
-import { UsbDrive } from '@vx/libs/usb-drive/src';
+import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { v4 as uuid } from 'uuid';
 import {
   Assigner,
@@ -45,10 +45,16 @@ import {
 import { escalate } from 'xstate/lib/actions';
 import { Clock } from 'xstate/lib/interpreter';
 import { isReadyToScan } from '../../app_flow';
-import { interpret as defaultInterpret, InterpretFn } from '../../interpret';
-import { InterpretationResult, PrecinctScannerStateMachine } from '../../types';
+import {
+  interpret as defaultInterpret,
+  type InterpretFn,
+} from '../../interpret';
+import {
+  type InterpretationResult,
+  type PrecinctScannerStateMachine,
+} from '../../types';
 import { rootDebug } from '../../util/debug';
-import { Workspace } from '../../util/workspace';
+import { type Workspace } from '../../util/workspace';
 import {
   cleanLogData,
   recordAcceptedSheet,

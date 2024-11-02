@@ -1,7 +1,10 @@
 import userEvent from '@testing-library/user-event';
 import { waitFor, screen, within, act } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import { PrintButton } from './print_button';
 
 jest.useFakeTimers();

@@ -1,9 +1,9 @@
 import { ImageData } from '@vx/libs/image-utils/src';
 import {
-  ToMatchPdfSnapshotOptions,
+  type ToMatchPdfSnapshotOptions,
   toMatchPdfSnapshot,
 } from './jest_pdf_snapshot';
-import { ToMatchImageOptions, toMatchImage } from './jest_match_image';
+import { type ToMatchImageOptions, toMatchImage } from './jest_match_image';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

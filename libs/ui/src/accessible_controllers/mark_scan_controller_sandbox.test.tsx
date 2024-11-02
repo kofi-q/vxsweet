@@ -12,10 +12,10 @@ import { render, screen } from '../../test/react_testing_library';
 import { AccessibleControllerSandbox } from './accessible_controller_sandbox';
 import {
   MARK_SCAN_CONTROLLER_KEYBINDINGS,
-  MarkScanControllerButton,
+  type MarkScanControllerButton,
 } from './types';
 import { Keybinding } from '../keybindings';
-import { MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME } from '.';
+import { MARK_SCAN_CONTROLLER_ILLUSTRATION_HIGHLIGHT_CLASS_NAME } from './mark_scan_controller_illustration';
 
 test('all relevant buttons configured', () => {
   mockOf(AccessibleControllerSandbox).mockImplementation((props) => {

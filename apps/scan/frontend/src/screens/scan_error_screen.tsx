@@ -1,14 +1,9 @@
-import {
-  Caption,
-  FullScreenIconWrapper,
-  Icons,
-  P,
-  appStrings,
-} from '@vx/libs/ui/src';
+import { Caption, FullScreenIconWrapper, Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/src/ui_strings';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import {
-  PrecinctScannerErrorType,
-  InvalidInterpretationReason,
+  type PrecinctScannerErrorType,
+  type InvalidInterpretationReason,
 } from '@vx/libs/types/src';
 import { Screen } from '../components/layout';
 import { FullScreenPromptLayout } from '../components/full_screen_prompt_layout';

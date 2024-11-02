@@ -2,7 +2,7 @@ import React from 'react';
 import { isVxDev } from '@vx/libs/utils/src';
 
 import styled from 'styled-components';
-import { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Button } from './button';
 import { RebootToBiosButton } from './reboot_to_bios_button';
 import { UnconfigureMachineButton } from './unconfigure_machine_button';

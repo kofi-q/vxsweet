@@ -1,13 +1,13 @@
 import {
-  BallotStyle,
+  type BallotStyle,
   BallotType,
-  ElectionDefinition,
-  HmpbBallotPageMetadata,
-  PageInterpretation,
-  Precinct,
-  SheetOf,
+  type ElectionDefinition,
+  type HmpbBallotPageMetadata,
+  type PageInterpretation,
+  type Precinct,
+  type SheetOf,
 } from '@vx/libs/types/src';
-import { throwIllegalValue, Result, ok, err } from '@vx/libs/basics/src';
+import { throwIllegalValue, type Result, ok, err } from '@vx/libs/basics/src';
 
 const BlankPageTypes: ReadonlyArray<PageInterpretation['type']> = [
   'BlankPage',

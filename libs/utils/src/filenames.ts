@@ -1,5 +1,5 @@
-import { Election, MachineId, maybeParse } from '@vx/libs/types/src';
-import { assert, Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Election, MachineId, maybeParse } from '@vx/libs/types/src';
+import { assert, type Optional, throwIllegalValue } from '@vx/libs/basics/src';
 import { DateTime } from 'luxon';
 
 const SECTION_SEPARATOR = '__';

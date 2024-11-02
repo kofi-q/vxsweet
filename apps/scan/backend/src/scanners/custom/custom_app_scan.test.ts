@@ -8,15 +8,15 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 import * as fc from 'fast-check';
 import {
   AdjudicationReason,
-  AdjudicationReasonInfo,
+  type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  constructElectionKey,
-  SheetInterpretation,
-  SheetOf,
+  type SheetInterpretation,
+  type SheetOf,
 } from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/src/auth';
 import waitForExpect from 'wait-for-expect';
 import {
-  Result,
+  type Result,
   assertDefined,
   deferred,
   err,
@@ -29,8 +29,8 @@ import { BaseLogger } from '@vx/libs/logging/src';
 import {
   ErrorCode,
   FormMovement,
-  ImageFromScanner,
-  ScannerStatus,
+  type ImageFromScanner,
+  type ScannerStatus,
   mocks,
 } from '@vx/libs/custom-scanner/src';
 import {
@@ -46,7 +46,7 @@ import {
 } from '@vx/libs/test-utils/src';
 import {
   MAX_FAILED_SCAN_ATTEMPTS,
-  ScannerStatusEvent,
+  type ScannerStatusEvent,
   delays,
   scannerStatusToEvent,
 } from './state_machine';

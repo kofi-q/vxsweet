@@ -22,9 +22,9 @@ import { DateWithoutTime } from '@vx/libs/basics/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
-  DistrictId,
-  Election,
-  ElectionId,
+  type DistrictId,
+  type Election,
+  type ElectionId,
 } from '@vx/libs/types/src';
 import {
   BooleanEnvironmentVariableName,
@@ -33,13 +33,15 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import { testSetupHelpers } from '../../test/helpers';
 import {
-  BallotStyle,
-  Precinct,
+  type BallotStyle,
+  type Precinct,
   convertToVxfBallotStyle,
 } from '../../src/types';
 import { generateBallotStyles } from '../../src/ballot_styles';
-import { ElectionRecord } from '../../src';
-import { getTempBallotLanguageConfigsForCert } from '../../src/store';
+import {
+  type ElectionRecord,
+  getTempBallotLanguageConfigsForCert,
+} from '../../src/store';
 import { renderBallotStyleReadinessReport } from '../../src/ballot_style_reports';
 
 jest.setTimeout(60_000);

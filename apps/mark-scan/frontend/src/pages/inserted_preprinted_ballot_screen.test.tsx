@@ -1,8 +1,8 @@
 import {
-  BallotMetadata,
-  BallotStyleId,
-  InterpretedBmdPage,
-  VotesDict,
+  type BallotMetadata,
+  type BallotStyleId,
+  type InterpretedBmdPage,
+  type VotesDict,
 } from '@vx/libs/types/src';
 import { QueryClientProvider } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';

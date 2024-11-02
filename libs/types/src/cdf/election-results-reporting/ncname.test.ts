@@ -1,6 +1,6 @@
 import { assertDefined } from '@vx/libs/basics/src';
 import { election } from '../../../test/election';
-import { Candidate, PartyId } from '../../election';
+import { type Candidate, type PartyId } from '../../election';
 import {
   asNcName,
   getCandidateId,

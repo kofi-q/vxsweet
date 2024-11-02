@@ -2,7 +2,7 @@ import { expectTextWithIcon } from '../../test/expect_text_with_icon';
 import { render, screen } from '../../test/react_testing_library';
 import {
   MarkScanDeviceDiagnosticSection,
-  MarkScanDeviceDiagnosticSectionProps,
+  type MarkScanDeviceDiagnosticSectionProps,
 } from './mark_scan_device_diagnostic_section';
 import { DiagnosticSectionTitle } from './types';
 

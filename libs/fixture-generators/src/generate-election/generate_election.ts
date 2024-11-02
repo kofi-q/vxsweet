@@ -5,23 +5,23 @@ import {
   range,
 } from '@vx/libs/basics/src';
 import {
-  AnyContest,
+  type AnyContest,
   HmpbBallotPaperSize,
-  BallotStyle,
-  BallotStyleGroupId,
-  BallotStyleId,
-  District,
-  DistrictId,
-  Election,
-  ElectionId,
+  type BallotStyle,
+  type BallotStyleGroupId,
+  type BallotStyleId,
+  type District,
+  type DistrictId,
+  type Election,
+  type ElectionId,
   ElectionSchema,
-  Party,
-  PartyId,
-  Precinct,
+  type Party,
+  type PartyId,
+  type Precinct,
   safeParse,
 } from '@vx/libs/types/src';
 import { customAlphabet } from 'nanoid';
-import { defaultConfig, GenerateElectionConfig } from './config';
+import { defaultConfig, type GenerateElectionConfig } from './config';
 import { ballotMeasureText, seal, words } from './source_text';
 
 const generateId = customAlphabet('0123456789abcdefghijklmnopqrstuvwxyz', 12);

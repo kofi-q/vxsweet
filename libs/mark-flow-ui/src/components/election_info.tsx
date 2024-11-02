@@ -2,24 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {
-  BallotStyleId,
-  ElectionDefinition,
-  PrecinctSelection,
+  type BallotStyleId,
+  type ElectionDefinition,
+  type PrecinctSelection,
   getBallotStyle,
 } from '@vx/libs/types/src';
 
+import { H1, P, Caption, Seal, useScreenInfo } from '@vx/libs/ui/src';
 import {
-  H1,
-  P,
-  Caption,
-  Seal,
   electionStrings,
   appStrings,
   PrecinctSelectionName,
   PrimaryElectionTitlePrefix,
   NumberString,
-  useScreenInfo,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/src/ui_strings';
 import { assertDefined } from '@vx/libs/basics/src';
 
 const Container = styled.div`

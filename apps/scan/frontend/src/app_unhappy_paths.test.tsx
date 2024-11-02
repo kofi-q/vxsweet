@@ -5,17 +5,15 @@ import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 
 import { ServerError } from '@vx/libs/grout/src';
-import {
-  PrecinctScannerConfig,
-  FujitsuErrorType,
-} from '@vx/apps/scan/backend/src';
+import { type PrecinctScannerConfig } from '../../backend/src/types';
+import { type FujitsuErrorType } from '../../backend/src/printing/printer';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import {
-  ApiMock,
+  type ApiMock,
   createApiMock,
   statusNoPaper,
 } from '../test/helpers/mock_api_client';
-import { App, AppProps } from './app';
+import { App, type AppProps } from './app';
 
 let apiMock: ApiMock;
 

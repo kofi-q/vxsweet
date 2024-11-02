@@ -2,8 +2,7 @@ import { mockReadable, mockWritable } from '@vx/libs/test-utils/src';
 import { dirSync, fileSync } from 'tmp';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { main } from '.';
-import { absolutize, getOutputPath, relativize, Stdio } from './cli';
+import { main, absolutize, getOutputPath, relativize, type Stdio } from './cli';
 
 test('absolutize', () => {
   expect(absolutize('/foo/bar', '/baz')).toEqual('/foo/bar');

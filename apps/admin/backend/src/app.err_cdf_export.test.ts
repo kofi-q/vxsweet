@@ -12,29 +12,29 @@ import {
 } from '@vx/libs/fixtures/src';
 import {
   BooleanEnvironmentVariableName,
-  buildManualResultsFixture,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
+import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
 import {
   CVR,
-  CandidateContest,
+  type CandidateContest,
   ResultsReporting,
   Tabulation,
   safeParse,
   safeParseJson,
 } from '@vx/libs/types/src';
 import { assert, assertDefined, find } from '@vx/libs/basics/src';
-import { Client } from '@vx/libs/grout/src';
-import { modifyCastVoteRecordExport } from '@vx/libs/backend/src';
+import { type Client } from '@vx/libs/grout/src';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
 import {
   buildTestEnvironment,
   configureMachine,
   mockElectionManagerAuth,
 } from '../test/app';
-import { Api } from '.';
+import { type Api } from './app';
 
 jest.setTimeout(60_000);
 

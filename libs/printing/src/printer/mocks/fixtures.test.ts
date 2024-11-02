@@ -1,4 +1,7 @@
-import { BROTHER_THERMAL_PRINTER_CONFIG, HP_LASER_PRINTER_CONFIG } from '..';
+import {
+  BROTHER_THERMAL_PRINTER_CONFIG,
+  HP_LASER_PRINTER_CONFIG,
+} from '../supported';
 import {
   MOCK_PRINTER_RICH_STATUS,
   getMockConnectedPrinterStatus,

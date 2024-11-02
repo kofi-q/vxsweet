@@ -1,11 +1,11 @@
-import { Result, err, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Result, err, throwIllegalValue } from '@vx/libs/basics/src';
 import {
-  FileSystemEntry,
-  ListDirectoryError,
+  type FileSystemEntry,
+  type ListDirectoryError,
   listDirectory,
 } from '@vx/libs/fs/src';
 import { join } from 'node:path';
-import { UsbDrive } from './types';
+import { type UsbDrive } from './types';
 
 /**
  * Expected errors that can occur when trying to list directories on a USB drive.

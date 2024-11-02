@@ -12,8 +12,8 @@ import {
   checkTypescriptOutputTempFilepath,
 } from './filepaths';
 import {
-  GenerateTypesArgs,
-  ParsedConfig,
+  type GenerateTypesArgs,
+  type ParsedConfig,
   diffAndCleanUp,
   getTypedConfig,
 } from './types';

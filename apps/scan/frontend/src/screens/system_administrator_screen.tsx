@@ -5,8 +5,8 @@ import {
   SignedHashValidationButton,
   SystemAdministratorScreenContents,
 } from '@vx/libs/ui/src';
-import { ElectionDefinition, PollsState } from '@vx/libs/types/src';
-import type { UsbDriveStatus } from '@vx/libs/usb-drive/src';
+import { type ElectionDefinition, type PollsState } from '@vx/libs/types/src';
+import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Screen } from '../components/layout';
 import {
   unconfigureElection,

@@ -1,10 +1,10 @@
-import { Result, err } from '@vx/libs/basics/src';
+import { type Result, err } from '@vx/libs/basics/src';
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
 import { ZodError } from 'zod';
-import { ReadFileError, readFile } from './read_file';
+import { type ReadFileError, readFile } from './read_file';
 
 /**
  * Possible errors that can occur when reading an election.

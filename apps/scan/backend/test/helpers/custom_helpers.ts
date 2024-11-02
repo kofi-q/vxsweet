@@ -1,15 +1,15 @@
 import { Buffer } from 'node:buffer';
 import {
-  InsertedSmartCardAuthApi,
+  type InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
 } from '@vx/libs/auth/src';
-import { Result, assert, deferred, ok } from '@vx/libs/basics/src';
+import { type Result, assert, deferred, ok } from '@vx/libs/basics/src';
 import {
-  CustomScanner,
+  type CustomScanner,
   ErrorCode,
   ImageColorDepthType,
   ImageFileFormat,
-  ImageFromScanner,
+  type ImageFromScanner,
   ScanSide,
   mocks,
 } from '@vx/libs/custom-scanner/src';
@@ -26,18 +26,18 @@ import {
   isRgba,
 } from '@vx/libs/image-utils/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
-import { SheetOf, mapSheet } from '@vx/libs/types/src';
+import { type SheetOf, mapSheet } from '@vx/libs/types/src';
 import { Application } from 'express';
 import { Server } from 'node:http';
 import { AddressInfo } from 'node:net';
 import tmp from 'tmp';
-import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
+import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
-  MemoryPrinterHandler,
+  type MemoryPrinterHandler,
   createMockPrinterHandler,
-} from '@vx/libs/printing/src';
+} from '@vx/libs/printing/src/printer';
 import {
-  MemoryFujitsuPrinterHandler,
+  type MemoryFujitsuPrinterHandler,
   createMockFujitsuPrinterHandler,
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import {
@@ -51,12 +51,12 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import { Api, buildApp } from '../../src/app';
+import { type Api, buildApp } from '../../src/app';
 import {
   createPrecinctScannerStateMachine,
   delays,
 } from '../../src/scanners/custom/state_machine';
-import { Workspace, createWorkspace } from '../../src/util/workspace';
+import { type Workspace, createWorkspace } from '../../src/util/workspace';
 import {
   buildMockLogger,
   expectStatus,

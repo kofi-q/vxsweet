@@ -30,19 +30,27 @@ import {
   DippedSmartCardAuth as DippedSmartCardAuthTypes,
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/src/auth';
 import {
   BooleanEnvironmentVariableName,
   generatePin,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 
-import { buildMockCard, MockCard, mockCardAssertComplete } from '../test/utils';
-import { CardDetails, CardStatus, ProgrammableCard } from './card';
+import {
+  buildMockCard,
+  type MockCard,
+  mockCardAssertComplete,
+} from '../test/utils';
+import {
+  type CardDetails,
+  type CardStatus,
+  type ProgrammableCard,
+} from './card';
 import { DippedSmartCardAuth } from './dipped_smart_card_auth';
 import {
-  DippedSmartCardAuthConfig,
-  DippedSmartCardAuthMachineState,
+  type DippedSmartCardAuthConfig,
+  type DippedSmartCardAuthMachineState,
 } from './dipped_smart_card_auth_api';
 
 const mockFeatureFlagger = getFeatureFlagMock();

@@ -1,17 +1,24 @@
+jest.mock(
+  '@vx/libs/ui/src/ui_strings',
+  (): typeof import('@vx/libs/ui/src/ui_strings') => ({
+    ...jest.requireActual('@vx/libs/ui/src/ui_strings'),
+    ReadOnLoad: jest.fn(),
+  })
+);
 jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
   ...jest.requireActual('@vx/libs/ui/src'),
-  ReadOnLoad: jest.fn(),
   useAudioControls: () => mockAudioControls,
 }));
 
 import userEvent from '@testing-library/user-event';
 import { DateTime } from 'luxon';
 import { mockUseAudioControls, mockOf } from '@vx/libs/test-utils/src';
-import { Keybinding, ReadOnLoad } from '@vx/libs/ui/src';
+import { Keybinding } from '@vx/libs/ui/src';
+import { ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
 import { render, screen, within } from '../../test/react_testing_library';
 import {
   AccessibleControllerDiagnosticScreen,
-  AccessibleControllerDiagnosticProps,
+  type AccessibleControllerDiagnosticProps,
 } from './accessible_controller_diagnostic_screen';
 
 const mockAudioControls = mockUseAudioControls();

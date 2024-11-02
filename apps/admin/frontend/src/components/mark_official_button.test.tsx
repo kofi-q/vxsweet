@@ -1,6 +1,9 @@
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { ApiMock, createApiMock } from '../../test/helpers/mock_api_client';
+import {
+  type ApiMock,
+  createApiMock,
+} from '../../test/helpers/mock_api_client';
 import {
   MARK_RESULTS_OFFICIAL_BUTTON_TEXT,
   MarkResultsOfficialButton,

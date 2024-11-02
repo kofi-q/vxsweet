@@ -1,9 +1,9 @@
 import { assert } from '@vx/libs/basics/src';
 import {
-  CandidateContest,
+  type CandidateContest,
   getBallotStyle,
   getContests,
-  YesNoContest,
+  type YesNoContest,
 } from '@vx/libs/types/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 

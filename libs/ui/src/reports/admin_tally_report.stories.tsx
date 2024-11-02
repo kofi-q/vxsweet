@@ -3,15 +3,18 @@ import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
-} from '@vx/libs/utils/src';
+} from '@vx/libs/utils/src/tabulation';
 import {
-  BallotStyleId,
+  type BallotStyleId,
   Tabulation,
   getBallotStyle,
   getContests,
 } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';
-import { AdminTallyReportProps, AdminTallyReport } from './admin_tally_report';
+import {
+  type AdminTallyReportProps,
+  AdminTallyReport,
+} from './admin_tally_report';
 import { PrintedReportPreview } from './layout';
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;

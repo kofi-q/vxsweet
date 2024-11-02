@@ -24,8 +24,8 @@ import { assert } from '@vx/libs/basics/src';
 import { simulateKeyPress as baseSimulateKeyPress } from './test_utils';
 import { UiString } from '../ui_strings/ui_string';
 import {
-  AccessibleControllerHelpStrings,
-  AccessibleControllerIllustrationProps,
+  type AccessibleControllerHelpStrings,
+  type AccessibleControllerIllustrationProps,
   AccessibleControllerSandbox,
 } from './accessible_controller_sandbox';
 import { act, screen } from '../../test/react_testing_library';

@@ -6,7 +6,7 @@ import {
   P,
 } from '@vx/libs/ui/src';
 import pluralize from 'pluralize';
-import { PollsTransitionType } from '@vx/libs/types/src';
+import { type PollsTransitionType } from '@vx/libs/types/src';
 import { getPollsReportTitle } from '@vx/libs/utils/src';
 import { useState } from 'react';
 import { assert } from '@vx/libs/basics/src';

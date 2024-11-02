@@ -2,7 +2,7 @@ import { emptyDirSync, ensureDirSync } from 'fs-extra';
 import { join, resolve } from 'node:path';
 import { Mutex } from '@vx/libs/utils/src';
 import {
-  DiskSpaceSummary,
+  type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
 } from '@vx/libs/backend/src';
 import { BaseLogger } from '@vx/libs/logging/src';

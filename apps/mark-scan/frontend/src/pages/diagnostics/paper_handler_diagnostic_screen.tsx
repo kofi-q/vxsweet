@@ -1,5 +1,5 @@
 import { Button, H2, Loading, Main, P, Screen } from '@vx/libs/ui/src';
-import { DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/src';
 import React from 'react';
 import {
   CancelButtonContainer,

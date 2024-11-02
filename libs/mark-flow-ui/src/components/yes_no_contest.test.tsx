@@ -1,6 +1,12 @@
+jest.mock(
+  '@vx/libs/ui/src/accessible_controllers',
+  (): typeof import('@vx/libs/ui/src/accessible_controllers') => ({
+    ...jest.requireActual('@vx/libs/ui/src/accessible_controllers'),
+    useIsPatDeviceConnected: jest.fn(),
+  })
+);
 jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
   ...jest.requireActual('@vx/libs/ui/src'),
-  useIsPatDeviceConnected: jest.fn(),
   WithScrollButtons: jest.fn(({ children }) => (
     <div data-testid={MOCK_WITH_SCROLL_BUTTONS_TEST_ID}>{children}</div>
   )),
@@ -10,13 +16,13 @@ import {
   electionGeneral,
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
-import { YesNoContest as YesNoContestInterface } from '@vx/libs/types/src';
+import { type YesNoContest as YesNoContestInterface } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';
+import { useIsPatDeviceConnected } from '@vx/libs/ui/src/accessible_controllers';
 import {
-  useIsPatDeviceConnected,
   WithScrollButtons,
-  WithScrollButtonsProps,
+  type WithScrollButtonsProps,
 } from '@vx/libs/ui/src';
 import { screen, within, render } from '../../test/react_testing_library';
 import { YesNoContest } from './yes_no_contest';

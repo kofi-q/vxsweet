@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  Align,
-  Font,
-  Main,
-  ReadOnLoad as ReadOnLoadBase,
-  Screen,
-} from '@vx/libs/ui/src';
+import { type Align, Font, Main, Screen } from '@vx/libs/ui/src';
+import { ReadOnLoad as ReadOnLoadBase } from '@vx/libs/ui/src/ui_strings';
 import { VoterScreen, ButtonFooter } from '@vx/libs/mark-flow-ui/src';
 
 export interface CenteredPageLayoutProps {

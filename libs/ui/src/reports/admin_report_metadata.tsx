@@ -1,7 +1,7 @@
 import { formatFullDateTimeZone } from '@vx/libs/utils/src';
 import { DateTime } from 'luxon';
 import {
-  ElectionDefinition,
+  type ElectionDefinition,
   formatBallotHash,
   formatElectionHashes,
 } from '@vx/libs/types/src';

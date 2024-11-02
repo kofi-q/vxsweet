@@ -1,9 +1,9 @@
 import {
-  BallotStyleId,
+  type BallotStyleId,
   LanguageCode,
-  PollsState,
-  PrecinctSelection,
-  VotesDict,
+  type PollsState,
+  type PrecinctSelection,
+  type VotesDict,
 } from '@vx/libs/types/src';
 
 export interface MachineConfig {

@@ -1,19 +1,19 @@
 /* istanbul ignore file - tested via VxSuite apps. */
 
-import { Optional, typedAs } from '@vx/libs/basics/src';
+import { type Optional, typedAs } from '@vx/libs/basics/src';
 import { Client as DbClient } from '@vx/libs/db/src';
 import {
   LanguageCode,
   LanguageCodeSchema,
   safeParse,
   safeParseJson,
-  UiStringAudioClip,
-  UiStringAudioClips,
+  type UiStringAudioClip,
+  type UiStringAudioClips,
   UiStringAudioClipSchema,
-  UiStringAudioIds,
+  type UiStringAudioIds,
   UiStringAudioIdsSchema,
-  UiStringsPackage,
-  UiStringTranslations,
+  type UiStringsPackage,
+  type UiStringTranslations,
   UiStringTranslationsSchema,
 } from '@vx/libs/types/src';
 

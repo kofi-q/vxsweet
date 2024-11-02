@@ -1,10 +1,10 @@
 import { groupBy, throwIllegalValue, unique } from '@vx/libs/basics/src';
 import {
-  CandidateContest,
-  Contests,
-  DistrictId,
-  ElectionType,
-  Parties,
+  type CandidateContest,
+  type Contests,
+  type DistrictId,
+  type ElectionType,
+  type Parties,
 } from '@vx/libs/types/src';
 import {
   generateBallotStyleGroupId,
@@ -12,10 +12,10 @@ import {
 } from '@vx/libs/utils/src';
 
 import {
-  BallotLanguageConfigs,
-  BallotStyle,
-  Precinct,
-  PrecinctOrSplitId,
+  type BallotLanguageConfigs,
+  type BallotStyle,
+  type Precinct,
+  type PrecinctOrSplitId,
   hasSplits,
 } from './types';
 
