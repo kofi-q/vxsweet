@@ -50,7 +50,7 @@ jobs:
 
   lint:
     executor: nodejs
-    resource_class: medium
+    resource_class: xlarge
     steps:
       - checkout
       - restore_bazel_cache:
