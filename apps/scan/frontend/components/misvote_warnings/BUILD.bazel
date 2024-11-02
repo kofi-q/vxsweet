@@ -11,7 +11,14 @@ ts_library(
         "//:node_modules/styled-components",
         "//libs/basics/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/list",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
+        "//libs/ui/styled-components",
+        "//libs/ui/touch-controls",
+        "//libs/ui/ui_strings",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

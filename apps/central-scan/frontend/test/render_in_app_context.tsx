@@ -6,7 +6,8 @@ import {
   constructElectionKey,
 } from '@vx/libs/types/src/auth';
 import { type ElectionDefinition } from '@vx/libs/types/src';
-import { SystemCallContextProvider, TestErrorBoundary } from '@vx/libs/ui/src';
+import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';

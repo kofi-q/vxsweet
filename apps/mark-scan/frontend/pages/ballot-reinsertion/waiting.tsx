@@ -1,5 +1,5 @@
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import { Caption, Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { Caption, Icons, P } from '@vx/libs/ui/primitives';
 
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';
 import { useIsVoterAuth } from '../../hooks/use_is_voter_auth';

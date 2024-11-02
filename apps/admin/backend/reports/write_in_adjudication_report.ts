@@ -1,5 +1,5 @@
 import { assert } from '@vx/libs/basics/src';
-import { WriteInAdjudicationReport } from '@vx/libs/ui/src/reports';
+import { WriteInAdjudicationReport } from '@vx/libs/ui/reports';
 import { type PdfError, renderToPdf } from '@vx/libs/printing/src';
 import { type Printer } from '@vx/libs/printing/src/printer';
 import { Buffer } from 'node:buffer';

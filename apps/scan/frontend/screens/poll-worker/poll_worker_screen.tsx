@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
+import { Button } from '@vx/libs/ui/buttons';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { PowerDownButton } from '@vx/libs/ui/system-controls';
+import { LoadingAnimation } from '@vx/libs/ui/spinners';
+import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
 import {
-  Button,
-  CenteredLargeProse,
-  PowerDownButton,
-  LoadingAnimation,
-  SignedHashValidationButton,
   Loading,
   H1,
   P,
   FullScreenIconWrapper,
   Icons,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/primitives';
 import { getPollsReportTitle } from '@vx/libs/utils/src';
 import {
   type ElectionDefinition,

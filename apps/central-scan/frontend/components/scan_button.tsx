@@ -1,4 +1,4 @@
-import { Button } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
 import { scanBatch } from '../api/api';
 
 export interface Props {

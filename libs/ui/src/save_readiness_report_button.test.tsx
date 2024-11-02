@@ -13,7 +13,7 @@ import {
 
 import { render, screen } from '../test/react_testing_library';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from './react_query';
-import { mockUsbDriveStatus } from './test-utils/mock_usb_drive';
+import { mockUsbDriveStatus } from '../test-utils/mock_usb_drive';
 
 function mockMutate(): Promise<ExportDataResult> {
   return Promise.resolve(ok(['mock-file.pdf']));

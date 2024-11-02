@@ -1,6 +1,6 @@
 /* istanbul ignore file - trivial presentational component. */
 
-import { Caption, Icons, P } from '@vx/libs/ui/src';
+import { Caption, Icons, P } from '@vx/libs/ui/primitives';
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';
 import { ResetVoterSessionButton } from '../../components/deactivate_voter_session_button';
 

@@ -1,9 +1,9 @@
 import React from 'react';
+import { VoterSettingsManagerContext } from '@vx/libs/ui/themes';
 import {
-  VoterSettingsManagerContext,
   useCurrentLanguage,
   useLanguageControls,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/ui_strings';
 import { DefaultTheme, ThemeContext } from 'styled-components';
 import { LanguageCode } from '@vx/libs/types/src';
 

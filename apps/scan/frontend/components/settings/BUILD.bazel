@@ -12,7 +12,10 @@ ts_library(
         "//:node_modules/react-router-dom",
         "//:node_modules/styled-components",
         "//apps/scan/frontend/constants",
-        "//libs/ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
+        "//libs/ui/styled-components",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

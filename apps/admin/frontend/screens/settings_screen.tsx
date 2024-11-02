@@ -1,13 +1,9 @@
 import React, { useContext } from 'react';
-import {
-  CurrentDateAndTime,
-  SetClockButton,
-  RebootToBiosButton,
-  SignedHashValidationButton,
-  ExportLogsButton,
-  H2,
-  P,
-} from '@vx/libs/ui/src';
+import { CurrentDateAndTime, SetClockButton } from '@vx/libs/ui/clock';
+import { RebootToBiosButton } from '@vx/libs/ui/system-controls';
+import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
+import { ExportLogsButton } from '@vx/libs/ui/logs-exports';
+import { H2, P } from '@vx/libs/ui/primitives';
 import { isSystemAdministratorAuth } from '@vx/libs/utils/src';
 
 import { AppContext } from '../contexts/app_context';

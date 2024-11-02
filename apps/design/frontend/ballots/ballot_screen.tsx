@@ -11,18 +11,15 @@ import {
 import { Buffer } from 'node:buffer';
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
+import { Card, H1, Icons } from '@vx/libs/ui/primitives';
 import {
-  Button,
-  LinkButton,
-  Card,
-  H1,
-  Icons,
   TaskContent,
   TaskControls,
   TaskHeader,
   TaskScreen,
-  RadioGroup,
 } from '@vx/libs/ui/src';
+import { RadioGroup } from '@vx/libs/ui/radio_group';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { format } from '@vx/libs/utils/src';
 import { type BallotMode } from '@vx/libs/hmpb/src';

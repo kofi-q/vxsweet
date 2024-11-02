@@ -1,4 +1,6 @@
-import { Button, Modal, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal } from '@vx/libs/ui/modal';
+import { P } from '@vx/libs/ui/primitives';
 import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { setTestMode } from '../api/api';

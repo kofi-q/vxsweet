@@ -3,11 +3,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { QueryClient } from '@tanstack/react-query';
-import {
-  AppBase,
-  AppErrorBoundary,
-  VisualModeDisabledOverlay,
-} from '@vx/libs/ui/src';
+import { AppBase } from '@vx/libs/ui/themes';
+import { AppErrorBoundary } from '@vx/libs/ui/errors';
+import { VisualModeDisabledOverlay } from '@vx/libs/ui/audio-visual-modes';
 import {
   type ColorMode,
   type ScreenType,

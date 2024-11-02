@@ -5,8 +5,8 @@ import {
   InvalidCardScreen,
   UnlockMachineScreen,
   RemoveCardScreen,
-  VendorScreen,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/auth-screens';
+import { VendorScreen } from '@vx/libs/ui/admin-screens';
 
 import {
   BooleanEnvironmentVariableName,

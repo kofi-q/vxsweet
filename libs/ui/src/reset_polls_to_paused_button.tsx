@@ -1,9 +1,9 @@
 import { assert } from '@vx/libs/basics/src';
 import React, { useState } from 'react';
-import { Button } from './button';
-import { Modal } from './modal';
-import { Prose } from './prose';
-import { H1, P } from './typography';
+import { Button } from '../buttons/button';
+import { Modal } from '../modal/modal';
+import { Prose } from '../primitives/prose';
+import { H1, P } from '../primitives/typography';
 
 interface Props {
   resetPollsToPausedText: string;

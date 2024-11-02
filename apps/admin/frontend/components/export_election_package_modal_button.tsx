@@ -5,13 +5,10 @@ import {
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
-import {
-  Button,
-  LoadingButton,
-  Modal,
-  UsbControllerButton,
-  P,
-} from '@vx/libs/ui/src';
+import { Button, LoadingButton } from '@vx/libs/ui/buttons';
+import { Modal } from '@vx/libs/ui/modal';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { P } from '@vx/libs/ui/primitives';
 import { type ExportDataError } from '@vx/libs/backend/src';
 
 import { ejectUsbDrive, saveElectionPackageToUsb } from '../api/api';

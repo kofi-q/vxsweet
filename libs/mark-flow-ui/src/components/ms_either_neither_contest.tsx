@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {
-  ContestChoiceButton,
-  Main,
-  Caption,
-  WithScrollButtons,
-  RichText,
-} from '@vx/libs/ui/src';
-import {
-  appStrings,
-  AudioOnly,
-  electionStrings,
-} from '@vx/libs/ui/src/ui_strings';
-import { AssistiveTechInstructions } from '@vx/libs/ui/src/accessible_controllers';
+import { ContestChoiceButton } from '@vx/libs/ui/bmds';
+import { Main } from '@vx/libs/ui/screens';
+import { Caption, RichText } from '@vx/libs/ui/primitives';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { appStrings, electionStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { AudioOnly } from '@vx/libs/ui/ui_strings';
+import { AssistiveTechInstructions } from '@vx/libs/ui/accessible_controllers';
 
 import {
   type YesNoVote,

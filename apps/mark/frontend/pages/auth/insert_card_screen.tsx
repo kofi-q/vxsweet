@@ -4,19 +4,11 @@ import {
   type PrecinctSelection,
   type PollsState,
 } from '@vx/libs/types/src';
-import {
-  Main,
-  Screen,
-  TestMode,
-  InsertCardImage,
-  ElectionInfoBar,
-  Prose,
-  H1,
-  P,
-  Caption,
-  Icons,
-  Font,
-} from '@vx/libs/ui/src';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { TestMode } from '@vx/libs/ui/test-mode';
+import { InsertCardImage } from '@vx/libs/ui/auth-screens';
+import { ElectionInfoBar } from '@vx/libs/ui/election-info';
+import { Prose, H1, P, Caption, Icons, Font } from '@vx/libs/ui/primitives';
 
 import { throwIllegalValue } from '@vx/libs/basics/src';
 

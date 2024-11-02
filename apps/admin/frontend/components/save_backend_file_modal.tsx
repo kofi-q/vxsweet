@@ -8,7 +8,9 @@ import {
 } from '@vx/libs/utils/src';
 import { type ExportDataResult } from '@vx/libs/backend/src';
 
-import { Button, Modal, ModalWidth, P, Font } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { P, Font } from '@vx/libs/ui/primitives';
 
 import { MutationStatus } from '@tanstack/react-query';
 import { AppContext } from '../contexts/app_context';

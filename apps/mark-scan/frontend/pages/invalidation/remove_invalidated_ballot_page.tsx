@@ -1,4 +1,5 @@
-import { Button, Icons, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Icons, P } from '@vx/libs/ui/primitives';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { confirmInvalidateBallot } from '../../api/api';

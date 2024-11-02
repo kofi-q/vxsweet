@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import {
-  Button,
-  Loading,
-  P,
-  UsbControllerButton,
-  userReadableMessageFromExportError,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Loading, P } from '@vx/libs/ui/primitives';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { userReadableMessageFromExportError } from '@vx/libs/ui/cvrs';
+import { Modal } from '@vx/libs/ui/modal';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';

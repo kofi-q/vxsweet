@@ -1,20 +1,34 @@
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useAudioControls: () => mockAudioControls,
-  useAudioEnabled: jest.fn(),
-  useCurrentLanguage: jest.fn(),
-  useLanguageControls: () => mockLanguageControls,
-}));
+jest.mock(
+  '@vx/libs/ui/ui_strings/screen-reader',
+  (): typeof import('@vx/libs/ui/ui_strings/screen-reader') => ({
+    ...jest.requireActual('@vx/libs/ui/ui_strings/screen-reader'),
+    useAudioControls: () => mockAudioControls,
+  })
+);
+jest.mock(
+  '@vx/libs/ui/ui_strings/audio-controls',
+  (): typeof import('@vx/libs/ui/ui_strings/audio-controls') => ({
+    ...jest.requireActual('@vx/libs/ui/ui_strings/audio-controls'),
+    useAudioEnabled: jest.fn(),
+  })
+);
+jest.mock(
+  '@vx/libs/ui/ui_strings',
+  (): typeof import('@vx/libs/ui/ui_strings') => ({
+    ...jest.requireActual('@vx/libs/ui/ui_strings'),
+    useCurrentLanguage: jest.fn(),
+    useLanguageControls: () => mockLanguageControls,
+  })
+);
 
 import { DefaultTheme, ThemeContext } from 'styled-components';
 import React from 'react';
+import { VoterSettingsManagerContext, AppBase } from '@vx/libs/ui/themes';
 import {
-  VoterSettingsManagerContext,
   type LanguageControls,
   useCurrentLanguage,
-  useAudioEnabled,
-  AppBase,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/ui_strings';
+import { useAudioEnabled } from '@vx/libs/ui/ui_strings/audio-controls';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,

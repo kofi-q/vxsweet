@@ -1,7 +1,8 @@
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 
-import { Button, Icons, P } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { Icons, P } from '@vx/libs/ui/primitives';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { AskPollWorkerPage } from '../help/ask_poll_worker_page';
 import { confirmBallotBoxEmptied } from '../../api/api';
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';

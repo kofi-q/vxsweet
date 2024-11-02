@@ -1,5 +1,5 @@
-import { FullScreenIconWrapper, Icons, P } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { FullScreenIconWrapper, Icons, P } from '@vx/libs/ui/primitives';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 
 import { Screen } from '../../components/layout/layout';
 import { FullScreenPromptLayout } from '../../components/full-screen-prompt/layout';

@@ -9,7 +9,7 @@ ts_library(
         "//:node_modules/@testing-library/react",
         "//:node_modules/@types/react",
         "//:node_modules/react",
-        "//libs/ui/src",
+        "//libs/ui/themes",
     ],
 )
 

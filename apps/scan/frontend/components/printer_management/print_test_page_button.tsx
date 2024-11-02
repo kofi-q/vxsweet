@@ -1,6 +1,6 @@
 import React from 'react';
 import { assert } from '@vx/libs/basics/src';
-import { Button } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
 import { getPrinterStatus, printTestPage } from '../../api/api';
 import { PrintTestPageModal } from './print_test_page_modal';
 

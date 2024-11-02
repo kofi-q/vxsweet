@@ -3,19 +3,11 @@ import styled from 'styled-components';
 import { basename } from 'node:path';
 import { DateTime } from 'luxon';
 
-import {
-  Modal,
-  ModalWidth,
-  Table,
-  TD,
-  type ElectronFile,
-  FileInputButton,
-  useExternalStateChangeListener,
-  Button,
-  P,
-  Font,
-  Icons,
-} from '@vx/libs/ui/src';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { Table, TD, type ElectronFile, FileInputButton } from '@vx/libs/ui/src';
+import { useExternalStateChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
+import { Button } from '@vx/libs/ui/buttons';
+import { P, Font, Icons } from '@vx/libs/ui/primitives';
 import {
   format,
   isElectionManagerAuth,

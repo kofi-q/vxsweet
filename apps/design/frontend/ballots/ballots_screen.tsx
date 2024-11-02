@@ -1,17 +1,8 @@
-import {
-  H1,
-  P,
-  Table,
-  TH,
-  TD,
-  TabPanel,
-  RouterTabBar,
-  MainHeader,
-  MainContent,
-  LinkButton,
-  Button,
-  RadioGroup,
-} from '@vx/libs/ui/src';
+import { H1, P } from '@vx/libs/ui/primitives';
+import { Table, TH, TD, TabPanel, RouterTabBar } from '@vx/libs/ui/src';
+import { MainHeader, MainContent } from '@vx/libs/ui/screens';
+import { LinkButton, Button } from '@vx/libs/ui/buttons';
+import { RadioGroup } from '@vx/libs/ui/radio_group';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { assertDefined } from '@vx/libs/basics/src';
 import {

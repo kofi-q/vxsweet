@@ -2,12 +2,15 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { H1, P, WithScrollButtons, Button } from '@vx/libs/ui/src';
-import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
+import { H1, P } from '@vx/libs/ui/primitives';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { Button } from '@vx/libs/ui/buttons';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 import {
   PageNavigationButtonId,
   AssistiveTechInstructions,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import { VoterScreen, Review } from '@vx/libs/mark-flow-ui/src';

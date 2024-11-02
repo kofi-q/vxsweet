@@ -6,11 +6,11 @@ import {
   safeParseJson,
 } from '@vx/libs/types/src';
 import path from 'node:path';
-import { generateNumberStringsCatalog } from '../src/ui_strings/number_strings';
+import { generateNumberStringsCatalog } from '../ui_strings/number_strings';
 
 const APP_STRINGS_CATALOG_FILE_PATH = path.join(
   __dirname,
-  '../src/ui_strings/app_strings_catalog/latest.json'
+  '../ui_strings/app_strings_catalog/latest.json'
 );
 
 function addNumberStrings(

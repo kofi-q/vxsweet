@@ -1,10 +1,5 @@
-import {
-  AppLogo,
-  LeftNav,
-  FullScreenIconWrapper,
-  H1,
-  Icons,
-} from '@vx/libs/ui/src';
+import { AppLogo, LeftNav } from '@vx/libs/ui/left-nav';
+import { FullScreenIconWrapper, H1, Icons } from '@vx/libs/ui/primitives';
 import { Column, Row } from '../layout/layout';
 
 export function ErrorScreen(): JSX.Element {

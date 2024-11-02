@@ -1,4 +1,5 @@
-import { Main, Screen, Prose, H1, P } from '@vx/libs/ui/src';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { Prose, H1, P } from '@vx/libs/ui/primitives';
 
 export function SetupPrinterPage(): JSX.Element {
   return (

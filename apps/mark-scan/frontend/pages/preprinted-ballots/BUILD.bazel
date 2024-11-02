@@ -11,7 +11,8 @@ ts_library(
         "//apps/mark-scan/frontend/components",
         "//libs/basics/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
     ],
 )
 
@@ -30,7 +31,7 @@ ts_tests(
         "//libs/basics/src",
         "//libs/test-utils/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/errors",
     ],
 )
 

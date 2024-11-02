@@ -3,7 +3,7 @@ import { Buffer } from 'node:buffer';
 import {
   BallotStyleReadinessReport,
   type BallotStyleReadinessReportProps,
-} from '@vx/libs/ui/src/diagnostics';
+} from '@vx/libs/ui/diagnostics';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { type PlaywrightRenderer } from '@vx/libs/hmpb/src';
 

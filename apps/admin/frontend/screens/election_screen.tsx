@@ -6,7 +6,9 @@ import {
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
 import { assert } from '@vx/libs/basics/src';
-import { Card, H2, P, UnconfigureMachineButton, Seal } from '@vx/libs/ui/src';
+import { Card, H2, P } from '@vx/libs/ui/primitives';
+import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';
+import { Seal } from '@vx/libs/ui/election-info';
 import { useHistory } from 'react-router-dom';
 import { AppContext } from '../contexts/app_context';
 import { NavigationScreen } from '../components/navigation_screen';

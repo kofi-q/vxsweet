@@ -9,7 +9,7 @@ ts_library(
         "//libs/hmpb/src",
         "//libs/printing/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/reports",
         "//libs/utils/src",
     ],
 )

@@ -1,14 +1,9 @@
-import {
-  Button,
-  H1,
-  P,
-  Loading,
-  Main,
-  Screen,
-  SaveReadinessReportButton,
-} from '@vx/libs/ui/src';
-import { MarkScanReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { H1, P, Loading } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { SaveReadinessReportButton } from '@vx/libs/ui/src';
+import { MarkScanReadinessReportContents } from '@vx/libs/ui/diagnostics';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { useHistory, Switch, Route, Redirect } from 'react-router-dom';
 import { AccessibleControllerDiagnosticScreen } from './accessible_controller_diagnostic_screen';
 import {

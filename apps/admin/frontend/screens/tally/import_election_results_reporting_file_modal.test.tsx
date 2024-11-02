@@ -10,7 +10,8 @@ import {
   ok,
   type Result,
 } from '@vx/libs/basics/src';
-import { type ElectronFile, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { type ElectronFile } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import userEvent from '@testing-library/user-event';
 import {
   mockKiosk,

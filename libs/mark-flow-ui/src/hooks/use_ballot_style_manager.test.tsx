@@ -1,7 +1,10 @@
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  useCurrentLanguage: useCurrentLanguageMock,
-}));
+jest.mock(
+  '@vx/libs/ui/ui_strings',
+  (): typeof import('@vx/libs/ui/ui_strings') => ({
+    ...jest.requireActual('@vx/libs/ui/ui_strings'),
+    useCurrentLanguage: useCurrentLanguageMock,
+  })
+);
 
 import React from 'react';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';

@@ -26,7 +26,10 @@ ts_library(
         "//libs/basics/src",
         "//libs/dev-dock/frontend/src",
         "//libs/logging/src",
+        "//libs/ui/errors",
         "//libs/ui/src",
+        "//libs/ui/system-calls",
+        "//libs/ui/themes",
         "//libs/utils/src",
     ],
 )

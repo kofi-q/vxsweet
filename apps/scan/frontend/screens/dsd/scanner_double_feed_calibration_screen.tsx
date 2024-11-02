@@ -1,18 +1,12 @@
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { Button } from '@vx/libs/ui/buttons';
 import {
-  Button,
   DoubleFeedCalibrationDoubleSheetIllustration,
   DoubleFeedCalibrationSingleSheetIllustration,
   FullScreenMessage,
-  Main,
-  MainContent,
-  MainHeader,
-  Screen,
-  FullScreenIconWrapper,
-  H3,
-  Icons,
-  P,
 } from '@vx/libs/ui/src';
+import { Main, MainContent, MainHeader, Screen } from '@vx/libs/ui/screens';
+import { FullScreenIconWrapper, H3, Icons, P } from '@vx/libs/ui/primitives';
 import React from 'react';
 import { endDoubleFeedCalibration, getScannerStatus } from '../../api/api';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from '../../config/globals';

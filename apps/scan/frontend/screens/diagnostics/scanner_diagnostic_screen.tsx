@@ -1,17 +1,11 @@
 import React from 'react';
+import { Button } from '@vx/libs/ui/buttons';
 import {
-  Button,
   DoubleFeedCalibrationSingleSheetIllustration,
   FullScreenMessage,
-  Main,
-  MainContent,
-  MainHeader,
-  Screen,
-  FullScreenIconWrapper,
-  H3,
-  Icons,
-  P,
 } from '@vx/libs/ui/src';
+import { Main, MainContent, MainHeader, Screen } from '@vx/libs/ui/screens';
+import { FullScreenIconWrapper, H3, Icons, P } from '@vx/libs/ui/primitives';
 import { type PrecinctScannerStatus } from '../../../backend/types/types';
 
 function DiagnosticScreen({ children }: { children: React.ReactNode }) {

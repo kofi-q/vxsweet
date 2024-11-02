@@ -24,7 +24,7 @@ ts_library(
         "//apps/mark-scan/frontend/pages/validation",
         "//libs/mark-flow-ui/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
         "//libs/utils/src",
     ],
 )
@@ -44,7 +44,7 @@ ts_tests(
         "//apps/mark-scan/frontend/test",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
     ],
 )
 

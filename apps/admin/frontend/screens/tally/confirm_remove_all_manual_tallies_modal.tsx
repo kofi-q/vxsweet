@@ -1,5 +1,7 @@
 import React from 'react';
-import { Modal, Button, P } from '@vx/libs/ui/src';
+import { Modal } from '@vx/libs/ui/modal';
+import { Button } from '@vx/libs/ui/buttons';
+import { P } from '@vx/libs/ui/primitives';
 import { deleteAllManualResults } from '../../api/api';
 
 export function ConfirmRemoveAllManualTalliesModal({

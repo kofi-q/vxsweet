@@ -20,7 +20,8 @@ ts_library(
         "//apps/design/frontend/geo",
         "//apps/design/frontend/routes",
         "//apps/design/frontend/tabulation",
-        "//libs/ui/src",
+        "//libs/ui/errors",
+        "//libs/ui/themes",
     ],
 )
 

@@ -20,9 +20,8 @@ import {
   Tabulation,
   Admin as AdminTypes,
 } from '@vx/libs/types/src';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
 import {
-  Button,
-  LinkButton,
   Icons,
   P,
   Caption,
@@ -31,13 +30,15 @@ import {
   Font,
   H3,
   Card,
+} from '@vx/libs/ui/primitives';
+import {
   TaskContent,
   TaskControls,
   TaskHeader,
   TaskScreen,
   Callout,
-  LabelledText,
 } from '@vx/libs/ui/src';
+import { LabelledText } from '@vx/libs/ui/text-elements';
 import { format, getBallotStyleGroup } from '@vx/libs/utils/src';
 import {
   getContestById,

@@ -1,11 +1,8 @@
 import React from 'react';
 
-import {
-  H3,
-  Main,
-  Screen,
-  SystemAdministratorScreenContents,
-} from '@vx/libs/ui/src';
+import { H3 } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { SystemAdministratorScreenContents } from '@vx/libs/ui/admin-screens';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut } from '../../api/api';
 

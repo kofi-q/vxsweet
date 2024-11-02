@@ -20,6 +20,7 @@ ts_library(
         "//libs/dev-dock/backend/src",
         "//libs/fujitsu-thermal-printer/src",
         "//libs/grout/src",
+        "//libs/ui/styled-components",
         "//libs/utils/src",
     ],
 )

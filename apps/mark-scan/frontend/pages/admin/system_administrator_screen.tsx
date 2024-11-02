@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 
-import {
-  Button,
-  H3,
-  Main,
-  Screen,
-  SignedHashValidationButton,
-  SystemAdministratorScreenContents,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { H3 } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
+import { SystemAdministratorScreenContents } from '@vx/libs/ui/admin-screens';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { logOut, useApiClient } from '../../api/api';
 import { DiagnosticsScreen } from '../diagnostics/diagnostics_screen';

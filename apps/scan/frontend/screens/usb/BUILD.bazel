@@ -9,6 +9,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/scan/frontend/components/layout",
         "//apps/scan/frontend/sound",
+        "//libs/ui/primitives",
         "//libs/ui/src",
     ],
 )

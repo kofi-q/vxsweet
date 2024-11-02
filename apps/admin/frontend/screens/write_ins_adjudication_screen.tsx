@@ -9,18 +9,9 @@ import {
   getPartyAbbreviationByPartyId,
   type Id,
 } from '@vx/libs/types/src';
-import {
-  Button,
-  LinkButton,
-  Main,
-  Screen,
-  Loading,
-  Font,
-  Caption,
-  H2,
-  H1,
-  H4,
-} from '@vx/libs/ui/src';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { Loading, Font, Caption, H2, H1, H4 } from '@vx/libs/ui/primitives';
 import { format } from '@vx/libs/utils/src';
 import { assert, find } from '@vx/libs/basics/src';
 import { useQueryClient } from '@tanstack/react-query';

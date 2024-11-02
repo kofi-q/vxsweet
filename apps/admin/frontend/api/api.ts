@@ -4,9 +4,9 @@ import { type Api } from '../../backend/app/app';
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,
   QUERY_CLIENT_DEFAULT_OPTIONS,
-  USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
-  createSystemCallApi,
 } from '@vx/libs/ui/src';
+import { USB_DRIVE_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/usb';
+import { createSystemCallApi } from '@vx/libs/ui/system-calls';
 import {
   QueryClient,
   QueryKey,

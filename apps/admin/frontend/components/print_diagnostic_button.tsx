@@ -1,4 +1,7 @@
-import { Button, Font, P, Modal, RadioGroup } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Font, P } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
+import { RadioGroup } from '@vx/libs/ui/radio_group';
 import React, { useState } from 'react';
 import { assert, assertFalsy, sleep } from '@vx/libs/basics/src';
 import { type DiagnosticOutcome } from '@vx/libs/types/src';

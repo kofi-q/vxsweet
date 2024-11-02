@@ -1,0 +1,45 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "accessible_controllers",
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/ui/keybindings",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
+        "//libs/ui/styled-components",
+        "//libs/ui/ui_strings",
+        "//libs/ui/ui_strings/screen-reader",
+        "//libs/ui/ui_strings/ui_string",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/test-utils/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/keybindings",
+        "//libs/ui/styled-components",
+        "//libs/ui/test",
+        "//libs/ui/ui_strings/screen-reader",
+        "//libs/ui/ui_strings/ui_string",
+    ],
+)
+
+lint_test(name = "lint")

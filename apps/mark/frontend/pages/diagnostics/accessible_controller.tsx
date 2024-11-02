@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react';
-import {
-  Keybinding,
-  Main,
-  Screen,
-  useAudioControls,
-  Button,
-  Font,
-  H1,
-  P,
-  Prose,
-} from '@vx/libs/ui/src';
-import { AudioOnly, ReadOnLoad, appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Keybinding } from '@vx/libs/ui/keybindings';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { useAudioControls } from '@vx/libs/ui/ui_strings/screen-reader';
+import { Button } from '@vx/libs/ui/buttons';
+import { Font, H1, P, Prose } from '@vx/libs/ui/primitives';
+import { AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import {
   type MarkControllerButton,
   MarkControllerIllustration,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 import { DateTime } from 'luxon';
 import styled from 'styled-components';
 

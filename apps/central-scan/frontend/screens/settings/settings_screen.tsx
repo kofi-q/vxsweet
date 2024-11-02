@@ -1,19 +1,13 @@
 import { useState, useContext } from 'react';
 import { assert } from '@vx/libs/basics/src';
-import {
-  Button,
-  CurrentDateAndTime,
-  SetClockButton,
-  UnconfigureMachineButton,
-  userReadableMessageFromExportError,
-  SignedHashValidationButton,
-  Loading,
-  H2,
-  Icons,
-  P,
-  ExportLogsButton,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { CurrentDateAndTime, SetClockButton } from '@vx/libs/ui/clock';
+import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';
+import { userReadableMessageFromExportError } from '@vx/libs/ui/cvrs';
+import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
+import { Loading, H2, Icons, P } from '@vx/libs/ui/primitives';
+import { ExportLogsButton } from '@vx/libs/ui/logs-exports';
+import { Modal } from '@vx/libs/ui/modal';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';

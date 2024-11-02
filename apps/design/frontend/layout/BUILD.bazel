@@ -11,7 +11,11 @@ ts_library(
         "//:node_modules/react-router-dom",
         "//:node_modules/styled-components",
         "//apps/design/frontend/routes",
+        "//libs/ui/buttons",
+        "//libs/ui/left-nav",
+        "//libs/ui/screens",
         "//libs/ui/src",
+        "//libs/ui/styled-components",
     ],
 )
 

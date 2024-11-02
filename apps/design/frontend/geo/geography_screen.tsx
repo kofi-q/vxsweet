@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  LinkButton,
-  Table,
-  TH,
-  TD,
-  TabPanel,
-  RouterTabBar,
-  Breadcrumbs,
-  Card,
-  H1,
-  P,
-  CheckboxGroup,
-  MainContent,
-  MainHeader,
-} from '@vx/libs/ui/src';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
+import { Table, TH, TD, TabPanel, RouterTabBar } from '@vx/libs/ui/src';
+import { Breadcrumbs } from '@vx/libs/ui/breadcrumbs';
+import { Card, H1, P } from '@vx/libs/ui/primitives';
+import { CheckboxGroup } from '@vx/libs/ui/checkbox';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
 import {
   Switch,
   Route,

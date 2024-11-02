@@ -6,10 +6,9 @@ import {
   NavListItem,
   NavLink,
   NavList,
-  Main,
-  Screen,
-  LinkButton,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/left-nav';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { LinkButton } from '@vx/libs/ui/buttons';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { electionNavRoutes } from '../routes/routes';
 

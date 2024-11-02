@@ -10,7 +10,13 @@ ts_library(
         "//apps/mark-scan/frontend/api",
         "//libs/basics/src",
         "//libs/types/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/election-info",
+        "//libs/ui/hooks",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
         "//libs/ui/src",
+        "//libs/ui/test-mode",
     ],
 )
 

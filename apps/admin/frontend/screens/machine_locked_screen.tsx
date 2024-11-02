@@ -1,4 +1,6 @@
-import { ElectionInfoBar, Main, Screen, H1, H3 } from '@vx/libs/ui/src';
+import { ElectionInfoBar } from '@vx/libs/ui/election-info';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { H1, H3 } from '@vx/libs/ui/primitives';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { assertDefined } from '@vx/libs/basics/src';

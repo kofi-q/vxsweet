@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import { Caption, Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { Caption, Icons, P } from '@vx/libs/ui/primitives';
 
 import { assert, assertDefined } from '@vx/libs/basics/src';
 import * as api from '../../api/api';

@@ -1,4 +1,4 @@
-import { Svg } from './svg';
+import { Svg } from '../primitives/svg';
 
 export function DoubleFeedCalibrationSingleSheetIllustration(): JSX.Element {
   return (

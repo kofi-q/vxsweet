@@ -1,16 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import {
-  Modal,
-  ModalWidth,
-  type ElectronFile,
-  FileInputButton,
-  UsbDriveImage,
-  Loading,
-  P,
-  Button,
-} from '@vx/libs/ui/src';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { type ElectronFile, FileInputButton } from '@vx/libs/ui/src';
+import { UsbDriveImage } from '@vx/libs/ui/usb';
+import { Loading, P } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,

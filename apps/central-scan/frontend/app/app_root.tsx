@@ -5,16 +5,15 @@ import {
   isSystemAdministratorAuth,
   isVendorAuth,
 } from '@vx/libs/utils/src';
+import { Main, Screen } from '@vx/libs/ui/screens';
 import {
-  Main,
-  Screen,
   UnlockMachineScreen,
   InvalidCardScreen,
   RemoveCardScreen,
   SetupCardReaderPage,
-  VendorScreen,
-  H1,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/auth-screens';
+import { VendorScreen } from '@vx/libs/ui/admin-screens';
+import { H1 } from '@vx/libs/ui/primitives';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { assert } from '@vx/libs/basics/src';
 import { AppContext, type AppContextInterface } from '../contexts/app_context';

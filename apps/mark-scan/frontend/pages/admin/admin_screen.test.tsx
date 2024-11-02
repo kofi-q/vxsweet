@@ -1,7 +1,7 @@
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { formatElectionHashes } from '@vx/libs/types/src';
 import { act, screen, within } from '../../test/react_testing_library';
 import { render } from '../../test/test_utils';

@@ -1,5 +1,5 @@
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import { Caption, H6, Icons, P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { Caption, H6, Icons, P } from '@vx/libs/ui/primitives';
 
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { isPollWorkerAuth } from '@vx/libs/utils/src';

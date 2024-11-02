@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { throwIllegalValue } from '@vx/libs/basics/src';
+import { Button } from '@vx/libs/ui/buttons';
 import {
-  Button,
   FullScreenIconWrapper,
   Icons,
   P,
   Loading,
-  Modal,
-} from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+} from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 
 import { exportCastVoteRecordsToUsbDrive } from '../../api/api';
 import { FullScreenPromptLayout } from '../../components/full-screen-prompt/layout';

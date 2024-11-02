@@ -13,7 +13,10 @@ ts_library(
         "//apps/design/frontend/layout",
         "//apps/design/frontend/routes",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/checkbox",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
     ],
 )
 

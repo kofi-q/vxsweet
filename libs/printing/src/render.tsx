@@ -8,10 +8,10 @@ import { ServerStyleSheet } from 'styled-components';
 import {
   ROBOTO_REGULAR_FONT_DECLARATIONS,
   ROBOTO_ITALIC_FONT_DECLARATIONS,
-  GlobalStyles,
-  VxThemeProvider,
-  FONT_AWESOME_STYLES,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/fonts/roboto';
+import { GlobalStyles } from '@vx/libs/ui/themes';
+import { VxThemeProvider } from '@vx/libs/ui/themes/vx_theme_provider';
+import { FONT_AWESOME_STYLES } from '@vx/libs/ui/fonts/font_awesome_styles';
 import { err, ok, type Result } from '@vx/libs/basics/src';
 
 const PLAYWRIGHT_PIXELS_PER_INCH = 96;

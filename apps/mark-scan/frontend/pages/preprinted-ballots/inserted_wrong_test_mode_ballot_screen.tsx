@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Caption, Font, Icons, P } from '@vx/libs/ui/src';
+import { Caption, Font, Icons, P } from '@vx/libs/ui/primitives';
 import { assert, assertDefined } from '@vx/libs/basics/src';
 
 import * as api from '../../api/api';

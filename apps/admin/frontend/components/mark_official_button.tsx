@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Button, Modal, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal } from '@vx/libs/ui/modal';
+import { P } from '@vx/libs/ui/primitives';
 import { getCastVoteRecordFileMode, markResultsOfficial } from '../api/api';
 import { AppContext } from '../contexts/app_context';
 

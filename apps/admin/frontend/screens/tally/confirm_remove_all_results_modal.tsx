@@ -1,5 +1,7 @@
 import React from 'react';
-import { Modal, P, Button } from '@vx/libs/ui/src';
+import { Modal } from '@vx/libs/ui/modal';
+import { P } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
 import {
   clearCastVoteRecordFiles,
   deleteAllManualResults,

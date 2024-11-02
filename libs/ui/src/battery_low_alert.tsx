@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { format } from '@vx/libs/utils/src';
 import { type Optional } from '@vx/libs/basics/src';
 import { iter } from '@vx/libs/basics/src/iterators';
-import { Modal } from './modal';
-import { useSystemCallApi } from './system_call_api';
-import { Button } from './button';
-import { P } from './typography';
-import { Icons } from './icons';
+import { Modal } from '../modal/modal';
+import { useSystemCallApi } from '../system-calls/system_call_api';
+import { Button } from '../buttons/button';
+import { P } from '../primitives/typography';
+import { Icons } from '../primitives/icons';
 
 const WARNING_THRESHOLDS: number[] = [0.05, 0.1];
 

@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { type Result, err, ok, deferred } from '@vx/libs/basics/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type ExportDataError } from '@vx/libs/backend/src';
 import { screen, waitFor, within } from '../test/react_testing_library';
 import { renderInAppContext } from '../test/render_in_app_context';

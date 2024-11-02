@@ -26,12 +26,14 @@ import {
 } from '@vx/libs/types/src';
 import {
   BackendLanguageContextProvider,
-  CandidatePartyList,
   InEnglish,
-  electionStrings,
   useLanguageContext,
-} from '@vx/libs/ui/src/ui_strings';
-import { RichText } from '@vx/libs/ui/src';
+} from '@vx/libs/ui/ui_strings/language_context';
+import {
+  CandidatePartyList,
+  electionStrings,
+} from '@vx/libs/ui/ui_strings/ui_string';
+import { RichText } from '@vx/libs/ui/primitives';
 import { format } from '@vx/libs/utils/src';
 import {
   type BallotPageTemplate,

@@ -1,5 +1,5 @@
 import { type Id } from '@vx/libs/types/src';
-import { type Route } from '@vx/libs/ui/src';
+import { type Route } from '@vx/libs/ui/breadcrumbs';
 
 export const routes = {
   root: {

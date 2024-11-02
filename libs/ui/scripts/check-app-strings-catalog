@@ -5,7 +5,7 @@ pnpm build:app-strings-catalog
 echo
 echo 'Checking for uncommitted app string catalog updates...'
 
-if [[ `git status ./src/ui_strings/app_strings_catalog --porcelain` ]]; then
+if [[ $(git status ./src/ui_strings/app_strings_catalog --porcelain) ]]; then
   echo
   echo -e '\033[0;31m ❌ App strings catalog is out of date. Run `pnpm build:app-strings-catalog` to fix.'
   echo

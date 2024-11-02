@@ -1,12 +1,7 @@
-import {
-  ElectionInfoBar,
-  InsertCardImage,
-  Main,
-  Screen,
-  Font,
-  H1,
-  H3,
-} from '@vx/libs/ui/src';
+import { ElectionInfoBar } from '@vx/libs/ui/election-info';
+import { InsertCardImage } from '@vx/libs/ui/auth-screens';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { Font, H1, H3 } from '@vx/libs/ui/primitives';
 import { useContext } from 'react';
 import styled from 'styled-components';
 

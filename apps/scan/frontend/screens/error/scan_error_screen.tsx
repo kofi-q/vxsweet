@@ -1,5 +1,10 @@
-import { Caption, FullScreenIconWrapper, Icons, P } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import {
+  Caption,
+  FullScreenIconWrapper,
+  Icons,
+  P,
+} from '@vx/libs/ui/primitives';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import {
   type PrecinctScannerErrorType,

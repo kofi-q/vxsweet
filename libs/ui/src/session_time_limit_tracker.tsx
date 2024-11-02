@@ -10,12 +10,12 @@ import {
 import { type SystemSettings } from '@vx/libs/types/src';
 
 import styled from 'styled-components';
-import { Button } from './button';
-import { useNow } from './hooks/use_now';
-import { Modal } from './modal';
+import { Button } from '../buttons/button';
+import { useNow } from '../hooks/use_now';
+import { Modal } from '../modal/modal';
 import { Timer } from './timer';
-import { H1, P } from './typography';
-import { Card } from './card';
+import { H1, P } from '../primitives/typography';
+import { Card } from '../primitives/card';
 
 const SECONDS_TO_WRAP_UP_AFTER_INACTIVE_SESSION_TIME_LIMIT = 60;
 const SECONDS_AHEAD_OF_OVERALL_SESSION_TIME_LIMIT_TO_WARN = 15 * 60;

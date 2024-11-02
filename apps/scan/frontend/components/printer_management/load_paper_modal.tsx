@@ -1,6 +1,9 @@
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import React, { useState } from 'react';
-import { Button, Modal, useQueryChangeListener, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal } from '@vx/libs/ui/modal';
+import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
+import { P } from '@vx/libs/ui/primitives';
 import { getPrinterStatus } from '../../api/api';
 
 export interface LoadPaperModalProps {

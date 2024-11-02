@@ -1,5 +1,5 @@
 import { join } from 'node:path';
-import { generateFontAwesomeStyles } from '../src/fonts/generate_font_awesome_styles';
+import { generateFontAwesomeStyles } from '../fonts/generate_font_awesome_styles';
 
 export function main(): void {
   generateFontAwesomeStyles(

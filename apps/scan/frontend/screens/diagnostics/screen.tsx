@@ -1,5 +1,7 @@
-import { Button, Loading, P, SaveReadinessReportButton } from '@vx/libs/ui/src';
-import { ScanReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
+import { Button } from '@vx/libs/ui/buttons';
+import { Loading, P } from '@vx/libs/ui/primitives';
+import { SaveReadinessReportButton } from '@vx/libs/ui/src';
+import { ScanReadinessReportContents } from '@vx/libs/ui/diagnostics';
 import { assert } from '@vx/libs/basics/src';
 import { Screen } from '../../components/layout/layout';
 import {

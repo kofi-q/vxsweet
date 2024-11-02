@@ -1,4 +1,4 @@
-import { P } from '@vx/libs/ui/src';
+import { P } from '@vx/libs/ui/primitives';
 import { useContext, useState } from 'react';
 import { assert } from '@vx/libs/basics/src';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';

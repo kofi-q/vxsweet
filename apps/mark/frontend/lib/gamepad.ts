@@ -1,10 +1,10 @@
 import { Button } from 'react-gamepad';
-import { Keybinding } from '@vx/libs/ui/src';
+import { Keybinding } from '@vx/libs/ui/keybindings';
 import {
   PageNavigationButtonId,
   advanceElementFocus,
   triggerPageNavigationButton,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 
 function handleClick() {
   if (document.activeElement instanceof HTMLElement) {

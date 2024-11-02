@@ -3,7 +3,7 @@ import { screen } from '../test/react_testing_library';
 
 import { newTestContext } from '../test/test_context';
 import { BatteryDisplay } from './battery_display';
-import { makeTheme } from './themes/make_theme';
+import { makeTheme } from '../themes/make_theme';
 
 jest.useFakeTimers();
 

@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  LinkButton,
-  SegmentedButton,
-  Table,
-  TH,
-  TD,
-  TabPanel,
-  RouterTabBar,
-  SearchSelect,
-  Breadcrumbs,
-  MainContent,
-  MainHeader,
-  H1,
-  P,
-} from '@vx/libs/ui/src';
+import { Button, LinkButton, SegmentedButton } from '@vx/libs/ui/buttons';
+import { Table, TH, TD, TabPanel, RouterTabBar } from '@vx/libs/ui/src';
+import { SearchSelect } from '@vx/libs/ui/select';
+import { Breadcrumbs } from '@vx/libs/ui/breadcrumbs';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
+import { H1, P } from '@vx/libs/ui/primitives';
 import {
   Redirect,
   Route,

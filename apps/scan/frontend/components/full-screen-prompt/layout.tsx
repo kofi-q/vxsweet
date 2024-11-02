@@ -1,4 +1,5 @@
-import { H1, WithScrollButtons } from '@vx/libs/ui/src';
+import { H1 } from '@vx/libs/ui/primitives';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
 import React from 'react';
 import styled from 'styled-components';
 

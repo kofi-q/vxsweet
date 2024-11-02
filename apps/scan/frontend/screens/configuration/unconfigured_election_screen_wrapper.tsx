@@ -1,4 +1,5 @@
-import { UnconfiguredElectionScreen, Screen, Main } from '@vx/libs/ui/src';
+import { UnconfiguredElectionScreen } from '@vx/libs/ui/auth-screens';
+import { Screen, Main } from '@vx/libs/ui/screens';
 import { useEffect } from 'react';
 import {
   configureFromElectionPackageOnUsbDrive,

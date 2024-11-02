@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type ExportDataResult } from '@vx/libs/backend/src';
 import { ok } from '@vx/libs/basics/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';

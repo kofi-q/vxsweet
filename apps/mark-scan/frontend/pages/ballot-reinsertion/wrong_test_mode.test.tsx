@@ -5,7 +5,7 @@ import {
   type PageInterpretation,
 } from '@vx/libs/types/src';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { TestErrorBoundary } from '@vx/libs/ui/src';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { UseQueryResult } from '@tanstack/react-query';
 import { render } from '../../test/react_testing_library';
 import * as api from '../../api/api';

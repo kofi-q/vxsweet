@@ -1,4 +1,4 @@
-import { AdminReadinessReport } from '@vx/libs/ui/src/diagnostics';
+import { AdminReadinessReport } from '@vx/libs/ui/diagnostics';
 import { type Printer } from '@vx/libs/printing/src/printer';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';

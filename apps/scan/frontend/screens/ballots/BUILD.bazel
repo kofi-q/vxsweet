@@ -8,7 +8,9 @@ ts_library(
         "//:node_modules/react",
         "//apps/scan/frontend/components/full-screen-prompt",
         "//apps/scan/frontend/components/layout",
-        "//libs/ui/src",
+        "//libs/ui/ballots",
+        "//libs/ui/primitives",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

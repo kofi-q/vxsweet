@@ -1,5 +1,5 @@
 import { Tabulation } from '@vx/libs/types/src';
-import { CheckboxGroup } from '@vx/libs/ui/src';
+import { CheckboxGroup } from '@vx/libs/ui/checkbox';
 
 export type GroupByEditorOption =
   | keyof Tabulation.GroupBy

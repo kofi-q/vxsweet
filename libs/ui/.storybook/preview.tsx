@@ -7,8 +7,8 @@ import {
   StoryContext,
 } from '@storybook/types';
 
-import { AppBase } from '../src/app_base';
-import { VoterSettingsManagerContext } from '../src/voter_settings_manager_context';
+import { AppBase } from '../themes/app_base';
+import { VoterSettingsManagerContext } from '../themes/voter_settings_manager_context';
 import {
   type ColorMode,
   type ScreenType,

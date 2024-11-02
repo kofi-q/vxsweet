@@ -8,7 +8,11 @@ ts_library(
         "//:node_modules/@types/react",
         "//:node_modules/react",
         "//apps/mark-scan/frontend/components",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
+        "//libs/ui/ui_strings",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

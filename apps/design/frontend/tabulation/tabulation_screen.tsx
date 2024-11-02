@@ -1,14 +1,8 @@
 import { useState } from 'react';
-import {
-  H1,
-  H2,
-  Card,
-  Button,
-  CheckboxGroup,
-  CheckboxButton,
-  MainContent,
-  MainHeader,
-} from '@vx/libs/ui/src';
+import { H1, H2, Card } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
+import { CheckboxGroup, CheckboxButton } from '@vx/libs/ui/checkbox';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
 import { useParams } from 'react-router-dom';
 import {
   AdjudicationReason,

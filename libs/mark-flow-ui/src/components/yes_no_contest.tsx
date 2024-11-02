@@ -6,26 +6,19 @@ import {
   type YesNoContestOptionId,
   getContestDistrict,
 } from '@vx/libs/types/src';
-import {
-  Button,
-  ContestChoiceButton,
-  Main,
-  Modal,
-  P,
-  Caption,
-  WithScrollButtons,
-  RichText,
-} from '@vx/libs/ui/src';
-import {
-  AudioOnly,
-  electionStrings,
-  appStrings,
-} from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { ContestChoiceButton } from '@vx/libs/ui/bmds';
+import { Main } from '@vx/libs/ui/screens';
+import { Modal } from '@vx/libs/ui/modal';
+import { P, Caption, RichText } from '@vx/libs/ui/primitives';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { AudioOnly } from '@vx/libs/ui/ui_strings';
+import { electionStrings, appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import {
   AssistiveTechInstructions,
   PageNavigationButtonId,
   useIsPatDeviceConnected,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 
 import { getSingleYesNoVote } from '@vx/libs/utils/src';
 import { type Optional } from '@vx/libs/basics/src';

@@ -13,7 +13,8 @@ ts_library(
         "//apps/mark-scan/frontend/components",
         "//apps/mark-scan/frontend/pages/help",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/primitives",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

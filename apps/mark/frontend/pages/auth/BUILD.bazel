@@ -8,7 +8,11 @@ ts_library(
         "//:node_modules/react",
         "//libs/basics/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/election-info",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
+        "//libs/ui/test-mode",
     ],
 )
 

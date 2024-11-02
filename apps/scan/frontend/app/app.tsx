@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { QueryClient } from '@tanstack/react-query';
-import { AppErrorBoundary } from '@vx/libs/ui/src';
+import { AppErrorBoundary } from '@vx/libs/ui/errors';
 import { AppRoot } from './app_root';
 import { type ApiClient, createApiClient, createQueryClient } from '../api/api';
 import { ScanAppBase } from '../app-base/scan_app_base';

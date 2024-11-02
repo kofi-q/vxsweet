@@ -1,4 +1,4 @@
-import { Card, H3, H5, Icons } from '@vx/libs/ui/src';
+import { Card, H3, H5, Icons } from '@vx/libs/ui/primitives';
 import styled from 'styled-components';
 import { routerPaths } from '../../paths/router_paths';
 

@@ -1,15 +1,9 @@
 import { useState } from 'react';
-import {
-  H1,
-  P,
-  Icons,
-  Button,
-  LoadingButton,
-  MainContent,
-  MainHeader,
-  CheckboxButton,
-  useQueryChangeListener,
-} from '@vx/libs/ui/src';
+import { H1, P, Icons } from '@vx/libs/ui/primitives';
+import { Button, LoadingButton } from '@vx/libs/ui/buttons';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
+import { CheckboxButton } from '@vx/libs/ui/checkbox';
+import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 import fileDownload from 'js-file-download';
 import { useParams } from 'react-router-dom';
 import {

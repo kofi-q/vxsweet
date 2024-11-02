@@ -12,7 +12,10 @@ ts_library(
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/components",
         "//apps/central-scan/frontend/screens/nav",
+        "//libs/ui/diagnostics",
+        "//libs/ui/primitives",
         "//libs/ui/src",
+        "//libs/ui/styled-components",
     ],
 )
 
@@ -26,7 +29,7 @@ ts_tests(
         "//apps/central-scan/frontend/screens/diagnostics",
         "//apps/central-scan/frontend/test",
         "//libs/fixtures/src",
-        "//libs/ui/src",
+        "//libs/ui/test-utils",
     ],
 )
 

@@ -8,12 +8,10 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import {
-  QUERY_CLIENT_DEFAULT_OPTIONS,
-  USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
-  createSystemCallApi,
-  createUiStringsApi,
-} from '@vx/libs/ui/src';
+import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';
+import { USB_DRIVE_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/usb';
+import { createSystemCallApi } from '@vx/libs/ui/system-calls';
+import { createUiStringsApi } from '@vx/libs/ui/ui_strings/api';
 import { deepEqual } from '@vx/libs/basics/src';
 import { type DiagnosticType } from '@vx/libs/types/src';
 import {

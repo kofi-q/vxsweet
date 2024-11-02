@@ -1,4 +1,6 @@
-import { CenteredLargeProse, LoadingAnimation, H1 } from '@vx/libs/ui/src';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { LoadingAnimation } from '@vx/libs/ui/spinners';
+import { H1 } from '@vx/libs/ui/primitives';
 import { ScreenMainCenterChild } from '../../components/layout/layout';
 
 export function LoadingConfigurationScreen(): JSX.Element {

@@ -27,7 +27,9 @@ ts_library(
         "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/errors",
+        "//libs/ui/system-calls",
+        "//libs/ui/themes",
         "//libs/usb-drive/src",
     ],
 )

@@ -2,7 +2,8 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
 } from '@vx/libs/types/src';
-import { type VxScreen, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { type VxScreen } from '@vx/libs/ui/themes';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type ApiMock } from './mock_api_client';
 
 /**

@@ -15,11 +15,9 @@ import {
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
 import { type MachineConfig } from '../../backend/types/types';
-import {
-  mockUsbDriveStatus,
-  SystemCallContextProvider,
-  TestErrorBoundary,
-} from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
+import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   render as testRender,

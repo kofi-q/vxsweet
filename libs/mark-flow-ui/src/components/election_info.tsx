@@ -8,14 +8,16 @@ import {
   getBallotStyle,
 } from '@vx/libs/types/src';
 
-import { H1, P, Caption, Seal, useScreenInfo } from '@vx/libs/ui/src';
+import { H1, P, Caption } from '@vx/libs/ui/primitives';
+import { Seal } from '@vx/libs/ui/election-info';
+import { useScreenInfo } from '@vx/libs/ui/themes';
 import {
   electionStrings,
   appStrings,
   PrecinctSelectionName,
   PrimaryElectionTitlePrefix,
-  NumberString,
-} from '@vx/libs/ui/src/ui_strings';
+} from '@vx/libs/ui/ui_strings/ui_string';
+import { NumberString } from '@vx/libs/ui/ui_strings';
 import { assertDefined } from '@vx/libs/basics/src';
 
 const Container = styled.div`

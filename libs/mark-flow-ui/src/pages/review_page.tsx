@@ -1,11 +1,14 @@
 /* istanbul ignore file - tested via Mark/Mark-Scan */
 import styled from 'styled-components';
-import { LinkButton, H1, WithScrollButtons } from '@vx/libs/ui/src';
-import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
+import { LinkButton } from '@vx/libs/ui/buttons';
+import { H1 } from '@vx/libs/ui/primitives';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 import {
   PageNavigationButtonId,
   AssistiveTechInstructions,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 
 import { assert } from '@vx/libs/basics/src';
 

@@ -3,7 +3,7 @@ import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { type ElectionDefinition } from '@vx/libs/types/src';
 import { type MachineConfig } from '../../backend/types/types';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type Iso8601Timestamp } from '../config/types';
 
 export interface AppContextInterface {

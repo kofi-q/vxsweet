@@ -8,7 +8,7 @@ import {
   type PrecinctId,
   vote,
 } from '@vx/libs/types/src';
-import { BmdPaperBallot, type BmdPaperBallotProps } from '@vx/libs/ui/src';
+import { BmdPaperBallot, type BmdPaperBallotProps } from '@vx/libs/ui/ballots';
 import { Buffer } from 'node:buffer';
 import {
   electionFamousNames2021Fixtures,
