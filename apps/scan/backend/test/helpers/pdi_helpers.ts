@@ -24,7 +24,7 @@ import {
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
-import { type Result, deferred, ok } from '@vx/libs/basics/src';
+import { type Result, ok, deferred } from '@vx/libs/basics/src';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
@@ -47,13 +47,13 @@ import {
 import {
   createPrecinctScannerStateMachine,
   delays,
-} from '../../src/scanners/pdi/state_machine';
-import { type Workspace, createWorkspace } from '../../src/util/workspace';
-import { type Api, buildApp } from '../../src/app';
+} from '../../scanners/pdi/state_machine';
+import { type Workspace, createWorkspace } from '../../workspace/workspace';
+import { type Api, buildApp } from '../../app/app';
 import {
   wrapFujitsuThermalPrinter,
   wrapLegacyPrinter,
-} from '../../src/printing/printer';
+} from '../../printing/printer';
 import {
   buildMockLogger,
   expectStatus,
@@ -61,7 +61,7 @@ import {
   waitForContinuousExportToUsbDrive,
   waitForStatus,
 } from './shared_helpers';
-import { Store } from '../../src/store';
+import { Store } from '../../store/store';
 
 export interface MockPdiScannerClient {
   emitEvent: (event: ScannerEvent) => void;

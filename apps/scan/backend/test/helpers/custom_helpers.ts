@@ -3,7 +3,7 @@ import {
   type InsertedSmartCardAuthApi,
   buildMockInsertedSmartCardAuth,
 } from '@vx/libs/auth/src';
-import { type Result, assert, deferred, ok } from '@vx/libs/basics/src';
+import { type Result, ok, assert, deferred } from '@vx/libs/basics/src';
 import {
   type CustomScanner,
   ErrorCode,
@@ -51,12 +51,12 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import { type Api, buildApp } from '../../src/app';
+import { type Api, buildApp } from '../../app/app';
 import {
   createPrecinctScannerStateMachine,
   delays,
-} from '../../src/scanners/custom/state_machine';
-import { type Workspace, createWorkspace } from '../../src/util/workspace';
+} from '../../scanners/custom/state_machine';
+import { type Workspace, createWorkspace } from '../../workspace/workspace';
 import {
   buildMockLogger,
   expectStatus,
@@ -64,11 +64,11 @@ import {
   waitForContinuousExportToUsbDrive,
   waitForStatus,
 } from './shared_helpers';
-import { Store } from '../../src/store';
+import { Store } from '../../store/store';
 import {
   wrapFujitsuThermalPrinter,
   wrapLegacyPrinter,
-} from '../../src/printing/printer';
+} from '../../printing/printer';
 
 export async function withApp(
   fn: (context: {

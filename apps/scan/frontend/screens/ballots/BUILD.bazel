@@ -1,0 +1,15 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "ballots",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/scan/frontend/components/full-screen-prompt",
+        "//apps/scan/frontend/components/layout",
+        "//libs/ui/src",
+    ],
+)
+
+lint_test(name = "lint")

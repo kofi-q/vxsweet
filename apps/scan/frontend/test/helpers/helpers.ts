@@ -1,4 +1,4 @@
-import { type PrecinctScannerStatus } from '../../../backend/src/types';
+import { type PrecinctScannerStatus } from '../../../backend/types/types';
 
 export function scannerStatus(
   props: Partial<PrecinctScannerStatus> = {}

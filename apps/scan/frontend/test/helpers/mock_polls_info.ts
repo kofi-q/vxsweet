@@ -2,7 +2,7 @@ import { throwIllegalValue } from '@vx/libs/basics/src';
 import {
   type PollsTransition,
   type PrecinctScannerPollsInfo,
-} from '../../../backend/src/types';
+} from '../../../backend/types/types';
 import { type PollsState, type PollsTransitionType } from '@vx/libs/types/src';
 
 /**

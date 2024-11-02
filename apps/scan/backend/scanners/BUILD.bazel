@@ -1,0 +1,22 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "scanners",
+    deps = [
+        "//:node_modules/@types/uuid",
+        "//:node_modules/canvas",
+        "//:node_modules/uuid",
+        "//apps/scan/backend/store",
+        "//apps/scan/backend/types",
+        "//apps/scan/backend/util",
+        "//apps/scan/backend/workspace",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

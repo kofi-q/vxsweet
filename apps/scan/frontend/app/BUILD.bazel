@@ -1,0 +1,64 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "app",
+    deps = [
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//:types_kiosk_browser",
+        "//apps/scan/frontend/api",
+        "//apps/scan/frontend/app-base",
+        "//apps/scan/frontend/components/time-limits",
+        "//apps/scan/frontend/config",
+        "//apps/scan/frontend/constants",
+        "//apps/scan/frontend/screens/admin",
+        "//apps/scan/frontend/screens/auth",
+        "//apps/scan/frontend/screens/configuration",
+        "//apps/scan/frontend/screens/cvr-sync",
+        "//apps/scan/frontend/screens/dsd",
+        "//apps/scan/frontend/screens/election-manager",
+        "//apps/scan/frontend/screens/error",
+        "//apps/scan/frontend/screens/not-open",
+        "//apps/scan/frontend/screens/poll-worker",
+        "//apps/scan/frontend/screens/usb",
+        "//apps/scan/frontend/screens/voter",
+        "//apps/scan/frontend/session-manager",
+        "//libs/basics/src",
+        "//libs/logging/src",
+        "//libs/ui/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    size = "large",
+    timeout = "short",
+    shard_count = 2,
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//apps/scan/backend/printing",
+        "//apps/scan/backend/types",
+        "//apps/scan/frontend/app",
+        "//apps/scan/frontend/config",
+        "//apps/scan/frontend/session-manager",
+        "//apps/scan/frontend/test",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/grout/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

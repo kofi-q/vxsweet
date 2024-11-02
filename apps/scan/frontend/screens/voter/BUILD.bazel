@@ -1,0 +1,45 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "voter",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//apps/scan/frontend/api",
+        "//apps/scan/frontend/config",
+        "//apps/scan/frontend/screens/ballots",
+        "//apps/scan/frontend/screens/busy",
+        "//apps/scan/frontend/screens/dsd",
+        "//apps/scan/frontend/screens/error",
+        "//apps/scan/frontend/screens/jams",
+        "//apps/scan/frontend/screens/scanning",
+        "//apps/scan/frontend/screens/warning",
+        "//apps/scan/frontend/sound",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/history",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/history",
+        "//:node_modules/react",
+        "//:node_modules/react-router-dom",
+        "//apps/scan/frontend/screens/voter",
+        "//apps/scan/frontend/test",
+    ],
+)
+
+lint_test(name = "lint")

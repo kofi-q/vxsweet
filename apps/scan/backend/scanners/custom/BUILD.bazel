@@ -1,0 +1,50 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "custom",
+    deps = [
+        "//:node_modules/@types/uuid",
+        "//:node_modules/uuid",
+        "//:node_modules/xstate",
+        "//apps/scan/backend/app",
+        "//apps/scan/backend/interpret",
+        "//apps/scan/backend/scanners",
+        "//apps/scan/backend/types",
+        "//apps/scan/backend/util",
+        "//apps/scan/backend/workspace",
+        "//libs/auth/src",
+        "//libs/basics/src",
+        "//libs/custom-scanner/src",
+        "//libs/image-utils/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    size = "large",
+    timeout = "short",
+    env = {"VX_MACHINE_TYPE": "scan"},
+    shard_count = 6,
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/fast-check",
+        "//:node_modules/wait-for-expect",
+        "//apps/scan/backend/scanners/custom",
+        "//apps/scan/backend/test",
+        "//libs/basics/src",
+        "//libs/custom-scanner/src",
+        "//libs/fixtures/src",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")
