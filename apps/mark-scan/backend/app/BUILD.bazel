@@ -1,0 +1,72 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "app",
+    deps = [
+        "//:node_modules/@types/express",
+        "//:node_modules/@types/node",
+        "//:node_modules/express",
+        "//:types_env",
+        "//apps/mark-scan/backend/config",
+        "//apps/mark-scan/backend/custom-paper-handler",
+        "//apps/mark-scan/backend/reports",
+        "//apps/mark-scan/backend/store",
+        "//apps/mark-scan/backend/types",
+        "//apps/mark-scan/backend/util",
+        "//libs/auth/src",
+        "//libs/backend/src",
+        "//libs/basics/src",
+        "//libs/custom-paper-handler/src",
+        "//libs/dev-dock/backend/src",
+        "//libs/grout/src",
+        "//libs/logging/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    size = "large",
+    timeout = "short",
+    shard_count = 5,
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/luxon",
+        "//:node_modules/tmp",
+        "//:node_modules/xstate",
+        "//:types_env",
+        "//apps/mark-scan/backend/app",
+        "//apps/mark-scan/backend/custom-paper-handler",
+        "//apps/mark-scan/backend/custom-paper-handler/diagnostic",
+        "//apps/mark-scan/backend/pat-input",
+        "//apps/mark-scan/backend/store",
+        "//apps/mark-scan/backend/test",
+        "//apps/mark-scan/backend/types",
+        "//apps/mark-scan/backend/util",
+        "//libs/auth/src",
+        "//libs/backend/src",
+        "//libs/ballot-interpreter/src",
+        "//libs/basics/src",
+        "//libs/custom-paper-handler/src",
+        "//libs/fixtures/src",
+        "//libs/fs/src",
+        "//libs/grout/src",
+        "//libs/image-test-utils",
+        "//libs/image-utils/src",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/usb-drive/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

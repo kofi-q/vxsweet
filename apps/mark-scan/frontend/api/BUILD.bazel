@@ -1,0 +1,37 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "api",
+    deps = [
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//apps/mark-scan/backend/app",
+        "//apps/mark-scan/frontend/config",
+        "//libs/basics/src",
+        "//libs/grout/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//apps/mark-scan/frontend/api",
+        "//apps/mark-scan/frontend/app",
+        "//apps/mark-scan/frontend/test",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/test-utils/src",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

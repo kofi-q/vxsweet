@@ -8,16 +8,16 @@ import {
   type PrecinctId,
   type VotesDict,
 } from '@vx/libs/types/src';
-import { type MachineConfig } from '../../backend/src/types';
+import { type MachineConfig } from '../../backend/types/types';
 
 import { randomBallotId } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render as testRender } from './react_testing_library';
 
-import { BallotContext } from '../src/contexts/ballot_context';
+import { BallotContext } from '../contexts/ballot_context';
 import { mockMachineConfig } from './helpers/mock_machine_config';
 import { type ApiMock, createApiMock } from './helpers/mock_api_client';
-import { ApiProvider } from '../src/api_provider';
+import { ApiProvider } from '../api/api_provider';
 
 export function render(
   component: React.ReactNode,

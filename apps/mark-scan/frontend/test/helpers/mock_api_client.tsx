@@ -6,31 +6,31 @@ import {
 import {
   ACCEPTED_PAPER_TYPES,
   type AcceptedPaperType,
-} from '../../../backend/src/custom-paper-handler/state_machine';
+} from '../../../backend/custom-paper-handler/state_machine';
 import {
   type BmdModelNumber,
   type ElectionState,
   type MachineConfig,
   type PrintBallotProps,
-} from '../../../backend/src/types';
-import { type Api } from '../../../backend/src/app';
-import { type SimpleServerStatus } from '../../../backend/src/custom-paper-handler/types';
+} from '../../../backend/types/types';
+import { type Api } from '../../../backend/app/app';
+import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import {
   type ElectionPackageConfigurationError,
+  type PollsState,
+  type PrecinctSelection,
   type BallotStyleId,
   DEFAULT_SYSTEM_SETTINGS,
-  type DiagnosticRecord,
   type ElectionDefinition,
-  type InterpretedBmdPage,
-  type PollsState,
   type PrecinctId,
-  type PrecinctSelection,
   type SystemSettings,
+  type DiagnosticRecord,
   type DiagnosticType,
+  type InterpretedBmdPage,
 } from '@vx/libs/types/src';
 import {
-  InsertedSmartCardAuth,
   constructElectionKey,
+  InsertedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
 import {
   mockCardlessVoterUser,
@@ -46,8 +46,8 @@ import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { TestErrorBoundary } from '@vx/libs/ui/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockMachineConfig } from './mock_machine_config';
-import { initialElectionState } from '../../src/app_root';
-import { ApiProvider } from '../../src/api_provider';
+import { initialElectionState } from '../../app/app_root';
+import { ApiProvider } from '../../api/api_provider';
 
 interface CardlessVoterUserParams {
   ballotStyleId: BallotStyleId;

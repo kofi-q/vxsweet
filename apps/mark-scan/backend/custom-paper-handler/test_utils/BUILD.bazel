@@ -1,0 +1,9 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "test_utils",
+    deps = ["//libs/custom-paper-handler/src"],
+)
+
+lint_test(name = "lint")

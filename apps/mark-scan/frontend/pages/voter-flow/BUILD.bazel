@@ -1,0 +1,51 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "voter-flow",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/react-router-dom",
+        "//:node_modules/react",
+        "//:node_modules/react-idle-timer",
+        "//:node_modules/react-router-dom",
+        "//apps/mark-scan/backend/custom-paper-handler",
+        "//apps/mark-scan/frontend/api",
+        "//apps/mark-scan/frontend/contexts",
+        "//apps/mark-scan/frontend/pages/ballot-reinsertion",
+        "//apps/mark-scan/frontend/pages/contests",
+        "//apps/mark-scan/frontend/pages/continue-to-review",
+        "//apps/mark-scan/frontend/pages/idle",
+        "//apps/mark-scan/frontend/pages/pat_device_identification",
+        "//apps/mark-scan/frontend/pages/printing",
+        "//apps/mark-scan/frontend/pages/review",
+        "//apps/mark-scan/frontend/pages/start",
+        "//apps/mark-scan/frontend/pages/validation",
+        "//libs/mark-flow-ui/src",
+        "//libs/types/src",
+        "//libs/ui/src",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//apps/mark-scan/backend/custom-paper-handler",
+        "//apps/mark-scan/frontend/api",
+        "//apps/mark-scan/frontend/pages/ballot-reinsertion",
+        "//apps/mark-scan/frontend/pages/pat_device_identification",
+        "//apps/mark-scan/frontend/pages/voter-flow",
+        "//apps/mark-scan/frontend/test",
+        "//libs/fixtures/src",
+        "//libs/test-utils/src",
+        "//libs/ui/src",
+    ],
+)
+
+lint_test(name = "lint")

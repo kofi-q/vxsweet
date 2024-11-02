@@ -1,6 +1,6 @@
 import { mockBaseLogger, BaseLogger } from '@vx/libs/logging/src';
 import { render, type RenderResult } from '../react_testing_library';
-import { App } from '../../src/app';
+import { App } from '../../app/app';
 import { createApiMock } from './mock_api_client';
 
 export function buildApp(apiMock: ReturnType<typeof createApiMock>): {

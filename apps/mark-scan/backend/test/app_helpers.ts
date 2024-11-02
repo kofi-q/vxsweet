@@ -29,15 +29,15 @@ import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver
 import { assert } from '@vx/libs/basics/src';
 import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
-import { type Api, buildApp } from '../src/app';
-import { createWorkspace, type Workspace } from '../src/util/workspace';
+import { type Api, buildApp } from '../app/app';
+import { createWorkspace, type Workspace } from '../util/workspace';
 import {
   getPaperHandlerStateMachine,
   type PaperHandlerStateMachine,
-} from '../src/custom-paper-handler/state_machine';
-import { type PatConnectionStatusReaderInterface } from '../src/pat-input/connection_status_reader';
-import { getUserRole } from '../src/util/auth';
-import { MockPatConnectionStatusReader } from '../src/pat-input/mock_connection_status_reader';
+} from '../custom-paper-handler/state_machine';
+import { type PatConnectionStatusReaderInterface } from '../pat-input/connection_status_reader';
+import { getUserRole } from '../util/auth';
+import { MockPatConnectionStatusReader } from '../pat-input/mock_connection_status_reader';
 
 export function buildMockLogger(
   auth: InsertedSmartCardAuthApi,
