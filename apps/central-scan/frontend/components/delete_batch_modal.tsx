@@ -1,4 +1,6 @@
-import { Button, Icons, P, Modal } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Icons, P } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
 import React from 'react';
 import * as api from '../api/api';
 

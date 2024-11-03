@@ -7,8 +7,8 @@ import {
 } from '@vx/libs/types/src';
 
 import { assertDefined } from '@vx/libs/basics/src';
-import { BmdPaperBallot } from '@vx/libs/ui/src';
-import { BackendLanguageContextProvider } from '@vx/libs/ui/src/ui_strings';
+import { BmdPaperBallot } from '@vx/libs/ui/ballots';
+import { BackendLanguageContextProvider } from '@vx/libs/ui/ui_strings/language_context';
 import { randomBallotId } from '@vx/libs/utils/src';
 import { Store } from '../store/store';
 

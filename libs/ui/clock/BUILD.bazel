@@ -1,0 +1,45 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "clock",
+    deps = [
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/luxon",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/ui/buttons",
+        "//libs/ui/hooks",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
+        "//libs/ui/select",
+        "//libs/ui/src",
+        "//libs/ui/styled-components",
+        "//libs/ui/system-calls",
+        "//libs/ui/themes",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/fast-check",
+        "//:node_modules/luxon",
+        "//:node_modules/react",
+        "//libs/test-utils/src",
+        "//libs/ui/clock",
+        "//libs/ui/test",
+    ],
+)
+
+lint_test(name = "lint")

@@ -10,7 +10,8 @@ ts_library(
         "//libs/basics/src",
         "//libs/printing/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/ballots",
+        "//libs/ui/ui_strings/language_context",
         "//libs/utils/src",
     ],
 )

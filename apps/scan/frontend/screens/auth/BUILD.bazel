@@ -8,6 +8,8 @@ ts_library(
         "//:node_modules/react",
         "//apps/scan/frontend/components/layout",
         "//libs/types/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/screens",
         "//libs/ui/src",
     ],
 )

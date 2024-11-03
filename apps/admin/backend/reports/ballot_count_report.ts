@@ -1,5 +1,5 @@
 import { assert } from '@vx/libs/basics/src';
-import { BallotCountReport } from '@vx/libs/ui/src/reports';
+import { BallotCountReport } from '@vx/libs/ui/reports';
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';

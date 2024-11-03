@@ -1,4 +1,4 @@
-import { Icons, P } from '@vx/libs/ui/src';
+import { Icons, P } from '@vx/libs/ui/primitives';
 import { type PrinterStatus } from '../../../backend/printing/printer';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import React from 'react';

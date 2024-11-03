@@ -26,12 +26,12 @@ import {
   SetupCardReaderPage,
   UnlockMachineScreen,
   InvalidCardScreen,
-  VendorScreen,
-  VoterSettingsManagerContext,
-  useAudioControls,
-  useLanguageControls,
-  useQueryChangeListener,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/auth-screens';
+import { VendorScreen } from '@vx/libs/ui/admin-screens';
+import { VoterSettingsManagerContext } from '@vx/libs/ui/themes';
+import { useAudioControls } from '@vx/libs/ui/ui_strings/screen-reader';
+import { useLanguageControls } from '@vx/libs/ui/ui_strings';
+import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 
 import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import {

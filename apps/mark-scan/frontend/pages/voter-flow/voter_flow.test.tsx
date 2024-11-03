@@ -1,7 +1,7 @@
 jest.mock(
-  '@vx/libs/ui/src/accessible_controllers',
-  (): typeof import('@vx/libs/ui/src/accessible_controllers') => ({
-    ...jest.requireActual('@vx/libs/ui/src/accessible_controllers'),
+  '@vx/libs/ui/accessible_controllers',
+  (): typeof import('@vx/libs/ui/accessible_controllers') => ({
+    ...jest.requireActual('@vx/libs/ui/accessible_controllers'),
     MarkScanControllerSandbox: jest.fn(),
     useAccessibleControllerHelpTrigger: () => {
       const [shouldShowControllerSandbox, setShouldShowControllerSandbox] =
@@ -49,7 +49,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import {
   MarkScanControllerSandbox,
   useIsPatDeviceConnected,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 import React from 'react';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';

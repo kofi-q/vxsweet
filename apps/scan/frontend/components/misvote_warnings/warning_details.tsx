@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { type SizeMode } from '@vx/libs/types/src';
 import { ContestList } from './contest_list';
 import { useLayoutConfig } from './use_layout_config_hook';

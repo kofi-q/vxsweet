@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
-import { Font, H1, Icons, P } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Font, H1, Icons, P } from '@vx/libs/ui/primitives';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { validKeypressValues } from './constants';
 import { PortraitStepInnerContainer } from './portrait_step_inner_container';
 

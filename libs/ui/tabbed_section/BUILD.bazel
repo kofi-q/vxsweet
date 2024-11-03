@@ -1,0 +1,17 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "tabbed_section",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
+        "//libs/ui/styled-components",
+    ],
+)
+
+lint_test(name = "lint")

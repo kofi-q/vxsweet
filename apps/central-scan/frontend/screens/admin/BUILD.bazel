@@ -10,7 +10,12 @@ ts_library(
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/contexts",
         "//apps/central-scan/frontend/screens/nav",
-        "//libs/ui/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/ballots",
+        "//libs/ui/clock",
+        "//libs/ui/logs-exports",
+        "//libs/ui/primitives",
+        "//libs/ui/system-controls",
     ],
 )
 
@@ -25,7 +30,7 @@ ts_tests(
         "//apps/central-scan/frontend/screens/admin",
         "//apps/central-scan/frontend/test",
         "//libs/basics/src",
-        "//libs/ui/src",
+        "//libs/ui/test-utils",
     ],
 )
 

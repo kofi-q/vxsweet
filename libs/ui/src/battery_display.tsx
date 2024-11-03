@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { type BatteryInfo as BatteryInfoType } from '@vx/libs/backend/src/system_call';
 import { format } from '@vx/libs/utils/src';
 import { assert } from '@vx/libs/basics/src';
-import { type IconProps, Icons } from './icons';
-import { Font } from './typography';
-import { useSystemCallApi } from './system_call_api';
+import { type IconProps, Icons } from '../primitives/icons';
+import { Font } from '../primitives/typography';
+import { useSystemCallApi } from '../system-calls/system_call_api';
 
 const BatteryInfo = styled.div`
   align-self: center;

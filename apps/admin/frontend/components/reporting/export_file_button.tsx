@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
 import { assert } from '@vx/libs/basics/src';
 import { join } from 'node:path';
 import {

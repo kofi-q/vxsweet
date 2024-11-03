@@ -1,6 +1,8 @@
 import React from 'react';
 import { type DiagnosticOutcome } from '@vx/libs/types/src';
-import { Button, Icons, P, Modal } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Icons, P } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
 import { useSound } from '../../sound/use_sound';
 import * as api from '../../api/api';
 

@@ -7,7 +7,7 @@ import {
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { screen, within } from '../../test/react_testing_library';
 import { render } from '../../test/test_utils';
 import { election, defaultPrecinctId } from '../../test/helpers/election';

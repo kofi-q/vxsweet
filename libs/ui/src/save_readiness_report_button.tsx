@@ -4,10 +4,10 @@ import path from 'node:path';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { type ExportDataResult } from '@vx/libs/backend/src';
 import { UseMutationResult } from '@tanstack/react-query';
-import { Button } from './button';
-import { Modal } from './modal';
-import { P, Font } from './typography';
-import { Loading } from './loading';
+import { Button } from '../buttons/button';
+import { Modal } from '../modal/modal';
+import { P, Font } from '../primitives/typography';
+import { Loading } from '../primitives/loading';
 
 export interface SaveReadinessReportProps {
   usbDriveStatus: UsbDriveStatus;

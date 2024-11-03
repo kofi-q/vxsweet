@@ -4,7 +4,7 @@ import {
   createMockClient,
   type MockClient,
 } from '@vx/libs/grout/test-utils/src';
-import { TestErrorBoundary } from '@vx/libs/ui/src';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { ApiClientContext, createQueryClient } from '../api/api';
 
 export type MockApiClient = MockClient<Api>;

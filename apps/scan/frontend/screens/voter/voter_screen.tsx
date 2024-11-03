@@ -2,7 +2,7 @@ import {
   type ElectionDefinition,
   type SystemSettings,
 } from '@vx/libs/types/src';
-import { useQueryChangeListener } from '@vx/libs/ui/src';
+import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { getScannerStatus } from '../../api/api';
 import { POLLING_INTERVAL_FOR_SCANNER_STATUS_MS } from '../../config/globals';

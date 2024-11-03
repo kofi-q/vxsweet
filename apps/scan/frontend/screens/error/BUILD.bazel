@@ -12,7 +12,11 @@ ts_library(
         "//apps/scan/frontend/components/layout",
         "//libs/basics/src",
         "//libs/types/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/primitives",
         "//libs/ui/src",
+        "//libs/ui/system-controls",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

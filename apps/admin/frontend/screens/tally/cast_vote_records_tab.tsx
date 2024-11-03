@@ -1,16 +1,8 @@
 import { assertDefined, find } from '@vx/libs/basics/src';
 import { iter } from '@vx/libs/basics/src/iterators';
-import {
-  H3,
-  Icons,
-  P,
-  Font,
-  Card,
-  Button,
-  Table,
-  TD,
-  TabPanel,
-} from '@vx/libs/ui/src';
+import { H3, Icons, P, Font, Card } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
+import { Table, TD, TabPanel } from '@vx/libs/ui/src';
 import { DateTime } from 'luxon';
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';

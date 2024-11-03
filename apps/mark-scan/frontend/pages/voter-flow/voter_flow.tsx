@@ -17,7 +17,7 @@ import {
   MarkScanControllerSandbox,
   PatDeviceContextProvider,
   useAccessibleControllerHelpTrigger,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 import { Ballot } from './ballot';
 import { ValidateBallotPage } from '../validation/validate_ballot_page';
 import { BallotContext } from '../../contexts/ballot_context';

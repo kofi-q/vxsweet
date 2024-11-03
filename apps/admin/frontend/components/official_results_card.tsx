@@ -1,4 +1,4 @@
-import { Card } from '@vx/libs/ui/src';
+import { Card } from '@vx/libs/ui/primitives';
 import styled from 'styled-components';
 
 export const OfficialResultsCard = styled(Card).attrs({ color: 'neutral' })`

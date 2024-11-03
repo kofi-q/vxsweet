@@ -10,9 +10,9 @@ import {
   type PrecinctId,
   type VotesDict,
 } from '@vx/libs/types/src';
-import { LinkButton, Button } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import { PageNavigationButtonId } from '@vx/libs/ui/src/accessible_controllers';
+import { LinkButton, Button } from '@vx/libs/ui/buttons';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { PageNavigationButtonId } from '@vx/libs/ui/accessible_controllers';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
 import { Contest, type ContestProps } from '../components/contest';

@@ -10,22 +10,16 @@ import {
   getContestDistrict,
   type ContestId,
 } from '@vx/libs/types/src';
-import {
-  Caption,
-  Card,
-  type ContestVote,
-  Icons,
-  VoterContestSummary,
-  Button,
-} from '@vx/libs/ui/src';
+import { Caption, Card, Icons } from '@vx/libs/ui/primitives';
+import { type ContestVote, VoterContestSummary } from '@vx/libs/ui/bmds';
+import { Button } from '@vx/libs/ui/buttons';
 import {
   appStrings,
   CandidatePartyList,
   electionStrings,
-  NumberString,
-  WithAltAudio,
-} from '@vx/libs/ui/src/ui_strings';
-import { AssistiveTechInstructions } from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/ui_strings/ui_string';
+import { NumberString, WithAltAudio } from '@vx/libs/ui/ui_strings';
+import { AssistiveTechInstructions } from '@vx/libs/ui/accessible_controllers';
 
 import { getSingleYesNoVote } from '@vx/libs/utils/src';
 import {

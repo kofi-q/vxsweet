@@ -6,7 +6,8 @@ ts_library(
     name = "lib",
     deps = [
         "//apps/mark-scan/backend/types",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/keybindings",
     ],
 )
 
@@ -25,7 +26,8 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/test-utils/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/keybindings",
         "//libs/utils/src",
     ],
 )

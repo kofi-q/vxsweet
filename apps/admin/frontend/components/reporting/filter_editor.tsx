@@ -12,7 +12,8 @@ import {
 } from '@vx/libs/types/src';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { SearchSelect, type SelectOption, Button } from '@vx/libs/ui/src';
+import { SearchSelect, type SelectOption } from '@vx/libs/ui/select';
+import { Button } from '@vx/libs/ui/buttons';
 import { type ScannerBatch } from '../../../backend/types/types';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { getScannerBatches } from '../../api/api';

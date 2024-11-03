@@ -7,26 +7,26 @@ import {
   type UiStringsApiClient,
   type UiStringsReactQueryApi,
   createUiStringsApi,
-} from '../src/hooks/ui_strings_api';
+} from '../ui_strings/api/ui_strings_api';
 import {
   type FrontendLanguageContextInterface,
   useFrontendLanguageContext,
-} from '../src/ui_strings/language_context';
+} from '../ui_strings/language_context/language_context';
 import {
   type UiStringsAudioContextInterface,
   useAudioContext,
-} from '../src/ui_strings/audio_context';
-import { UiStringsContextProvider } from '../src/ui_strings/ui_strings_context';
+} from '../ui_strings/audio-context/audio_context';
+import { UiStringsContextProvider } from '../ui_strings/context/ui_strings_context';
 import { type RenderResult, render, renderHook } from './react_testing_library';
 import { QUERY_CLIENT_DEFAULT_OPTIONS } from '../src/react_query';
-import { type VxRenderOptions } from '../src/themes/render_with_themes';
-import { useAudioControls } from '../src/hooks/use_audio_controls';
+import { type VxRenderOptions } from '../themes/render_with_themes';
+import { useAudioControls } from '../ui_strings/screen-reader/use_audio_controls';
 import {
   type SystemCallReactQueryApi,
   createSystemCallApi,
   SystemCallContextProvider,
-} from '../src/system_call_api';
-import { type SignedHashValidationApiClient } from '../src/signed_hash_validation_button';
+} from '../system-calls/system_call_api';
+import { type SignedHashValidationApiClient } from '../ballots/signed_hash_validation_button';
 
 type ApiClient = UiStringsApiClient &
   SystemCallApiClient &

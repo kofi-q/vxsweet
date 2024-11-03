@@ -1,10 +1,7 @@
-import {
-  Button,
-  CenteredLargeProse,
-  LoadingAnimation,
-  H1,
-  P,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { LoadingAnimation } from '@vx/libs/ui/spinners';
+import { H1, P } from '@vx/libs/ui/primitives';
 import pluralize from 'pluralize';
 import { type PollsTransitionType } from '@vx/libs/types/src';
 import { getPollsReportTitle } from '@vx/libs/utils/src';

@@ -4,7 +4,8 @@ import {
   type ElectionDefinition,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
-import { H1, H4, Prose, Select } from '@vx/libs/ui/src';
+import { H1, H4, Prose } from '@vx/libs/ui/primitives';
+import { Select } from '@vx/libs/ui/select';
 import React, { useRef, useState } from 'react';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import styled from 'styled-components';

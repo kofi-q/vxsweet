@@ -1,6 +1,6 @@
 import React from 'react';
-import { Prose } from './prose';
-import { fontSizeTheme } from './themes';
+import { Prose } from '../primitives/prose';
+import { fontSizeTheme } from '../themes/themes';
 
 interface CenteredLargeProseProps {
   children: React.ReactNode;

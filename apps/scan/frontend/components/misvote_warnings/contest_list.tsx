@@ -1,8 +1,9 @@
 import styled, { DefaultTheme } from 'styled-components';
 
 import { type AnyContest, type SizeMode } from '@vx/libs/types/src';
-import { Caption, Font, Icons, List, ListItem } from '@vx/libs/ui/src';
-import { electionStrings } from '@vx/libs/ui/src/ui_strings';
+import { Caption, Font, Icons } from '@vx/libs/ui/primitives';
+import { List, ListItem } from '@vx/libs/ui/list';
+import { electionStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import React from 'react';
 
 export interface ContestListProps {

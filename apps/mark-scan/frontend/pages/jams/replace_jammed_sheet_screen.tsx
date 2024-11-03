@@ -1,4 +1,4 @@
-import { Icons, P } from '@vx/libs/ui/src';
+import { Icons, P } from '@vx/libs/ui/primitives';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import React from 'react';
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';

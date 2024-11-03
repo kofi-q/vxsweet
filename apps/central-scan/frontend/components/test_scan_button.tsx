@@ -1,4 +1,6 @@
-import { Button, Font, P, Loading, Modal } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Font, P, Loading } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
 import React from 'react';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 import { getStatus, performScanDiagnostic } from '../api/api';

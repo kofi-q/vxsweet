@@ -1,15 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { DateTime } from 'luxon';
-import {
-  Button,
-  Card,
-  H2,
-  Icons,
-  FullScreenMessage,
-  Table,
-  UsbDriveImage,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Card, H2, Icons } from '@vx/libs/ui/primitives';
+import { FullScreenMessage, Table } from '@vx/libs/ui/src';
+import { UsbDriveImage } from '@vx/libs/ui/usb';
 import { type FileSystemEntry } from '@vx/libs/fs/src';
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
 import { Loading } from '../components/loading';

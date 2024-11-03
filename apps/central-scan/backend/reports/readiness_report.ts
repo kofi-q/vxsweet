@@ -1,6 +1,6 @@
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { CentralScanReadinessReport } from '@vx/libs/ui/src/diagnostics';
+import { CentralScanReadinessReport } from '@vx/libs/ui/diagnostics';
 import {
   type ExportDataResult,
   Exporter,

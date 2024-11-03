@@ -36,7 +36,7 @@ import {
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
 import { err, ok, type Result } from '@vx/libs/basics/src';
-import { TestErrorBoundary } from '@vx/libs/ui/src';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { mockMachineConfig } from './mock_machine_config';

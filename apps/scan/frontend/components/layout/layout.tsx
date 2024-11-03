@@ -1,16 +1,12 @@
 import React from 'react';
-import {
-  Screen as ScreenBase,
-  Main,
-  ElectionInfoBar,
-  type InfoBarMode,
-  TestMode,
-  H1,
-} from '@vx/libs/ui/src';
+import { Screen as ScreenBase, Main } from '@vx/libs/ui/screens';
+import { ElectionInfoBar, type InfoBarMode } from '@vx/libs/ui/election-info';
+import { TestMode } from '@vx/libs/ui/test-mode';
+import { H1 } from '@vx/libs/ui/primitives';
 import {
   LanguageSettingsButton,
   LanguageSettingsScreen,
-} from '@vx/libs/ui/src/language_settings';
+} from '@vx/libs/ui/language_settings';
 import styled, { DefaultTheme, ThemeContext } from 'styled-components';
 import { type SizeMode } from '@vx/libs/types/src';
 import { assertDefined } from '@vx/libs/basics/src';

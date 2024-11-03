@@ -1,8 +1,7 @@
-import { P, Font, Button } from '@vx/libs/ui/src';
-import {
-  ReadOnLoad as BaseReadOnLoad,
-  appStrings,
-} from '@vx/libs/ui/src/ui_strings';
+import { P, Font } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
+import { ReadOnLoad as BaseReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { useCallback, useState, useEffect } from 'react';
 import { VoterScreen } from '@vx/libs/mark-flow-ui/src';
 import styled from 'styled-components';

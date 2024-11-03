@@ -13,7 +13,15 @@ ts_library(
         "//apps/mark-scan/frontend/pages/diagnostics/components",
         "//apps/mark-scan/frontend/pages/pat_device_identification",
         "//libs/types/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/buttons",
+        "//libs/ui/diagnostics",
+        "//libs/ui/keybindings",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
         "//libs/ui/src",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 
@@ -33,7 +41,11 @@ ts_tests(
         "//libs/basics/src",
         "//libs/fixtures/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/diagnostics",
+        "//libs/ui/keybindings",
+        "//libs/ui/test-utils",
+        "//libs/ui/themes",
         "//libs/utils/src",
     ],
 )

@@ -5,7 +5,7 @@ import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,
   PrecinctScannerTallyReports,
-} from '@vx/libs/ui/src/reports';
+} from '@vx/libs/ui/reports';
 import {
   DEFAULT_MARGIN_DIMENSIONS,
   type MarginDimensions,

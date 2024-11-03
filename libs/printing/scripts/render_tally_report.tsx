@@ -1,5 +1,5 @@
 import { readElection } from '@vx/libs/fs/src';
-import { AdminTallyReportByParty } from '@vx/libs/ui/src/reports';
+import { AdminTallyReportByParty } from '@vx/libs/ui/reports';
 import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src/tabulation';
 import { renderToPdf } from '../src/render';
 

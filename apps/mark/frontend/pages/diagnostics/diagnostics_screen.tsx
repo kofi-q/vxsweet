@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  LinkButton,
-  H1,
-  H4,
-  Prose,
-  P,
-  Caption,
-  Icons,
-  Main,
-  Screen,
-} from '@vx/libs/ui/src';
-import { PrinterStatusDisplay } from '@vx/libs/ui/src/diagnostics';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
+import { H1, H4, Prose, P, Caption, Icons } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { PrinterStatusDisplay } from '@vx/libs/ui/diagnostics';
 import { format, formatTime } from '@vx/libs/utils/src';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';

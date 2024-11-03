@@ -1,5 +1,7 @@
-import { Button, Modal, ModalWidth, WithScrollButtons } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import React from 'react';
 import { type MisvoteWarningsProps } from './types';
 import { WarningDetails } from './warning_details';

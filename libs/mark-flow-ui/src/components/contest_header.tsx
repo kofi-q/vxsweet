@@ -1,14 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  AudioOnly,
-  NumberString,
-  ReadOnLoad,
-  appStrings,
-  electionStrings,
-} from '@vx/libs/ui/src/ui_strings';
-import { Caption, H2 } from '@vx/libs/ui/src';
+import { AudioOnly, NumberString, ReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { appStrings, electionStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { Caption, H2 } from '@vx/libs/ui/primitives';
 import { type Contest, type District } from '@vx/libs/types/src';
 import { type MsEitherNeitherContest } from '../utils/ms_either_neither_contests';
 

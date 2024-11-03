@@ -30,7 +30,9 @@ ts_library(
         "//apps/scan/frontend/screens/warning",
         "//libs/fixtures/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/primitives",
+        "//libs/ui/select",
+        "//libs/ui/styled-components",
     ],
 )
 

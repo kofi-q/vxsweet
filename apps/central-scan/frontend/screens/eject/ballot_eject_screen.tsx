@@ -8,17 +8,11 @@ import {
 } from '@vx/libs/types/src';
 import { Scan } from '@vx/libs/api/src';
 import { assert } from '@vx/libs/basics/src';
-import {
-  Button,
-  H1,
-  H2,
-  Icons,
-  P,
-  LabelledText,
-  Main,
-  Screen,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { H1, H2, Icons, P } from '@vx/libs/ui/primitives';
+import { LabelledText } from '@vx/libs/ui/text-elements';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { Modal } from '@vx/libs/ui/modal';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';

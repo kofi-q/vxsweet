@@ -1,5 +1,5 @@
-import { BigMetric } from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { BigMetric } from '@vx/libs/ui/text-elements';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import styled from 'styled-components';
 
 interface Props {

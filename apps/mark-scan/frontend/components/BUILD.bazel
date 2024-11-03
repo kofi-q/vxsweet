@@ -11,7 +11,12 @@ ts_library(
         "//:node_modules/styled-components",
         "//apps/mark-scan/frontend/api",
         "//libs/mark-flow-ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
         "//libs/ui/src",
+        "//libs/ui/styled-components",
+        "//libs/ui/ui_strings",
     ],
 )
 

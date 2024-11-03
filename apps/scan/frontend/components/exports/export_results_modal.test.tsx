@@ -2,7 +2,7 @@ import { err } from '@vx/libs/basics/src';
 
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import userEvent from '@testing-library/user-event';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { render, waitFor } from '../../test/react_testing_library';
 import {
   ExportResultsModal,

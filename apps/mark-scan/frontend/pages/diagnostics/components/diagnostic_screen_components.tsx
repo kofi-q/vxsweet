@@ -1,4 +1,4 @@
-import { Prose } from '@vx/libs/ui/src';
+import { Prose } from '@vx/libs/ui/primitives';
 import styled from 'styled-components';
 
 export const DiagnosticScreenHeader = styled(Prose).attrs({

@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 import { assert, throwIllegalValue, deepEqual } from '@vx/libs/basics/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Callout } from '@vx/libs/ui/src';
 import {
-  Button,
-  Callout,
   InsertCardImage,
   RotateCardImage,
   SmartCardChipImage,
-  Modal,
-  H1,
-  H2,
-  H3,
-  Icons,
-  P,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/auth-screens';
+import { Modal } from '@vx/libs/ui/modal';
+import { H1, H2, H3, Icons, P } from '@vx/libs/ui/primitives';
 
 import {
   format,

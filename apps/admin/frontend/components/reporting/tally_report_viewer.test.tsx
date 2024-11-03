@@ -6,7 +6,7 @@ import {
 } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { waitForElementToBeRemoved } from '@testing-library/react';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type TallyReportSpec } from '../../../backend/reports/tally_report';
 import { ok } from '@vx/libs/basics/src';
 import {

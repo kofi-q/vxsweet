@@ -1,4 +1,4 @@
-import { AdminReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
+import { AdminReadinessReportContents } from '@vx/libs/ui/diagnostics';
 import { SaveReadinessReportButton } from '@vx/libs/ui/src';
 
 import styled from 'styled-components';

@@ -1,4 +1,7 @@
-import { Button, ButtonBar, Main, Screen, H2, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { ButtonBar } from '@vx/libs/ui/modal';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { H2, P } from '@vx/libs/ui/primitives';
 import { useRef, useState } from 'react';
 import { addDiagnosticRecord } from '../../api/api';
 

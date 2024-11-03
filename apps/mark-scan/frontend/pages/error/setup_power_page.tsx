@@ -1,4 +1,5 @@
-import { Main, Screen, NoWrap, Prose, H1, P } from '@vx/libs/ui/src';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { NoWrap, Prose, H1, P } from '@vx/libs/ui/primitives';
 
 export function SetupPowerPage(): JSX.Element {
   return (

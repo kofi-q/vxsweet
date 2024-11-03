@@ -13,7 +13,8 @@ import {
 } from '@vx/libs/types/src';
 import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { SystemCallContextProvider, TestErrorBoundary } from '@vx/libs/ui/src';
+import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';

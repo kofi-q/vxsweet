@@ -1,5 +1,7 @@
 import { throwIllegalValue } from '@vx/libs/basics/src';
-import { Button, Font, P, Modal } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Font, P } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
 
 export interface DoubleVoteAlert {
   type:

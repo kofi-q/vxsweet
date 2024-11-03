@@ -8,7 +8,8 @@ ts_library(
         "//:node_modules/@types/react-gamepad",
         "//:node_modules/react-gamepad",
         "//apps/mark/backend/types",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/keybindings",
     ],
 )
 

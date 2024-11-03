@@ -1,5 +1,6 @@
-import { CentralScanReadinessReportContents } from '@vx/libs/ui/src/diagnostics';
-import { SaveReadinessReportButton, UsbImage } from '@vx/libs/ui/src';
+import { CentralScanReadinessReportContents } from '@vx/libs/ui/diagnostics';
+import { SaveReadinessReportButton } from '@vx/libs/ui/src';
+import { UsbImage } from '@vx/libs/ui/primitives';
 import styled from 'styled-components';
 import { NavigationScreen } from '../nav/navigation_screen';
 import {

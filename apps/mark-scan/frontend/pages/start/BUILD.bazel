@@ -11,7 +11,8 @@ ts_library(
         "//:node_modules/react-router-dom",
         "//apps/mark-scan/frontend/contexts",
         "//libs/mark-flow-ui/src",
-        "//libs/ui/src",
+        "//libs/ui/accessible_controllers",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

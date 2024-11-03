@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
-import { type VxRenderResult } from '@vx/libs/ui/src';
+import { type VxRenderResult } from '@vx/libs/ui/themes';
 import { render } from '../../test/test_utils';
 import {
   createApiMock,

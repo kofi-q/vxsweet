@@ -1,13 +1,10 @@
 import React, { useContext, useState } from 'react';
 
-import {
-  Button,
-  Loading,
-  P,
-  UsbControllerButton,
-  userReadableMessageFromExportError,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Loading, P } from '@vx/libs/ui/primitives';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { userReadableMessageFromExportError } from '@vx/libs/ui/cvrs';
+import { Modal } from '@vx/libs/ui/modal';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';

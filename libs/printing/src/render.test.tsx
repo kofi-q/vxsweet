@@ -6,8 +6,9 @@ import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   AdminTallyReportByParty,
   type AdminTallyReportByPartyProps,
-} from '@vx/libs/ui/src/reports';
-import { P, useCurrentTheme } from '@vx/libs/ui/src';
+} from '@vx/libs/ui/reports';
+import { P } from '@vx/libs/ui/primitives';
+import { useCurrentTheme } from '@vx/libs/ui/themes';
 import { tmpNameSync } from 'tmp';
 import { parsePdf } from '@vx/libs/image-utils/src';
 import { writeFileSync } from 'node:fs';

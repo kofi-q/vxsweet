@@ -10,14 +10,12 @@ import {
   type PollsTransitionType,
 } from '@vx/libs/types/src';
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { Button, ButtonList } from '@vx/libs/ui/buttons';
+import { TestMode } from '@vx/libs/ui/test-mode';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { Modal } from '@vx/libs/ui/modal';
+import { ElectionInfoBar } from '@vx/libs/ui/election-info';
 import {
-  Button,
-  ButtonList,
-  TestMode,
-  Main,
-  Screen,
-  Modal,
-  ElectionInfoBar,
   HorizontalRule,
   Prose,
   NoWrap,
@@ -31,7 +29,7 @@ import {
   FullScreenIconWrapper,
   H3,
   H6,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/primitives';
 
 import {
   getPollsTransitionDestinationState,

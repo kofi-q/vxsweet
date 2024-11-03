@@ -1,12 +1,10 @@
 import { BrowserRouter } from 'react-router-dom';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import {
-  AppBase,
-  AppErrorBoundary,
-  BatteryLowAlert,
-  SystemCallContextProvider,
-} from '@vx/libs/ui/src';
+import { AppBase } from '@vx/libs/ui/themes';
+import { AppErrorBoundary } from '@vx/libs/ui/errors';
+import { BatteryLowAlert } from '@vx/libs/ui/src';
+import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppRoot, type AppRootProps } from './app_root';
 import {

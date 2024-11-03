@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { type Election, type Id } from '@vx/libs/types/src';
-import {
-  Button,
-  SegmentedButton,
-  H1,
-  MainContent,
-  MainHeader,
-} from '@vx/libs/ui/src';
+import { Button, SegmentedButton } from '@vx/libs/ui/buttons';
+import { H1 } from '@vx/libs/ui/primitives';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { DateWithoutTime } from '@vx/libs/basics/src';

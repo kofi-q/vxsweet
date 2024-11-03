@@ -16,7 +16,11 @@ ts_library(
         "//apps/design/frontend/util",
         "//libs/basics/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/buttons",
+        "//libs/ui/checkbox",
+        "//libs/ui/hooks",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
     ],
 )
 

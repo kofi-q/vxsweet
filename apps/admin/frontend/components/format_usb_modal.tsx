@@ -1,15 +1,9 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { assert, throwIllegalValue } from '@vx/libs/basics/src';
 
-import {
-  Button,
-  Modal,
-  Loading,
-  UsbImage,
-  P,
-  Icons,
-  Font,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Modal } from '@vx/libs/ui/modal';
+import { Loading, UsbImage, P, Icons, Font } from '@vx/libs/ui/primitives';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,

@@ -15,7 +15,13 @@ ts_library(
         "//apps/central-scan/frontend/contexts",
         "//libs/basics/src",
         "//libs/types/src",
+        "//libs/ui/buttons",
+        "//libs/ui/cvrs",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
         "//libs/ui/src",
+        "//libs/ui/styled-components",
+        "//libs/ui/system-controls",
         "//libs/utils/src",
     ],
 )

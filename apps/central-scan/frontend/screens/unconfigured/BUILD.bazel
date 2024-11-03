@@ -9,7 +9,8 @@ ts_library(
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/screens/nav",
         "//libs/basics/src",
-        "//libs/ui/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/hooks",
     ],
 )
 

@@ -1,9 +1,10 @@
 /* istanbul ignore file - tested via Mark/Mark-Scan */
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import styled, { keyframes } from 'styled-components';
-import { Button } from '@vx/libs/ui/src';
-import { appStrings, AudioOnly, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
-import { PageNavigationButtonId } from '@vx/libs/ui/src/accessible_controllers';
+import { Button } from '@vx/libs/ui/buttons';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { PageNavigationButtonId } from '@vx/libs/ui/accessible_controllers';
 
 import { assert } from '@vx/libs/basics/src';
 

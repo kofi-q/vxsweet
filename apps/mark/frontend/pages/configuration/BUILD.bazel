@@ -8,6 +8,9 @@ ts_library(
         "//:node_modules/react",
         "//apps/mark/frontend/api",
         "//libs/basics/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/hooks",
+        "//libs/ui/screens",
         "//libs/ui/src",
     ],
 )

@@ -1,7 +1,7 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { BATTERY_POLLING_INTERVAL_GROUT } from '@vx/libs/ui/src';
+import { BATTERY_POLLING_INTERVAL_GROUT } from '@vx/libs/ui/system-calls';
 import {
   act,
   render,

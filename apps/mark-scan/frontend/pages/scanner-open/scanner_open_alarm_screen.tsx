@@ -1,12 +1,7 @@
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import {
-  useAudioControls,
-  useAudioEnabled,
-  Caption,
-  H6,
-  Icons,
-  P,
-} from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { useAudioControls } from '@vx/libs/ui/ui_strings/screen-reader';
+import { useAudioEnabled } from '@vx/libs/ui/ui_strings/audio-controls';
+import { Caption, H6, Icons, P } from '@vx/libs/ui/primitives';
 
 import React from 'react';
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';

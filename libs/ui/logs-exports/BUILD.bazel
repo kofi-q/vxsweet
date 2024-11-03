@@ -1,0 +1,38 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "logs-exports",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+        "//:types_env",
+        "//libs/basics/src",
+        "//libs/logging/src",
+        "//libs/ui/buttons",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
+        "//libs/ui/system-calls",
+        "//libs/usb-drive/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//libs/basics/src",
+        "//libs/ui/logs-exports",
+        "//libs/ui/test",
+        "//libs/ui/test-utils",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

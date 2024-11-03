@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icons, P } from '@vx/libs/ui/src';
+import { Icons, P } from '@vx/libs/ui/primitives';
 
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';
 

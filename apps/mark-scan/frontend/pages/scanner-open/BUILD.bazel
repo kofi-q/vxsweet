@@ -8,7 +8,10 @@ ts_library(
         "//:node_modules/@types/react",
         "//:node_modules/react",
         "//apps/mark-scan/frontend/components",
-        "//libs/ui/src",
+        "//libs/ui/primitives",
+        "//libs/ui/ui_strings/audio-controls",
+        "//libs/ui/ui_strings/screen-reader",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 
@@ -22,7 +25,8 @@ ts_tests(
         "//apps/mark-scan/frontend/pages/scanner-open",
         "//apps/mark-scan/frontend/test",
         "//libs/test-utils/src",
-        "//libs/ui/src",
+        "//libs/ui/ui_strings/audio-controls",
+        "//libs/ui/ui_strings/screen-reader",
     ],
 )
 

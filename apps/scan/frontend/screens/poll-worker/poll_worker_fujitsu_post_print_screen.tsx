@@ -1,11 +1,8 @@
-import {
-  Button,
-  CenteredLargeProse,
-  LoadingAnimation,
-  H1,
-  P,
-} from '@vx/libs/ui/src';
-import { getPartyIdsForPrecinctScannerTallyReports } from '@vx/libs/ui/src/reports';
+import { Button } from '@vx/libs/ui/buttons';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { LoadingAnimation } from '@vx/libs/ui/spinners';
+import { H1, P } from '@vx/libs/ui/primitives';
+import { getPartyIdsForPrecinctScannerTallyReports } from '@vx/libs/ui/reports';
 import React, { useCallback, useState } from 'react';
 import {
   type ElectionDefinition,

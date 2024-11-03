@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Button, Icons, P } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Icons, P } from '@vx/libs/ui/primitives';
 import {
   type BallotStyleId,
   type PrecinctId,

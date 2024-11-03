@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import pluralize from 'pluralize';
-import {
-  Button,
-  Font,
-  Icons,
-  P,
-  Loading,
-  TD,
-  Table,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Font, Icons, P, Loading } from '@vx/libs/ui/primitives';
+import { TD, Table } from '@vx/libs/ui/src';
+import { Modal } from '@vx/libs/ui/modal';
 import { type BatchInfo } from '@vx/libs/types/src';
 import styled from 'styled-components';
 import { iter } from '@vx/libs/basics/src/iterators';

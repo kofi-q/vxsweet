@@ -1,4 +1,4 @@
-import { H1 } from './typography';
+import { H1 } from '../primitives/typography';
 import { TaskControls, TaskHeader, TaskScreen } from './task_screen';
 import { render, screen } from '../test/react_testing_library';
 

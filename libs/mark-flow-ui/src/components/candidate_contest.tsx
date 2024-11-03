@@ -9,32 +9,24 @@ import {
   type Election,
   getContestDistrict,
 } from '@vx/libs/types/src';
-import {
-  Button,
-  ContestChoiceButton,
-  Icons,
-  Main,
-  Modal,
-  P,
-  VirtualKeyboard,
-  Caption,
-  TouchTextInput,
-  WithScrollButtons,
-  ModalWidth,
-  useScreenInfo,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { ContestChoiceButton } from '@vx/libs/ui/bmds';
+import { Icons, P, Caption } from '@vx/libs/ui/primitives';
+import { Main } from '@vx/libs/ui/screens';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { VirtualKeyboard } from '@vx/libs/ui/virtual_keyboard';
+import { TouchTextInput, WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { useScreenInfo } from '@vx/libs/ui/themes';
 import {
   appStrings,
   CandidatePartyList,
-  NumberString,
-  AudioOnly,
   electionStrings,
-  ReadOnLoad,
-} from '@vx/libs/ui/src/ui_strings';
+} from '@vx/libs/ui/ui_strings/ui_string';
+import { NumberString, AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 import {
   AssistiveTechInstructions,
   PageNavigationButtonId,
-} from '@vx/libs/ui/src/accessible_controllers';
+} from '@vx/libs/ui/accessible_controllers';
 import { assert } from '@vx/libs/basics/src';
 
 import { type UpdateVoteFunction } from '../config/types';

@@ -6,7 +6,8 @@ ts_library(
     deps = [
         "//:node_modules/@types/react",
         "//:node_modules/react",
-        "//libs/ui/src",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
     ],
 )
 

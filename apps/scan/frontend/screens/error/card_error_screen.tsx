@@ -1,4 +1,6 @@
-import { CenteredLargeProse, RotateCardImage, H1, P } from '@vx/libs/ui/src';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { RotateCardImage } from '@vx/libs/ui/auth-screens';
+import { H1, P } from '@vx/libs/ui/primitives';
 import { ScreenMainCenterChild } from '../../components/layout/layout';
 
 export function CardErrorScreen(): JSX.Element {

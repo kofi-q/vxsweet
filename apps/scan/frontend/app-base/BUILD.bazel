@@ -7,7 +7,7 @@ ts_library(
         "//:node_modules/@types/react",
         "//:node_modules/react",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/themes",
     ],
 )
 

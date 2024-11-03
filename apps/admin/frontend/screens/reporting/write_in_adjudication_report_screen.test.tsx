@@ -4,7 +4,7 @@ import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtu
 
 import userEvent from '@testing-library/user-event';
 import { ok } from '@vx/libs/basics/src';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import {
   type ApiMock,

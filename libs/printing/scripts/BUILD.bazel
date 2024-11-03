@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/react",
         "//libs/fs/src",
         "//libs/printing/src",
-        "//libs/ui/src",
+        "//libs/ui/reports",
         "//libs/utils/src",
     ],
 )

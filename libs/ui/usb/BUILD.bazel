@@ -1,0 +1,12 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "usb",
+    deps = [
+        "//:node_modules/@types/react",
+        "//:node_modules/react",
+    ],
+)
+
+lint_test(name = "lint")

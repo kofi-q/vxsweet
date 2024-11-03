@@ -1,16 +1,9 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 
-import {
-  Callout,
-  Table,
-  TD,
-  TH,
-  Loading,
-  Font,
-  P,
-  LinkButton,
-} from '@vx/libs/ui/src';
+import { Callout, Table, TD, TH } from '@vx/libs/ui/src';
+import { Loading, Font, P } from '@vx/libs/ui/primitives';
+import { LinkButton } from '@vx/libs/ui/buttons';
 import {
   type CandidateContest,
   getContestDistrictName,

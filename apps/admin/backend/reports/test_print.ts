@@ -1,4 +1,4 @@
-import { BallotCountReport } from '@vx/libs/ui/src/reports';
+import { BallotCountReport } from '@vx/libs/ui/reports';
 import {
   type ElectionDefinition,
   type ElectionId,

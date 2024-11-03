@@ -4,19 +4,13 @@ import {
   NavLink,
   NavList,
   NavListItem,
-  BatteryDisplay,
-  SessionTimeLimitTimer,
-  Card,
-  H1,
-  Icons,
-  UsbControllerButton,
-  Main,
-  MainContent,
-  MainHeader,
-  Screen,
-  VerticalElectionInfoBar,
-  Button,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/left-nav';
+import { BatteryDisplay, SessionTimeLimitTimer } from '@vx/libs/ui/src';
+import { Card, H1, Icons } from '@vx/libs/ui/primitives';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { Main, MainContent, MainHeader, Screen } from '@vx/libs/ui/screens';
+import { VerticalElectionInfoBar } from '@vx/libs/ui/election-info';
+import { Button } from '@vx/libs/ui/buttons';
 import styled from 'styled-components';
 import React, { useContext } from 'react';
 import {

@@ -11,7 +11,7 @@ ts_library(
         "//apps/mark/frontend/contexts",
         "//libs/basics/src",
         "//libs/mark-flow-ui/src",
-        "//libs/ui/src",
+        "//libs/ui/ui_strings",
     ],
 )
 

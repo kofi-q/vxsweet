@@ -1,15 +1,9 @@
 import { type Result } from '@vx/libs/basics/src';
 import { type ElectionId, type Id } from '@vx/libs/types/src';
-import {
-  H1,
-  P,
-  Icons,
-  Button,
-  MainContent,
-  MainHeader,
-  FileInputButton,
-  Table,
-} from '@vx/libs/ui/src';
+import { H1, P, Icons } from '@vx/libs/ui/primitives';
+import { Button } from '@vx/libs/ui/buttons';
+import { MainContent, MainHeader } from '@vx/libs/ui/screens';
+import { FileInputButton, Table } from '@vx/libs/ui/src';
 import { FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';

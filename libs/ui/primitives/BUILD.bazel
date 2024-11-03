@@ -1,0 +1,53 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_stories.bzl", "ts_stories")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "primitives",
+    deps = [
+        "//:node_modules/@fortawesome/fontawesome-svg-core",
+        "//:node_modules/@fortawesome/free-regular-svg-icons",
+        "//:node_modules/@fortawesome/free-solid-svg-icons",
+        "//:node_modules/@fortawesome/react-fontawesome",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/types/src",
+        "//libs/ui/defs",
+        "//libs/ui/styled-components",
+        "//libs/ui/themes",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/react",
+        "//:types_jest_styled_components",
+        "//libs/ui/primitives",
+        "//libs/ui/test",
+        "//libs/ui/themes",
+    ],
+)
+
+lint_test(name = "lint")
+
+ts_stories(
+    name = "stories",
+    deps = [
+        "//:node_modules/@storybook/react",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/lorem-ipsum",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/ui/primitives",
+        "//libs/ui/styled-components",
+    ],
+)

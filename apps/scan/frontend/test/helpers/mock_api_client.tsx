@@ -37,7 +37,8 @@ import {
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { TestErrorBoundary, mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { TestErrorBoundary } from '@vx/libs/ui/errors';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
 import {
   type DiskSpaceSummary,

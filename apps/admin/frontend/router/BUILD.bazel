@@ -17,7 +17,8 @@ ts_library(
         "//apps/admin/frontend/screens/tally",
         "//libs/basics/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/admin-screens",
+        "//libs/ui/auth-screens",
         "//libs/utils/src",
     ],
 )

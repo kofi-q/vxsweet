@@ -1,4 +1,4 @@
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';

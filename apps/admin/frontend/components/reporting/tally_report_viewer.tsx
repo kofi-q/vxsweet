@@ -1,5 +1,7 @@
 import { Admin, Tabulation } from '@vx/libs/types/src';
-import { Button, Callout, H6 } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { Callout } from '@vx/libs/ui/src';
+import { H6 } from '@vx/libs/ui/primitives';
 import React, { useContext } from 'react';
 import { assert } from '@vx/libs/basics/src';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';

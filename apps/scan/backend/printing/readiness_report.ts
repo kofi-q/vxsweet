@@ -8,7 +8,7 @@ import {
 } from '@vx/libs/backend/src';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
-import { ScanReadinessReport } from '@vx/libs/ui/src/diagnostics';
+import { ScanReadinessReport } from '@vx/libs/ui/diagnostics';
 import { assert } from '@vx/libs/basics/src';
 import { type Workspace } from '../workspace/workspace';
 import { getCurrentTime } from '../time/get_current_time';

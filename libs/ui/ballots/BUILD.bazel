@@ -1,0 +1,86 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_stories.bzl", "ts_stories")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "ballots",
+    deps = [
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/base64-js",
+        "//:node_modules/@types/lodash.sample",
+        "//:node_modules/@types/lodash.samplesize",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/base64-js",
+        "//:node_modules/lodash.sample",
+        "//:node_modules/lodash.samplesize",
+        "//:node_modules/luxon",
+        "//:node_modules/qrcode.react",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/ballot-encoder/src",
+        "//libs/basics/src",
+        "//libs/types/src",
+        "//libs/ui/buttons",
+        "//libs/ui/election-info",
+        "//libs/ui/fonts",
+        "//libs/ui/modal",
+        "//libs/ui/primitives",
+        "//libs/ui/styled-components",
+        "//libs/ui/themes",
+        "//libs/ui/ui_strings",
+        "//libs/ui/ui_strings/language_context",
+        "//libs/ui/ui_strings/ui_string",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@testing-library/react",
+        "//:node_modules/@testing-library/user-event",
+        "//:node_modules/@types/base64-js",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/base64-js",
+        "//:node_modules/react",
+        "//libs/ballot-encoder/src",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/test-utils/src",
+        "//libs/types/src",
+        "//libs/ui/ballots",
+        "//libs/ui/test",
+        "//libs/ui/ui_strings/language_context",
+        "//libs/ui/ui_strings/ui_string",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")
+
+ts_stories(
+    name = "stories",
+    deps = [
+        "//:node_modules/@storybook/react",
+        "//:node_modules/@tanstack/react-query",
+        "//:node_modules/@types/react",
+        "//:node_modules/@types/styled-components",
+        "//:node_modules/react",
+        "//:node_modules/styled-components",
+        "//libs/basics/src",
+        "//libs/fixtures/src",
+        "//libs/types/src",
+        "//libs/ui/ballots",
+        "//libs/ui/src",
+        "//libs/ui/styled-components",
+        "//libs/ui/themes",
+        "//libs/ui/ui_strings/api",
+        "//libs/ui/ui_strings/context",
+        "//libs/utils/src",
+    ],
+)

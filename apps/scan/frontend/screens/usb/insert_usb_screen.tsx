@@ -1,4 +1,5 @@
-import { CenteredLargeProse, H1, P } from '@vx/libs/ui/src';
+import { CenteredLargeProse } from '@vx/libs/ui/src';
+import { H1, P } from '@vx/libs/ui/primitives';
 import React from 'react';
 import { ScreenMainCenterChild } from '../../components/layout/layout';
 import { useSound } from '../../sound/use_sound';

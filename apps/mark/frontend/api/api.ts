@@ -12,10 +12,10 @@ import {
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,
   QUERY_CLIENT_DEFAULT_OPTIONS,
-  USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
-  createSystemCallApi,
-  createUiStringsApi,
 } from '@vx/libs/ui/src';
+import { USB_DRIVE_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/usb';
+import { createSystemCallApi } from '@vx/libs/ui/system-calls';
+import { createUiStringsApi } from '@vx/libs/ui/ui_strings/api';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 export const ACCESSIBLE_CONTROLLER_POLLING_INTERVAL_MS = 3000;

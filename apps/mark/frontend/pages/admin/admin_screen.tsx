@@ -1,23 +1,15 @@
 import React from 'react';
 
-import {
-  P,
-  Caption,
-  Icons,
-  H3,
-  H6,
-  ChangePrecinctButton,
-  TestMode,
-  UsbControllerButton,
-  UnconfigureMachineButton,
-  CurrentDateAndTime,
-  SetClockButton,
-  SegmentedButton,
-  ExportLogsButton,
-  ElectionInfoBar,
-  Main,
-  Screen,
-} from '@vx/libs/ui/src';
+import { P, Caption, Icons, H3, H6 } from '@vx/libs/ui/primitives';
+import { ChangePrecinctButton } from '@vx/libs/ui/src';
+import { TestMode } from '@vx/libs/ui/test-mode';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';
+import { CurrentDateAndTime, SetClockButton } from '@vx/libs/ui/clock';
+import { SegmentedButton } from '@vx/libs/ui/buttons';
+import { ExportLogsButton } from '@vx/libs/ui/logs-exports';
+import { ElectionInfoBar } from '@vx/libs/ui/election-info';
+import { Main, Screen } from '@vx/libs/ui/screens';
 import {
   type ElectionDefinition,
   type PrecinctSelection,

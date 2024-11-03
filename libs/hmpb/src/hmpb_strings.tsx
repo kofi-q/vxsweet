@@ -1,5 +1,5 @@
 import { mapObject } from '@vx/libs/basics/src';
-import { UiString } from '@vx/libs/ui/src/ui_strings';
+import { UiString } from '@vx/libs/ui/ui_strings/ui_string';
 
 export const hmpbStringsCatalog = {
   hmpbOfficialBallot: 'Official Ballot',

@@ -1,4 +1,4 @@
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 
 // NOTE: Keep in sync with the value of appStrings.warningBmdInactiveSession:
 // VVSG Requirement: 2–5 minutes

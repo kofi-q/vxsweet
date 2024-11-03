@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
-import { P } from '@vx/libs/ui/src';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { P } from '@vx/libs/ui/primitives';
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { type VotesDict } from '@vx/libs/types/src';
 

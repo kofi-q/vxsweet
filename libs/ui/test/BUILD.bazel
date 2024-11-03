@@ -15,7 +15,18 @@ ts_library(
         "//libs/backend/src",
         "//libs/basics/src",
         "//libs/types/src",
+        "//libs/ui/ballots",
+        "//libs/ui/primitives",
+        "//libs/ui/reports",
         "//libs/ui/src",
+        "//libs/ui/system-calls",
+        "//libs/ui/themes",
+        "//libs/ui/ui_strings/api",
+        "//libs/ui/ui_strings/audio-context",
+        "//libs/ui/ui_strings/context",
+        "//libs/ui/ui_strings/language_context",
+        "//libs/ui/ui_strings/screen-reader",
+        "//libs/ui/ui_strings/ui_string",
     ],
 )
 

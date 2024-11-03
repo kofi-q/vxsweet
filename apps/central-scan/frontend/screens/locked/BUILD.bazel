@@ -10,7 +10,11 @@ ts_library(
         "//:node_modules/styled-components",
         "//apps/central-scan/frontend/contexts",
         "//libs/basics/src",
-        "//libs/ui/src",
+        "//libs/ui/auth-screens",
+        "//libs/ui/election-info",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
+        "//libs/ui/styled-components",
     ],
 )
 

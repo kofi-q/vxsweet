@@ -1,4 +1,4 @@
-import { SearchSelect } from '@vx/libs/ui/src';
+import { SearchSelect } from '@vx/libs/ui/select';
 import { useContext, useState } from 'react';
 import { assert } from '@vx/libs/basics/src';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';

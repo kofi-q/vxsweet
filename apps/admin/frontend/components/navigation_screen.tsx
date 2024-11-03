@@ -1,18 +1,11 @@
 import React, { useContext } from 'react';
 
-import {
-  Button,
-  MainHeader,
-  MainContent,
-  Screen,
-  Main,
-  SessionTimeLimitTimer,
-  BatteryDisplay,
-  type Route,
-  Breadcrumbs,
-  UsbControllerButton,
-  H1,
-} from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { MainHeader, MainContent, Screen, Main } from '@vx/libs/ui/screens';
+import { SessionTimeLimitTimer, BatteryDisplay } from '@vx/libs/ui/src';
+import { type Route, Breadcrumbs } from '@vx/libs/ui/breadcrumbs';
+import { UsbControllerButton } from '@vx/libs/ui/system-controls';
+import { H1 } from '@vx/libs/ui/primitives';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,

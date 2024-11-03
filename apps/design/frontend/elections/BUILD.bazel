@@ -18,7 +18,11 @@ ts_library(
         "//apps/design/frontend/util",
         "//libs/basics/src",
         "//libs/types/src",
+        "//libs/ui/buttons",
+        "//libs/ui/primitives",
+        "//libs/ui/screens",
         "//libs/ui/src",
+        "//libs/ui/styled-components",
         "//libs/utils/src",
     ],
 )

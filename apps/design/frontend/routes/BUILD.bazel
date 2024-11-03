@@ -5,7 +5,7 @@ ts_library(
     name = "routes",
     deps = [
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/breadcrumbs",
     ],
 )
 

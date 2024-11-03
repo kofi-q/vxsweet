@@ -55,7 +55,7 @@ import {
   constructElectionKey,
   DippedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 
 const mockRect: Rect = {

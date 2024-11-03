@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import useInterval from 'use-interval';
 
-import { Button, H1, Loading, Main, Screen, P, Font } from '@vx/libs/ui/src';
-import {
-  appStrings,
-  AudioOnly,
-  NumberString,
-  ReadOnLoad,
-} from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { H1, Loading, P, Font } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { AudioOnly, NumberString, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 
 import {
   IDLE_RESET_TIMEOUT_SECONDS,

@@ -1,7 +1,7 @@
 import {
   ROBOTO_REGULAR_FONT_DECLARATIONS,
   ROBOTO_ITALIC_FONT_DECLARATIONS,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/fonts/roboto';
 import React from 'react';
 
 const baseStyles = `

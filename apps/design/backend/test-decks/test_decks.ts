@@ -24,7 +24,7 @@ import {
 } from '@vx/libs/utils/src';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { Buffer } from 'node:buffer';
-import { AdminTallyReportByParty } from '@vx/libs/ui/src/reports';
+import { AdminTallyReportByParty } from '@vx/libs/ui/reports';
 import {
   type BaseBallotProps,
   type RenderDocument,

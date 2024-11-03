@@ -1,14 +1,9 @@
-import {
-  H2,
-  P,
-  Icons,
-  UnconfigureMachineButton,
-  RebootToBiosButton,
-  CurrentDateAndTime,
-  SetClockButton,
-  SignedHashValidationButton,
-  ExportLogsButton,
-} from '@vx/libs/ui/src';
+import { H2, P, Icons } from '@vx/libs/ui/primitives';
+import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';
+import { RebootToBiosButton } from '@vx/libs/ui/system-controls';
+import { CurrentDateAndTime, SetClockButton } from '@vx/libs/ui/clock';
+import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
+import { ExportLogsButton } from '@vx/libs/ui/logs-exports';
 import { useContext } from 'react';
 import { NavigationScreen } from '../nav/navigation_screen';
 import { AppContext } from '../../contexts/app_context';

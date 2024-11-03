@@ -1,9 +1,9 @@
 import {
   SetupCardReaderPage,
   UnlockMachineScreen,
-  VendorScreen,
-  useQueryChangeListener,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/auth-screens';
+import { VendorScreen } from '@vx/libs/ui/admin-screens';
+import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 import {
   isSystemAdministratorAuth,
   isElectionManagerAuth,

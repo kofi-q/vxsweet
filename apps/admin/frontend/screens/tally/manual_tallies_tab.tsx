@@ -3,19 +3,11 @@ import { iter } from '@vx/libs/basics/src/iterators';
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
-import {
-  Button,
-  LinkButton,
-  Table,
-  TD,
-  TabPanel,
-  SearchSelect,
-  Card,
-  P,
-  Font,
-  Icons,
-  Modal,
-} from '@vx/libs/ui/src';
+import { Button, LinkButton } from '@vx/libs/ui/buttons';
+import { Table, TD, TabPanel } from '@vx/libs/ui/src';
+import { SearchSelect } from '@vx/libs/ui/select';
+import { Card, P, Font, Icons } from '@vx/libs/ui/primitives';
+import { Modal } from '@vx/libs/ui/modal';
 import {
   getBallotStyleGroup,
   getGroupedBallotStyles,

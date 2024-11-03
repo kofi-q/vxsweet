@@ -6,7 +6,7 @@ import {
 import { mockKiosk } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { ok } from '@vx/libs/basics/src';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type FujitsuPrinterStatus } from '../../../backend/printing/printer';
 import {
   act,

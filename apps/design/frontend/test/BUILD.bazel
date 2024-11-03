@@ -23,7 +23,8 @@ ts_library(
         "//libs/fixtures/src",
         "//libs/grout/test-utils/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/errors",
+        "//libs/ui/themes",
     ],
 )
 

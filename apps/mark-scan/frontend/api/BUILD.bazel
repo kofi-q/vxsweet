@@ -14,6 +14,10 @@ ts_library(
         "//libs/grout/src",
         "//libs/types/src",
         "//libs/ui/src",
+        "//libs/ui/system-calls",
+        "//libs/ui/ui_strings/api",
+        "//libs/ui/ui_strings/context",
+        "//libs/ui/usb",
     ],
 )
 

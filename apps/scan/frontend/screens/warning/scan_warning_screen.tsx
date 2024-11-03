@@ -10,17 +10,16 @@ import {
   type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/src';
+import { Button } from '@vx/libs/ui/buttons';
 import {
-  Button,
   Caption,
   FullScreenIconWrapper,
   Icons,
   P,
-  Modal,
-  ModalWidth,
-  WithScrollButtons,
-} from '@vx/libs/ui/src';
-import { appStrings } from '@vx/libs/ui/src/ui_strings';
+} from '@vx/libs/ui/primitives';
+import { Modal, ModalWidth } from '@vx/libs/ui/modal';
+import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { assert } from '@vx/libs/basics/src';
 
 import { Screen } from '../../components/layout/layout';

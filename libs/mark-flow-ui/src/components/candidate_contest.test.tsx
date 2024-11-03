@@ -1,7 +1,10 @@
-jest.mock('@vx/libs/ui/src', (): typeof import('@vx/libs/ui/src') => ({
-  ...jest.requireActual('@vx/libs/ui/src'),
-  VirtualKeyboard: jest.fn(),
-}));
+jest.mock(
+  '@vx/libs/ui/virtual_keyboard',
+  (): typeof import('@vx/libs/ui/virtual_keyboard') => ({
+    ...jest.requireActual('@vx/libs/ui/virtual_keyboard'),
+    VirtualKeyboard: jest.fn(),
+  })
+);
 
 import {
   type CandidateContest as CandidateContestInterface,
@@ -17,7 +20,10 @@ import {
   hasTextAcrossElements,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { VirtualKeyboard, type VirtualKeyboardProps } from '@vx/libs/ui/src';
+import {
+  VirtualKeyboard,
+  type VirtualKeyboardProps,
+} from '@vx/libs/ui/virtual_keyboard';
 import { screen, within, render } from '../../test/react_testing_library';
 import { CandidateContest } from './candidate_contest';
 

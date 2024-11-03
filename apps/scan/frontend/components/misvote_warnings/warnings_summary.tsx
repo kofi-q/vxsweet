@@ -1,5 +1,7 @@
-import { Caption, List, ListItem } from '@vx/libs/ui/src';
-import { NumberString, appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Caption } from '@vx/libs/ui/primitives';
+import { List, ListItem } from '@vx/libs/ui/list';
+import { NumberString } from '@vx/libs/ui/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import React from 'react';
 import { WarningDetailsModalButton } from './warning_details_modal_button';
 import { type MisvoteWarningsProps } from './types';

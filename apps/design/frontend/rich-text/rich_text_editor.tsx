@@ -38,12 +38,8 @@ import Dropcursor from '@tiptap/extension-dropcursor';
 import Gapcursor from '@tiptap/extension-gapcursor';
 // @ts-expect-error  - Joys of ESM interop
 import History from '@tiptap/extension-history';
-import {
-  Button,
-  type ButtonProps,
-  Icons,
-  richTextStyles,
-} from '@vx/libs/ui/src';
+import { Button, type ButtonProps } from '@vx/libs/ui/buttons';
+import { Icons, richTextStyles } from '@vx/libs/ui/primitives';
 import styled from 'styled-components';
 import React from 'react';
 import { Buffer } from 'node:buffer';

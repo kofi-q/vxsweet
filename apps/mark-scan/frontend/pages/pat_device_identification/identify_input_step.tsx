@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { H1, Icons, P } from '@vx/libs/ui/src';
-import { ReadOnLoad, appStrings } from '@vx/libs/ui/src/ui_strings';
+import { H1, Icons, P } from '@vx/libs/ui/primitives';
+import { ReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { throwIllegalValue } from '@vx/libs/basics/src';
 import { behaviorToKeypressMap, validKeypressValues } from './constants';
 import { PortraitStepInnerContainer } from './portrait_step_inner_container';

@@ -8,11 +8,9 @@ import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
-import {
-  AppBase,
-  AppErrorBoundary,
-  SystemCallContextProvider,
-} from '@vx/libs/ui/src';
+import { AppBase } from '@vx/libs/ui/themes';
+import { AppErrorBoundary } from '@vx/libs/ui/errors';
+import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
 import { assert } from '@vx/libs/basics/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { BaseLogger } from '@vx/libs/logging/src';

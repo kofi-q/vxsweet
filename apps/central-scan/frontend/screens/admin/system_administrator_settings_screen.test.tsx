@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { ok } from '@vx/libs/basics/src';
-import { mockUsbDriveStatus } from '@vx/libs/ui/src';
+import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { screen, waitFor } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { SystemAdministratorSettingsScreen } from './system_administrator_settings_screen';

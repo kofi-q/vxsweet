@@ -1,4 +1,4 @@
-import { Caption, Icons, P } from '@vx/libs/ui/src';
+import { Caption, Icons, P } from '@vx/libs/ui/primitives';
 
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';
 

@@ -1,7 +1,7 @@
 import { Document, Page, pdfjs } from 'react-pdf';
 import styled from 'styled-components';
 import React, { useMemo, useState } from 'react';
-import { H3, Icons, P } from '@vx/libs/ui/src';
+import { H3, Icons, P } from '@vx/libs/ui/primitives';
 import { Buffer } from 'node:buffer';
 import { range } from '@vx/libs/basics/src';
 

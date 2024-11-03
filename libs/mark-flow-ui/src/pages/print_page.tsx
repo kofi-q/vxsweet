@@ -1,14 +1,11 @@
 import { useCallback, useEffect } from 'react';
 
-import {
-  H1,
-  Main,
-  Screen,
-  useLock,
-  PrintingBallotImage,
-  Font,
-} from '@vx/libs/ui/src';
-import { appStrings, ReadOnLoad } from '@vx/libs/ui/src/ui_strings';
+import { H1, Font } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
+import { useLock } from '@vx/libs/ui/hooks/use_lock';
+import { PrintingBallotImage } from '@vx/libs/ui/ballots';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
+import { ReadOnLoad } from '@vx/libs/ui/ui_strings';
 
 export const printingMessageTimeoutSeconds = 5;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AppBase } from '@vx/libs/ui/src';
+import { AppBase } from '@vx/libs/ui/themes';
 import {
   type ColorMode,
   type ScreenType,

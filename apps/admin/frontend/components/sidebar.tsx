@@ -6,8 +6,8 @@ import {
   NavLink,
   NavList,
   NavListItem,
-  VerticalElectionInfoBar,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/left-nav';
+import { VerticalElectionInfoBar } from '@vx/libs/ui/election-info';
 
 import { assertDefined } from '@vx/libs/basics/src';
 import { AppContext } from '../contexts/app_context';

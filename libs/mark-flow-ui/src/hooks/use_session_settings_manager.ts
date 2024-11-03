@@ -3,12 +3,14 @@ import { DefaultTheme } from 'styled-components';
 
 import {
   VoterSettingsManagerContext,
-  useAudioControls,
-  useAudioEnabled,
-  useCurrentLanguage,
   useCurrentTheme,
+} from '@vx/libs/ui/themes';
+import { useAudioControls } from '@vx/libs/ui/ui_strings/screen-reader';
+import { useAudioEnabled } from '@vx/libs/ui/ui_strings/audio-controls';
+import {
+  useCurrentLanguage,
   useLanguageControls,
-} from '@vx/libs/ui/src';
+} from '@vx/libs/ui/ui_strings';
 import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { LanguageCode } from '@vx/libs/types/src';
 import { isCardlessVoterAuth } from '@vx/libs/utils/src';

@@ -27,6 +27,7 @@ ts_library(
         "//:node_modules/styled-components",
         "//:node_modules/ts-jest",
         "//:types_env",
+        "//libs/ui/styled-components",
     ],
 )
 

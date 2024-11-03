@@ -7,7 +7,7 @@ import {
 } from '../test/react_testing_library';
 import { newTestContext } from '../test/test_context';
 import { BatteryLowAlert } from './battery_low_alert';
-import { BATTERY_POLLING_INTERVAL_GROUT } from './system_call_api';
+import { BATTERY_POLLING_INTERVAL_GROUT } from '../system-calls/system_call_api';
 
 jest.useFakeTimers();
 

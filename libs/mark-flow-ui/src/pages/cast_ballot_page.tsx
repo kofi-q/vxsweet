@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-import {
-  Button,
-  H1,
-  Icons,
-  InsertBallotImage,
-  P,
-  VerifyBallotImage,
-} from '@vx/libs/ui/src';
-import { ReadOnLoad, appStrings } from '@vx/libs/ui/src/ui_strings';
+import { Button } from '@vx/libs/ui/buttons';
+import { H1, Icons, P } from '@vx/libs/ui/primitives';
+import { InsertBallotImage } from '@vx/libs/ui/ballots';
+import { VerifyBallotImage } from '@vx/libs/ui/bmds';
+import { ReadOnLoad } from '@vx/libs/ui/ui_strings';
+import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { VoterScreen } from '../components/voter_screen';
 
 const Instructions = styled.ol`

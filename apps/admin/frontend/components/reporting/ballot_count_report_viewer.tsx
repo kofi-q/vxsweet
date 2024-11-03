@@ -1,4 +1,4 @@
-import { Button } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
 import React from 'react';
 import { type BallotCountReportSpec } from '../../../backend/reports/ballot_count_report';
 import {

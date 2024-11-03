@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ProgressEllipsis } from '@vx/libs/ui/src';
+import { ProgressEllipsis } from '@vx/libs/ui/primitives';
 
 const Fullscreen = styled.div`
   display: flex;

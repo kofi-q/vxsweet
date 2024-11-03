@@ -1,6 +1,6 @@
 import { render, screen } from '../test/react_testing_library';
 import { Callout } from './callout';
-import { makeTheme } from './themes/make_theme';
+import { makeTheme } from '../themes/make_theme';
 
 test('Callout shows a card with an icon and children', () => {
   const theme = makeTheme({ colorMode: 'desktop', sizeMode: 'desktop' });

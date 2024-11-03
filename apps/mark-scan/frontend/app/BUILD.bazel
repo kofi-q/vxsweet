@@ -33,7 +33,13 @@ ts_library(
         "//libs/logging/src",
         "//libs/mark-flow-ui/src",
         "//libs/types/src",
-        "//libs/ui/src",
+        "//libs/ui/admin-screens",
+        "//libs/ui/audio-visual-modes",
+        "//libs/ui/auth-screens",
+        "//libs/ui/errors",
+        "//libs/ui/themes",
+        "//libs/ui/ui_strings",
+        "//libs/ui/ui_strings/screen-reader",
         "//libs/utils/src",
     ],
 )
@@ -69,6 +75,8 @@ ts_tests(
         "//libs/test-utils/src",
         "//libs/types/src",
         "//libs/ui/src",
+        "//libs/ui/system-calls",
+        "//libs/ui/test-utils",
         "//libs/utils/src",
     ],
 )

@@ -1,4 +1,6 @@
-import { Button, H2, P, Loading, Main, Screen } from '@vx/libs/ui/src';
+import { Button } from '@vx/libs/ui/buttons';
+import { H2, P, Loading } from '@vx/libs/ui/primitives';
+import { Main, Screen } from '@vx/libs/ui/screens';
 import { type DiagnosticRecord } from '@vx/libs/types/src';
 import React from 'react';
 import {

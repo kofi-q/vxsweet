@@ -1,4 +1,4 @@
-import { Keybinding } from '@vx/libs/ui/src';
+import { Keybinding } from '@vx/libs/ui/keybindings';
 
 export const behaviorToKeypressMap = {
   Move: Keybinding.PAT_MOVE,

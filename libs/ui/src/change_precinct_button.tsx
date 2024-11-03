@@ -7,11 +7,11 @@ import {
 } from '@vx/libs/utils/src';
 import { assert, deepEqual } from '@vx/libs/basics/src';
 import styled from 'styled-components';
-import { Button } from './button';
-import { Modal } from './modal';
-import { Font, H1, P } from './typography';
-import { Icons } from './icons';
-import { SearchSelect } from './search_select';
+import { Button } from '../buttons/button';
+import { Modal } from '../modal/modal';
+import { Font, H1, P } from '../primitives/typography';
+import { Icons } from '../primitives/icons';
+import { SearchSelect } from '../select/search_select';
 
 const ConfirmModal = styled(Modal)`
   overflow: visible;

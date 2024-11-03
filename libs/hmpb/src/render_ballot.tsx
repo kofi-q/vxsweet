@@ -21,7 +21,7 @@ import {
   formatBallotHash,
   safeParseElectionDefinition,
 } from '@vx/libs/types/src';
-import { QrCode } from '@vx/libs/ui/src';
+import { QrCode } from '@vx/libs/ui/ballots';
 import { encodeHmpbBallotPageMetadata } from '@vx/libs/ballot-encoder/src';
 import {
   type RenderDocument,
