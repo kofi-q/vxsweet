@@ -12,7 +12,7 @@ import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { sha256 } from 'js-sha256';
 import waitForExpect from 'wait-for-expect';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   mockElectionManagerUser,

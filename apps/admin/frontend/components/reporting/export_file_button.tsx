@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button } from '@vx/libs/ui/buttons';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { join } from 'node:path';
 import {
   REPORT_FOLDER,

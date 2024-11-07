@@ -4,7 +4,7 @@ import {
   type Contests,
   type ElectionDefinition,
 } from '@vx/libs/types/src';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { ThemeProvider } from 'styled-components';
 import {
   printedReportThemeFn,

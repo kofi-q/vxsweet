@@ -13,7 +13,7 @@ ts_tests(
         "//apps/design/backend/app",
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/test",
-        "//libs/basics/src",
+        "//libs/basics/collections",
         "//libs/fixtures/src",
         "//libs/hmpb/src",
         "//libs/test-utils/src",

@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { createWriteStream, renameSync } from 'node:fs';
 import { join, parse } from 'node:path';
 import StreamChopper from 'stream-chopper';

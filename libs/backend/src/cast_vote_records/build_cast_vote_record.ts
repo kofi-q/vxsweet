@@ -1,11 +1,11 @@
+import { type Optional } from '@vx/libs/basics/types';
 import {
-  type Optional,
   assert,
   assertDefined,
-  find,
   throwIllegalValue,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+} from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   type BallotId,

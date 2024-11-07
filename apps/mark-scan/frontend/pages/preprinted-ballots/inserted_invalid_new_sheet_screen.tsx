@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { type PageInterpretationType } from '@vx/libs/types/src';
 
 import * as api from '../../api/api';

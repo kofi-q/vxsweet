@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { type LogExportFormat } from '@vx/libs/logging/src';
 import { Button } from '../buttons/button';

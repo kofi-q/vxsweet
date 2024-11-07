@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { execFile } from '../exec';
 
 /**

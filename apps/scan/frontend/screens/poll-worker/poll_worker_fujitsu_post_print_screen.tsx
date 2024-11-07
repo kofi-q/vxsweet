@@ -8,7 +8,8 @@ import {
   type ElectionDefinition,
   type PollsTransitionType,
 } from '@vx/libs/types/src';
-import { type Optional, assert } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
 import { getPartyById } from '@vx/libs/utils/src/tabulation';
 import {
   getPollsReportTitle,

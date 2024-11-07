@@ -59,7 +59,9 @@ import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
-import { assertDefined, deferred, ok } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { deferred } from '@vx/libs/basics/async';
+import { ok } from '@vx/libs/basics/result';
 import {
   type InterpretFileResult,
   interpretSimplexBmdBallot,

@@ -26,7 +26,7 @@ import {
   TEST_JURISDICTION,
 } from '@vx/libs/types/src/auth';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import { type Api, buildApp } from '../app/app';

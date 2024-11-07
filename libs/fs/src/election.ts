@@ -1,4 +1,4 @@
-import { type Result, err } from '@vx/libs/basics/src';
+import { type Result, err } from '@vx/libs/basics/result';
 import {
   type ElectionDefinition,
   safeParseElectionDefinition,

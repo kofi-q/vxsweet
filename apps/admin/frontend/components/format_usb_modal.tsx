@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 
 import { Button } from '@vx/libs/ui/buttons';
 import { Modal } from '@vx/libs/ui/modal';

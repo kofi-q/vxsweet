@@ -10,7 +10,7 @@ import {
   LanguageCode,
 } from '@vx/libs/types/src';
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,

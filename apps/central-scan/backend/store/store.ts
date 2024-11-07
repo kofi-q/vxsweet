@@ -33,13 +33,10 @@ import {
   type ElectionKey,
   constructElectionKey,
 } from '@vx/libs/types/src/auth';
-import {
-  assert,
-  assertDefined,
-  DateWithoutTime,
-  find,
-  type Optional,
-} from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { find } from '@vx/libs/basics/collections';
+import { type Optional } from '@vx/libs/basics/types';
 import makeDebug from 'debug';
 import { DateTime } from 'luxon';
 import { dirname, join } from 'node:path';

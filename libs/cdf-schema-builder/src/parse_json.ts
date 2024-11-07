@@ -1,4 +1,4 @@
-import { err, ok, type Result, wrapException } from '@vx/libs/basics/src';
+import { err, ok, type Result, wrapException } from '@vx/libs/basics/result';
 import { z } from 'zod';
 
 function safeParse<T>(

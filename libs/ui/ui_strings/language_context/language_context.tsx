@@ -3,12 +3,9 @@ import i18next, { InitOptions, i18n } from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
 import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
-import {
-  type Optional,
-  assert,
-  assertDefined,
-  mapObject,
-} from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { mapObject } from '@vx/libs/basics/objects';
 import { Screen } from '../../screens/screen';
 import { type UiStringsReactQueryApi } from '../api/ui_strings_api';
 

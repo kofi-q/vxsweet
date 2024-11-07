@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 /**
  * Possible indexes for a bit offset in a `Uint8` value.

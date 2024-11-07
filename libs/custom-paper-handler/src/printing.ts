@@ -1,5 +1,5 @@
-import { assert } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
 import { ImageData } from '@vx/libs/image-utils/src';
 import { type BitArray, bitArrayToByte, Uint8Max } from './bits';

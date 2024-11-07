@@ -9,7 +9,7 @@ import {
 } from '@vx/libs/ui/left-nav';
 import { VerticalElectionInfoBar } from '@vx/libs/ui/election-info';
 
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { AppContext } from '../contexts/app_context';
 
 export interface SidebarProps {

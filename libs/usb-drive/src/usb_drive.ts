@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import makeDebug from 'debug';
 import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {

@@ -17,7 +17,7 @@ import {
   isBmdWriteIn,
 } from '@vx/libs/utils/src';
 import { readCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { main } from './main';
 import { IMAGE_URI_REGEX } from '../../generate-cvrs/utils';
 

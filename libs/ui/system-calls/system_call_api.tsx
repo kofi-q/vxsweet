@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 import { QueryKey, useMutation, useQuery } from '@tanstack/react-query';
 import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
 

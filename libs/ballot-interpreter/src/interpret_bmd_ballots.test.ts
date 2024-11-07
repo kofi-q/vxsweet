@@ -38,7 +38,7 @@ import {
 } from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import { assert } from 'node:console';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
 import { type InterpreterOptions } from './types';

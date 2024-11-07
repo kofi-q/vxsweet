@@ -7,8 +7,9 @@ import {
   type MockChildProcess,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { err, ok, sleep } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err, ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
+import { iter } from '@vx/libs/basics/iterators';
 import { fromGrayScale } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
 import {

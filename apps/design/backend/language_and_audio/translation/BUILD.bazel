@@ -10,7 +10,8 @@ ts_library(
         "//apps/design/backend/language_and_audio/vendored-translations",
         "//apps/design/backend/logging",
         "//apps/design/backend/store",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/iterators",
         "//libs/types/src",
     ],
 )

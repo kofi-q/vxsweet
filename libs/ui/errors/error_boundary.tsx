@@ -1,7 +1,7 @@
 /* eslint-disable react/sort-comp */
 import React from 'react';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { Screen } from '../screens/screen';
 import { Main } from '../screens/main';
 import { H1, P } from '../primitives/typography';

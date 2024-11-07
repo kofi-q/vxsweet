@@ -6,7 +6,7 @@ import { Card, H2, Icons } from '@vx/libs/ui/primitives';
 import { FullScreenMessage, Table } from '@vx/libs/ui/src';
 import { UsbDriveImage } from '@vx/libs/ui/usb';
 import { type FileSystemEntry } from '@vx/libs/fs/src';
-import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { Loading } from '../components/loading';
 import { NavigationScreen } from '../components/navigation_screen';
 import { configure, listPotentialElectionPackagesOnUsbDrive } from '../api/api';

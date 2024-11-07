@@ -15,15 +15,10 @@ import {
 } from '@vx/libs/types/src';
 import { constructElectionKey } from '@vx/libs/types/src/auth';
 import waitForExpect from 'wait-for-expect';
-import {
-  type Result,
-  err,
-  ok,
-  assertDefined,
-  deferred,
-  sleep,
-  typedAs,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { deferred, sleep } from '@vx/libs/basics/async';
+import { typedAs } from '@vx/libs/basics/types';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {

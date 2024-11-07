@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import {
   MachineId,
   safeParse,

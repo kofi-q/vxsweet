@@ -1,4 +1,4 @@
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { Buffer } from 'node:buffer';
 import { execFileSync } from 'node:child_process';
 import * as fc from 'fast-check';

@@ -14,11 +14,9 @@ import {
 import {
   assert,
   assertDefined,
-  err,
-  ok,
-  type Result,
   throwIllegalValue,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import {
   BallotIdSchema,
   type BatchInfo,

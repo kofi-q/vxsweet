@@ -1,5 +1,9 @@
-import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import {
+  assert,
+  assertDefined,
+  throwIllegalValue,
+} from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   type BallotStyleGroupId,

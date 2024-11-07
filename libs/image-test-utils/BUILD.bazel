@@ -13,7 +13,7 @@ ts_library(
         "//:node_modules/canvas",
         "//:node_modules/jest-image-snapshot",
         "//:node_modules/pixelmatch",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/image-utils/src",
         "//libs/utils/src",
     ],

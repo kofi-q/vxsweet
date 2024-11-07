@@ -1,16 +1,10 @@
 import { Buffer } from 'node:buffer';
 import { v4 as uuid } from 'uuid';
-import {
-  assert,
-  deepEqual,
-  err,
-  extractErrorMessage,
-  ok,
-  type Optional,
-  type Result,
-  throwIllegalValue,
-  wrapException,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
+import { err, ok, type Result, wrapException } from '@vx/libs/basics/result';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { type Optional } from '@vx/libs/basics/types';
 import {
   LogDispositionStandardTypes,
   LogEventId,

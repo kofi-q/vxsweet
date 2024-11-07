@@ -1,9 +1,9 @@
 import {
   assert,
   assertDefined,
-  find,
   throwIllegalValue,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import {
   type AnyContest,
   HmpbBallotPaperSize,

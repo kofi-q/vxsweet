@@ -19,7 +19,7 @@ jest.mock('@vx/libs/utils/src', () => {
 });
 
 import { promises as fs, existsSync, rmSync } from 'node:fs';
-import { deferred } from '@vx/libs/basics/src';
+import { deferred } from '@vx/libs/basics/async';
 import { backendWaitFor } from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
 import {

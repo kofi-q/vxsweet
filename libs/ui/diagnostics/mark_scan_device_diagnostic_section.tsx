@@ -1,6 +1,6 @@
 import { type DiagnosticRecord, type DiagnosticType } from '@vx/libs/types/src';
 import React from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { H2, P } from '../primitives/typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';
 import { DiagnosticSectionTitle } from './types';

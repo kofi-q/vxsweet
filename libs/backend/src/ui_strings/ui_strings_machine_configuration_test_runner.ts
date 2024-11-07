@@ -9,7 +9,8 @@ import {
   type UiStringsPackage,
 } from '@vx/libs/types/src';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { type Result, assertDefined } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { type UiStringsStore } from './ui_strings_store';
 import { mockElectionPackageFileTree } from '../election_package/test_utils';
 

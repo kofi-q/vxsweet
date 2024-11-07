@@ -1,11 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import {
-  assert,
-  assertDefined,
-  extractErrorMessage,
-  type Optional,
-  type Result,
-} from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result } from '@vx/libs/basics/result';
 import {
   type ExportCastVoteRecordsToUsbDriveError,
   type Id,

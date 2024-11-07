@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { assert, assertDefined, err, ok, sleep } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   type BatchInfo,

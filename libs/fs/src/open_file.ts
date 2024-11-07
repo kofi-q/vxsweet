@@ -1,4 +1,4 @@
-import { type Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
 import { Mode } from 'node:fs';
 import { FileHandle, open as fsOpen } from 'node:fs/promises';
 

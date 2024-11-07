@@ -5,7 +5,7 @@ import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Card, H2, P } from '@vx/libs/ui/primitives';
 import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';
 import { Seal } from '@vx/libs/ui/election-info';

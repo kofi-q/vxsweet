@@ -4,7 +4,7 @@ import {
   type PartyId,
   type District,
 } from '@vx/libs/types/src';
-import { find, unique } from '@vx/libs/basics/src';
+import { find, unique } from '@vx/libs/basics/collections';
 
 export function getPartiesWithPrimaryElections(election: Election): Party[] {
   const partyIds = election.ballotStyles

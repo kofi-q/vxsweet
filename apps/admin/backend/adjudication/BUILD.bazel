@@ -7,7 +7,7 @@ ts_library(
     deps = [
         "//apps/admin/backend/store",
         "//apps/admin/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/logging/src",
     ],
 )
@@ -22,7 +22,7 @@ ts_tests(
         "//apps/admin/backend/store",
         "//apps/admin/backend/test",
         "//apps/admin/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/fixtures/src",
         "//libs/logging/src",
         "//libs/types/src",

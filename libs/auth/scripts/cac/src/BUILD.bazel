@@ -10,7 +10,9 @@ ts_library(
         "//:types_env",
         "//libs/auth/scripts/src",
         "//libs/auth/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/errors",
+        "//libs/basics/iterators",
         "//libs/types/src",
     ],
 )

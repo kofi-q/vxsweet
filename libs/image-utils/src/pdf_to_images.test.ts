@@ -1,4 +1,4 @@
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { electionGridLayoutNewHampshireHudsonFixtures } from '@vx/libs/fixtures/src';
 import { type Size } from '@vx/libs/types/src';
 import { GlobalWorkerOptions } from 'pdfjs-dist';

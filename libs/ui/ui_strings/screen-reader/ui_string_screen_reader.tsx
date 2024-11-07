@@ -1,7 +1,8 @@
 import React from 'react';
 import getDeepValue from 'lodash.get';
 
-import { type Optional, assertDefined } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/src';
 
 import { useAudioContext } from '../audio-context/audio_context';

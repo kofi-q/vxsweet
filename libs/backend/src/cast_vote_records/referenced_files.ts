@@ -1,12 +1,8 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import { sha256 } from 'js-sha256';
-import {
-  err,
-  isNonExistentFileOrDirectoryError,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { isNonExistentFileOrDirectoryError } from '@vx/libs/basics/errors';
 import {
   type BallotPageLayout,
   BallotPageLayoutSchema,

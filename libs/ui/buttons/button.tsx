@@ -7,7 +7,7 @@ import {
   type UiTheme,
 } from '@vx/libs/types/src';
 
-import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { rgba } from 'polished';
 import { type IconName, Icons } from '../primitives/icons';
 

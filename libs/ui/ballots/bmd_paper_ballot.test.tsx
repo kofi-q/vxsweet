@@ -39,7 +39,8 @@ import {
 import { encodeBallot } from '@vx/libs/ballot-encoder/src';
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
 import { fromByteArray } from 'base64-js';
-import { assertDefined, find } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { render, screen } from '../test/react_testing_library';
 import {
   ORDERED_BMD_BALLOT_LAYOUTS,

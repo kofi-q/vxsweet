@@ -10,7 +10,7 @@ ts_library(
         "//apps/scan/backend/printing",
         "//apps/scan/frontend/components/full-screen-prompt",
         "//apps/scan/frontend/components/layout",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
         "//libs/ui/auth-screens",
         "//libs/ui/primitives",

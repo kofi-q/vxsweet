@@ -1,4 +1,4 @@
-import { err, ok, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { findDocForProperty, findDocForType } from './docs';
 import {
   createInterfaceFromDefinition,

@@ -6,7 +6,7 @@ import {
   type ElectionId,
   type YesNoContest,
 } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   type MockApiClient,
   createMockApiClient,

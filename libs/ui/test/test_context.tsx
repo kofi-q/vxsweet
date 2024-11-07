@@ -1,6 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 import { type AudioControls, LanguageCode } from '@vx/libs/types/src';
 import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
 import {

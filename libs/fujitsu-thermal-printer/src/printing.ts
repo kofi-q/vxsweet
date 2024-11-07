@@ -1,5 +1,6 @@
-import { type IteratorPlus, iter } from '@vx/libs/basics/src/iterators';
-import { type Result, assert, ok } from '@vx/libs/basics/src';
+import { type IteratorPlus, iter } from '@vx/libs/basics/iterators';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
 import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import { BITS_PER_BYTE } from '@vx/libs/message-coder/src';
 import { readFileSync } from 'node:fs';

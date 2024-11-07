@@ -9,7 +9,8 @@ ts_library(
         "//apps/scan/backend/store",
         "//apps/scan/backend/time",
         "//apps/scan/backend/workspace",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
         "//libs/logging/src",
         "//libs/usb-drive/src",
     ],
@@ -22,7 +23,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/scan/backend/polls",
         "//apps/scan/backend/store",
-        "//libs/basics/src",
+        "//libs/basics/result",
         "//libs/logging/src",
     ],
 )

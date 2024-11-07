@@ -8,8 +8,8 @@ import {
   type PrecinctSelection,
   LanguageCode,
 } from '@vx/libs/types/src';
-import { assert, assertDefined } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { format, getGroupedBallotStyles } from '@vx/libs/utils/src';
 import styled from 'styled-components';
 import { H2, P } from '../primitives/typography';

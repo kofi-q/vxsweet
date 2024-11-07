@@ -1,6 +1,6 @@
 import { P } from '@vx/libs/ui/primitives';
 import { useContext, useState } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   getMaxSheetsPerBallot,
   isElectionManagerAuth,

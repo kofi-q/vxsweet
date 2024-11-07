@@ -1,4 +1,4 @@
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { LanguageCode, type NonEnglishLanguageCode } from '@vx/libs/types/src';
 
 import { GoogleCloudTranslator } from '../language_and_audio/translation/translator';

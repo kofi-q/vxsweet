@@ -1,4 +1,4 @@
-import { type Result, resultBlock } from '@vx/libs/basics/src';
+import { type Result, resultBlock } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { LiteralCoder } from './literal_coder';

@@ -1,4 +1,4 @@
-import { integers } from '@vx/libs/basics/src/iterators';
+import { integers } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   type BatchInfo,

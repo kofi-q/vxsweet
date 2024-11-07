@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   ElectionSerializationFormatSchema,
   safeParseJson,

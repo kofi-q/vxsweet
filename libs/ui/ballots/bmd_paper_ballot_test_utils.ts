@@ -1,7 +1,7 @@
 import sample from 'lodash.sample';
 import sampleSize from 'lodash.samplesize';
 
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import {
   type Candidate,
   type CandidateContest,

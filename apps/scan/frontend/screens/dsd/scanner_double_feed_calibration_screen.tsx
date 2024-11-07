@@ -1,4 +1,4 @@
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import {
   DoubleFeedCalibrationDoubleSheetIllustration,

@@ -1,4 +1,5 @@
-import { err, ok, type Optional, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { type Optional } from '@vx/libs/basics/types';
 import { type Coder } from '@vx/libs/message-coder/src';
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';

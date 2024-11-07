@@ -5,7 +5,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   Tabulation,
 } from '@vx/libs/types/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import {
   type MockCastVoteRecordFile,

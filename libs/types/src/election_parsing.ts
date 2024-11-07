@@ -1,12 +1,8 @@
-import {
-  type Result,
-  err,
-  ok,
-  assertDefined,
-  find,
-  DateWithoutTime,
-  extractErrorMessage,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { sha256 } from 'js-sha256';
 import { z } from 'zod';
 import { safeParseCdfBallotDefinition } from './cdf/ballot-definition/convert';

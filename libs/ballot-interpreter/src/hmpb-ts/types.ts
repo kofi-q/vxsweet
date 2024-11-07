@@ -4,7 +4,8 @@ import {
   type GridPosition,
   type HmpbBallotPageMetadata,
 } from '@vx/libs/types/src';
-import { type Optional, type Result } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result } from '@vx/libs/basics/result';
 
 /*
  * Many of these types are from the Rust code.

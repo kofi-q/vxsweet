@@ -1,14 +1,8 @@
 import { promises as fs } from 'node:fs';
-import {
-  assert,
-  err,
-  ok,
-  type Optional,
-  type Result,
-  throwIllegalValue,
-  typedAs,
-} from '@vx/libs/basics/src';
-import { integers } from '@vx/libs/basics/src/iterators';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { type Optional, typedAs } from '@vx/libs/basics/types';
+import { integers } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   BallotType,

@@ -7,7 +7,7 @@ import {
   Tabulation,
 } from '@vx/libs/types/src';
 import { getBallotCount } from '@vx/libs/utils/src/tabulation';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   type MachineConfig,
   type WriteInCandidateRecord,

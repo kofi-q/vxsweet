@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type Rect } from '@vx/libs/types/src';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';

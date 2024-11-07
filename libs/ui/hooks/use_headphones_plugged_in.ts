@@ -2,7 +2,7 @@ import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { useSystemCallApi } from '../system-calls/system_call_api';
 
 function useOptionalSystemCallApi() {

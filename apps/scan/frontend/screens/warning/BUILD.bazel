@@ -12,7 +12,7 @@ ts_library(
         "//apps/scan/frontend/components/layout",
         "//apps/scan/frontend/components/misvote_warnings",
         "//apps/scan/frontend/preview-helpers",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
         "//libs/ui/buttons",
         "//libs/ui/modal",

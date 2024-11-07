@@ -1,5 +1,5 @@
 import { ImageData } from 'canvas';
-import { type Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
 import {
   type CompletedBallot,
   type ElectionDefinition,

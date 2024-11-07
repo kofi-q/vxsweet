@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { type BatteryInfo as BatteryInfoType } from '@vx/libs/backend/src/system_call';
 import { format } from '@vx/libs/utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type IconProps, Icons } from '../primitives/icons';
 import { Font } from '../primitives/typography';
 import { useSystemCallApi } from '../system-calls/system_call_api';

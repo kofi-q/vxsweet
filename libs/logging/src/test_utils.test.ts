@@ -1,4 +1,4 @@
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import { LogEventType } from './base_types/log_event_types';
 import { type LogLine } from './types';
 import { LogSource } from './base_types/log_source';

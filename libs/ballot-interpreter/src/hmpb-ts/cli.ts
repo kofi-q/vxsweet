@@ -1,12 +1,8 @@
-import {
-  assert,
-  err,
-  find,
-  ok,
-  type Optional,
-  type Result,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { find } from '@vx/libs/basics/collections';
+import { type Optional } from '@vx/libs/basics/types';
+import { iter } from '@vx/libs/basics/iterators';
 import tmp from 'tmp';
 import { writeImageData } from '@vx/libs/image-utils/src';
 import {

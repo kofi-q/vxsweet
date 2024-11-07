@@ -12,10 +12,10 @@ import * as grout from '@vx/libs/grout/src';
 import {
   assert,
   assertDefined,
-  sleep,
   throwIllegalValue,
-  uniqueBy,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
+import { uniqueBy } from '@vx/libs/basics/collections';
 import {
   type Api,
   type DevDockUserRole,

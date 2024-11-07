@@ -1,6 +1,6 @@
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
-import { iter } from '@vx/libs/basics/src/iterators';
-import { ok } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/iterators';
+import { ok } from '@vx/libs/basics/result';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import * as grout from '@vx/libs/grout/src';

@@ -1,6 +1,6 @@
 import { UnconfiguredElectionScreen } from '@vx/libs/ui/auth-screens';
 import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   configureFromElectionPackageOnUsbDrive,
   getUsbDriveStatus,

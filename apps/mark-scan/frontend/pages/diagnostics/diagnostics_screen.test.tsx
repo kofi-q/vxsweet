@@ -8,7 +8,7 @@ import {
 } from '@vx/libs/ui/diagnostics';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { Keybinding } from '@vx/libs/ui/keybindings';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {

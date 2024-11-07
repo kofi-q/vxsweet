@@ -1,5 +1,5 @@
 import React from 'react';
-import { deepEqual } from '@vx/libs/basics/src';
+import { deepEqual } from '@vx/libs/basics/objects';
 import { type Api } from '../../backend/app/app';
 import {
   AUTH_STATUS_POLLING_INTERVAL_MS,

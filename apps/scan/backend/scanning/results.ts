@@ -12,8 +12,9 @@ import {
   groupMapToGroupList,
   tabulateCastVoteRecords,
 } from '@vx/libs/utils/src/tabulation';
-import { assert, assertDefined, typedAs } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { typedAs } from '@vx/libs/basics/types';
+import { iter } from '@vx/libs/basics/iterators';
 import { VX_MACHINE_ID } from '@vx/libs/backend/src';
 import { Store } from '../store/store';
 

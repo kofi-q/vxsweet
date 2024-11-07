@@ -7,7 +7,7 @@ import { userReadableMessageFromExportError } from '@vx/libs/ui/cvrs';
 import { Modal } from '@vx/libs/ui/modal';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { AppContext } from '../contexts/app_context';
 import { ejectUsbDrive, exportCastVoteRecordsToUsbDrive } from '../api/api';
 import { InsertUsbDriveModal, UsbImage } from './insert_usb_drive_modal';

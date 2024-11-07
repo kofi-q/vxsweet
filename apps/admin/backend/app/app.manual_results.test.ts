@@ -6,7 +6,7 @@ import {
   Tabulation,
 } from '@vx/libs/types/src';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { LogEventId } from '@vx/libs/logging/src';
 import {
   buildTestEnvironment,

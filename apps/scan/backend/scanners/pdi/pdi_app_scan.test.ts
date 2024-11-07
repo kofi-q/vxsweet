@@ -10,7 +10,8 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { err, typedAs } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   AdjudicationReason,
   type AdjudicationReasonInfo,

@@ -1,4 +1,4 @@
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import fc from 'fast-check';
 import { mock } from 'jest-mock-extended';
 import { arbitraryStatusInternalMessage } from '../../test/arbitraries';

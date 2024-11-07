@@ -1,7 +1,7 @@
 import { Button } from '@vx/libs/ui/buttons';
 import { Loading, P } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import React from 'react';
 import { logTestPrintOutcome, printTestPage } from '../../api/api';
 

@@ -14,8 +14,8 @@ import {
   electionFamousNames2021Fixtures,
   electionGeneralDefinition,
 } from '@vx/libs/fixtures/src';
-import { assertDefined } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
 
 export async function renderBmdBallotFixture(

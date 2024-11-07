@@ -1,5 +1,5 @@
 import { createWriteStream } from 'node:fs';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   CARD_DOD_CERT,
   CommonAccessCard,

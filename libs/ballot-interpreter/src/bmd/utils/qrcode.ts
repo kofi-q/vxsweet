@@ -5,13 +5,9 @@ import { ImageData, crop } from '@vx/libs/image-utils/src';
 import { type Rect, type Size } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
-import {
-  type Optional,
-  type Result,
-  err,
-  ok,
-  assertDefined,
-} from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { type DetectedQrCode } from '../types';
 import { stats, type Stats } from './luminosity';
 

@@ -24,7 +24,7 @@ ts_library(
         "//apps/admin/backend/util/logging",
         "//apps/admin/backend/workspace",
         "//libs/auth/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/grout/src",
         "//libs/logging/src",
         "//libs/printing/src",

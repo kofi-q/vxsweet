@@ -15,7 +15,7 @@ import {
 import { VendorScreen } from '@vx/libs/ui/admin-screens';
 import { H1 } from '@vx/libs/ui/primitives';
 import { BaseLogger } from '@vx/libs/logging/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { AppContext, type AppContextInterface } from '../contexts/app_context';
 
 import { ScanBallotsScreen } from '../screens/scan/scan_ballots_screen';

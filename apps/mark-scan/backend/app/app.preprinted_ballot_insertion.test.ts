@@ -2,7 +2,7 @@ import tmp from 'tmp';
 
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';

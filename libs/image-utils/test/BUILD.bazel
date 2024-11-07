@@ -9,7 +9,7 @@ ts_library(
     deps = [
         "//:node_modules/canvas",
         "//:node_modules/fast-check",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/image-utils/src",
         "//libs/types/src",
     ],

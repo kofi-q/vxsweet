@@ -1,4 +1,5 @@
-import { type Result, err, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Result, err } from '@vx/libs/basics/result';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type FileSystemEntry,
   type ListDirectoryError,

@@ -1,4 +1,5 @@
-import { type Result, err, ok, sleep } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
 import { type FujitsuThermalPrinterDriverInterface } from './driver/driver';
 import { type RawPrinterStatus } from './driver/coders';
 import { isErrorStatus, isPrinterStopped } from './driver/status';

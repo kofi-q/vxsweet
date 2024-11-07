@@ -1,5 +1,5 @@
 import { ImageData } from 'canvas';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { type Rect } from '@vx/libs/types/src';
 import makeDebug from 'debug';
 

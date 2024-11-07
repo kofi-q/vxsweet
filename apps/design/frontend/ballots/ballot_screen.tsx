@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { assertDefined, range } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { range } from '@vx/libs/basics/collections';
 import {
   getPrecinctById,
   getBallotStyle,

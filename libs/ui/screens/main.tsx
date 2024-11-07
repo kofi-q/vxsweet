@@ -1,5 +1,5 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type SizeMode } from '@vx/libs/types/src';
 import { type JustifyContent } from './layout';
 

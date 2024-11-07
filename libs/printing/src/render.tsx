@@ -12,7 +12,7 @@ import {
 import { GlobalStyles } from '@vx/libs/ui/themes';
 import { VxThemeProvider } from '@vx/libs/ui/themes/vx_theme_provider';
 import { FONT_AWESOME_STYLES } from '@vx/libs/ui/fonts/font_awesome_styles';
-import { err, ok, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 
 const PLAYWRIGHT_PIXELS_PER_INCH = 96;
 const MAX_HTML_CHARACTERS = 5_000_000;

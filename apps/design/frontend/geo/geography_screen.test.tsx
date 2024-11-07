@@ -7,7 +7,7 @@ import {
 import { createMemoryHistory } from 'history';
 import { type District, type DistrictId } from '@vx/libs/types/src';
 import userEvent from '@testing-library/user-event';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import {
   type MockApiClient,

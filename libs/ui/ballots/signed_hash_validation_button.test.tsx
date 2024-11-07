@@ -1,6 +1,6 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 
 import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';

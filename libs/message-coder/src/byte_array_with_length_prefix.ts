@@ -1,7 +1,7 @@
 // allow multiple variants of `byteArray` within the same file
 /* eslint-disable max-classes-per-file */
 
-import { type Result, err, resultBlock } from '@vx/libs/basics/src';
+import { type Result, err, resultBlock } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import {

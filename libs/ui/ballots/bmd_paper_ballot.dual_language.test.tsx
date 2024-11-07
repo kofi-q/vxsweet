@@ -22,7 +22,8 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 import { mockOf } from '@vx/libs/test-utils/src';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
-import { assertDefined, find } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { BmdPaperBallot } from './bmd_paper_ballot';
 import { newTestContext as newUiStringsTestContext } from '../test/test_context';
 import {

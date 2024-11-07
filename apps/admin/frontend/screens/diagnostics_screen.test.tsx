@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { type PrinterConfig } from '@vx/libs/types/src';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen, within, act } from '../test/react_testing_library';
 import { renderInAppContext } from '../test/render_in_app_context';

@@ -1,8 +1,8 @@
 jest.mock('./validation');
 
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
-import { assert, assertDefined } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { readElection } from '@vx/libs/fs/src';
 import {
   famousNamesFixtures,

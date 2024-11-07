@@ -1,6 +1,7 @@
 jest.mock('./validation');
 
-import { assert, unique } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { unique } from '@vx/libs/basics/collections';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import path from 'node:path';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { type ExportDataResult } from '@vx/libs/backend/src';

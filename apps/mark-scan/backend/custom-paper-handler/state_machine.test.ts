@@ -36,8 +36,9 @@ import {
   buildMockInsertedSmartCardAuth,
 } from '@vx/libs/auth/src';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
-import { assert, type Deferred, deferred, sleep } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { type Deferred, deferred, sleep } from '@vx/libs/basics/async';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   electionGeneralDefinition,
   electionGridLayoutNewHampshireHudsonFixtures,

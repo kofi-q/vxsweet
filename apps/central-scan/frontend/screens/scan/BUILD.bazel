@@ -15,7 +15,7 @@ ts_library(
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/components",
         "//apps/central-scan/frontend/screens/nav",
-        "//libs/basics/src",
+        "//libs/basics/iterators",
         "//libs/types/src",
         "//libs/ui/buttons",
         "//libs/ui/modal",

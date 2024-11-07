@@ -1,5 +1,6 @@
-import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/src/iterators';
-import { assertDefined, unique } from '@vx/libs/basics/src';
+import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { unique } from '@vx/libs/basics/collections';
 import { voteToOptionId } from '@vx/libs/hmpb/src';
 import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {

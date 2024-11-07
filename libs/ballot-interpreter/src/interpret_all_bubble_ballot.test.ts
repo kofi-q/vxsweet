@@ -1,4 +1,5 @@
-import { assert, type Optional } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { type Optional } from '@vx/libs/basics/types';
 import { readElection } from '@vx/libs/fs/src';
 import { allBubbleBallotFixtures } from '@vx/libs/hmpb/src';
 import {

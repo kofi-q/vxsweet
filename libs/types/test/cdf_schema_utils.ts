@@ -1,10 +1,5 @@
-import {
-  type Result,
-  err,
-  ok,
-  throwIllegalValue,
-  assert,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { throwIllegalValue, assert } from '@vx/libs/basics/assert';
 import Ajv, { AnySchema } from 'ajv';
 import AjvDraft04, { AnySchema as AnySchemaDraft04 } from 'ajv-draft-04';
 

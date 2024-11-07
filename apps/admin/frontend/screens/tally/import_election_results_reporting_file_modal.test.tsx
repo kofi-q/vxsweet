@@ -3,13 +3,9 @@ import {
   type ImportElectionResultsReportingError,
 } from '../../../backend/types/types';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import {
-  assertDefined,
-  deferred,
-  err,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { deferred } from '@vx/libs/basics/async';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type ElectronFile } from '@vx/libs/ui/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import userEvent from '@testing-library/user-event';

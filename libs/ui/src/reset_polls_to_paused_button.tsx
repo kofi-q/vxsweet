@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import React, { useState } from 'react';
 import { Button } from '../buttons/button';
 import { Modal } from '../modal/modal';

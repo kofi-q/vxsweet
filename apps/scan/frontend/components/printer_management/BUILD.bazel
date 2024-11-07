@@ -11,7 +11,7 @@ ts_library(
         "//:node_modules/styled-components",
         "//apps/scan/backend/printing",
         "//apps/scan/frontend/api",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/ui/buttons",
         "//libs/ui/hooks",
         "//libs/ui/modal",
@@ -30,7 +30,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/scan/frontend/components/printer_management",
         "//apps/scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
     ],
 )
 

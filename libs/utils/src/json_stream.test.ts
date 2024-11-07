@@ -1,4 +1,4 @@
-import { integers, iter } from '@vx/libs/basics/src/iterators';
+import { integers, iter } from '@vx/libs/basics/iterators';
 import * as fc from 'fast-check';
 import {
   jsonStream,

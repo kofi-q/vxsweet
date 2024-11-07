@@ -1,4 +1,4 @@
-import { type Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
 import { type ElectionId, type Id } from '@vx/libs/types/src';
 import { H1, P, Icons } from '@vx/libs/ui/primitives';
 import { Button } from '@vx/libs/ui/buttons';

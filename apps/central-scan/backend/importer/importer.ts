@@ -1,4 +1,6 @@
-import { type Result, ok, assert, sleep } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
 import {
   type ElectionDefinition,
   type SheetOf,

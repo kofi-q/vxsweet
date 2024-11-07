@@ -20,7 +20,7 @@ import {
   getCastVoteRecordBallotType,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 

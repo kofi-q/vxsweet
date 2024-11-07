@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import yargs from 'yargs/yargs';
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   constructElectionKey,

@@ -3,7 +3,7 @@ import '../../test/set_up_react_pdf_mock';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 
 import userEvent from '@testing-library/user-event';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import {

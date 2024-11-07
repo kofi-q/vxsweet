@@ -9,7 +9,9 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-import { assert, deferred, mapObject } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { deferred } from '@vx/libs/basics/async';
+import { mapObject } from '@vx/libs/basics/objects';
 import tmp from 'tmp';
 import {
   electionFamousNames2021Fixtures,

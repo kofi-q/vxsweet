@@ -24,7 +24,8 @@ import {
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
-import { type Result, ok, deferred } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,

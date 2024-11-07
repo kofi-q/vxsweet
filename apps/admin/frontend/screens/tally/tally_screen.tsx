@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import { Icons, H3 } from '@vx/libs/ui/primitives';
 import { RouterTabBar } from '@vx/libs/ui/src';

@@ -4,7 +4,7 @@ import { Button, type StyledButtonProps } from '@vx/libs/ui/buttons';
 import { Modal } from '@vx/libs/ui/modal';
 import { useCancelablePromise } from '@vx/libs/ui/hooks/use_cancelable_promise';
 import { P } from '@vx/libs/ui/primitives';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { Loading } from './loading';
 import { getPrinterStatus } from '../api/api';
 

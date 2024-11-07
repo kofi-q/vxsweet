@@ -23,7 +23,8 @@ import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
 import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
 import { doesUsbDriveRequireCastVoteRecordSync as doesUsbDriveRequireCastVoteRecordSyncFn } from '@vx/libs/backend/src/cast_vote_records';
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
-import { assert, assertDefined, ok, type Result } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { ok, type Result } from '@vx/libs/basics/result';
 import {
   type InsertedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,

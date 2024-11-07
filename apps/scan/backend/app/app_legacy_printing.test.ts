@@ -9,7 +9,7 @@ jest.mock('../time/get_current_time', () => ({
   getCurrentTime: () => reportPrintedTime.getTime(),
 }));
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

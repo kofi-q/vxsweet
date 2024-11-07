@@ -9,7 +9,7 @@ import {
   Tabulation,
 } from '@vx/libs/types/src';
 import { within } from '@testing-library/react';
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../test/react_testing_library';
 import {

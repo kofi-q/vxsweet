@@ -8,7 +8,8 @@ jest.mock('../cryptography', (): typeof import('../cryptography') => ({
   createCert: jest.fn(),
 }));
 
-import { assertDefined, err, ok } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';

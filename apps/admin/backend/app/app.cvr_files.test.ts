@@ -13,7 +13,8 @@ jest.mock('@vx/libs/utils/src', () => {
 
 import { Buffer } from 'node:buffer';
 import set from 'lodash.set';
-import { assert, err, ok } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryDefinition,

@@ -13,7 +13,8 @@ import { Button, LinkButton } from '@vx/libs/ui/buttons';
 import { Main, Screen } from '@vx/libs/ui/screens';
 import { Loading, Font, Caption, H2, H1, H4 } from '@vx/libs/ui/primitives';
 import { format } from '@vx/libs/utils/src';
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { useQueryClient } from '@tanstack/react-query';
 import {
   type WriteInCandidateRecord,

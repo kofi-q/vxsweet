@@ -7,7 +7,7 @@ import {
   type PageInterpretation,
 } from '@vx/libs/types/src';
 import { Scan } from '@vx/libs/api/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import { H1, H2, Icons, P } from '@vx/libs/ui/primitives';
 import { LabelledText } from '@vx/libs/ui/text-elements';

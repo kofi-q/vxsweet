@@ -5,7 +5,7 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import {
   hasTextAcrossElements,
   mockElectionManagerUser,

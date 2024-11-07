@@ -9,7 +9,8 @@ import {
 } from '@vx/libs/types/src';
 import { format } from '@vx/libs/utils/src';
 import { getTallyReportCandidateRows } from '@vx/libs/utils/src/tabulation';
-import { throwIllegalValue, assert, type Optional } from '@vx/libs/basics/src';
+import { throwIllegalValue, assert } from '@vx/libs/basics/assert';
+import { type Optional } from '@vx/libs/basics/types';
 
 import { NoWrap } from '../primitives/text';
 import { reportColors } from './layout';

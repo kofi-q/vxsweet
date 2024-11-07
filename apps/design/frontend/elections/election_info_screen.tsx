@@ -5,7 +5,7 @@ import { H1 } from '@vx/libs/ui/primitives';
 import { MainContent, MainHeader } from '@vx/libs/ui/screens';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { deleteElection, getElection, updateElection } from '../api/api';
 import { FieldName, Form, FormActionsRow, InputGroup } from '../layout/layout';
 import { ElectionNavScreen } from '../layout/nav_screen';

@@ -5,7 +5,8 @@ jest.mock('../globals/globals', (): typeof import('../globals/globals') => ({
   },
 }));
 
-import { assert, assertDefined, err, ok } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   electionTwoPartyPrimaryFixtures,
   electionGeneral,

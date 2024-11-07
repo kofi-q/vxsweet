@@ -18,7 +18,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 });
 
 import { Buffer } from 'node:buffer';
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,

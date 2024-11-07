@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { HmpbBallotPaperSize } from '@vx/libs/types/src';
 import { pdfToImages } from '@vx/libs/image-utils/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { readElection } from '@vx/libs/fs/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {

@@ -12,11 +12,9 @@ import {
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
 } from '@vx/libs/backend/src';
-import {
-  assertDefined,
-  DateWithoutTime,
-  type Optional,
-} from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { type Optional } from '@vx/libs/basics/types';
 import { Client as DbClient } from '@vx/libs/db/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {

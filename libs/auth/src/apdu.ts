@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { Buffer } from 'node:buffer';
 import { inspect } from 'node:util';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { asHexString, type Byte, isByte } from '@vx/libs/types/src';
 
 /**

@@ -6,7 +6,8 @@ import {
 } from '@vx/libs/types/src';
 import { QueryClientProvider } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
-import { deferred, typedAs } from '@vx/libs/basics/src';
+import { deferred } from '@vx/libs/basics/async';
+import { typedAs } from '@vx/libs/basics/types';
 
 import { advancePromises } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';

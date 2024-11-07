@@ -3,7 +3,7 @@ import { mockKiosk } from '@vx/libs/test-utils/src';
 import { type ElectronFile } from '@vx/libs/ui/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import userEvent from '@testing-library/user-event';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   waitFor,

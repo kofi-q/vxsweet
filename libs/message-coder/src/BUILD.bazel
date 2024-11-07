@@ -8,7 +8,9 @@ ts_library(
     name = "src",
     deps = [
         "//:node_modules/@types/node",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
+        "//libs/basics/types",
     ],
 )
 
@@ -19,7 +21,9 @@ ts_tests(
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
+        "//libs/basics/types",
         "//libs/message-coder/src",
     ],
 )

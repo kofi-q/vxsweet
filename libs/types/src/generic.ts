@@ -1,13 +1,8 @@
 import check8601 from '@antongolub/iso8601';
 import { z } from 'zod';
-import {
-  err,
-  ok,
-  type Optional,
-  type Result,
-  wrapException,
-  DateWithoutTime,
-} from '@vx/libs/basics/src';
+import { err, ok, type Result, wrapException } from '@vx/libs/basics/result';
+import { type Optional } from '@vx/libs/basics/types';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 
 export interface Dictionary<T> {
   [key: string]: Optional<T>;

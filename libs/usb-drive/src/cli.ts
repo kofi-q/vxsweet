@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Logger } from '@vx/libs/logging/src';
 import { detectUsbDrive } from './usb_drive';

@@ -2,11 +2,11 @@ import {
   asyncResultBlock,
   err,
   ok,
-  type Optional,
   type Result,
   resultBlock,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/result';
+import { type Optional } from '@vx/libs/basics/types';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   BaseCoder,
   type BitLength,

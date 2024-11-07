@@ -1,4 +1,5 @@
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   BallotIdSchema,

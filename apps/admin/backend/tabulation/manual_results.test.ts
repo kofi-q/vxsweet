@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,

@@ -1,5 +1,5 @@
-import { assert } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { EventLogging, safeParseJson } from '@vx/libs/types/src';
 import { createReadStream } from 'node:fs';
 import { join } from 'node:path';

@@ -1,12 +1,15 @@
-jest.mock('@vx/libs/basics/src', (): typeof import('@vx/libs/basics/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/basics/src'),
-    sleep: jest.fn(),
-  };
-});
+jest.mock(
+  '@vx/libs/basics/async',
+  (): typeof import('@vx/libs/basics/async') => {
+    return {
+      ...jest.requireActual('@vx/libs/basics/async'),
+      sleep: jest.fn(),
+    };
+  }
+);
 
 import userEvent from '@testing-library/user-event';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 
 import {

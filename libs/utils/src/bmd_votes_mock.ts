@@ -1,4 +1,4 @@
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type CandidateContest,
   type Election,

@@ -1,4 +1,4 @@
-import { err, ok, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { any } from 'micromatch';
 import { isAbsolute, join, normalize, parse } from 'node:path';

@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { basename, join } from 'node:path';
-import { assert, throwIllegalValue, assertDefined } from '@vx/libs/basics/src';
+import {
+  assert,
+  throwIllegalValue,
+  assertDefined,
+} from '@vx/libs/basics/assert';
 import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,

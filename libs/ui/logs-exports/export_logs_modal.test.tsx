@@ -1,4 +1,4 @@
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import userEvent from '@testing-library/user-event';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { screen } from '../test/react_testing_library';

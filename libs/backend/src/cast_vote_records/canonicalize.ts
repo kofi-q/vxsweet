@@ -5,7 +5,7 @@ import {
   type SheetOf,
   type SheetValidationError,
 } from '@vx/libs/types/src';
-import { type Result, ok, err } from '@vx/libs/basics/src';
+import { type Result, ok, err } from '@vx/libs/basics/result';
 
 /**
  * The back of a BMD ballot should be empty, which could be interpreted as

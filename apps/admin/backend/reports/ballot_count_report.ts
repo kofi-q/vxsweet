@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { BallotCountReport } from '@vx/libs/ui/reports';
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';

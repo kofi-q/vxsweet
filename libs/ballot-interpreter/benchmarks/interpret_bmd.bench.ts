@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { readElection } from '@vx/libs/fs/src';
 import { famousNamesFixtures } from '@vx/libs/hmpb/src';
 import {

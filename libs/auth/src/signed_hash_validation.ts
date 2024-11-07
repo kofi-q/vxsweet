@@ -2,7 +2,8 @@ import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import { Readable } from 'node:stream';
-import { assert, sleep } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
 import { formatElectionHashes } from '@vx/libs/types/src';
 import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';
 

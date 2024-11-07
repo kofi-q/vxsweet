@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { extractCdfUiStrings } from './convert';
 import * as BallotDefinition from '.';
 import { testCdfBallotDefinition } from './fixtures';

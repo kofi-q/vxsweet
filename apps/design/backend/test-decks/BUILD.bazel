@@ -5,7 +5,8 @@ ts_library(
     name = "test-decks",
     deps = [
         "//:node_modules/@types/node",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/collections",
         "//libs/hmpb/src",
         "//libs/printing/src",
         "//libs/types/src",

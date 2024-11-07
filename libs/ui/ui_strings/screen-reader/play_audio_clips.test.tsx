@@ -5,7 +5,7 @@ jest.mock('./audio_player', (): typeof import('./audio_player') => ({
 
 import { LanguageCode } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { deferred } from '@vx/libs/basics/src';
+import { deferred } from '@vx/libs/basics/async';
 
 import { newTestContext } from '../../test/test_context';
 import { PlayAudioClips } from './play_audio_clips';

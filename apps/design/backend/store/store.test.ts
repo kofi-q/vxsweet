@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { LanguageCode } from '@vx/libs/types/src';
 
 import { Store, type TaskName } from './store';

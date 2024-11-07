@@ -4,8 +4,8 @@ import {
   buildCvrImageData,
   combineImageAndLayoutHashes,
 } from '@vx/libs/backend/src/cast_vote_records';
-import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type BallotMetadata,
   type BallotPageContestLayout,

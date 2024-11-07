@@ -1,5 +1,5 @@
 import { Admin, type Election, Tabulation } from '@vx/libs/types/src';
-import { mapObject } from '@vx/libs/basics/src';
+import { mapObject } from '@vx/libs/basics/objects';
 import {
   type ContestResultsSummaries,
   buildElectionResultsFixture,

@@ -1,12 +1,7 @@
-import {
-  assert,
-  deepEqual,
-  err,
-  extractErrorMessage,
-  ok,
-  type Result,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import {
   BaseLogger,
   LogDispositionStandardTypes,

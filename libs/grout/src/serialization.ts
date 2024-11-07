@@ -1,11 +1,8 @@
 import { Buffer } from 'node:buffer';
+import { assert } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { err, isResult, ok, type Result } from '@vx/libs/basics/result';
 import {
-  assert,
-  DateWithoutTime,
-  err,
-  isResult,
-  ok,
-  type Result,
   isArray,
   isBoolean,
   isFunction,
@@ -15,7 +12,7 @@ import {
   isPlainObject,
   isSet,
   isString,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/types';
 import { DateTime } from 'luxon';
 
 type JsonBuiltInValue =

@@ -1,6 +1,6 @@
 import { ConverterClientTypeSchema } from '@vx/libs/types/src';
 import { ZodSchema } from 'zod';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { asBoolean } from './as_boolean';
 
 export enum BooleanEnvironmentVariableName {

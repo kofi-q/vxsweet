@@ -20,7 +20,7 @@ import {
 import { Modal, ModalWidth } from '@vx/libs/ui/modal';
 import { WithScrollButtons } from '@vx/libs/ui/touch-controls';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import { Screen } from '../../components/layout/layout';
 

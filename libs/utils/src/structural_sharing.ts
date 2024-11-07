@@ -1,4 +1,4 @@
-import { deepEqual } from '@vx/libs/basics/src';
+import { deepEqual } from '@vx/libs/basics/objects';
 
 /**
  * React Query allows passing a custom `structuralSharing` function to `useQuery`.

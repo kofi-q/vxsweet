@@ -1,6 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { writeFileSync } from 'node:fs';
-import { err, ok, typedAs } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
 import fc from 'fast-check';
 import { type ReadFileError, readFile } from './read_file';
 import { makeTmpFile } from '../test/utils';

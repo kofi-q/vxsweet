@@ -6,7 +6,7 @@ import {
   type Election,
   getContests,
 } from '@vx/libs/types/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { areContestResultsValid } from '@vx/libs/utils/src/tabulation';
 import { getBallotStyleGroup } from '@vx/libs/utils/src';
 import { Store } from '../../store/store';

@@ -1,4 +1,5 @@
-import { assert, throwIllegalValue, uniqueBy } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { uniqueBy } from '@vx/libs/basics/collections';
 import {
   type BallotTargetMark,
   type Candidate,

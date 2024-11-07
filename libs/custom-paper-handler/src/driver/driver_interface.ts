@@ -4,7 +4,7 @@ import {
   type Uint16,
   type Uint8,
 } from '@vx/libs/message-coder/src';
-import { type Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
 import { ImageData } from '@vx/libs/image-utils/src';
 import {
   type PrintingDensity,

@@ -9,7 +9,7 @@ import {
 } from '@vx/libs/ui/language_settings';
 import styled, { DefaultTheme, ThemeContext } from 'styled-components';
 import { type SizeMode } from '@vx/libs/types/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { getConfig, getMachineConfig, getScannerStatus } from '../../api/api';
 import { ScannedBallotCount } from '../status/scanned_ballot_count';
 import { VoterSettingsButton } from '../settings/voter_settings_button';

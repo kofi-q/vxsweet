@@ -10,7 +10,8 @@ import {
   getContests,
   type YesNoVote,
 } from '@vx/libs/types/src';
-import { deepEqual, unique } from '@vx/libs/basics/src';
+import { deepEqual } from '@vx/libs/basics/objects';
+import { unique } from '@vx/libs/basics/collections';
 import {
   generateTestDeckWriteIn,
   numBallotPositions,

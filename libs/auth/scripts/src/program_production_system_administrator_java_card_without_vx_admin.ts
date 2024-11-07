@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import tmp from 'tmp';
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 
 import {
   CERT_EXPIRY_IN_DAYS,

@@ -1,12 +1,9 @@
 import { findByIds, WebUSBDevice } from 'usb';
 import makeDebug from 'debug';
-import {
-  assert,
-  assertDefined,
-  type Optional,
-  type Result,
-  sleep,
-} from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
 import { Buffer } from 'node:buffer';
 import {
   byteArray,

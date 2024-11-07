@@ -1,5 +1,6 @@
-import { assert, sleep } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
+import { iter } from '@vx/libs/basics/iterators';
 import makeDebug from 'debug';
 import { Buffer } from 'node:buffer';
 import {

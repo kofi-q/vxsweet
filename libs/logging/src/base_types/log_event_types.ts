@@ -1,4 +1,4 @@
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 /**
  * In order to add a new log event type you must do three things:

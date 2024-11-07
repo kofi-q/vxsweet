@@ -20,7 +20,7 @@ ts_library(
         "//apps/central-scan/frontend/screens/scan",
         "//apps/central-scan/frontend/screens/settings",
         "//apps/central-scan/frontend/screens/unconfigured",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/logging/src",
         "//libs/ui/admin-screens",
         "//libs/ui/auth-screens",

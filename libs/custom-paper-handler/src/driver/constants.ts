@@ -1,4 +1,4 @@
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type Uint8 } from '@vx/libs/message-coder/src';
 
 /**

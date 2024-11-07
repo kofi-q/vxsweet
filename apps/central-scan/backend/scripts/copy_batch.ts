@@ -2,11 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { v4 as uuid } from 'uuid';
 import { type AcceptedSheet } from '@vx/libs/backend/src/cast_vote_records';
-import {
-  assert,
-  assertDefined,
-  extractErrorMessage,
-} from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { type Id, safeParseInt } from '@vx/libs/types/src';
 
 import { BaseLogger } from '@vx/libs/logging/src';

@@ -4,7 +4,7 @@ import { MainHeader, MainContent } from '@vx/libs/ui/screens';
 import { LinkButton, Button } from '@vx/libs/ui/buttons';
 import { RadioGroup } from '@vx/libs/ui/radio_group';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import {
   HmpbBallotPaperSize,
   type Election,

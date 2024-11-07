@@ -1,4 +1,5 @@
-import { assert, assertDefined, find } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import {
   type AnyContest,
   type Contest,

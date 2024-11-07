@@ -6,7 +6,7 @@ import {
   generalElectionFixtures,
   primaryElectionFixtures,
 } from '@vx/libs/hmpb/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import { buildContestResultsFixture } from '@vx/libs/utils/src/tabulation';
 import {
   createTestDeckTallyReport,

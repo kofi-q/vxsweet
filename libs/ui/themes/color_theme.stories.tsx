@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import { type ColorMode } from '@vx/libs/types/src';
 import styled, { useTheme } from 'styled-components';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import contrastLib from 'get-contrast';
 import { H2, H4 } from '../primitives/typography';
 import { Icons } from '../primitives/icons';

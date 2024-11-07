@@ -5,7 +5,7 @@ import * as dotenvExpand from 'dotenv-expand';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isIntegrationTest } from '@vx/libs/utils/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 /**
  * Loads environment variables from .env* files. dotenv will never modify environment variables

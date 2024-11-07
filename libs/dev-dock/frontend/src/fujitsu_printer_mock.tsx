@@ -1,5 +1,9 @@
 import { type PrinterStatus } from '@vx/libs/fujitsu-thermal-printer/src';
-import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import {
+  assert,
+  assertDefined,
+  throwIllegalValue,
+} from '@vx/libs/basics/assert';
 import styled from 'styled-components';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React from 'react';

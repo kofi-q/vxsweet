@@ -9,7 +9,7 @@ import {
 import { LanguageCode } from '@vx/libs/types/src';
 import { type UiStringsApi } from '@vx/libs/backend/src/ui_strings';
 import * as grout from '@vx/libs/grout/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 export type UiStringsApiClient = grout.Client<UiStringsApi>;
 

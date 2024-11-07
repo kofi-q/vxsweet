@@ -7,7 +7,7 @@ import {
   type PrecinctId,
   type VotesDict,
 } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import * as api from '../../api/api';
 import { CenteredCardPageLayout } from '../../components/centered_card_page_layout';

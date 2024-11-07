@@ -1,4 +1,4 @@
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { zipFile } from './zip';
 
 test('zipFile is deterministic across runs', async () => {

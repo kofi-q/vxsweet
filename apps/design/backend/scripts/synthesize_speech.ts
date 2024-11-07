@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { LanguageCode } from '@vx/libs/types/src';
 
 import { GoogleCloudSpeechSynthesizer } from '../language_and_audio/tts/speech_synthesizer';

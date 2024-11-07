@@ -1,7 +1,7 @@
 import { Admin, type ElectionDefinition } from '@vx/libs/types/src';
 import React from 'react';
 
-import { unique } from '@vx/libs/basics/src';
+import { unique } from '@vx/libs/basics/collections';
 import {
   getContestById,
   getEmptyCardCounts,

@@ -1,6 +1,6 @@
 import { advancePromises, mockKiosk } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { screen, waitFor } from '../test/react_testing_library';

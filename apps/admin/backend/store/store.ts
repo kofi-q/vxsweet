@@ -2,17 +2,10 @@
 // The durable datastore for election data, CVRs, and adjudication info.
 //
 
-import {
-  type Optional,
-  typedAs,
-  type Result,
-  err,
-  ok,
-  isResult,
-  assert,
-  assertDefined,
-  DateWithoutTime,
-} from '@vx/libs/basics/src';
+import { type Optional, typedAs } from '@vx/libs/basics/types';
+import { type Result, err, ok, isResult } from '@vx/libs/basics/result';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import {
   type Bindable,
   Client as DbClient,

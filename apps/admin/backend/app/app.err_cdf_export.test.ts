@@ -26,7 +26,8 @@ import {
   safeParseJson,
   type CandidateContest,
 } from '@vx/libs/types/src';
-import { assert, assertDefined, find } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { type Client } from '@vx/libs/grout/src';
 import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
 import {

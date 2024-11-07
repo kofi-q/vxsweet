@@ -1,6 +1,6 @@
 import * as fc from 'fast-check';
 import { sha256 } from 'js-sha256';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import {
   ballotPaperDimensions,
   getBallotStyle,

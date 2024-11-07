@@ -4,7 +4,7 @@ import path from 'node:path';
 import { Readable, Stream } from 'node:stream';
 import { FileResult, fileSync } from 'tmp';
 import { z } from 'zod';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { unsafeParse } from '@vx/libs/types/src';
 
 import {

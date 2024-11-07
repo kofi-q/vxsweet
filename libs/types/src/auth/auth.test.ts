@@ -1,4 +1,4 @@
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { constructElectionKey } from './auth';
 import { election } from '../../test/election';
 

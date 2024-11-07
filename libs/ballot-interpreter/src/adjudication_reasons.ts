@@ -10,7 +10,7 @@ import {
   type VotesDict,
   WriteInAreaStatus,
 } from '@vx/libs/types/src';
-import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 
 function rankMarkStatus(markStatus: MarkStatus): number {

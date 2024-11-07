@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { type AnyContest } from '@vx/libs/types/src';
 
 // Maps the number of candidates in a contest to the index at which to rotate

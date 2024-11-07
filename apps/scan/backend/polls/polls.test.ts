@@ -1,5 +1,5 @@
 import { LogEventId, mockLogger } from '@vx/libs/logging/src';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import { openPolls } from './polls';
 import { Store } from '../store/store';
 

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';

@@ -29,7 +29,8 @@ import {
   EventObject,
 } from 'xstate';
 import { Buffer } from 'node:buffer';
-import { type Optional, assert, assertDefined } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   type ElectionDefinition,
   type MarkThresholds,

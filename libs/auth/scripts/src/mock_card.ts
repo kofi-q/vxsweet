@@ -1,10 +1,7 @@
 import yargs from 'yargs/yargs';
-import {
-  assert,
-  extractErrorMessage,
-  type Optional,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { type Optional } from '@vx/libs/basics/types';
 import { readElection } from '@vx/libs/fs/src';
 
 import { type ElectionKey } from '@vx/libs/types/src/auth';

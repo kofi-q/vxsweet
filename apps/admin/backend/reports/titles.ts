@@ -1,12 +1,7 @@
 import { Admin, Tabulation, type ElectionDefinition } from '@vx/libs/types/src';
-import {
-  type Result,
-  err,
-  ok,
-  assertDefined,
-  throwIllegalValue,
-  find,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import {
   getDistrictById,
   getPartyById,

@@ -1,5 +1,5 @@
 import { type AnyContest, type ContestOption } from '@vx/libs/types/src';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 /**
  * Enumerates all contest options in the order they would appear on a HMPB.

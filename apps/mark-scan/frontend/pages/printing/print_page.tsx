@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Icons, P } from '@vx/libs/ui/primitives';
 import { useCurrentLanguage } from '@vx/libs/ui/ui_strings';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';

@@ -1,5 +1,6 @@
 import { Buffer } from 'node:buffer';
-import { assert, err, ok } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import fc from 'fast-check';
 import { byteArrayWithLengthPrefix } from './byte_array_with_length_prefix';
 import { uint8 } from './uint8_coder';

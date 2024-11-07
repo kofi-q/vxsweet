@@ -1,4 +1,4 @@
-import { mapObject } from '@vx/libs/basics/src';
+import { mapObject } from '@vx/libs/basics/objects';
 import { UiString } from '@vx/libs/ui/ui_strings/ui_string';
 
 export const hmpbStringsCatalog = {

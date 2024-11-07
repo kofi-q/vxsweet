@@ -11,7 +11,7 @@ import {
   isVendorAuth,
 } from '@vx/libs/utils/src';
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { useState } from 'react';
 import { LoadingConfigurationScreen } from '../screens/configuration/loading_configuration_screen';
 import { ElectionManagerScreen } from '../screens/election-manager/screen';

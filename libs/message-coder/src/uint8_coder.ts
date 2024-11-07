@@ -1,4 +1,4 @@
-import { type Result, ok, resultBlock } from '@vx/libs/basics/src';
+import { type Result, ok, resultBlock } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import { MAX_UINT8, MIN_UINT8 } from './constants';
 import {

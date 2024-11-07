@@ -1,5 +1,5 @@
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
-import { assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { Logger, LogEventId, type LogLine } from '@vx/libs/logging/src';
 import {
   type ScannerClient,

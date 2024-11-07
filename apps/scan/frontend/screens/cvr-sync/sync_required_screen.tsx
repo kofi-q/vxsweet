@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import {
   FullScreenIconWrapper,

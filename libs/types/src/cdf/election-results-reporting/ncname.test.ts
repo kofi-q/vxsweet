@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { election } from '../../../test/election';
 import { type Candidate, type PartyId } from '../../election';
 import {

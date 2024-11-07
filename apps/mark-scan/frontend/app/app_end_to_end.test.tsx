@@ -11,7 +11,7 @@ import {
 } from '@vx/libs/types/src';
 import { constructElectionKey } from '@vx/libs/types/src/auth';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 
 import { App } from './app';

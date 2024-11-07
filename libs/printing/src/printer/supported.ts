@@ -1,7 +1,7 @@
 import { type PrinterConfig } from '@vx/libs/types/src';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 
 export const PrinterConfigSchema: z.ZodSchema<PrinterConfig> = z.object({
   label: z.string(),

@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import { type ElectionDefinition } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import React from 'react';
 
 interface PreviewContextValues {

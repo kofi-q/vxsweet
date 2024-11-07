@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 
 import { createInterface } from 'node:readline';
-import { assert, assertDefined, sleep } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { getPaperHandlerDriver } from '../driver/helpers';

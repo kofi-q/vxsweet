@@ -1,5 +1,5 @@
 import { QueryClient } from '@tanstack/react-query';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { renderHook, waitFor } from '../test/react_testing_library';
 import {

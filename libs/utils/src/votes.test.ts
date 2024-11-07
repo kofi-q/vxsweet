@@ -11,7 +11,8 @@ import {
   type WriteInCandidate,
   type YesNoContest,
 } from '@vx/libs/types/src';
-import { find, typedAs } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   convertMarksToVotesDict,
   getContestVoteOptionsForCandidateContest,

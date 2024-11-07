@@ -1,4 +1,5 @@
-import { err, ok, typedAs } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { writeFileSync } from 'node:fs';
 import { makeTmpFile } from '../test/utils';

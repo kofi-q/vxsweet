@@ -1,19 +1,13 @@
 import {
   assert,
   assertDefined,
-  DateWithoutTime,
-  duplicates,
-  err,
-  find,
-  groupBy,
-  ok,
-  type Optional,
-  type Result,
   throwIllegalValue,
-  unique,
-  wrapException,
-} from '@vx/libs/basics/src';
-import { iter, naturals } from '@vx/libs/basics/src/iterators';
+} from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { duplicates, find, groupBy, unique } from '@vx/libs/basics/collections';
+import { err, ok, type Result, wrapException } from '@vx/libs/basics/result';
+import { type Optional } from '@vx/libs/basics/types';
+import { iter, naturals } from '@vx/libs/basics/iterators';
 import setWith from 'lodash.setwith';
 import * as Cdf from '.';
 import * as Vxf from '../../election';

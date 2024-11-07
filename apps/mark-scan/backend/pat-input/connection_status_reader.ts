@@ -3,7 +3,7 @@
 
 import * as fs from 'node:fs/promises';
 import { open as fsOpen } from '@vx/libs/fs/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Buffer } from 'node:buffer';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import { join } from 'node:path';

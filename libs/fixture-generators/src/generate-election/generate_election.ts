@@ -1,9 +1,7 @@
-import {
-  assertDefined,
-  DateWithoutTime,
-  mergeObjects,
-  range,
-} from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { mergeObjects } from '@vx/libs/basics/objects';
+import { range } from '@vx/libs/basics/collections';
 import {
   type AnyContest,
   HmpbBallotPaperSize,

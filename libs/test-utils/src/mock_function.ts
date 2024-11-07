@@ -1,6 +1,7 @@
 import { inspect } from 'node:util';
 import { diff } from 'jest-diff';
-import { assertDefined, deepEqual } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunc = (...args: any[]) => any;

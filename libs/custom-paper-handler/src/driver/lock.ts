@@ -1,4 +1,5 @@
-import { assert, deferred } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { deferred } from '@vx/libs/basics/async';
 
 export class Lock {
   private inUse = false;

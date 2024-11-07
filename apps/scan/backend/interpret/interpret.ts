@@ -2,7 +2,7 @@ import {
   type InterpreterOptions,
   interpretSheetAndSaveImages,
 } from '@vx/libs/ballot-interpreter/src';
-import { ok, type Result } from '@vx/libs/basics/src';
+import { ok, type Result } from '@vx/libs/basics/result';
 import {
   AdjudicationReason,
   type AdjudicationReasonInfo,

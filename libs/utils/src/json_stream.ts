@@ -1,4 +1,4 @@
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 
 type MaybeAsyncIterable<T> = Iterable<T> | AsyncIterable<T>;
 

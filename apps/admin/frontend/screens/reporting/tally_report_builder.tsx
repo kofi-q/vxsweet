@@ -1,6 +1,6 @@
 import { P } from '@vx/libs/ui/primitives';
 import { useContext, useState } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { isFilterEmpty, isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
 import { Admin, Tabulation } from '@vx/libs/types/src';

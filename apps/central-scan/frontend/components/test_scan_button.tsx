@@ -2,7 +2,7 @@ import { Button } from '@vx/libs/ui/buttons';
 import { Font, P, Loading } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';
 import React from 'react';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { getStatus, performScanDiagnostic } from '../api/api';
 
 function TestScanModal({

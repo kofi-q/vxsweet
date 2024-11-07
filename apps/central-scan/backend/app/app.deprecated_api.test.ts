@@ -18,7 +18,7 @@ import * as fs from 'node:fs/promises';
 import request from 'supertest';
 import { dirSync } from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   buildMockDippedSmartCardAuth,
   type DippedSmartCardAuthApi,

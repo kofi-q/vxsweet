@@ -6,7 +6,7 @@ import {
   Tabulation,
 } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   type MockCastVoteRecordFile,

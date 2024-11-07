@@ -16,7 +16,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type SheetInterpretation,
 } from '@vx/libs/types/src';
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   mockElectionManagerUser,
   mockOf,

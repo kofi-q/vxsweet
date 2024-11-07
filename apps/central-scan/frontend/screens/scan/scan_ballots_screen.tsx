@@ -6,7 +6,7 @@ import { TD, Table } from '@vx/libs/ui/src';
 import { Modal } from '@vx/libs/ui/modal';
 import { type BatchInfo } from '@vx/libs/types/src';
 import styled from 'styled-components';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { type ScanStatus } from '../../../backend/types/types';
 import { DeleteBatchModal } from '../../components/delete_batch_modal';
 import { NavigationScreen } from '../nav/navigation_screen';

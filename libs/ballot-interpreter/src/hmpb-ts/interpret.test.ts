@@ -1,5 +1,7 @@
-import { assertDefined, ok, unique } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { ok } from '@vx/libs/basics/result';
+import { unique } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import { ImageData } from 'canvas';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {

@@ -15,7 +15,7 @@ ts_library(
         "//apps/central-scan/frontend/components",
         "//apps/central-scan/frontend/contexts",
         "//apps/central-scan/frontend/screens/nav",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/ui/auth-screens",
         "//libs/ui/ballots",
         "//libs/ui/buttons",
@@ -41,7 +41,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/central-scan/frontend/screens/settings",
         "//apps/central-scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
     ],
 )
 

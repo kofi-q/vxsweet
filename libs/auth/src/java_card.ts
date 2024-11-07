@@ -2,7 +2,8 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs/promises';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';
-import { assert, type Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { type Optional } from '@vx/libs/basics/types';
 import { type Byte } from '@vx/libs/types/src';
 import {
   type ElectionManagerUser,

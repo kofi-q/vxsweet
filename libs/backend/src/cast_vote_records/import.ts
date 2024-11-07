@@ -2,14 +2,9 @@ import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
-import {
-  assert,
-  assertDefined,
-  err,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
-import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/iterators';
 import {
   type BallotPageLayout,
   CastVoteRecordExportFileName,

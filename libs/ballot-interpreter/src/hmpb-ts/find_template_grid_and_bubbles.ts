@@ -1,5 +1,5 @@
 import { ImageData } from 'canvas';
-import { type Result, err, ok } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
 import { type SheetOf } from '@vx/libs/types/src';
 import { findTemplateGridAndBubbles as findTemplateGridAndBubblesImpl } from './rust_addon';
 import {

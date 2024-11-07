@@ -1,7 +1,7 @@
 jest.mock('usb');
 
 import { Buffer } from 'node:buffer';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { mocks } from '@vx/libs/custom-scanner/src';
 import { findByIds, WebUSBDevice } from 'usb';
 import { type Uint16 } from '@vx/libs/message-coder/src';

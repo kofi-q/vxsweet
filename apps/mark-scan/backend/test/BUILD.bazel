@@ -22,7 +22,7 @@ ts_library(
         "//libs/auth/src",
         "//libs/backend/src",
         "//libs/ballot-interpreter/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/custom-paper-handler/src",
         "//libs/fixtures/src",
         "//libs/grout/src",

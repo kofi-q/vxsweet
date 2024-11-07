@@ -2,14 +2,12 @@ import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import {
   assert,
   assertDefined,
-  find,
-  ok,
-  type Ok,
-  type Result,
   throwIllegalValue,
-  typedAs,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+} from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { ok, type Ok, type Result } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
+import { iter } from '@vx/libs/basics/iterators';
 import { fromGrayScale } from '@vx/libs/image-utils/src';
 import {
   type AdjudicationInfo,

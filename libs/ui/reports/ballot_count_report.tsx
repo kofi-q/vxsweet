@@ -1,11 +1,11 @@
 import { Admin, Tabulation, type ElectionDefinition } from '@vx/libs/types/src';
+import { type Optional } from '@vx/libs/basics/types';
 import {
-  type Optional,
   assert,
   assertDefined,
   throwIllegalValue,
-  find,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import styled, { ThemeProvider } from 'styled-components';
 import {
   combineCardCounts,

@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { type FujitsuPrintResult, type Printer } from './printer';

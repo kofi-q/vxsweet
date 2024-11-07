@@ -1,4 +1,4 @@
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import fc from 'fast-check';
 import { arbitraryStatusInternalMessage } from '../test/arbitraries';
 import { StatusInternalMessage } from './protocol';

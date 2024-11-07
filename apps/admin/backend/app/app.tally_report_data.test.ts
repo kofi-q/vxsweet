@@ -24,7 +24,8 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
 import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
 import { mockOf } from '@vx/libs/test-utils/src';

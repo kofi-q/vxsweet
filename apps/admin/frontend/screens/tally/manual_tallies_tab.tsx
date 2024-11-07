@@ -1,5 +1,6 @@
-import { assert, find } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components';
 

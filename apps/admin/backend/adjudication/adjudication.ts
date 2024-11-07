@@ -1,4 +1,8 @@
-import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import {
+  assert,
+  assertDefined,
+  throwIllegalValue,
+} from '@vx/libs/basics/assert';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import {
   type VoteAdjudication,

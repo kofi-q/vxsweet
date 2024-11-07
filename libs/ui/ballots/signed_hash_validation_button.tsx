@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type SignedHashValidationQrCodeValue } from '@vx/libs/types/src/auth';
 
 import { DateTime } from 'luxon';

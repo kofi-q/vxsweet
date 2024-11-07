@@ -8,7 +8,8 @@ ts_library(
     deps = [
         "//libs/auth/src",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/collections",
         "//libs/db/src",
         "//libs/fixtures/src",
         "//libs/fs/src",

@@ -16,7 +16,7 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import { type PollsState } from '@vx/libs/types/src';
 import { screen, render } from '../../test/react_testing_library';
 import {

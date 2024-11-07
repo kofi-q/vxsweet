@@ -1,6 +1,6 @@
 jest.mock('../utils/exec');
 
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { Buffer } from 'node:buffer';
 import { exec } from '../utils/exec';

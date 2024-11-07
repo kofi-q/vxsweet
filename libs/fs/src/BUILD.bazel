@@ -9,7 +9,8 @@ ts_library(
     deps = [
         "//:node_modules/@types/node",
         "//:node_modules/zod",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
         "//libs/types/src",
     ],
 )
@@ -23,7 +24,9 @@ ts_tests(
         "//:node_modules/@types/tmp",
         "//:node_modules/fast-check",
         "//:node_modules/tmp",
-        "//libs/basics/src",
+        "//libs/basics/iterators",
+        "//libs/basics/result",
+        "//libs/basics/types",
         "//libs/fixtures/src",
         "//libs/fs/src",
         "//libs/fs/test",
