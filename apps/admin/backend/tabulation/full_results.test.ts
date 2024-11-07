@@ -24,8 +24,8 @@ import { assert } from '@vx/libs/basics/assert';
 import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import {
   tabulateCastVoteRecords,

@@ -5,8 +5,11 @@ import {
 } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+import {
+  type BallotStyleId,
+  getContestDistrictName,
+  constructElectionKey,
+} from '@vx/libs/types/elections';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 import * as GLOBALS from '../config/globals';

@@ -29,7 +29,7 @@ ts_library(
         "//libs/image-utils/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
     ],
 )

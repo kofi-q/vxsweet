@@ -5,8 +5,8 @@ import {
   type HmpbBallotPageMetadata,
   type Precinct,
   type SheetOf,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type Result, ok, err } from '@vx/libs/basics/result';
 

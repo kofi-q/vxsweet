@@ -14,7 +14,10 @@ import {
   mockSessionExpiresAt,
   mockSystemAdministratorUser,
 } from '@vx/libs/test-utils/src';
-import { ballotPaperDimensions, HmpbBallotPaperSize } from '@vx/libs/types/src';
+import {
+  ballotPaperDimensions,
+  HmpbBallotPaperSize,
+} from '@vx/libs/types/elections';
 import { iter } from '@vx/libs/basics/iterators';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { LogEventId } from '@vx/libs/logging/src';

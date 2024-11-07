@@ -2,8 +2,8 @@ import {
   type BallotStyleGroupId,
   type ContestId,
   type PrecinctId,
-  type PromiseOr,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PromiseOr } from '@vx/libs/types/basic';
 import { type ManualResultsVotingMethod } from '../../backend/types/types';
 
 // Events

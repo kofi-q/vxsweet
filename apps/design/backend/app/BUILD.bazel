@@ -27,7 +27,9 @@ ts_library(
         "//libs/grout/src",
         "//libs/hmpb/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
     ],
 )
 

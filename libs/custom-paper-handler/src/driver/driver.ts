@@ -19,7 +19,7 @@ import {
   ImageData,
   writeImageData,
 } from '@vx/libs/image-utils/src';
-import { type Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/geometry';
 import {
   assertNumberIsInRangeInclusive,
   assertUint16,

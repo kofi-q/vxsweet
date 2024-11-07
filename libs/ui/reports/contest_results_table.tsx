@@ -5,8 +5,8 @@ import {
   type Election,
   getContestDistrictName,
   type AnyContest,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { format } from '@vx/libs/utils/src';
 import { getTallyReportCandidateRows } from '@vx/libs/utils/src/tabulation';
 import { throwIllegalValue, assert } from '@vx/libs/basics/assert';

@@ -2,7 +2,7 @@ import { detect as qrdetect } from '@votingworks/qrdetect';
 import { decode as quircDecode, QRCode } from 'node-quirc';
 import { isVxBallot } from '@vx/libs/ballot-encoder/src';
 import { ImageData, crop } from '@vx/libs/image-utils/src';
-import { type Rect, type Size } from '@vx/libs/types/src';
+import { type Rect, type Size } from '@vx/libs/types/geometry';
 import { Buffer } from 'node:buffer';
 import makeDebug from 'debug';
 import { type Optional } from '@vx/libs/basics/types';

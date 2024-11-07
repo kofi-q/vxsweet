@@ -12,11 +12,13 @@ import {
   ballotPaperDimensions,
   type SheetOf,
   mapSheet,
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/elections';
+import {
   PrecinctScannerError,
   type PrecinctScannerMachineStatus,
   type SheetInterpretation,
-} from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/scanning';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { time, type Timer } from '@vx/libs/utils/src';
 import assert from 'node:assert';

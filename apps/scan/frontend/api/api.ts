@@ -17,7 +17,7 @@ import {
 import { USB_DRIVE_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/usb';
 import { createSystemCallApi } from '@vx/libs/ui/system-calls';
 import { createUiStringsApi } from '@vx/libs/ui/ui_strings/api';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 
 const PRINTER_STATUS_POLLING_INTERVAL_MS = 100;
 

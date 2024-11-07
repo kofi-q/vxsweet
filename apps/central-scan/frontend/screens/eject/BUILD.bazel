@@ -16,7 +16,8 @@ ts_library(
         "//libs/api/src",
         "//libs/basics/assert",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/ui/buttons",
         "//libs/ui/modal",
         "//libs/ui/primitives",
@@ -44,7 +45,7 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

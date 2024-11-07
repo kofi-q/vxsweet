@@ -20,9 +20,6 @@ import {
   AdjudicationReason,
   type BallotStyleId,
   DEFAULT_MARK_THRESHOLDS,
-  type InterpretedBmdPage,
-  type InvalidBallotHashPage,
-  type PageInterpretation,
   type PrecinctId,
   type SheetOf,
   type VotesDict,
@@ -31,7 +28,12 @@ import {
   getContests,
   mapSheet,
   vote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import {
+  type InterpretedBmdPage,
+  type InvalidBallotHashPage,
+  type PageInterpretation,
+} from '@vx/libs/types/scanning';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,

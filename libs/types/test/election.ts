@@ -3,9 +3,9 @@ import {
   type BallotStyle,
   type Election,
   PartyIdSchema,
-} from '../src/election';
-import { safeParseElection } from '../src/election_parsing';
-import { unsafeParse } from '../src/generic';
+} from '../elections/election';
+import { safeParseElection } from '../election-parsing/election_parsing';
+import { unsafeParse } from '../basic/generic';
 
 export const electionData = `
 {

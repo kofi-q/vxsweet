@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { TextToSpeechClient as GoogleCloudTextToSpeechClient } from '@google-cloud/text-to-speech';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { parse as parseHtml, Node, HTMLElement } from 'node-html-parser';
 
 import { Store } from '../../store/store';

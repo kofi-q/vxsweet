@@ -4,7 +4,7 @@ import {
 } from '@vx/libs/utils/src';
 import { join } from 'node:path';
 import { readFile } from '@vx/libs/fs/src';
-import { safeParseInt } from '@vx/libs/types/src';
+import { safeParseInt } from '@vx/libs/types/basic';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { type BmdModelNumber } from '../types/types';
 

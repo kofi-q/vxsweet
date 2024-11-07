@@ -27,7 +27,11 @@ ts_library(
         "//libs/basics/objects",
         "//libs/basics/time",
         "//libs/basics/types",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/languages",
+        "//libs/types/tabulation",
+        "//libs/types/ui_strings",
     ],
 )
 
@@ -41,7 +45,8 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/election-parsing",
     ],
 )
 

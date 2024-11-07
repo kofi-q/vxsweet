@@ -38,7 +38,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { type SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/elections';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,

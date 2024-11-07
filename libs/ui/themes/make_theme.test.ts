@@ -2,7 +2,7 @@ import {
   type ColorMode,
   type ColorString,
   type SizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 import { DesktopPalette, TouchscreenPalette, makeTheme } from './make_theme';
 

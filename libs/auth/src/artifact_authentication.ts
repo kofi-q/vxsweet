@@ -9,8 +9,8 @@ import { extractErrorMessage } from '@vx/libs/basics/errors';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordExportMetadataSchema,
-  safeParseJson,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { safeParseJson } from '@vx/libs/types/basic';
 
 import { computeCastVoteRecordRootHashFromScratch } from './cast_vote_record_hashes';
 import { parseCert } from './certs';

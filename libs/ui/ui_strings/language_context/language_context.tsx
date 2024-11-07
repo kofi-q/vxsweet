@@ -2,7 +2,8 @@ import React from 'react';
 import i18next, { InitOptions, i18n } from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
-import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { mapObject } from '@vx/libs/basics/objects';

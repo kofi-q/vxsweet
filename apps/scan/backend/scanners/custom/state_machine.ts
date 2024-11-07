@@ -20,13 +20,12 @@ import {
 } from '@vx/libs/custom-scanner/src';
 import { fromGrayScale, ImageData } from '@vx/libs/image-utils/src';
 import { Logger, LogEventId, type LogLine } from '@vx/libs/logging/src';
+import { mapSheet, type SheetOf } from '@vx/libs/types/elections';
 import {
-  mapSheet,
-  type SheetOf,
   PrecinctScannerError,
   type PrecinctScannerMachineStatus,
   type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { v4 as uuid } from 'uuid';
 import {

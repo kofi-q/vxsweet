@@ -7,9 +7,9 @@ import {
   type ElectionPackageMetadata,
   type Election,
   formatElectionHashes,
-  type Id,
-  mergeUiStrings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { mergeUiStrings } from '@vx/libs/types/ui_strings';
 
 import {
   createPlaywrightRenderer,

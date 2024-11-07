@@ -13,8 +13,8 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type Election,
   type ElectionId,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { generateId } from '../util/utils';
 
 export function makeElectionRecord(baseElection: Election): ElectionRecord {

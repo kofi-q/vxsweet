@@ -10,7 +10,7 @@ import {
 import { Main, Screen } from '@vx/libs/ui/screens';
 import { useScreenInfo } from '@vx/libs/ui/themes';
 import { VoterSettings } from '@vx/libs/ui/voter_settings';
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 
 import { VoterSettingsButton } from './voter_settings_button';
 

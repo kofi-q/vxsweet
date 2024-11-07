@@ -1,4 +1,5 @@
-import { LanguageCode, type UiStringsPackage } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
 import { act } from 'react';
 import {
   render as renderWithoutContext,

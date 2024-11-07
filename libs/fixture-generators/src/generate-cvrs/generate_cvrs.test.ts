@@ -7,7 +7,7 @@ import {
   BallotType,
   getBallotStyle,
   getContests,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { getCastVoteRecordBallotType } from '@vx/libs/utils/src';

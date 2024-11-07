@@ -1,7 +1,7 @@
 import { tmpNameSync } from 'tmp';
 import { writeFileSync } from 'node:fs';
 import { Client } from '@vx/libs/db/src';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import {
   DIAGNOSTICS_TABLE_SCHEMA,
   addDiagnosticRecord,

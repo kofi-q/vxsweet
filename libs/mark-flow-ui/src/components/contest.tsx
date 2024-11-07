@@ -4,7 +4,7 @@ import {
   type Election,
   type OptionalYesNoVote,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { CandidateContest } from './candidate_contest';
 import { MsEitherNeitherContest } from './ms_either_neither_contest';
 import { YesNoContest } from './yes_no_contest';

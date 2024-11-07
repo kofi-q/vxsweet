@@ -3,7 +3,7 @@ import {
   type ElectionDefinition,
   type PrecinctSelection,
   type PollsState,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Main, Screen } from '@vx/libs/ui/screens';
 import { TestMode } from '@vx/libs/ui/test-mode';
 import { InsertCardImage } from '@vx/libs/ui/auth-screens';

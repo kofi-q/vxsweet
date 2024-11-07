@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { AudioOnly, NumberString, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 import { appStrings, electionStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { Caption, H2 } from '@vx/libs/ui/primitives';
-import { type Contest, type District } from '@vx/libs/types/src';
+import { type Contest, type District } from '@vx/libs/types/elections';
 import { type MsEitherNeitherContest } from '../utils/ms_either_neither_contests';
 
 export interface ContestHeaderProps {

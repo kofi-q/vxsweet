@@ -1,4 +1,4 @@
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 

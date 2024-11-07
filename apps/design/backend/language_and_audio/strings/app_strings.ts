@@ -1,12 +1,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { z } from 'zod';
-import {
-  LanguageCode,
-  safeParseJson,
-  type MachineVersion,
-  type UiStringsPackage,
-} from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { safeParseJson } from '@vx/libs/types/basic';
+import { type MachineVersion } from '@vx/libs/types/elections';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
 
 import { GoogleCloudTranslator } from '../translation/translator';
 import { setUiString } from '../utils/utils';

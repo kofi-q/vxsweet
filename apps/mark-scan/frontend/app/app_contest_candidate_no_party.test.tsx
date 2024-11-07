@@ -4,7 +4,7 @@ import {
   type BallotStyleId,
   type CandidateContest,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   asElectionDefinition,
   electionGeneralDefinition,

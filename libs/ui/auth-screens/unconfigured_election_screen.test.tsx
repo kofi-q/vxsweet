@@ -1,4 +1,4 @@
-import { type ElectionPackageConfigurationError } from '@vx/libs/types/src';
+import { type ElectionPackageConfigurationError } from '@vx/libs/types/elections';
 import { render, screen } from '../test/react_testing_library';
 
 import { UnconfiguredElectionScreen } from './unconfigured_election_screen';

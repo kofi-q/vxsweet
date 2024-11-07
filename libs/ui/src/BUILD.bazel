@@ -26,7 +26,7 @@ ts_library(
         "//libs/basics/iterators",
         "//libs/basics/objects",
         "//libs/basics/types",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/hooks",
         "//libs/ui/modal",

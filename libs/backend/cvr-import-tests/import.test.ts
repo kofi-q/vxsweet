@@ -12,7 +12,8 @@ import path from 'node:path';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { err } from '@vx/libs/basics/result';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { CastVoteRecordExportFileName, CVR } from '@vx/libs/types/src';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
   getCastVoteRecordExportSubDirectoryNames,

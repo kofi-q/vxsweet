@@ -1,0 +1,34 @@
+load("//tools/ts_build:json_package.bzl", "json_package")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "cast-vote-records",
+    deps = [
+        "//:node_modules/@antongolub/iso8601",
+        "//:node_modules/zod",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    data = [
+        "index.ts",
+        ":json",
+        "//libs/types/data",
+    ],
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//libs/basics/result",
+        "//libs/cdf-schema-builder/src",
+        "//libs/types/cdf/cast-vote-records",
+        "//libs/types/test",
+    ],
+)
+
+lint_test(name = "lint")
+
+json_package(name = "json")

@@ -15,7 +15,7 @@ import {
   type ElectionDefinition,
   type PrecinctSelection,
   type PollsState,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type MachineConfig } from '../../../backend/types/types';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {

@@ -12,7 +12,8 @@ ts_library(
         "//apps/design/backend/app",
         "//libs/grout/src",
         "//libs/hmpb/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
     ],
 )
 

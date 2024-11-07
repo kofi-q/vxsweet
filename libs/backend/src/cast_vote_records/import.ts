@@ -7,19 +7,20 @@ import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/iterators';
 import {
   type BallotPageLayout,
+  mapSheet,
+  type SheetOf,
+} from '@vx/libs/types/elections';
+import {
   CastVoteRecordExportFileName,
   type CastVoteRecordExportMetadata,
   CastVoteRecordExportMetadataSchema,
   CastVoteRecordReportWithoutMetadataSchema,
-  CVR,
-  mapSheet,
   type ReadCastVoteRecordError,
   type ReadCastVoteRecordExportError,
   type ReadCastVoteRecordExportMetadataError,
-  safeParseJson,
-  safeParseNumber,
-  type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
+import { safeParseJson, safeParseNumber } from '@vx/libs/types/basic';
 import {
   BooleanEnvironmentVariableName,
   type CastVoteRecordWriteIn,

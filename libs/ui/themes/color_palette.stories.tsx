@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { type ColorPalette } from '@vx/libs/types/src';
+import { type ColorPalette } from '@vx/libs/types/ui-theme';
 import { groupBy } from '@vx/libs/basics/collections';
 import { DesktopPalette, TouchscreenPalette } from './make_theme';
 

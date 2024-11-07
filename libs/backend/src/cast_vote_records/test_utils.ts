@@ -9,9 +9,9 @@ import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordReportWithoutMetadataSchema,
-  CVR,
-  safeParseJson,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
+import { safeParseJson } from '@vx/libs/types/basic';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   getExportedCastVoteRecordIds,

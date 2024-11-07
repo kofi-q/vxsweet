@@ -21,11 +21,11 @@ import {
   mockOf,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 import {
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import {
   getTestFilePath,

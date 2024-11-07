@@ -4,8 +4,8 @@ import { unique } from '@vx/libs/basics/collections';
 import {
   type ElectionDefinition,
   type SheetOf,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { mkdir, readFile, readdir } from 'node:fs/promises';
 import { ImageData, writeImageData } from '@vx/libs/image-utils/src';
 import { basename, join } from 'node:path';

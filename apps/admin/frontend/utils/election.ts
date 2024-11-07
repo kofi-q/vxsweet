@@ -3,7 +3,7 @@ import {
   type Party,
   type PartyId,
   type District,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { find, unique } from '@vx/libs/basics/collections';
 
 export function getPartiesWithPrimaryElections(election: Election): Party[] {

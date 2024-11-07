@@ -14,9 +14,9 @@ import {
   type Election,
   getBallotStyle,
   getContests,
-  LanguageCode,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { join } from 'node:path';
 import makeDebug from 'debug';
 import { pdfToImages } from '@vx/libs/image-utils/src';

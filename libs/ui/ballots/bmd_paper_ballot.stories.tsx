@@ -5,11 +5,13 @@ import {
   type Election,
   type YesNoContest,
   getContests,
-  safeParseElectionDefinition,
-  LanguageCode,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
   ElectionStringKey,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import styled from 'styled-components';
 import { electionGeneral } from '@vx/libs/fixtures/src';

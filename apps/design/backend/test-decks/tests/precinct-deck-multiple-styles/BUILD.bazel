@@ -14,7 +14,8 @@ ts_tests(
         "//libs/fs/src",
         "//libs/hmpb/src",
         "//libs/image-test-utils",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/languages",
         "//libs/utils/src",
     ],
 )

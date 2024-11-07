@@ -4,7 +4,7 @@ import {
   type CvrFileImportInfo,
   type ManualResultsMetadata,
 } from '../../backend/types/types';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 
 export const mockCastVoteRecordFileRecord: CastVoteRecordFileRecord = {
   id: '',

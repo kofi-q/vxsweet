@@ -20,7 +20,12 @@ ts_library(
         "//libs/basics/types",
         "//libs/db/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/admin",
+        "//libs/types/basic",
+        "//libs/types/diagnostics",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )
@@ -41,7 +46,8 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )

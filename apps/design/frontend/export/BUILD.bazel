@@ -15,7 +15,7 @@ ts_library(
         "//apps/design/frontend/routes",
         "//apps/design/frontend/util",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/checkbox",
         "//libs/ui/hooks",

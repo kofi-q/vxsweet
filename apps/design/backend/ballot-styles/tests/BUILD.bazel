@@ -12,7 +12,9 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/hmpb/src",
         "//libs/image-test-utils",
-        "//libs/types/src",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/languages",
         "//libs/utils/src",
     ],
 )

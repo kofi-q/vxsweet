@@ -7,8 +7,8 @@ import {
   type IppPrinterState,
   type IppPrinterStateReason,
   type PrinterRichStatus,
-  safeParseInt,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/printing';
+import { safeParseInt } from '@vx/libs/types/basic';
 import { exec } from '../utils/exec';
 import { rootDebug } from '../utils/debug';
 

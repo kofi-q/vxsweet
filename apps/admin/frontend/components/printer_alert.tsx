@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { type PrinterRichStatus } from '@vx/libs/types/src';
+import { type PrinterRichStatus } from '@vx/libs/types/printing';
 import { Button } from '@vx/libs/ui/buttons';
 import { Icons, P } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';

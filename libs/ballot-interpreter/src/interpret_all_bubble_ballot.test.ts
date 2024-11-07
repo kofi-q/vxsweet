@@ -9,7 +9,7 @@ import {
   type CandidateVote,
   DEFAULT_MARK_THRESHOLDS,
   type ElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { pdfToPageImages, sortVotesDict } from '../test/helpers/interpretation';
 import { interpretSheet } from './interpret';

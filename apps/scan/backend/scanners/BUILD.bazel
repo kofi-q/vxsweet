@@ -17,7 +17,9 @@ ts_library(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/cvrs",
+        "//libs/types/scanning",
         "//libs/usb-drive/src",
     ],
 )

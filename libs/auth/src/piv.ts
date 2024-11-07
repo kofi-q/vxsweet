@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import { assert } from '@vx/libs/basics/assert';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 
 import { STATUS_WORD } from './apdu';
 

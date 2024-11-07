@@ -15,7 +15,7 @@ ts_library(
         "//apps/central-scan/frontend/contexts",
         "//libs/basics/assert",
         "//libs/basics/iterators",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/cvrs",
         "//libs/ui/modal",

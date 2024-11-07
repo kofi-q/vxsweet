@@ -6,7 +6,7 @@ import {
 } from '@vx/libs/bmd-ballot-fixtures/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { loadImageData } from '@vx/libs/image-utils/src';
-import { DEFAULT_MARK_THRESHOLDS, asSheet } from '@vx/libs/types/src';
+import { DEFAULT_MARK_THRESHOLDS, asSheet } from '@vx/libs/types/elections';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { tmpDir } from '../test/helpers/tmp';

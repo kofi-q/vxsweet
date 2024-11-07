@@ -6,7 +6,7 @@ ts_library(
     deps = [
         "//:node_modules/@types/styled-components",
         "//:node_modules/styled-components",
-        "//libs/types/src",
+        "//libs/types/ui-theme",
     ],
 )
 

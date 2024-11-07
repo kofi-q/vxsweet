@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { DateWithoutTime } from '@vx/libs/basics/time';
-import { type ElectionId } from '@vx/libs/types/src';
+import { type ElectionId } from '@vx/libs/types/elections';
 import {
   UnlockMachineScreen as UnlockMachineScreenComponent,
   type UnlockMachineScreenProps,

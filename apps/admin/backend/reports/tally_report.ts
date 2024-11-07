@@ -1,4 +1,5 @@
-import { Admin, Tabulation } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import React from 'react';
 import { combineGroupSpecifierAndFilter } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/assert';

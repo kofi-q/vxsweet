@@ -3,7 +3,10 @@ import {
   type PollsTransition,
   type PrecinctScannerPollsInfo,
 } from '../../../backend/types/types';
-import { type PollsState, type PollsTransitionType } from '@vx/libs/types/src';
+import {
+  type PollsState,
+  type PollsTransitionType,
+} from '@vx/libs/types/elections';
 
 /**
  * Because you can get to the opened state by either opening polls or resuming

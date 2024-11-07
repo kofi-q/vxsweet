@@ -5,7 +5,7 @@ import {
   useLanguageControls,
 } from '@vx/libs/ui/ui_strings';
 import { DefaultTheme, ThemeContext } from 'styled-components';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 export interface SessionSettingsManagerProps {
   startNewSession: () => void;

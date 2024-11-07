@@ -6,11 +6,13 @@ import { isNonExistentFileOrDirectoryError } from '@vx/libs/basics/errors';
 import {
   type BallotPageLayout,
   BallotPageLayoutSchema,
+  type SheetOf,
+} from '@vx/libs/types/elections';
+import {
   type ReadCastVoteRecordError,
   type ReferencedFileType,
-  safeParseJson,
-  type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { safeParseJson } from '@vx/libs/types/basic';
 
 /**
  * A file referenced by a cast vote record report

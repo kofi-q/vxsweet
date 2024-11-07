@@ -13,7 +13,8 @@ import {
 } from '@vx/libs/backend/src/cast_vote_records';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { BallotType, DEFAULT_SYSTEM_SETTINGS, CVR } from '@vx/libs/types/src';
+import { BallotType, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,

@@ -20,8 +20,9 @@ import {
   constructElectionKey,
   type UserWithCard,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
-import { type Election, type SystemSettings } from '@vx/libs/types/src';
+  type Election,
+  type SystemSettings,
+} from '@vx/libs/types/elections';
 import React, { useContext, useState } from 'react';
 import { NavigationScreen } from '../components/navigation_screen';
 import { AppContext } from '../contexts/app_context';

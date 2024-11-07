@@ -20,13 +20,12 @@ jest.mock('@vx/libs/hmpb/src', () => {
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { BallotType, type Election } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  BallotType,
-  type Election,
-  LanguageCode,
   type UiStringsPackage,
   mergeUiStrings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

@@ -16,7 +16,7 @@ import {
   useBallotStyleManager,
   useSessionSettingsManager,
 } from '@vx/libs/mark-flow-ui/src';
-import { type BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
 import { screen } from '../test/react_testing_library';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 import { render } from '../test/test_utils';

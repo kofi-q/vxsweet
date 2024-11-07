@@ -6,7 +6,7 @@ import { Readable } from 'node:stream';
 import { assert } from '@vx/libs/basics/assert';
 import { groupBy } from '@vx/libs/basics/collections';
 import { Client } from '@vx/libs/db/src';
-import { CastVoteRecordExportFileName } from '@vx/libs/types/src';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 import { getExportedCastVoteRecordIds } from '@vx/libs/utils/src';
 
 /**

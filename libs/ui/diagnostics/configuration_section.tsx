@@ -6,8 +6,8 @@ import {
   formatElectionHashes,
   getPrecinctById,
   type PrecinctSelection,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { format, getGroupedBallotStyles } from '@vx/libs/utils/src';

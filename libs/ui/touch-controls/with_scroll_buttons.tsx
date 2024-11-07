@@ -7,7 +7,7 @@ import {
   type SizeMode,
   type TouchSizeMode,
   isTouchSizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 import { assert } from '@vx/libs/basics/assert';
 import { Button } from '../buttons/button';
 import { Icons } from '../primitives/icons';

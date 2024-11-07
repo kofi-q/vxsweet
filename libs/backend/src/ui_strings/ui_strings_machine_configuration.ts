@@ -1,6 +1,7 @@
 /* istanbul ignore file - tested via VxSuite apps. */
 
-import { type ElectionPackage, LanguageCode } from '@vx/libs/types/src';
+import { type ElectionPackage } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { type UiStringsStore } from './ui_strings_store';
 

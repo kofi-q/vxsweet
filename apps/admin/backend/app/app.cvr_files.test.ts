@@ -21,11 +21,8 @@ import {
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
 import { LogEventId } from '@vx/libs/logging/src';
-import {
-  CVR,
-  CVR as CVRType,
-  CastVoteRecordExportFileName,
-} from '@vx/libs/types/src';
+import { CVR, CVR as CVRType } from '@vx/libs/types/cdf';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 import path, { basename } from 'node:path';
 import {
   BooleanEnvironmentVariableName,

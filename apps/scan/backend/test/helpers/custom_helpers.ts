@@ -28,7 +28,7 @@ import {
   isRgba,
 } from '@vx/libs/image-utils/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
-import { type SheetOf, mapSheet } from '@vx/libs/types/src';
+import { type SheetOf, mapSheet } from '@vx/libs/types/elections';
 import { Application } from 'express';
 import { Server } from 'node:http';
 import { AddressInfo } from 'node:net';

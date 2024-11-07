@@ -11,11 +11,9 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
   type BallotStyleId,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import * as grout from '@vx/libs/grout/src';
 
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';

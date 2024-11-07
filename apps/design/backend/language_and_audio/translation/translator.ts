@@ -1,7 +1,10 @@
 import { TranslationServiceClient as GoogleCloudTranslationClient } from '@google-cloud/translate';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
-import { LanguageCode, type NonEnglishLanguageCode } from '@vx/libs/types/src';
+import {
+  LanguageCode,
+  type NonEnglishLanguageCode,
+} from '@vx/libs/types/languages';
 
 import { Store } from '../../store/store';
 import { GOOGLE_CLOUD_PROJECT_ID } from '../gcloud/google_cloud_config';

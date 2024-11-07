@@ -5,7 +5,7 @@ ts_library(
     name = "logging",
     deps = [
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

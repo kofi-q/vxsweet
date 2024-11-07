@@ -1,4 +1,5 @@
-import { LanguageCode, type UiStringAudioClips } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type UiStringAudioClips } from '@vx/libs/types/ui_strings';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { act } from 'react';
 import { renderHook, waitFor } from '../../test/react_testing_library';

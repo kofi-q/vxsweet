@@ -6,17 +6,21 @@ import {
   type CandidateId,
   type PrecinctId,
   type BallotStyleGroupId,
+} from '@vx/libs/types/elections';
+import {
   type ReadCastVoteRecordExportError,
   type ReadCastVoteRecordError,
+} from '@vx/libs/types/cvrs';
+import {
   type Id,
   IdSchema,
   type Iso8601Timestamp,
   Iso8601TimestampSchema,
   Sha256Hash,
-  type Rect,
-  Tabulation,
-  Admin,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/basic';
+import { type Rect } from '@vx/libs/types/geometry';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { Admin } from '@vx/libs/types/admin';
 import * as z from 'zod';
 
 export {

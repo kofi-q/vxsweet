@@ -5,9 +5,9 @@ import {
 import {
   type BallotStyleGroupId,
   formatElectionHashes,
-  type Dictionary,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Dictionary } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { within } from '@testing-library/react';
 import { type Optional } from '@vx/libs/basics/types';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';

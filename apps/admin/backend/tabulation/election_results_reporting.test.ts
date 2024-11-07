@@ -1,5 +1,5 @@
 import { LogEventId, mockLogger } from '@vx/libs/logging/src';
-import { testElectionReport } from '@vx/libs/types/src';
+import { testElectionReport } from '@vx/libs/types/cdf';
 import { writeFile } from 'node:fs/promises';
 import { tmpNameSync } from 'tmp';
 import { assert } from 'node:console';

@@ -6,7 +6,7 @@ ts_library(
     name = "candidate-rotation",
     deps = [
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 
@@ -17,7 +17,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/design/backend/candidate-rotation",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

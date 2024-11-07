@@ -8,8 +8,8 @@ import {
 import {
   constructElectionKey,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
-import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+  DEFAULT_SYSTEM_SETTINGS,
+} from '@vx/libs/types/elections';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimary,

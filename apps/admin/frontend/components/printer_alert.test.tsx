@@ -1,4 +1,7 @@
-import { type PrinterRichStatus, type PrinterStatus } from '@vx/libs/types/src';
+import {
+  type PrinterRichStatus,
+  type PrinterStatus,
+} from '@vx/libs/types/printing';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,

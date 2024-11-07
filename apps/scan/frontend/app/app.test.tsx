@@ -16,8 +16,8 @@ import {
   AdjudicationReason,
   formatElectionHashes,
   type ElectionPackageConfigurationError,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import { type Result, err, ok } from '@vx/libs/basics/result';
 import { deferred } from '@vx/libs/basics/async';
 

@@ -11,7 +11,7 @@ import {
   isFeatureFlagEnabled,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
-import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { type Workspace } from './workspace';
 
 export function getDefaultAuth(logger: BaseLogger): InsertedSmartCardAuth {

@@ -3,11 +3,9 @@ import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { type Optional } from '@vx/libs/basics/types';
 import { type Result } from '@vx/libs/basics/result';
-import {
-  type ExportCastVoteRecordsToUsbDriveError,
-  type Id,
-  type SheetInterpretationWithPages,
-} from '@vx/libs/types/src';
+import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/cvrs';
+import { type Id } from '@vx/libs/types/basic';
+import { type SheetInterpretationWithPages } from '@vx/libs/types/scanning';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/src/cast_vote_records';
 import { ImageData } from 'canvas';

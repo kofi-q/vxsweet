@@ -16,7 +16,7 @@ import { getPollsReportTitle } from '@vx/libs/utils/src';
 import {
   type ElectionDefinition,
   type PollsTransitionType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import styled from 'styled-components';

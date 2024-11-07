@@ -12,7 +12,7 @@ ts_library(
         "//apps/mark-scan/frontend/components",
         "//apps/mark-scan/frontend/hooks",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/scanning",
         "//libs/ui/primitives",
         "//libs/ui/ui_strings/ui_string",
     ],
@@ -32,7 +32,8 @@ ts_tests(
         "//apps/mark-scan/frontend/pages/ballot-reinsertion",
         "//apps/mark-scan/frontend/test",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/ui/errors",
     ],
 )

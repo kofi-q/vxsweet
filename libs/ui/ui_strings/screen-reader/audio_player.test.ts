@@ -15,7 +15,8 @@ import type {
   ToneAudioBuffer,
 } from 'tone';
 
-import { LanguageCode, type UiStringAudioClip } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type UiStringAudioClip } from '@vx/libs/types/ui_strings';
 
 import { waitFor } from '../../test/react_testing_library';
 import {

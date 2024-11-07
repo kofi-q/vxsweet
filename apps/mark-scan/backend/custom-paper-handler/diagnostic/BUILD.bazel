@@ -16,7 +16,8 @@ ts_library(
         "//libs/basics/iterators",
         "//libs/fs/src",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

@@ -16,8 +16,8 @@ import {
   type Party,
   type PartyId,
   type Precinct,
-  safeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParse } from '@vx/libs/types/basic';
 import { customAlphabet } from 'nanoid';
 import { defaultConfig, type GenerateElectionConfig } from './config';
 import { ballotMeasureText, seal, words } from './source_text';

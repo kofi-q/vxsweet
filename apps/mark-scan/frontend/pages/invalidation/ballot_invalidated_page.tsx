@@ -1,4 +1,4 @@
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
 
 import { P } from '@vx/libs/ui/primitives';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';

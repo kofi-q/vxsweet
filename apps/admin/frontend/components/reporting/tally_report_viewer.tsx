@@ -1,4 +1,5 @@
-import { Admin, Tabulation } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { Button } from '@vx/libs/ui/buttons';
 import { Callout } from '@vx/libs/ui/src';
 import { H6 } from '@vx/libs/ui/primitives';

@@ -2,10 +2,12 @@ import {
   type BallotMetadata,
   type BallotStyleId,
   BallotType,
+} from '@vx/libs/types/elections';
+import {
   type BlankPage,
   type InterpretedBmdPage,
   type InterpretedHmpbPage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import {
   describeValidationError,
   validateSheetInterpretation,

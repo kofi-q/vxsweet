@@ -1,11 +1,11 @@
 import { Buffer } from 'node:buffer';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  Admin,
-  Tabulation,
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   GROUP_KEY_ROOT,
   buildManualResultsFixture,

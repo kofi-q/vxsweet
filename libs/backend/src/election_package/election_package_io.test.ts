@@ -13,20 +13,22 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
   type ElectionPackageMetadata,
-  LanguageCode,
   type SystemSettings,
+  safeParseSystemSettings,
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
   type UiStringAudioClips,
   type UiStringAudioIdsPackage,
   type UiStringsPackage,
+} from '@vx/libs/types/ui_strings';
+import {
   safeParseElection,
   safeParseElectionDefinition,
-  safeParseSystemSettings,
-  testCdfBallotDefinition,
-} from '@vx/libs/types/src';
-import {
-  InsertedSmartCardAuth,
-  constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/election-parsing';
+import { testCdfBallotDefinition } from '@vx/libs/types/cdf';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,

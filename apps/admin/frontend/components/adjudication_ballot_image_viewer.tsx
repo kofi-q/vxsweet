@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@vx/libs/ui/buttons';
 import styled from 'styled-components';
-import { type Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/geometry';
 
 const BallotImageViewerContainer = styled.div`
   position: relative;

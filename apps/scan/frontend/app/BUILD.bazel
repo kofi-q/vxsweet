@@ -60,7 +60,8 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/grout/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

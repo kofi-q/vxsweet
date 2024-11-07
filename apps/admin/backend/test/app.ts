@@ -15,11 +15,9 @@ import {
   type ElectionDefinition,
   ElectionPackageFileName,
   type SystemSettings,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import * as grout from '@vx/libs/grout/src';
 import { AddressInfo } from 'node:net';
 import { Buffer } from 'node:buffer';

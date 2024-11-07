@@ -17,8 +17,8 @@ import {
   AdjudicationReason,
   type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';

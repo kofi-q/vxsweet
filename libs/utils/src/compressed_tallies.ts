@@ -1,15 +1,14 @@
+import { type AnyContest, type Election } from '@vx/libs/types/elections';
 import {
-  type AnyContest,
   type CandidateContestCompressedTally,
   CandidateContestCompressedTallySchema,
   type CompressedTally,
   type CompressedTallyEntry,
-  type Election,
   Tabulation,
-  unsafeParse,
   type YesNoContestCompressedTally,
   YesNoContestCompressedTallySchema,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/tabulation';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { typedAs } from '@vx/libs/basics/types';
 

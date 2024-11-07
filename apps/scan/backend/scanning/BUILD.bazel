@@ -9,7 +9,9 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/iterators",
         "//libs/basics/types",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )

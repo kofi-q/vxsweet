@@ -9,7 +9,7 @@ import {
   getContestDistrictName as getContestDistrictNameBase,
   type Election,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 /**
  * Special case to support MS either-neither contests, which are represented in

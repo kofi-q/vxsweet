@@ -14,7 +14,7 @@ ts_library(
         "//:node_modules/@types/styled-components",
         "//:node_modules/react",
         "//:node_modules/styled-components",
-        "//libs/types/src",
+        "//libs/types/ui-theme",
         "//libs/ui/defs",
         "//libs/ui/styled-components",
         "//libs/ui/themes",

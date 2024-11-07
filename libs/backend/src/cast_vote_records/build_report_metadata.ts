@@ -3,11 +3,11 @@ import {
   type AnyContest,
   type BatchInfo,
   type CandidateContest,
-  type CastVoteRecordBatchMetadata,
-  CVR,
   type Election,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type CastVoteRecordBatchMetadata } from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
 
 /**
  * If the report is a test report, this value will be included in the

@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 
-import { type UiStringAudioClip } from '@vx/libs/types/src';
+import { type UiStringAudioClip } from '@vx/libs/types/ui_strings';
 import { deferred } from '@vx/libs/basics/async';
 import {
   AudioVolume,

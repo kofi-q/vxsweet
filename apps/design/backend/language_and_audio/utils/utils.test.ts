@@ -1,8 +1,8 @@
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  LanguageCode,
   type UiStringAudioIds,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import {
   cleanText,
   forEachUiString,

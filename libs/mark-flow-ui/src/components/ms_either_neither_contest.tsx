@@ -13,7 +13,7 @@ import {
   type Election,
   getContestDistrict,
   type YesNoOption,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 import { type UpdateVoteFunction } from '../config/types';
 import { type MsEitherNeitherContest as MsEitherNeitherContestInterface } from '../utils/ms_either_neither_contests';

@@ -12,11 +12,11 @@ import {
   type ContestId,
   type ContestOptionId,
   type Election,
-  type Id,
   type PartyId,
-  Tabulation,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { isGroupByEmpty } from './arguments';
 import { getGroupedBallotStyles } from '../ballot_styles';
 

@@ -16,7 +16,7 @@ import {
   type ContestId,
   type OptionalVote,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { useHistory } from 'react-router-dom';
 import { act, fireEvent, render, screen } from '../test/react_testing_library';
 import { App } from './app';

@@ -39,23 +39,23 @@ import {
   mockSystemAdministratorUser,
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
+import { Admin } from '@vx/libs/types/admin';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { type Id } from '@vx/libs/types/basic';
 import {
-  Admin,
-  type DiagnosticRecord,
-  type Id,
   type PrinterConfig,
   type PrinterStatus,
-  type Rect,
-  Tabulation,
+} from '@vx/libs/types/printing';
+import { type Rect } from '@vx/libs/types/geometry';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import {
   type ContestId,
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
   type SystemSettings,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 

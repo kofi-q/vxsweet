@@ -2,7 +2,7 @@ import {
   type PollsState,
   type PollsSuspensionTransitionType,
   type PollsTransitionType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 export function getPollsTransitionDestinationState(

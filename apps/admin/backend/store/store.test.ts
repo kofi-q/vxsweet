@@ -8,8 +8,8 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
   type BallotStyleGroupId,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { find } from '@vx/libs/basics/collections';
 import { typedAs } from '@vx/libs/basics/types';
 import { promises as fs } from 'node:fs';

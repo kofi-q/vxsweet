@@ -7,7 +7,7 @@ import {
   type CandidateContest,
   type Vote,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 export function generateCandidateVotes(contest: CandidateContest): Vote {
   if (contest.seats === 1) {

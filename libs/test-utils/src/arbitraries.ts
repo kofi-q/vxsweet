@@ -22,18 +22,18 @@ import {
   type Election,
   type ElectionDefinition,
   ELECTION_TYPES,
-  type Id,
   type Party,
   type PartyId,
   type Precinct,
   type PrecinctId,
   type YesNoContest,
   type YesNoOption,
-  type UiStringsPackage,
-  LanguageCode,
   type ElectionId,
   type BallotStyleGroupId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { sha256 } from 'js-sha256';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { assertDefined } from '@vx/libs/basics/assert';

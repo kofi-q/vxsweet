@@ -1,11 +1,10 @@
 import { sha256 } from 'js-sha256';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { LanguageCode, isLanguageCode } from '@vx/libs/types/languages';
 import {
-  LanguageCode,
-  isLanguageCode,
   type UiStringAudioIdsPackage,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 
 /**
  * i18next catalog strings can contain tags that interfere with speech synthesis, e.g.

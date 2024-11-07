@@ -18,11 +18,11 @@ import {
   type BallotStyleId,
   BallotType,
   type SheetOf,
-  safeParseElectionDefinition,
-  convertVxfElectionToCdfBallotDefinition,
-  type PageInterpretationWithFiles,
-} from '@vx/libs/types/src';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+  TEST_JURISDICTION,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
+import { type PageInterpretationWithFiles } from '@vx/libs/types/scanning';
 import { v4 as uuid } from 'uuid';
 import { LogEventId } from '@vx/libs/logging/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';

@@ -1,5 +1,5 @@
 import { electionTwoPartyPrimaryDefinition as electionDefinition } from '@vx/libs/fixtures/src';
-import { type ContestId } from '@vx/libs/types/src';
+import { type ContestId } from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import {
   type WriteInCandidateRecord,

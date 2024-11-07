@@ -1,6 +1,6 @@
 /* istanbul ignore file - test util */
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { type UiStringsStore } from './ui_strings_store';
 
 /** Test context for {@link runUiStringMachineDeconfigurationTests}. */

@@ -23,8 +23,8 @@ import {
   type Party,
   type PartyId,
   type YesNoContest,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import styled from 'styled-components';

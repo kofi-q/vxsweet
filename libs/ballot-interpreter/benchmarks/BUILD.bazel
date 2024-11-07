@@ -17,7 +17,7 @@ ts_library(
         "//libs/fixtures/src",
         "//libs/fs/src",
         "//libs/hmpb/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

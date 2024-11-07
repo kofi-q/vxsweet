@@ -12,7 +12,7 @@ ts_library(
         "//libs/api/src",
         "//libs/basics/objects",
         "//libs/grout/src",
-        "//libs/types/src",
+        "//libs/types/basic",
         "//libs/ui/src",
         "//libs/ui/system-calls",
         "//libs/ui/usb",

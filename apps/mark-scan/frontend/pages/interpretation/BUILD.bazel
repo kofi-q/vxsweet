@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/mark-scan/frontend/pages/error",
         "//apps/mark-scan/frontend/pages/help",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/primitives",
         "//libs/ui/ui_strings/ui_string",
     ],

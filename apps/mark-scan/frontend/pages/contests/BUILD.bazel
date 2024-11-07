@@ -10,7 +10,7 @@ ts_library(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/contexts",
         "//libs/mark-flow-ui/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

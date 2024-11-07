@@ -5,7 +5,7 @@ import { type AcceptedSheet } from '@vx/libs/backend/src/cast_vote_records';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { iter } from '@vx/libs/basics/iterators';
-import { safeParseInt } from '@vx/libs/types/src';
+import { safeParseInt } from '@vx/libs/types/basic';
 
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';

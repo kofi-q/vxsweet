@@ -3,8 +3,8 @@ import { mockSessionExpiresAt } from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 
 export function mockElectionManagerAuth(
   auth: jest.Mocked<DippedSmartCardAuthApi>,

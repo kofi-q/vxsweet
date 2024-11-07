@@ -26,7 +26,8 @@ import {
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
-import { type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {

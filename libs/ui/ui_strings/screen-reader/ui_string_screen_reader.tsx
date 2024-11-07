@@ -3,7 +3,7 @@ import getDeepValue from 'lodash.get';
 
 import { type Optional } from '@vx/libs/basics/types';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/src';
+import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/languages';
 
 import { useAudioContext } from '../audio-context/audio_context';
 import { type ClipParams, PlayAudioClips } from './play_audio_clips';

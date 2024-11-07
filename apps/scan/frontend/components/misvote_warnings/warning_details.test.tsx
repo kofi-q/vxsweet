@@ -12,7 +12,7 @@ jest.mock(
 );
 
 import { mockOf } from '@vx/libs/test-utils/src';
-import { type Contest } from '@vx/libs/types/src';
+import { type Contest } from '@vx/libs/types/elections';
 import { ContestList } from './contest_list';
 import { render, screen, within } from '../../test/react_testing_library';
 import { WarningDetails } from './warning_details';

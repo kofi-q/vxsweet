@@ -1,4 +1,4 @@
-import { type Dictionary } from '@vx/libs/types/src';
+import { type Dictionary } from '@vx/libs/types/basic';
 import { BooleanEnvironmentVariableName } from './environment_variable';
 import { isFeatureFlagEnabled } from './features';
 

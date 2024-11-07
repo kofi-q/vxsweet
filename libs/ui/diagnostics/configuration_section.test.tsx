@@ -2,7 +2,7 @@ import {
   electionGeneralFixtures,
   electionPrimaryPrecinctSplitsFixtures,
 } from '@vx/libs/fixtures/src';
-import { formatElectionHashes } from '@vx/libs/types/src';
+import { formatElectionHashes } from '@vx/libs/types/elections';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { render, screen } from '../test/react_testing_library';
 import { ConfigurationSection } from './configuration_section';

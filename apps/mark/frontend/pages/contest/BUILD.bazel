@@ -9,7 +9,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/mark/frontend/contexts",
         "//libs/mark-flow-ui/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

@@ -5,8 +5,8 @@ import {
   type DistrictId,
   type Party,
   type PartyId,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
   generateBallotStyleGroupId,
   generateBallotStyleId,

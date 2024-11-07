@@ -4,7 +4,7 @@ import path from 'node:path';
 import { dirSync } from 'tmp';
 import { iter } from '@vx/libs/basics/iterators';
 import { Client } from '@vx/libs/db/src';
-import { CastVoteRecordExportFileName } from '@vx/libs/types/src';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 
 import {
   CAST_VOTE_RECORD_HASHES_TABLE_SCHEMA,

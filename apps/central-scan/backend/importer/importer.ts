@@ -4,9 +4,11 @@ import { sleep } from '@vx/libs/basics/async';
 import {
   type ElectionDefinition,
   type SheetOf,
+} from '@vx/libs/types/elections';
+import {
   type PageInterpretation,
   type PageInterpretationWithFiles,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import makeDebug from 'debug';
 import * as fsExtra from 'fs-extra';

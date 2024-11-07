@@ -4,7 +4,7 @@ import {
   type PollWorkerUser,
   type SystemAdministratorUser,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import { ResponseApduError } from './apdu';
 import { UNIVERSAL_VENDOR_CARD_JURISDICTION } from './jurisdictions';

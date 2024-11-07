@@ -1,6 +1,6 @@
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { err, ok, type Result } from '@vx/libs/basics/result';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 import { Buffer } from 'node:buffer';
 import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';

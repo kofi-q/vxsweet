@@ -36,8 +36,9 @@ import {
   mockUseAudioControls,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { type AudioControls, LanguageCode } from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { type AudioControls } from '@vx/libs/types/ui_strings';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
 import { act, renderHook } from '../../test/react_testing_library';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 

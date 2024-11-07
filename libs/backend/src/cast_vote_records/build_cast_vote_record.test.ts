@@ -5,9 +5,9 @@ import {
   BallotIdSchema,
   BallotType,
   type CandidateContest,
-  CVR,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { getCastVoteRecordBallotType } from '@vx/libs/utils/src';
 import {
   fishCouncilContest,

@@ -10,7 +10,7 @@ import {
   type ColorMode,
   type ScreenType,
   type SizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 import { AppRoot } from './app_root';
 import { type ApiClient, createApiClient, createQueryClient } from '../api/api';

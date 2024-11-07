@@ -1,9 +1,9 @@
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  Admin,
-  Tabulation,
   type BallotStyleGroupId,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   canonicalizeFilter,

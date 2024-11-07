@@ -30,7 +30,7 @@ import {
   DippedSmartCardAuth as DippedSmartCardAuthTypes,
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
   generatePin,

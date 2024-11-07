@@ -5,7 +5,7 @@ import {
   P,
 } from '@vx/libs/ui/primitives';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
-import { type PrecinctScannerErrorType } from '@vx/libs/types/src';
+import { type PrecinctScannerErrorType } from '@vx/libs/types/scanning';
 import { Screen } from '../../components/layout/layout';
 import { FullScreenPromptLayout } from '../../components/full-screen-prompt/layout';
 

@@ -11,7 +11,6 @@ import {
   BallotType,
   type CandidateContest as CandidateContestStruct,
   type Election,
-  LanguageCode,
   type PrecinctId,
   type YesNoContest,
   ballotPaperDimensions,
@@ -19,7 +18,8 @@ import {
   getContests,
   getPartyForBallotStyle,
   getPrecinctById,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
   BackendLanguageContextProvider,
   InEnglish,

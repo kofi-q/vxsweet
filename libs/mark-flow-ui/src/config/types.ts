@@ -10,7 +10,7 @@ import {
   type PrecinctId,
   type VotesDict,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   type ContestsWithMsEitherNeither,
   type MsEitherNeitherContest,

@@ -1,6 +1,6 @@
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { P } from '@vx/libs/ui/primitives';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
 import { AskPollWorkerPage } from '../help/ask_poll_worker_page';
 import {
   type JamClearedState,

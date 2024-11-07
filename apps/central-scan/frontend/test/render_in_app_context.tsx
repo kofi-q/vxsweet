@@ -4,8 +4,8 @@ import { BaseLogger } from '@vx/libs/logging/src';
 import {
   DippedSmartCardAuth,
   constructElectionKey,
-} from '@vx/libs/types/src/auth';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { createMemoryHistory, MemoryHistory } from 'history';

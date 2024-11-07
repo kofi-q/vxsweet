@@ -4,7 +4,7 @@ import { type PdfError, renderToPdf } from '@vx/libs/printing/src';
 import { type Printer } from '@vx/libs/printing/src/printer';
 import { Buffer } from 'node:buffer';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { Store } from '../store/store';
 import { getCurrentTime } from '../util/time/get_current_time';
 import { exportFile } from '../util/exports/export_file';

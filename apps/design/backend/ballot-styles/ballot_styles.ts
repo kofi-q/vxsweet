@@ -6,7 +6,7 @@ import {
   type DistrictId,
   type ElectionType,
   type Parties,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   generateBallotStyleGroupId,
   generateBallotStyleId,

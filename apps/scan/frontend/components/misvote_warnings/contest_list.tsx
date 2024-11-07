@@ -1,6 +1,7 @@
 import styled, { DefaultTheme } from 'styled-components';
 
-import { type AnyContest, type SizeMode } from '@vx/libs/types/src';
+import { type AnyContest } from '@vx/libs/types/elections';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { Caption, Font, Icons } from '@vx/libs/ui/primitives';
 import { List, ListItem } from '@vx/libs/ui/list';
 import { electionStrings } from '@vx/libs/ui/ui_strings/ui_string';

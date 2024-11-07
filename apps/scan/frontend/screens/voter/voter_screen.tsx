@@ -1,7 +1,7 @@
 import {
   type ElectionDefinition,
   type SystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { getScannerStatus } from '../../api/api';

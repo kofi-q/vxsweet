@@ -1,5 +1,5 @@
 import { FullScreenIconWrapper, Icons, P } from '@vx/libs/ui/primitives';
-import { type PollsState } from '@vx/libs/types/src';
+import { type PollsState } from '@vx/libs/types/elections';
 import { Screen } from '../../components/layout/layout';
 import { FullScreenPromptLayout } from '../../components/full-screen-prompt/layout';
 

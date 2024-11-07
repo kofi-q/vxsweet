@@ -2,7 +2,7 @@ import {
   type ElectionDefinition,
   type PrecinctSelection,
   type PollsSuspensionTransitionType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   formatFullDateTimeZone,
   getPollsStateName,

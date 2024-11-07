@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
-import { type BallotStyleId, type ElectionId } from '@vx/libs/types/src';
 import {
+  type BallotStyleId,
+  type ElectionId,
   type CardlessVoterUser,
   DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS,
   type ElectionManagerUser,
@@ -8,7 +9,7 @@ import {
   type SystemAdministratorUser,
   TEST_JURISDICTION,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 
 export function mockVendorUser(props: Partial<VendorUser> = {}): VendorUser {

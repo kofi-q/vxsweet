@@ -1,10 +1,8 @@
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import { createPlaywrightRenderer } from '@vx/libs/hmpb/src';
-import {
-  type Election,
-  safeParseElectionDefinition,
-  LanguageCode,
-} from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { renderBallotStyleReadinessReport } from '../ballot_style_reports';
 import '@vx/libs/image-test-utils/register';

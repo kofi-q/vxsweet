@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import {
   type ElectionSerializationFormat,
   formatBallotHash,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assertDefined } from '@vx/libs/basics/assert';
 import {
   exportAllBallots,

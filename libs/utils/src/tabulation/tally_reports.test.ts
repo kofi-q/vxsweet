@@ -3,8 +3,8 @@ import { find } from '@vx/libs/basics/collections';
 import {
   type CandidateContest,
   type DistrictId,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { buildContestResultsFixture } from './tabulation';
 import {
   getTallyReportCandidateRows,

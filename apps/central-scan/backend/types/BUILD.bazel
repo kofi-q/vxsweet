@@ -3,7 +3,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "types",
-    deps = ["//libs/types/src"],
+    deps = ["//libs/types/elections"],
 )
 
 lint_test(name = "lint")

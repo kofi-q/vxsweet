@@ -3,7 +3,7 @@ import {
   type ElectionDefinition,
   type MarkThresholds,
   type PrecinctSelection,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 /**
  * Options for interpreting a sheet of ballot images.

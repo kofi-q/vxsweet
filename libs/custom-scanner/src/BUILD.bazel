@@ -20,7 +20,7 @@ ts_library(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/message-coder/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )
@@ -41,7 +41,7 @@ ts_tests(
         "//libs/custom-scanner/src",
         "//libs/custom-scanner/test",
         "//libs/message-coder/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

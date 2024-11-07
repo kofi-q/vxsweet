@@ -1,4 +1,4 @@
-import { type AnyContest, type ContestOption } from '@vx/libs/types/src';
+import { type AnyContest, type ContestOption } from '@vx/libs/types/elections';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 /**

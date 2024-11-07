@@ -12,8 +12,8 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
   formatElectionHashes,
-} from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+  constructElectionKey,
+} from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { render, waitFor, within, screen } from '../test/react_testing_library';

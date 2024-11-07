@@ -17,8 +17,10 @@ import {
   isSystemAdministratorAuth,
   isElectionManagerAuth,
 } from '@vx/libs/utils/src';
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { AppContext } from '../../contexts/app_context';

@@ -7,7 +7,7 @@ import {
   LogDispositionStandardTypes,
   LogEventId,
 } from '@vx/libs/logging/src';
-import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@vx/libs/types/src/auth';
+import { DippedSmartCardAuth as DippedSmartCardAuthTypes } from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
   generatePin,

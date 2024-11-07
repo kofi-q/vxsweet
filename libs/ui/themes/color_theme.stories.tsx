@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { type ColorMode } from '@vx/libs/types/src';
+import { type ColorMode } from '@vx/libs/types/ui-theme';
 import styled, { useTheme } from 'styled-components';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { throwIllegalValue } from '@vx/libs/basics/assert';

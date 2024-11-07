@@ -1,4 +1,4 @@
-import { type TouchSizeMode } from '@vx/libs/types/src';
+import { type TouchSizeMode } from '@vx/libs/types/ui-theme';
 import { type MisvoteWarningsConfig } from './types';
 
 /**

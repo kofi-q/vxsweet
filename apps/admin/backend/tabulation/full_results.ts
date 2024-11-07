@@ -1,4 +1,5 @@
-import { type Id, Tabulation } from '@vx/libs/types/src';
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   combineElectionResults,
   convertManualElectionResults,

@@ -1,4 +1,4 @@
-import { type AudioControls } from '@vx/libs/types/src';
+import { type AudioControls } from '@vx/libs/types/ui_strings';
 import { useAudioContext } from '../audio-context/audio_context';
 import { useUiStringScreenReaderContext } from './ui_string_screen_reader';
 

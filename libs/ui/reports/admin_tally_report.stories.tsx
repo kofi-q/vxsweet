@@ -8,8 +8,8 @@ import {
   type BallotStyleId,
   getBallotStyle,
   getContests,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { assertDefined } from '@vx/libs/basics/assert';
 import {
   type AdminTallyReportProps,

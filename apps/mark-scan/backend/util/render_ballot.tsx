@@ -7,8 +7,8 @@ import {
   type BallotStyleId,
   type ElectionDefinition,
   type VotesDict,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { Buffer } from 'node:buffer';
 
 import { assertDefined } from '@vx/libs/basics/assert';

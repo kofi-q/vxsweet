@@ -6,7 +6,7 @@ jest.mock('./audio_only', (): typeof import('./audio_only') => ({
 import React from 'react';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { WithAltAudio } from './with_alt_audio';
 import { newTestContext } from '../test/test_context';
 import { useAudioContext } from './audio-context/audio_context';

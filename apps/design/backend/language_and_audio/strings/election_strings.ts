@@ -3,10 +3,12 @@ import {
   type CandidateContest,
   type Election,
   type YesNoContest,
-  LanguageCode,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
   ElectionStringKey,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import { format } from '@vx/libs/utils/src';
 
 import { GoogleCloudTranslator } from '../translation/translator';

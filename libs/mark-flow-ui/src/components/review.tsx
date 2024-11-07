@@ -9,7 +9,7 @@ import {
   type PrecinctId,
   getContestDistrict,
   type ContestId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Caption, Card, Icons } from '@vx/libs/ui/primitives';
 import { type ContestVote, VoterContestSummary } from '@vx/libs/ui/bmds';
 import { Button } from '@vx/libs/ui/buttons';

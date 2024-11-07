@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { assert } from '@vx/libs/basics/assert';
 
 import { Screen } from '../screens/screen';

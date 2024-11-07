@@ -3,8 +3,8 @@ import fs from 'node:fs';
 import {
   type UiStringTranslations,
   UiStringTranslationsSchema,
-  safeParseJson,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
+import { safeParseJson } from '@vx/libs/types/basic';
 import path from 'node:path';
 import { generateNumberStringsCatalog } from '../ui_strings/number_strings';
 

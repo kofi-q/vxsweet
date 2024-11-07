@@ -1,12 +1,11 @@
 import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
 import { readElection } from '@vx/libs/fs/src';
 import { famousNamesFixtures } from '@vx/libs/hmpb/src';
+import { DEFAULT_MARK_THRESHOLDS, asSheet } from '@vx/libs/types/elections';
 import {
-  DEFAULT_MARK_THRESHOLDS,
   type InterpretedHmpbPage,
   type PageInterpretation,
-  asSheet,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { interpretSheet } from './interpret';

@@ -5,7 +5,7 @@ import {
   asSheet,
   DEFAULT_MARK_THRESHOLDS,
   type ElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,

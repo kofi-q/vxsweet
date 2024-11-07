@@ -2,8 +2,8 @@ import { z } from 'zod';
 import {
   LanguageCode,
   type NonEnglishLanguageCode,
-  safeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/languages';
+import { safeParse } from '@vx/libs/types/basic';
 
 import vendoredTranslations from './translations.json';
 

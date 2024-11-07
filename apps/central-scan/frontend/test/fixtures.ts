@@ -1,5 +1,5 @@
 import { type ScanStatus } from '../../backend/types/types';
-import { type BatchInfo } from '@vx/libs/types/src';
+import { type BatchInfo } from '@vx/libs/types/elections';
 
 export const DEFAULT_STATUS: ScanStatus = {
   isScannerAttached: true,

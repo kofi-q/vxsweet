@@ -3,7 +3,7 @@ import {
   type PrinterConfig,
   type PrinterRichStatus,
   type PrinterStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/printing';
 
 export const MOCK_MARKER_INFO: IppMarkerInfo = {
   color: '#000000',

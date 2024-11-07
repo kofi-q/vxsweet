@@ -6,13 +6,15 @@ import {
   type BallotMetadata,
   type BallotStyleId,
   BallotType,
+} from '@vx/libs/types/elections';
+import {
   type BlankPage,
   type InterpretedBmdPage,
   type InterpretedHmpbPage,
   type PageInterpretation,
   type UnreadablePage,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 
 const metadata: BallotMetadata = {

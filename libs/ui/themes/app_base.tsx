@@ -4,7 +4,7 @@ import {
   type ColorMode,
   type ScreenType,
   type SizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 import { GlobalStyles } from './global_styles';
 import { VoterSettingsManagerContext } from './voter_settings_manager_context';

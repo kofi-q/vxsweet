@@ -3,7 +3,7 @@ import { type Optional } from '@vx/libs/basics/types';
 import {
   type NumIncorrectPinAttemptsAllowedBeforeCardLockout,
   type StartingCardLockoutDurationSeconds,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 /**
  * Config params for card lockout

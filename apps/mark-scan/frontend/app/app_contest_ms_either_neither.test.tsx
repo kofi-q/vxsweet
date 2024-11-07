@@ -1,5 +1,8 @@
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
-import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  getContestDistrictName,
+} from '@vx/libs/types/elections';
 
 import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
 import { assert, assertDefined } from '@vx/libs/basics/assert';

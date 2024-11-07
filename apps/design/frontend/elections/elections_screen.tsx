@@ -1,5 +1,6 @@
 import { type Result } from '@vx/libs/basics/result';
-import { type ElectionId, type Id } from '@vx/libs/types/src';
+import { type ElectionId } from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { H1, P, Icons } from '@vx/libs/ui/primitives';
 import { Button } from '@vx/libs/ui/buttons';
 import { MainContent, MainHeader } from '@vx/libs/ui/screens';

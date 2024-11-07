@@ -9,7 +9,8 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import { type BallotStyleId, BallotType, type Id } from '@vx/libs/types/src';
+import { type BallotStyleId, BallotType } from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 
 export type ApiClient = grout.Client<Api>;
 

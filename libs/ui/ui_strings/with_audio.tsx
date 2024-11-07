@@ -1,7 +1,7 @@
 import React from 'react';
 import getDeepValue from 'lodash.get';
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import { useAudioContext } from './audio-context/audio_context';
 import { useCurrentLanguage } from './use_current_language';

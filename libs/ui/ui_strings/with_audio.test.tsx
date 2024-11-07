@@ -1,6 +1,6 @@
 import { act } from 'react';
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import { UiStringAudioDataAttributeName, WithAudio } from './with_audio';
 import {

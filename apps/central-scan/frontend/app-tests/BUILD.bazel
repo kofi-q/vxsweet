@@ -15,7 +15,7 @@ ts_tests(
         "//apps/central-scan/frontend/test",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/test-utils",
     ],
 )

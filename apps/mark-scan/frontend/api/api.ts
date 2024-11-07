@@ -13,7 +13,7 @@ import { USB_DRIVE_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/usb';
 import { createSystemCallApi } from '@vx/libs/ui/system-calls';
 import { createUiStringsApi } from '@vx/libs/ui/ui_strings/api';
 import { deepEqual } from '@vx/libs/basics/objects';
-import { type DiagnosticType } from '@vx/libs/types/src';
+import { type DiagnosticType } from '@vx/libs/types/diagnostics';
 import {
   ACCESSIBLE_CONTROLLER_DIAGNOSTIC_POLLING_INTERVAL_MS,
   AUTH_STATUS_POLLING_INTERVAL_MS_OVERRIDE,

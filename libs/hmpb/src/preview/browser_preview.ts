@@ -3,10 +3,10 @@ import {
   HmpbBallotPaperSize,
   type BallotStyle,
   BallotType,
-  LanguageCode,
   type VotesDict,
   getContests,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';

@@ -17,7 +17,7 @@ import {
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
 import { err } from '@vx/libs/basics/result';
-import { type PollsState } from '@vx/libs/types/src';
+import { type PollsState } from '@vx/libs/types/elections';
 import { screen, render } from '../../test/react_testing_library';
 import {
   PollWorkerScreen,

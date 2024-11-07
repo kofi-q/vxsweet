@@ -9,7 +9,9 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
-import { Admin, Tabulation, type ContestId } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type ContestId } from '@vx/libs/types/elections';
 import {
   type BallotCountReportWarning,
   type TallyReportWarning,

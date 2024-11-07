@@ -11,8 +11,8 @@ import { QUERY_CLIENT_DEFAULT_OPTIONS } from '@vx/libs/ui/src';
 import {
   type Election,
   type ElectionDefinition,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';

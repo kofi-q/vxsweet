@@ -1,9 +1,9 @@
 import {
   type Election,
   type ElectionDefinition,
-  LanguageCode,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { generateBallotStyleId } from './ballot_styles';
 
 export function getMockMultiLanguageElectionDefinition(

@@ -1,5 +1,5 @@
 import { type Result } from '@vx/libs/basics/result';
-import { type Byte, type Id } from '@vx/libs/types/src';
+import { type Byte, type Id } from '@vx/libs/types/basic';
 import { Buffer } from 'node:buffer';
 import { ResponseApduError } from '../apdu';
 import {

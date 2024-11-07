@@ -8,7 +8,7 @@ import {
   type CandidateContest,
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 import { format } from '@vx/libs/utils/src';
 import { NavigationScreen } from '../components/navigation_screen';

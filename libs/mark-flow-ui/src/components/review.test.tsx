@@ -2,7 +2,10 @@ import {
   electionGeneralDefinition,
   electionWithMsEitherNeitherDefinition,
 } from '@vx/libs/fixtures/src';
-import { type CandidateContest, type YesNoContest } from '@vx/libs/types/src';
+import {
+  type CandidateContest,
+  type YesNoContest,
+} from '@vx/libs/types/elections';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';

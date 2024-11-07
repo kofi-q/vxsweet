@@ -14,7 +14,7 @@ ts_library(
         "//:node_modules/react-modal",
         "//:node_modules/styled-components",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/ui-theme",
         "//libs/ui/primitives",
         "//libs/ui/styled-components",
         "//libs/ui/themes",

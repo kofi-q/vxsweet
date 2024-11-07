@@ -1,6 +1,6 @@
 import { ImageData } from 'canvas';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { type Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/geometry';
 import makeDebug from 'debug';
 
 const debug = makeDebug('ballot-interpreter:bmd:luminosity');

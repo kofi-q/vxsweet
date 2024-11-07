@@ -11,7 +11,7 @@ import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
 import { MemoryRouter } from 'react-router-dom';
 import { DateTime } from 'luxon';
 import { act } from 'react';
-import { type IppMarkerInfo } from '@vx/libs/types/src';
+import { type IppMarkerInfo } from '@vx/libs/types/printing';
 import { render, screen } from '../../test/react_testing_library';
 import {
   DiagnosticsScreen,

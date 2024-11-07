@@ -5,7 +5,7 @@ import { RadioGroup } from '@vx/libs/ui/radio_group';
 import React, { useState } from 'react';
 import { assert, assertFalsy } from '@vx/libs/basics/assert';
 import { sleep } from '@vx/libs/basics/async';
-import { type DiagnosticOutcome } from '@vx/libs/types/src';
+import { type DiagnosticOutcome } from '@vx/libs/types/diagnostics';
 import {
   addDiagnosticRecord,
   getPrinterStatus,

@@ -9,7 +9,7 @@ import {
   type OptionalVote,
   type PrecinctId,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { LinkButton, Button } from '@vx/libs/ui/buttons';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { PageNavigationButtonId } from '@vx/libs/ui/accessible_controllers';

@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { type Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
 import { asElectionDefinition } from '../../util';
 import { asText as batchResultsCsvAsText } from './csvFiles/batchResults.csv';
 import { asText as finalResultsCsvAsText } from './csvFiles/finalResults.csv';

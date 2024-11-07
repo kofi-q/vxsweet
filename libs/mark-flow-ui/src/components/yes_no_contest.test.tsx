@@ -19,7 +19,7 @@ import {
   electionGeneral,
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
-import { type YesNoContest as YesNoContestInterface } from '@vx/libs/types/src';
+import { type YesNoContest as YesNoContestInterface } from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';
 import { useIsPatDeviceConnected } from '@vx/libs/ui/accessible_controllers';

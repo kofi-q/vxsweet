@@ -1,8 +1,8 @@
 import {
   ElectionStringKey,
   type UiStringsPackage,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
+import { LanguageCode } from '@vx/libs/types/languages';
 import userEvent from '@testing-library/user-event';
 import { newTestContext } from '../test/test_context';
 import { LanguageSettingsScreen } from './language_settings_screen';

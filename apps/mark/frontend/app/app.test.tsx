@@ -18,7 +18,7 @@ import {
   useSessionSettingsManager,
 } from '@vx/libs/mark-flow-ui/src';
 import userEvent from '@testing-library/user-event';
-import { type BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
 import { screen } from '../test/react_testing_library';
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 import { render } from '../test/test_utils';

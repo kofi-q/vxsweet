@@ -15,12 +15,12 @@ import {
   type HmpbBallotPageMetadata,
   isVotePresent,
   type PrecinctId,
-  unsafeParse,
   validateVotes,
   type VotesDict,
   type YesNoContest,
   type YesNoVote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { assert } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { BitReader } from './bits/bit_reader';

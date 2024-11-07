@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
-import { BALLOT_HASH_DISPLAY_LENGTH, type Outset } from '@vx/libs/types/src';
+import { BALLOT_HASH_DISPLAY_LENGTH } from '@vx/libs/types/elections';
+import { type Outset } from '@vx/libs/types/geometry';
 import { range } from '@vx/libs/basics/collections';
 import { type InchDimensions, type InchMargins } from './types';
 

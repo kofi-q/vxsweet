@@ -7,8 +7,8 @@ import {
   type BallotStyleId,
   type ElectionDefinition,
   type GridLayout,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import styled from 'styled-components';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import {

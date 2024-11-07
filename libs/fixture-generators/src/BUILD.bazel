@@ -25,7 +25,11 @@ ts_library(
         "//libs/basics/time",
         "//libs/fs/src",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/cdf",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
+        "//libs/types/geometry",
         "//libs/utils/src",
     ],
 )
@@ -48,7 +52,9 @@ ts_tests(
         "//libs/fixture-generators/src",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/cdf",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

@@ -1,4 +1,4 @@
-import { unsafeParse } from '@vx/libs/types/src';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { join } from 'node:path';
 import { z } from 'zod';
 

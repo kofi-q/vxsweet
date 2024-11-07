@@ -1,10 +1,10 @@
 import { stringify } from 'csv-stringify/sync';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type Id } from '@vx/libs/types/basic';
 import {
-  Tabulation,
-  type Id,
   type ElectionDefinition,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   combineGroupSpecifierAndFilter,

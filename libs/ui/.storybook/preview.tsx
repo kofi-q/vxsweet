@@ -13,7 +13,7 @@ import {
   type ColorMode,
   type ScreenType,
   type SizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 import { createGlobalStyle } from 'styled-components';
 
 // TODO: Find the storybook.js type declaration for this. Doesn't seem to be in

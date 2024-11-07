@@ -1,10 +1,7 @@
 import { type TallyReportWarning } from '../../../backend/reports/warnings';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
-import {
-  type Election,
-  getContestsFromIds,
-  Tabulation,
-} from '@vx/libs/types/src';
+import { type Election, getContestsFromIds } from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 function oxfordCommaJoin(items: string[]): string {
   if (items.length === 1) {

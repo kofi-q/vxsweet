@@ -10,7 +10,7 @@ ts_library(
         "//apps/scan/frontend/components/layout",
         "//apps/scan/frontend/preview-helpers",
         "//apps/scan/frontend/screens/diagnostics",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/admin-screens",
         "//libs/ui/ballots",
         "//libs/ui/buttons",

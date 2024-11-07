@@ -9,7 +9,7 @@ import {
   type AnyContest,
   type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Button } from '@vx/libs/ui/buttons';
 import {
   Caption,

@@ -20,7 +20,7 @@ ts_library(
         "//:node_modules/util",
         "//:node_modules/vite",
         "//:types_env",
-        "//libs/types/src",
+        "//libs/types/ui-theme",
         "//libs/ui/themes",
     ],
 )

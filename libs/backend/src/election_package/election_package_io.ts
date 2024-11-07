@@ -23,24 +23,24 @@ import {
   type ElectionPackageConfigurationError,
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
+  safeParseSystemSettings,
+  type ElectionPackageMetadata,
+  ElectionPackageMetadataSchema,
+  type ElectionPackageWithHash,
+  DippedSmartCardAuth,
+  InsertedSmartCardAuth,
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import {
   type UiStringAudioClip,
   UiStringAudioClipSchema,
   UiStringAudioIdsPackageSchema,
   UiStringsPackageSchema,
-  safeParseJson,
-  safeParseSystemSettings,
-  type ElectionPackageMetadata,
-  ElectionPackageMetadataSchema,
   mergeUiStrings,
   type UiStringAudioIdsPackage,
-  safeParseElectionDefinition,
-  type ElectionPackageWithHash,
-} from '@vx/libs/types/src';
-import {
-  DippedSmartCardAuth,
-  InsertedSmartCardAuth,
-  constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/ui_strings';
+import { safeParseJson } from '@vx/libs/types/basic';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { sha256 } from 'js-sha256';

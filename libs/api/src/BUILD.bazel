@@ -8,7 +8,9 @@ ts_library(
     name = "src",
     deps = [
         "//:node_modules/zod",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 
@@ -18,7 +20,7 @@ ts_tests(
         "//:node_modules/@types/jest",
         "//:node_modules/@types/testing-library__jest-dom",
         "//libs/api/src",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

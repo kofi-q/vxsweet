@@ -20,7 +20,8 @@ ts_library(
         "//libs/custom-scanner/src",
         "//libs/image-utils/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/usb-drive/src",
     ],
 )
@@ -46,7 +47,8 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

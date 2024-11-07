@@ -3,7 +3,10 @@ import { Button } from '@vx/libs/ui/buttons';
 import { PowerDownButton } from '@vx/libs/ui/system-controls';
 import { SystemAdministratorScreenContents } from '@vx/libs/ui/admin-screens';
 import { SignedHashValidationButton } from '@vx/libs/ui/ballots';
-import { type ElectionDefinition, type PollsState } from '@vx/libs/types/src';
+import {
+  type ElectionDefinition,
+  type PollsState,
+} from '@vx/libs/types/elections';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { Screen } from '../../components/layout/layout';
 import {

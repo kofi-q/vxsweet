@@ -1,9 +1,7 @@
 /* istanbul ignore file */
 
-import {
-  type ElectionDefinition,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { H1, H4, Prose } from '@vx/libs/ui/primitives';
 import { Select } from '@vx/libs/ui/select';
 import React, { useRef, useState } from 'react';

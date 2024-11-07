@@ -7,7 +7,10 @@ import {
   StoryContext,
 } from '@storybook/types';
 
-import { type TouchColorMode, type TouchSizeMode } from '@vx/libs/types/src';
+import {
+  type TouchColorMode,
+  type TouchSizeMode,
+} from '@vx/libs/types/ui-theme';
 import { AppBase, VoterSettingsManagerContext } from '@vx/libs/ui/themes';
 
 // TODO: Find the storybook.js type declaration for this. Doesn't seem to be in

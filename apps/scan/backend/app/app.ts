@@ -6,9 +6,11 @@ import {
   type PrecinctSelection,
   type SinglePrecinctSelection,
   DEFAULT_SYSTEM_SETTINGS,
+} from '@vx/libs/types/elections';
+import {
   type DiagnosticRecord,
   type DiagnosticOutcome,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/diagnostics';
 import {
   getPrecinctSelectionName,
   isElectionManagerAuth,

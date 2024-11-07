@@ -20,7 +20,9 @@ ts_library(
         "//:types_kiosk_browser",
         "//libs/basics/assert",
         "//libs/basics/iterators",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/cdf",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )
@@ -41,7 +43,8 @@ ts_tests(
         "//libs/basics/types",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/cdf",
     ],
 )
 

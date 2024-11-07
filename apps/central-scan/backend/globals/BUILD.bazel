@@ -7,7 +7,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:node_modules/zod",
         "//:types_env",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

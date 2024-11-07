@@ -27,7 +27,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { type PrinterRichStatus } from '@vx/libs/types/src';
+import { type PrinterRichStatus } from '@vx/libs/types/printing';
 import { detectPrinter } from './printer';
 import {
   BROTHER_THERMAL_PRINTER_CONFIG,

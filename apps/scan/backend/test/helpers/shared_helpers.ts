@@ -14,9 +14,9 @@ import {
   type PrecinctId,
   type SheetOf,
   asSheet,
-  type PrecinctScannerState,
-} from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { type PrecinctScannerState } from '@vx/libs/types/scanning';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,

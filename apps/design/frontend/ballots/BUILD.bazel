@@ -20,7 +20,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/collections",
         "//libs/hmpb/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/primitives",
         "//libs/ui/radio_group",
@@ -46,7 +46,7 @@ ts_tests(
         "//apps/design/frontend/routes",
         "//apps/design/frontend/test",
         "//libs/basics/result",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

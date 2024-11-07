@@ -1,4 +1,4 @@
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { format } from '@vx/libs/utils/src';
 import { H1 } from '../../primitives/typography';
 import {

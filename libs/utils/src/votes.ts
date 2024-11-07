@@ -9,16 +9,15 @@ import {
   type Contests,
   MarkStatus,
   type MarkThresholds,
-  safeParse,
-  safeParseInt,
-  Tabulation,
   type Vote,
   type VotesDict,
   WriteInIdSchema,
   type YesNoContest,
   type YesNoContestOptionId,
   type YesNoVote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParse, safeParseInt } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 export function getSingleYesNoVote(
   vote?: YesNoVote

@@ -1,0 +1,15 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "cvrs",
+    deps = [
+        "//:node_modules/zod",
+        "//libs/types/basic",
+        "//libs/types/cdf/cast-vote-records",
+        "//libs/types/elections",
+        "//libs/types/scanning",
+    ],
+)
+
+lint_test(name = "lint")

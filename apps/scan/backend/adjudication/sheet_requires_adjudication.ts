@@ -1,8 +1,5 @@
-import {
-  AdjudicationReason,
-  type SheetOf,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+import { AdjudicationReason, type SheetOf } from '@vx/libs/types/elections';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { ImageData } from 'canvas';
 
 export interface InterpretFileResult {

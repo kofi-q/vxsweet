@@ -1,5 +1,5 @@
 import React from 'react';
-import { type TouchColorMode } from '@vx/libs/types/src';
+import { type TouchColorMode } from '@vx/libs/types/ui-theme';
 import { ThemeConsumer } from 'styled-components';
 import { SettingsPane } from './settings_pane';
 import { RadioGroup } from '../radio_group/radio_group';

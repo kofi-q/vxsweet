@@ -1,5 +1,5 @@
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { dirSync, fileSync } from 'tmp';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { integers, iter } from '@vx/libs/basics/iterators';

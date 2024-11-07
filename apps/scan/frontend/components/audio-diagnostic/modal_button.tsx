@@ -1,5 +1,5 @@
 import React from 'react';
-import { type DiagnosticOutcome } from '@vx/libs/types/src';
+import { type DiagnosticOutcome } from '@vx/libs/types/diagnostics';
 import { Button } from '@vx/libs/ui/buttons';
 import { Icons, P } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';

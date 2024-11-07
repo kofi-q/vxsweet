@@ -4,7 +4,10 @@ import {
 } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { find } from '@vx/libs/basics/collections';
-import { type CandidateContest, type YesNoContest } from '@vx/libs/types/src';
+import {
+  type CandidateContest,
+  type YesNoContest,
+} from '@vx/libs/types/elections';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 

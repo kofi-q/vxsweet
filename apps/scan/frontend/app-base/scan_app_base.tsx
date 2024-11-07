@@ -5,7 +5,7 @@ import {
   type ColorMode,
   type ScreenType,
   type SizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 export interface AppBaseProps {
   children: React.ReactNode;

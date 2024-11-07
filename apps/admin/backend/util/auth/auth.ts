@@ -4,8 +4,10 @@ import {
   type DippedSmartCardAuthMachineState,
 } from '@vx/libs/auth/src';
 import { isIntegrationTest } from '@vx/libs/utils/src';
-import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+import {
+  DEFAULT_SYSTEM_SETTINGS,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/elections';
 import { type LoggingUserRole } from '@vx/libs/logging/src';
 import { type Workspace } from '../../workspace/workspace';
 

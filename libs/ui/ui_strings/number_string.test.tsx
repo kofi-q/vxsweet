@@ -1,4 +1,4 @@
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { H1 } from '../primitives/typography';
 import { TestErrorBoundary } from '../errors/error_boundary';

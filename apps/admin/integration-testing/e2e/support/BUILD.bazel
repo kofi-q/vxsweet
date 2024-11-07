@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//libs/auth/src",
         "//libs/grout/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

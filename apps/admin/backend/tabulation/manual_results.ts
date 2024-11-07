@@ -1,4 +1,7 @@
-import { Admin, type Id, Tabulation, type Election } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type Election } from '@vx/libs/types/elections';
 import {
   type BallotStyleIdPartyIdLookup,
   combineManualElectionResults,

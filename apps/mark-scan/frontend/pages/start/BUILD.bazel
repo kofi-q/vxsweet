@@ -32,7 +32,7 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/mark-flow-ui/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

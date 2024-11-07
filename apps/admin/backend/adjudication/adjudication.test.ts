@@ -3,8 +3,8 @@ import {
   type BallotStyleGroupId,
   type ContestOptionId,
   DEFAULT_SYSTEM_SETTINGS,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { assert } from '@vx/libs/basics/assert';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';

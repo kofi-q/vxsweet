@@ -68,7 +68,7 @@ import {
   faEye,
 } from '@fortawesome/free-regular-svg-icons';
 
-import { type UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/ui-theme';
 import { Font, type FontProps } from './typography';
 import { type ScreenInfo, useScreenInfo } from '../themes/use_screen_info';
 

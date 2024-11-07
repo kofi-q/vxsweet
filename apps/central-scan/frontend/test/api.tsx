@@ -9,9 +9,9 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
   type SystemSettings,
-  type DiagnosticRecord,
-} from '@vx/libs/types/src';
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+  DippedSmartCardAuth,
+} from '@vx/libs/types/elections';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { SystemCallContextProvider } from '@vx/libs/ui/system-calls';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';

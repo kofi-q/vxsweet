@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { assertDefined } from '@vx/libs/basics/assert';
-import { type PageInterpretationType } from '@vx/libs/types/src';
+import { type PageInterpretationType } from '@vx/libs/types/scanning';
 
 import * as api from '../../api/api';
 import { ReinsertedNonBallotScreen } from './non_ballot';

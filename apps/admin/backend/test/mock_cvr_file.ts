@@ -3,9 +3,9 @@ import {
   type BallotStyleId,
   BallotType,
   type BallotPageLayout,
-  type Id,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { v4 as uuid } from 'uuid';
 import { Buffer } from 'node:buffer';
 import { assertDefined } from '@vx/libs/basics/assert';

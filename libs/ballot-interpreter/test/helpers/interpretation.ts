@@ -6,10 +6,10 @@ import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {
   type ContestId,
   type GridLayout,
-  type UnmarkedWriteIn,
   type Vote,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type UnmarkedWriteIn } from '@vx/libs/types/scanning';
 import { Buffer } from 'node:buffer';
 import { readFileSync } from 'node:fs';
 

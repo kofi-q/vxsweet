@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { type Election, type Id } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { Button, SegmentedButton } from '@vx/libs/ui/buttons';
 import { H1 } from '@vx/libs/ui/primitives';
 import { MainContent, MainHeader } from '@vx/libs/ui/screens';

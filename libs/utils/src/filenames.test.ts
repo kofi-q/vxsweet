@@ -1,6 +1,6 @@
 import fc from 'fast-check';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { type Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
 import {
   generateElectionBasedSubfolderName,
   generateFilenameForElectionPackage,

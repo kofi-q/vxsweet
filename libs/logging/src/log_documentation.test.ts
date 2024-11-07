@@ -1,4 +1,5 @@
-import { EventLogging, safeParseJson } from '@vx/libs/types/src';
+import { EventLogging } from '@vx/libs/types/cdf';
+import { safeParseJson } from '@vx/libs/types/basic';
 import { assert } from '@vx/libs/basics/assert';
 import * as fs from 'node:fs';
 import { LogEventId } from './log_event_ids';

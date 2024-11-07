@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { type ColorMode, type SizeMode } from '@vx/libs/types/src';
+import { type ColorMode, type SizeMode } from '@vx/libs/types/ui-theme';
 
 import { ThemePreview } from './theme_preview';
 import { Font } from '../primitives/typography';

@@ -19,20 +19,24 @@ import {
   PrecinctSelectionSchema,
   type PollsState as PollsStateType,
   PollsStateSchema,
-  safeParseElectionDefinition,
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import {
   type BallotSheetInfo,
   PageInterpretationSchema,
   type PageInterpretationWithFiles,
+} from '@vx/libs/types/scanning';
+import {
   type Iso8601Timestamp,
   safeParse,
   safeParseJson,
+} from '@vx/libs/types/basic';
+import {
   type DiagnosticRecord,
   type DiagnosticType,
-} from '@vx/libs/types/src';
-import {
-  type ElectionKey,
-  constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/diagnostics';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { find } from '@vx/libs/basics/collections';

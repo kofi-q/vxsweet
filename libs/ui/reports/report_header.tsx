@@ -1,6 +1,6 @@
 import { format } from '@vx/libs/utils/src';
 import styled from 'styled-components';
-import { type Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
 import React from 'react';
 import { Font } from '../primitives/typography';
 import { Icons } from '../primitives/icons';

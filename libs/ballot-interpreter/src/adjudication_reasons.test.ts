@@ -7,7 +7,7 @@ import {
   MarkStatus,
   WriteInAreaStatus,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';

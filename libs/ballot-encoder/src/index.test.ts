@@ -8,10 +8,10 @@ import {
   getContests,
   type HmpbBallotPageMetadata,
   isVotePresent,
-  unsafeParse,
   vote,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { unsafeParse } from '@vx/libs/types/basic';
 import '../test/expect';
 import { BitReader } from './bits/bit_reader';
 import { BitWriter } from './bits/bit_writer';

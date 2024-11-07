@@ -5,7 +5,8 @@ ts_library(
     name = "config",
     deps = [
         "//apps/admin/backend/types",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
     ],
 )
 

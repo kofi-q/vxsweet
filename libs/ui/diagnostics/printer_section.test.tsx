@@ -3,7 +3,7 @@ import {
   type PrinterConfig,
   type PrinterRichStatus,
   type PrinterStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/printing';
 import { render, screen } from '../test/react_testing_library';
 import {
   PrinterSection,

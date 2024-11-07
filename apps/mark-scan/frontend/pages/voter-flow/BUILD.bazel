@@ -23,7 +23,7 @@ ts_library(
         "//apps/mark-scan/frontend/pages/start",
         "//apps/mark-scan/frontend/pages/validation",
         "//libs/mark-flow-ui/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/accessible_controllers",
         "//libs/utils/src",
     ],

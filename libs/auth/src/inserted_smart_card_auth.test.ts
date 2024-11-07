@@ -33,8 +33,8 @@ import {
   constructElectionKey,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
-import { type BallotStyleId } from '@vx/libs/types/src';
+  type BallotStyleId,
+} from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
   generatePin,

@@ -1,4 +1,4 @@
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
 import { Button, SegmentedButton } from '@vx/libs/ui/buttons';
 import { Modal } from '@vx/libs/ui/modal';
 import { SetClockButton } from '@vx/libs/ui/clock';

@@ -12,7 +12,7 @@ import {
   type BallotStyleId,
   type ElectionDefinition,
   type PrecinctId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { ElectionInfo } from '../components/election_info';
 import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';
 import { VoterScreen } from '../components/voter_screen';

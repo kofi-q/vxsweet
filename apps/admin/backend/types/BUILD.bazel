@@ -6,7 +6,12 @@ ts_library(
     deps = [
         "//:node_modules/zod",
         "//libs/backend/src",
-        "//libs/types/src",
+        "//libs/types/admin",
+        "//libs/types/basic",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
+        "//libs/types/geometry",
+        "//libs/types/tabulation",
     ],
 )
 

@@ -25,7 +25,7 @@ import {
 } from '@vx/libs/backend/src';
 import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   buildTestEnvironment,

@@ -24,14 +24,14 @@ import {
   type ElectionDefinition,
   type PrecinctId,
   type SystemSettings,
-  type DiagnosticRecord,
-  type DiagnosticType,
-  type InterpretedBmdPage,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
+import {
+  type DiagnosticRecord,
+  type DiagnosticType,
+} from '@vx/libs/types/diagnostics';
+import { type InterpretedBmdPage } from '@vx/libs/types/scanning';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,

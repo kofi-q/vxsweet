@@ -54,7 +54,7 @@ ts_tests(
         "//libs/basics/result",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

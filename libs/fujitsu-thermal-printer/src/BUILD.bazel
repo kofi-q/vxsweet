@@ -21,7 +21,7 @@ ts_library(
         "//libs/image-utils/src",
         "//libs/logging/src",
         "//libs/message-coder/src",
-        "//libs/types/src",
+        "//libs/types/basic",
         "//libs/utils/src",
     ],
 )

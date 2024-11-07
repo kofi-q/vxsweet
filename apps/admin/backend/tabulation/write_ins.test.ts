@@ -7,8 +7,8 @@ import {
 import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { getEmptyElectionResults } from '@vx/libs/utils/src/tabulation';
 import {
   convertContestWriteInSummaryToWriteInTallies,

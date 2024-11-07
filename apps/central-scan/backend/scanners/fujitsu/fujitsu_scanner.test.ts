@@ -10,7 +10,7 @@ jest.mock('../../exec/exec');
 
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import { HmpbBallotPaperSize } from '@vx/libs/types/src';
+import { HmpbBallotPaperSize } from '@vx/libs/types/elections';
 import { ChildProcess } from 'node:child_process';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type Device, isDeviceAttached } from '@vx/libs/backend/src';

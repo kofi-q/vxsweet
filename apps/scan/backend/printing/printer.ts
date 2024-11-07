@@ -1,4 +1,4 @@
-import { type PrinterStatus as LegacyPrinterStatus } from '@vx/libs/types/src';
+import { type PrinterStatus as LegacyPrinterStatus } from '@vx/libs/types/printing';
 import {
   detectPrinter,
   type Printer as LegacyPrinter,

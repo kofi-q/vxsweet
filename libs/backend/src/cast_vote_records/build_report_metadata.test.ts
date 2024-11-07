@@ -4,9 +4,9 @@ import { iter } from '@vx/libs/basics/iterators';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import {
   type CandidateContest,
-  CVR,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
 import {
   buildBatchManifest,
   buildCastVoteRecordReportMetadata,

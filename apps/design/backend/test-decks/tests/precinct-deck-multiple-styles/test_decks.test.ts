@@ -9,7 +9,8 @@ import {
 import { assert } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { getBallotStylesByPrecinctId } from '@vx/libs/utils/src/tabulation';
-import { type ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { createPrecinctTestDeck } from '../../test_decks';
 import '@vx/libs/image-test-utils/register';
 

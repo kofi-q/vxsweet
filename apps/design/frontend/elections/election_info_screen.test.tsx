@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { type Election, type ElectionId } from '@vx/libs/types/src';
+import { type Election, type ElectionId } from '@vx/libs/types/elections';
 import { Buffer } from 'node:buffer';
 import { createMemoryHistory } from 'history';
 import { DateWithoutTime } from '@vx/libs/basics/time';

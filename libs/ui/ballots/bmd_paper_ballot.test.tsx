@@ -29,7 +29,7 @@ import {
   getContests,
   type PrecinctId,
   vote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,

@@ -11,7 +11,8 @@ ts_library(
         "//:node_modules/zod",
         "//libs/basics/assert",
         "//libs/basics/result",
-        "//libs/types/src",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
     ],
 )
 

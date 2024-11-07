@@ -36,7 +36,7 @@ ts_tests(
         "//apps/design/frontend/app",
         "//apps/design/frontend/test",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

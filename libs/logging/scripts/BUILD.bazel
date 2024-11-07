@@ -10,7 +10,7 @@ ts_library(
         "//:node_modules/yargs",
         "//libs/basics/assert",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

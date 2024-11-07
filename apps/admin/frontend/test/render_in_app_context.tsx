@@ -3,11 +3,11 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 
 import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
-import { type ElectionDefinition } from '@vx/libs/types/src';
 import {
+  type ElectionDefinition,
   constructElectionKey,
   DippedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {

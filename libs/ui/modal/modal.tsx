@@ -5,7 +5,7 @@ import { rgba } from 'polished';
 
 import { assert } from '@vx/libs/basics/assert';
 
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { type Theme } from '../themes/themes';
 import { H2 } from '../primitives/typography';
 import { ReadOnLoad } from '../ui_strings/read_on_load';

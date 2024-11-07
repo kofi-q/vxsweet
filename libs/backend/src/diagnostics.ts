@@ -3,7 +3,7 @@ import {
   type DiagnosticOutcome,
   type DiagnosticRecord,
   type DiagnosticType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/diagnostics';
 
 /**
  * A schema for tracking the outcome of hardware diagnostics.

@@ -2,11 +2,9 @@
 
 import { type Optional, typedAs } from '@vx/libs/basics/types';
 import { Client as DbClient } from '@vx/libs/db/src';
+import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/languages';
+import { safeParse, safeParseJson } from '@vx/libs/types/basic';
 import {
-  LanguageCode,
-  LanguageCodeSchema,
-  safeParse,
-  safeParseJson,
   type UiStringAudioClip,
   type UiStringAudioClips,
   UiStringAudioClipSchema,
@@ -15,7 +13,7 @@ import {
   type UiStringsPackage,
   type UiStringTranslations,
   UiStringTranslationsSchema,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 
 /** Store interface for UI String API endpoints. */
 export interface UiStringsStore {

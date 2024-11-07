@@ -1,4 +1,7 @@
-import { type DiagnosticRecord, type DiagnosticType } from '@vx/libs/types/src';
+import {
+  type DiagnosticRecord,
+  type DiagnosticType,
+} from '@vx/libs/types/diagnostics';
 import React from 'react';
 import { assert } from '@vx/libs/basics/assert';
 import { H2, P } from '../primitives/typography';

@@ -2,7 +2,7 @@ import {
   AdjudicationReason,
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '../test/react_testing_library';
 import {

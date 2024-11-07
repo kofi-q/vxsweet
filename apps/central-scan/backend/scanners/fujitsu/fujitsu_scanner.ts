@@ -7,7 +7,7 @@ import {
   BmdBallotPaperSize,
   HmpbBallotPaperSize,
   ballotPaperDimensions,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
 import { isDeviceAttached } from '@vx/libs/backend/src';
 import { streamExecFile } from '../../exec/exec';

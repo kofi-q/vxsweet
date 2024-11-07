@@ -1,4 +1,4 @@
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { screen, waitFor } from '../../test/react_testing_library';
 import { newTestContext } from '../../test/test_context';
 

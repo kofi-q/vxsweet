@@ -15,9 +15,9 @@ import {
   type VotesDict,
   type YesNoContest,
   getContests,
-  LanguageCode,
-  ElectionStringKey,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { ElectionStringKey } from '@vx/libs/types/ui_strings';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 import { mockOf } from '@vx/libs/test-utils/src';

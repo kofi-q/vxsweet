@@ -9,8 +9,8 @@ import {
   type PrecinctSelection,
   type PollsState,
   type PollsTransitionType,
-} from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/elections';
 import { Button, ButtonList } from '@vx/libs/ui/buttons';
 import { TestMode } from '@vx/libs/ui/test-mode';
 import { SearchSelect } from '@vx/libs/ui/select';

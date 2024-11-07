@@ -23,11 +23,9 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
-import {
-  safeParseElectionDefinition,
-  testCdfBallotDefinition,
-} from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { testCdfBallotDefinition } from '@vx/libs/types/cdf';
 import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';

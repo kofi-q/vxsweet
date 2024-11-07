@@ -10,7 +10,7 @@ ts_library(
         "//libs/backend/src",
         "//libs/basics/assert",
         "//libs/grout/src",
-        "//libs/types/src",
+        "//libs/types/languages",
     ],
 )
 
@@ -22,7 +22,8 @@ ts_tests(
         "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
-        "//libs/types/src",
+        "//libs/types/languages",
+        "//libs/types/ui_strings",
         "//libs/ui/test",
         "//libs/ui/ui_strings/api",
     ],

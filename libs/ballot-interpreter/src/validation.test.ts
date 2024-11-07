@@ -4,8 +4,8 @@ import {
   type BallotStyleId,
   BallotType,
   DEFAULT_MARK_THRESHOLDS,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { normalizeBallotMode } from './validation';
 import { type InterpreterOptions } from './types';

@@ -6,7 +6,7 @@ import {
   type ElectionDefinition,
   type PrecinctSelection,
   getBallotStyle,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 import { H1, P, Caption } from '@vx/libs/ui/primitives';
 import { Seal } from '@vx/libs/ui/election-info';

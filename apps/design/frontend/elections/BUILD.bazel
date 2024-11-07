@@ -18,7 +18,8 @@ ts_library(
         "//apps/design/frontend/util",
         "//libs/basics/result",
         "//libs/basics/time",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/primitives",
         "//libs/ui/screens",
@@ -44,7 +45,7 @@ ts_tests(
         "//apps/design/frontend/test",
         "//libs/basics/result",
         "//libs/basics/time",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

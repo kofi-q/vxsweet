@@ -1,6 +1,6 @@
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import userEvent from '@testing-library/user-event';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { render, screen } from '../../test/react_testing_library';
 import {
   type ApiMock,

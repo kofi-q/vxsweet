@@ -1,11 +1,13 @@
 import {
   BallotType,
   getGroupIdFromBallotStyleId,
+} from '@vx/libs/types/elections';
+import {
   type InterpretedBmdPage,
   type InterpretedHmpbPage,
   type PageInterpretation,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   convertVotesDictToTabulationVotes,
   getBallotStyleIdPartyIdLookup,

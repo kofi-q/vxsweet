@@ -26,16 +26,15 @@ import {
   PrecinctSelectionSchema,
   type PollsState,
   PollsStateSchema,
-  safeParseElectionDefinition,
-  safeParseJson,
-  safeParse,
-  type DiagnosticRecord,
-  type DiagnosticType,
-} from '@vx/libs/types/src';
-import {
   type ElectionKey,
   constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { safeParseJson, safeParse } from '@vx/libs/types/basic';
+import {
+  type DiagnosticRecord,
+  type DiagnosticType,
+} from '@vx/libs/types/diagnostics';
 import { join } from 'node:path';
 
 const SchemaPath = join(__dirname, '../schema.sql');
