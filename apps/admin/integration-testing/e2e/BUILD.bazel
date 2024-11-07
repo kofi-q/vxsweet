@@ -17,7 +17,7 @@ ts_library(
         "//libs/fixtures/src",
         "//libs/printing/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
         "//libs/utils/src",
     ],

@@ -11,8 +11,10 @@ import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
 } from '@vx/libs/test-utils/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
-import { formatElectionHashes } from '@vx/libs/types/src';
+import {
+  constructElectionKey,
+  formatElectionHashes,
+} from '@vx/libs/types/elections';
 import {
   fireEvent,
   screen,

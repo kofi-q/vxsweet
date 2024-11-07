@@ -4,8 +4,8 @@ import {
   type PartyId,
   type PrecinctSelection,
   type StandardPollsTransitionType,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { assert } from '@vx/libs/basics/assert';
 import { ThemeProvider } from 'styled-components';
 import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';

@@ -7,8 +7,8 @@ import {
   type Party,
   type PartyId,
   type Precinct,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { electionGeneral } from '@vx/libs/fixtures/src';
 import { assertDefined } from '@vx/libs/basics/assert';
 import {

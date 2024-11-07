@@ -17,15 +17,15 @@ import {
   type CandidateContest,
   type CandidateVote,
   type ContestId,
-  CVR,
   type Election,
   type ElectionDefinition,
   getContests,
   mapSheet,
-  type Size,
   type Vote,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
+import { type Size } from '@vx/libs/types/geometry';
 import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 import {
   buildCVRSnapshotBallotTypeMetadata,

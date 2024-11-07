@@ -8,7 +8,7 @@ import {
   type Election,
   type ElectionDefinition,
   type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { interpret } from './interpret';
 
 test('interpret exists', () => {

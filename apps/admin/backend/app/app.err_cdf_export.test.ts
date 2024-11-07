@@ -18,14 +18,10 @@ import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
-import {
-  CVR,
-  ResultsReporting,
-  Tabulation,
-  safeParse,
-  safeParseJson,
-  type CandidateContest,
-} from '@vx/libs/types/src';
+import { CVR, ResultsReporting } from '@vx/libs/types/cdf';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { safeParse, safeParseJson } from '@vx/libs/types/basic';
+import { type CandidateContest } from '@vx/libs/types/elections';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { type Client } from '@vx/libs/grout/src';

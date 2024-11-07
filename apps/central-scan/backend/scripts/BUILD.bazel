@@ -15,7 +15,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/errors",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

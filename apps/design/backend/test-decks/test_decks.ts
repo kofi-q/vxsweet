@@ -1,8 +1,8 @@
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find, uniqueBy } from '@vx/libs/basics/collections';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  Admin,
-  Tabulation,
   type BallotStyleId,
   type ContestId,
   type Election,
@@ -10,7 +10,7 @@ import {
   type GridLayout,
   type PrecinctId,
   getGroupIdFromBallotStyleId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   combineElectionResults,
   convertVotesDictToTabulationVotes,

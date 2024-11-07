@@ -1,4 +1,4 @@
-import { type PrinterConfig } from '@vx/libs/types/src';
+import { type PrinterConfig } from '@vx/libs/types/printing';
 import { rootDebug } from '../utils/debug';
 import { exec } from '../utils/exec';
 import { getPpdPath } from './supported';

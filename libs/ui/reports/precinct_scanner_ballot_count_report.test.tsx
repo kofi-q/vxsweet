@@ -1,7 +1,7 @@
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { formatElectionHashes } from '@vx/libs/types/src';
+import { formatElectionHashes } from '@vx/libs/types/elections';
 import { render, screen } from '../test/react_testing_library';
 
 import { PrecinctScannerBallotCountReport } from './precinct_scanner_ballot_count_report';

@@ -21,7 +21,9 @@ ts_library(
         "//libs/basics/errors",
         "//libs/hmpb/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/ui_strings",
     ],
 )
 

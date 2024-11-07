@@ -4,13 +4,13 @@ import { sha256 } from 'js-sha256';
 import {
   type BallotPageLayout,
   type Contests,
-  CVR,
   type Election,
   getBallotStyle,
   getContests,
   type SheetOf,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
 
 /**
  * Generate all combinations of an array.

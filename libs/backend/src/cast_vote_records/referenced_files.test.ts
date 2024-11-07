@@ -9,8 +9,8 @@ import {
   type BallotPageLayout,
   type BallotStyleId,
   BallotType,
-  type ReadCastVoteRecordError,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type ReadCastVoteRecordError } from '@vx/libs/types/cvrs';
 
 import { referencedImageFile, referencedLayoutFile } from './referenced_files';
 

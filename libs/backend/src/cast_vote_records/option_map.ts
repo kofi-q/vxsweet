@@ -2,7 +2,7 @@ import {
   type ContestId,
   type ContestOptionId,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 /**
  * Options for a contest mapped to their position on the ballot.

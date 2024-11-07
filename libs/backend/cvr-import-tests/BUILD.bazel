@@ -16,7 +16,8 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/result",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/cdf",
+        "//libs/types/cvrs",
         "//libs/utils/src",
     ],
 )

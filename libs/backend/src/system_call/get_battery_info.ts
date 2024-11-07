@@ -1,5 +1,5 @@
 import { lines } from '@vx/libs/basics/iterators';
-import { safeParseNumber } from '@vx/libs/types/src';
+import { safeParseNumber } from '@vx/libs/types/basic';
 import { createReadStream } from 'node:fs';
 
 enum BatteryStatus {

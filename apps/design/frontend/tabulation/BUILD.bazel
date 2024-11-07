@@ -12,7 +12,8 @@ ts_library(
         "//apps/design/frontend/api",
         "//apps/design/frontend/layout",
         "//apps/design/frontend/routes",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/checkbox",
         "//libs/ui/primitives",
@@ -31,7 +32,7 @@ ts_tests(
         "//apps/design/frontend/routes",
         "//apps/design/frontend/tabulation",
         "//apps/design/frontend/test",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

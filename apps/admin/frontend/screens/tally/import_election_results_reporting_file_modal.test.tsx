@@ -16,8 +16,10 @@ import {
 } from '@vx/libs/test-utils/src';
 import { join } from 'node:path';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+import {
+  type BallotStyleGroupId,
+  DippedSmartCardAuth,
+} from '@vx/libs/types/elections';
 import {
   type ApiMock,
   createApiMock,

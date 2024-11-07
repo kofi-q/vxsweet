@@ -17,9 +17,9 @@ import {
   type BallotStyleGroupId,
   type Contests,
   type Precinct,
-  Tabulation,
-  Admin as AdminTypes,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { Admin as AdminTypes } from '@vx/libs/types/admin';
 import { Button, LinkButton } from '@vx/libs/ui/buttons';
 import {
   Icons,

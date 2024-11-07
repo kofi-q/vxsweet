@@ -4,8 +4,8 @@ import {
   type PartyId,
   type PrecinctSelection,
   type StandardPollsTransitionType,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   combineElectionResults,
   getContestsForPrecinct,

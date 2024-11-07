@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/central-scan/backend/types",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
     ],
 )

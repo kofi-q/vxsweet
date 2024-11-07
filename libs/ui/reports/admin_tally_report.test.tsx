@@ -5,7 +5,7 @@ import {
   getEmptyElectionResults,
 } from '@vx/libs/utils/src/tabulation';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { formatElectionHashes } from '@vx/libs/types/src';
+import { formatElectionHashes } from '@vx/libs/types/elections';
 import { render, screen, within } from '../test/react_testing_library';
 import { AdminTallyReport } from './admin_tally_report';
 import { mockScannerBatches } from '../test/fixtures';

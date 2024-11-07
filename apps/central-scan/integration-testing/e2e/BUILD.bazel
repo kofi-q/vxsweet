@@ -11,7 +11,7 @@ ts_library(
         "//libs/backend/src",
         "//libs/fixtures/src",
         "//libs/grout/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
     ],
 )

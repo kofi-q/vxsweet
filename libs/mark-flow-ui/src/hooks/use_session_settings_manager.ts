@@ -11,8 +11,8 @@ import {
   useCurrentLanguage,
   useLanguageControls,
 } from '@vx/libs/ui/ui_strings';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
-import { LanguageCode } from '@vx/libs/types/src';
+import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { isCardlessVoterAuth } from '@vx/libs/utils/src';
 
 export interface UseSessionSettingsManagerParams {

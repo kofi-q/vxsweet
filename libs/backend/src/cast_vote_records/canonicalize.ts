@@ -2,9 +2,9 @@ import {
   type InterpretedBmdPage,
   type InterpretedHmpbPage,
   type PageInterpretation,
-  type SheetOf,
-  type SheetValidationError,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
+import { type SheetOf } from '@vx/libs/types/elections';
+import { type SheetValidationError } from '@vx/libs/types/cvrs';
 import { type Result, ok, err } from '@vx/libs/basics/result';
 
 /**

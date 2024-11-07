@@ -20,7 +20,10 @@ ts_tests(
         "//libs/basics/async",
         "//libs/basics/result",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/cdf",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/usb-drive/src",
     ],
 )

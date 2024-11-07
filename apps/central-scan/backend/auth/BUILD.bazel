@@ -8,7 +8,7 @@ ts_library(
         "//apps/central-scan/backend/workspace",
         "//libs/auth/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 
@@ -32,7 +32,7 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/grout/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
     ],
 )

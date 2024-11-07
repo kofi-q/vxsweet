@@ -22,8 +22,8 @@ import {
   getContests,
   getGroupIdFromBallotStyleId,
   getPrecinctById,
-  CVR,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
 import { listDirectoryOnUsbDrive, type UsbDrive } from '@vx/libs/usb-drive/src';
 import {
   BooleanEnvironmentVariableName,

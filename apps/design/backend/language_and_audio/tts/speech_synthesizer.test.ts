@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import {
   mockCloudSynthesizedSpeech,

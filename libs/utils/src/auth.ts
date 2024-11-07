@@ -1,7 +1,7 @@
 import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 export function isVendorAuth(
   auth: DippedSmartCardAuth.AuthStatus

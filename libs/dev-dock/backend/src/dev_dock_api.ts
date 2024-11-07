@@ -6,9 +6,9 @@ import { assert } from '@vx/libs/basics/assert';
 import {
   type PrinterConfig,
   type PrinterStatus,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
-import { type UserRole } from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/printing';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { type UserRole } from '@vx/libs/types/elections';
 import { isAbsolute, join } from 'node:path';
 import {
   type CardStatus,

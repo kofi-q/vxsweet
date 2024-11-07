@@ -12,7 +12,6 @@ ts_tests(
         "//:node_modules/@typescript-eslint/utils",
         "//:node_modules/react",
         "//libs/eslint-plugin-vx/src/rules",
-        "//libs/types/src",
     ],
 )
 

@@ -1,4 +1,4 @@
-import { safeParse, unsafeParse } from '@vx/libs/types/src';
+import { safeParse, unsafeParse } from '@vx/libs/types/basic';
 import { ErrorsResponseSchema, OkResponseSchema } from './base';
 
 test('OkResponse', () => {

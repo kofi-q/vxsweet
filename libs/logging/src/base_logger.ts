@@ -1,4 +1,4 @@
-import { type Dictionary } from '@vx/libs/types/src';
+import { type Dictionary } from '@vx/libs/types/basic';
 import makeDebug from 'debug';
 import { LogEventId, getDetailsForEventId } from './log_event_ids';
 import { CLIENT_SIDE_LOG_SOURCES, LogSource } from './base_types/log_source';

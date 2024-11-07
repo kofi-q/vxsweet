@@ -1,4 +1,4 @@
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import userEvent from '@testing-library/user-event';
 import { GroupByEditor } from './group_by_editor';
 import { screen } from '../../test/react_testing_library';

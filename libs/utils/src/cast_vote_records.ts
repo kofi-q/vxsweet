@@ -6,18 +6,19 @@ import { integers } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   BallotType,
-  CastVoteRecordExportFileName,
   type ContestId,
   type ContestOptionId,
   type Contests,
-  CVR,
+  type Side,
+} from '@vx/libs/types/elections';
+import {
+  CastVoteRecordExportFileName,
   type CVRSnapshotOtherStatus,
   CVRSnapshotOtherStatusSchema,
-  safeParse,
-  safeParseJson,
-  type Side,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
+import { safeParse, safeParseJson } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 export const UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS =
   'unmarked-write-in';

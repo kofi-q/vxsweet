@@ -25,7 +25,11 @@ ts_library(
         "//libs/basics/types",
         "//libs/db/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/diagnostics",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 
@@ -45,7 +49,8 @@ ts_tests(
         "//libs/basics/async",
         "//libs/fixtures/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

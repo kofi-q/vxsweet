@@ -12,7 +12,7 @@ ts_library(
         "//apps/design/backend/store",
         "//libs/basics/assert",
         "//libs/basics/iterators",
-        "//libs/types/src",
+        "//libs/types/languages",
     ],
 )
 
@@ -25,7 +25,7 @@ ts_tests(
         "//apps/design/backend/language_and_audio/vendored-translations",
         "//apps/design/backend/store",
         "//apps/design/backend/test",
-        "//libs/types/src",
+        "//libs/types/languages",
     ],
 )
 

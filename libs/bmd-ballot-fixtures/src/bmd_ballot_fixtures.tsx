@@ -7,7 +7,7 @@ import {
   type BallotStyleId,
   type PrecinctId,
   vote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { BmdPaperBallot, type BmdPaperBallotProps } from '@vx/libs/ui/ballots';
 import { Buffer } from 'node:buffer';
 import {

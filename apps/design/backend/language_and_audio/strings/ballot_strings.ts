@@ -1,9 +1,9 @@
+import { type Election } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  type Election,
-  LanguageCode,
   type UiStringsPackage,
   mergeUiStrings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import { hmpbStringsCatalog } from '@vx/libs/hmpb/src';
 import {
   type BallotLanguageConfigs,

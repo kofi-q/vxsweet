@@ -8,7 +8,7 @@ import {
 } from '@vx/libs/utils/src';
 import { UseMutationResult } from '@tanstack/react-query';
 import { type ExportDataResult } from '@vx/libs/backend/src';
-import { type Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
 import { AppContext } from '../../contexts/app_context';
 import { getCastVoteRecordFileMode } from '../../api/api';
 import { SaveBackendFileModal } from '../save_backend_file_modal';

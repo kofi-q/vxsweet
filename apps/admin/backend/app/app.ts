@@ -1,19 +1,19 @@
 import { Buffer } from 'node:buffer';
 import { isMatch } from 'micromatch';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
+import { Admin } from '@vx/libs/types/admin';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { type Id } from '@vx/libs/types/basic';
+import { type PrinterStatus } from '@vx/libs/types/printing';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { convertElectionResultsReportingReportToVxManualResults } from '@vx/libs/types/cdf';
 import {
-  Admin,
-  type DiagnosticRecord,
-  type Id,
-  type PrinterStatus,
-  Tabulation,
-  convertElectionResultsReportingReportToVxManualResults,
   ElectionPackageFileName,
   type ContestId,
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
-  CastVoteRecordExportFileName,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { deferred } from '@vx/libs/basics/async';
 import { err, ok, type Result } from '@vx/libs/basics/result';

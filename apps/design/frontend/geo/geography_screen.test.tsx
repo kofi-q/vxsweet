@@ -5,7 +5,7 @@ import {
   type PrecinctWithoutSplits,
 } from '../../backend/types/types';
 import { createMemoryHistory } from 'history';
-import { type District, type DistrictId } from '@vx/libs/types/src';
+import { type District, type DistrictId } from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import { assert } from '@vx/libs/basics/assert';
 import { electionGeneral } from '@vx/libs/fixtures/src';

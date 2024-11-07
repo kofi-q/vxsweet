@@ -1,11 +1,8 @@
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { Route } from 'react-router-dom';
 
-import {
-  type BallotStyleGroupId,
-  getContests,
-  Tabulation,
-} from '@vx/libs/types/src';
+import { type BallotStyleGroupId, getContests } from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import userEvent from '@testing-library/user-event';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { getBallotStyleGroup } from '@vx/libs/utils/src';

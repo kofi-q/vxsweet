@@ -34,7 +34,7 @@ import { err } from '@vx/libs/basics/result';
 import { tmpNameSync } from 'tmp';
 import { LogEventId } from '@vx/libs/logging/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import {
   buildTestEnvironment,
   configureMachine,

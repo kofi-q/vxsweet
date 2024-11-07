@@ -15,12 +15,12 @@ import {
   type GridLayout,
   type GridPosition,
   type HmpbBallotPageMetadata,
-  type Outset,
   type PrecinctId,
-  convertVxfElectionToCdfBallotDefinition,
   formatBallotHash,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Outset } from '@vx/libs/types/geometry';
+import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { QrCode } from '@vx/libs/ui/ballots';
 import { encodeHmpbBallotPageMetadata } from '@vx/libs/ballot-encoder/src';
 import {

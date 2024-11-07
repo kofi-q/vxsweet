@@ -6,7 +6,8 @@ ts_library(
     name = "cvrs",
     deps = [
         "//apps/admin/backend/types",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )
@@ -19,7 +20,7 @@ ts_tests(
         "//apps/admin/backend/types",
         "//apps/admin/backend/util/cvrs",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/tabulation",
     ],
 )
 

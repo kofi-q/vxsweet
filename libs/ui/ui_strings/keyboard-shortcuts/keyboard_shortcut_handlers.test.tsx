@@ -6,7 +6,8 @@ jest.mock(
 );
 
 import userEvent from '@testing-library/user-event';
-import { type AudioControls, LanguageCode } from '@vx/libs/types/src';
+import { type AudioControls } from '@vx/libs/types/ui_strings';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { advancePromises, mockUseAudioControls } from '@vx/libs/test-utils/src';
 import { newTestContext } from '../../test/test_context';
 import { KeyboardShortcutHandlers } from './keyboard_shortcut_handlers';

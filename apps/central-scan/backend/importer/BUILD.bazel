@@ -24,7 +24,8 @@ ts_library(
         "//libs/basics/result",
         "//libs/image-utils/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

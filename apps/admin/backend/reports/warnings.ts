@@ -1,10 +1,7 @@
 import { type PdfError } from '@vx/libs/printing/src';
-import {
-  Admin,
-  Tabulation,
-  type ContestId,
-  type Election,
-} from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type ContestId, type Election } from '@vx/libs/types/elections';
 import {
   combineElectionResults,
   convertManualElectionResults,

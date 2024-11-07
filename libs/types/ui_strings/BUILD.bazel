@@ -1,0 +1,26 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "ui_strings",
+    deps = [
+        "//:node_modules/zod",
+        "//libs/basics/objects",
+        "//libs/types/basic",
+        "//libs/types/languages",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//libs/types/basic",
+        "//libs/types/languages",
+        "//libs/types/ui_strings",
+    ],
+)
+
+lint_test(name = "lint")

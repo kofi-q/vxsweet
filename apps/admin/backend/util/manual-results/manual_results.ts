@@ -1,11 +1,11 @@
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { Admin as AdminTypes } from '@vx/libs/types/admin';
 import {
-  type Id,
-  Tabulation,
-  Admin as AdminTypes,
   type BallotStyleGroupId,
   type Election,
   getContests,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { areContestResultsValid } from '@vx/libs/utils/src/tabulation';
 import { getBallotStyleGroup } from '@vx/libs/utils/src';

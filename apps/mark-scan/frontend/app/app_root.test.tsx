@@ -6,7 +6,7 @@ jest.mock('../pages/poll-worker/poll_worker_auth_ended_unexpectedly_page');
 
 import { advancePromises, mockOf } from '@vx/libs/test-utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import React from 'react';

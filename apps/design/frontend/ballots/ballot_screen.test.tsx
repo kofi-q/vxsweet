@@ -8,7 +8,7 @@ jest.mock('react-pdf', (): typeof import('react-pdf') => {
   };
 });
 
-import { BallotType } from '@vx/libs/types/src';
+import { BallotType } from '@vx/libs/types/elections';
 import { DocumentProps, PageProps } from 'react-pdf';
 import { useEffect } from 'react';
 import { ok } from '@vx/libs/basics/result';

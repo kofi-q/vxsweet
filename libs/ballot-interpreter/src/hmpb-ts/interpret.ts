@@ -3,9 +3,9 @@ import { err, ok } from '@vx/libs/basics/result';
 import { ImageData } from 'canvas';
 import {
   type ElectionDefinition,
-  safeParseJson,
   type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseJson } from '@vx/libs/types/basic';
 import { interpret as interpretImpl } from './rust_addon';
 import {
   type InterpretedBallotCard,

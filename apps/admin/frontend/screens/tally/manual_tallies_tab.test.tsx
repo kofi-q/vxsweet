@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 
 import userEvent from '@testing-library/user-event';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import {

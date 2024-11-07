@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import { assertDefined } from '@vx/libs/basics/assert';

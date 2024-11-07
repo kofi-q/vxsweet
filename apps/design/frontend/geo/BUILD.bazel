@@ -15,7 +15,8 @@ ts_library(
         "//apps/design/frontend/routes",
         "//apps/design/frontend/util",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
         "//libs/ui/breadcrumbs",
         "//libs/ui/buttons",
         "//libs/ui/checkbox",
@@ -43,7 +44,7 @@ ts_tests(
         "//apps/design/frontend/util",
         "//libs/basics/assert",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

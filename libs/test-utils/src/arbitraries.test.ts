@@ -1,9 +1,8 @@
+import { IdSchema, unsafeParse } from '@vx/libs/types/basic';
 import {
-  IdSchema,
   safeParseElection,
   safeParseElectionDefinition,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/election-parsing';
 import fc from 'fast-check';
 import { assert } from '@vx/libs/basics/assert';
 import {

@@ -16,7 +16,8 @@ ts_tests(
         "//libs/basics/async",
         "//libs/basics/result",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/cdf",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

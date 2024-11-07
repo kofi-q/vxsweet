@@ -5,7 +5,7 @@ import { createInterface } from 'node:readline';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { safeParseInt } from '@vx/libs/types/src';
+import { safeParseInt } from '@vx/libs/types/basic';
 import { BaseLogger, Logger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { FujitsuThermalPrinter } from './printer';

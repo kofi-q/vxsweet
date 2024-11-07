@@ -14,7 +14,10 @@ ts_library(
         "//apps/design/backend/types",
         "//libs/basics/assert",
         "//libs/hmpb/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/languages",
+        "//libs/types/ui_strings",
         "//libs/utils/src",
     ],
 )

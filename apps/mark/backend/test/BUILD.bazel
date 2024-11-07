@@ -24,7 +24,7 @@ ts_library(
         "//libs/logging/src",
         "//libs/printing/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/usb-drive/src",
     ],
 )

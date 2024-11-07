@@ -1,4 +1,4 @@
-import { type Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/geometry';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';
 import { arbitraryImageData, arbitraryRect } from '../test/arbitraries';

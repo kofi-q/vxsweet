@@ -7,7 +7,7 @@ import {
 import {
   DippedSmartCardAuth,
   constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { ok } from '@vx/libs/basics/result';
 import {

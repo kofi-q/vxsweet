@@ -17,7 +17,7 @@ ts_library(
         "//libs/fixtures/src",
         "//libs/image-utils/src",
         "//libs/printing/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/ballots",
     ],
 )

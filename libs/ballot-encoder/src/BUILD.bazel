@@ -9,7 +9,8 @@ ts_library(
     deps = [
         "//libs/basics/assert",
         "//libs/basics/iterators",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
     ],
 )
 
@@ -22,7 +23,8 @@ ts_tests(
         "//libs/ballot-encoder/test",
         "//libs/basics/time",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
     ],
 )
 

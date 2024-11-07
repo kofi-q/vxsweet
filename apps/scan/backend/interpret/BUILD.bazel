@@ -9,7 +9,8 @@ ts_library(
         "//apps/scan/backend/util",
         "//libs/ballot-interpreter/src",
         "//libs/basics/result",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )
@@ -30,7 +31,8 @@ ts_tests(
         "//libs/bmd-ballot-fixtures/src",
         "//libs/fixtures/src",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

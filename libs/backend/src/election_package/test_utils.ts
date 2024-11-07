@@ -1,7 +1,7 @@
 import {
   type ElectionPackage,
   ElectionPackageFileName,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Buffer } from 'node:buffer';
 import {
   ELECTION_PACKAGE_FOLDER,

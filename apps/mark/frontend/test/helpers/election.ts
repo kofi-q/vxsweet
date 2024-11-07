@@ -4,7 +4,7 @@ import {
   getBallotStyle,
   getContests,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 export const electionDefinition = electionGeneralDefinition;

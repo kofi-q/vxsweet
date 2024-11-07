@@ -1,6 +1,7 @@
 import { assert } from '@vx/libs/basics/assert';
 import { BallotCountReport } from '@vx/libs/ui/reports';
-import { Admin, Tabulation } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
 import { type Printer } from '@vx/libs/printing/src/printer';

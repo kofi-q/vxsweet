@@ -16,8 +16,8 @@ import {
   type PartyId,
   type Precinct,
   getContests,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../test/react_testing_library';
 import { BallotStyleReadinessReport } from './ballot_style_readiness_report';

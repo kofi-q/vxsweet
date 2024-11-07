@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-import { isTouchSizeMode } from '@vx/libs/types/src';
+import { isTouchSizeMode } from '@vx/libs/types/ui-theme';
 import { assert } from '@vx/libs/basics/assert';
 import { CONFIG } from './constants';
 import { type Layout, type MisvoteWarningsProps } from './types';

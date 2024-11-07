@@ -1,4 +1,4 @@
-import { EventLogging } from '@vx/libs/types/src';
+import { EventLogging } from '@vx/libs/types/cdf';
 import {
   getDetailsForEventId,
   type LogDetails,

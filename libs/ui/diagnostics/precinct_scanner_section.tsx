@@ -1,7 +1,5 @@
-import {
-  type DiagnosticRecord,
-  type PrecinctScannerMachineStatus,
-} from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { type PrecinctScannerMachineStatus } from '@vx/libs/types/scanning';
 import { assert } from '@vx/libs/basics/assert';
 import { H2, P } from '../primitives/typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';

@@ -43,11 +43,11 @@ import {
   type ElectionDefinition,
   type VotesDict,
   safeParseSystemSettings,
-  safeParseElectionDefinition,
-  LanguageCode,
-  convertVxfElectionToCdfBallotDefinition,
-  type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { LogEventId, Logger, mockBaseLogger } from '@vx/libs/logging/src';

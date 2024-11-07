@@ -20,11 +20,9 @@ import {
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { assert } from '@vx/libs/basics/assert';
 import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';

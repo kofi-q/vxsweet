@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { type SizeTheme } from '@vx/libs/types/src';
+import { type SizeTheme } from '@vx/libs/types/ui-theme';
 
 export type Align = 'left' | 'center' | 'right';
 type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

@@ -16,7 +16,9 @@ ts_tests(
         "//libs/fixtures/src",
         "//libs/hmpb/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/languages",
+        "//libs/types/ui_strings",
         "//libs/utils/src",
     ],
 )

@@ -4,11 +4,11 @@ import {
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
 import { mockReadable, mockWritable } from '@vx/libs/test-utils/src';
+import { CVR } from '@vx/libs/types/cdf';
 import {
-  CVR,
   type CastVoteRecordBatchMetadata,
   CastVoteRecordExportFileName,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
 import fs from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { dirSync } from 'tmp';

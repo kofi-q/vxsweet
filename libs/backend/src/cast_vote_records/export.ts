@@ -20,21 +20,22 @@ import { err, ok, type Result } from '@vx/libs/basics/result';
 import {
   BallotIdSchema,
   type BatchInfo,
-  CastVoteRecordExportFileName,
-  type CastVoteRecordExportMetadata,
-  type CastVoteRecordReportWithoutMetadata,
-  CVR,
   type ElectionDefinition,
-  type ExportCastVoteRecordsToUsbDriveError,
-  type Id,
   mapSheet,
   type MarkThresholds,
-  type PageInterpretation,
   type PollsState,
   type SheetOf,
   type SystemSettings,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import {
+  CastVoteRecordExportFileName,
+  type CastVoteRecordExportMetadata,
+  type CastVoteRecordReportWithoutMetadata,
+  type ExportCastVoteRecordsToUsbDriveError,
+} from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
+import { type Id, unsafeParse } from '@vx/libs/types/basic';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   generateCastVoteRecordExportDirectoryName,

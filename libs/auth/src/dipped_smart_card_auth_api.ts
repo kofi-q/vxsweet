@@ -9,7 +9,7 @@ import {
   type StartingCardLockoutDurationSeconds,
   type SystemAdministratorUser,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 /**
  * The API for a dipped smart card auth instance, "dipped" meaning that the card needs to be

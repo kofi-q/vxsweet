@@ -1,5 +1,5 @@
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { type BatchInfo } from '@vx/libs/types/src';
+import { type BatchInfo } from '@vx/libs/types/elections';
 
 export function logBatchComplete(
   logger: Logger,

@@ -9,7 +9,7 @@ import {
   MarkStatus,
   type VotesDict,
   WriteInAreaStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 

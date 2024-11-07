@@ -1,12 +1,12 @@
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { typedAs } from '@vx/libs/basics/types';
 import { unique } from '@vx/libs/basics/collections';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  Admin,
-  Tabulation,
   type BallotStyleGroupId,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { SearchSelect, type SelectOption } from '@vx/libs/ui/select';

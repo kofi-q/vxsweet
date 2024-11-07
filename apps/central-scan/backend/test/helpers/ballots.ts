@@ -7,7 +7,7 @@ import {
 } from '@vx/libs/bmd-ballot-fixtures/src';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
-import { type SheetOf, asSheet } from '@vx/libs/types/src';
+import { type SheetOf, asSheet } from '@vx/libs/types/elections';
 import { tmpNameSync } from 'tmp';
 
 export async function generateBmdBallotFixture(): Promise<SheetOf<string>> {

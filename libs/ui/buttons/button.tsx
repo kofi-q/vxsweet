@@ -5,7 +5,7 @@ import {
   type SizeMode,
   type SizeTheme,
   type UiTheme,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
 import { rgba } from 'polished';

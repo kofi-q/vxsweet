@@ -1,4 +1,4 @@
-import { type ElectionPackageConfigurationError } from '@vx/libs/types/src';
+import { type ElectionPackageConfigurationError } from '@vx/libs/types/elections';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { FullScreenIconWrapper, Icons } from '../primitives/icons';

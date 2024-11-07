@@ -6,7 +6,7 @@ import { PrinterStatusDisplay } from '@vx/libs/ui/diagnostics';
 import { format, formatTime } from '@vx/libs/utils/src';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { type PrinterStatus } from '@vx/libs/types/src';
+import { type PrinterStatus } from '@vx/libs/types/printing';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import {
   AccessibleControllerDiagnosticScreen,

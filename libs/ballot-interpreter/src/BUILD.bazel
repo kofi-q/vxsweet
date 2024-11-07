@@ -29,7 +29,11 @@ ts_library(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/geometry",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )
@@ -65,7 +69,9 @@ ts_tests(
         "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/scanning",
         "//libs/utils/src",
     ],
 )

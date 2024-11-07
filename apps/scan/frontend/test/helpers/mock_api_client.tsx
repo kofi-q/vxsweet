@@ -6,14 +6,14 @@ import {
   type ElectionDefinition,
   type PrecinctSelection,
   type PollsState,
-  type PrinterStatus,
-  type DiagnosticRecord,
-  type DiagnosticOutcome,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
+import { type PrinterStatus } from '@vx/libs/types/printing';
+import {
+  type DiagnosticRecord,
+  type DiagnosticOutcome,
+} from '@vx/libs/types/diagnostics';
 import { createMockClient } from '@vx/libs/grout/test-utils/src';
 import { type Api } from '../../../backend/app/app';
 import {

@@ -6,7 +6,7 @@ import {
   BallotType,
   DEFAULT_SYSTEM_SETTINGS,
   formatBallotHash,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Scan } from '@vx/libs/api/src';
 import { typedAs } from '@vx/libs/basics/types';
 import fetchMock from 'fetch-mock';

@@ -10,7 +10,7 @@ import {
   type GridPositionOption,
   type VotesDict,
   ballotPaperDimensions,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { range } from '@vx/libs/basics/collections';

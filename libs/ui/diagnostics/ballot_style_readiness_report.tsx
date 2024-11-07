@@ -4,8 +4,8 @@ import {
   type ElectionDefinition,
   getContests,
   formatBallotHash,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { format } from '@vx/libs/utils/src';
 import React from 'react';
 import { ReadinessReportHeader } from './report_header';

@@ -13,7 +13,7 @@ ts_library(
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/contexts",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/election-info",
         "//libs/ui/left-nav",

@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { type PrinterConfig } from '@vx/libs/types/src';
+import { type PrinterConfig } from '@vx/libs/types/printing';
 import { ok } from '@vx/libs/basics/result';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { screen, within, act } from '../test/react_testing_library';

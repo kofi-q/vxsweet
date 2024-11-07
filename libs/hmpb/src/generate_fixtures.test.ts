@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
-import { HmpbBallotPaperSize } from '@vx/libs/types/src';
+import { HmpbBallotPaperSize } from '@vx/libs/types/elections';
 import { pdfToImages } from '@vx/libs/image-utils/src';
 import { iter } from '@vx/libs/basics/iterators';
 import { readElection } from '@vx/libs/fs/src';

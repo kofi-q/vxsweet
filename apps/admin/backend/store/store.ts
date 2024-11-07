@@ -29,20 +29,22 @@ import {
   type BallotStyleGroup,
   type BallotPageLayout,
   BallotPageLayoutSchema,
-  safeParseElectionDefinition,
+  type ElectionKey,
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import {
   type DiagnosticRecord,
   type DiagnosticType,
+} from '@vx/libs/types/diagnostics';
+import {
   type Id,
   type Iso8601Timestamp,
   safeParse,
   safeParseJson,
-  Tabulation,
-  Admin,
-} from '@vx/libs/types/src';
-import {
-  type ElectionKey,
-  constructElectionKey,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { Admin } from '@vx/libs/types/admin';
 import { join } from 'node:path';
 import { Buffer } from 'node:buffer';
 import { v4 as uuid } from 'uuid';

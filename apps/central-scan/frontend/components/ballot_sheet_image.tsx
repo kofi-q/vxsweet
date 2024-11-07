@@ -1,4 +1,4 @@
-import { type BallotPageLayout, type Contest } from '@vx/libs/types/src';
+import { type BallotPageLayout, type Contest } from '@vx/libs/types/elections';
 import { iter } from '@vx/libs/basics/iterators';
 import React, { useCallback, useRef, useState } from 'react';
 

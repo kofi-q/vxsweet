@@ -4,7 +4,7 @@ import {
 } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { type BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen, within } from '../test/react_testing_library';
 import * as GLOBALS from '../config/globals';
 

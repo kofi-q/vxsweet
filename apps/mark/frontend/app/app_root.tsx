@@ -7,9 +7,9 @@ import {
   type ContestId,
   type PrecinctId,
   type BallotStyleId,
-  type PrinterStatus,
-} from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/elections';
+import { type PrinterStatus } from '@vx/libs/types/printing';
 
 import Gamepad from 'react-gamepad';
 import { useHistory } from 'react-router-dom';

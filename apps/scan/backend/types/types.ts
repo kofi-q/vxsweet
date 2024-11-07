@@ -4,11 +4,13 @@ import {
   type PrecinctSelection,
   type PollsState,
   type PollsTransitionType,
-  type Id,
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import {
   type PageInterpretation,
   type SheetInterpretationWithPages,
   type PrecinctScannerMachineStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 
 export interface MachineConfig {
   machineId: string;

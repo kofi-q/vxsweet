@@ -1,6 +1,6 @@
 import { err, ok } from '@vx/libs/basics/result';
 import { typedAs } from '@vx/libs/basics/types';
-import { type SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/elections';
 import { Buffer } from 'node:buffer';
 import { randomBytes } from 'node:crypto';
 import fc from 'fast-check';

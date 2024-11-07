@@ -4,12 +4,12 @@ import {
   type BallotStyleId,
   type CandidateContest,
   type CandidateVote,
-  type Dictionary,
   type Election,
   getBallotStyle,
   getContests,
   type YesNoVote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Dictionary } from '@vx/libs/types/basic';
 import { deepEqual } from '@vx/libs/basics/objects';
 import { unique } from '@vx/libs/basics/collections';
 import {

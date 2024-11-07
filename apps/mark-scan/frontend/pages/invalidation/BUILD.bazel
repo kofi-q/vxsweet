@@ -12,7 +12,7 @@ ts_library(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/components",
         "//apps/mark-scan/frontend/pages/help",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/buttons",
         "//libs/ui/primitives",
         "//libs/ui/ui_strings/ui_string",
@@ -31,7 +31,7 @@ ts_tests(
         "//apps/mark-scan/frontend/pages/invalidation",
         "//apps/mark-scan/frontend/test",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/themes",
     ],
 )

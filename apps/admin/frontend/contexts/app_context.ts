@@ -1,6 +1,8 @@
 import { createContext } from 'react';
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 import { type MachineConfig } from '../../backend/types/types';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';

@@ -4,8 +4,8 @@ import {
   type Contest,
   type Side,
   formatBallotHash,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { Scan } from '@vx/libs/api/src';
 import { assert } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';

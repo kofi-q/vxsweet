@@ -2,7 +2,7 @@ import { readElection } from '@vx/libs/fs/src';
 import {
   type ElectionDefinition,
   ElectionPackageFileName,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { join } from 'node:path';
 import { generateMockVotes } from '@vx/libs/utils/src';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';

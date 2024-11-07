@@ -1,4 +1,5 @@
-import { type CandidateContest, Tabulation } from '@vx/libs/types/src';
+import { type CandidateContest } from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   electionTwoPartyPrimaryDefinition,
   electionGeneralDefinition,

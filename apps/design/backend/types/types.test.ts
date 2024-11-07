@@ -2,8 +2,8 @@ import {
   type BallotStyle as VxfBallotStyle,
   type DistrictId,
   type PartyId,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { convertToVxfBallotStyle } from './types';
 
 const { ENGLISH, SPANISH } = LanguageCode;

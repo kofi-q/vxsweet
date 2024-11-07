@@ -1,10 +1,10 @@
 import {
   type BallotStyleId,
   BallotType,
-  type BlankPage,
   type SheetOf,
-  type SheetValidationError,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type BlankPage } from '@vx/libs/types/scanning';
+import { type SheetValidationError } from '@vx/libs/types/cvrs';
 import { canonicalizeSheet } from './canonicalize';
 import {
   interpretedBmdPage,

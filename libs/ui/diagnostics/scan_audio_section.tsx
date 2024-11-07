@@ -1,5 +1,5 @@
 import { assert } from '@vx/libs/basics/assert';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { H2, P } from '../primitives/typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';
 

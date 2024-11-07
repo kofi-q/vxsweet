@@ -6,7 +6,7 @@ import {
   useQueries,
   useQuery,
 } from '@tanstack/react-query';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { type UiStringsApi } from '@vx/libs/backend/src/ui_strings';
 import * as grout from '@vx/libs/grout/src';
 import { assertDefined } from '@vx/libs/basics/assert';

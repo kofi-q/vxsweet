@@ -1,4 +1,4 @@
-import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@vx/libs/types/src/auth';
+import { DEFAULT_OVERALL_SESSION_TIME_LIMIT_HOURS } from '@vx/libs/types/elections';
 
 import { computeSessionEndTime, type SessionConfig } from './sessions';
 

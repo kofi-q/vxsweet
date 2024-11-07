@@ -8,8 +8,8 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 import {
   AdjudicationReason,
   DEFAULT_SYSTEM_SETTINGS,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import { ErrorCode, mocks } from '@vx/libs/custom-scanner/src';
 import { err, ok } from '@vx/libs/basics/result';
 import {

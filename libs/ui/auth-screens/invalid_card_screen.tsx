@@ -1,7 +1,7 @@
 import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import { Main } from '../screens/main';
 import { Screen } from '../screens/screen';

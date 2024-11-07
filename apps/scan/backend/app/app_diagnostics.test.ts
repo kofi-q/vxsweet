@@ -23,7 +23,7 @@ import {
 } from '@vx/libs/utils/src';
 import { err } from '@vx/libs/basics/result';
 import { LogEventId } from '@vx/libs/logging/src';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   type DiskSpaceSummary,

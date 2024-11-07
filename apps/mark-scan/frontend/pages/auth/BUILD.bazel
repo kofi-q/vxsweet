@@ -9,7 +9,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/mark-scan/frontend/api",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/auth-screens",
         "//libs/ui/election-info",
         "//libs/ui/hooks",

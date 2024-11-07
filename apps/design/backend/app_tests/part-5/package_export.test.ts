@@ -29,11 +29,13 @@ import {
   type SystemSettings,
   formatBallotHash,
   formatElectionPackageHash,
-  LanguageCode,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
   ElectionStringKey,
   type UiStringsPackage,
   mergeUiStrings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

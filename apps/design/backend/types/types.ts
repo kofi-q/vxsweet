@@ -5,9 +5,9 @@ import {
   type PartyId,
   type PrecinctId,
   type BallotStyleGroupId,
-  type Id,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 export interface BallotLanguageConfig {
   languages: LanguageCode[];

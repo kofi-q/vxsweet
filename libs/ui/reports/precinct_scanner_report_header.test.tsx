@@ -6,7 +6,7 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionFamousNames2021Fixtures,
 } from '@vx/libs/fixtures/src';
-import { formatElectionHashes, type PartyId } from '@vx/libs/types/src';
+import { formatElectionHashes, type PartyId } from '@vx/libs/types/elections';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../test/react_testing_library';
 import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';

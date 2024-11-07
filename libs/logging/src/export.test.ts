@@ -1,6 +1,7 @@
 import { assert } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
-import { EventLogging, safeParseJson } from '@vx/libs/types/src';
+import { EventLogging } from '@vx/libs/types/cdf';
+import { safeParseJson } from '@vx/libs/types/basic';
 import { createReadStream } from 'node:fs';
 import { join } from 'node:path';
 import { LogEventId } from './log_event_ids';

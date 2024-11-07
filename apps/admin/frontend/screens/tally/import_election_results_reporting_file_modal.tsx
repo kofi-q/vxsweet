@@ -16,7 +16,7 @@ import {
   type ImportElectionResultsReportingError,
   type ManualResultsVotingMethod,
 } from '../../../backend/types/types';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { AppContext } from '../../contexts/app_context';
 import { type InputEventFunction } from '../../config/types';
 import { importElectionResultsReportingFile } from '../../api/api';

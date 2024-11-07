@@ -13,7 +13,8 @@ ts_library(
         "//libs/db/src",
         "//libs/fixtures/src",
         "//libs/fs/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 

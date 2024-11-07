@@ -1,8 +1,8 @@
 import {
   type BallotStyleGroupId,
   type ElectionDefinition,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   electionPrimaryPrecinctSplitsFixtures,
   electionTwoPartyPrimaryDefinition,

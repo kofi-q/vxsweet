@@ -15,7 +15,10 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/objects",
         "//libs/basics/result",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
+        "//libs/types/ui_strings",
     ],
 )
 

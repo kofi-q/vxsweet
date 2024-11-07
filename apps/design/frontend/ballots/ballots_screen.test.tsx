@@ -3,7 +3,7 @@ import {
   HmpbBallotPaperSize,
   type Election,
   type ElectionId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   provideApi,
   createMockApiClient,

@@ -12,7 +12,9 @@ ts_library(
         "//apps/admin/backend/types",
         "//libs/basics/assert",
         "//libs/basics/types",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )
@@ -28,7 +30,8 @@ ts_tests(
         "//apps/admin/backend/test",
         "//libs/basics/collections",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )

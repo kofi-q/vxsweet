@@ -13,7 +13,10 @@ import { type Optional } from '@vx/libs/basics/types';
 import { assert } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { writeFile } from 'node:fs/promises';
-import { type PrinterConfig, type PrinterStatus } from '@vx/libs/types/src';
+import {
+  type PrinterConfig,
+  type PrinterStatus,
+} from '@vx/libs/types/printing';
 import { type PrintProps, type Printer } from '../types';
 import { getMockConnectedPrinterStatus } from './fixtures';
 import { isIntegrationTest } from '@vx/libs/utils/src';

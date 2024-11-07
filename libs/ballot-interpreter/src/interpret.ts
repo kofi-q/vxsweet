@@ -22,28 +22,29 @@ import {
   BallotType,
   type ContestOption,
   type Contests,
-  type Corners,
   type ElectionDefinition,
   getBallotStyle,
   getContests,
   type GridPosition,
   type HmpbBallotPageMetadata,
-  type Id,
-  type InterpretedHmpbPage,
-  type InvalidBallotHashPage,
-  type InvalidPrecinctPage,
-  type InvalidTestModePage,
   mapSheet,
   type MarkInfo,
   MarkStatus,
-  type PageInterpretation,
-  type PageInterpretationWithFiles,
-  type Rect,
   type SheetOf,
   type VotesDict,
   WriteInAreaStatus,
   type WriteInId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Corners, type Rect } from '@vx/libs/types/geometry';
+import { type Id } from '@vx/libs/types/basic';
+import {
+  type InterpretedHmpbPage,
+  type InvalidBallotHashPage,
+  type InvalidPrecinctPage,
+  type InvalidTestModePage,
+  type PageInterpretation,
+  type PageInterpretationWithFiles,
+} from '@vx/libs/types/scanning';
 import {
   ALL_PRECINCTS_SELECTION,
   convertMarksToVotesDict,

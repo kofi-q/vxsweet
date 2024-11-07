@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
 import { assert } from '@vx/libs/basics/assert';
 import React from 'react';
 

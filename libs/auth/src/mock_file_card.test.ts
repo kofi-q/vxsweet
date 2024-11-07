@@ -8,7 +8,7 @@ import {
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
 
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+import { constructElectionKey } from '@vx/libs/types/elections';
 import {
   deserializeMockFileContents,
   MOCK_FILE_PATH,

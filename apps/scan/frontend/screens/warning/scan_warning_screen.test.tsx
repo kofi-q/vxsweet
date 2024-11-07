@@ -26,7 +26,7 @@ import {
   AdjudicationReason,
   type CandidateContest,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
 import { ScanWarningScreen, type Props } from './scan_warning_screen';

@@ -2,8 +2,8 @@ import {
   type AnyContest,
   type CandidateContest,
   type ElectionDefinition,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { ThemeProvider } from 'styled-components';
 import { unique } from '@vx/libs/basics/collections';
 import { getPartyById } from '@vx/libs/utils/src/tabulation';

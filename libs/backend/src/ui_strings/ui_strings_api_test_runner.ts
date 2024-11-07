@@ -1,6 +1,7 @@
 /* istanbul ignore file - test util */
 
-import { LanguageCode, type UiStringAudioClips } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type UiStringAudioClips } from '@vx/libs/types/ui_strings';
 import { type UiStringsStore } from './ui_strings_store';
 import { type UiStringsApi } from './ui_strings_api';
 

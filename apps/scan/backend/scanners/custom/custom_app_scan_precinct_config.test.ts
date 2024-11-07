@@ -7,7 +7,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 
 import { ok } from '@vx/libs/basics/result';
 import { mocks } from '@vx/libs/custom-scanner/src';
-import { type SheetInterpretation } from '@vx/libs/types/src';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

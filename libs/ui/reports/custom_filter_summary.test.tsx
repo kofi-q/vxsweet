@@ -2,7 +2,7 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { render, screen } from '../test/react_testing_library';
 import { CustomFilterSummary } from './custom_filter_summary';
 import { mockScannerBatches } from '../test/fixtures';

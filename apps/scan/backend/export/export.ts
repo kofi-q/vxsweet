@@ -1,5 +1,5 @@
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/src';
+import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/cvrs';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { type Result } from '@vx/libs/basics/result';
 import { throwIllegalValue } from '@vx/libs/basics/assert';

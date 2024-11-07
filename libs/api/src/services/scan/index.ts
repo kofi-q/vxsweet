@@ -1,11 +1,13 @@
 import {
   type BallotPageLayout,
   BallotPageLayoutSchema,
+  type Contest,
+} from '@vx/libs/types/elections';
+import {
   type BallotSheetInfo,
   BallotSheetInfoSchema,
-  type Contest,
-  IdSchema,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
+import { IdSchema } from '@vx/libs/types/basic';
 import * as z from 'zod';
 
 /**

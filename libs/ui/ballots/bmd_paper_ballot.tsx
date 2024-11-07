@@ -18,8 +18,8 @@ import {
   type VotesDict,
   type YesNoContest,
   type YesNoVote,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { getSingleYesNoVote, randomBallotId } from '@vx/libs/utils/src';
 
 import { assert } from '@vx/libs/basics/assert';

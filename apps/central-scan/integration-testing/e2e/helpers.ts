@@ -6,7 +6,7 @@ import {
   mockCard,
 } from '@vx/libs/auth/src';
 import { methodUrl } from '@vx/libs/grout/src';
-import { type Election } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
 
 /**
  * Enters the PIN into the PIN pad.

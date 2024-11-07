@@ -10,7 +10,7 @@ import {
   fromGrayScale,
 } from '@vx/libs/image-utils/src';
 import { Buffer } from 'node:buffer';
-import { type SheetOf, mapSheet } from '@vx/libs/types/src';
+import { type SheetOf, mapSheet } from '@vx/libs/types/elections';
 import makeDebug from 'debug';
 
 const debug = makeDebug('pdi-scanner');

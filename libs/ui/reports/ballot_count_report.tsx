@@ -1,4 +1,6 @@
-import { Admin, Tabulation, type ElectionDefinition } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
 import { type Optional } from '@vx/libs/basics/types';
 import {
   assert,

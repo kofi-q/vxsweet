@@ -6,7 +6,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { type SheetOf, asSheet } from '@vx/libs/types/src';
+import { type SheetOf, asSheet } from '@vx/libs/types/elections';
 import {
   renderBmdBallotFixture,
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,

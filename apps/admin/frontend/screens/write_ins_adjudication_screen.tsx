@@ -7,8 +7,8 @@ import {
   type CandidateId,
   getContestDistrictName,
   getPartyAbbreviationByPartyId,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { Button, LinkButton } from '@vx/libs/ui/buttons';
 import { Main, Screen } from '@vx/libs/ui/screens';
 import { Loading, Font, Caption, H2, H1, H4 } from '@vx/libs/ui/primitives';

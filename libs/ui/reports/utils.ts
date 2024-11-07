@@ -1,5 +1,5 @@
 import { find } from '@vx/libs/basics/collections';
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 export type LabeledScannerBatch = Tabulation.ScannerBatch & { label: string };
 

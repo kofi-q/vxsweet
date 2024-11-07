@@ -20,7 +20,7 @@ ts_library(
         "//apps/scan/frontend/screens/warning",
         "//apps/scan/frontend/sound",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/hooks",
         "//libs/ui/voter_settings",
     ],

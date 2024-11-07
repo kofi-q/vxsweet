@@ -1,5 +1,5 @@
 import React from 'react';
-import { type ColorMode, type SizeMode } from '@vx/libs/types/src';
+import { type ColorMode, type SizeMode } from '@vx/libs/types/ui-theme';
 import { assert } from '@vx/libs/basics/assert';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen } from '../test/react_testing_library';

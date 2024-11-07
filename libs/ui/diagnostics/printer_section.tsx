@@ -1,8 +1,8 @@
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import {
-  type DiagnosticRecord,
   type PrinterStatus,
   type IppPrinterStateReason,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/printing';
 import React from 'react';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';

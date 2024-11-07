@@ -11,7 +11,7 @@ jest.mock('../cryptography', (): typeof import('../cryptography') => ({
 import { assertDefined } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import { join } from 'node:path';

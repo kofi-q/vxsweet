@@ -1,11 +1,11 @@
 import {
   type Candidate,
   type ContestId,
-  type Id,
   type Vote,
   type VotesDict,
   type WriteInCandidate,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 import React from 'react';
 import { type RenderDocument, type Renderer } from './renderer';

@@ -12,10 +12,10 @@ import {
   AdjudicationReason,
   DEFAULT_MARK_THRESHOLDS,
   mapSheet,
-  type PageInterpretation,
-  safeParseElectionDefinition,
   type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,

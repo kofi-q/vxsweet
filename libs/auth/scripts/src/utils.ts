@@ -4,7 +4,7 @@ import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type SystemAdministratorUser,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import { generatePin, hyphenatePin } from '@vx/libs/utils/src';
 
 import { ResponseApduError } from '../../src/apdu';

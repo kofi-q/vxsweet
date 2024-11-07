@@ -5,15 +5,17 @@ import {
   type BallotMetadata,
   type BallotStyleId,
   BallotType,
-  type BlankPage,
   type CandidateContest,
-  type InterpretedBmdPage,
-  type InterpretedHmpbPage,
-  type PageInterpretation,
   type SheetOf,
   type TargetShape,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import {
+  type BlankPage,
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+  type PageInterpretation,
+} from '@vx/libs/types/scanning';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;

@@ -4,7 +4,8 @@ import {
 } from '@vx/libs/utils/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { type BallotStyleId, LanguageCode } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import {
   fireEvent,

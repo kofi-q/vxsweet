@@ -19,10 +19,12 @@ import {
   type HmpbBallotPageMetadata,
   type SheetOf,
   asSheet,
+} from '@vx/libs/types/elections';
+import {
   type InterpretedHmpbPage,
   type PageInterpretation,
   type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import * as fs from 'node:fs/promises';
 import { dirSync } from 'tmp';

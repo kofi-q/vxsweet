@@ -3,7 +3,7 @@ jest.mock('./audio_player', (): typeof import('./audio_player') => ({
   newAudioPlayer: jest.fn(),
 }));
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { deferred } from '@vx/libs/basics/async';
 

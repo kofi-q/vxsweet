@@ -8,7 +8,7 @@ import {
   BallotType,
   getPartyForBallotStyle,
   type BallotStyleId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Buffer } from 'node:buffer';
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';

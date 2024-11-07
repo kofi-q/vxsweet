@@ -1,4 +1,4 @@
-import { unsafeParse } from '@vx/libs/types/src';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { DEV_MOCK_USB_DRIVE_GLOB_PATTERN } from '@vx/libs/usb-drive/src';
 import { join } from 'node:path';
 import { z } from 'zod';

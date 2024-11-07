@@ -7,8 +7,8 @@ import {
   type ContestId,
   type PrecinctId,
   type BallotStyleId,
-} from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/elections';
 
 import { useHistory } from 'react-router-dom';
 import {

@@ -11,7 +11,7 @@ ts_library(
         "//apps/scan/frontend/components/full-screen-prompt",
         "//apps/scan/frontend/components/layout",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/scanning",
         "//libs/ui/auth-screens",
         "//libs/ui/primitives",
         "//libs/ui/src",

@@ -10,7 +10,8 @@ ts_library(
         "//:node_modules/react",
         "//:node_modules/styled-components",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/ui-theme",
         "//libs/ui/buttons",
         "//libs/ui/list",
         "//libs/ui/modal",
@@ -34,7 +35,8 @@ ts_tests(
         "//apps/scan/frontend/test",
         "//libs/fixtures/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/ui-theme",
     ],
 )
 

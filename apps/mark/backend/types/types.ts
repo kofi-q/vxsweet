@@ -1,4 +1,7 @@
-import { type PollsState, type PrecinctSelection } from '@vx/libs/types/src';
+import {
+  type PollsState,
+  type PrecinctSelection,
+} from '@vx/libs/types/elections';
 import { type PrintBallotProps as BackendPrintBallotProps } from '../printing/print_ballot';
 
 export interface MachineConfig {

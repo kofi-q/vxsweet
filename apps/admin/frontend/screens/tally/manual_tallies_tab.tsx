@@ -19,7 +19,7 @@ import {
   type BallotStyleGroupId,
   type Election,
   type Precinct,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   type ManualResultsVotingMethod,
   type ManualResultsIdentifier,

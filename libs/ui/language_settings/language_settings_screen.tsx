@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
-import { LanguageCode, type SizeMode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 
 import { Screen } from '../screens/screen';
 import { Button } from '../buttons/button';

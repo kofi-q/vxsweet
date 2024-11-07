@@ -11,7 +11,7 @@ ts_library(
         "//libs/basics/collections",
         "//libs/hmpb/src",
         "//libs/printing/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/diagnostics",
         "//libs/utils/src",
     ],
@@ -25,7 +25,8 @@ ts_tests(
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/types",
         "//libs/basics/types",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/languages",
         "//libs/utils/src",
     ],
 )

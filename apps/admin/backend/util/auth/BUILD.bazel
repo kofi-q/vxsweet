@@ -9,7 +9,7 @@ ts_library(
         "//apps/admin/backend/workspace",
         "//libs/auth/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

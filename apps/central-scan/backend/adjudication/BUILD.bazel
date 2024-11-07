@@ -4,7 +4,10 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "adjudication",
-    deps = ["//libs/types/src"],
+    deps = [
+        "//libs/types/elections",
+        "//libs/types/scanning",
+    ],
 )
 
 ts_tests(
@@ -15,7 +18,9 @@ ts_tests(
         "//apps/central-scan/backend/adjudication",
         "//libs/basics/assert",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 

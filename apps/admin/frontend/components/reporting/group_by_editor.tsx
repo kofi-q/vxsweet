@@ -1,4 +1,4 @@
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { CheckboxGroup } from '@vx/libs/ui/checkbox';
 
 export type GroupByEditorOption =

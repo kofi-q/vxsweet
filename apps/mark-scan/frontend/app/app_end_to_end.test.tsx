@@ -7,9 +7,9 @@ import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import {
   type BallotStyleId,
   getContestDistrictName,
-  LanguageCode,
-} from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { assert } from '@vx/libs/basics/assert';
 import { render, screen, waitFor, within } from '../test/react_testing_library';

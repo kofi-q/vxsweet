@@ -13,11 +13,9 @@ import {
   runUiStringMachineDeconfigurationTests,
 } from '@vx/libs/backend/src/ui_strings';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
-import {
-  safeParseElectionDefinition,
-  testCdfBallotDefinition,
-} from '@vx/libs/types/src';
+import { constructElectionKey } from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { testCdfBallotDefinition } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

@@ -9,7 +9,7 @@ import {
 import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import {
   isCardlessVoterAuth,

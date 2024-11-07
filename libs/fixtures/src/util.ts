@@ -1,4 +1,7 @@
-import { type Election, type ElectionDefinition } from '@vx/libs/types/src';
+import {
+  type Election,
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 import { sha256 } from 'js-sha256';
 
 export function asElectionDefinition(election: Election): ElectionDefinition {

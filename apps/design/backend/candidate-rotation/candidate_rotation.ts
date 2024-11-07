@@ -1,5 +1,5 @@
 import { assertDefined } from '@vx/libs/basics/assert';
-import { type AnyContest } from '@vx/libs/types/src';
+import { type AnyContest } from '@vx/libs/types/elections';
 
 // Maps the number of candidates in a contest to the index at which to rotate
 // the candidates. These indexes are randomly selected by the state every 2

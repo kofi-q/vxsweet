@@ -10,7 +10,7 @@ import userEvent from '@testing-library/user-event';
 
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import { act, render, screen, waitFor } from '../test/react_testing_library';
 import { US_ENGLISH_KEYMAP, VirtualKeyboard } from './virtual_keyboard';

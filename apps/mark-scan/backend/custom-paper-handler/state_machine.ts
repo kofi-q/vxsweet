@@ -35,8 +35,8 @@ import {
   type ElectionDefinition,
   type MarkThresholds,
   type SheetOf,
-  type PageInterpretationType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PageInterpretationType } from '@vx/libs/types/scanning';
 import {
   type InterpretFileResult,
   interpretSimplexBmdBallot,

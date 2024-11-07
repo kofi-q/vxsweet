@@ -16,8 +16,8 @@ import {
   AdjudicationReason,
   type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import { DEFAULT_FAMOUS_NAMES_PRECINCT_ID } from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   ballotImages,

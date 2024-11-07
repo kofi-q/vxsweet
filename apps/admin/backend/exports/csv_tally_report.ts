@@ -4,9 +4,9 @@ import {
   type ElectionDefinition,
   type AnyContest,
   type Election,
-  Tabulation,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
+import { type Id } from '@vx/libs/types/basic';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {

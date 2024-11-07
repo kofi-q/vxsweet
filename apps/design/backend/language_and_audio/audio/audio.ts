@@ -1,10 +1,10 @@
 import { Readable } from 'node:stream';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  LanguageCode,
   type UiStringAudioClip,
   type UiStringAudioIdsPackage,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 
 import {
   BooleanEnvironmentVariableName,

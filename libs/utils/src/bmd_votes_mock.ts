@@ -5,7 +5,7 @@ import {
   type Vote,
   type VotesDict,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 function generateMockCandidateVote(contest: CandidateContest, seed = 0): Vote {
   return iter(contest.candidates)

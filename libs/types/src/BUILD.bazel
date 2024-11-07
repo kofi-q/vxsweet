@@ -1,63 +1,16 @@
-load("//tools/ts_build:json_package.bzl", "json_package")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
-load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 # gazelle:js_mono_package
 
-json_package(name = "json")
-
-ts_library(
-    name = "src",
-    deps = [
-        "//:node_modules/@antongolub/iso8601",
-        "//:node_modules/@types/lodash.setwith",
-        "//:node_modules/@types/node",
-        "//:node_modules/@types/react",
-        "//:node_modules/js-sha256",
-        "//:node_modules/lodash.setwith",
-        "//:node_modules/react",
-        "//:node_modules/zod",
-        "//libs/basics/assert",
-        "//libs/basics/collections",
-        "//libs/basics/errors",
-        "//libs/basics/iterators",
-        "//libs/basics/objects",
-        "//libs/basics/result",
-        "//libs/basics/time",
-        "//libs/basics/types",
-    ],
-)
-
 ts_tests(
     name = "tests",
-    data = [
-        "cdf/ballot-definition/index.ts",
-        "cdf/cast-vote-records/index.ts",
-        "cdf/election-event-logging/index.ts",
-        "cdf/election-results-reporting/index.ts",
-        ":json",
-        "//libs/types/data",
-    ],
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/lodash.clonedeep",
-        "//:node_modules/@types/lodash.set",
-        "//:node_modules/@types/node",
-        "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//:node_modules/fast-check",
-        "//:node_modules/js-sha256",
-        "//:node_modules/lodash.clonedeep",
-        "//:node_modules/lodash.set",
-        "//:node_modules/react",
-        "//:node_modules/zod",
-        "//libs/basics/assert",
-        "//libs/basics/collections",
-        "//libs/basics/result",
-        "//libs/basics/time",
-        "//libs/cdf-schema-builder/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/election-parsing",
+        "//libs/types/elections",
         "//libs/types/test",
     ],
 )

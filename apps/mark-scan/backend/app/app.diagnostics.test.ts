@@ -48,9 +48,9 @@ import {
   type BallotId,
   BallotType,
   type SheetOf,
-  type DiagnosticRecord,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import {
   type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,

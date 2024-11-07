@@ -2,8 +2,8 @@ import {
   type BallotMetadata,
   type BallotStyleId,
   type VotesDict,
-  type InterpretedBmdPage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type InterpretedBmdPage } from '@vx/libs/types/scanning';
 import { QueryClientProvider } from '@tanstack/react-query';
 import userEvent from '@testing-library/user-event';
 import { deferred } from '@vx/libs/basics/async';

@@ -1,5 +1,5 @@
 import { assert } from '@vx/libs/basics/assert';
-import { type Rect } from '@vx/libs/types/src';
+import { type Rect } from '@vx/libs/types/geometry';
 import { createImageData, ImageData } from 'canvas';
 import fc from 'fast-check';
 import { type int } from '../src/types';

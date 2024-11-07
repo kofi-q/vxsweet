@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import fc from 'fast-check';
-import { asHexString, type Byte } from '@vx/libs/types/src';
+import { asHexString, type Byte } from '@vx/libs/types/basic';
 
 import {
   CardCommand,

@@ -8,7 +8,7 @@ import {
   type PollWorkerUser,
   type SystemAdministratorUser,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import { type Card, type CardStatus, type CheckPinResponse } from './card';
 import path from 'node:path';

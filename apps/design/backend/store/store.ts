@@ -2,16 +2,15 @@ import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert } from '@vx/libs/basics/assert';
 import { Client as DbClient } from '@vx/libs/db/src';
+import { type Id, type Iso8601Timestamp } from '@vx/libs/types/basic';
+import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  type Id,
-  type Iso8601Timestamp,
-  LanguageCode,
   type Election,
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
   safeParseSystemSettings,
   type ElectionSerializationFormat,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { join } from 'node:path';
 import { v4 as uuid } from 'uuid';
 import {

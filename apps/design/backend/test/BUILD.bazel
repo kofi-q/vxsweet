@@ -20,7 +20,8 @@ ts_library(
         "//libs/grout/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/languages",
     ],
 )
 

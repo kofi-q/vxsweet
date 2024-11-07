@@ -5,7 +5,8 @@ ts_library(
     name = "scripts",
     deps = [
         "//:node_modules/@types/node",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/ui_strings",
         "//libs/ui/fonts",
         "//libs/ui/ui_strings",
     ],

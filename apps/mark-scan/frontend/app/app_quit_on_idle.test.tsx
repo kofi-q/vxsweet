@@ -7,7 +7,7 @@ import {
   IDLE_TIMEOUT_SECONDS,
 } from '@vx/libs/mark-flow-ui/src';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
-import { type BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import { App } from './app';
 

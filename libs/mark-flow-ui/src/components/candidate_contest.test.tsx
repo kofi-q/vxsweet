@@ -9,7 +9,7 @@ jest.mock(
 import {
   type CandidateContest as CandidateContestInterface,
   getCandidateParties,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 
 import { act } from 'react';

@@ -7,18 +7,18 @@ import {
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { typedAs } from '@vx/libs/basics/types';
+import { CVR } from '@vx/libs/types/cdf';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  CVR,
-  Tabulation,
   type YesNoContest,
-  safeParseJson,
-  CastVoteRecordExportFileName,
   type CandidateContest,
   BallotType,
   type BallotStyleId,
   type BallotStyleGroupId,
   getGroupIdFromBallotStyleId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseJson } from '@vx/libs/types/basic';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {

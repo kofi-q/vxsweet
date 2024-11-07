@@ -2,10 +2,9 @@ import {
   type CandidateContest,
   type Election,
   type YesNoContest,
-  NcName,
-  ResultsReporting,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { NcName, ResultsReporting } from '@vx/libs/types/cdf';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { getBallotCount } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/assert';
 import {

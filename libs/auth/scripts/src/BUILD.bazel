@@ -20,7 +20,8 @@ ts_library(
         "//libs/basics/types",
         "//libs/fixtures/src",
         "//libs/fs/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

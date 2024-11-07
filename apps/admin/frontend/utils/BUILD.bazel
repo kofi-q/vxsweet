@@ -7,7 +7,9 @@ ts_library(
     deps = [
         "//libs/basics/assert",
         "//libs/basics/collections",
-        "//libs/types/src",
+        "//libs/types/admin",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )
@@ -20,7 +22,9 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/admin/frontend/utils",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/admin",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
     ],
 )
 

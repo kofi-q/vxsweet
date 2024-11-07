@@ -4,7 +4,7 @@ import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { type Optional } from '@vx/libs/basics/types';
 import { readElection } from '@vx/libs/fs/src';
 
-import { type ElectionKey } from '@vx/libs/types/src/auth';
+import { type ElectionKey } from '@vx/libs/types/elections';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { mockCard } from '../../src/mock_file_card';
 

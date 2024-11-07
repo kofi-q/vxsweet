@@ -2,8 +2,8 @@ import {
   type Candidate,
   type CandidateContest,
   type CandidateId,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { combineCandidateContestResults } from './tabulation';

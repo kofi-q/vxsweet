@@ -12,7 +12,7 @@ import {
 } from '@vx/libs/backend/src/cast_vote_records';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import { CVR } from '@vx/libs/types/src';
+import { CVR } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,

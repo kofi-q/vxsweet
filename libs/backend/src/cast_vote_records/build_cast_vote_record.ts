@@ -14,19 +14,21 @@ import {
   type Candidate,
   type CandidateContest,
   type CandidateVote,
-  CVR,
   type Election,
   type ElectionDefinition,
   getBallotStyle,
-  type InterpretedBmdPage,
-  type InterpretedHmpbPage,
   MarkStatus,
-  safeParseInt,
   type SheetOf,
   type VotesDict,
   type YesNoContest,
   type YesNoVote,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
+import {
+  type InterpretedBmdPage,
+  type InterpretedHmpbPage,
+} from '@vx/libs/types/scanning';
+import { safeParseInt } from '@vx/libs/types/basic';
 import {
   UNMARKED_WRITE_IN_SELECTION_POSITION_OTHER_STATUS,
   buildCVRSnapshotBallotTypeMetadata,

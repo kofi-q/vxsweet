@@ -14,7 +14,7 @@ import {
 } from '@vx/libs/ui/ui_strings';
 import { DefaultTheme, ThemeContext } from 'styled-components';
 import React from 'react';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { useSessionSettingsManager } from './use_session_settings_manager';
 import { renderHook, act } from '../test/react_testing_library';

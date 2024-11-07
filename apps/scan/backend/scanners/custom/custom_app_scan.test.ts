@@ -11,9 +11,9 @@ import {
   type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
   type SheetOf,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import waitForExpect from 'wait-for-expect';
 import { type Result, err, ok } from '@vx/libs/basics/result';
 import { assertDefined } from '@vx/libs/basics/assert';

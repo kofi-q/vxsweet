@@ -6,7 +6,8 @@ ts_library(
     name = "adjudication",
     deps = [
         "//:node_modules/canvas",
-        "//libs/types/src",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 
@@ -18,7 +19,9 @@ ts_tests(
         "//apps/scan/backend/adjudication",
         "//libs/basics/assert",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/scanning",
     ],
 )
 

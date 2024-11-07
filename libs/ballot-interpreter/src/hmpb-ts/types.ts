@@ -3,7 +3,7 @@ import {
   HmpbBallotPaperSize,
   type GridPosition,
   type HmpbBallotPageMetadata,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type Optional } from '@vx/libs/basics/types';
 import { type Result } from '@vx/libs/basics/result';
 

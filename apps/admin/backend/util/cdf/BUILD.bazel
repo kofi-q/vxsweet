@@ -6,7 +6,9 @@ ts_library(
     deps = [
         "//apps/admin/backend/types",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/cdf",
+        "//libs/types/elections",
+        "//libs/types/tabulation",
         "//libs/utils/src",
     ],
 )

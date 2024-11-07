@@ -10,12 +10,12 @@ import {
   type ElectionDefinition,
   mapSheet,
   type MarkThresholds,
-  safeParseElectionDefinition,
-  safeParseJson,
   type SheetOf,
   type SystemSettings,
   safeParseSystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { safeParseJson } from '@vx/libs/types/basic';
 import { jsonStream } from '@vx/libs/utils/src';
 import Sqlite3 from 'better-sqlite3';
 import chalk from 'chalk';

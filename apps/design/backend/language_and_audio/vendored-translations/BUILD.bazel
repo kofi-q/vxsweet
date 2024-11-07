@@ -8,7 +8,8 @@ ts_library(
     deps = [
         "//:node_modules/zod",
         "//apps/design/backend/language_and_audio/vendored-translations:json",
-        "//libs/types/src",
+        "//libs/types/basic",
+        "//libs/types/languages",
     ],
 )
 

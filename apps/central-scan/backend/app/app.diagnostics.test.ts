@@ -25,8 +25,8 @@ import {
 import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { LogEventId } from '@vx/libs/logging/src';
 import { join } from 'node:path';
-import { type DiagnosticRecord } from '@vx/libs/types/src';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { TEST_JURISDICTION } from '@vx/libs/types/elections';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { mockSystemAdministratorAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';

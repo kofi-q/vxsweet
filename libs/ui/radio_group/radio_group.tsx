@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { isTouchscreen } from '@vx/libs/types/src';
+import { isTouchscreen } from '@vx/libs/types/ui-theme';
 
 import { Button, type ButtonProps } from '../buttons/button';
 import { useCurrentTheme } from '../themes/use_current_theme';

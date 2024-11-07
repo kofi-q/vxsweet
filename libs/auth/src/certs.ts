@@ -2,8 +2,7 @@ import { Buffer } from 'node:buffer';
 import { z } from 'zod';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { DateWithoutTime } from '@vx/libs/basics/time';
-import { type ElectionId } from '@vx/libs/types/src';
-import { type ElectionKey } from '@vx/libs/types/src/auth';
+import { type ElectionId, type ElectionKey } from '@vx/libs/types/elections';
 import { arePollWorkerCardDetails, type CardDetails } from './card';
 import { openssl } from './cryptography';
 

@@ -5,7 +5,7 @@ import {
   type Election,
   type YesNoContestOptionId,
   getContestDistrict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Button } from '@vx/libs/ui/buttons';
 import { ContestChoiceButton } from '@vx/libs/ui/bmds';
 import { Main } from '@vx/libs/ui/screens';

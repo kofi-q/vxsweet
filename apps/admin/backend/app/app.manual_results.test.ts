@@ -3,8 +3,8 @@ import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   type BallotStyleGroupId,
   type PrecinctId,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/assert';
 import { LogEventId } from '@vx/libs/logging/src';

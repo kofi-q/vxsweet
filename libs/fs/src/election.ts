@@ -1,8 +1,6 @@
 import { type Result, err } from '@vx/libs/basics/result';
-import {
-  type ElectionDefinition,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { ZodError } from 'zod';
 import { type ReadFileError, readFile } from './read_file';
 

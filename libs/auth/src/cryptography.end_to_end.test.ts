@@ -1,5 +1,5 @@
 import { Readable } from 'node:stream';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+import { TEST_JURISDICTION } from '@vx/libs/types/elections';
 
 import { getTestFilePath } from '../test/utils';
 import {

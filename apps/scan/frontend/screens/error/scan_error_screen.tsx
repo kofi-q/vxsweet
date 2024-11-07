@@ -9,7 +9,7 @@ import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type PrecinctScannerErrorType,
   type InvalidInterpretationReason,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { Screen } from '../../components/layout/layout';
 import { FullScreenPromptLayout } from '../../components/full-screen-prompt/layout';
 

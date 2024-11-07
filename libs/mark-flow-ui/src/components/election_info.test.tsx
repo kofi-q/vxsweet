@@ -2,7 +2,7 @@ import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 
 import { electionGeneralDefinition as electionDefinition } from '@vx/libs/fixtures/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { type BallotStyleId } from '@vx/libs/types/src';
+import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen } from '../../test/react_testing_library';
 import { ElectionInfo } from './election_info';
 

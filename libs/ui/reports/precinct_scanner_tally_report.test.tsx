@@ -3,7 +3,7 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionFamousNames2021Fixtures,
 } from '@vx/libs/fixtures/src';
-import { formatElectionHashes, type PartyId } from '@vx/libs/types/src';
+import { formatElectionHashes, type PartyId } from '@vx/libs/types/elections';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,

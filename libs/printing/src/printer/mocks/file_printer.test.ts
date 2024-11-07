@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { sleep } from '@vx/libs/basics/async';
-import { type PrinterStatus } from '@vx/libs/types/src';
+import { type PrinterStatus } from '@vx/libs/types/printing';
 import {
   DEFAULT_MOCK_PRINTER_DIR,
   MockFilePrinter,

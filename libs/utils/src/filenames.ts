@@ -1,4 +1,5 @@
-import { type Election, MachineId, maybeParse } from '@vx/libs/types/src';
+import { type Election } from '@vx/libs/types/elections';
+import { MachineId, maybeParse } from '@vx/libs/types/basic';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { type Optional } from '@vx/libs/basics/types';
 import { DateTime } from 'luxon';

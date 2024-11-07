@@ -11,9 +11,9 @@ import {
   type Party,
   type Precinct,
   type YesNoOption,
-  LanguageCode,
-  ElectionStringKey as Key,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { ElectionStringKey as Key } from '@vx/libs/types/ui_strings';
 import { format } from '@vx/libs/utils/src';
 
 import { UiRichTextString, UiString } from './ui_string';

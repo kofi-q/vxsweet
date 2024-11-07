@@ -30,14 +30,14 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   SystemSettingsSchema,
   type ElectionDefinition,
-  safeParseElectionDefinition,
-  safeParseJson,
-  type PrinterStatus,
-  LanguageCode,
-  convertVxfElectionToCdfBallotDefinition,
-  type UiStringsPackage,
-} from '@vx/libs/types/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
+  constructElectionKey,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import { safeParseJson } from '@vx/libs/types/basic';
+import { type PrinterStatus } from '@vx/libs/types/printing';
+import { LanguageCode } from '@vx/libs/types/languages';
+import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
+import { type UiStringsPackage } from '@vx/libs/types/ui_strings';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,

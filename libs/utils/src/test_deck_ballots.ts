@@ -11,7 +11,7 @@ import {
   getContests,
   type VotesDict,
   type BallotStyleId,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 
 export interface TestDeckBallot {
   ballotStyleId: BallotStyleId;

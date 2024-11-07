@@ -18,8 +18,8 @@ import {
   AdjudicationReason,
   type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import {
   ballotImages,
   mockStatus,

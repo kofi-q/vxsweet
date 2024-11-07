@@ -18,12 +18,14 @@ import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
   ElectionPackageFileName,
-  safeParseElectionDefinition,
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
+import {
   convertVxfElectionToCdfBallotDefinition,
   testElectionReport,
   testElectionReportUnsupportedContestType,
-  type PrinterStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cdf';
+import { type PrinterStatus } from '@vx/libs/types/printing';
 import { suppressingConsoleOutput, zipFile } from '@vx/libs/test-utils/src';
 import {
   HP_LASER_PRINTER_CONFIG,

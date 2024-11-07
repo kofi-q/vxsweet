@@ -1,6 +1,6 @@
 import { mapObject } from '@vx/libs/basics/objects';
-import { type BallotStyleGroupId, type Election } from '../src/election';
-import { ElectionStringKey } from '../src/ui_string_translations';
+import { type BallotStyleGroupId, type Election } from '../elections/election';
+import { ElectionStringKey } from '../ui_strings/ui_string_translations';
 
 export function normalizeVxfAfterCdfConversion(
   vxfElection: Election

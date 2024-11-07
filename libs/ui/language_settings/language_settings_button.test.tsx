@@ -16,8 +16,8 @@ jest.mock(
 import {
   ElectionStringKey,
   type UiStringsPackage,
-  LanguageCode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
+import { LanguageCode } from '@vx/libs/types/languages';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { advancePromises } from '@vx/libs/test-utils/src';

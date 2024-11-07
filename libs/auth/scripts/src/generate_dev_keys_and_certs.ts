@@ -7,7 +7,7 @@ import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   constructElectionKey,
   TEST_JURISDICTION,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import { type CardDetails } from '../../src/card';
 import {

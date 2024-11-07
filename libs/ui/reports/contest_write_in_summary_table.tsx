@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import {
   type Election,
   getContestDistrictName,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 import { find } from '@vx/libs/basics/collections';
 import pluralize from 'pluralize';

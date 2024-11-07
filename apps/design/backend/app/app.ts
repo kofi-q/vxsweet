@@ -9,9 +9,9 @@ import {
   type ElectionSerializationFormat,
   type ElectionId,
   type BallotStyleId,
-  safeParseElection,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseElection } from '@vx/libs/types/election-parsing';
+import { type Id } from '@vx/libs/types/basic';
 import express, { Application } from 'express';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { DateWithoutTime } from '@vx/libs/basics/time';

@@ -11,7 +11,7 @@ ts_library(
         "//:node_modules/fast-check",
         "//libs/basics/assert",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/geometry",
     ],
 )
 

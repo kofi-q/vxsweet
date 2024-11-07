@@ -19,7 +19,7 @@ ts_library(
         "//libs/custom-scanner/src",
         "//libs/image-utils/src",
         "//libs/message-coder/src",
-        "//libs/types/src",
+        "//libs/types/geometry",
     ],
 )
 

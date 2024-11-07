@@ -13,7 +13,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/errors",
         "//libs/basics/iterators",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

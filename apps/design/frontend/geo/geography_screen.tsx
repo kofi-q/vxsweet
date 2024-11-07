@@ -17,8 +17,8 @@ import {
   type DistrictId,
   type Election,
   type PrecinctId,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import { assert } from '@vx/libs/basics/assert';
 import { type Precinct, type PrecinctSplit } from '../../backend/types/types';
 import { ElectionNavScreen } from '../layout/nav_screen';

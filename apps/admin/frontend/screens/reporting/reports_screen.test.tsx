@@ -1,6 +1,6 @@
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
 import { ReportsScreen } from './reports_screen';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import {

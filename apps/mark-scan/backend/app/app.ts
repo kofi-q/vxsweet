@@ -19,10 +19,12 @@ import {
   type PrecinctId,
   type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
+} from '@vx/libs/types/elections';
+import {
   type DiagnosticRecord,
   type DiagnosticType,
-  type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/diagnostics';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import {
   getPrecinctSelectionName,
   isElectionManagerAuth,

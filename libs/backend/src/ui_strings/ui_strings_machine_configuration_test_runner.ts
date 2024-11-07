@@ -3,11 +3,13 @@
 import {
   type ElectionDefinition,
   type ElectionPackage,
-  LanguageCode,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
   type UiStringAudioClips,
   type UiStringAudioIdsPackage,
   type UiStringsPackage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui_strings';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { type Result } from '@vx/libs/basics/result';
 import { assertDefined } from '@vx/libs/basics/assert';

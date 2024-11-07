@@ -25,12 +25,12 @@ import {
 } from '@vx/libs/test-utils/src';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
-import { constructElectionKey } from '@vx/libs/types/src/auth';
 import {
+  constructElectionKey,
   type ElectionDefinition,
-  convertVxfElectionToCdfBallotDefinition,
-  safeParseElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { withApp } from '../test/helpers/pdi_helpers';
 import { type PrecinctScannerPollsInfo } from '../types/types';

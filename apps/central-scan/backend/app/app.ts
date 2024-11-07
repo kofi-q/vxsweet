@@ -18,9 +18,9 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionDefinition,
   type SystemSettings,
-  type DiagnosticRecord,
-  type ExportCastVoteRecordsToUsbDriveError,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
+import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/cvrs';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import express, { Application } from 'express';
 import * as grout from '@vx/libs/grout/src';

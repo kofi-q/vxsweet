@@ -1,6 +1,6 @@
 import styled, { DefaultTheme } from 'styled-components';
 import { assert } from '@vx/libs/basics/assert';
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { type JustifyContent } from './layout';
 
 export interface MainProps {

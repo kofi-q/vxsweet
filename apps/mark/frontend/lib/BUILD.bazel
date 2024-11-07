@@ -27,7 +27,7 @@ ts_tests(
         "//apps/mark/frontend/lib",
         "//apps/mark/frontend/test",
         "//libs/fixtures/src",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/utils/src",
     ],
 )

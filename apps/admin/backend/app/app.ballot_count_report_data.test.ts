@@ -12,7 +12,7 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
-import { type BallotStyleGroupId } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import {
   buildTestEnvironment,
   configureMachine,

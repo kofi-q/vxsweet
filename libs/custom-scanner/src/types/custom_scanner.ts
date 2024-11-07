@@ -1,5 +1,5 @@
 import { type Result } from '@vx/libs/basics/result';
-import { type SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/elections';
 import {
   ErrorCode,
   FormMovement,

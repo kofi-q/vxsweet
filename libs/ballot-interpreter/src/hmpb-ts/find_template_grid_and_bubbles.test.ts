@@ -4,7 +4,7 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import { type SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/elections';
 import { findTemplateGridAndBubbles } from './find_template_grid_and_bubbles';
 import { type TimingMarkGrid } from './types';
 

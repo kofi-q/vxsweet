@@ -1,4 +1,4 @@
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { render } from '../../test/react_testing_library';
 import { type Layout, type MisvoteWarningsProps } from './types';
 import { useLayoutConfig } from './use_layout_config_hook';

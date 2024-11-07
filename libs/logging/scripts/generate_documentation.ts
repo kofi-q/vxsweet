@@ -1,4 +1,4 @@
-import { safeParse } from '@vx/libs/types/src';
+import { safeParse } from '@vx/libs/types/basic';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 import yargs from 'yargs/yargs';
 import * as fs from 'node:fs';

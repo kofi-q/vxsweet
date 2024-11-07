@@ -11,7 +11,7 @@ import {
   type ElectionDefinition,
   type PrecinctId,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import {
   MarkScanControllerSandbox,

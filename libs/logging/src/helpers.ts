@@ -1,4 +1,4 @@
-import { type PollsTransitionType } from '@vx/libs/types/src';
+import { type PollsTransitionType } from '@vx/libs/types/elections';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { LogEventId } from './log_event_ids';
 

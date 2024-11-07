@@ -8,12 +8,12 @@ import { sleep } from '@vx/libs/basics/async';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import {
   type BatchInfo,
-  CastVoteRecordExportFileName,
-  CVR,
   DEFAULT_SYSTEM_SETTINGS,
-  type PageInterpretation,
   type SheetOf,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
+import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 
 import {

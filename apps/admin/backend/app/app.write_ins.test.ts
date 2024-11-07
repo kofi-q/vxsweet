@@ -24,7 +24,10 @@ import {
   type ContestResultsSummary,
   buildElectionResultsFixture,
 } from '@vx/libs/utils/src/tabulation';
-import { CVR, type Id, type Rect, Tabulation } from '@vx/libs/types/src';
+import { CVR } from '@vx/libs/types/cdf';
+import { type Id } from '@vx/libs/types/basic';
+import { type Rect } from '@vx/libs/types/geometry';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
 import {
   buildTestEnvironment,

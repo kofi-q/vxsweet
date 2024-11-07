@@ -7,8 +7,8 @@ import { useParams } from 'react-router-dom';
 import {
   AdjudicationReason,
   type SystemSettings,
-  type Id,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
 import {
   Form,
   Column,

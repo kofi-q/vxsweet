@@ -3,7 +3,7 @@ import {
   type ElectionDefinition,
   type PrecinctId,
   type VotesDict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type MachineConfig } from '../../backend/types/types';
 import {
   type ContestsWithMsEitherNeither,

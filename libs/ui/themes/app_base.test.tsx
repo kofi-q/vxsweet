@@ -2,7 +2,7 @@ import React from 'react';
 import parseCssColor from 'parse-css-color';
 import { assert } from '@vx/libs/basics/assert';
 import { ServerStyleSheet, ThemeConsumer } from 'styled-components';
-import { type UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/ui-theme';
 import { act, render } from '@testing-library/react';
 
 import { type AppBaseProps, AppBase as OriginalAppBase } from './app_base';

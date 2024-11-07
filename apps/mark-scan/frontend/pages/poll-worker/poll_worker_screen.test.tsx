@@ -26,9 +26,9 @@ import {
 import {
   type ElectionDefinition,
   formatElectionHashes,
-  LanguageCode,
-} from '@vx/libs/types/src';
-import { InsertedSmartCardAuth } from '@vx/libs/types/src/auth';
+  InsertedSmartCardAuth,
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import {
   BooleanEnvironmentVariableName,

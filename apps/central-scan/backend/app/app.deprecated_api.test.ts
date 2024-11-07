@@ -8,10 +8,12 @@ import {
   BallotType,
   DEFAULT_SYSTEM_SETTINGS,
   type SheetOf,
+  TEST_JURISDICTION,
+} from '@vx/libs/types/elections';
+import {
   type InterpretedHmpbPage,
   type PageInterpretationWithFiles,
-} from '@vx/libs/types/src';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/scanning';
 import { Scan } from '@vx/libs/api/src';
 import { Application } from 'express';
 import * as fs from 'node:fs/promises';

@@ -7,10 +7,10 @@ import {
 import {
   type BallotTargetMark,
   type CandidateContest,
-  Tabulation,
   type WriteInCandidate,
   type YesNoContest,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { find } from '@vx/libs/basics/collections';
 import { typedAs } from '@vx/libs/basics/types';
 import {

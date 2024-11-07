@@ -1,10 +1,10 @@
 jest.mock('../../api/api');
 
+import { type BallotMetadata } from '@vx/libs/types/elections';
 import {
-  type BallotMetadata,
   type PageInterpretation,
   type PageInterpretationType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { UseQueryResult } from '@tanstack/react-query';

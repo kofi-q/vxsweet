@@ -13,7 +13,7 @@ import {
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
 
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
+import { DippedSmartCardAuth } from '@vx/libs/types/elections';
 import styled from 'styled-components';
 import { AppContext } from '../contexts/app_context';
 import { routerPaths } from '../paths/router_paths';

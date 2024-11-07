@@ -9,7 +9,7 @@ import {
   type TouchSizeMode,
   type UiTheme,
   isTouchSizeMode,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/ui-theme';
 
 /**
  * Palette of colors for use on touchscreens. These colors are intended to meet

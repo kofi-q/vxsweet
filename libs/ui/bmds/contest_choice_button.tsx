@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components';
 
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { Button, type ButtonVariant } from '../buttons/button';
 import { Checkbox } from '../primitives/checkbox';
 import { Caption, P } from '../primitives/typography';

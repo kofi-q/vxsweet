@@ -7,8 +7,8 @@ import {
   DistrictIdSchema,
   type Election,
   ElectionIdSchema,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { encodeBallot } from '.';
 

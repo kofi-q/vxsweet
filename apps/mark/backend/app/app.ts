@@ -16,8 +16,8 @@ import {
   type PrecinctId,
   type SystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-  type PrinterStatus,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type PrinterStatus } from '@vx/libs/types/printing';
 import {
   getPrecinctSelectionName,
   isElectionManagerAuth,

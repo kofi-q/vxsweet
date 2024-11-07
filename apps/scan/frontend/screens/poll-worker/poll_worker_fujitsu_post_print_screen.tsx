@@ -7,7 +7,7 @@ import React, { useCallback, useState } from 'react';
 import {
   type ElectionDefinition,
   type PollsTransitionType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { type Optional } from '@vx/libs/basics/types';
 import { assert } from '@vx/libs/basics/assert';
 import { getPartyById } from '@vx/libs/utils/src/tabulation';

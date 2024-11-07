@@ -10,7 +10,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/collections",
         "//libs/image-utils/src",
-        "//libs/types/src",
+        "//libs/types/basic",
     ],
 )
 

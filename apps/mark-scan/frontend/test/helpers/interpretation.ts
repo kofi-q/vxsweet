@@ -2,8 +2,8 @@ import {
   BallotType,
   type ElectionDefinition,
   type VotesDict,
-  type InterpretedBmdPage,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type InterpretedBmdPage } from '@vx/libs/types/scanning';
 
 // Returns a BMD page interpretation with a vote for the first option (candidate or yesOption) in the first contest of the provided election. Use when you just need a well-formed interpretation and the contents don't matter.
 export function getMockInterpretation(

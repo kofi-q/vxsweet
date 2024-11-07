@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { type Election, type PrecinctSelection } from '@vx/libs/types/src';
+import {
+  type Election,
+  type PrecinctSelection,
+} from '@vx/libs/types/elections';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,

@@ -4,7 +4,7 @@ import {
   type InvalidPrecinctPage,
   type InvalidTestModePage,
   type PageInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 
 import { type InterpreterOptions } from './types';
 

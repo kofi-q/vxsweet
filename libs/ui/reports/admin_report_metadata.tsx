@@ -4,7 +4,7 @@ import {
   type ElectionDefinition,
   formatBallotHash,
   formatElectionHashes,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { LabeledValue, ReportMetadata } from './report_header';
 
 export function AdminReportMetadata({

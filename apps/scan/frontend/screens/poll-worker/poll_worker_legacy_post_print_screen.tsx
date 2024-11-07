@@ -3,7 +3,7 @@ import { CenteredLargeProse } from '@vx/libs/ui/src';
 import { LoadingAnimation } from '@vx/libs/ui/spinners';
 import { H1, P } from '@vx/libs/ui/primitives';
 import pluralize from 'pluralize';
-import { type PollsTransitionType } from '@vx/libs/types/src';
+import { type PollsTransitionType } from '@vx/libs/types/elections';
 import { getPollsReportTitle } from '@vx/libs/utils/src';
 import { useState } from 'react';
 import { assert } from '@vx/libs/basics/assert';

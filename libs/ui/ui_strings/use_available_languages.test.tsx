@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 import { createUiStringsApi } from './api/ui_strings_api';
 import { useAvailableLanguages } from './use_available_languages';

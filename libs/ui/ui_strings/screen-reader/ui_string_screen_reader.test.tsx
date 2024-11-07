@@ -4,7 +4,7 @@ jest.mock('./play_audio_clips', (): typeof import('./play_audio_clips') => ({
 }));
 
 import { advanceTimersAndPromises, mockOf } from '@vx/libs/test-utils/src';
-import { LanguageCode } from '@vx/libs/types/src';
+import { LanguageCode } from '@vx/libs/types/languages';
 import userEvent from '@testing-library/user-event';
 import { act, screen, waitFor } from '../../test/react_testing_library';
 import { newTestContext } from '../../test/test_context';

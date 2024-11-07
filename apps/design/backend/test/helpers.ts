@@ -6,10 +6,8 @@ import * as tmp from 'tmp';
 import * as grout from '@vx/libs/grout/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/assert';
-import {
-  type ElectionSerializationFormat,
-  LanguageCode,
-} from '@vx/libs/types/src';
+import { type ElectionSerializationFormat } from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { buildApp, type Api } from '../app/app';
 import {

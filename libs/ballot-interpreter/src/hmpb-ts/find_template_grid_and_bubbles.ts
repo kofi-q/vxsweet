@@ -1,6 +1,6 @@
 import { ImageData } from 'canvas';
 import { type Result, err, ok } from '@vx/libs/basics/result';
-import { type SheetOf } from '@vx/libs/types/src';
+import { type SheetOf } from '@vx/libs/types/elections';
 import { findTemplateGridAndBubbles as findTemplateGridAndBubblesImpl } from './rust_addon';
 import {
   type BallotPageTimingMarkMetadata,

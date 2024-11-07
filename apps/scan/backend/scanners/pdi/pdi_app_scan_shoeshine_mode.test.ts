@@ -10,10 +10,8 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import {
-  DEFAULT_SYSTEM_SETTINGS,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import {
   ballotImages,
   simulateScan,

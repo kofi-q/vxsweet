@@ -6,11 +6,11 @@ import {
   type BallotStyle,
   type BallotStyleGroupId,
   type BallotStyleId,
-  LanguageCode,
   type BallotStyleGroup,
   type Party,
   type Election,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
 
 const ID_LANGUAGES_SEPARATOR = '_';
 const GROUP_ID_PARTS_SEPARATOR = '-';

@@ -2,10 +2,10 @@ import { assert } from '@vx/libs/basics/assert';
 import { lines } from '@vx/libs/basics/iterators';
 import {
   type Dictionary,
-  EventLogging,
   safeParse,
   safeParseJson,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/basic';
+import { EventLogging } from '@vx/libs/types/cdf';
 import { type JsonStreamInput, jsonStream } from '@vx/libs/utils/src';
 import { z } from 'zod';
 import { LogEventId } from './log_event_ids';

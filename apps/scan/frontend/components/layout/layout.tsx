@@ -8,7 +8,7 @@ import {
   LanguageSettingsScreen,
 } from '@vx/libs/ui/language_settings';
 import styled, { DefaultTheme, ThemeContext } from 'styled-components';
-import { type SizeMode } from '@vx/libs/types/src';
+import { type SizeMode } from '@vx/libs/types/ui-theme';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { getConfig, getMachineConfig, getScannerStatus } from '../../api/api';
 import { ScannedBallotCount } from '../status/scanned_ballot_count';

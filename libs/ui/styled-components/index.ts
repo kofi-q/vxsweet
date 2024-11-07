@@ -1,5 +1,5 @@
 import 'styled-components';
-import { type UiTheme } from '@vx/libs/types/src';
+import { type UiTheme } from '@vx/libs/types/ui-theme';
 
 declare module 'styled-components' {
   /**

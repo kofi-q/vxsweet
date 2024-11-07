@@ -8,7 +8,7 @@ ts_library(
         "//apps/scan/backend/workspace",
         "//libs/auth/src",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

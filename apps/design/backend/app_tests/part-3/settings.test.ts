@@ -23,7 +23,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type ElectionId,
   type SystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

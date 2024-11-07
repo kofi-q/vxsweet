@@ -1,5 +1,5 @@
-jest.mock('@vx/libs/types/src', (): typeof import('@vx/libs/types/src') => ({
-  ...jest.requireActual('@vx/libs/types/src'),
+jest.mock('@vx/libs/types/cvrs', (): typeof import('@vx/libs/types/cvrs') => ({
+  ...jest.requireActual('@vx/libs/types/cvrs'),
   // Avoid having to prepare a complete CastVoteRecordExportMetadata object
   CastVoteRecordExportMetadataSchema: z.any(),
 }));
@@ -13,8 +13,8 @@ import { err, ok } from '@vx/libs/basics/result';
 import {
   CastVoteRecordExportFileName,
   type CastVoteRecordExportMetadata,
-  CVR,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
+import { CVR } from '@vx/libs/types/cdf';
 
 import { getTestFilePath } from '../test/utils';
 import {

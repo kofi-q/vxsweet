@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { lines } from '@vx/libs/basics/iterators';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 
 import { CommandApdu, constructTlv } from '../../../src/apdu';
 import { getRequiredEnvVar } from '../../../src/env_vars';

@@ -1,4 +1,4 @@
-import { type UiStringTranslations } from '@vx/libs/types/src';
+import { type UiStringTranslations } from '@vx/libs/types/ui_strings';
 
 /**
  * The maximum number for which we generate audio.

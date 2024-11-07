@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { isTouchscreen } from '@vx/libs/types/src';
+import { isTouchscreen } from '@vx/libs/types/ui-theme';
 import { VX_DEFAULT_FONT_FAMILY_DECLARATION } from '../fonts/font_family';
 import { NORMALIZE_CSS } from './normalize.css';
 

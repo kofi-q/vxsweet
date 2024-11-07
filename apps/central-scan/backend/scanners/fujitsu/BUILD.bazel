@@ -16,7 +16,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/logging/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 
@@ -32,7 +32,7 @@ ts_tests(
         "//libs/backend/src",
         "//libs/logging/src",
         "//libs/test-utils/src",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

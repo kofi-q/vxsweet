@@ -1,4 +1,5 @@
-import { type BallotStyleGroupId, Tabulation } from '@vx/libs/types/src';
+import { type BallotStyleGroupId } from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
   combineGroupSpecifierAndFilter,
   groupBySupportsZeroSplits,

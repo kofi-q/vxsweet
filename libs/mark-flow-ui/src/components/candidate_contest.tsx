@@ -8,7 +8,7 @@ import {
   type CandidateContest as CandidateContestInterface,
   type Election,
   getContestDistrict,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { Button } from '@vx/libs/ui/buttons';
 import { ContestChoiceButton } from '@vx/libs/ui/bmds';
 import { Icons, P, Caption } from '@vx/libs/ui/primitives';

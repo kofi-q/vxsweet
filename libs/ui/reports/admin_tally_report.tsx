@@ -1,9 +1,9 @@
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import {
-  Admin,
-  Tabulation,
   type Contests,
   type ElectionDefinition,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { ThemeProvider } from 'styled-components';
 import {

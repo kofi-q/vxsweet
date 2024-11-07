@@ -1,4 +1,4 @@
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { mapObject } from '@vx/libs/basics/objects';
 import { getGroupKey, getGroupSpecifierFromGroupKey } from './tabulation';
 

@@ -12,8 +12,8 @@ import {
   type Party,
   type Precinct,
   type PrecinctId,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { getBallotStyleGroup, getGroupedBallotStyles } from '../ballot_styles';
 
 /**

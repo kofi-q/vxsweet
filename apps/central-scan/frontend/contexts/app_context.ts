@@ -1,8 +1,10 @@
 import { type MachineConfig } from '../../backend/types/types';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { BaseLogger } from '@vx/libs/logging/src';
-import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
-import { type ElectionDefinition } from '@vx/libs/types/src';
+import {
+  DippedSmartCardAuth,
+  type ElectionDefinition,
+} from '@vx/libs/types/elections';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { createContext } from 'react';
 

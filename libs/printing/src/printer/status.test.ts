@@ -7,7 +7,7 @@ jest.mock('node:fs/promises', (): typeof import('node:fs/promises') => {
   };
 });
 
-import { type IppMarkerInfo } from '@vx/libs/types/src';
+import { type IppMarkerInfo } from '@vx/libs/types/printing';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
 import { assert } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';

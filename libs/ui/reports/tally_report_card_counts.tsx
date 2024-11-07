@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 
 import { format } from '@vx/libs/utils/src';
 import { getBallotCount } from '@vx/libs/utils/src/tabulation';

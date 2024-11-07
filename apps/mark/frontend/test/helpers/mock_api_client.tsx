@@ -19,14 +19,14 @@ import {
   type ElectionDefinition,
   type PrecinctId,
   type SystemSettings,
-  LanguageCode,
-  type PrinterStatus,
-  type PrinterConfig,
-} from '@vx/libs/types/src';
-import {
   constructElectionKey,
   InsertedSmartCardAuth,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
+import { LanguageCode } from '@vx/libs/types/languages';
+import {
+  type PrinterStatus,
+  type PrinterConfig,
+} from '@vx/libs/types/printing';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,

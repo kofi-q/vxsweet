@@ -4,7 +4,10 @@ import {
 } from '@vx/libs/fixtures/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { type BallotStyleId, getContestDistrictName } from '@vx/libs/types/src';
+import {
+  type BallotStyleId,
+  getContestDistrictName,
+} from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import {
   fireEvent,

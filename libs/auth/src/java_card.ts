@@ -4,13 +4,13 @@ import { sha256 } from 'js-sha256';
 import { v4 as uuid } from 'uuid';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { type Optional } from '@vx/libs/basics/types';
-import { type Byte } from '@vx/libs/types/src';
+import { type Byte } from '@vx/libs/types/basic';
 import {
   type ElectionManagerUser,
   type PollWorkerUser,
   type SystemAdministratorUser,
   type VendorUser,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 
 import {
   CardCommand,

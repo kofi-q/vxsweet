@@ -4,7 +4,7 @@ import {
   type PartyId,
   type PrecinctSelection,
   type PollsTransitionType,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   formatFullDateTimeZone,
   getPollsReportTitle,

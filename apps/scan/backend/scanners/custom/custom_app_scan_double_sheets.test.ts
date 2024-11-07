@@ -18,8 +18,8 @@ import {
   type AdjudicationReasonInfo,
   DEFAULT_SYSTEM_SETTINGS,
   type SheetOf,
-  type SheetInterpretation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

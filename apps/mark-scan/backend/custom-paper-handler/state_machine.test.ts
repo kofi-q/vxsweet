@@ -50,9 +50,9 @@ import {
   BallotType,
   safeParseSystemSettings,
   type SheetOf,
-  type PageInterpretationType,
-} from '@vx/libs/types/src';
-import { TEST_JURISDICTION } from '@vx/libs/types/src/auth';
+  TEST_JURISDICTION,
+} from '@vx/libs/types/elections';
+import { type PageInterpretationType } from '@vx/libs/types/scanning';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

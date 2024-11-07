@@ -1,9 +1,7 @@
 import { z } from 'zod';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
-import {
-  ElectionSerializationFormatSchema,
-  safeParseJson,
-} from '@vx/libs/types/src';
+import { ElectionSerializationFormatSchema } from '@vx/libs/types/elections';
+import { safeParseJson } from '@vx/libs/types/basic';
 
 import { type BackgroundTask } from '../store/store';
 import { type WorkerContext } from './context';

@@ -3,7 +3,7 @@ import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
-import { formatElectionHashes } from '@vx/libs/types/src';
+import { formatElectionHashes } from '@vx/libs/types/elections';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../test/react_testing_library';
 import { ElectionInfoBar, VerticalElectionInfoBar } from './election_info_bar';

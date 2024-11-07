@@ -8,9 +8,9 @@ import { tmpdir } from 'node:os';
 import { join, sep } from 'node:path';
 import {
   type ElectionPackage,
-  safeParseElectionDefinition,
   DEFAULT_SYSTEM_SETTINGS,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 
 /**
  * Data of data/electionGeneral/election.json encoded as base64.

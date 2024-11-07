@@ -6,7 +6,8 @@ import {
   isElectionManagerAuth,
 } from '@vx/libs/utils/src';
 import { isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
-import { Admin, Tabulation } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { AppContext } from '../../contexts/app_context';
 import { NavigationScreen } from '../../components/navigation_screen';
 import {

@@ -5,7 +5,7 @@ import { isAbsolute, join, normalize, parse } from 'node:path';
 import { Readable } from 'node:stream';
 import { createReadStream, lstatSync } from 'node:fs';
 import { Buffer } from 'node:buffer';
-import { type ExportDataError as BaseExportDataError } from '@vx/libs/types/src';
+import { type ExportDataError as BaseExportDataError } from '@vx/libs/types/elections';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { splitToFiles } from './split';
 

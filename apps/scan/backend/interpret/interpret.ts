@@ -7,11 +7,13 @@ import {
   AdjudicationReason,
   type AdjudicationReasonInfo,
   type SheetOf,
+} from '@vx/libs/types/elections';
+import {
   type InterpretedBmdPage,
   type PageInterpretationWithFiles,
   type SheetInterpretation,
   type SheetInterpretationWithPages,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/scanning';
 import { time } from '@vx/libs/utils/src';
 import { ImageData } from 'canvas';
 import { rootDebug } from '../util/debug';

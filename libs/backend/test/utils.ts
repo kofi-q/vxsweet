@@ -13,7 +13,7 @@ import {
   type MarkThresholds,
   type PollsState,
   type SystemSettings,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { FileSystemEntryType, listDirectoryRecursive } from '@vx/libs/fs/src';
 import {
   type CentralScannerStore,

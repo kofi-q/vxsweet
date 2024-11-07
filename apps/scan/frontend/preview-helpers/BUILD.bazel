@@ -7,7 +7,7 @@ ts_library(
         "//:node_modules/@types/react",
         "//:node_modules/react",
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

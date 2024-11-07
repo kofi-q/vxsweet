@@ -3,11 +3,13 @@ import {
   type BallotStyleId,
   BallotType,
   type BatchInfo,
-  CVR,
+  ballotPaperDimensions,
+} from '@vx/libs/types/elections';
+import { CVR } from '@vx/libs/types/cdf';
+import {
   CastVoteRecordExportFileName,
   type CastVoteRecordExportMetadata,
-  ballotPaperDimensions,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/cvrs';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import {

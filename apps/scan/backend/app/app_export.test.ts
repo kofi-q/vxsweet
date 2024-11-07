@@ -12,7 +12,7 @@ import {
 import { assertDefined } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { CVR } from '@vx/libs/types/src';
+import { CVR } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
   convertCastVoteRecordVotesToTabulationVotes,

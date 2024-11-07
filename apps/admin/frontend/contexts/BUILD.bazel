@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/admin/backend/types",
         "//apps/admin/frontend/config",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/test-utils",
         "//libs/usb-drive/src",
     ],

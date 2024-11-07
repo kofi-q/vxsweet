@@ -5,7 +5,7 @@ import {
   type ElectionDefinition,
   type SheetOf,
   mapSheet,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import {
   BALLOT_HASH_ENCODING_LENGTH,
   decodeBallot,

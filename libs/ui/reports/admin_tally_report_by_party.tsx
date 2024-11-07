@@ -1,4 +1,5 @@
-import { Admin, type ElectionDefinition } from '@vx/libs/types/src';
+import { Admin } from '@vx/libs/types/admin';
+import { type ElectionDefinition } from '@vx/libs/types/elections';
 import React from 'react';
 
 import { unique } from '@vx/libs/basics/collections';

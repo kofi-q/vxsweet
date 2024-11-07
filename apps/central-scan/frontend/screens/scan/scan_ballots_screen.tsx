@@ -4,7 +4,7 @@ import { Button } from '@vx/libs/ui/buttons';
 import { Font, Icons, P, Loading } from '@vx/libs/ui/primitives';
 import { TD, Table } from '@vx/libs/ui/src';
 import { Modal } from '@vx/libs/ui/modal';
-import { type BatchInfo } from '@vx/libs/types/src';
+import { type BatchInfo } from '@vx/libs/types/elections';
 import styled from 'styled-components';
 import { iter } from '@vx/libs/basics/iterators';
 import { type ScanStatus } from '../../../backend/types/types';

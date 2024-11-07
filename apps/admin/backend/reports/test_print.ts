@@ -3,8 +3,8 @@ import {
   type ElectionDefinition,
   type ElectionId,
   HmpbBallotPaperSize,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { range } from '@vx/libs/basics/collections';

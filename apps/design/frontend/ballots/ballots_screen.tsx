@@ -9,7 +9,7 @@ import {
   HmpbBallotPaperSize,
   type Election,
   getPartyForBallotStyle,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { useState } from 'react';
 import { getElection, updateElection } from '../api/api';
 import { Form, FormActionsRow, NestedTr } from '../layout/layout';

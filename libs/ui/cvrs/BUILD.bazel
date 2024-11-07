@@ -6,7 +6,8 @@ ts_library(
     name = "cvrs",
     deps = [
         "//libs/basics/assert",
-        "//libs/types/src",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
     ],
 )
 
@@ -15,7 +16,8 @@ ts_tests(
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//libs/types/src",
+        "//libs/types/cvrs",
+        "//libs/types/elections",
         "//libs/ui/cvrs",
     ],
 )

@@ -2,7 +2,7 @@ import {
   type BallotStyleId,
   type Election,
   type GridLayout,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { election } from './election.json';
 import { asElectionDefinition } from '../../util';
 

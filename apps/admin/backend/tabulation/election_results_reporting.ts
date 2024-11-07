@@ -1,7 +1,8 @@
 import { type Result, err } from '@vx/libs/basics/result';
 import { readFile, type ReadFileError } from '@vx/libs/fs/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import { safeParseJson, ResultsReporting } from '@vx/libs/types/src';
+import { safeParseJson } from '@vx/libs/types/basic';
+import { ResultsReporting } from '@vx/libs/types/cdf';
 import z from 'zod';
 
 const MAX_ELECTION_RESULTS_REPORTING_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB

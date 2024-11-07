@@ -1,9 +1,9 @@
 import {
   type Election,
   type ElectionDefinition,
-  type Id,
-  Tabulation,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { type Id } from '@vx/libs/types/basic';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   getParentBallotStyleById,

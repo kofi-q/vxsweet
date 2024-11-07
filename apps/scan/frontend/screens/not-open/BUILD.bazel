@@ -9,7 +9,7 @@ ts_library(
         "//:node_modules/react",
         "//apps/scan/frontend/components/full-screen-prompt",
         "//apps/scan/frontend/components/layout",
-        "//libs/types/src",
+        "//libs/types/elections",
         "//libs/ui/primitives",
     ],
 )

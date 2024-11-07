@@ -19,7 +19,7 @@ import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
-import { Tabulation } from '@vx/libs/types/src';
+import { Tabulation } from '@vx/libs/types/tabulation';
 import { type Client } from '@vx/libs/grout/src';
 import { parseCsv } from '../test/csv';
 import {

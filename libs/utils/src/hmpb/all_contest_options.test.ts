@@ -3,7 +3,7 @@ import {
   arbitraryCandidateId,
   arbitraryYesNoContest,
 } from '@vx/libs/test-utils/src';
-import { type ContestOption } from '@vx/libs/types/src';
+import { type ContestOption } from '@vx/libs/types/elections';
 import fc from 'fast-check';
 import { assert } from '@vx/libs/basics/assert';
 import { allContestOptions } from './all_contest_options';

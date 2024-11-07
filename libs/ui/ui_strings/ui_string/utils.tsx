@@ -9,7 +9,7 @@ import {
   getCandidateParties,
   getPartyForBallotStyle,
   type PrecinctSelection,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
 import { getPrecinctSelection } from '@vx/libs/utils/src';
 
 import { appStrings } from './app_strings';

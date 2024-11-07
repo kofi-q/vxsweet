@@ -5,7 +5,7 @@ ts_library(
     name = "types",
     deps = [
         "//apps/mark/backend/printing",
-        "//libs/types/src",
+        "//libs/types/elections",
     ],
 )
 

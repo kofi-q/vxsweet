@@ -1,8 +1,8 @@
 import {
   type ConverterClientType,
   ConverterClientTypeSchema,
-  unsafeParse,
-} from '@vx/libs/types/src';
+} from '@vx/libs/types/elections';
+import { unsafeParse } from '@vx/libs/types/basic';
 import { asBoolean } from './as_boolean';
 import {
   BooleanEnvironmentVariableName,

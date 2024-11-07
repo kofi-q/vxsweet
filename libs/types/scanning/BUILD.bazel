@@ -1,0 +1,13 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "scanning",
+    deps = [
+        "//:node_modules/zod",
+        "//libs/types/basic",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

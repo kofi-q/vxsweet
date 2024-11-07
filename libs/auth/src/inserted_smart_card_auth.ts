@@ -10,11 +10,12 @@ import {
   LogEventId,
   BaseLogger,
 } from '@vx/libs/logging/src';
-import { type BallotStyleId, type PrecinctId } from '@vx/libs/types/src';
 import {
+  type BallotStyleId,
+  type PrecinctId,
   type CardlessVoterUser,
   InsertedSmartCardAuth as InsertedSmartCardAuthTypes,
-} from '@vx/libs/types/src/auth';
+} from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
