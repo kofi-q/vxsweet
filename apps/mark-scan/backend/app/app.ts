@@ -7,9 +7,8 @@ import {
   assert,
   assertDefined,
   throwIllegalValue,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { ok, type Result } from '@vx/libs/basics/result';
 import * as grout from '@vx/libs/grout/src';
 import {
   type ElectionPackageConfigurationError,

@@ -7,7 +7,7 @@ import {
   type AnyContest,
   type Contests,
 } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   createElectionMetadataLookupFunction,
   getContestById,

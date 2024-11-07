@@ -6,7 +6,7 @@ import {
   LanguageCode,
 } from '@vx/libs/types/src';
 
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { BmdPaperBallot } from '@vx/libs/ui/ballots';
 import { BackendLanguageContextProvider } from '@vx/libs/ui/ui_strings/language_context';
 import { randomBallotId } from '@vx/libs/utils/src';

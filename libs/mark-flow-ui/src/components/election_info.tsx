@@ -18,7 +18,7 @@ import {
   PrimaryElectionTitlePrefix,
 } from '@vx/libs/ui/ui_strings/ui_string';
 import { NumberString } from '@vx/libs/ui/ui_strings';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 const Container = styled.div`
   display: flex;

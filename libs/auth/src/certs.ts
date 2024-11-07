@@ -1,10 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { z } from 'zod';
-import {
-  assert,
-  DateWithoutTime,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type ElectionId } from '@vx/libs/types/src';
 import { type ElectionKey } from '@vx/libs/types/src/auth';
 import { arePollWorkerCardDetails, type CardDetails } from './card';

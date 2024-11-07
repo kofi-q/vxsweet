@@ -2,10 +2,10 @@ import { Buffer } from 'node:buffer';
 import {
   assert,
   assertDefined,
-  deepEqual,
   throwIllegalValue,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+} from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type BallotStyleId,
   BallotType,

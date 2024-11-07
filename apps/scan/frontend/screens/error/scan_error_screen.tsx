@@ -5,7 +5,7 @@ import {
   P,
 } from '@vx/libs/ui/primitives';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type PrecinctScannerErrorType,
   type InvalidInterpretationReason,

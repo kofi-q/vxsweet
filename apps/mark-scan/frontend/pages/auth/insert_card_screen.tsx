@@ -10,7 +10,7 @@ import { InsertCardImage } from '@vx/libs/ui/auth-screens';
 import { ElectionInfoBar } from '@vx/libs/ui/election-info';
 import { Prose, H1, P, Caption, Icons, Font } from '@vx/libs/ui/primitives';
 
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 interface Props {
   appPrecinct: PrecinctSelection;

@@ -12,7 +12,7 @@ ts_library(
         "//:node_modules/styled-components",
         "//apps/central-scan/frontend/api",
         "//apps/central-scan/frontend/contexts",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
         "//libs/ui/buttons",
         "//libs/ui/election-info",

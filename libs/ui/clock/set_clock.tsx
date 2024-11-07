@@ -8,8 +8,8 @@ import {
   getDaysInMonth,
   MONTHS_SHORT,
 } from '@vx/libs/utils/src';
-import { assertDefined } from '@vx/libs/basics/src';
-import { integers } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { integers } from '@vx/libs/basics/iterators';
 import styled from 'styled-components';
 import { Select } from '../select/select';
 import { Modal } from '../modal/modal';

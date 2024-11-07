@@ -1,7 +1,7 @@
 import { buildSchema } from '@vx/libs/cdf-schema-builder/src';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { BallotDefinitionSchema } from '.';
 import { mockWritable } from '../../../test/helpers/mock_writable';
 import { testCdfBallotDefinition } from './fixtures';

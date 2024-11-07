@@ -8,7 +8,8 @@ import {
   getBallotStyle,
   getContests,
 } from '@vx/libs/types/src';
-import { assert, find, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { getCastVoteRecordBallotType } from '@vx/libs/utils/src';
 import { generateCvrs } from './generate_cvrs';
 import { IMAGE_URI_REGEX } from './utils';

@@ -1,4 +1,4 @@
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import userEvent from '@testing-library/user-event';

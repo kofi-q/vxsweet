@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { sampleBallotImages } from '@vx/libs/fixtures/src';
 import { ImageData } from 'canvas';
 import { rotateImageData180 } from './rotate';

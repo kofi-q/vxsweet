@@ -1,5 +1,5 @@
 import { electionWithMsEitherNeither } from '@vx/libs/fixtures/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';
 import {

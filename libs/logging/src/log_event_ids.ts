@@ -3,7 +3,7 @@
  * To add a log event, edit log_event_details.toml and run `pnpm build:generate-types`.
  */
 
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type BaseLogEventDetails } from './base_types/base_log_event_details';
 import { AppName } from './base_types/log_source';
 import { LogEventType } from './base_types/log_event_types';

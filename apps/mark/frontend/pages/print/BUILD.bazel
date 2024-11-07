@@ -9,7 +9,7 @@ ts_library(
         "//apps/mark/frontend/api",
         "//apps/mark/frontend/config",
         "//apps/mark/frontend/contexts",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/mark-flow-ui/src",
         "//libs/ui/ui_strings",
     ],

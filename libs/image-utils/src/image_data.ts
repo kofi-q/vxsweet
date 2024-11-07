@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { time } from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
 import {

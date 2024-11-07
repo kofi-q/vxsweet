@@ -1,4 +1,6 @@
-import { assertDefined, find, err, ok, type Result } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type Candidate, type CandidateId } from '../../election';
 import { LanguageCode } from '../../language_code';
 import * as ResultsReporting from '.';

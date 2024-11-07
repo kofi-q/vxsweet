@@ -9,7 +9,7 @@ import {
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
 import { ScanReadinessReport } from '@vx/libs/ui/diagnostics';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type Workspace } from '../workspace/workspace';
 import { getCurrentTime } from '../time/get_current_time';
 import { type Printer } from './printer';

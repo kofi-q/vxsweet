@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 
 export interface PatDeviceContextInterface {
   isPatDeviceConnected: boolean;

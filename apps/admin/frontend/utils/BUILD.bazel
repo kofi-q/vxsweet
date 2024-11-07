@@ -5,7 +5,8 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 ts_library(
     name = "utils",
     deps = [
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/collections",
         "//libs/types/src",
         "//libs/utils/src",
     ],

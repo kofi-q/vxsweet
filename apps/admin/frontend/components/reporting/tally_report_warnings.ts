@@ -1,5 +1,5 @@
 import { type TallyReportWarning } from '../../../backend/reports/warnings';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type Election,
   getContestsFromIds,

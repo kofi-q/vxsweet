@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from 'styled-components';
 
 import { isTouchSizeMode } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { CONFIG } from './constants';
 import { type Layout, type MisvoteWarningsProps } from './types';
 

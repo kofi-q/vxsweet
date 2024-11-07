@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import { QUERY_CLIENT_DEFAULT_OPTIONS, shouldRetry } from './react_query';
 

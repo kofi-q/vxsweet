@@ -6,7 +6,7 @@ import pluralize from 'pluralize';
 import { type PollsTransitionType } from '@vx/libs/types/src';
 import { getPollsReportTitle } from '@vx/libs/utils/src';
 import { useState } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Screen, getPostPollsTransitionHeaderText } from './poll_worker_shared';
 import { getPrinterStatus, printReport } from '../../api/api';
 

@@ -2,8 +2,8 @@ import {
   assert,
   assertDefined,
   throwIllegalValue,
-  mapObject,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { mapObject } from '@vx/libs/basics/objects';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Route, Switch, useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';

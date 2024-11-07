@@ -28,7 +28,8 @@ import {
   type PrecinctScannerStatus,
 } from '../../../backend/types/types';
 import { type OpenPollsResult } from '../../../backend/polls/polls';
-import { deferred, err, ok } from '@vx/libs/basics/src';
+import { deferred } from '@vx/libs/basics/async';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,

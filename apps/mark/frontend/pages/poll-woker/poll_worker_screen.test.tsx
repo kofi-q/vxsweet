@@ -19,7 +19,7 @@ import {
 } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { fireEvent, screen } from '../../test/react_testing_library';
 
 import { render } from '../../test/test_utils';

@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 
 import { createInterface } from 'node:readline';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { safeParseInt } from '@vx/libs/types/src';

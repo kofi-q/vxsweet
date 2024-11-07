@@ -1,14 +1,9 @@
 import * as path from 'node:path';
 import { spawn } from 'node:child_process';
 import { createInterface } from 'node:readline';
-import {
-  type Result,
-  assert,
-  deferredQueue,
-  err,
-  ok,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { deferredQueue } from '@vx/libs/basics/async';
 import {
   ImageData,
   createImageData,

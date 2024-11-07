@@ -1,6 +1,6 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 
 import {
   type ApiMock,

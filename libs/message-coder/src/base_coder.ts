@@ -1,4 +1,4 @@
-import { err, ok, type Result, resultBlock } from '@vx/libs/basics/src';
+import { err, ok, type Result, resultBlock } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import { toByteLength } from './bits';
 import {

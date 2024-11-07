@@ -15,7 +15,8 @@ import {
   electionTwoPartyPrimary,
 } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
-import { deferred, err, ok } from '@vx/libs/basics/src';
+import { deferred } from '@vx/libs/basics/async';
+import { err, ok } from '@vx/libs/basics/result';
 import { type Api } from '../../backend/app/app';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { screen, waitFor, within } from '../test/react_testing_library';

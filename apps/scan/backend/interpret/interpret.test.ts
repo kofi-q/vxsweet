@@ -1,5 +1,6 @@
-import { assertDefined, typedAs } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { typedAs } from '@vx/libs/basics/types';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
   DEFAULT_FAMOUS_NAMES_PRECINCT_ID,

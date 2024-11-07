@@ -1,7 +1,7 @@
 import { ImageData } from 'canvas';
 import pixelmatch from 'pixelmatch';
 import { format } from '@vx/libs/utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { writeImageData } from '@vx/libs/image-utils/src';
 
 /**

@@ -10,7 +10,7 @@ ts_library(
         "//apps/scan/frontend/api",
         "//apps/scan/frontend/components/full-screen-prompt",
         "//apps/scan/frontend/components/layout",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/ui/buttons",
         "//libs/ui/modal",
         "//libs/ui/primitives",
@@ -29,7 +29,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/scan/frontend/screens/cvr-sync",
         "//apps/scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
     ],
 )
 

@@ -1,9 +1,6 @@
-import {
-  assert,
-  throwIllegalValue,
-  typedAs,
-  unique,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { typedAs } from '@vx/libs/basics/types';
+import { unique } from '@vx/libs/basics/collections';
 import {
   Admin,
   Tabulation,

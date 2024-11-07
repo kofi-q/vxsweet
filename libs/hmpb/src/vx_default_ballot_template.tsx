@@ -1,11 +1,7 @@
 import React from 'react';
-import {
-  assertDefined,
-  range,
-  throwIllegalValue,
-  unique,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
+import { range, unique } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import { Buffer } from 'node:buffer';
 import styled from 'styled-components';
 import {

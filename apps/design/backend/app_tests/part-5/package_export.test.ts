@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import get from 'lodash.get';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   AdjudicationReason,

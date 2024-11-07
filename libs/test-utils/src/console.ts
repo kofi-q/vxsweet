@@ -1,6 +1,7 @@
 import chalk from 'chalk';
-import { type MaybePromise, type Optional, assert } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { type MaybePromise, type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 
 const capturedCallCountsByTest = new Map<
   string,

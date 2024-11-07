@@ -25,7 +25,8 @@ import {
 import { type TallyReportSpec } from '../../../backend/reports/tally_report';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type FileSystemEntry, FileSystemEntryType } from '@vx/libs/fs/src';
-import { type Result, ok, deferred } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
 import {
   createMockClient,
   type MockClient,

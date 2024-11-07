@@ -8,7 +8,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 
 jest.mock('../devices/accessible_controller');
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   electionFamousNames2021Fixtures,
   electionGeneral,

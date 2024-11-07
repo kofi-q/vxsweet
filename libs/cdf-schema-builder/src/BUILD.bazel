@@ -13,7 +13,8 @@ ts_library(
         "//:node_modules/jsdom",
         "//:node_modules/json-schema",
         "//:node_modules/zod",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
     ],
 )
 
@@ -26,7 +27,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/json-schema",
         "//:node_modules/zod",
-        "//libs/basics/src",
+        "//libs/basics/types",
         "//libs/cdf-schema-builder/src",
         "//libs/cdf-schema-builder/test",
     ],

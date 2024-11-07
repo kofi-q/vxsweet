@@ -5,7 +5,7 @@ import {
   type PrecinctSelection,
   type SinglePrecinctSelection,
 } from '@vx/libs/types/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 
 export function singlePrecinctSelectionFor(
   precinctId: PrecinctId

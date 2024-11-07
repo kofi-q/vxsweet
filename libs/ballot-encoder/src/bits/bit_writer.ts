@@ -1,4 +1,4 @@
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { BitCursor } from './bit_cursor';
 import { type Encoding, Utf8Encoding } from './encoding';
 import { type Uint1, type Uint8, Uint8Size } from './types';

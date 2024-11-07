@@ -1,4 +1,5 @@
-import { type Result, sleep } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
 import { type CoderError } from '@vx/libs/message-coder/src';
 import makeDebug from 'debug';
 import {

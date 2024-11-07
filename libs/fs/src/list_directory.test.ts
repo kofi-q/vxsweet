@@ -1,5 +1,5 @@
-import { err, ok, type Result } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import { symlinkSync } from 'node:fs';
 import tmp from 'tmp';
 import {

@@ -13,8 +13,8 @@ import { tmpNameSync } from 'tmp';
 import { parsePdf } from '@vx/libs/image-utils/src';
 import { writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
-import { err } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import { PAPER_DIMENSIONS, type RenderSpec, renderToPdf } from './render';
 import '@vx/libs/image-test-utils/register';
 

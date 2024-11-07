@@ -1,5 +1,5 @@
-import { assert } from '@vx/libs/basics/src';
-import { lines } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { lines } from '@vx/libs/basics/iterators';
 import { safeParseInt } from '@vx/libs/types/src';
 import { Client } from '@vx/libs/db/src';
 import { execFile } from './exec';

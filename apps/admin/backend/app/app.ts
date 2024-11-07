@@ -14,15 +14,10 @@ import {
   type SystemSettings,
   CastVoteRecordExportFileName,
 } from '@vx/libs/types/src';
-import {
-  assert,
-  assertDefined,
-  deferred,
-  err,
-  ok,
-  type Result,
-  type Optional,
-} from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { deferred } from '@vx/libs/basics/async';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { type Optional } from '@vx/libs/basics/types';
 import express, { Application } from 'express';
 import {
   type DippedSmartCardAuthApi,

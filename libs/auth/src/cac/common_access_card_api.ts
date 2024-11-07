@@ -1,4 +1,4 @@
-import { type Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
 import { type Byte, type Id } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { ResponseApduError } from '../apdu';

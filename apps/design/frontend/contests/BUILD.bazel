@@ -17,7 +17,8 @@ ts_library(
         "//apps/design/frontend/rich-text",
         "//apps/design/frontend/routes",
         "//apps/design/frontend/util",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/collections",
         "//libs/types/src",
         "//libs/ui/breadcrumbs",
         "//libs/ui/buttons",
@@ -43,7 +44,7 @@ ts_tests(
         "//apps/design/frontend/contests",
         "//apps/design/frontend/routes",
         "//apps/design/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
     ],
 )

@@ -6,7 +6,7 @@ ts_library(
     name = "utils",
     deps = [
         "//:node_modules/js-sha256",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
     ],
 )

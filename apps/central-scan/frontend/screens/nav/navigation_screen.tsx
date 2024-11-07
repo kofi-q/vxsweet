@@ -20,7 +20,7 @@ import {
 import { DippedSmartCardAuth } from '@vx/libs/types/src/auth';
 import { type ElectionDefinition } from '@vx/libs/types/src';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { AppContext } from '../../contexts/app_context';
 import { ejectUsbDrive, logOut } from '../../api/api';
 

@@ -3,7 +3,7 @@ import { Button } from '@vx/libs/ui/buttons';
 import { Callout } from '@vx/libs/ui/src';
 import { H6 } from '@vx/libs/ui/primitives';
 import React, { useContext } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { isElectionManagerAuth } from '@vx/libs/utils/src';
 import { isFilterEmpty, isGroupByEmpty } from '@vx/libs/utils/src/tabulation';
 import {

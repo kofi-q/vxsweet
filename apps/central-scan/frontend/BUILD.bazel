@@ -29,7 +29,7 @@ ts_library(
         "//:node_modules/setimmediate",
         "//apps/central-scan/frontend/app",
         "//apps/central-scan/frontend/util",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/dev-dock/frontend/src",
     ],
 )

@@ -6,7 +6,9 @@ ts_library(
     deps = [
         "//apps/scan/backend/store",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/iterators",
+        "//libs/basics/types",
         "//libs/types/src",
         "//libs/utils/src",
     ],

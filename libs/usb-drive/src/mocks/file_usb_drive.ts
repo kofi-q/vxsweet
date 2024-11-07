@@ -6,7 +6,8 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { type Optional, assert } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
 import { join, resolve } from 'node:path';
 import { type MockFileTree, writeMockFileTree } from './helpers';
 import { type UsbDrive, type UsbDriveStatus } from '../types';

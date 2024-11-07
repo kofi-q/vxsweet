@@ -1,6 +1,6 @@
 /* istanbul ignore file - tested via VxSuite apps. */
 
-import { type Optional, typedAs } from '@vx/libs/basics/src';
+import { type Optional, typedAs } from '@vx/libs/basics/types';
 import { Client as DbClient } from '@vx/libs/db/src';
 import {
   LanguageCode,

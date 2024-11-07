@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type DiagnosticRecord } from '@vx/libs/types/src';
 import { H2, P } from '../primitives/typography';
 import { InfoIcon, SuccessIcon, WarningIcon } from './icons';

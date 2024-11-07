@@ -1,5 +1,5 @@
-import { type IteratorPlus, iter } from '@vx/libs/basics/src/iterators';
-import { assert } from '@vx/libs/basics/src';
+import { type IteratorPlus, iter } from '@vx/libs/basics/iterators';
+import { assert } from '@vx/libs/basics/assert';
 import { sha256 } from 'js-sha256';
 import {
   type BallotPageLayout,

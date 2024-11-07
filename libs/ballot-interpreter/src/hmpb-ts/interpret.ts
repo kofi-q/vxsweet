@@ -1,4 +1,5 @@
-import { assert, err, ok } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import { ImageData } from 'canvas';
 import {
   type ElectionDefinition,

@@ -1,10 +1,5 @@
-import {
-  assert,
-  err,
-  ok,
-  type Result,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type Byte } from '@vx/libs/types/src';
 import { Buffer } from 'node:buffer';
 import { sha256 } from 'js-sha256';

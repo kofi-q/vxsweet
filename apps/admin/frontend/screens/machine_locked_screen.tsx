@@ -3,7 +3,7 @@ import { Main, Screen } from '@vx/libs/ui/screens';
 import { H1, H3 } from '@vx/libs/ui/primitives';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { AppContext } from '../contexts/app_context';
 
 const LockedImage = styled.img`

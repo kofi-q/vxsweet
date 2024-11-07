@@ -10,7 +10,9 @@ ts_library(
     deps = [
         "//:node_modules/@types/node",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/time",
+        "//libs/basics/types",
         "//libs/db/src",
         "//libs/logging/src",
         "//libs/types/src",

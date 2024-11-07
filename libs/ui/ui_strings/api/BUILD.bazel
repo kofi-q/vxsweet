@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@yornaath/batshit",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/grout/src",
         "//libs/types/src",
     ],

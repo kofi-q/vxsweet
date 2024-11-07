@@ -1,4 +1,5 @@
-import { assertDefined, find } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import {
   type AdjudicationInfo,
   type BallotMetadata,

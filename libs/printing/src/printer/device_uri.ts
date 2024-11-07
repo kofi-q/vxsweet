@@ -1,4 +1,4 @@
-import { lines } from '@vx/libs/basics/src/iterators';
+import { lines } from '@vx/libs/basics/iterators';
 import { rootDebug } from '../utils/debug';
 import { exec } from '../utils/exec';
 

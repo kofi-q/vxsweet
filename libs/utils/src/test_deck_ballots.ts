@@ -1,5 +1,6 @@
-import { assert, assertDefined, find } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   type AnyContest,
   type WriteInCandidate,

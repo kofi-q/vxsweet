@@ -9,7 +9,7 @@ import {
   TEST_JURISDICTION,
   type VendorUser,
 } from '@vx/libs/types/src/auth';
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 
 export function mockVendorUser(props: Partial<VendorUser> = {}): VendorUser {
   return {

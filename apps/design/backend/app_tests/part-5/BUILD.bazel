@@ -16,7 +16,7 @@ ts_tests(
         "//apps/design/backend/test",
         "//apps/design/backend/types",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/fixtures/src",
         "//libs/hmpb/src",
         "//libs/test-utils/src",

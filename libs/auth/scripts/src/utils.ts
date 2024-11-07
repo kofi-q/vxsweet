@@ -1,5 +1,6 @@
 import { Buffer } from 'node:buffer';
-import { sleep, throwIllegalValue } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type SystemAdministratorUser,
   type VendorUser,

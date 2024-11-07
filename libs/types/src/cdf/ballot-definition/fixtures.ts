@@ -1,4 +1,4 @@
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import {
   type BallotDefinition,
   ElectionType,

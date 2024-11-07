@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Buffer } from 'node:buffer';

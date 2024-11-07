@@ -41,7 +41,9 @@ import {
 
 import { type MachineConfig } from '../../../backend/types/types';
 import styled from 'styled-components';
-import { DateWithoutTime, find, throwIllegalValue } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { find } from '@vx/libs/basics/collections';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 import { DiagnosticsScreen } from '../diagnostics/diagnostics_screen';
 import { setPollsState, setTestMode } from '../../api/api';

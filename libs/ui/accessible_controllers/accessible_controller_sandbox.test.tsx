@@ -20,7 +20,7 @@ import {
   mockOf,
 } from '@vx/libs/test-utils/src';
 import React from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { simulateKeyPress as baseSimulateKeyPress } from './test_utils';
 import { UiString } from '../ui_strings/ui_string/ui_string';
 import {

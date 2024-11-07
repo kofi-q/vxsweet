@@ -25,7 +25,7 @@ ts_library(
         "//:node_modules/react",
         "//:node_modules/react-dom",
         "//apps/design/frontend/app",
-        "//libs/basics/src",
+        "//libs/basics/assert",
     ],
 )
 

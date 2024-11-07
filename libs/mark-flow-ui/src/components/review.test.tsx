@@ -3,7 +3,8 @@ import {
   electionWithMsEitherNeitherDefinition,
 } from '@vx/libs/fixtures/src';
 import { type CandidateContest, type YesNoContest } from '@vx/libs/types/src';
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { screen, within, render } from '../../test/react_testing_library';

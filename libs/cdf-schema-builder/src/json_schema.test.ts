@@ -1,4 +1,4 @@
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import { JSONSchema4 } from 'json-schema';
 import {
   convertToGenericType,

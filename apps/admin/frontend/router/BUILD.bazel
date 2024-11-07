@@ -15,7 +15,7 @@ ts_library(
         "//apps/admin/frontend/screens",
         "//apps/admin/frontend/screens/reporting",
         "//apps/admin/frontend/screens/tally",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
         "//libs/ui/admin-screens",
         "//libs/ui/auth-screens",

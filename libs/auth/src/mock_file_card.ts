@@ -1,11 +1,8 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
-import {
-  assert,
-  DateWithoutTime,
-  type Optional,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { type Optional } from '@vx/libs/basics/types';
 import {
   type ElectionManagerUser,
   type PollWorkerUser,

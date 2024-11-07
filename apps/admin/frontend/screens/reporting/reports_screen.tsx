@@ -4,7 +4,7 @@ import { format, isElectionManagerAuth } from '@vx/libs/utils/src';
 import { LinkButton } from '@vx/libs/ui/buttons';
 import { H2, P, Font, H3, Icons } from '@vx/libs/ui/primitives';
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import styled from 'styled-components';
 import { AppContext } from '../../contexts/app_context';
 

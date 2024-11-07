@@ -1,4 +1,6 @@
-import { ok, type Result, sleep, type Optional } from '@vx/libs/basics/src';
+import { ok, type Result } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
+import { type Optional } from '@vx/libs/basics/types';
 import { valuesEncodeEquivalently } from '@vx/libs/message-coder/src';
 import { ErrorCode, type ScannerStatus } from '../types';
 import { debug as rootDebug } from '../debug';

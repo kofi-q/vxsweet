@@ -1,5 +1,6 @@
 import { Admin, Tabulation, type Election } from '@vx/libs/types/src';
-import { find, throwIllegalValue } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   TEST_FILE_PREFIX,
   sanitizeStringForFilename,

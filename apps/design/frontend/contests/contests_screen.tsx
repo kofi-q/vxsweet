@@ -25,7 +25,8 @@ import {
   type YesNoContest,
   type Id,
 } from '@vx/libs/types/src';
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import styled from 'styled-components';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import {

@@ -1,4 +1,5 @@
-import { assertDefined, assert, find } from '@vx/libs/basics/src';
+import { assertDefined, assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { type Id, safeParseNumber } from '@vx/libs/types/src';
 import { loadImageData, toDataUrl } from '@vx/libs/image-utils/src';
 import { Store } from '../../store/store';

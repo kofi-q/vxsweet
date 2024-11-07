@@ -19,7 +19,7 @@ import {
   type PrecinctId,
   type Id,
 } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type Precinct, type PrecinctSplit } from '../../backend/types/types';
 import { ElectionNavScreen } from '../layout/nav_screen';
 import {

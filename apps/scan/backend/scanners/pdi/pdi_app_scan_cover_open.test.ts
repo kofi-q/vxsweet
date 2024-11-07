@@ -9,7 +9,8 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import { type Result, ok, deferred } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
 import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import { configureApp, waitForStatus } from '../../test/helpers/shared_helpers';
 import { delays } from './state_machine';

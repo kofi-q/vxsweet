@@ -22,7 +22,8 @@ import {
 } from '@vx/libs/types/src';
 import { getSingleYesNoVote, randomBallotId } from '@vx/libs/utils/src';
 
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { NoWrap } from '../primitives/text';
 import { QrCode } from './qrcode';
 import { Font, H4, H5, P } from '../primitives/typography';

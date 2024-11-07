@@ -16,7 +16,7 @@ import {
   isVendorAuth,
 } from '@vx/libs/utils/src';
 import { type ManualResultsVotingMethod } from '../../backend/types/types';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { type BallotStyleGroupId } from '@vx/libs/types/src';
 import { AppContext } from '../contexts/app_context';
 import { routerPaths } from '../paths/router_paths';

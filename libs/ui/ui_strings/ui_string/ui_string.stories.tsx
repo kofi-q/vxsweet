@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { LanguageCode } from '@vx/libs/types/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 import {
   UiString as Component,

@@ -18,7 +18,7 @@ import {
 } from '@vx/libs/utils/src';
 import * as tmp from 'tmp';
 import { v4 as uuid } from 'uuid';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import {
   type AcceptedSheet,
   type RejectedSheet,

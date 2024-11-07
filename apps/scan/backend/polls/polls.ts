@@ -1,4 +1,5 @@
-import { type Result, err, ok, assert } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { Store } from '../store/store';

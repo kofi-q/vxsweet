@@ -1,6 +1,6 @@
 import memoizeOne from 'memoize-one';
 import { type PollsTransitionType } from '@vx/libs/types/src';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { isPollsSuspensionTransition } from '@vx/libs/utils/src';
 import {
   PrecinctScannerBallotCountReport,

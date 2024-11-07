@@ -3,14 +3,9 @@ import { createReadStream } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { Readable, Stream } from 'node:stream';
-import {
-  assert,
-  err,
-  extractErrorMessage,
-  ok,
-  type Result,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordExportMetadataSchema,

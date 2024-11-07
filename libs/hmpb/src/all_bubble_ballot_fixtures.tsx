@@ -11,7 +11,9 @@ import {
   type VotesDict,
   ballotPaperDimensions,
 } from '@vx/libs/types/src';
-import { DateWithoutTime, assertDefined, range } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { range } from '@vx/libs/basics/collections';
 import { join } from 'node:path';
 import makeDebug from 'debug';
 import { Buffer } from 'node:buffer';

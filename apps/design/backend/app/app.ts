@@ -13,14 +13,11 @@ import {
   type Id,
 } from '@vx/libs/types/src';
 import express, { Application } from 'express';
-import {
-  assertDefined,
-  DateWithoutTime,
-  groupBy,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { groupBy } from '@vx/libs/basics/collections';
+import { ok, type Result } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import JsZip from 'jszip';
 import {
   type BallotMode,

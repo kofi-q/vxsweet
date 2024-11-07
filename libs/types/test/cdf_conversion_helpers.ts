@@ -1,4 +1,4 @@
-import { mapObject } from '@vx/libs/basics/src';
+import { mapObject } from '@vx/libs/basics/objects';
 import { type BallotStyleGroupId, type Election } from '../src/election';
 import { ElectionStringKey } from '../src/ui_string_translations';
 

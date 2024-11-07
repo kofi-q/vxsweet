@@ -3,7 +3,7 @@ import {
   electionFamousNames2021Fixtures,
   electionTwoPartyPrimaryDefinition,
 } from '@vx/libs/fixtures/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import {
   doesContestAppearOnPartyBallot,
   getContestIdsForBallotStyle,

@@ -18,7 +18,7 @@ import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { ApiClientContext, createQueryClient, systemCallApi } from '../api/api';
 import { DEFAULT_STATUS } from './fixtures';
 

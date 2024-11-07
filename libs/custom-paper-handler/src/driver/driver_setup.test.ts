@@ -1,7 +1,7 @@
 jest.mock('usb');
 
 import { Device, findByIds, WebUSBDevice } from 'usb';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,

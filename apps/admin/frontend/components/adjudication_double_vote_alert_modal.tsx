@@ -1,4 +1,4 @@
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import { Font, P } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';

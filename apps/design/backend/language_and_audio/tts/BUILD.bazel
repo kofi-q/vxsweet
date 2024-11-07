@@ -10,7 +10,7 @@ ts_library(
         "//:node_modules/node-html-parser",
         "//apps/design/backend/logging",
         "//apps/design/backend/store",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
     ],
 )

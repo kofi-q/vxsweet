@@ -1,4 +1,4 @@
-import { type Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
 
 export type ErrorType =
   | 'hardware'

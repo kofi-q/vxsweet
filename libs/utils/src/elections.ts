@@ -1,4 +1,4 @@
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 import { type Election } from '@vx/libs/types/src';
 
 export function getMaxSheetsPerBallot(election: Election): Optional<number> {

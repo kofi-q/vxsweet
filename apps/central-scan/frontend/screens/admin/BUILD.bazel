@@ -29,7 +29,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/central-scan/frontend/screens/admin",
         "//apps/central-scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
         "//libs/ui/test-utils",
     ],
 )

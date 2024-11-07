@@ -1,10 +1,8 @@
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/src';
-import {
-  extractErrorMessage,
-  type Result,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { type Result } from '@vx/libs/basics/result';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { exportCastVoteRecordsToUsbDrive as exportCastVoteRecordsToUsbDriveBackend } from '@vx/libs/backend/src/cast_vote_records';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { type Workspace } from '../workspace/workspace';

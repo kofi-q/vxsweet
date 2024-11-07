@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import { existsSync, readFileSync } from 'node:fs';
 import { createMockFujitsuPrinterHandler } from './memory_printer';
 import { type PrinterStatus } from '../types';

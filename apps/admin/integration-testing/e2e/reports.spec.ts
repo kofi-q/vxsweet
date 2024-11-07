@@ -14,7 +14,7 @@ import {
 } from '@vx/libs/fixtures/src';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { zipFile } from '@vx/libs/test-utils/src';
 import { ElectionPackageFileName } from '@vx/libs/types/src';
 import {

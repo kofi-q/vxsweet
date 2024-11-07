@@ -1,4 +1,5 @@
-import { type Optional, DateWithoutTime } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { sha256 } from 'js-sha256';
 import * as z from 'zod';
 import {

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import { ErrorCode } from '../types';
 import { createDuplexChannelMock } from './usb_channel';
 

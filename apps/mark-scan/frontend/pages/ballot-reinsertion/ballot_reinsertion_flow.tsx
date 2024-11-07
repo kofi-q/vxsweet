@@ -1,6 +1,6 @@
 import React from 'react';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { ReinsertedInvalidBallotScreen } from './invalid_ballot';
 import { WaitingForBallotReinsertionBallotScreen } from './waiting';
 import { LoadingReinsertedBallotScreen } from './loading';

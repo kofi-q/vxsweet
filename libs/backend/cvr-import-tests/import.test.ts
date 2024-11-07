@@ -9,7 +9,8 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
 import set from 'lodash.set';
 import path from 'node:path';
-import { assertDefined, err } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { err } from '@vx/libs/basics/result';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { CastVoteRecordExportFileName, CVR } from '@vx/libs/types/src';
 import {

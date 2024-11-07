@@ -4,7 +4,7 @@ import {
   DippedSmartCardAuth,
   InsertedSmartCardAuth,
 } from '@vx/libs/types/src/auth';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import { Screen } from '../screens/screen';
 import { Main } from '../screens/main';

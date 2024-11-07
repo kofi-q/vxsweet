@@ -1,4 +1,4 @@
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { LanguageCode } from '@vx/libs/types/src';
 
 export const DEFAULT_LOCALE: LanguageCode = LanguageCode.ENGLISH;

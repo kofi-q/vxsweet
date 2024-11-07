@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { spawn } from 'node:child_process';
 import { Stream } from 'node:stream';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 interface RunCommandOptions {
   /** Data to pipe to the child process's standard input */

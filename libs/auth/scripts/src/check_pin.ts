@@ -1,5 +1,6 @@
 import { createInterface } from 'node:readline';
-import { extractErrorMessage, throwIllegalValue } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 import { CommonAccessCard } from '../../src/cac/common_access_card';
 import { type CommonAccessCardDetails } from '../../src/cac/common_access_card_api';

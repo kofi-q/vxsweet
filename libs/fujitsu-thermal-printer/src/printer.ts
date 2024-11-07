@@ -1,10 +1,6 @@
-import {
-  type Optional,
-  type Result,
-  assert,
-  err,
-  ok,
-} from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,

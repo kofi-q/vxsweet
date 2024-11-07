@@ -1,4 +1,4 @@
-import { type Result, err } from '@vx/libs/basics/src';
+import { type Result, err } from '@vx/libs/basics/result';
 import { readFile, type ReadFileError } from '@vx/libs/fs/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { safeParseJson, ResultsReporting } from '@vx/libs/types/src';

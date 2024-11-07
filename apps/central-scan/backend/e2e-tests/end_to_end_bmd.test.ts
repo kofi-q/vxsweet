@@ -18,7 +18,8 @@ import {
   convertCastVoteRecordVotesToTabulationVotes,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { ok, sleep } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
 import { withApp } from '../test/helpers/setup_app';
 import { mockElectionManagerAuth } from '../test/helpers/auth';
 import { generateBmdBallotFixture } from '../test/helpers/ballots';

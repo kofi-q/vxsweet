@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { type Result, ok, resultBlock } from '@vx/libs/basics/src';
+import { type Result, ok, resultBlock } from '@vx/libs/basics/result';
 import { MAX_UINT16, MIN_UINT16 } from './constants';
 import {
   type BitLength,

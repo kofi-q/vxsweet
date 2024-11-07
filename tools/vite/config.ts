@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Server } from 'connect';
 import { createProxyMiddleware as proxy } from 'http-proxy-middleware';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 // eslint-disable-next-line vx/gts-safe-number-parse
 const PORT = Number.parseInt(process.env.PORT || '', 10) || 3000;

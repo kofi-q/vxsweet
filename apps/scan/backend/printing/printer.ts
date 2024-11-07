@@ -16,7 +16,8 @@ import {
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
 import { Logger } from '@vx/libs/logging/src';
-import { assert, type Result } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { type Result } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 
 export type PrinterStatus =

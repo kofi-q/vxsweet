@@ -18,7 +18,8 @@ import {
   type ElectionPackageConfigurationError,
   type SheetInterpretation,
 } from '@vx/libs/types/src';
-import { type Result, err, ok, deferred } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
 
 import { type PrecinctScannerConfig } from '../../backend/types/types';
 import { waitFor, screen, within, render } from '../test/react_testing_library';

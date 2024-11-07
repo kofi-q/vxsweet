@@ -38,7 +38,7 @@ ts_tests(
         "//apps/mark-scan/backend/custom-paper-handler",
         "//apps/mark-scan/frontend/pages/diagnostics",
         "//apps/mark-scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
         "//libs/fixtures/src",
         "//libs/types/src",
         "//libs/ui/accessible_controllers",

@@ -16,7 +16,7 @@ ts_library(
         "//apps/mark-scan/backend/types",
         "//libs/auth/src",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/fs/src",
         "//libs/logging/src",
         "//libs/printing/src",

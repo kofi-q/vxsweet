@@ -9,7 +9,8 @@ import {
   type YesNoContest,
 } from '@vx/libs/types/src';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-import { assert, find } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
 import { allContestOptions } from '@vx/libs/utils/src/hmpb';
 import {
   getAllPossibleAdjudicationReasons,

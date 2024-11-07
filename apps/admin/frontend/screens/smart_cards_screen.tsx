@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { assert, throwIllegalValue, deepEqual } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
 import { Button } from '@vx/libs/ui/buttons';
 import { Callout } from '@vx/libs/ui/src';
 import {

@@ -4,8 +4,8 @@ jest.mock('./exec', (): typeof import('./exec') => ({
 }));
 
 import { mockOf } from '@vx/libs/test-utils/src';
-import { err, ok } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err, ok } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import { Buffer } from 'node:buffer';
 import { readFile, symlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';

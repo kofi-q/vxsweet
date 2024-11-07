@@ -1,5 +1,5 @@
 import { Tabulation } from '@vx/libs/types/src';
-import { mapObject } from '@vx/libs/basics/src';
+import { mapObject } from '@vx/libs/basics/objects';
 import { getGroupKey, getGroupSpecifierFromGroupKey } from './tabulation';
 
 export function mergeTabulationGroupMaps<T, U, V>(

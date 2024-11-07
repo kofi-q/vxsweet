@@ -11,7 +11,7 @@ ts_library(
         "//apps/scan/frontend/api",
         "//apps/scan/frontend/components/settings",
         "//apps/scan/frontend/components/status",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/types/src",
         "//libs/ui/election-info",
         "//libs/ui/language_settings",

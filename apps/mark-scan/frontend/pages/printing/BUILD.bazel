@@ -9,7 +9,7 @@ ts_library(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/components",
         "//apps/mark-scan/frontend/contexts",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/ui/primitives",
         "//libs/ui/ui_strings",
         "//libs/ui/ui_strings/ui_string",

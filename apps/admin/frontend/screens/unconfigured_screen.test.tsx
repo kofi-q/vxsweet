@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { mockKiosk } from '@vx/libs/test-utils/src';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { renderInAppContext } from '../test/render_in_app_context';
 import { screen, waitFor, within } from '../test/react_testing_library';

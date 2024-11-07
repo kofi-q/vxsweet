@@ -21,7 +21,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import { LogEventId } from '@vx/libs/logging/src';
 import { type DiagnosticRecord } from '@vx/libs/types/src';
 import { mockOf } from '@vx/libs/test-utils/src';

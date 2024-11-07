@@ -10,7 +10,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
   type SheetInterpretation,
 } from '@vx/libs/types/src';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { mocks } from '@vx/libs/custom-scanner/src';
 import {
   BooleanEnvironmentVariableName,

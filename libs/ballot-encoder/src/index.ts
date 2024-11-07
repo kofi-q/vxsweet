@@ -21,8 +21,8 @@ import {
   type YesNoContest,
   type YesNoVote,
 } from '@vx/libs/types/src';
-import { assert } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { BitReader } from './bits/bit_reader';
 import { BitWriter } from './bits/bit_writer';
 import { CustomEncoding } from './bits/encoding';

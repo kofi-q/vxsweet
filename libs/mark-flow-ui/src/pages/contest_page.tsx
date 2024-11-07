@@ -13,7 +13,7 @@ import {
 import { LinkButton, Button } from '@vx/libs/ui/buttons';
 import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { PageNavigationButtonId } from '@vx/libs/ui/accessible_controllers';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 
 import { Contest, type ContestProps } from '../components/contest';
 import { type ContestsWithMsEitherNeither } from '../utils/ms_either_neither_contests';

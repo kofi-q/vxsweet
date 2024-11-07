@@ -1,4 +1,4 @@
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import { makeTmpFile } from '../test/utils';
 import { open } from './open_file';
 

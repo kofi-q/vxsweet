@@ -26,7 +26,7 @@ ts_library(
         "//apps/central-scan/backend/scanners/loop",
         "//apps/central-scan/backend/server",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/iterators",
         "//libs/logging/src",
     ],
 )

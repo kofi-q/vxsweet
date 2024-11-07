@@ -4,7 +4,8 @@ import {
   type IppPrinterStateReason,
 } from '@vx/libs/types/src';
 import React from 'react';
-import { type Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { H2, P } from '../primitives/typography';
 import { InfoIcon, LoadingIcon, SuccessIcon, WarningIcon } from './icons';
 

@@ -1,15 +1,10 @@
 import { join } from 'node:path';
 import { Buffer } from 'node:buffer';
 import readline from 'node:readline';
-import {
-  type Result,
-  assert,
-  assertDefined,
-  deepEqual,
-  err,
-  ok,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
+import { iter } from '@vx/libs/basics/iterators';
 import {
   ELECTION_PACKAGE_FOLDER,
   BooleanEnvironmentVariableName,

@@ -1,8 +1,8 @@
 import { Buffer } from 'node:buffer';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { extractErrorMessage } from '@vx/libs/basics/src';
-import { lines } from '@vx/libs/basics/src/iterators';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
+import { lines } from '@vx/libs/basics/iterators';
 import { type Byte } from '@vx/libs/types/src';
 
 import { CommandApdu, constructTlv } from '../../../src/apdu';

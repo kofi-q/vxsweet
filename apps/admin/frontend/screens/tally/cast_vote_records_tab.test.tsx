@@ -2,7 +2,7 @@ import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { type CastVoteRecordFileRecord } from '../../../backend/types/types';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import {
   type ApiMock,
   createApiMock,

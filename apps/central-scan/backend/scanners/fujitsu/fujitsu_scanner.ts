@@ -1,4 +1,5 @@
-import { assert, deferredQueue } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { deferredQueue } from '@vx/libs/basics/async';
 import makeDebug from 'debug';
 import { join } from 'node:path';
 import { dirSync } from 'tmp';

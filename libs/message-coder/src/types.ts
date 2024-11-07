@@ -1,4 +1,4 @@
-import { type Result } from '@vx/libs/basics/src';
+import { type Result } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 
 /**

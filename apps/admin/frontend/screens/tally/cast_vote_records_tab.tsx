@@ -1,5 +1,6 @@
-import { assertDefined, find } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { iter } from '@vx/libs/basics/iterators';
 import { H3, Icons, P, Font, Card } from '@vx/libs/ui/primitives';
 import { Button } from '@vx/libs/ui/buttons';
 import { Table, TD, TabPanel } from '@vx/libs/ui/src';

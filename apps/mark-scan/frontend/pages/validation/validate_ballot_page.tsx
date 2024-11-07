@@ -12,7 +12,7 @@ import {
   AssistiveTechInstructions,
 } from '@vx/libs/ui/accessible_controllers';
 
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { VoterScreen, Review } from '@vx/libs/mark-flow-ui/src';
 import {
   getElectionRecord,

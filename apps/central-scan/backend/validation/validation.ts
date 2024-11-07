@@ -7,7 +7,8 @@ import {
   type SheetOf,
   type PageInterpretation,
 } from '@vx/libs/types/src';
-import { throwIllegalValue, type Result, ok, err } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
+import { type Result, ok, err } from '@vx/libs/basics/result';
 
 const BlankPageTypes: ReadonlyArray<PageInterpretation['type']> = [
   'BlankPage',

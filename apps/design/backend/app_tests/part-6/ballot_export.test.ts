@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {
   BallotType,

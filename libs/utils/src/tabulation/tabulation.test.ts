@@ -4,7 +4,9 @@ import {
   electionTwoPartyPrimaryDefinition,
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
-import { assert, assertDefined, find, typedAs } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   CVR,
   Tabulation,

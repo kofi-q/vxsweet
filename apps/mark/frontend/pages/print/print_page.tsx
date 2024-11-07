@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import { PrintPage as MarkFlowPrintPage } from '@vx/libs/mark-flow-ui/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { useCurrentLanguage } from '@vx/libs/ui/ui_strings';
 import { BallotContext } from '../../contexts/ballot_context';
 import { BALLOT_PRINTING_TIMEOUT_SECONDS } from '../../config/globals';

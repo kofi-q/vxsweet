@@ -1,4 +1,4 @@
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { createPdiScannerClient } from './scanner_client';
 
 /**

@@ -30,7 +30,7 @@ ts_library(
         "//:types_env",
         "//apps/scan/frontend/app",
         "//apps/scan/frontend/preview",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/dev-dock/frontend/src",
     ],
 )

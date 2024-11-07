@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { Button } from '@vx/libs/ui/buttons';
 import { CurrentDateAndTime, SetClockButton } from '@vx/libs/ui/clock';
 import { UnconfigureMachineButton } from '@vx/libs/ui/auth-screens/unconfigure_machine_button';

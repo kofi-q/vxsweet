@@ -1,5 +1,5 @@
 import type Express from 'express';
-import { isObject, isString } from '@vx/libs/basics/src';
+import { isObject, isString } from '@vx/libs/basics/types';
 import { rootDebug } from './debug';
 import { serialize, deserialize } from './serialization';
 

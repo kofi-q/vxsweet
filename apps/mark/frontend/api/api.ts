@@ -1,6 +1,6 @@
 import { type Api } from '../../backend/app/app';
 import React from 'react';
-import { deepEqual } from '@vx/libs/basics/src';
+import { deepEqual } from '@vx/libs/basics/objects';
 import * as grout from '@vx/libs/grout/src';
 import {
   QueryClient,

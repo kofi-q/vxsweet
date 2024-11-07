@@ -1,5 +1,6 @@
 import tmp from 'tmp-promise';
-import { type Optional, assert } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
 import { writeFile } from 'node:fs/promises';
 import {
   type IppMarkerInfo,

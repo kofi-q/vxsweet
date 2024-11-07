@@ -10,7 +10,7 @@ ts_library(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/path",
         "//apps/mark-scan/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/fs/src",
         "//libs/logging/src",
     ],

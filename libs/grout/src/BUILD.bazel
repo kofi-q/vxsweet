@@ -15,7 +15,10 @@ ts_library(
         "//:node_modules/debug",
         "//:node_modules/express",
         "//:node_modules/luxon",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
+        "//libs/basics/time",
+        "//libs/basics/types",
     ],
 )
 
@@ -30,7 +33,8 @@ ts_tests(
         "//:node_modules/expect-type",
         "//:node_modules/express",
         "//:node_modules/luxon",
-        "//libs/basics/src",
+        "//libs/basics/result",
+        "//libs/basics/time",
         "//libs/grout/src",
     ],
 )

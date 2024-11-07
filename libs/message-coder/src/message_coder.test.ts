@@ -1,4 +1,5 @@
-import { err, ok, typedAs } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
 import { Buffer } from 'node:buffer';
 import { fixedString } from './fixed_string';
 import { literal } from './literal_coder';

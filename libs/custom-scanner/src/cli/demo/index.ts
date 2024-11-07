@@ -1,5 +1,6 @@
 import chalk from 'chalk';
-import { type Optional, sleep } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { sleep } from '@vx/libs/basics/async';
 import { Buffer } from 'node:buffer';
 import { writeFile } from 'node:fs/promises';
 import * as readline from 'node:readline';

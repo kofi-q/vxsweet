@@ -1,4 +1,5 @@
-import { groupBy, unique, throwIllegalValue } from '@vx/libs/basics/src';
+import { groupBy, unique } from '@vx/libs/basics/collections';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   type CandidateContest,
   type Contests,

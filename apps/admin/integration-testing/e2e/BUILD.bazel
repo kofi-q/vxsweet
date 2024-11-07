@@ -13,7 +13,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/admin/integration-testing/e2e/support",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/fixtures/src",
         "//libs/printing/src",
         "//libs/test-utils/src",

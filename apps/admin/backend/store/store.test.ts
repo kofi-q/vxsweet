@@ -10,7 +10,8 @@ import {
   type BallotStyleGroupId,
   Tabulation,
 } from '@vx/libs/types/src';
-import { find, typedAs } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
+import { typedAs } from '@vx/libs/basics/types';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { tmpNameSync } from 'tmp';

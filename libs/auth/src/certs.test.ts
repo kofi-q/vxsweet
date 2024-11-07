@@ -5,7 +5,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { type ElectionId } from '@vx/libs/types/src';
 import { type ElectionKey, TEST_JURISDICTION } from '@vx/libs/types/src/auth';
 
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type CardDetails } from './card';
 import {
   constructCardCertSubject,

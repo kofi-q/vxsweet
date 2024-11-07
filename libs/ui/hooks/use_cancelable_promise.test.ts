@@ -2,7 +2,7 @@ import {
   advanceTimers,
   advanceTimersAndPromises,
 } from '@vx/libs/test-utils/src';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { act, renderHook, waitFor } from '../test/react_testing_library';
 import { useCancelablePromise } from './use_cancelable_promise';
 

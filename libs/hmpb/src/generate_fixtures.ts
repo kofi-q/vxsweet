@@ -1,5 +1,5 @@
 import { mkdir, rm, writeFile } from 'node:fs/promises';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { writeImageData } from '@vx/libs/image-utils/src';
 import { allBubbleBallotFixtures } from './all_bubble_ballot_fixtures';
 import {

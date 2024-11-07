@@ -30,7 +30,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/scan/frontend/api",
         "//apps/scan/frontend/test",
-        "//libs/basics/src",
+        "//libs/basics/result",
     ],
 )
 

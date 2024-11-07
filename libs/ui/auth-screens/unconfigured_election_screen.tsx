@@ -1,5 +1,5 @@
 import { type ElectionPackageConfigurationError } from '@vx/libs/types/src';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { FullScreenIconWrapper, Icons } from '../primitives/icons';
 import { UsbDriveImage } from '../usb/usb_drive_image';

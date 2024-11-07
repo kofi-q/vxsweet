@@ -41,7 +41,9 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionGeneralDefinition,
 } from '@vx/libs/fixtures/src';
-import { assert, assertDefined, err, ok, typedAs } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
+import { typedAs } from '@vx/libs/basics/types';
 import {
   ELECTION_PACKAGE_FOLDER,
   BooleanEnvironmentVariableName,

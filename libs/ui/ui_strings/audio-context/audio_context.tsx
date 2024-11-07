@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 
 import { type UiStringsReactQueryApi } from '../api/ui_strings_api';
 import {

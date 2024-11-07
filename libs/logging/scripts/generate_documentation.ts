@@ -1,5 +1,5 @@
 import { safeParse } from '@vx/libs/types/src';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import yargs from 'yargs/yargs';
 import * as fs from 'node:fs';
 import { AppName } from '../src/base_types/log_source';

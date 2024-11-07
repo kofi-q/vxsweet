@@ -9,7 +9,9 @@ import {
   getFeatureFlagMock,
   BooleanEnvironmentVariableName,
 } from '@vx/libs/utils/src';
-import { type Result, ok, deferred, typedAs } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
+import { typedAs } from '@vx/libs/basics/types';
 import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import {

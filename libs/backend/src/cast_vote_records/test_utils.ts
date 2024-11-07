@@ -5,7 +5,7 @@ import {
   computeCastVoteRecordRootHashFromScratch,
   SIGNATURE_FILE_EXTENSION,
 } from '@vx/libs/auth/src';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   CastVoteRecordExportFileName,
   CastVoteRecordReportWithoutMetadataSchema,

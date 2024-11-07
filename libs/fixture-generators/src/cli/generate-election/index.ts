@@ -1,6 +1,6 @@
 import { safeParseJson } from '@vx/libs/types/src';
 import { readFileSync } from 'node:fs';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { generateElection } from '../../generate-election/generate_election';
 import { GenerateElectionConfigSchema } from '../../generate-election/config';
 

@@ -7,7 +7,7 @@ import {
   tabulateCastVoteRecords as tabulateFilteredCastVoteRecords,
   groupBySupportsZeroSplits,
 } from '@vx/libs/utils/src/tabulation';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import memoize from 'lodash.memoize';
 import hash from 'object-hash';
 import { Store } from '../store/store';

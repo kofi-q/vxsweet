@@ -5,7 +5,7 @@ import {
   Tabulation,
 } from '@vx/libs/types/src';
 import { ThemeProvider } from 'styled-components';
-import { unique } from '@vx/libs/basics/src';
+import { unique } from '@vx/libs/basics/collections';
 import { getPartyById } from '@vx/libs/utils/src/tabulation';
 import {
   printedReportThemeFn,

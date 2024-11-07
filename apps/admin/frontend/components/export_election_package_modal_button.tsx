@@ -4,7 +4,7 @@ import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
-import { assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import { Button, LoadingButton } from '@vx/libs/ui/buttons';
 import { Modal } from '@vx/libs/ui/modal';
 import { UsbControllerButton } from '@vx/libs/ui/system-controls';

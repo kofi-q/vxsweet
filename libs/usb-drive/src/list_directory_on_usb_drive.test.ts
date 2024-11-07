@@ -1,7 +1,7 @@
 import { FileSystemEntryType } from '@vx/libs/fs/src';
 import tmp from 'tmp';
-import { err, ok } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err, ok } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import { listDirectoryOnUsbDrive } from './list_directory_on_usb_drive';
 import { createMockUsbDrive } from './mocks/memory_usb_drive';
 import { type UsbDriveStatus } from './types';

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import { sha256 } from 'js-sha256';
 import path from 'node:path';
 import { dirSync } from 'tmp';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { Client } from '@vx/libs/db/src';
 import { CastVoteRecordExportFileName } from '@vx/libs/types/src';
 

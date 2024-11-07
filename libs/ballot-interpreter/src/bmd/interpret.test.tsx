@@ -1,5 +1,6 @@
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
-import { assert, err } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err } from '@vx/libs/basics/result';
 import {
   electionFamousNames2021Fixtures,
   electionGridLayoutNewHampshireTestBallotFixtures,

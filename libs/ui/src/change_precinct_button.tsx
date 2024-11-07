@@ -5,7 +5,8 @@ import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
-import { assert, deepEqual } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { deepEqual } from '@vx/libs/basics/objects';
 import styled from 'styled-components';
 import { Button } from '../buttons/button';
 import { Modal } from '../modal/modal';

@@ -5,7 +5,7 @@ import {
 } from '@vx/libs/test-utils/src';
 import { type ContestOption } from '@vx/libs/types/src';
 import fc from 'fast-check';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { allContestOptions } from './all_contest_options';
 
 test('candidate contest with no write-ins', () => {

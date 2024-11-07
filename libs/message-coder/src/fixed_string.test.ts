@@ -1,4 +1,4 @@
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import fc from 'fast-check';
 import { toBitOffset } from './bits';

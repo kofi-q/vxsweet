@@ -43,7 +43,8 @@ import {
 } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
 
-import { assertDefined, DateWithoutTime } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import { fireEvent, screen } from '../../test/react_testing_library';
 

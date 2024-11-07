@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import styled, { DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import { type SizeMode } from '@vx/libs/types/src';
 import { type Theme } from '../themes/themes';

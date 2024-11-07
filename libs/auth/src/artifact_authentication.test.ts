@@ -8,7 +8,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { dirSync } from 'tmp';
 import { z } from 'zod';
-import { assert, err, ok } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   CastVoteRecordExportFileName,
   type CastVoteRecordExportMetadata,

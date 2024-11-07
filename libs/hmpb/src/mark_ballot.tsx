@@ -6,7 +6,7 @@ import {
   type VotesDict,
   type WriteInCandidate,
 } from '@vx/libs/types/src';
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import React from 'react';
 import { type RenderDocument, type Renderer } from './renderer';
 import {

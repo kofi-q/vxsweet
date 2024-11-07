@@ -9,7 +9,7 @@ jest.mock(
 import userEvent from '@testing-library/user-event';
 
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { LanguageCode } from '@vx/libs/types/src';
 
 import { act, render, screen, waitFor } from '../test/react_testing_library';

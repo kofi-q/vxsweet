@@ -12,7 +12,7 @@ ts_library(
         "//apps/design/backend/language_and_audio/translation",
         "//apps/design/backend/language_and_audio/utils",
         "//apps/design/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/hmpb/src",
         "//libs/types/src",
         "//libs/utils/src",

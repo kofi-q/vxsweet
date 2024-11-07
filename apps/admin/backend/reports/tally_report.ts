@@ -1,7 +1,7 @@
 import { Admin, Tabulation } from '@vx/libs/types/src';
 import React from 'react';
 import { combineGroupSpecifierAndFilter } from '@vx/libs/utils/src/tabulation';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { AdminTallyReportByParty } from '@vx/libs/ui/reports';
 import { Buffer } from 'node:buffer';
 import { LogEventId, Logger } from '@vx/libs/logging/src';

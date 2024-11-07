@@ -1,5 +1,5 @@
 import { ImageData } from 'canvas';
-import { err } from '@vx/libs/basics/src';
+import { err } from '@vx/libs/basics/result';
 import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,

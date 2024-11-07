@@ -1,4 +1,4 @@
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import { type ScannerStatus, SensorStatus } from '../types';
 import { type CustomScanner } from '../types/custom_scanner';
 

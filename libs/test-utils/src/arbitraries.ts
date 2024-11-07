@@ -35,7 +35,8 @@ import {
   type BallotStyleGroupId,
 } from '@vx/libs/types/src';
 import { sha256 } from 'js-sha256';
-import { DateWithoutTime, assertDefined } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 /**
  * Builds arbitrary uint2 values.

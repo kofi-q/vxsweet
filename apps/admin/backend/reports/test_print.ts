@@ -5,12 +5,9 @@ import {
   HmpbBallotPaperSize,
   Tabulation,
 } from '@vx/libs/types/src';
-import {
-  DateWithoutTime,
-  assert,
-  assertDefined,
-  range,
-} from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
+import { range } from '@vx/libs/basics/collections';
 import { type Printer } from '@vx/libs/printing/src/printer';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';

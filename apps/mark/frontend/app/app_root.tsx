@@ -33,7 +33,11 @@ import { useAudioControls } from '@vx/libs/ui/ui_strings/screen-reader';
 import { useLanguageControls } from '@vx/libs/ui/ui_strings';
 import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 
-import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import {
+  assert,
+  assertDefined,
+  throwIllegalValue,
+} from '@vx/libs/basics/assert';
 import {
   mergeMsEitherNeitherContests,
   CastBallotPage,

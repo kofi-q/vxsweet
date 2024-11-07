@@ -21,7 +21,7 @@ import {
 } from '@vx/libs/ui/accessible_controllers';
 
 import { getSingleYesNoVote } from '@vx/libs/utils/src';
-import { type Optional } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
 
 import { ContestFooter, ChoicesGrid } from './contest_screen_layout';
 import { type BreadcrumbMetadata, ContestHeader } from './contest_header';

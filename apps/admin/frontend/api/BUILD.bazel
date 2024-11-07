@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/@types/react",
         "//:node_modules/react",
         "//apps/admin/backend/app",
-        "//libs/basics/src",
+        "//libs/basics/objects",
         "//libs/grout/src",
         "//libs/ui/src",
         "//libs/ui/system-calls",

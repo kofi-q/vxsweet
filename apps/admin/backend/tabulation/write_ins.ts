@@ -11,7 +11,11 @@ import {
   getGroupKey,
   isGroupByEmpty,
 } from '@vx/libs/utils/src/tabulation';
-import { assert, assertDefined, throwIllegalValue } from '@vx/libs/basics/src';
+import {
+  assert,
+  assertDefined,
+  throwIllegalValue,
+} from '@vx/libs/basics/assert';
 import { type WriteInTally } from '../types/types';
 import { Store } from '../store/store';
 import { extractWriteInSummary, tabulateManualResults } from './manual_results';

@@ -46,12 +46,9 @@ import {
 import { type AcceptedPaperType } from '../../../backend/custom-paper-handler/state_machine';
 import { type MachineConfig } from '../../../backend/types/types';
 import styled from 'styled-components';
-import {
-  assertDefined,
-  throwIllegalValue,
-  DateWithoutTime,
-  find,
-} from '@vx/libs/basics/src';
+import { assertDefined, throwIllegalValue } from '@vx/libs/basics/assert';
+import { DateWithoutTime } from '@vx/libs/basics/time';
+import { find } from '@vx/libs/basics/collections';
 
 import { LoadPaperPage } from '../new-sheet/load_paper_page';
 import * as api from '../../api/api';

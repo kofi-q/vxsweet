@@ -13,7 +13,7 @@ ts_library(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/types",
         "//libs/types/src",
         "//libs/ui/ballots",
         "//libs/ui/primitives",

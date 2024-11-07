@@ -1,11 +1,6 @@
-import {
-  asyncResultBlock,
-  err,
-  ok,
-  type Result,
-  sleep,
-  throwIllegalValue,
-} from '@vx/libs/basics/src';
+import { asyncResultBlock, err, ok, type Result } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { MAX_UINT24 } from '@vx/libs/message-coder/src';
 import { type SheetOf } from '@vx/libs/types/src';
 import { time, Mutex } from '@vx/libs/utils/src';

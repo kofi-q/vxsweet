@@ -10,7 +10,8 @@ import {
   type YesNoContestCompressedTally,
   YesNoContestCompressedTallySchema,
 } from '@vx/libs/types/src';
-import { assert, throwIllegalValue, typedAs } from '@vx/libs/basics/src';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
+import { typedAs } from '@vx/libs/basics/types';
 
 /**
  * Compresses election results

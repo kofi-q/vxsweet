@@ -3,7 +3,8 @@ import {
   type DippedSmartCardAuthApi,
   generateSignedHashValidationQrCodeValue,
 } from '@vx/libs/auth/src';
-import { type Result, ok, assert } from '@vx/libs/basics/src';
+import { type Result, ok } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
 import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';

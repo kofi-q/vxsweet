@@ -15,7 +15,7 @@ import {
   mockSystemAdministratorUser,
 } from '@vx/libs/test-utils/src';
 import { ballotPaperDimensions, HmpbBallotPaperSize } from '@vx/libs/types/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { iter } from '@vx/libs/basics/iterators';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import { LogEventId } from '@vx/libs/logging/src';
 import { ballotImages, withApp } from '../../test/helpers/pdi_helpers';

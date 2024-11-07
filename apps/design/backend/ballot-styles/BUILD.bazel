@@ -7,7 +7,8 @@ ts_library(
     deps = [
         "//:node_modules/@types/node",
         "//apps/design/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/collections",
         "//libs/hmpb/src",
         "//libs/printing/src",
         "//libs/types/src",
@@ -23,7 +24,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/types",
-        "//libs/basics/src",
+        "//libs/basics/types",
         "//libs/types/src",
         "//libs/utils/src",
     ],

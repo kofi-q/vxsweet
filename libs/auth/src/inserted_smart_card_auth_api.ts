@@ -1,4 +1,5 @@
-import { type Optional, type Result } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result } from '@vx/libs/basics/result';
 import { type BallotStyleId, type PrecinctId } from '@vx/libs/types/src';
 import {
   type ElectionKey,

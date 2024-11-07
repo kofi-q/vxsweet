@@ -13,7 +13,7 @@ ts_library(
         "//apps/scan/frontend/components/layout",
         "//apps/scan/frontend/components/printer_management",
         "//apps/scan/frontend/config",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/ui/buttons",
         "//libs/ui/diagnostics",
         "//libs/ui/primitives",

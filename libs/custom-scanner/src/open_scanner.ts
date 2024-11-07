@@ -1,4 +1,4 @@
-import { err, ok, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { findByIds, WebUSBDevice } from 'usb';
 import { UsbChannel, type UsbChannelOptions } from './usb_channel';
 import { CustomA4Scanner } from './custom_a4_scanner';

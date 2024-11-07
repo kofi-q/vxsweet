@@ -25,7 +25,7 @@ import {
   electionGeneral,
 } from '@vx/libs/fixtures/src';
 import { Server } from 'node:http';
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import { constructElectionKey } from '@vx/libs/types/src/auth';
 import { type PrinterStatus } from '@vx/libs/types/src';
 import {

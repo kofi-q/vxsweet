@@ -8,7 +8,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:node_modules/@types/yargs",
         "//:node_modules/yargs",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/logging/src",
         "//libs/types/src",
     ],

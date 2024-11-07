@@ -1,4 +1,4 @@
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { WriteInAdjudicationReport } from '@vx/libs/ui/reports';
 import { type PdfError, renderToPdf } from '@vx/libs/printing/src';
 import { type Printer } from '@vx/libs/printing/src/printer';

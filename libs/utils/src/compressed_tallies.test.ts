@@ -5,7 +5,8 @@ import {
   electionWithMsEitherNeitherFixtures,
 } from '@vx/libs/fixtures/src';
 import { getZeroCompressedTally } from '@vx/libs/test-utils/src';
-import { find, assert } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
+import { assert } from '@vx/libs/basics/assert';
 import { compressTally, readCompressedTally } from './compressed_tallies';
 import {
   buildElectionResultsFixture,

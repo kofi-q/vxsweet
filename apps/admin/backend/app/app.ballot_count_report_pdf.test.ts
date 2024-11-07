@@ -29,7 +29,8 @@ import {
   type MemoryPrinterHandler,
 } from '@vx/libs/printing/src/printer';
 import { renderToPdf } from '@vx/libs/printing/src';
-import { assert, err } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err } from '@vx/libs/basics/result';
 import { tmpNameSync } from 'tmp';
 import { LogEventId } from '@vx/libs/logging/src';
 import { type Client } from '@vx/libs/grout/src';

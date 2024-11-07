@@ -1,8 +1,9 @@
 import { Buffer } from 'node:buffer';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
-import { err, ok, sleep } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { err, ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
+import { iter } from '@vx/libs/basics/iterators';
 import { exec } from './exec';
 
 const argsWorkerPath = join(__dirname, '../../test/args_worker.js');

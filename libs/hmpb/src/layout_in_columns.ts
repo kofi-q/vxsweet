@@ -1,5 +1,6 @@
-import { iter } from '@vx/libs/basics/src/iterators';
-import { assertDefined, range } from '@vx/libs/basics/src';
+import { iter } from '@vx/libs/basics/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { range } from '@vx/libs/basics/collections';
 
 function findLastIndex<T>(arr: T[], keyFn: (item: T) => boolean): number {
   for (let i = arr.length - 1; i >= 0; i -= 1) {

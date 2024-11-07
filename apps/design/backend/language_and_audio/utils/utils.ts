@@ -1,5 +1,5 @@
 import { sha256 } from 'js-sha256';
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   LanguageCode,
   isLanguageCode,

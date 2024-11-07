@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LanguageCode } from '@vx/libs/types/src';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 
 import { useAudioContext } from '../audio-context/audio_context';
 import { type AudioPlayer, newAudioPlayer } from './audio_player';

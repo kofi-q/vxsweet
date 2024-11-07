@@ -11,7 +11,7 @@ import {
   type SheetInterpretation,
 } from '@vx/libs/types/src';
 import { ErrorCode, mocks } from '@vx/libs/custom-scanner/src';
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

@@ -1,5 +1,6 @@
 import { Buffer } from 'node:buffer';
-import { type Result, assert, err } from '@vx/libs/basics/src';
+import { type Result, err } from '@vx/libs/basics/result';
+import { assert } from '@vx/libs/basics/assert';
 import { BaseCoder } from './base_coder';
 import {
   type BitLength,

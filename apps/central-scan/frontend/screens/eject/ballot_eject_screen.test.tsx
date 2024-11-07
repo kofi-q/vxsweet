@@ -8,7 +8,7 @@ import {
   formatBallotHash,
 } from '@vx/libs/types/src';
 import { Scan } from '@vx/libs/api/src';
-import { typedAs } from '@vx/libs/basics/src';
+import { typedAs } from '@vx/libs/basics/types';
 import fetchMock from 'fetch-mock';
 import userEvent from '@testing-library/user-event';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';

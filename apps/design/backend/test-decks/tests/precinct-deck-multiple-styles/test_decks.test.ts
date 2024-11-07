@@ -6,8 +6,8 @@ import {
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { assert } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assert } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { getBallotStylesByPrecinctId } from '@vx/libs/utils/src/tabulation';
 import { type ElectionDefinition, LanguageCode } from '@vx/libs/types/src';
 import { createPrecinctTestDeck } from '../../test_decks';

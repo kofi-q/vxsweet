@@ -1,4 +1,4 @@
-import { extractErrorMessage } from '@vx/libs/basics/src';
+import { extractErrorMessage } from '@vx/libs/basics/errors';
 
 import {
   constructJavaCardConfigForVxProgramming,

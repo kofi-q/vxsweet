@@ -3,8 +3,8 @@ import {
   assert,
   assertDefined,
   throwIllegalValue,
-  type Result,
-} from '@vx/libs/basics/src';
+} from '@vx/libs/basics/assert';
+import { type Result } from '@vx/libs/basics/result';
 import {
   type CustomScanner,
   DoubleSheetDetectOpt,

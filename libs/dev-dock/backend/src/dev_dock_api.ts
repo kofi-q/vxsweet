@@ -1,7 +1,8 @@
 import type Express from 'express';
 import * as grout from '@vx/libs/grout/src';
 import * as fs from 'node:fs';
-import { type Optional, assert } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
 import {
   type PrinterConfig,
   type PrinterStatus,

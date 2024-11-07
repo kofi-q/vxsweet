@@ -8,8 +8,8 @@ import {
   getContests,
 } from '@vx/libs/types/src';
 import { electionGeneral } from '@vx/libs/fixtures/src';
-import { assertDefined } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { assertDefined } from '@vx/libs/basics/assert';
+import { iter } from '@vx/libs/basics/iterators';
 import { vxDefaultBallotTemplate } from '../vx_default_ballot_template';
 import {
   type BaseBallotProps,

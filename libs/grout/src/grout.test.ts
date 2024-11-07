@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { AddressInfo } from 'node:net';
 import express from 'express';
-import { err, ok, type Result } from '@vx/libs/basics/src';
+import { err, ok, type Result } from '@vx/libs/basics/result';
 import { expectTypeOf } from 'expect-type';
 import { createClient } from './client';
 import { type AnyApi, buildRouter, createApi } from './server';

@@ -6,7 +6,8 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
 
 import { Buffer } from 'node:buffer';
 import { DateTime } from 'luxon';
-import { assert, err, ok } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
 import {
   electionGeneralDefinition,
   electionTwoPartyPrimary,

@@ -37,7 +37,7 @@ ts_tests(
         "//apps/admin/backend/workspace",
         "//libs/auth/src",
         "//libs/backend/src",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/logging/src",
         "//libs/printing/src",
         "//libs/usb-drive/src",

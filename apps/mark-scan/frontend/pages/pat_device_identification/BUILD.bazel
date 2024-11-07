@@ -12,7 +12,7 @@ ts_library(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/lib",
         "//apps/mark-scan/frontend/pages/diagnostics/components",
-        "//libs/basics/src",
+        "//libs/basics/assert",
         "//libs/mark-flow-ui/src",
         "//libs/ui/buttons",
         "//libs/ui/keybindings",

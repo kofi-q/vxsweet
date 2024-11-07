@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { createMemoryHistory } from 'history';
 import { act, screen } from '../test/react_testing_library';
 import { renderInAppContext } from '../test/render_in_app_context';

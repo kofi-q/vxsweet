@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 import { readFileSync } from 'node:fs';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { BaseLogger } from '@vx/libs/logging/src';

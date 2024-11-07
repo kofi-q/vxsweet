@@ -1,4 +1,5 @@
-import { type Result, err, ok, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import * as fs from 'node:fs/promises';
 import { join } from 'node:path';

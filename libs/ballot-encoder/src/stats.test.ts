@@ -9,7 +9,7 @@ import {
   ElectionIdSchema,
   unsafeParse,
 } from '@vx/libs/types/src';
-import { DateWithoutTime } from '@vx/libs/basics/src';
+import { DateWithoutTime } from '@vx/libs/basics/time';
 import { encodeBallot } from '.';
 
 const district1Id = unsafeParse(DistrictIdSchema, 'district1');

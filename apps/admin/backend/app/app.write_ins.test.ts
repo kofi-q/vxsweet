@@ -10,7 +10,9 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   electionTwoPartyPrimaryFixtures,
 } from '@vx/libs/fixtures/src';
-import { assert, find, typedAs } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
+import { find } from '@vx/libs/basics/collections';
+import { typedAs } from '@vx/libs/basics/types';
 import { toDataUrl, loadImageData } from '@vx/libs/image-utils/src';
 import { join } from 'node:path';
 import {

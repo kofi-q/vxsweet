@@ -2,7 +2,7 @@ import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtu
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';
 import { dirSync, fileSync } from 'tmp';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { integers, iter } from '@vx/libs/basics/src/iterators';
+import { integers, iter } from '@vx/libs/basics/iterators';
 import { randomUUID } from 'node:crypto';
 import { join } from 'node:path';
 import { mockWritable } from '@vx/libs/test-utils/src';

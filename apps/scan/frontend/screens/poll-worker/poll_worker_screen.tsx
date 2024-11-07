@@ -17,7 +17,8 @@ import {
   type ElectionDefinition,
   type PollsTransitionType,
 } from '@vx/libs/types/src';
-import { type Optional, assert, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import styled from 'styled-components';
 import { type PrecinctScannerPollsInfo } from '../../../backend/types/types';
 import { type PrintResult } from '../../../backend/printing/printer';

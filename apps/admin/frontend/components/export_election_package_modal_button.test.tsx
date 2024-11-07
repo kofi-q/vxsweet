@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { type Result, err, ok, deferred } from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { deferred } from '@vx/libs/basics/async';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type ExportDataError } from '@vx/libs/backend/src';

@@ -6,7 +6,7 @@ import { appStrings } from '@vx/libs/ui/ui_strings/ui_string';
 import { AudioOnly, ReadOnLoad } from '@vx/libs/ui/ui_strings';
 import { PageNavigationButtonId } from '@vx/libs/ui/accessible_controllers';
 
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 
 import {
   type BallotStyleId,

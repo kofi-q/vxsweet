@@ -5,13 +5,8 @@ import {
   getBallotStyleIdPartyIdLookup,
   getGroupKey,
 } from '@vx/libs/utils/src/tabulation';
-import {
-  type Result,
-  err,
-  ok,
-  assert,
-  assertDefined,
-} from '@vx/libs/basics/src';
+import { type Result, err, ok } from '@vx/libs/basics/result';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   type ManualResultsFilter,
   type ManualResultsIdentifier,

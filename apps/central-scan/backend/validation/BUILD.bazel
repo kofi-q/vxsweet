@@ -5,7 +5,8 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 ts_library(
     name = "validation",
     deps = [
-        "//libs/basics/src",
+        "//libs/basics/assert",
+        "//libs/basics/result",
         "//libs/types/src",
     ],
 )

@@ -1,4 +1,4 @@
-import { assert, assertDefined } from '@vx/libs/basics/src';
+import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { z } from 'zod';
 import {
   type ContestId,

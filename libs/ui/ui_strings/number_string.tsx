@@ -1,5 +1,5 @@
 import { format } from '@vx/libs/utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { useLanguageContext } from './language_context/language_context';
 import { Font, type FontProps } from '../primitives/typography';
 import { WithAudio } from './with_audio';

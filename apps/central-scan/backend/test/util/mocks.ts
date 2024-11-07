@@ -5,7 +5,8 @@ import {
   type MockWritable,
   mockWritable,
 } from '@vx/libs/test-utils/src';
-import { type Optional, throwIllegalValue } from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 import { ChildProcess } from 'node:child_process';
 import { EventEmitter } from 'node:events';
 import { fileSync } from 'tmp';

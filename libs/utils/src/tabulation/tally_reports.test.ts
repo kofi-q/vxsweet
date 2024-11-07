@@ -1,5 +1,5 @@
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
-import { find } from '@vx/libs/basics/src';
+import { find } from '@vx/libs/basics/collections';
 import {
   type CandidateContest,
   type DistrictId,

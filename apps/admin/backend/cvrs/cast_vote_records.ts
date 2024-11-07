@@ -10,11 +10,9 @@ import {
   assert,
   assertDefined,
   throwIllegalValue,
-  err,
-  ok,
-  type Result,
-} from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+} from '@vx/libs/basics/assert';
+import { err, ok, type Result } from '@vx/libs/basics/result';
+import { iter } from '@vx/libs/basics/iterators';
 import { FileSystemEntryType } from '@vx/libs/fs/src';
 import {
   type BallotId,

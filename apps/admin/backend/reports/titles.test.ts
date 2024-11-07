@@ -1,4 +1,4 @@
-import { err, ok } from '@vx/libs/basics/src';
+import { err, ok } from '@vx/libs/basics/result';
 import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
 import { Admin, Tabulation, type BallotStyleGroupId } from '@vx/libs/types/src';
 import { generateTitleForReport } from './titles';

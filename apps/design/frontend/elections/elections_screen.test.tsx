@@ -1,4 +1,4 @@
-import { ok } from '@vx/libs/basics/src';
+import { ok } from '@vx/libs/basics/result';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import {

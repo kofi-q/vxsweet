@@ -3,7 +3,8 @@ import { Font, P } from '@vx/libs/ui/primitives';
 import { Modal } from '@vx/libs/ui/modal';
 import { RadioGroup } from '@vx/libs/ui/radio_group';
 import React, { useState } from 'react';
-import { assert, assertFalsy, sleep } from '@vx/libs/basics/src';
+import { assert, assertFalsy } from '@vx/libs/basics/assert';
+import { sleep } from '@vx/libs/basics/async';
 import { type DiagnosticOutcome } from '@vx/libs/types/src';
 import {
   addDiagnosticRecord,

@@ -1,10 +1,5 @@
-import {
-  type Optional,
-  type Result,
-  err,
-  ok,
-  resultBlock,
-} from '@vx/libs/basics/src';
+import { type Optional } from '@vx/libs/basics/types';
+import { type Result, err, ok, resultBlock } from '@vx/libs/basics/result';
 import { Buffer } from 'node:buffer';
 import { BaseCoder } from './base_coder';
 import { toBitLength, toByteOffset } from './bits';

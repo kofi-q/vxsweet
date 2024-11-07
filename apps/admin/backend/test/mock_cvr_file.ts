@@ -8,7 +8,7 @@ import {
 } from '@vx/libs/types/src';
 import { v4 as uuid } from 'uuid';
 import { Buffer } from 'node:buffer';
-import { assertDefined } from '@vx/libs/basics/src';
+import { assertDefined } from '@vx/libs/basics/assert';
 import { Store } from '../store/store';
 import { getCastVoteRecordAdjudicationFlags } from '../util/cvrs/cast_vote_records';
 

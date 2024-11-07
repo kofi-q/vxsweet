@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { throwIllegalValue } from '@vx/libs/basics/src';
+import { throwIllegalValue } from '@vx/libs/basics/assert';
 
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 

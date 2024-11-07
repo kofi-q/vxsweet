@@ -9,8 +9,11 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
-import { type Optional, assert, err, ok, sleep } from '@vx/libs/basics/src';
-import { iter } from '@vx/libs/basics/src/iterators';
+import { type Optional } from '@vx/libs/basics/types';
+import { assert } from '@vx/libs/basics/assert';
+import { err, ok } from '@vx/libs/basics/result';
+import { sleep } from '@vx/libs/basics/async';
+import { iter } from '@vx/libs/basics/iterators';
 import { writeFile } from 'node:fs/promises';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import {

@@ -1,7 +1,7 @@
 import { buildContestResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { assert } from '@vx/libs/basics/src';
+import { assert } from '@vx/libs/basics/assert';
 import { render, screen, within } from '../test/react_testing_library';
 
 import { ContestResultsTable } from './contest_results_table';

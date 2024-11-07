@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sleep } from '@vx/libs/basics/src';
+import { sleep } from '@vx/libs/basics/async';
 
 import { Button } from '../buttons/button';
 import { Loading } from '../primitives/loading';
