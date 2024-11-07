@@ -4,6 +4,9 @@ parameters:
   force_cache_save:
     type: boolean
     default: false
+  cache_version:
+    type: string
+    default: "v2"
 
 executors:
   nodejs:
@@ -67,9 +70,8 @@ jobs:
     steps:
       - checkout
       - restore_playwright_cache
-      - restore_bazel_cache_clean:
-          key_prefix: build_cache
       - run_build_test
+      - save_playwright_cache
       - save_bazel_cache:
           key_prefix: build_cache
           key_suffix: clean
@@ -113,19 +115,9 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-
-            - << parameters.key_prefix >>-v1-{{ .Branch }}-
-            - << parameters.key_prefix >>-v1-main-
-
-  restore_bazel_cache_clean:
-    description: |
-        Attempts to restore only a '-clean' cache for the most recent commit.
-    parameters:
-      key_prefix:
-        type: string
-    steps:
-      - restore_cache:
-          key: << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-clean
+            - << parameters.key_prefix >>-<< pipeline.parameters.cache_version >>-{{ .Branch }}-{{ .Revision }}-
+            - << parameters.key_prefix >>-<< pipeline.parameters.cache_version >>-{{ .Branch }}-
+            - << parameters.key_prefix >>-<< pipeline.parameters.cache_version >>-main-
 
   save_bazel_cache:
     description: Saves the Bazel cache to the CircleCI cache for future runs.
@@ -142,7 +134,7 @@ commands:
                 - << pipeline.parameters.force_cache_save >>
           steps:
             - save_cache:
-                key: << parameters.key_prefix >>-v1-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
+                key: << parameters.key_prefix >>-<< pipeline.parameters.cache_version >>-{{ .Branch }}-{{ .Revision }}-<< parameters.key_suffix >>
                 paths:
                   # NOTE: Keep in sync with .bazel/ci.bazelrc:
                   - /root/bazel_build_cache
@@ -153,15 +145,15 @@ commands:
         (specified in .playwright-version).
     steps:
       - restore_cache:
-          key: playwright_cache-v1-{{checksum "tools/playwright/version.json" }}
+          key: playwright_cache-<< pipeline.parameters.cache_version >>-{{checksum "tools/playwright/version.json" }}
 
   save_playwright_cache:
     description: Saves the Playwright cache, keyed by a hash of the .playwright-version file.
     steps:
       - save_cache:
           when: always
-          # Bump the `-v[n]-` version to bust the cache and force a new
+          # Bump the `cache_version` parameter to bust the cache and force a new
           # one to be saved without changing Playwright versions.
-          key: playwright_cache-v1-{{checksum "tools/playwright/version.json" }}
+          key: playwright_cache-<< pipeline.parameters.cache_version >>-{{checksum "tools/playwright/version.json" }}
           paths:
             - /root/.cache/ms-playwright
