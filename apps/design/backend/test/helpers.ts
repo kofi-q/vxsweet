@@ -1,15 +1,12 @@
 /* eslint-disable max-classes-per-file */
-import { Server } from 'node:http';
-import { AddressInfo } from 'node:net';
 import path from 'node:path';
 import * as tmp from 'tmp';
-import * as grout from '@vx/libs/grout/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { type ElectionSerializationFormat } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
 import { mockBaseLogger } from '@vx/libs/logging/src';
-import { buildApp, type Api } from '../app/app';
+import { buildApi, type Api } from '../app/app';
 import {
   GoogleCloudSpeechSynthesizer,
   type MinimalGoogleCloudTextToSpeechClient,
@@ -23,8 +20,6 @@ import { type Workspace, createWorkspace } from '../app/workspace';
 import * as worker from '../worker/worker';
 
 tmp.setGracefulCleanup();
-
-export type ApiClient = grout.Client<Api>;
 
 export function mockCloudTranslatedText(
   englishText: string,
@@ -95,40 +90,22 @@ const vendoredTranslations: VendoredTranslations = {
   [LanguageCode.SPANISH]: {},
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function testSetupHelpers() {
-  const servers: Server[] = [];
-
-  function setupApp() {
-    const workspace = createWorkspace(tmp.dirSync().name, mockBaseLogger());
-    const { store } = workspace;
-    const speechSynthesizer = new GoogleCloudSpeechSynthesizer({
-      store,
-      textToSpeechClient: new MockGoogleCloudTextToSpeechClient(),
-    });
-    const translator = new GoogleCloudTranslator({
-      store,
-      translationClient: new MockGoogleCloudTranslationClient(),
-      vendoredTranslations,
-    });
-    const app = buildApp({ speechSynthesizer, translator, workspace });
-    const server = app.listen();
-    servers.push(server);
-    const { port } = server.address() as AddressInfo;
-    const baseUrl = `http://localhost:${port}/api`;
-    const apiClient = grout.createClient<Api>({ baseUrl });
-    return { apiClient, workspace };
-  }
-
-  function cleanup() {
-    for (const server of servers) {
-      server.close();
-    }
-  }
-
+export function newTestApi(): { api: Api; workspace: Workspace } {
+  const workspace = createWorkspace(tmp.dirSync().name, mockBaseLogger());
+  const { store } = workspace;
+  const speechSynthesizer = new GoogleCloudSpeechSynthesizer({
+    store,
+    textToSpeechClient: new MockGoogleCloudTextToSpeechClient(),
+  });
+  const translator = new GoogleCloudTranslator({
+    store,
+    translationClient: new MockGoogleCloudTranslationClient(),
+    vendoredTranslations,
+  });
+  //
   return {
-    setupApp,
-    cleanup,
+    api: buildApi({ speechSynthesizer, translator, workspace }),
+    workspace,
   };
 }
 
@@ -159,25 +136,23 @@ export const ELECTION_PACKAGE_FILE_NAME_REGEX =
   /election-package-([0-9a-z]{7})-([0-9a-z]{7})\.zip$/;
 
 export async function exportElectionPackage({
-  apiClient,
+  api: api,
   electionId,
   workspace,
   electionSerializationFormat,
 }: {
-  apiClient: ApiClient;
+  api: Api;
   electionId: string;
   workspace: Workspace;
   electionSerializationFormat: ElectionSerializationFormat;
 }): Promise<string> {
-  await apiClient.exportElectionPackage({
+  api.exportElectionPackage({
     electionId,
     electionSerializationFormat,
   });
   await processNextBackgroundTaskIfAny(workspace);
 
-  const electionPackage = await apiClient.getElectionPackage({
-    electionId,
-  });
+  const electionPackage = api.getElectionPackage({ electionId });
   const electionPackageFileName = assertDefined(
     assertDefined(electionPackage.url).match(ELECTION_PACKAGE_FILE_NAME_REGEX)
   )[0];

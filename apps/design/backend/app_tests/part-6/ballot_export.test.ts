@@ -39,15 +39,13 @@ import {
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { testSetupHelpers } from '../../test/helpers';
+import { newTestApi } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 import { BALLOT_STYLE_READINESS_REPORT_FILE_NAME } from '../../app/app';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
-const { setupApp, cleanup } = testSetupHelpers();
 
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
@@ -65,8 +63,6 @@ function expectedEnglishBallotStrings(election: Election): UiStringsPackage {
   );
   return expectedStrings;
 }
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -88,18 +84,18 @@ test('Export all ballots', async () => {
 
   const baseElectionDefinition =
     electionFamousNames2021Fixtures.electionDefinition;
-  const { apiClient } = setupApp();
+  const { api } = newTestApi();
 
-  const electionId = (
-    await apiClient.loadElection({
+  const electionId = api
+    .loadElection({
       electionData: baseElectionDefinition.electionData,
     })
-  ).unsafeUnwrap();
-  const { ballotStyles, election, precincts } = await apiClient.getElection({
+    .unsafeUnwrap();
+  const { ballotStyles, election, precincts } = api.getElection({
     electionId,
   });
 
-  const { zipContents } = await apiClient.exportAllBallots({
+  const { zipContents } = await api.exportAllBallots({
     electionId,
     electionSerializationFormat: 'vxf',
   });

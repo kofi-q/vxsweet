@@ -28,8 +28,8 @@ import {
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   ELECTION_PACKAGE_FILE_NAME_REGEX,
+  newTestApi,
   processNextBackgroundTaskIfAny,
-  testSetupHelpers,
 } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
@@ -37,15 +37,11 @@ jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-const { setupApp, cleanup } = testSetupHelpers();
-
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
   MOCK_READINESS_REPORT_CONTENTS,
   'utf-8'
 );
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -61,18 +57,18 @@ beforeEach(() => {
 test('Election package management', async () => {
   const baseElectionDefinition =
     electionFamousNames2021Fixtures.electionDefinition;
-  const { apiClient, workspace } = setupApp();
+  const { api, workspace } = newTestApi();
 
-  const electionId = (
-    await apiClient.loadElection({
+  const electionId = api
+    .loadElection({
       electionData: baseElectionDefinition.electionData,
     })
-  ).unsafeUnwrap();
-  const election = await apiClient.getElection({ electionId });
+    .unsafeUnwrap();
+  const election = api.getElection({ electionId });
 
   // Without mocking all the translations some ballot styles for non-English languages don't fit on a letter
   // page for this election. To get around this we use legal paper size for the purposes of this test.
-  await apiClient.updateElection({
+  api.updateElection({
     electionId,
     election: {
       ...election.election,
@@ -83,19 +79,20 @@ test('Election package management', async () => {
     },
   });
 
-  const electionPackageBeforeExport = await apiClient.getElectionPackage({
+  const electionPackageBeforeExport = api.getElectionPackage({
     electionId,
   });
   expect(electionPackageBeforeExport).toEqual({});
 
   // Initiate an export
-  await apiClient.exportElectionPackage({
+  api.exportElectionPackage({
     electionId,
     electionSerializationFormat: 'vxf',
   });
   const expectedPayload = `{"electionId":"${electionId}","electionSerializationFormat":"vxf"}`;
-  const electionPackageAfterInitiatingExport =
-    await apiClient.getElectionPackage({ electionId });
+  const electionPackageAfterInitiatingExport = api.getElectionPackage({
+    electionId,
+  });
   expect(electionPackageAfterInitiatingExport).toEqual({
     task: {
       createdAt: expect.any(Date),
@@ -108,19 +105,20 @@ test('Election package management', async () => {
 
   // Check that initiating an export before a prior has completed doesn't trigger a new background
   // task (even with a different serialization format)
-  await apiClient.exportElectionPackage({
+  api.exportElectionPackage({
     electionId,
     electionSerializationFormat: 'cdf',
   });
-  const electionPackageAfterInitiatingRedundantExport =
-    await apiClient.getElectionPackage({ electionId });
+  const electionPackageAfterInitiatingRedundantExport = api.getElectionPackage({
+    electionId,
+  });
   expect(electionPackageAfterInitiatingRedundantExport).toEqual(
     electionPackageAfterInitiatingExport
   );
 
   // Complete an export
   await processNextBackgroundTaskIfAny(workspace);
-  const electionPackageAfterExport = await apiClient.getElectionPackage({
+  const electionPackageAfterExport = api.getElectionPackage({
     electionId,
   });
   expect(electionPackageAfterExport).toEqual({
@@ -136,12 +134,13 @@ test('Election package management', async () => {
   });
 
   // Check that initiating an export after a prior has completed does trigger a new background task
-  await apiClient.exportElectionPackage({
+  api.exportElectionPackage({
     electionId,
     electionSerializationFormat: 'vxf',
   });
-  const electionPackageAfterInitiatingSecondExport =
-    await apiClient.getElectionPackage({ electionId });
+  const electionPackageAfterInitiatingSecondExport = api.getElectionPackage({
+    electionId,
+  });
   expect(electionPackageAfterInitiatingSecondExport).toEqual({
     task: {
       createdAt: expect.any(Date),

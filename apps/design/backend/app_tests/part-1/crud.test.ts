@@ -31,7 +31,6 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { testSetupHelpers } from '../../test/helpers';
 import {
   type BallotStyle,
   type Precinct,
@@ -43,20 +42,17 @@ import {
   getTempBallotLanguageConfigsForCert,
 } from '../../store/store';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
+import { newTestApi } from '../../test/helpers';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
-const { setupApp, cleanup } = testSetupHelpers();
 
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
   MOCK_READINESS_REPORT_CONTENTS,
   'utf-8'
 );
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -70,16 +66,16 @@ beforeEach(() => {
 });
 
 test('CRUD elections', async () => {
-  const { apiClient } = setupApp();
-  expect(await apiClient.listElections()).toEqual([]);
+  const { api } = newTestApi();
+  expect(api.listElections()).toEqual([]);
 
   const expectedElectionId = 'election-1' as ElectionId;
-  const electionId = (
-    await apiClient.createElection({ id: expectedElectionId })
-  ).unsafeUnwrap();
+  const electionId = api
+    .createElection({ id: expectedElectionId })
+    .unsafeUnwrap();
   expect(electionId).toEqual(expectedElectionId);
 
-  const election = await apiClient.getElection({ electionId });
+  const election = api.getElection({ electionId });
   // New elections should be blank
   expect(election).toEqual({
     election: {
@@ -111,18 +107,18 @@ test('CRUD elections', async () => {
     ballotLanguageConfigs: getTempBallotLanguageConfigsForCert(),
   });
 
-  expect(await apiClient.listElections()).toEqual([election]);
+  expect(api.listElections()).toEqual([election]);
 
   const election2Definition =
     electionFamousNames2021Fixtures.electionDefinition;
-  const electionId2 = (
-    await apiClient.loadElection({
+  const electionId2 = api
+    .loadElection({
       electionData: election2Definition.electionData,
     })
-  ).unsafeUnwrap();
+    .unsafeUnwrap();
   expect(electionId2).toEqual(election2Definition.election.id);
 
-  const election2 = await apiClient.getElection({ electionId: electionId2 });
+  const election2 = api.getElection({ electionId: electionId2 });
 
   const expectedPrecincts: Precinct[] =
     election2Definition.election.precincts.map((vxfPrecinct) => ({
@@ -151,7 +147,7 @@ test('CRUD elections', async () => {
     ballotLanguageConfigs: getTempBallotLanguageConfigsForCert(),
   });
 
-  expect(await apiClient.listElections()).toEqual([election, election2]);
+  expect(api.listElections()).toEqual([election, election2]);
 
   const updatedElection: Election = {
     ...election.election,
@@ -159,17 +155,17 @@ test('CRUD elections', async () => {
     type: 'primary',
   };
 
-  await apiClient.updateElection({
+  api.updateElection({
     electionId,
     election: updatedElection,
   });
 
-  expect(await apiClient.getElection({ electionId })).toEqual({
+  expect(api.getElection({ electionId })).toEqual({
     ...election,
     election: updatedElection,
   });
 
-  await apiClient.deleteElection({ electionId });
+  api.deleteElection({ electionId });
 
-  expect(await apiClient.listElections()).toEqual([election2]);
+  expect(api.listElections()).toEqual([election2]);
 });

@@ -102,7 +102,7 @@ export function convertVxfPrecincts(election: Election): Precinct[] {
   });
 }
 
-function buildApi({ workspace, translator }: AppContext) {
+function buildApiInternal({ workspace, translator }: AppContext) {
   const { store } = workspace;
 
   return grout.createApi({
@@ -357,7 +357,11 @@ function buildApi({ workspace, translator }: AppContext) {
     },
   });
 }
-export type Api = ReturnType<typeof buildApi>;
+export type Api = ReturnType<typeof buildApiInternal>;
+
+export function buildApi(context: AppContext): Api {
+  return buildApiInternal(context);
+}
 
 export function buildApp(context: AppContext): Application {
   const app: Application = express();

@@ -29,22 +29,18 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { testSetupHelpers } from '../../test/helpers';
+import { newTestApi } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-const { setupApp, cleanup } = testSetupHelpers();
-
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
   MOCK_READINESS_REPORT_CONTENTS,
   'utf-8'
 );
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -57,11 +53,11 @@ beforeEach(() => {
   );
 });
 
-test('Update system settings', async () => {
-  const { apiClient } = setupApp();
+test('Update system settings', () => {
+  const { api } = newTestApi();
   const electionId = 'election-1' as ElectionId;
-  (await apiClient.createElection({ id: electionId })).unsafeUnwrap();
-  const electionRecord = await apiClient.getElection({ electionId });
+  api.createElection({ id: electionId }).unsafeUnwrap();
+  const electionRecord = api.getElection({ electionId });
 
   expect(electionRecord.systemSettings).toEqual(DEFAULT_SYSTEM_SETTINGS);
 
@@ -79,12 +75,12 @@ test('Update system settings', async () => {
   };
   expect(updatedSystemSettings).not.toEqual(DEFAULT_SYSTEM_SETTINGS);
 
-  await apiClient.updateSystemSettings({
+  api.updateSystemSettings({
     electionId,
     systemSettings: updatedSystemSettings,
   });
 
-  expect(await apiClient.getElection({ electionId })).toEqual({
+  expect(api.getElection({ electionId })).toEqual({
     ...electionRecord,
     systemSettings: updatedSystemSettings,
   });
