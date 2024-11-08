@@ -860,7 +860,7 @@ mod test {
     fn test_vertical_streaks() {
         let (mut side_a_image, side_b_image, options) =
             load_hmpb_fixture("general-election/letter", 1);
-        let thin_complete_streak_x = side_a_image.width() * 1 / 5;
+        let thin_complete_streak_x = side_a_image.width() / 5;
         let thick_complete_streak_x = side_a_image.width() * 2 / 5;
         let fuzzy_streak_x = side_a_image.width() * 3 / 5;
         let incomplete_streak_x = side_a_image.width() * 4 / 5;
