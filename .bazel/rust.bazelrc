@@ -10,7 +10,8 @@ common --action_env=RUSTDOC="None"
 # Enable clippy checks on all Rust targets.
 # See https://bazelbuild.github.io/rules_rust/rust_clippy.html#setup
 build --aspects=@rules_rust//rust:defs.bzl%rust_clippy_aspect
-build --@rules_rust//:clippy_flag="-Wclippy::pedantic"
-build --@rules_rust//:clippy_flag="-Wclippy::nursery"
-build --@rules_rust//:clippy_flag="-Wclippy::unwrap_used"
+build --@rules_rust//:clippy_flag="-Aclippy::pedantic"
+build --@rules_rust//:clippy_flag="-Aclippy::nursery"
+build --@rules_rust//:clippy_flag="-Aclippy::unwrap_used"
+build --@rules_rust//:clippy_flag="-Aclippy::result_large_err"
 build --output_groups=+clippy_checks

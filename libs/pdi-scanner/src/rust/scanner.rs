@@ -43,7 +43,7 @@ impl Scanner {
             return Err(rusb::Error::NotFound.into());
         };
 
-        let mut device_handle = device.open()?;
+        let device_handle = device.open()?;
         device_handle.set_active_configuration(1)?;
         device_handle.claim_interface(0)?;
 
