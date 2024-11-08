@@ -56,7 +56,7 @@ export interface AppOptions {
   usbDrive: UsbDrive;
 }
 
-function buildApi({
+function buildApiInternal({
   auth,
   workspace,
   logger,
@@ -211,7 +211,7 @@ function buildApi({
       }
     },
 
-    async continueScanning(input: { forceAccept: boolean }): Promise<void> {
+    continueScanning(input: { forceAccept: boolean }): void {
       try {
         const { forceAccept } = input;
         importer.continueImport(input);
@@ -327,7 +327,13 @@ function buildApi({
 /**
  * A type to be used by the frontend to create a Grout API client
  */
-export type Api = ReturnType<typeof buildApi>;
+export type Api = ReturnType<typeof buildApiInternal>;
+
+export function buildApi(
+  params: Exclude<AppOptions, 'allowedExportPatterns'>
+): Api {
+  return buildApiInternal(params);
+}
 
 /**
  * Builds an express application, using `store` and `importer` to do the heavy
