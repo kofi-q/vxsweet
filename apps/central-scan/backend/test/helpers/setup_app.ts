@@ -3,10 +3,8 @@ import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Logger, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
 import * as grout from '@vx/libs/grout/src';
-import {
-  type DippedSmartCardAuthApi,
-  buildMockDippedSmartCardAuth,
-} from '@vx/libs/auth/src';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { dirSync } from 'tmp';
 import getPort from 'get-port';
 import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';

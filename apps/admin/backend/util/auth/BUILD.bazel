@@ -7,6 +7,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:types_env",
         "//apps/admin/backend/workspace",
+        "//libs/auth/dipped-cards",
         "//libs/auth/src",
         "//libs/logging/src",
         "//libs/types/elections",

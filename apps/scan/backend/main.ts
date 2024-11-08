@@ -2,11 +2,9 @@ import * as customScanner from '@vx/libs/custom-scanner/src';
 import { BaseLogger, LogEventId, Logger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
-import {
-  InsertedSmartCardAuth,
-  JavaCard,
-  MockFileCard,
-} from '@vx/libs/auth/src';
+import { InsertedSmartCardAuth } from '@vx/libs/auth/inserted-cards';
+import { JavaCard } from '@vx/libs/auth/cards';
+import { MockFileCard } from '@vx/libs/auth/mock-cards';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,

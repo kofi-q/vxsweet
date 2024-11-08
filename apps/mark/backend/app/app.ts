@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   assert,
   assertDefined,

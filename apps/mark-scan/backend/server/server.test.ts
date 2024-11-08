@@ -15,7 +15,7 @@ jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
 
 import { LogEventId, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
-import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

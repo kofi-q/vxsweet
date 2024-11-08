@@ -3,7 +3,7 @@ jest.mock('@vx/libs/backend/src/cast_vote_records', () => ({
   doesUsbDriveRequireCastVoteRecordSync: jest.fn(),
 }));
 
-import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
   mockElectionManagerUser,

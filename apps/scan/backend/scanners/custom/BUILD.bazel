@@ -14,7 +14,7 @@ ts_library(
         "//apps/scan/backend/types",
         "//apps/scan/backend/util",
         "//apps/scan/backend/workspace",
-        "//libs/auth/src",
+        "//libs/auth/inserted-cards",
         "//libs/basics/assert",
         "//libs/basics/result",
         "//libs/custom-scanner/src",

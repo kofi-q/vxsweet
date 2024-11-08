@@ -1,0 +1,39 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "dipped-cards",
+    deps = [
+        "//libs/auth/cards",
+        "//libs/auth/src",
+        "//libs/basics/assert",
+        "//libs/basics/errors",
+        "//libs/basics/objects",
+        "//libs/basics/result",
+        "//libs/logging/src",
+        "//libs/types/elections",
+        "//libs/utils/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/luxon",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/luxon",
+        "//libs/auth/cards",
+        "//libs/auth/dipped-cards",
+        "//libs/auth/test",
+        "//libs/basics/result",
+        "//libs/fixtures/src",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+        "//libs/types/elections",
+        "//libs/utils/src",
+    ],
+)
+
+lint_test(name = "lint")

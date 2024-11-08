@@ -1,7 +1,5 @@
-import {
-  buildMockInsertedSmartCardAuth,
-  type InsertedSmartCardAuthApi,
-} from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import * as grout from '@vx/libs/grout/src';
 import { Application } from 'express';
 import { AddressInfo } from 'node:net';

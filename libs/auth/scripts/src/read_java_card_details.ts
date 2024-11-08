@@ -1,12 +1,12 @@
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 
-import { type CardDetails } from '../../src/card';
+import { type CardDetails } from '../../cards/card';
 import {
   DEV_VX_CERT_AUTHORITY_CERT_PATH,
   PROD_VX_CERT_AUTHORITY_CERT_PATH,
-} from '../../src/config';
-import { verifyFirstCertWasSignedBySecondCert } from '../../src/cryptography';
-import { JavaCard } from '../../src/java_card';
+} from '../../config/config';
+import { verifyFirstCertWasSignedBySecondCert } from '../../cryptography/cryptography';
+import { JavaCard } from '../../cards/java_card';
 import { waitForReadyCardStatus } from './utils';
 
 const ENVS = ['development', 'production'] as const;

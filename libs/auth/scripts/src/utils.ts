@@ -7,10 +7,10 @@ import {
 } from '@vx/libs/types/elections';
 import { generatePin, hyphenatePin } from '@vx/libs/utils/src';
 
-import { ResponseApduError } from '../../src/apdu';
-import { type CardStatusReady, type StatefulCard } from '../../src/card';
-import { openssl } from '../../src/cryptography';
-import { JavaCard } from '../../src/java_card';
+import { ResponseApduError } from '../../apdu/apdu';
+import { type CardStatusReady, type StatefulCard } from '../../cards/card';
+import { openssl } from '../../cryptography/cryptography';
+import { JavaCard } from '../../cards/java_card';
 
 /**
  * Generates an ECC private key and returns the private key contents in a buffer. The key is not

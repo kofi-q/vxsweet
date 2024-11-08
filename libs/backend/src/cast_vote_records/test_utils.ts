@@ -1,10 +1,8 @@
 /* istanbul ignore file */
 import fs from 'node:fs';
 import path from 'node:path';
-import {
-  computeCastVoteRecordRootHashFromScratch,
-  SIGNATURE_FILE_EXTENSION,
-} from '@vx/libs/auth/src';
+import { computeCastVoteRecordRootHashFromScratch } from '@vx/libs/auth/cvrs';
+import { SIGNATURE_FILE_EXTENSION } from '@vx/libs/auth/artifacts';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import {
   CastVoteRecordExportFileName,

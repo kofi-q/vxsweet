@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import { assert } from '@vx/libs/basics/assert';
 import { type Byte } from '@vx/libs/types/basic';
 
-import { STATUS_WORD } from './apdu';
+import { STATUS_WORD } from '../apdu/apdu';
 
 /**
  * See https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-73-4.pdf for the full NIST

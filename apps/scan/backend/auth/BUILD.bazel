@@ -6,7 +6,7 @@ ts_library(
     deps = [
         "//apps/scan/backend/store",
         "//apps/scan/backend/workspace",
-        "//libs/auth/src",
+        "//libs/auth/inserted-cards",
         "//libs/logging/src",
         "//libs/types/elections",
     ],

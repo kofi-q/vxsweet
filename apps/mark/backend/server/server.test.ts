@@ -7,7 +7,7 @@ jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
 
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
-import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { initializeSystemAudio } from '@vx/libs/backend/src';
 import { PORT } from '../globals/globals';

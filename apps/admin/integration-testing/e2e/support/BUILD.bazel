@@ -6,7 +6,7 @@ ts_library(
     deps = [
         "//:node_modules/@playwright/test",
         "//:node_modules/@types/node",
-        "//libs/auth/src",
+        "//libs/auth/integration-test-utils",
         "//libs/grout/src",
         "//libs/types/elections",
     ],

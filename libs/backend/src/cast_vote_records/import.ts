@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/artifacts';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type AsyncIteratorPlus, iter } from '@vx/libs/basics/iterators';

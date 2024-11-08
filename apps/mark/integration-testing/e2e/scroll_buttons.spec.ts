@@ -14,7 +14,7 @@ import {
   mockCardRemoval,
   mockElectionManagerCardInsertion,
   mockPollWorkerCardInsertion,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/integration-test-utils';
 import { enterPin, findMoreButtons, forceReset } from './helpers';
 
 const usbHandler = getMockFileUsbDriveHandler();

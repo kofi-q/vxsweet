@@ -16,7 +16,7 @@ import {
 } from '@vx/libs/types/elections';
 import * as grout from '@vx/libs/grout/src';
 
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { Server } from 'node:http';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {

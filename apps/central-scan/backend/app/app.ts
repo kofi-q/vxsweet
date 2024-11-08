@@ -1,8 +1,6 @@
 import { Scan } from '@vx/libs/api/src';
-import {
-  type DippedSmartCardAuthApi,
-  generateSignedHashValidationQrCodeValue,
-} from '@vx/libs/auth/src';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
+import { generateSignedHashValidationQrCodeValue } from '@vx/libs/auth/validation';
 import { type Result, ok } from '@vx/libs/basics/result';
 import { assert } from '@vx/libs/basics/assert';
 import { createSystemCallApi } from '@vx/libs/backend/src/system_call';

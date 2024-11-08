@@ -16,7 +16,7 @@ ts_library(
         "//apps/scan/backend/adjudication",
         "//apps/scan/backend/types",
         "//apps/scan/backend/util",
-        "//libs/auth/src",
+        "//libs/auth/cvrs",
         "//libs/backend/src",
         "//libs/basics/assert",
         "//libs/basics/time",

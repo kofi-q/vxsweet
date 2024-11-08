@@ -1,5 +1,5 @@
 import { Server } from 'node:http';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   getPaperHandlerDriver,

@@ -6,7 +6,7 @@ ts_library(
     name = "auth",
     deps = [
         "//apps/central-scan/backend/workspace",
-        "//libs/auth/src",
+        "//libs/auth/dipped-cards",
         "//libs/logging/src",
         "//libs/types/elections",
     ],
@@ -28,7 +28,8 @@ ts_tests(
         "//apps/central-scan/backend/server",
         "//apps/central-scan/backend/test",
         "//apps/central-scan/backend/workspace",
-        "//libs/auth/src",
+        "//libs/auth/dipped-cards",
+        "//libs/auth/test-utils",
         "//libs/fixtures/src",
         "//libs/grout/src",
         "//libs/logging/src",

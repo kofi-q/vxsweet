@@ -1,8 +1,6 @@
 import express, { Application } from 'express';
-import {
-  type InsertedSmartCardAuthApi,
-  generateSignedHashValidationQrCodeValue,
-} from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
+import { generateSignedHashValidationQrCodeValue } from '@vx/libs/auth/validation';
 import {
   assert,
   assertDefined,

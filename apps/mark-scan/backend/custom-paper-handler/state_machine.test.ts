@@ -31,10 +31,8 @@ import {
   mockBaseLogger,
   mockLogger,
 } from '@vx/libs/logging/src';
-import {
-  type InsertedSmartCardAuthApi,
-  buildMockInsertedSmartCardAuth,
-} from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
 import { assert } from '@vx/libs/basics/assert';
 import { type Deferred, deferred, sleep } from '@vx/libs/basics/async';

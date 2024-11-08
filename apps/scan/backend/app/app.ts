@@ -27,10 +27,8 @@ import { doesUsbDriveRequireCastVoteRecordSync as doesUsbDriveRequireCastVoteRec
 import { type DiskSpaceSummary } from '@vx/libs/backend/src';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { ok, type Result } from '@vx/libs/basics/result';
-import {
-  type InsertedSmartCardAuthApi,
-  generateSignedHashValidationQrCodeValue,
-} from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
+import { generateSignedHashValidationQrCodeValue } from '@vx/libs/auth/validation';
 import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import {
   type FujitsuPrintResult,

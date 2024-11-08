@@ -2,14 +2,14 @@ import { createInterface } from 'node:readline';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { throwIllegalValue } from '@vx/libs/basics/assert';
 
-import { CommonAccessCard } from '../../src/cac/common_access_card';
-import { type CommonAccessCardDetails } from '../../src/cac/common_access_card_api';
+import { CommonAccessCard } from '../../cac/common_access_card';
+import { type CommonAccessCardDetails } from '../../cac/common_access_card_api';
 import {
   type CardDetails,
   type PinProtectedCard,
   type StatefulCard,
-} from '../../src/card';
-import { JavaCard } from '../../src/java_card';
+} from '../../cards/card';
+import { JavaCard } from '../../cards/java_card';
 import { waitForReadyCardStatus } from './utils';
 
 const usageMessage = 'Usage: check-pin [--cac|--vxsuite (default)]';

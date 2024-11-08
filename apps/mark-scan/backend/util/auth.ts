@@ -2,9 +2,9 @@ import {
   InsertedSmartCardAuth,
   type InsertedSmartCardAuthApi,
   type InsertedSmartCardAuthMachineState,
-  JavaCard,
-  MockFileCard,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/inserted-cards';
+import { JavaCard } from '@vx/libs/auth/cards';
+import { MockFileCard } from '@vx/libs/auth/mock-cards';
 import { BaseLogger, type LoggingUserRole } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,

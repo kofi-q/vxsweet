@@ -1,6 +1,6 @@
 import tmp from 'tmp';
 
-import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { typedAs } from '@vx/libs/basics/types';
 

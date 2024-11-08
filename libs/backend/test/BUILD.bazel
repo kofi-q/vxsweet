@@ -6,7 +6,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 ts_library(
     name = "test",
     deps = [
-        "//libs/auth/src",
+        "//libs/auth/cvrs",
         "//libs/backend/src",
         "//libs/basics/assert",
         "//libs/basics/collections",

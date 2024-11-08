@@ -3,8 +3,8 @@ import { throwIllegalValue } from '@vx/libs/basics/assert';
 import {
   CARD_DOD_CERT,
   CommonAccessCard,
-} from '../../../src/cac/common_access_card';
-import { type CommonAccessCardCompatibleCard } from '../../../src/cac/common_access_card_api';
+} from '../../../cac/common_access_card';
+import { type CommonAccessCardCompatibleCard } from '../../../cac/common_access_card_api';
 import { waitForReadyCardStatus } from '../../src/utils';
 
 /**

@@ -42,7 +42,7 @@ import {
   interpretSimplexBmdBallot,
 } from '@vx/libs/ballot-interpreter/src';
 import { LogEventId, type LogLine, Logger } from '@vx/libs/logging/src';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   BooleanEnvironmentVariableName,
   isCardlessVoterAuth,

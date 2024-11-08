@@ -64,7 +64,7 @@ import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
   updateCastVoteRecordHashes,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/cvrs';
 import { getPollsTransitionDestinationState } from '@vx/libs/utils/src';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { sheetRequiresAdjudication } from '../adjudication/sheet_requires_adjudication';

@@ -1,4 +1,4 @@
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   mockCardlessVoterUser,
   mockElectionManagerUser,

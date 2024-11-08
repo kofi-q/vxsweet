@@ -5,13 +5,13 @@ import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { lines } from '@vx/libs/basics/iterators';
 import { type Byte } from '@vx/libs/types/basic';
 
-import { CommandApdu, constructTlv } from '../../../src/apdu';
+import { CommandApdu, constructTlv } from '../../../apdu/apdu';
 import { getRequiredEnvVar } from '../../../src/env_vars';
 import {
   MAX_NUM_INCORRECT_PIN_ATTEMPTS,
   OPEN_FIPS_201_AID,
   PUK,
-} from '../../../src/java_card';
+} from '../../../cards/java_card';
 import {
   construct8BytePinBuffer,
   CRYPTOGRAPHIC_ALGORITHM_IDENTIFIER,
@@ -23,7 +23,7 @@ import {
   CARD_DOD_CERT,
   CommonAccessCard,
   DEFAULT_PIN,
-} from '../../../src/cac/common_access_card';
+} from '../../../cac/common_access_card';
 
 const APPLET_PATH = path.join(
   __dirname,

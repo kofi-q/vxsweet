@@ -1,7 +1,7 @@
 import {
   type DippedSmartCardAuthApi,
   type DippedSmartCardAuthMachineState,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/dipped-cards';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { type LoggingUserRole } from '@vx/libs/logging/src';
 import { type Workspace } from '../workspace/workspace';
