@@ -9,7 +9,7 @@ import {
   TEST_JURISDICTION,
 } from '@vx/libs/types/elections';
 
-import { type CardDetails } from '../../src/card';
+import { type CardDetails } from '../../cards/card';
 import {
   type CardType,
   CERT_EXPIRY_IN_DAYS,
@@ -18,14 +18,14 @@ import {
   constructMachineCertSubject,
   type MachineType,
   STANDARD_CERT_FIELDS,
-} from '../../src/certs';
+} from '../../cards/certs';
 import {
   certPemToDer,
   createCert,
   openssl,
   OPENSSL_CONFIG_FILE_PATH,
   publicKeyPemToDer,
-} from '../../src/cryptography';
+} from '../../cryptography/cryptography';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { runCommand } from '../../src/shell';
 import { generatePrivateKey } from './utils';

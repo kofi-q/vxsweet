@@ -1,8 +1,8 @@
+import { DEV_JURISDICTION } from '@vx/libs/auth/src';
 import {
-  DEV_JURISDICTION,
   type DippedSmartCardAuthApi,
   type DippedSmartCardAuthMachineState,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/dipped-cards';
 import { isIntegrationTest } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,

@@ -1,7 +1,5 @@
-import {
-  buildMockDippedSmartCardAuth,
-  type DippedSmartCardAuthApi,
-} from '@vx/libs/auth/src';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,

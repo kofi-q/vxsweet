@@ -38,7 +38,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
         "//:types_kiosk_browser",
-        "//libs/auth/src",
+        "//libs/auth/cards",
         "//libs/dev-dock/backend/src",
         "//libs/dev-dock/frontend/src",
         "//libs/grout/test-utils/src",

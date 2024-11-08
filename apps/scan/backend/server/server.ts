@@ -1,4 +1,4 @@
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { type UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
 import { detectDevices } from '@vx/libs/backend/src';

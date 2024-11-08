@@ -5,11 +5,11 @@ import { extractErrorMessage } from '@vx/libs/basics/errors';
 import { lines } from '@vx/libs/basics/iterators';
 import { type Byte } from '@vx/libs/types/basic';
 
-import { CommandApdu, constructTlv } from '../../src/apdu';
+import { CommandApdu, constructTlv } from '../../apdu/apdu';
 import {
   constructJavaCardConfigForVxProgramming,
   type JavaCardConfig,
-} from '../../src/config';
+} from '../../config/config';
 import {
   CARD_IDENTITY_CERT,
   CARD_VX_CERT,
@@ -20,7 +20,7 @@ import {
   OPEN_FIPS_201_AID,
   PUK,
   VX_ADMIN_CERT_AUTHORITY_CERT,
-} from '../../src/java_card';
+} from '../../cards/java_card';
 import {
   construct8BytePinBuffer,
   CRYPTOGRAPHIC_ALGORITHM_IDENTIFIER,

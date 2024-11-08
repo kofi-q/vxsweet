@@ -17,7 +17,7 @@ ts_library(
         "//:node_modules/uuid",
         "//apps/central-scan/backend/adjudication",
         "//apps/central-scan/backend/paths",
-        "//libs/auth/src",
+        "//libs/auth/cvrs",
         "//libs/backend/src",
         "//libs/basics/assert",
         "//libs/basics/collections",

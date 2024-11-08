@@ -3,7 +3,7 @@ import { assert } from '@vx/libs/basics/assert';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { Server } from 'node:http';
 import { dirSync } from 'tmp';
-import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
 import { testDetectDevices } from '@vx/libs/backend/src';

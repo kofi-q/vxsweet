@@ -1,7 +1,10 @@
-jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
-  ...jest.requireActual('@vx/libs/auth/src'),
-  authenticateArtifactUsingSignatureFile: jest.fn(),
-}));
+jest.mock(
+  '@vx/libs/auth/artifacts',
+  (): typeof import('@vx/libs/auth/artifacts') => ({
+    ...jest.requireActual('@vx/libs/auth/artifacts'),
+    authenticateArtifactUsingSignatureFile: jest.fn(),
+  })
+);
 
 jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
   ...jest.requireActual('@vx/libs/utils/src'),
@@ -52,7 +55,7 @@ import {
   generateElectionBasedSubfolderName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/artifacts';
 import { join } from 'node:path';
 import * as fs from 'node:fs';
 import { Buffer } from 'node:buffer';

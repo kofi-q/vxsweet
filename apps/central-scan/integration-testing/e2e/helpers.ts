@@ -3,8 +3,8 @@ import {
   INTEGRATION_TEST_DEFAULT_PIN,
   mockElectionManagerCardInsertion,
   mockSystemAdministratorCardInsertion,
-  mockCard,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/integration-test-utils';
+import { mockCard } from '@vx/libs/auth/mock-cards';
 import { methodUrl } from '@vx/libs/grout/src';
 import { type Election } from '@vx/libs/types/elections';
 

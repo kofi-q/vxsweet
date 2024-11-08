@@ -6,11 +6,11 @@ import {
   computeCastVoteRecordRootHashFromScratch,
   computeSingleCastVoteRecordHash,
   type HashableFile,
-  prepareSignatureFile,
   type ReadableFile,
   readableFileFromData,
   readableFileFromDisk,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/cvrs';
+import { prepareSignatureFile } from '@vx/libs/auth/artifacts';
 import {
   assert,
   assertDefined,

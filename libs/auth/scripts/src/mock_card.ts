@@ -6,7 +6,7 @@ import { readElection } from '@vx/libs/fs/src';
 
 import { type ElectionKey } from '@vx/libs/types/elections';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
-import { mockCard } from '../../src/mock_file_card';
+import { mockCard } from '../../mock-cards/mock_file_card';
 
 const CARD_TYPES = [
   'vendor',

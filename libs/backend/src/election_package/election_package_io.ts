@@ -41,7 +41,7 @@ import {
 } from '@vx/libs/types/ui_strings';
 import { safeParseJson } from '@vx/libs/types/basic';
 import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
-import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/artifacts';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { sha256 } from 'js-sha256';
 

@@ -10,10 +10,8 @@ import {
 import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { type UserRole } from '@vx/libs/types/elections';
 import { isAbsolute, join } from 'node:path';
-import {
-  type CardStatus,
-  readFromMockFile as readFromCardMockFile,
-} from '@vx/libs/auth/src';
+import { type CardStatus } from '@vx/libs/auth/cards';
+import { readFromMockFile as readFromCardMockFile } from '@vx/libs/auth/mock-cards';
 import {
   isFeatureFlagEnabled,
   BooleanEnvironmentVariableName,

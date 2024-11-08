@@ -21,10 +21,8 @@ import request from 'supertest';
 import { dirSync } from 'tmp';
 import { v4 as uuid } from 'uuid';
 import { typedAs } from '@vx/libs/basics/types';
-import {
-  buildMockDippedSmartCardAuth,
-  type DippedSmartCardAuthApi,
-} from '@vx/libs/auth/src';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
 import { Server } from 'node:http';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { type MockUsbDrive, createMockUsbDrive } from '@vx/libs/usb-drive/src';

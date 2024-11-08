@@ -4,7 +4,7 @@ import {
   mockCardRemoval,
   mockElectionManagerCardInsertion,
   mockSystemAdministratorCardInsertion,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/integration-test-utils';
 import { methodUrl } from '@vx/libs/grout/src';
 import { type Election } from '@vx/libs/types/elections';
 

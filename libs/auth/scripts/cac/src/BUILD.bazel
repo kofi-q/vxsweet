@@ -8,6 +8,9 @@ ts_library(
     deps = [
         "//:node_modules/@types/node",
         "//:types_env",
+        "//libs/auth/apdu",
+        "//libs/auth/cac",
+        "//libs/auth/cards",
         "//libs/auth/scripts/src",
         "//libs/auth/src",
         "//libs/basics/assert",

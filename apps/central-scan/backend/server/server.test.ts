@@ -1,4 +1,4 @@
-import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { dirSync } from 'tmp';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { testDetectDevices } from '@vx/libs/backend/src';

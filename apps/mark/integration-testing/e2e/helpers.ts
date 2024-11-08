@@ -3,7 +3,7 @@ import {
   INTEGRATION_TEST_DEFAULT_PIN,
   mockCardRemoval,
   mockSystemAdministratorCardInsertion,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/integration-test-utils';
 
 /**
  * Find all the "More" buttons on the page.

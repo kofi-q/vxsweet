@@ -1,7 +1,10 @@
-jest.mock('@vx/libs/auth/src', (): typeof import('@vx/libs/auth/src') => ({
-  ...jest.requireActual('@vx/libs/auth/src'),
-  authenticateArtifactUsingSignatureFile: jest.fn(),
-}));
+jest.mock(
+  '@vx/libs/auth/artifacts',
+  (): typeof import('@vx/libs/auth/artifacts') => ({
+    ...jest.requireActual('@vx/libs/auth/artifacts'),
+    authenticateArtifactUsingSignatureFile: jest.fn(),
+  })
+);
 
 jest.mock('@vx/libs/utils/src', () => {
   return {
@@ -32,7 +35,7 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/src';
+import { authenticateArtifactUsingSignatureFile } from '@vx/libs/auth/artifacts';
 import {
   type CastVoteRecordExportModifications,
   combineImageAndLayoutHashes,

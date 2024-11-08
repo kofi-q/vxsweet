@@ -1,7 +1,9 @@
 import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { Application } from 'express';
-import { DippedSmartCardAuth, JavaCard, MockFileCard } from '@vx/libs/auth/src';
+import { DippedSmartCardAuth } from '@vx/libs/auth/dipped-cards';
+import { JavaCard } from '@vx/libs/auth/cards';
+import { MockFileCard } from '@vx/libs/auth/mock-cards';
 import { Server } from 'node:http';
 import {
   BooleanEnvironmentVariableName,

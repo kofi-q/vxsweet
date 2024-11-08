@@ -1,7 +1,10 @@
 import { extractErrorMessage } from '@vx/libs/basics/errors';
 
-import { constructMachineCertSubject, type MachineType } from '../../src/certs';
-import { createCertSigningRequest } from '../../src/cryptography';
+import {
+  constructMachineCertSubject,
+  type MachineType,
+} from '../../cards/certs';
+import { createCertSigningRequest } from '../../cryptography/cryptography';
 import { getRequiredEnvVar } from '../../src/env_vars';
 
 interface ScriptEnv {

@@ -1,0 +1,50 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+# HACK: This gets around a dependency cycle - this package invokes a script on
+# the command line that eventually calls back into a function in the same file.
+# Proper fix needed here is to split up the file that's caught in the cycle.
+js_library(
+    name = "required_deps",
+    data = [
+        "//libs/auth/intermediate-scripts",
+        "//libs/auth/intermediate-scripts:scripts",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ts_library(
+    name = "cryptography",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//:node_modules/zod",
+        "//libs/auth/src",
+        "//libs/basics/assert",
+        "//libs/types/basic",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    data = [
+        ":required_deps",
+    ],
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//libs/auth/cards",
+        "//libs/auth/cryptography",
+        "//libs/auth/test",
+        "//libs/test-utils/src",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

@@ -19,11 +19,9 @@ import { deferred } from '@vx/libs/basics/async';
 import { err, ok, type Result } from '@vx/libs/basics/result';
 import { type Optional } from '@vx/libs/basics/types';
 import express, { Application } from 'express';
-import {
-  type DippedSmartCardAuthApi,
-  generateSignedHashValidationQrCodeValue,
-  prepareSignatureFile,
-} from '@vx/libs/auth/src';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
+import { generateSignedHashValidationQrCodeValue } from '@vx/libs/auth/validation';
+import { prepareSignatureFile } from '@vx/libs/auth/artifacts';
 import * as grout from '@vx/libs/grout/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
 import { type Printer } from '@vx/libs/printing/src/printer';

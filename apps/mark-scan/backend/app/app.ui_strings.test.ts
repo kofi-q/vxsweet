@@ -12,7 +12,7 @@ import {
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
 } from '@vx/libs/backend/src/ui_strings';
-import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/src';
+import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { testCdfBallotDefinition } from '@vx/libs/types/cdf';
 import {

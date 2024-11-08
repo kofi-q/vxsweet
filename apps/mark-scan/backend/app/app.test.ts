@@ -22,7 +22,7 @@ import {
   electionGeneral,
 } from '@vx/libs/fixtures/src';
 import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   ALL_PRECINCTS_SELECTION,
   ELECTION_PACKAGE_FOLDER,

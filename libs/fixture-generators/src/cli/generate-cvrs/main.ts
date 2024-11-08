@@ -21,10 +21,8 @@ import * as fs from 'node:fs/promises';
 import yargs from 'yargs/yargs';
 import { writeImageData, createImageData } from '@vx/libs/image-utils/src';
 import { basename, join, parse } from 'node:path';
-import {
-  computeCastVoteRecordRootHashFromScratch,
-  prepareSignatureFile,
-} from '@vx/libs/auth/src';
+import { computeCastVoteRecordRootHashFromScratch } from '@vx/libs/auth/cvrs';
+import { prepareSignatureFile } from '@vx/libs/auth/artifacts';
 import { sha256 } from 'js-sha256';
 import {
   generateBallotPageLayouts,

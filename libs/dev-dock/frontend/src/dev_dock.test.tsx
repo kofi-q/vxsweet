@@ -25,7 +25,7 @@ import {
   mockKiosk,
   mockFileWriter,
 } from '@vx/libs/test-utils/src';
-import { type CardStatus } from '@vx/libs/auth/src';
+import { type CardStatus } from '@vx/libs/auth/cards';
 import { DevDock } from './dev_dock';
 
 const noCardStatus: CardStatus = {

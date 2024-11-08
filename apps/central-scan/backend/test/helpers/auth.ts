@@ -1,4 +1,4 @@
-import { type DippedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
 import { mockSessionExpiresAt } from '@vx/libs/test-utils/src';
 import {
   constructElectionKey,

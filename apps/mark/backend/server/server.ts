@@ -2,9 +2,9 @@ import { Server } from 'node:http';
 import {
   InsertedSmartCardAuth,
   type InsertedSmartCardAuthApi,
-  JavaCard,
-  MockFileCard,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/inserted-cards';
+import { JavaCard } from '@vx/libs/auth/cards';
+import { MockFileCard } from '@vx/libs/auth/mock-cards';
 import { LogEventId, BaseLogger, Logger } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,

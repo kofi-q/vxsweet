@@ -4,7 +4,7 @@ import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
   updateCastVoteRecordHashes,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/cvrs';
 import { Client } from '@vx/libs/db/src';
 import {
   type BatchInfo,

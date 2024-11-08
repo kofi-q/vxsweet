@@ -2,10 +2,8 @@ import getPort from 'get-port';
 import { Server } from 'node:http';
 import { DateTime } from 'luxon';
 import { dirSync } from 'tmp';
-import {
-  buildMockDippedSmartCardAuth,
-  type DippedSmartCardAuthApi,
-} from '@vx/libs/auth/src';
+import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
+import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
 import * as grout from '@vx/libs/grout/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import {

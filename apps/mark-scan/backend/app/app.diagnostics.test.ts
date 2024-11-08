@@ -57,7 +57,7 @@ import {
 } from '@vx/libs/backend/src';
 import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { deferred } from '@vx/libs/basics/async';

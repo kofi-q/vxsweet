@@ -1,7 +1,7 @@
 import {
   type InsertedSmartCardAuthApi,
   type InsertedSmartCardAuthMachineState,
-} from '@vx/libs/auth/src';
+} from '@vx/libs/auth/inserted-cards';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { type LoggingUserRole } from '@vx/libs/logging/src';
 import { Store } from '../store/store';

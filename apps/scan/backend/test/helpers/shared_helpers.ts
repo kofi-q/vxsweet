@@ -1,4 +1,4 @@
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { iter } from '@vx/libs/basics/iterators';
 import { ok } from '@vx/libs/basics/result';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';

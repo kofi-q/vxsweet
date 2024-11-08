@@ -24,7 +24,7 @@ import {
   mockOf,
   suppressingConsoleOutput,
 } from '@vx/libs/test-utils/src';
-import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/src';
+import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   safeParseSystemSettings,
   DEFAULT_SYSTEM_SETTINGS,

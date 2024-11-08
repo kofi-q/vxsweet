@@ -3,9 +3,9 @@ import { extractErrorMessage } from '@vx/libs/basics/errors';
 import {
   constructJavaCardConfigForVxProgramming,
   type JavaCardConfig,
-} from '../../src/config';
+} from '../../config/config';
 import { getRequiredEnvVar, isNodeEnvProduction } from '../../src/env_vars';
-import { JavaCard } from '../../src/java_card';
+import { JavaCard } from '../../cards/java_card';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { programJavaCard } from './utils';
 
