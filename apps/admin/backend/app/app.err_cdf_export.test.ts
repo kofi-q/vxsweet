@@ -24,7 +24,6 @@ import { safeParse, safeParseJson } from '@vx/libs/types/basic';
 import { type CandidateContest } from '@vx/libs/types/elections';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
-import { type Client } from '@vx/libs/grout/src';
 import { modifyCastVoteRecordExport } from '@vx/libs/backend/cast_vote_records';
 import {
   buildTestEnvironment,
@@ -55,18 +54,17 @@ afterEach(() => {
 it('logs success if export succeeds', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   const offLimitsPath = '/root/hidden';
-  const failedExportResult = await apiClient.exportCdfElectionResultsReport({
+  const failedExportResult = await api.exportCdfElectionResultsReport({
     path: offLimitsPath,
   });
   expect(failedExportResult.isErr()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'failure',
       filename: offLimitsPath,
@@ -78,18 +76,17 @@ it('logs success if export succeeds', async () => {
 it('logs failure if export fails', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportCdfElectionResultsReport({
+  const exportResult = await api.exportCdfElectionResultsReport({
     path,
   });
   expect(exportResult.isOk()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'success',
       filename: path,
@@ -99,11 +96,11 @@ it('logs failure if export fails', async () => {
 });
 
 async function getCurrentReport(
-  apiClient: Client<Api>
+  api: Api
 ): Promise<ResultsReporting.ElectionReport> {
   const path = tmpNameSync();
 
-  const exportResult = await apiClient.exportCdfElectionResultsReport({ path });
+  const exportResult = await api.exportCdfElectionResultsReport({ path });
   exportResult.assertOk('CDF results report export failed');
 
   const json = readFileSync(path, 'utf-8').toString();
@@ -119,12 +116,12 @@ it('exports results and metadata accurately', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   // add CVR data
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.unsafeUnwrap();
@@ -133,32 +130,32 @@ it('exports results and metadata accurately', async () => {
   const candidateContestId =
     'State-Representatives-Hillsborough-District-34-b1012d38';
   const officialCandidateId = 'Obadiah-Carrigan-5c95145a';
-  const writeInCandidate1 = await apiClient.addWriteInCandidate({
+  const writeInCandidate1 = api.addWriteInCandidate({
     contestId: candidateContestId,
     name: 'Mr. Jerry',
   });
-  const [writeInId1, writeInId2] = await apiClient.getWriteInAdjudicationQueue({
+  const [writeInId1, writeInId2] = api.getWriteInAdjudicationQueue({
     contestId: candidateContestId,
   });
   assert(writeInId1 !== undefined);
   assert(writeInId2 !== undefined);
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId: writeInId1,
     type: 'write-in-candidate',
     candidateId: writeInCandidate1.id,
   });
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId: writeInId2,
     type: 'official-candidate',
     candidateId: officialCandidateId,
   });
 
   // add manual data
-  const writeInCandidate2 = await apiClient.addWriteInCandidate({
+  const writeInCandidate2 = api.addWriteInCandidate({
     contestId: candidateContestId,
     name: 'Mr. Kennedy',
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: election.precincts[0]!.id,
     votingMethod: 'absentee',
     ballotStyleGroupId: election.ballotStyles[0]!.groupId,
@@ -190,7 +187,7 @@ it('exports results and metadata accurately', async () => {
   });
 
   const { Party, Election, GpUnit, ...reportMetadata } =
-    await getCurrentReport(apiClient);
+    await getCurrentReport(api);
 
   expect(reportMetadata).toMatchObject({
     '@type': 'ElectionResults.ElectionReport',
@@ -381,12 +378,12 @@ it('marks report as certified when official, as primary when primary, and as non
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   // add CVR data, as non-test file
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: await modifyCastVoteRecordExport(
       castVoteRecordExport.asDirectoryPath(),
       {
@@ -402,9 +399,9 @@ it('marks report as certified when official, as primary when primary, and as non
   });
   loadFileResult.unsafeUnwrap();
 
-  await apiClient.markResultsOfficial();
+  api.markResultsOfficial();
 
-  const { IsTest, Election, Status } = await getCurrentReport(apiClient);
+  const { IsTest, Election, Status } = await getCurrentReport(api);
 
   expect(IsTest).toEqual(false);
   expect(Election?.[0]?.Type).toEqual(ResultsReporting.ElectionType.Primary);

@@ -23,9 +23,9 @@ const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 const { election } = electionDefinition;
 
 test('manual results flow (official candidates only)', async () => {
-  const { apiClient, auth, logger } = buildTestEnvironment();
+  const { api, auth, logger } = buildTestEnvironment();
 
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockElectionManagerAuth(auth, electionDefinition.election);
 
@@ -106,9 +106,9 @@ test('manual results flow (official candidates only)', async () => {
   ];
 
   // check there is initially no manual results data
-  expect(await apiClient.getManualResultsMetadata()).toEqual([]);
+  expect(api.getManualResultsMetadata()).toEqual([]);
   expect(
-    await apiClient.getManualResults({
+    api.getManualResults({
       precinctId: 'precinct-1',
       ballotStyleGroupId: '1M' as BallotStyleGroupId,
       votingMethod: 'precinct',
@@ -142,15 +142,14 @@ test('manual results flow (official candidates only)', async () => {
     ballotStyleGroupId,
     manualResults,
   ] of manualResultsToAdd) {
-    await apiClient.setManualResults({
+    await api.setManualResults({
       precinctId,
       ballotStyleGroupId,
       votingMethod: 'precinct',
       manualResults,
     });
-    expect(logger.log).toHaveBeenLastCalledWith(
+    expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
       LogEventId.ManualTallyDataEdited,
-      'election_manager',
       {
         disposition: 'success',
         message:
@@ -164,8 +163,7 @@ test('manual results flow (official candidates only)', async () => {
   }
 
   // check metadata request
-  const manualResultsMetadataRecords =
-    await apiClient.getManualResultsMetadata();
+  const manualResultsMetadataRecords = api.getManualResultsMetadata();
   expect(manualResultsMetadataRecords).toHaveLength(4);
   const [
     precinct1MammalMetadata,
@@ -209,7 +207,7 @@ test('manual results flow (official candidates only)', async () => {
   });
 
   // check retrieving individual tally
-  const manualResultsRecord = await apiClient.getManualResults({
+  const manualResultsRecord = api.getManualResults({
     precinctId: 'precinct-1',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     votingMethod: 'precinct',
@@ -228,12 +226,11 @@ test('manual results flow (official candidates only)', async () => {
     precinctId: 'precinct-1',
     votingMethod: 'precinct',
   };
-  expect(await apiClient.getManualResultsMetadata()).toHaveLength(4);
-  await apiClient.deleteManualResults(deletedResultsIdentifier);
-  expect(await apiClient.getManualResultsMetadata()).toHaveLength(3);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(api.getManualResultsMetadata()).toHaveLength(4);
+  api.deleteManualResults(deletedResultsIdentifier);
+  expect(api.getManualResultsMetadata()).toHaveLength(3);
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.ManualTallyDataRemoved,
-    'election_manager',
     {
       disposition: 'success',
       message:
@@ -243,11 +240,10 @@ test('manual results flow (official candidates only)', async () => {
   );
 
   // delete all manual tallies
-  await apiClient.deleteAllManualResults();
-  expect(await apiClient.getManualResultsMetadata()).toHaveLength(0);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  api.deleteAllManualResults();
+  expect(api.getManualResultsMetadata()).toHaveLength(0);
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.ManualTallyDataRemoved,
-    'election_manager',
     {
       disposition: 'success',
       message: 'User removed all manually entered tally data.',
@@ -256,9 +252,9 @@ test('manual results flow (official candidates only)', async () => {
 });
 
 test('ignores write-ins with zero votes', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockElectionManagerAuth(auth, electionDefinition.election);
 
@@ -290,7 +286,7 @@ test('ignores write-ins with zero votes', async () => {
     },
   });
 
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     votingMethod: 'precinct',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
@@ -298,15 +294,13 @@ test('ignores write-ins with zero votes', async () => {
   });
 
   // check results after setting a tally with a zero write-in candidate
-  expect(await apiClient.getWriteInCandidates()).toHaveLength(0);
+  expect(api.getWriteInCandidates()).toHaveLength(0);
   expect(
-    (
-      await apiClient.getManualResults({
-        precinctId: 'precinct-1',
-        votingMethod: 'precinct',
-        ballotStyleGroupId: '1M' as BallotStyleGroupId,
-      })
-    )?.manualResults
+    api.getManualResults({
+      precinctId: 'precinct-1',
+      votingMethod: 'precinct',
+      ballotStyleGroupId: '1M' as BallotStyleGroupId,
+    })?.manualResults
   ).toEqual(
     buildManualResultsFixture({
       election,
@@ -329,14 +323,14 @@ test('ignores write-ins with zero votes', async () => {
 });
 
 test('adds temp write-in candidates', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   // initially no write-in candidates
-  expect(await apiClient.getWriteInCandidates()).toHaveLength(0);
+  expect(api.getWriteInCandidates()).toHaveLength(0);
 
   const manualResultsWithTempWriteIn = buildManualResultsFixture({
     election,
@@ -362,25 +356,23 @@ test('adds temp write-in candidates', async () => {
     },
   });
 
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     votingMethod: 'precinct',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     manualResults: manualResultsWithTempWriteIn,
   });
 
-  const writeInCandidates = await apiClient.getWriteInCandidates();
+  const writeInCandidates = api.getWriteInCandidates();
   expect(writeInCandidates).toHaveLength(1);
   const writeInCandidateId = writeInCandidates[0]!.id;
 
   expect(
-    (
-      await apiClient.getManualResults({
-        precinctId: 'precinct-1',
-        votingMethod: 'precinct',
-        ballotStyleGroupId: '1M' as BallotStyleGroupId,
-      })
-    )?.manualResults
+    api.getManualResults({
+      precinctId: 'precinct-1',
+      votingMethod: 'precinct',
+      ballotStyleGroupId: '1M' as BallotStyleGroupId,
+    })?.manualResults
   ).toEqual(
     buildManualResultsFixture({
       election,
@@ -409,19 +401,19 @@ test('adds temp write-in candidates', async () => {
 });
 
 test('removes write-in candidates not referenced anymore', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  expect(await apiClient.getWriteInCandidates()).toHaveLength(0);
+  expect(api.getWriteInCandidates()).toHaveLength(0);
 
-  await apiClient.addWriteInCandidate({
+  api.addWriteInCandidate({
     contestId: 'best-animal-mammal',
     name: 'Chimera',
   });
-  const writeInCandidates = await apiClient.getWriteInCandidates();
+  const writeInCandidates = api.getWriteInCandidates();
   expect(writeInCandidates).toHaveLength(1);
   const writeInCandidateId = writeInCandidates[0]!.id;
 
@@ -448,21 +440,19 @@ test('removes write-in candidates not referenced anymore', async () => {
       },
     },
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     votingMethod: 'precinct',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     manualResults: manualResultsWithExistingWriteIn,
   });
-  expect(await apiClient.getWriteInCandidates()).toHaveLength(1);
+  expect(api.getWriteInCandidates()).toHaveLength(1);
   expect(
-    (
-      await apiClient.getManualResults({
-        precinctId: 'precinct-1',
-        votingMethod: 'precinct',
-        ballotStyleGroupId: '1M' as BallotStyleGroupId,
-      })
-    )?.manualResults
+    api.getManualResults({
+      precinctId: 'precinct-1',
+      votingMethod: 'precinct',
+      ballotStyleGroupId: '1M' as BallotStyleGroupId,
+    })?.manualResults
   ).toEqual(manualResultsWithExistingWriteIn);
 
   const manualResultsWithWriteInRemoved = buildManualResultsFixture({
@@ -482,20 +472,18 @@ test('removes write-in candidates not referenced anymore', async () => {
       },
     },
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     votingMethod: 'precinct',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     manualResults: manualResultsWithWriteInRemoved,
   });
-  expect(await apiClient.getWriteInCandidates()).toHaveLength(0);
+  expect(api.getWriteInCandidates()).toHaveLength(0);
   expect(
-    (
-      await apiClient.getManualResults({
-        precinctId: 'precinct-1',
-        votingMethod: 'precinct',
-        ballotStyleGroupId: '1M' as BallotStyleGroupId,
-      })
-    )?.manualResults
+    api.getManualResults({
+      precinctId: 'precinct-1',
+      votingMethod: 'precinct',
+      ballotStyleGroupId: '1M' as BallotStyleGroupId,
+    })?.manualResults
   ).toEqual(manualResultsWithWriteInRemoved);
 });

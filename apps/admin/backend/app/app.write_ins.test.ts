@@ -61,22 +61,22 @@ afterEach(() => {
 });
 
 test('getWriteInAdjudicationQueue', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: castVoteRecordExport.asDirectoryPath(),
     })
   ).unsafeUnwrap();
 
-  const allWriteIns = await apiClient.getWriteInAdjudicationQueue();
+  const allWriteIns = api.getWriteInAdjudicationQueue();
   expect(allWriteIns).toHaveLength(80);
 
   expect(
-    await apiClient.getWriteInAdjudicationQueue({
+    api.getWriteInAdjudicationQueue({
       contestId: 'Sheriff-4243fe0b',
     })
   ).toHaveLength(2);
@@ -92,24 +92,24 @@ test('getWriteInAdjudicationQueue', async () => {
     }
   );
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: secondReportPath,
     })
   ).unsafeUnwrap();
 
-  const allWriteInsDouble = await apiClient.getWriteInAdjudicationQueue();
+  const allWriteInsDouble = api.getWriteInAdjudicationQueue();
   expect(allWriteInsDouble).toHaveLength(160);
   expect(allWriteInsDouble.slice(0, 80)).toEqual(allWriteIns);
 });
 
 test('getWriteInAdjudicationQueueMetadata', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: castVoteRecordExport.asDirectoryPath(),
     })
   ).unsafeUnwrap();
@@ -118,8 +118,7 @@ test('getWriteInAdjudicationQueueMetadata', async () => {
     (contest) => contest.type === 'candidate' && contest.allowWriteIns
   );
 
-  const allQueueMetadata =
-    await apiClient.getWriteInAdjudicationQueueMetadata();
+  const allQueueMetadata = api.getWriteInAdjudicationQueueMetadata();
   expect(allQueueMetadata).toHaveLength(contestsWithWriteIns.length);
   assert(
     allQueueMetadata.every(
@@ -128,7 +127,7 @@ test('getWriteInAdjudicationQueueMetadata', async () => {
   );
 
   expect(
-    await apiClient.getWriteInAdjudicationQueueMetadata({
+    api.getWriteInAdjudicationQueueMetadata({
       contestId: 'Sheriff-4243fe0b',
     })
   ).toEqual([
@@ -141,21 +140,21 @@ test('getWriteInAdjudicationQueueMetadata', async () => {
 });
 
 test('getWriteInAdjudicationContext', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, manualCastVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   const reportDirectoryPath = manualCastVoteRecordExport.asDirectoryPath();
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: reportDirectoryPath,
     })
   ).unsafeUnwrap();
 
   // look at a contest that can have multiple write-ins per ballot
   const contestId = 'State-Representatives-Hillsborough-District-34-b1012d38';
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId,
   });
   expect(writeInIds).toHaveLength(2);
@@ -164,15 +163,14 @@ test('getWriteInAdjudicationContext', async () => {
   assert(writeInIdA !== undefined && writeInIdB !== undefined);
 
   // check image of first write-in
-  const writeInImageViewA = await apiClient.getWriteInImageView({
+  const writeInImageViewA = await api.getWriteInImageView({
     writeInId: writeInIdA,
   });
   assert(writeInImageViewA);
 
-  const writeInAdjudicationContextA =
-    await apiClient.getWriteInAdjudicationContext({
-      writeInId: writeInIdA,
-    });
+  const writeInAdjudicationContextA = api.getWriteInAdjudicationContext({
+    writeInId: writeInIdA,
+  });
   assert(writeInAdjudicationContextA);
 
   expect(writeInAdjudicationContextA).toMatchObject(
@@ -191,17 +189,16 @@ test('getWriteInAdjudicationContext', async () => {
   );
 
   // adjudicate first write-in for an official candidate
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId: writeInIdA,
     type: 'official-candidate',
     candidateId: 'Mary-Baker-Eddy-350785d5',
   });
 
   // check the second write-in detail view, which should show the just-adjudicated write-in
-  const writeInAdjudicationContextB1 =
-    await apiClient.getWriteInAdjudicationContext({
-      writeInId: writeInIdB,
-    });
+  const writeInAdjudicationContextB1 = api.getWriteInAdjudicationContext({
+    writeInId: writeInIdB,
+  });
 
   expect(writeInAdjudicationContextB1).toMatchObject(
     typedAs<Partial<WriteInAdjudicationContext>>({
@@ -221,19 +218,18 @@ test('getWriteInAdjudicationContext', async () => {
   );
 
   // re-adjudicate the first write-in for a write-in candidate and expect the ids to change
-  const { id: writeInCandidateId } = await apiClient.addWriteInCandidate({
+  const { id: writeInCandidateId } = api.addWriteInCandidate({
     contestId,
     name: 'Bob Hope',
   });
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId: writeInIdA,
     type: 'write-in-candidate',
     candidateId: writeInCandidateId,
   });
-  const writeInAdjudicationContextB2 =
-    await apiClient.getWriteInAdjudicationContext({
-      writeInId: writeInIdB,
-    });
+  const writeInAdjudicationContextB2 = api.getWriteInAdjudicationContext({
+    writeInId: writeInIdB,
+  });
 
   expect(writeInAdjudicationContextB2).toMatchObject(
     typedAs<Partial<WriteInAdjudicationContext>>({
@@ -254,21 +250,21 @@ test('getWriteInAdjudicationContext', async () => {
 });
 
 test('getWriteInImageView on hmpb', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, manualCastVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   const reportDirectoryPath = manualCastVoteRecordExport.asDirectoryPath();
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: reportDirectoryPath,
     })
   ).unsafeUnwrap();
 
   // look at a contest that can have multiple write-ins per ballot
   const contestId = 'State-Representatives-Hillsborough-District-34-b1012d38';
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId,
   });
   expect(writeInIds).toHaveLength(2);
@@ -277,7 +273,7 @@ test('getWriteInImageView on hmpb', async () => {
   assert(writeInIdA !== undefined && writeInIdB !== undefined);
 
   // check image of first write-in
-  const writeInImageViewA = await apiClient.getWriteInImageView({
+  const writeInImageViewA = await api.getWriteInImageView({
     writeInId: writeInIdA,
   });
   assert(writeInImageViewA);
@@ -324,7 +320,7 @@ test('getWriteInImageView on hmpb', async () => {
 
   // check the second write-in image view, which should have the same image
   // but different writeInCoordinates
-  const writeInImageViewB1 = await apiClient.getWriteInImageView({
+  const writeInImageViewB1 = await api.getWriteInImageView({
     writeInId: writeInIdB,
   });
 
@@ -347,21 +343,21 @@ test('getWriteInImageView on hmpb', async () => {
 });
 
 test('getWriteInImageView on bmd', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   const reportDirectoryPath = castVoteRecordExport.asDirectoryPath();
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: reportDirectoryPath,
     })
   ).unsafeUnwrap();
 
   // look at a contest that can have multiple write-ins per ballot
   const contestId = 'zoo-council-mammal';
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId,
   });
   expect(writeInIds).toHaveLength(24);
@@ -369,7 +365,7 @@ test('getWriteInImageView on bmd', async () => {
   assert(writeInIdA !== undefined && writeInIdB !== undefined);
 
   // check image of first write-in
-  const writeInImageViewA = await apiClient.getWriteInImageView({
+  const writeInImageViewA = await api.getWriteInImageView({
     writeInId: writeInIdA,
   });
   assert(writeInImageViewA);
@@ -381,7 +377,7 @@ test('getWriteInImageView on bmd', async () => {
 
   // check the second write-in image view, which should have the same image
   // but different writeInCoordinates
-  const writeInImageViewB1 = await apiClient.getWriteInImageView({
+  const writeInImageViewB1 = await api.getWriteInImageView({
     writeInId: writeInIdB,
   });
 
@@ -391,61 +387,53 @@ test('getWriteInImageView on bmd', async () => {
 });
 
 test('getFirstPendingWriteInId', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: castVoteRecordExport.asDirectoryPath(),
     })
   ).unsafeUnwrap();
 
   const contestId = 'State-Representatives-Hillsborough-District-34-b1012d38';
 
-  const writeInQueue = await apiClient.getWriteInAdjudicationQueue({
+  const writeInQueue = api.getWriteInAdjudicationQueue({
     contestId,
   });
 
   function adjudicateAtIndex(index: number) {
-    return apiClient.adjudicateWriteIn({
+    return api.adjudicateWriteIn({
       writeInId: writeInQueue[index]!,
       type: 'invalid',
     });
   }
 
-  expect(await apiClient.getFirstPendingWriteInId({ contestId })).toEqual(
-    writeInQueue[0]
-  );
+  expect(api.getFirstPendingWriteInId({ contestId })).toEqual(writeInQueue[0]);
 
-  await adjudicateAtIndex(0);
-  expect(await apiClient.getFirstPendingWriteInId({ contestId })).toEqual(
-    writeInQueue[1]
-  );
+  adjudicateAtIndex(0);
+  expect(api.getFirstPendingWriteInId({ contestId })).toEqual(writeInQueue[1]);
 
-  await adjudicateAtIndex(2);
-  expect(await apiClient.getFirstPendingWriteInId({ contestId })).toEqual(
-    writeInQueue[1]
-  );
+  adjudicateAtIndex(2);
+  expect(api.getFirstPendingWriteInId({ contestId })).toEqual(writeInQueue[1]);
 
-  await adjudicateAtIndex(1);
-  expect(await apiClient.getFirstPendingWriteInId({ contestId })).toEqual(
-    writeInQueue[3]
-  );
+  adjudicateAtIndex(1);
+  expect(api.getFirstPendingWriteInId({ contestId })).toEqual(writeInQueue[3]);
 
   for (const [i] of writeInQueue.entries()) {
-    await adjudicateAtIndex(i);
+    adjudicateAtIndex(i);
   }
-  expect(await apiClient.getFirstPendingWriteInId({ contestId })).toEqual(null);
+  expect(api.getFirstPendingWriteInId({ contestId })).toEqual(null);
 });
 
 test('handling unmarked write-ins', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   // modify the write-ins for a contest to be unmarked write-ins
@@ -483,18 +471,18 @@ test('handling unmarked write-ins', async () => {
     }
   );
 
-  const addTestFileResult = await apiClient.addCastVoteRecordFile({
+  const addTestFileResult = await api.addCastVoteRecordFile({
     path: exportDirectoryPath,
   });
   assert(addTestFileResult.isOk());
 
-  const [writeInId] = await apiClient.getWriteInAdjudicationQueue({
+  const [writeInId] = api.getWriteInAdjudicationQueue({
     contestId: WRITE_IN_CONTEST_ID,
   });
   assert(writeInId !== undefined);
 
   // check that the unmarked status appears in the write-in adjudication context
-  const writeInContext = await apiClient.getWriteInAdjudicationContext({
+  const writeInContext = api.getWriteInAdjudicationContext({
     writeInId,
   });
   expect(writeInContext.writeIn.isUnmarked).toEqual(true);
@@ -512,23 +500,24 @@ test('handling unmarked write-ins', async () => {
       includeGenericWriteIn: false,
     });
     expect(
-      (await apiClient.getResultsForTallyReports())[0]?.scannedResults
-        .contestResults[WRITE_IN_CONTEST_ID]
+      (await api.getResultsForTallyReports())[0]?.scannedResults.contestResults[
+        WRITE_IN_CONTEST_ID
+      ]
     ).toEqual(expectedResults.contestResults[WRITE_IN_CONTEST_ID]);
   }
 
-  async function expectWriteInSummary(
+  function expectWriteInSummary(
     summary: Partial<Tabulation.ContestWriteInSummary>
-  ): Promise<void> {
+  ) {
     expect(
-      (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[
+      api.getElectionWriteInSummary().contestWriteInSummaries[
         WRITE_IN_CONTEST_ID
       ]
     ).toMatchObject(summary);
   }
 
   // UWIs should appear in the write-in summary, but not in the tally results
-  await expectWriteInSummary({
+  expectWriteInSummary({
     pendingTally: 2,
     invalidTally: 0,
     totalTally: 2,
@@ -546,12 +535,12 @@ test('handling unmarked write-ins', async () => {
   });
 
   // a UWI should be reflected in tallies if we mark it as valid
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId,
     type: 'official-candidate',
     candidateId: OFFICIAL_CANDIDATE_ID,
   });
-  await expectWriteInSummary({
+  expectWriteInSummary({
     pendingTally: 1,
     invalidTally: 0,
     totalTally: 2,
@@ -576,11 +565,11 @@ test('handling unmarked write-ins', async () => {
   });
 
   // an invalid UWI should appear the same as unadjudicated in tallies
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId,
     type: 'invalid',
   });
-  await expectWriteInSummary({
+  expectWriteInSummary({
     pendingTally: 1,
     invalidTally: 1,
     totalTally: 2,
@@ -599,20 +588,20 @@ test('handling unmarked write-ins', async () => {
 });
 
 test('adjudicating write-ins changes their status and is reflected in tallies', async () => {
-  const { auth, apiClient } = buildTestEnvironment();
+  const { auth, api } = buildTestEnvironment();
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
   (
-    await apiClient.addCastVoteRecordFile({
+    await api.addCastVoteRecordFile({
       path: castVoteRecordExport.asDirectoryPath(),
     })
   ).unsafeUnwrap();
 
   // look at a contest that can have multiple write-ins per ballot
   const contestId = 'Governor-061a401b';
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId,
   });
   expect(writeInIds).toHaveLength(2);
@@ -631,37 +620,27 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
       includeGenericWriteIn: false,
     });
     expect(
-      (await apiClient.getResultsForTallyReports())[0]?.scannedResults
-        .contestResults[contestId]
+      (await api.getResultsForTallyReports())[0]?.scannedResults.contestResults[
+        contestId
+      ]
     ).toEqual(expectedResults.contestResults[contestId]);
   }
 
-  async function expectWriteInSummary(
-    summary: Tabulation.ContestWriteInSummary
-  ): Promise<void> {
+  function expectWriteInSummary(summary: Tabulation.ContestWriteInSummary) {
     expect(
-      (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[
-        contestId
-      ]
+      api.getElectionWriteInSummary().contestWriteInSummaries[contestId]
     ).toEqual(summary);
   }
 
-  async function expectWriteInRecord(
-    id: Id,
-    expected: Partial<WriteInRecord>
-  ): Promise<void> {
+  function expectWriteInRecord(id: Id, expected: Partial<WriteInRecord>) {
     expect(
-      (await apiClient.getWriteInAdjudicationContext({ writeInId: id })).writeIn
+      api.getWriteInAdjudicationContext({ writeInId: id }).writeIn
     ).toMatchObject(expected);
   }
 
   // unadjudicated results
-  await expectWriteInRecord(writeInId, {
-    status: 'pending',
-  });
-  expect(
-    await apiClient.getWriteInAdjudicationQueueMetadata({ contestId })
-  ).toEqual([
+  expectWriteInRecord(writeInId, { status: 'pending' });
+  expect(api.getWriteInAdjudicationQueueMetadata({ contestId })).toEqual([
     {
       contestId,
       pendingTally: 2,
@@ -685,7 +664,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
       },
     },
   });
-  await expectWriteInSummary({
+  expectWriteInSummary({
     candidateTallies: {},
     contestId: 'Governor-061a401b',
     invalidTally: 0,
@@ -694,11 +673,11 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   });
 
   // check invalid
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     type: 'invalid',
     writeInId,
   });
-  await expectWriteInRecord(writeInId, {
+  expectWriteInRecord(writeInId, {
     adjudicationType: 'invalid',
     status: 'adjudicated',
   });
@@ -720,9 +699,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
     },
   });
   expect(
-    (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[
-      contestId
-    ]
+    api.getElectionWriteInSummary().contestWriteInSummaries[contestId]
   ).toEqual({
     candidateTallies: {},
     contestId: 'Governor-061a401b',
@@ -732,12 +709,12 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   });
 
   // check official candidate
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     type: 'official-candidate',
     candidateId: 'Hannah-Dustin-ab4ef7c8',
     writeInId,
   });
-  await expectWriteInRecord(writeInId, {
+  expectWriteInRecord(writeInId, {
     adjudicationType: 'official-candidate',
     candidateId: 'Hannah-Dustin-ab4ef7c8',
     status: 'adjudicated',
@@ -759,7 +736,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
       },
     },
   });
-  await expectWriteInSummary({
+  expectWriteInSummary({
     contestId: 'Governor-061a401b',
     invalidTally: 0,
     pendingTally: 1,
@@ -775,16 +752,16 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   });
 
   // check unofficial candidate
-  const writeInCandidate = await apiClient.addWriteInCandidate({
+  const writeInCandidate = api.addWriteInCandidate({
     contestId,
     name: 'Mr. Hero',
   });
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     type: 'write-in-candidate',
     candidateId: writeInCandidate.id,
     writeInId,
   });
-  await expectWriteInRecord(writeInId, {
+  expectWriteInRecord(writeInId, {
     adjudicationType: 'write-in-candidate',
     candidateId: writeInCandidate.id,
     status: 'adjudicated',
@@ -810,7 +787,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
       },
     },
   });
-  await expectWriteInSummary({
+  expectWriteInSummary({
     contestId: 'Governor-061a401b',
     invalidTally: 0,
     pendingTally: 1,
@@ -826,11 +803,11 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   });
 
   // circle back to invalid
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     type: 'invalid',
     writeInId,
   });
-  await expectWriteInRecord(writeInId, {
+  expectWriteInRecord(writeInId, {
     adjudicationType: 'invalid',
     status: 'adjudicated',
   });
@@ -852,9 +829,7 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
     },
   });
   expect(
-    (await apiClient.getElectionWriteInSummary()).contestWriteInSummaries[
-      contestId
-    ]
+    api.getElectionWriteInSummary().contestWriteInSummaries[contestId]
   ).toEqual({
     candidateTallies: {},
     contestId: 'Governor-061a401b',
@@ -864,12 +839,10 @@ test('adjudicating write-ins changes their status and is reflected in tallies', 
   });
 
   // write-in candidate should be deleted as they are no longer referenced
-  expect(await apiClient.getWriteInCandidates({ contestId })).toEqual([]);
+  expect(api.getWriteInCandidates({ contestId })).toEqual([]);
 
   // adjudication queue metadata should be updated
-  expect(
-    await apiClient.getWriteInAdjudicationQueueMetadata({ contestId })
-  ).toEqual([
+  expect(api.getWriteInAdjudicationQueueMetadata({ contestId })).toEqual([
     {
       contestId,
       pendingTally: 1,

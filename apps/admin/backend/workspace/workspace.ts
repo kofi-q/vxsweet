@@ -6,6 +6,7 @@ import {
 } from '@vx/libs/backend/diagnostics';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 
 /**
  * Options for defining a Workspace.
@@ -24,7 +25,10 @@ export function createWorkspace(root: string, logger: BaseLogger): Workspace {
   ensureDirSync(resolvedRoot);
 
   const dbPath = join(resolvedRoot, 'data.db');
-  const store = Store.fileStore(dbPath, logger);
+  const store =
+    process.env.NODE_ENV === 'test' || isIntegrationTest()
+      ? Store.memoryStore()
+      : Store.fileStore(dbPath, logger);
 
   // check disk space on summary to detect a new maximum available disk space
   const getWorkspaceDiskSpaceSummary = initializeGetWorkspaceDiskSpaceSummary(

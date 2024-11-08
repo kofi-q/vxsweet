@@ -35,7 +35,6 @@ import { renderToPdf } from '@vx/libs/printing/src';
 import { assert } from '@vx/libs/basics/assert';
 import { err } from '@vx/libs/basics/result';
 import { tmpNameSync } from 'tmp';
-import { type Client } from '@vx/libs/grout/src';
 import { LogEventId } from '@vx/libs/logging/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type BallotStyleGroupId } from '@vx/libs/types/elections';
@@ -69,23 +68,23 @@ afterEach(() => {
 });
 
 async function expectIdenticalSnapshotsAcrossExportMethods({
-  apiClient,
+  api,
   mockPrinterHandler,
   reportSpec,
   customSnapshotIdentifier,
 }: {
-  apiClient: Client<Api>;
+  api: Api;
   mockPrinterHandler: MemoryPrinterHandler;
   reportSpec: TallyReportSpec;
   customSnapshotIdentifier: string;
 }) {
-  const { pdf } = await apiClient.getTallyReportPreview(reportSpec);
+  const { pdf } = await api.getTallyReportPreview(reportSpec);
   await expect(pdf).toMatchPdfSnapshot({
     failureThreshold: 0.0001,
     customSnapshotIdentifier,
   });
 
-  await apiClient.printTallyReport(reportSpec);
+  await api.printTallyReport(reportSpec);
   const printPath = mockPrinterHandler.getLastPrintPath();
   assert(printPath !== undefined);
   await expect(printPath).toMatchPdfSnapshot({
@@ -94,7 +93,7 @@ async function expectIdenticalSnapshotsAcrossExportMethods({
   });
 
   const exportPath = tmpNameSync();
-  const exportResult = await apiClient.exportTallyReportPdf({
+  const exportResult = await api.exportTallyReportPdf({
     ...reportSpec,
     path: exportPath,
   });
@@ -110,8 +109,8 @@ test('general election tally report PDF - Part 1', async () => {
   const { electionDefinition } =
     electionGridLayoutNewHampshireTestBallotFixtures;
 
-  const { apiClient, auth, mockPrinterHandler } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
@@ -124,7 +123,7 @@ test('general election tally report PDF - Part 1', async () => {
     identifier: string;
   }) {
     return expectIdenticalSnapshotsAcrossExportMethods({
-      apiClient,
+      api,
       mockPrinterHandler,
       reportSpec: spec,
       customSnapshotIdentifier: identifier,
@@ -157,8 +156,8 @@ test('general election tally report PDF - Part 2', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth, mockPrinterHandler } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
@@ -171,14 +170,14 @@ test('general election tally report PDF - Part 2', async () => {
     identifier: string;
   }) {
     return expectIdenticalSnapshotsAcrossExportMethods({
-      apiClient,
+      api,
       mockPrinterHandler,
       reportSpec: spec,
       customSnapshotIdentifier: identifier,
     });
   }
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -227,7 +226,7 @@ test('general election tally report PDF - Part 2', async () => {
     identifier: 'tally-report-grouped',
   });
 
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'town-id-00701-precinct-id-default',
     ballotStyleGroupId: 'card-number-3' as BallotStyleGroupId,
     votingMethod: 'absentee',
@@ -263,8 +262,8 @@ test('tally report PDF - primary', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, mockPrinterHandler } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
@@ -277,7 +276,7 @@ test('tally report PDF - primary', async () => {
     identifier: string;
   }) {
     return expectIdenticalSnapshotsAcrossExportMethods({
-      apiClient,
+      api,
       mockPrinterHandler,
       reportSpec: spec,
       customSnapshotIdentifier: identifier,
@@ -294,7 +293,7 @@ test('tally report PDF - primary', async () => {
     identifier: 'primary-tally-report-zero',
   });
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -313,13 +312,13 @@ test('tally report PDF - primary', async () => {
 test('tally report warning', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   expect(
     (
-      await apiClient.getTallyReportPreview({
+      await api.getTallyReportPreview({
         filter: {},
         groupBy: {},
         includeSignatureLines: false,
@@ -328,7 +327,7 @@ test('tally report warning', async () => {
   ).toBeUndefined();
 
   expect(
-    await apiClient.getTallyReportPreview({
+    await api.getTallyReportPreview({
       filter: {},
       // grouping by batch is invalid because there are no batches
       groupBy: { groupByBatch: true },
@@ -341,7 +340,7 @@ test('tally report warning', async () => {
 
   mockOf(renderToPdf).mockResolvedValueOnce(err('content-too-large'));
   expect(
-    await apiClient.getTallyReportPreview({
+    await api.getTallyReportPreview({
       filter: {},
       groupBy: {},
       includeSignatureLines: false,
@@ -358,9 +357,8 @@ test('tally report warning', async () => {
 test('tally report logging', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger, mockPrinterHandler } =
-    buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
@@ -372,12 +370,12 @@ test('tally report logging', async () => {
 
   // successful file export
   const validTmpFilePath = tmpNameSync();
-  const validExportResult = await apiClient.exportTallyReportPdf({
+  const validExportResult = await api.exportTallyReportPdf({
     ...MOCK_REPORT_SPEC,
     path: validTmpFilePath,
   });
   validExportResult.assertOk('export failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'success',
     message: `Saved tally report PDF file to ${validTmpFilePath} on the USB drive.`,
     filename: validTmpFilePath,
@@ -385,22 +383,21 @@ test('tally report logging', async () => {
 
   // failed file export
   const invalidFilePath = '/invalid/path';
-  const invalidExportResult = await apiClient.exportTallyReportPdf({
+  const invalidExportResult = await api.exportTallyReportPdf({
     ...MOCK_REPORT_SPEC,
     path: invalidFilePath,
   });
   invalidExportResult.assertErr('export should have failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'failure',
     message: `Failed to save tally report PDF file to ${invalidFilePath} on the USB drive.`,
     filename: invalidFilePath,
   });
 
   // successful print
-  await apiClient.printTallyReport(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.printTallyReport(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `User printed a tally report.`,
       disposition: 'success',
@@ -409,10 +406,9 @@ test('tally report logging', async () => {
 
   // failed print
   mockPrinterHandler.disconnectPrinter();
-  await apiClient.printTallyReport(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.printTallyReport(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `Error in attempting to print tally report: cannot print without printer connected`,
       disposition: 'failure',
@@ -420,10 +416,9 @@ test('tally report logging', async () => {
   );
 
   // preview
-  await apiClient.getTallyReportPreview(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.getTallyReportPreview(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPreviewed,
-    'election_manager',
     {
       message: `User previewed a tally report.`,
       disposition: 'success',

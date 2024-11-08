@@ -33,7 +33,6 @@ import { assert } from '@vx/libs/basics/assert';
 import { err } from '@vx/libs/basics/result';
 import { tmpNameSync } from 'tmp';
 import { LogEventId } from '@vx/libs/logging/src';
-import { type Client } from '@vx/libs/grout/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import {
@@ -66,23 +65,23 @@ afterEach(() => {
 });
 
 async function expectIdenticalSnapshotsAcrossExportMethods({
-  apiClient,
+  api,
   mockPrinterHandler,
   reportSpec,
   customSnapshotIdentifier,
 }: {
-  apiClient: Client<Api>;
+  api: Api;
   mockPrinterHandler: MemoryPrinterHandler;
   reportSpec: BallotCountReportSpec;
   customSnapshotIdentifier: string;
 }) {
-  const { pdf } = await apiClient.getBallotCountReportPreview(reportSpec);
+  const { pdf } = await api.getBallotCountReportPreview(reportSpec);
   await expect(pdf).toMatchPdfSnapshot({
     customSnapshotIdentifier,
     failureThreshold: 0.0001,
   });
 
-  await apiClient.printBallotCountReport(reportSpec);
+  await api.printBallotCountReport(reportSpec);
   const printPath = mockPrinterHandler.getLastPrintPath();
   assert(printPath !== undefined);
   await expect(printPath).toMatchPdfSnapshot({
@@ -91,7 +90,7 @@ async function expectIdenticalSnapshotsAcrossExportMethods({
   });
 
   const exportPath = tmpNameSync();
-  const exportResult = await apiClient.exportBallotCountReportPdf({
+  const exportResult = await api.exportBallotCountReportPdf({
     ...reportSpec,
     path: exportPath,
   });
@@ -107,8 +106,8 @@ test('ballot count report PDF', async () => {
     electionTwoPartyPrimaryFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth, mockPrinterHandler } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
@@ -121,7 +120,7 @@ test('ballot count report PDF', async () => {
     identifier: string;
   }) {
     return expectIdenticalSnapshotsAcrossExportMethods({
-      apiClient,
+      api,
       mockPrinterHandler,
       reportSpec: spec,
       customSnapshotIdentifier: identifier,
@@ -138,7 +137,7 @@ test('ballot count report PDF', async () => {
     identifier: 'ballot-count-report-zero',
   });
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -187,7 +186,7 @@ test('ballot count report PDF', async () => {
     identifier: 'ballot-count-report-sheet-counts',
   });
 
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     votingMethod: 'precinct',
@@ -212,13 +211,13 @@ test('ballot count report PDF', async () => {
 test('ballot count report warning', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   expect(
     (
-      await apiClient.getBallotCountReportPreview({
+      await api.getBallotCountReportPreview({
         filter: {},
         groupBy: {},
         includeSheetCounts: false,
@@ -227,7 +226,7 @@ test('ballot count report warning', async () => {
   ).toBeUndefined();
 
   expect(
-    await apiClient.getBallotCountReportPreview({
+    await api.getBallotCountReportPreview({
       filter: {},
       // grouping by batch is invalid because there are no batches
       groupBy: { groupByBatch: true },
@@ -240,7 +239,7 @@ test('ballot count report warning', async () => {
 
   mockOf(renderToPdf).mockResolvedValueOnce(err('content-too-large'));
   expect(
-    await apiClient.getBallotCountReportPreview({
+    await api.getBallotCountReportPreview({
       filter: {},
       groupBy: {},
       includeSheetCounts: false,
@@ -254,9 +253,8 @@ test('ballot count report warning', async () => {
 test('ballot count report logging', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger, mockPrinterHandler } =
-    buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
@@ -268,12 +266,12 @@ test('ballot count report logging', async () => {
 
   // successful file export
   const validTmpFilePath = tmpNameSync();
-  const validExportResult = await apiClient.exportBallotCountReportPdf({
+  const validExportResult = await api.exportBallotCountReportPdf({
     ...MOCK_REPORT_SPEC,
     path: validTmpFilePath,
   });
   validExportResult.assertOk('export failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'success',
     message: `Saved ballot count report PDF file to ${validTmpFilePath} on the USB drive.`,
     filename: validTmpFilePath,
@@ -281,22 +279,21 @@ test('ballot count report logging', async () => {
 
   // failed file export
   const invalidFilePath = '/invalid/path';
-  const invalidExportResult = await apiClient.exportBallotCountReportPdf({
+  const invalidExportResult = await api.exportBallotCountReportPdf({
     ...MOCK_REPORT_SPEC,
     path: invalidFilePath,
   });
   invalidExportResult.assertErr('export should have failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'failure',
     message: `Failed to save ballot count report PDF file to ${invalidFilePath} on the USB drive.`,
     filename: invalidFilePath,
   });
 
   // successful print
-  await apiClient.printBallotCountReport(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.printBallotCountReport(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `User printed a ballot count report.`,
       disposition: 'success',
@@ -305,10 +302,9 @@ test('ballot count report logging', async () => {
 
   // failed print
   mockPrinterHandler.disconnectPrinter();
-  await apiClient.printBallotCountReport(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.printBallotCountReport(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `Error in attempting to print ballot count report: cannot print without printer connected`,
       disposition: 'failure',
@@ -316,10 +312,9 @@ test('ballot count report logging', async () => {
   );
 
   // preview
-  await apiClient.getBallotCountReportPreview(MOCK_REPORT_SPEC);
-  expect(logger.log).lastCalledWith(
+  await api.getBallotCountReportPreview(MOCK_REPORT_SPEC);
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPreviewed,
-    'election_manager',
     {
       message: `User previewed a ballot count report.`,
       disposition: 'success',

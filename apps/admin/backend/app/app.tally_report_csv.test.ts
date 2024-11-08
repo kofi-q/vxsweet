@@ -20,7 +20,6 @@ import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import { type Client } from '@vx/libs/grout/src';
 import { parseCsv } from '../test/csv';
 import {
   buildTestEnvironment,
@@ -49,16 +48,16 @@ afterEach(() => {
 });
 
 async function getParsedExport({
-  apiClient,
+  api,
   groupBy,
   filter,
 }: {
-  apiClient: Client<Api>;
+  api: Api;
   groupBy: Tabulation.GroupBy;
   filter: Tabulation.Filter;
 }): Promise<ReturnType<typeof parseCsv>> {
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportTallyReportCsv({
+  const exportResult = await api.exportTallyReportCsv({
     path,
     groupBy,
     filter,
@@ -71,25 +70,24 @@ it('exports expected results for full election', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportTallyReportCsv({
+  const exportResult = await api.exportTallyReportCsv({
     filter: {},
     groupBy: {},
     path,
   });
   expect(exportResult.isOk()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'success',
       filename: path,
@@ -141,25 +139,24 @@ it('logs failure if export fails for some reason', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   const offLimitsPath = '/root/hidden';
-  const failedExportResult = await apiClient.exportTallyReportCsv({
+  const failedExportResult = await api.exportTallyReportCsv({
     filter: {},
     groupBy: {},
     path: offLimitsPath,
   });
   expect(failedExportResult.isErr()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'failure',
       filename: offLimitsPath,
@@ -173,11 +170,11 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -221,7 +218,7 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
 
   // check initial export, without wia and manual data
   const { headers: headersInitial, rows: rowsInitial } = await getParsedExport({
-    apiClient,
+    api,
     filter: {},
     groupBy,
   });
@@ -271,15 +268,15 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
   ).toBeTruthy();
 
   // adjudicate write-ins for unofficial candidate
-  const writeInCandidate = await apiClient.addWriteInCandidate({
+  const writeInCandidate = api.addWriteInCandidate({
     contestId: candidateContestId,
     name: 'Mr. Pickles',
   });
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId: candidateContestId,
   });
   for (const writeInId of writeInIds) {
-    await apiClient.adjudicateWriteIn({
+    api.adjudicateWriteIn({
       writeInId,
       type: 'write-in-candidate',
       candidateId: writeInCandidate.id,
@@ -287,11 +284,11 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
   }
 
   // add manual data
-  const manualOnlyWriteInCandidate = await apiClient.addWriteInCandidate({
+  const manualOnlyWriteInCandidate = api.addWriteInCandidate({
     contestId: candidateContestId,
     name: 'Ms. Bean',
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: election.precincts[0]!.id,
     votingMethod: 'absentee',
     ballotStyleGroupId: election.ballotStyles[0]!.groupId,
@@ -324,7 +321,7 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
 
   // check final export, with wia and manual data
   const { headers: headersFinal, rows: rowsFinal } = await getParsedExport({
-    apiClient,
+    api,
     filter: {},
     groupBy,
   });
@@ -409,25 +406,24 @@ it('exports ballot styles grouped by language agnostic parent in multi-language 
   const { electionDefinition, castVoteRecordExport } =
     electionPrimaryPrecinctSplitsFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportTallyReportCsv({
+  const exportResult = await api.exportTallyReportCsv({
     filter: {},
     groupBy: { groupByBallotStyle: true },
     path,
   });
   expect(exportResult.isOk()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'success',
       filename: path,

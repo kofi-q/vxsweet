@@ -52,28 +52,25 @@ beforeEach(() => {
   );
 });
 
-test('diagnostic records', async () => {
+test('diagnostic records', () => {
   jest.useFakeTimers();
-  const { apiClient, logger, auth } = buildTestEnvironment();
+  const { api, logger, auth } = buildTestEnvironment();
   mockSystemAdministratorAuth(auth);
 
-  expect(await apiClient.getMostRecentPrinterDiagnostic()).toEqual(null);
+  expect(api.getMostRecentPrinterDiagnostic()).toEqual(null);
 
   jest.setSystemTime(new Date(1000));
-  await apiClient.addDiagnosticRecord({
+  api.addDiagnosticRecord({
     type: 'test-print',
     outcome: 'fail',
   });
-  expect(
-    await apiClient.getMostRecentPrinterDiagnostic()
-  ).toEqual<DiagnosticRecord>({
+  expect(api.getMostRecentPrinterDiagnostic()).toEqual<DiagnosticRecord>({
     type: 'test-print',
     outcome: 'fail',
     timestamp: 1000,
   });
-  expect(logger.log).toHaveBeenCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.DiagnosticComplete,
-    'system_administrator',
     {
       disposition: 'failure',
       message: 'Diagnostic (test-print) completed with outcome: fail.',
@@ -81,20 +78,17 @@ test('diagnostic records', async () => {
   );
 
   jest.setSystemTime(new Date(2000));
-  await apiClient.addDiagnosticRecord({
+  api.addDiagnosticRecord({
     type: 'test-print',
     outcome: 'pass',
   });
-  expect(
-    await apiClient.getMostRecentPrinterDiagnostic()
-  ).toEqual<DiagnosticRecord>({
+  expect(api.getMostRecentPrinterDiagnostic()).toEqual<DiagnosticRecord>({
     type: 'test-print',
     outcome: 'pass',
     timestamp: 2000,
   });
-  expect(logger.log).toHaveBeenCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.DiagnosticComplete,
-    'system_administrator',
     {
       disposition: 'success',
       message: 'Diagnostic (test-print) completed with outcome: pass.',
@@ -107,15 +101,13 @@ test('diagnostic records', async () => {
 const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
 
 test('test print', async () => {
-  const { apiClient, logger, mockPrinterHandler, auth } =
-    buildTestEnvironment();
+  const { api, logger, mockPrinterHandler, auth } = buildTestEnvironment();
   mockSystemAdministratorAuth(auth);
 
   // can log failure if test page never makes it to the printer
-  await apiClient.printTestPage();
-  expect(logger.log).toHaveBeenCalledWith(
+  await api.printTestPage();
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.DiagnosticInit,
-    'system_administrator',
     {
       disposition: 'failure',
       message:
@@ -125,10 +117,9 @@ test('test print', async () => {
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
-  await apiClient.printTestPage();
-  expect(logger.log).toHaveBeenCalledWith(
+  await api.printTestPage();
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.DiagnosticInit,
-    'system_administrator',
     {
       disposition: 'success',
       message: 'User started a print diagnostic by printing a test page.',
@@ -143,15 +134,15 @@ test('test print', async () => {
 });
 
 test('print or save readiness report', async () => {
-  const { apiClient, mockPrinterHandler, auth, logger, mockUsbDrive } =
+  const { api, mockPrinterHandler, auth, logger, mockUsbDrive } =
     buildTestEnvironment();
   mockSystemAdministratorAuth(auth);
 
-  await configureMachine(apiClient, auth, electionTwoPartyPrimaryDefinition);
+  await configureMachine(api, auth, electionTwoPartyPrimaryDefinition);
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
-  await apiClient.printTestPage();
+  await api.printTestPage();
   jest.useFakeTimers().setSystemTime(new Date('2021-01-01T00:00:00.000'));
-  await apiClient.addDiagnosticRecord({
+  api.addDiagnosticRecord({
     type: 'test-print',
     outcome: 'pass',
   });
@@ -159,11 +150,10 @@ test('print or save readiness report', async () => {
 
   mockUsbDrive.insertUsbDrive({});
   mockUsbDrive.usbDrive.sync.expectCallWith().resolves();
-  const exportFileResult = await apiClient.saveReadinessReport();
+  const exportFileResult = await api.saveReadinessReport();
   exportFileResult.assertOk('error saving readiness report to USB');
-  expect(logger.log).toHaveBeenCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.ReadinessReportSaved,
-    'system_administrator',
     {
       disposition: 'success',
       message: 'User saved the equipment readiness report to a USB drive.',
@@ -177,15 +167,14 @@ test('print or save readiness report', async () => {
 });
 
 test('save readiness report failure logging', async () => {
-  const { apiClient, auth, logger, mockUsbDrive } = buildTestEnvironment();
+  const { api, auth, logger, mockUsbDrive } = buildTestEnvironment();
   mockSystemAdministratorAuth(auth);
 
   mockUsbDrive.removeUsbDrive();
-  const exportResult = await apiClient.saveReadinessReport();
+  const exportResult = await api.saveReadinessReport();
   exportResult.assertErr('unexpected success saving readiness report to USB');
-  expect(logger.log).toHaveBeenCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
     LogEventId.ReadinessReportSaved,
-    'system_administrator',
     {
       disposition: 'failure',
       message:
@@ -195,9 +184,9 @@ test('save readiness report failure logging', async () => {
 });
 
 test('getApplicationDiskSpaceSummary', async () => {
-  const { apiClient } = buildTestEnvironment();
+  const { api } = buildTestEnvironment();
 
-  expect(await apiClient.getApplicationDiskSpaceSummary()).toEqual(
+  expect(await api.getApplicationDiskSpaceSummary()).toEqual(
     MOCK_DISK_SPACE_SUMMARY
   );
 });

@@ -152,7 +152,7 @@ function getCurrentElectionRecord(
   return electionRecord;
 }
 
-function buildApi({
+function buildApiInternal({
   auth,
   workspace,
   logger,
@@ -1105,7 +1105,17 @@ function buildApi({
 /**
  * A type to be used by the frontend to create a Grout API client
  */
-export type Api = ReturnType<typeof buildApi>;
+export type Api = ReturnType<typeof buildApiInternal>;
+
+export function buildApi(params: {
+  auth: DippedSmartCardAuthApi;
+  workspace: Workspace;
+  logger: Logger;
+  usbDrive: UsbDrive;
+  printer: Printer;
+}): Api {
+  return buildApiInternal(params);
+}
 
 /**
  * Builds an express application.

@@ -16,20 +16,21 @@ import {
   constructElectionKey,
   DippedSmartCardAuth,
 } from '@vx/libs/types/elections';
-import * as grout from '@vx/libs/grout/src';
-import { AddressInfo } from 'node:net';
 import { Buffer } from 'node:buffer';
 import tmp, { tmpNameSync } from 'tmp';
 import {
   generateElectionBasedSubfolderName,
   SCANNER_RESULTS_FOLDER,
 } from '@vx/libs/utils/src';
-import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
+import { createMockUsbDrive, MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { writeFileSync } from 'node:fs';
-import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
+import {
+  createMockPrinterHandler,
+  MemoryPrinterHandler,
+} from '@vx/libs/printing/src/printer';
 import { Logger, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import { type Api, buildApp } from '../app/app';
+import { type Api, buildApi } from '../app/app';
 import { createWorkspace, type Workspace } from '../workspace/workspace';
 import { deleteTmpFileAfterTestSuiteCompletes } from './cleanup';
 import { getUserRole } from '../util/auth/auth';
@@ -104,7 +105,7 @@ export function saveTmpFile(
 
 // For now, returns electionId for client calls that still need it
 export async function configureMachine(
-  apiClient: grout.Client<Api>,
+  api: Api,
   auth: DippedSmartCardAuthApi,
   electionDefinition: ElectionDefinition,
   systemSettings: SystemSettings = DEFAULT_SYSTEM_SETTINGS
@@ -116,7 +117,7 @@ export async function configureMachine(
   });
   const electionFilePath = saveTmpFile(electionPackage);
   const { electionId } = (
-    await apiClient.configure({ electionFilePath })
+    await api.configure({ electionFilePath })
   ).unsafeUnwrap();
   return electionId;
 }
@@ -130,8 +131,16 @@ export function buildMockLogger(
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function buildTestEnvironment(workspaceRoot?: string) {
+export interface TestEnv {
+  logger: Logger;
+  auth: jest.Mocked<DippedSmartCardAuthApi>;
+  workspace: Workspace;
+  api: Api;
+  mockUsbDrive: MockUsbDrive;
+  mockPrinterHandler: MemoryPrinterHandler;
+}
+
+export function buildTestEnvironment(workspaceRoot?: string): TestEnv {
   const auth = buildMockDippedSmartCardAuth();
   const resolvedWorkspaceRoot =
     workspaceRoot ||
@@ -144,19 +153,12 @@ export function buildTestEnvironment(workspaceRoot?: string) {
   const logger = buildMockLogger(auth, workspace);
   const mockUsbDrive = createMockUsbDrive();
   const mockPrinterHandler = createMockPrinterHandler();
-  const app = buildApp({
+  const api = buildApi({
     auth,
     workspace,
     logger,
     usbDrive: mockUsbDrive.usbDrive,
     printer: mockPrinterHandler.printer,
-  });
-  // port 0 will bind to a random, free port assigned by the OS
-  const server = app.listen();
-  const { port } = server.address() as AddressInfo;
-  const baseUrl = `http://localhost:${port}/api`;
-  const apiClient = grout.createClient<Api>({
-    baseUrl,
   });
 
   mockMachineLocked(auth);
@@ -165,8 +167,7 @@ export function buildTestEnvironment(workspaceRoot?: string) {
     logger,
     auth,
     workspace,
-    app,
-    apiClient,
+    api,
     mockUsbDrive,
     mockPrinterHandler,
   };

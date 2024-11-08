@@ -43,16 +43,16 @@ test('card counts', async () => {
     electionTwoPartyPrimaryFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     votingMethod: 'precinct',
@@ -64,7 +64,7 @@ test('card counts', async () => {
   });
 
   expect(
-    await apiClient.getCardCounts({
+    api.getCardCounts({
       filter: { ballotStyleGroupIds: ['1M'] as BallotStyleGroupId[] },
       groupBy: {},
     })
@@ -77,7 +77,7 @@ test('card counts', async () => {
   ]);
 
   expect(
-    await apiClient.getCardCounts({
+    api.getCardCounts({
       filter: {},
       groupBy: { groupByPrecinct: true },
     })
@@ -97,7 +97,7 @@ test('card counts', async () => {
   ]);
 
   expect(
-    await apiClient.getCardCounts({
+    api.getCardCounts({
       filter: { ballotStyleGroupIds: ['1M'] as BallotStyleGroupId[] },
       groupBy: { groupByPrecinct: true },
     })

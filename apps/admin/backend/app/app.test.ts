@@ -54,7 +54,7 @@ beforeEach(() => {
 
 jest.setTimeout(20_000);
 
-test('uses machine config from env', async () => {
+test('uses machine config from env', () => {
   const originalEnv = process.env;
   process.env = {
     ...originalEnv,
@@ -62,8 +62,8 @@ test('uses machine config from env', async () => {
     VX_CODE_VERSION: 'test-code-version',
   };
 
-  const { apiClient } = buildTestEnvironment();
-  expect(await apiClient.getMachineConfig()).toEqual({
+  const { api } = buildTestEnvironment();
+  expect(api.getMachineConfig()).toEqual({
     machineId: 'test-machine-id',
     codeVersion: 'test-code-version',
   });
@@ -71,31 +71,30 @@ test('uses machine config from env', async () => {
   process.env = originalEnv;
 });
 
-test('uses default machine config if not set', async () => {
-  const { apiClient } = buildTestEnvironment();
-  expect(await apiClient.getMachineConfig()).toEqual({
+test('uses default machine config if not set', () => {
+  const { api } = buildTestEnvironment();
+  expect(api.getMachineConfig()).toEqual({
     machineId: '0000',
     codeVersion: 'dev',
   });
 });
 
 test('managing the current election', async () => {
-  const { apiClient, auth, logger } = buildTestEnvironment();
+  const { api, auth, logger } = buildTestEnvironment();
 
   mockSystemAdministratorAuth(auth);
 
-  expect(await apiClient.getCurrentElectionMetadata()).toBeNull();
+  expect(api.getCurrentElectionMetadata()).toBeNull();
 
   // try configuring with a malformed election package
-  const badConfigureResult = await apiClient.configure({
+  const badConfigureResult = await api.configure({
     electionFilePath: saveTmpFile('{}'),
   });
   assert(badConfigureResult.isErr());
   expect(badConfigureResult.err().type).toEqual('invalid-zip');
-  expect(logger.log).toHaveBeenNthCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     1,
     LogEventId.ElectionConfigured,
-    'system_administrator',
     expect.objectContaining({
       disposition: 'failure',
     })
@@ -105,16 +104,15 @@ test('managing the current election', async () => {
   const badElectionPackage = await zipFile({
     [ElectionPackageFileName.ELECTION]: '{}',
   });
-  const badElectionConfigureResult = await apiClient.configure({
+  const badElectionConfigureResult = await api.configure({
     electionFilePath: saveTmpFile(badElectionPackage),
   });
   assert(badElectionConfigureResult.isErr());
   expect(badElectionConfigureResult.err().type).toEqual('invalid-election');
 
-  expect(logger.log).toHaveBeenNthCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     2,
     LogEventId.ElectionConfigured,
-    'system_administrator',
     expect.objectContaining({
       disposition: 'failure',
     })
@@ -128,17 +126,16 @@ test('managing the current election', async () => {
     [ElectionPackageFileName.SYSTEM_SETTINGS]: '{}',
   });
   // try configuring with malformed system settings data
-  const badSystemSettingsConfigureResult = await apiClient.configure({
+  const badSystemSettingsConfigureResult = await api.configure({
     electionFilePath: saveTmpFile(badSystemSettingsPackage),
   });
   assert(badSystemSettingsConfigureResult.isErr());
   expect(badSystemSettingsConfigureResult.err().type).toEqual(
     'invalid-system-settings'
   );
-  expect(logger.log).toHaveBeenNthCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     3,
     LogEventId.ElectionConfigured,
-    'system_administrator',
     expect.objectContaining({
       disposition: 'failure',
     })
@@ -151,22 +148,21 @@ test('managing the current election', async () => {
       DEFAULT_SYSTEM_SETTINGS
     ),
   });
-  const configureResult = await apiClient.configure({
+  const configureResult = await api.configure({
     electionFilePath: saveTmpFile(goodPackage),
   });
   assert(configureResult.isOk());
   const { electionId } = configureResult.ok();
-  expect(logger.log).toHaveBeenNthCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     4,
     LogEventId.ElectionConfigured,
-    'system_administrator',
     {
       disposition: 'success',
       newBallotHash: ballotHash,
     }
   );
 
-  expect(await apiClient.getCurrentElectionMetadata()).toMatchObject({
+  expect(api.getCurrentElectionMetadata()).toMatchObject({
     isOfficialResults: false,
     id: electionId,
     electionDefinition,
@@ -174,16 +170,15 @@ test('managing the current election', async () => {
 
   // mark results as official as election manager
   mockElectionManagerAuth(auth, electionDefinition.election);
-  await apiClient.markResultsOfficial();
-  expect(logger.log).toHaveBeenNthCalledWith(
+  api.markResultsOfficial();
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     5,
     LogEventId.MarkedTallyResultsOfficial,
-    'election_manager',
     expect.objectContaining({
       disposition: 'success',
     })
   );
-  expect(await apiClient.getCurrentElectionMetadata()).toMatchObject({
+  expect(api.getCurrentElectionMetadata()).toMatchObject({
     isOfficialResults: true,
     id: electionId,
     electionDefinition,
@@ -191,44 +186,43 @@ test('managing the current election', async () => {
 
   // unconfigure as system administrator
   mockSystemAdministratorAuth(auth);
-  await apiClient.unconfigure();
-  expect(logger.log).toHaveBeenNthCalledWith(
+  api.unconfigure();
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     6,
     LogEventId.ElectionUnconfigured,
-    'system_administrator',
     expect.objectContaining({
       disposition: 'success',
     })
   );
-  expect(await apiClient.getCurrentElectionMetadata()).toBeNull();
+  expect(api.getCurrentElectionMetadata()).toBeNull();
 
   // confirm we can reconfigure on same app instance
-  await configureMachine(apiClient, auth, electionDefinition);
-  expect(await apiClient.getCurrentElectionMetadata()).toMatchObject({
+  await configureMachine(api, auth, electionDefinition);
+  expect(api.getCurrentElectionMetadata()).toMatchObject({
     isOfficialResults: false,
     electionDefinition,
   });
 });
 
 test('configuring with an election.json file', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
   mockSystemAdministratorAuth(auth);
 
   const electionDefinition = electionGeneralDefinition;
-  const configureResult = await apiClient.configure({
+  const configureResult = await api.configure({
     electionFilePath: saveTmpFile(electionDefinition.electionData, '.json'),
   });
   expect(configureResult).toEqual(ok(expect.anything()));
 
-  const badConfigureResult = await apiClient.configure({
+  const badConfigureResult = await api.configure({
     electionFilePath: saveTmpFile('bad json file', '.json'),
   });
   expect(badConfigureResult).toMatchObject(err({ type: 'invalid-election' }));
 });
 
 test('configuring with a CDF election', async () => {
-  const { apiClient, auth, logger } = buildTestEnvironment();
+  const { api, auth, logger } = buildTestEnvironment();
 
   mockSystemAdministratorAuth(auth);
 
@@ -240,22 +234,21 @@ test('configuring with a CDF election', async () => {
   });
 
   // configure with well-formed election data
-  const configureResult = await apiClient.configure({
+  const configureResult = await api.configure({
     electionFilePath: saveTmpFile(electionPackage),
   });
   assert(configureResult.isOk());
   configureResult.ok();
-  expect(logger.log).toHaveBeenNthCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenNthCalledWith(
     1,
     LogEventId.ElectionConfigured,
-    'system_administrator',
     {
       disposition: 'success',
       newBallotHash: ballotHash,
     }
   );
 
-  const currentElectionMetadata = await apiClient.getCurrentElectionMetadata();
+  const currentElectionMetadata = api.getCurrentElectionMetadata();
   expect(currentElectionMetadata?.electionDefinition.electionData).toEqual(
     electionData
   );
@@ -265,13 +258,13 @@ test('configuring with a CDF election', async () => {
 
   // Ensure loading auth election key from db works
   mockElectionManagerAuth(auth, electionGeneral);
-  expect(await apiClient.getAuthStatus()).toMatchObject({
+  expect(await api.getAuthStatus()).toMatchObject({
     status: 'logged_in',
   });
 });
 
 test('configuring with an election not from removable media in prod errs', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
   mockNodeEnv = 'production';
 
   mockSystemAdministratorAuth(auth);
@@ -279,7 +272,7 @@ test('configuring with an election not from removable media in prod errs', async
   await suppressingConsoleOutput(
     async () =>
       await expect(() =>
-        apiClient.configure({
+        api.configure({
           electionFilePath: '/media/../tmp/nope',
         })
       ).rejects.toThrow(
@@ -289,12 +282,12 @@ test('configuring with an election not from removable media in prod errs', async
 });
 
 test('getSystemSettings happy path', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
   const { electionDefinition, systemSettings } =
     electionTwoPartyPrimaryFixtures;
   await configureMachine(
-    apiClient,
+    api,
     auth,
     electionDefinition,
     JSON.parse(systemSettings.asText())
@@ -302,30 +295,28 @@ test('getSystemSettings happy path', async () => {
 
   mockSystemAdministratorAuth(auth);
 
-  const systemSettingsResult = await apiClient.getSystemSettings();
+  const systemSettingsResult = api.getSystemSettings();
   assert(systemSettingsResult);
   expect(systemSettingsResult).toEqual(JSON.parse(systemSettings.asText()));
 });
 
-test('getSystemSettings returns default system settings when there is no current election', async () => {
-  const { apiClient } = buildTestEnvironment();
+test('getSystemSettings returns default system settings when there is no current election', () => {
+  const { api } = buildTestEnvironment();
 
-  const systemSettingsResult = await apiClient.getSystemSettings();
+  const systemSettingsResult = api.getSystemSettings();
   expect(systemSettingsResult).toEqual(DEFAULT_SYSTEM_SETTINGS);
 });
 
 test('listPotentialElectionPackagesOnUsbDrive', async () => {
-  const { apiClient, mockUsbDrive } = buildTestEnvironment();
+  const { api, mockUsbDrive } = buildTestEnvironment();
 
   mockUsbDrive.removeUsbDrive();
-  expect(await apiClient.listPotentialElectionPackagesOnUsbDrive()).toEqual(
+  expect(await api.listPotentialElectionPackagesOnUsbDrive()).toEqual(
     err({ type: 'no-usb-drive' })
   );
 
   mockUsbDrive.insertUsbDrive({});
-  expect(await apiClient.listPotentialElectionPackagesOnUsbDrive()).toEqual(
-    ok([])
-  );
+  expect(await api.listPotentialElectionPackagesOnUsbDrive()).toEqual(ok([]));
 
   const fileContents = Buffer.from('doesnt matter');
   mockUsbDrive.insertUsbDrive({
@@ -336,9 +327,7 @@ test('listPotentialElectionPackagesOnUsbDrive', async () => {
     '._election-package-2.zip': fileContents,
     '.election-package-3.zip': fileContents,
   });
-  expect(
-    await apiClient.listPotentialElectionPackagesOnUsbDrive()
-  ).toMatchObject(
+  expect(await api.listPotentialElectionPackagesOnUsbDrive()).toMatchObject(
     ok([
       {
         name: 'election-package-2.zip',
@@ -355,25 +344,25 @@ test('listPotentialElectionPackagesOnUsbDrive', async () => {
 });
 
 test('saveElectionPackageToUsb', async () => {
-  const { apiClient, auth, mockUsbDrive } = buildTestEnvironment();
+  const { api, auth, mockUsbDrive } = buildTestEnvironment();
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockUsbDrive.insertUsbDrive({});
   mockUsbDrive.usbDrive.sync.expectRepeatedCallsWith().resolves();
-  const response = await apiClient.saveElectionPackageToUsb();
+  const response = await api.saveElectionPackageToUsb();
   expect(response).toEqual(ok());
 });
 
 test('saveElectionPackageToUsb when no USB drive', async () => {
-  const { apiClient, auth, mockUsbDrive } = buildTestEnvironment();
+  const { api, auth, mockUsbDrive } = buildTestEnvironment();
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockUsbDrive.usbDrive.status
     .expectCallWith()
     .resolves({ status: 'no_drive' });
-  const response = await apiClient.saveElectionPackageToUsb();
+  const response = await api.saveElectionPackageToUsb();
   expect(response).toEqual(
     err({ type: 'missing-usb-drive', message: 'No USB drive found' })
   );
@@ -381,63 +370,63 @@ test('saveElectionPackageToUsb when no USB drive', async () => {
 
 test('usbDrive', async () => {
   const {
-    apiClient,
+    api,
     auth,
     mockUsbDrive: { usbDrive },
   } = buildTestEnvironment();
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
 
   mockSystemAdministratorAuth(auth);
 
   usbDrive.status.expectCallWith().resolves({ status: 'no_drive' });
-  expect(await apiClient.getUsbDriveStatus()).toEqual({
+  expect(await api.getUsbDriveStatus()).toEqual({
     status: 'no_drive',
   });
 
   usbDrive.status
     .expectCallWith()
     .resolves({ status: 'error', reason: 'bad_format' });
-  expect(await apiClient.getUsbDriveStatus()).toMatchObject({
+  expect(await api.getUsbDriveStatus()).toMatchObject({
     status: 'error',
     reason: 'bad_format',
   });
 
   usbDrive.eject.expectCallWith().resolves();
-  await apiClient.ejectUsbDrive();
+  await api.ejectUsbDrive();
 
   usbDrive.format.expectCallWith().resolves();
-  (await apiClient.formatUsbDrive()).assertOk('format failed');
+  (await api.formatUsbDrive()).assertOk('format failed');
 
   const error = new Error('format failed');
   usbDrive.format.expectCallWith().throws(error);
-  expect(await apiClient.formatUsbDrive()).toEqual(err(error));
+  expect(await api.formatUsbDrive()).toEqual(err(error));
 });
 
 test('printer status', async () => {
-  const { mockPrinterHandler, apiClient } = buildTestEnvironment();
+  const { mockPrinterHandler, api } = buildTestEnvironment();
 
-  expect(await apiClient.getPrinterStatus()).toEqual<PrinterStatus>({
+  expect(await api.getPrinterStatus()).toEqual<PrinterStatus>({
     connected: false,
   });
 
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
-  expect(await apiClient.getPrinterStatus()).toEqual<PrinterStatus>(
+  expect(await api.getPrinterStatus()).toEqual<PrinterStatus>(
     getMockConnectedPrinterStatus(HP_LASER_PRINTER_CONFIG)
   );
 
   mockPrinterHandler.disconnectPrinter();
 
-  expect(await apiClient.getPrinterStatus()).toEqual<PrinterStatus>({
+  expect(await api.getPrinterStatus()).toEqual<PrinterStatus>({
     connected: false,
   });
 });
 
 describe('ERR file import', () => {
   test('success', async () => {
-    const { apiClient, auth } = buildTestEnvironment();
-    await configureMachine(apiClient, auth, electionGeneralDefinition);
+    const { api, auth } = buildTestEnvironment();
+    await configureMachine(api, auth, electionGeneralDefinition);
     const errContents = testElectionReport;
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
@@ -447,16 +436,14 @@ describe('ERR file import', () => {
       votingMethod: 'precinct',
     };
 
-    const result = await apiClient.importElectionResultsReportingFile({
+    const result = await api.importElectionResultsReportingFile({
       ...manualResultsIdentifier,
       filepath,
     });
 
     expect(result.isOk()).toEqual(true);
 
-    const manualResults = await apiClient.getManualResults(
-      manualResultsIdentifier
-    );
+    const manualResults = api.getManualResults(manualResultsIdentifier);
     const expected: ManualResultsRecord = {
       precinctId: '21',
       ballotStyleGroupId: '12' as BallotStyleGroupId,
@@ -520,8 +507,8 @@ describe('ERR file import', () => {
   });
 
   test('logs when file parsing fails', async () => {
-    const { apiClient, auth } = buildTestEnvironment();
-    await configureMachine(apiClient, auth, electionGeneralDefinition);
+    const { api, auth } = buildTestEnvironment();
+    await configureMachine(api, auth, electionGeneralDefinition);
     const errContents = 'not json';
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
@@ -531,7 +518,7 @@ describe('ERR file import', () => {
       votingMethod: 'precinct',
     };
 
-    const result = await apiClient.importElectionResultsReportingFile({
+    const result = await api.importElectionResultsReportingFile({
       ...manualResultsIdentifier,
       filepath,
     });
@@ -539,8 +526,8 @@ describe('ERR file import', () => {
   });
 
   test('rejects when conversion to VX tabulation format fails', async () => {
-    const { apiClient, auth } = buildTestEnvironment();
-    await configureMachine(apiClient, auth, electionGeneralDefinition);
+    const { api, auth } = buildTestEnvironment();
+    await configureMachine(api, auth, electionGeneralDefinition);
     const errContents = testElectionReportUnsupportedContestType;
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
@@ -553,7 +540,7 @@ describe('ERR file import', () => {
       votingMethod: 'precinct',
     };
 
-    const result = await apiClient.importElectionResultsReportingFile({
+    const result = await api.importElectionResultsReportingFile({
       ...manualResultsIdentifier,
       filepath,
     });
