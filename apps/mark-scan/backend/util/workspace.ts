@@ -6,6 +6,7 @@ import {
 } from '@vx/libs/backend/diagnostics';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';
+import { isIntegrationTest } from '@vx/libs/utils/src';
 
 export interface Workspace {
   /**
@@ -39,7 +40,11 @@ export function createWorkspace(
   ensureDirSync(resolvedRoot);
 
   const dbPath = join(resolvedRoot, 'mark.db');
-  const store = options.store || Store.fileStore(dbPath, logger);
+  const store = options.store
+    ? options.store
+    : process.env.NODE_ENV === 'test' || isIntegrationTest()
+    ? Store.memoryStore()
+    : Store.fileStore(dbPath, logger);
   const getWorkspaceDiskSpaceSummary = initializeGetWorkspaceDiskSpaceSummary(
     store,
     [resolvedRoot]
