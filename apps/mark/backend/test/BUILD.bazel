@@ -19,7 +19,7 @@ ts_library(
         "//apps/mark/backend/workspace",
         "//libs/auth/inserted-cards",
         "//libs/auth/test-utils",
-        "//libs/backend/src",
+        "//libs/backend/election_package",
         "//libs/fixtures/src",
         "//libs/grout/src",
         "//libs/logging/src",

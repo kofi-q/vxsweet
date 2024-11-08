@@ -11,7 +11,7 @@ import {
   runUiStringApiTests,
   runUiStringMachineConfigurationTests,
   runUiStringMachineDeconfigurationTests,
-} from '@vx/libs/backend/src/ui_strings';
+} from '@vx/libs/backend/ui_strings';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 

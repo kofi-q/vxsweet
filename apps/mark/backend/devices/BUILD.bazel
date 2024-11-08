@@ -3,7 +3,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "devices",
-    deps = ["//libs/backend/src"],
+    deps = ["//libs/backend/devices"],
 )
 
 lint_test(name = "lint")

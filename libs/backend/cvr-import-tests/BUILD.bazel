@@ -12,7 +12,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/lodash.set",
         "//:types_env",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/basics/assert",
         "//libs/basics/result",
         "//libs/fixtures/src",

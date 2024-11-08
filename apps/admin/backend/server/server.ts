@@ -12,7 +12,7 @@ import {
 } from '@vx/libs/utils/src';
 import { detectUsbDrive, type UsbDrive } from '@vx/libs/usb-drive/src';
 import { type Printer, detectPrinter } from '@vx/libs/printing/src/printer';
-import { detectDevices } from '@vx/libs/backend/src';
+import { detectDevices } from '@vx/libs/backend/devices';
 import { ADMIN_WORKSPACE, PORT } from '../globals/globals';
 import { createWorkspace, type Workspace } from '../workspace/workspace';
 import { buildApp } from '../app/app';

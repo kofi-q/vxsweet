@@ -11,8 +11,8 @@ import {
   DEFAULT_MARK_THRESHOLDS,
   type ElectionDefinition,
   type MarkThresholds,
-  type PollsState,
   type SystemSettings,
+  type PollsState,
 } from '@vx/libs/types/elections';
 import { FileSystemEntryType, listDirectoryRecursive } from '@vx/libs/fs/src';
 import {
@@ -20,7 +20,7 @@ import {
   type ElectionRecord,
   type PrecinctScannerStore,
   type ScannerStoreBase,
-} from '../src/cast_vote_records/export';
+} from '../cast_vote_records/export';
 
 class MockScannerStoreBase implements ScannerStoreBase {
   private batches: BatchInfo[];

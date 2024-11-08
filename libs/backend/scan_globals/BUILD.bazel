@@ -1,0 +1,15 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "scan_globals",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/zod",
+        "//:types_env",
+        "//libs/types/basic",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

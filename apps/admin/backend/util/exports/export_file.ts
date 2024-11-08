@@ -2,7 +2,7 @@ import {
   type ExportDataResult,
   type ExportableData,
   Exporter,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/exporter';
 import { ADMIN_ALLOWED_EXPORT_PATTERNS } from '../../globals/globals';
 import { rootDebug } from '../logging/debug';
 

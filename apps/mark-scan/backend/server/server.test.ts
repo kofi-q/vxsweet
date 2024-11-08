@@ -6,12 +6,15 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-jest.mock('@vx/libs/backend/src', (): typeof import('@vx/libs/backend/src') => {
-  return {
-    ...jest.requireActual('@vx/libs/backend/src'),
-    initializeSystemAudio: jest.fn(),
-  };
-});
+jest.mock(
+  '@vx/libs/backend/audio',
+  (): typeof import('@vx/libs/backend/audio') => {
+    return {
+      ...jest.requireActual('@vx/libs/backend/audio'),
+      initializeSystemAudio: jest.fn(),
+    };
+  }
+);
 
 import { LogEventId, mockBaseLogger, mockLogger } from '@vx/libs/logging/src';
 import tmp from 'tmp';
@@ -21,7 +24,8 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';
-import { initializeSystemAudio, testDetectDevices } from '@vx/libs/backend/src';
+import { initializeSystemAudio } from '@vx/libs/backend/audio';
+import { testDetectDevices } from '@vx/libs/backend/devices';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { PORT } from '../globals/globals';
 import { resolveDriver, start } from './server';

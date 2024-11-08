@@ -7,9 +7,9 @@ jest.mock('@vx/libs/utils/src', () => {
 });
 
 jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
+  '@vx/libs/backend/diagnostics',
+  (): typeof import('@vx/libs/backend/diagnostics') => ({
+    ...jest.requireActual('@vx/libs/backend/diagnostics'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -28,7 +28,7 @@ import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
+import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   buildTestEnvironment,

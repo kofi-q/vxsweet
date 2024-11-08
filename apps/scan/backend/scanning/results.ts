@@ -17,7 +17,7 @@ import {
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { typedAs } from '@vx/libs/basics/types';
 import { iter } from '@vx/libs/basics/iterators';
-import { VX_MACHINE_ID } from '@vx/libs/backend/src';
+import { VX_MACHINE_ID } from '@vx/libs/backend/scan_globals';
 import { Store } from '../store/store';
 
 function isBmdPage(

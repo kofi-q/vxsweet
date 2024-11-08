@@ -6,7 +6,7 @@ import { dirSync } from 'tmp';
 import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { createMockPrinterHandler } from '@vx/libs/printing/src/printer';
-import { testDetectDevices } from '@vx/libs/backend/src';
+import { testDetectDevices } from '@vx/libs/backend/devices';
 import { start } from './server';
 import { createWorkspace } from '../workspace/workspace';
 import { PORT } from '../globals/globals';

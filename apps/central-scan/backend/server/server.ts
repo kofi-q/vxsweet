@@ -11,7 +11,7 @@ import {
   isIntegrationTest,
 } from '@vx/libs/utils/src';
 import { type UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
-import { detectDevices } from '@vx/libs/backend/src';
+import { detectDevices } from '@vx/libs/backend/devices';
 import { PORT, SCAN_WORKSPACE } from '../globals/globals';
 import { Importer } from '../importer/importer';
 import {

@@ -63,7 +63,7 @@ import {
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {
   type CastVoteRecordFileRecord,

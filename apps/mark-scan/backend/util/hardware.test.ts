@@ -1,8 +1,18 @@
-jest.mock('@vx/libs/backend/src/cast_vote_records');
-jest.mock('@vx/libs/backend/src/election_package');
+jest.mock('@vx/libs/backend/cast_vote_records');
+jest.mock('@vx/libs/backend/election_package');
+jest.mock('@vx/libs/backend/audio');
+jest.mock('@vx/libs/backend/command_line');
+jest.mock('@vx/libs/backend/devices');
+jest.mock('@vx/libs/backend/diagnostics');
+jest.mock('@vx/libs/backend/env');
+jest.mock('@vx/libs/backend/exceptions');
+jest.mock('@vx/libs/backend/exporter');
+jest.mock('@vx/libs/backend/pdfs');
+jest.mock('@vx/libs/backend/scan_globals');
 jest.mock('@vx/libs/backend/src');
-jest.mock('@vx/libs/backend/src/system_call');
-jest.mock('@vx/libs/backend/src/ui_strings');
+jest.mock('@vx/libs/backend/streams');
+jest.mock('@vx/libs/backend/system_call');
+jest.mock('@vx/libs/backend/ui_strings');
 
 jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   return {

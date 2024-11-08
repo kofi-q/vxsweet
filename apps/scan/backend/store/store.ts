@@ -49,17 +49,17 @@ import {
   type RejectedSheet,
   type Sheet,
   clearDoesUsbDriveRequireCastVoteRecordSyncCachedResult,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import {
   type UiStringsStore,
   createUiStringStore,
-} from '@vx/libs/backend/src/ui_strings';
+} from '@vx/libs/backend/ui_strings';
 import {
   addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,

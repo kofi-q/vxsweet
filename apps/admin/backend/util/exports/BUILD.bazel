@@ -6,7 +6,7 @@ ts_library(
     deps = [
         "//apps/admin/backend/globals",
         "//apps/admin/backend/util/logging",
-        "//libs/backend/src",
+        "//libs/backend/exporter",
         "//libs/usb-drive/src",
     ],
 )

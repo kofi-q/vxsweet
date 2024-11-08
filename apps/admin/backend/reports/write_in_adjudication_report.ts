@@ -8,7 +8,7 @@ import { Tabulation } from '@vx/libs/types/tabulation';
 import { Store } from '../store/store';
 import { getCurrentTime } from '../util/time/get_current_time';
 import { exportFile } from '../util/exports/export_file';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 
 function buildWriteInAdjudicationReport({
   store,

@@ -6,9 +6,9 @@ import {
   type BallotStyleId,
   BallotType,
   type CandidateContest,
-  type SheetOf,
   type TargetShape,
   type YesNoContest,
+  type SheetOf,
 } from '@vx/libs/types/elections';
 import {
   type BlankPage,

@@ -27,9 +27,9 @@ import {
 import {
   createUiStringsApi,
   configureUiStrings,
-} from '@vx/libs/backend/src/ui_strings';
-import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
-import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+} from '@vx/libs/backend/ui_strings';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/system_call';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { useDevDockRouter } from '@vx/libs/dev-dock/backend/src';
 import { type UsbDrive, type UsbDriveStatus } from '@vx/libs/usb-drive/src';

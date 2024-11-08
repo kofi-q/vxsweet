@@ -1,0 +1,30 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "streams",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/stream-chopper",
+        "//:types_stream_chopper",
+        "//libs/basics/assert",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/fast-check",
+        "//:node_modules/memory-streams",
+        "//:node_modules/tmp",
+        "//libs/backend/streams",
+        "//libs/basics/iterators",
+    ],
+)
+
+lint_test(name = "lint")

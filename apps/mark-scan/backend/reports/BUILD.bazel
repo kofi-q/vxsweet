@@ -6,7 +6,8 @@ ts_library(
     deps = [
         "//apps/mark-scan/backend/custom-paper-handler",
         "//apps/mark-scan/backend/util",
-        "//libs/backend/src",
+        "//libs/backend/exporter",
+        "//libs/backend/scan_globals",
         "//libs/logging/src",
         "//libs/printing/src",
         "//libs/ui/diagnostics",

@@ -15,7 +15,7 @@ ts_library(
         "//apps/design/backend/language_and_audio/translation",
         "//apps/design/backend/language_and_audio/tts",
         "//apps/design/backend/store",
-        "//libs/backend/src",
+        "//libs/backend/env",
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/errors",

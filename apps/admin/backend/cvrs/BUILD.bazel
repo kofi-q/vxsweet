@@ -11,7 +11,7 @@ ts_library(
         "//apps/admin/backend/store",
         "//apps/admin/backend/types",
         "//apps/admin/backend/util/cvrs",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/basics/assert",
         "//libs/basics/iterators",
         "//libs/basics/result",

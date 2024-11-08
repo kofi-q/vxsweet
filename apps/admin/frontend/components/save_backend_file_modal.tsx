@@ -10,7 +10,7 @@ import {
   isElectionManagerAuth,
   isSystemAdministratorAuth,
 } from '@vx/libs/utils/src';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 
 import { Button } from '@vx/libs/ui/buttons';
 import { Modal, ModalWidth } from '@vx/libs/ui/modal';

@@ -5,7 +5,7 @@ ts_library(
     name = "audio",
     deps = [
         "//apps/mark-scan/backend/globals",
-        "//libs/backend/src",
+        "//libs/backend/command_line",
     ],
 )
 

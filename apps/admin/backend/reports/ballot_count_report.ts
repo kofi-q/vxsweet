@@ -9,7 +9,7 @@ import { renderToPdf } from '@vx/libs/printing/src';
 import { Store } from '../store/store';
 import { generateTitleForReport } from './titles';
 import { getCurrentTime } from '../util/time/get_current_time';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import { exportFile } from '../util/exports/export_file';
 import {
   type BallotCountReportWarning,

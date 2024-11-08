@@ -26,7 +26,7 @@ import { type PageInterpretationWithFiles } from '@vx/libs/types/scanning';
 import { v4 as uuid } from 'uuid';
 import { LogEventId } from '@vx/libs/logging/src';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

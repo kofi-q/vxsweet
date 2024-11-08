@@ -1,12 +1,11 @@
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { MarkScanReadinessReport } from '@vx/libs/ui/diagnostics';
+import { type ExportDataResult, Exporter } from '@vx/libs/backend/exporter';
 import {
-  type ExportDataResult,
-  Exporter,
   SCAN_ALLOWED_EXPORT_PATTERNS,
   VX_MACHINE_ID,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/scan_globals';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
 import { type Workspace } from '../util/workspace';

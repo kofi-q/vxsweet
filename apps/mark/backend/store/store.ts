@@ -5,7 +5,7 @@
 import {
   type UiStringsStore,
   createUiStringStore,
-} from '@vx/libs/backend/src/ui_strings';
+} from '@vx/libs/backend/ui_strings';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type Optional } from '@vx/libs/basics/types';

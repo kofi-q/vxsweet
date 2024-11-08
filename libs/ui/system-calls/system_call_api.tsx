@@ -2,7 +2,7 @@ import React from 'react';
 
 import { type Optional } from '@vx/libs/basics/types';
 import { QueryKey, useMutation, useQuery } from '@tanstack/react-query';
-import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/src/system_call';
+import { type SystemCallApi as SystemCallApiClient } from '@vx/libs/backend/system_call';
 
 export const BATTERY_POLLING_INTERVAL_GROUT = 3000;
 export const AUDIO_INFO_POLLING_INTERVAL_MS = 1000;

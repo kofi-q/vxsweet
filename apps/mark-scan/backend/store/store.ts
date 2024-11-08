@@ -5,13 +5,13 @@
 import {
   type UiStringsStore,
   createUiStringStore,
-} from '@vx/libs/backend/src/ui_strings';
+} from '@vx/libs/backend/ui_strings';
 import {
   addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { type Optional } from '@vx/libs/basics/types';

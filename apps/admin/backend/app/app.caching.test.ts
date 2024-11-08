@@ -12,7 +12,7 @@ import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { assert } from '@vx/libs/basics/assert';
 import { ok } from '@vx/libs/basics/result';
-import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/cast_vote_records';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,

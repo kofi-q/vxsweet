@@ -1,7 +1,7 @@
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { type UsbDrive, detectUsbDrive } from '@vx/libs/usb-drive/src';
-import { detectDevices } from '@vx/libs/backend/src';
+import { detectDevices } from '@vx/libs/backend/devices';
 import { buildApp } from '../app/app';
 import { PORT } from '../globals/globals';
 import { type PrecinctScannerStateMachine } from '../types/types';

@@ -21,7 +21,7 @@ ts_library(
         "//apps/mark-scan/backend/util",
         "//libs/auth/inserted-cards",
         "//libs/auth/test-utils",
-        "//libs/backend/src",
+        "//libs/backend/election_package",
         "//libs/ballot-interpreter/src",
         "//libs/basics/assert",
         "//libs/custom-paper-handler/src",

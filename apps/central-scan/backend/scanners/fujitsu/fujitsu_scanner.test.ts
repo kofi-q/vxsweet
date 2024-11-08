@@ -1,7 +1,7 @@
 jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
+  '@vx/libs/backend/devices',
+  (): typeof import('@vx/libs/backend/devices') => ({
+    ...jest.requireActual('@vx/libs/backend/devices'),
     isDeviceAttached: jest.fn(),
   })
 );
@@ -13,7 +13,8 @@ import { LogSource } from '@vx/libs/logging/src/base_types';
 import { HmpbBallotPaperSize } from '@vx/libs/types/elections';
 import { ChildProcess } from 'node:child_process';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { type Device, isDeviceAttached } from '@vx/libs/backend/src';
+import { type Device } from '@vx/libs/backend/src';
+import { isDeviceAttached } from '@vx/libs/backend/devices';
 import {
   EXPECTED_IMPRINTER_UNATTACHED_ERROR,
   FUJITSU_VENDOR_ID,

@@ -7,7 +7,7 @@ ts_library(
     data = ["//apps/mark/backend:db_schema"],
     deps = [
         "//:node_modules/@types/node",
-        "//libs/backend/src",
+        "//libs/backend/ui_strings",
         "//libs/basics/assert",
         "//libs/basics/time",
         "//libs/basics/types",

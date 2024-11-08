@@ -7,7 +7,7 @@ ts_library(
     name = "test",
     deps = [
         "//libs/auth/cvrs",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/basics/assert",
         "//libs/basics/collections",
         "//libs/db/src",

@@ -7,7 +7,7 @@ import { type ExportCastVoteRecordsToUsbDriveError } from '@vx/libs/types/cvrs';
 import { type Id } from '@vx/libs/types/basic';
 import { type SheetInterpretationWithPages } from '@vx/libs/types/scanning';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
-import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/src/cast_vote_records';
+import { exportCastVoteRecordsToUsbDrive } from '@vx/libs/backend/cast_vote_records';
 import { ImageData } from 'canvas';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';

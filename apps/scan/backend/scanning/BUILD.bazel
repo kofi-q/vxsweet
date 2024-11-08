@@ -5,7 +5,7 @@ ts_library(
     name = "scanning",
     deps = [
         "//apps/scan/backend/store",
-        "//libs/backend/src",
+        "//libs/backend/scan_globals",
         "//libs/basics/assert",
         "//libs/basics/iterators",
         "//libs/basics/types",

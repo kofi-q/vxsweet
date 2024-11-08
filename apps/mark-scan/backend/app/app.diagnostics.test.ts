@@ -7,16 +7,16 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 jest.mock(
-  '@vx/libs/backend/src/system_call',
-  (): typeof import('@vx/libs/backend/src/system_call') => ({
-    ...jest.requireActual('@vx/libs/backend/src/system_call'),
+  '@vx/libs/backend/system_call',
+  (): typeof import('@vx/libs/backend/system_call') => ({
+    ...jest.requireActual('@vx/libs/backend/system_call'),
     getBatteryInfo: jest.fn(),
   })
 );
 jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
+  '@vx/libs/backend/diagnostics',
+  (): typeof import('@vx/libs/backend/diagnostics') => ({
+    ...jest.requireActual('@vx/libs/backend/diagnostics'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -54,8 +54,8 @@ import { type PageInterpretation } from '@vx/libs/types/scanning';
 import {
   type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@vx/libs/backend/src';
-import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
+} from '@vx/libs/backend/diagnostics';
+import { getBatteryInfo } from '@vx/libs/backend/system_call';
 import { type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { MockPaperHandlerDriver } from '@vx/libs/custom-paper-handler/src/driver';

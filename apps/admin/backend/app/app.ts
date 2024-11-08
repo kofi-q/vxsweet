@@ -38,18 +38,18 @@ import {
   groupMapToGroupList,
 } from '@vx/libs/utils/src/tabulation';
 import { dirSync } from 'tmp';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import {
-  type DiskSpaceSummary,
   type ExportDataError,
   type ExportDataResult,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/exporter';
 import {
   type ElectionPackageError,
   type ElectionPackageWithFileContents,
   readElectionPackageFromBuffer,
   readElectionPackageFromFile,
-} from '@vx/libs/backend/src/election_package';
-import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
+} from '@vx/libs/backend/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/system_call';
 import {
   type FileSystemEntry,
   FileSystemEntryType,

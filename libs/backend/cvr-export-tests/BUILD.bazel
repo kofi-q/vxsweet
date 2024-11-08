@@ -14,7 +14,7 @@ ts_tests(
         "//:node_modules/tmp",
         "//:node_modules/uuid",
         "//:types_env",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/backend/test",
         "//libs/basics/assert",
         "//libs/basics/async",

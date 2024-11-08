@@ -1,5 +1,5 @@
 import { resolve } from 'node:path';
-import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { WORKSPACE } from './globals/globals';

@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/src';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import { assertDefined } from '@vx/libs/basics/assert';
 
 import { BaseLogger } from '@vx/libs/logging/src';

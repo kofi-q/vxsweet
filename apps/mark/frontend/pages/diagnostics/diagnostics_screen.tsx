@@ -7,7 +7,7 @@ import { format, formatTime } from '@vx/libs/utils/src';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { type PrinterStatus } from '@vx/libs/types/printing';
-import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type BatteryInfo } from '@vx/libs/backend/system_call';
 import {
   AccessibleControllerDiagnosticScreen,
   type AccessibleControllerDiagnosticResults,

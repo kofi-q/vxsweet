@@ -3,13 +3,13 @@ import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
 import { generateSignedHashValidationQrCodeValue } from '@vx/libs/auth/validation';
 import { type Result, ok } from '@vx/libs/basics/result';
 import { assert } from '@vx/libs/basics/assert';
-import { createSystemCallApi } from '@vx/libs/backend/src/system_call';
-import { type DiskSpaceSummary } from '@vx/libs/backend/src';
-import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/src/election_package';
+import { createSystemCallApi } from '@vx/libs/backend/system_call';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
+import { readSignedElectionPackageFromUsb } from '@vx/libs/backend/election_package';
 import {
   exportCastVoteRecordsToUsbDrive,
   type ElectionRecord,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import {
   type ElectionPackageConfigurationError,
   type BallotPageLayout,

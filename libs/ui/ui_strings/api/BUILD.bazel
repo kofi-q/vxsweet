@@ -7,7 +7,7 @@ ts_library(
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@yornaath/batshit",
-        "//libs/backend/src",
+        "//libs/backend/ui_strings",
         "//libs/basics/assert",
         "//libs/grout/src",
         "//libs/types/languages",

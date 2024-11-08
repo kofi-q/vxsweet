@@ -1,10 +1,8 @@
 // Import the rest of our application.
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
-import {
-  handleUncaughtExceptions,
-  loadEnvVarsFromDotenvFiles,
-} from '@vx/libs/backend/src';
+import { handleUncaughtExceptions } from '@vx/libs/backend/exceptions';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import * as server from '../server/server';
 
 loadEnvVarsFromDotenvFiles();

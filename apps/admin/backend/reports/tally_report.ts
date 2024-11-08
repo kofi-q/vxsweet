@@ -13,7 +13,7 @@ import { Store } from '../store/store';
 import { getCurrentTime } from '../util/time/get_current_time';
 import { type TallyReportWarning, getTallyReportWarning } from './warnings';
 import { exportFile } from '../util/exports/export_file';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 
 /**
  * Parameters that define a tally report.

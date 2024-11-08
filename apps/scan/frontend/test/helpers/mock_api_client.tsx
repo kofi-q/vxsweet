@@ -41,10 +41,8 @@ import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { BROTHER_THERMAL_PRINTER_CONFIG } from '@vx/libs/printing/src/printer';
-import {
-  type DiskSpaceSummary,
-  type ExportDataResult,
-} from '@vx/libs/backend/src';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import { mockPollsInfo } from './mock_polls_info';
 import { ApiProvider } from '../../api/api_provider';
 

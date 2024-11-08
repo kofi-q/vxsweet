@@ -10,10 +10,8 @@ import {
   isFeatureFlagEnabled,
   isIntegrationTest,
 } from '@vx/libs/utils/src';
-import {
-  handleUncaughtExceptions,
-  loadEnvVarsFromDotenvFiles,
-} from '@vx/libs/backend/src';
+import { handleUncaughtExceptions } from '@vx/libs/backend/exceptions';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import { createPdiScannerClient } from '@vx/libs/pdi-scanner/src/ts';
 import { SCAN_WORKSPACE } from './globals/globals';
 import * as customStateMachine from './scanners/custom/state_machine';
