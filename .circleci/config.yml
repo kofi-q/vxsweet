@@ -84,7 +84,7 @@ commands:
       - run:
           name: Build and Test
           command: |
-            bazel test //... --config=ci --test_tag_filters=-lint
+            bazel test //... --config=ci --test_tag_filters=-lint --build_tag_filters=-lint
 
   run_lint_checks:
     description: Lint all relevant source files in the build graph.
