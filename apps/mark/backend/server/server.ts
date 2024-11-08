@@ -62,7 +62,7 @@ export async function start({
     port,
     /* istanbul ignore next */
     async () => {
-      await logger.log(LogEventId.ApplicationStartup, 'system', {
+      void logger.log(LogEventId.ApplicationStartup, 'system', {
         message: `VxMark backend running at http://localhost:${port}/`,
         disposition: 'success',
       });

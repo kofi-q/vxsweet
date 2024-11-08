@@ -69,7 +69,7 @@ export async function generateWriteInAdjudicationReportPreview({
       warning: pdfResult.isErr() ? { type: pdfResult.err() } : undefined,
     };
   })();
-  await logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
+  void logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
     message: `User previewed the write-in adjudication report.${
       result.warning ? ` Warning: ${result.warning.type}` : ''
     }`,
@@ -97,13 +97,13 @@ export async function printWriteInAdjudicationReport({
     // so rendering the PDF shouldn't error
     const data = (await renderToPdf({ document: report })).unsafeUnwrap();
     await printer.print({ data });
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `User printed the write-in adjudication report.`,
       disposition: 'success',
     });
   } catch (error) {
     assert(error instanceof Error);
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `Error in attempting to print the write-in adjudication report: ${error.message}`,
       disposition: 'failure',
     });
@@ -128,7 +128,7 @@ export async function exportWriteInAdjudicationReportPdf({
   const data = (await renderToPdf({ document: report })).unsafeUnwrap();
   const exportFileResult = await exportFile({ path, data });
 
-  await logger.logAsCurrentRole(LogEventId.FileSaved, {
+  void logger.logAsCurrentRole(LogEventId.FileSaved, {
     disposition: exportFileResult.isOk() ? 'success' : 'failure',
     message: `${
       exportFileResult.isOk() ? 'Saved' : 'Failed to save'

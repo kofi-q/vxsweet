@@ -493,7 +493,7 @@ export function buildMachine(
 
           return { type: 'PAT_DEVICE_NO_STATUS_CHANGE' };
         } catch (err) {
-          await logger.log(LogEventId.PatDeviceError, 'system', {
+          void logger.log(LogEventId.PatDeviceError, 'system', {
             error: (err as Error).message,
             disposition: 'failure',
           });
@@ -533,7 +533,7 @@ export function buildMachine(
           /* istanbul ignore next - unreachable if exhaustive */
           return { type: 'AUTH_STATUS_UNHANDLED' };
         } catch (err) {
-          await logger.log(LogEventId.UnknownError, 'system', {
+          void logger.log(LogEventId.UnknownError, 'system', {
             error: (err as Error).message,
             disposition: 'failure',
           });
@@ -1437,7 +1437,7 @@ function setUpLogging(
       if (event.type !== 'PAT_DEVICE_NO_STATUS_CHANGE') {
         // This event was triggered by a user action and should be logged with the current role.
         if (isEventUserAction(event)) {
-          await logger.logAsCurrentRole(
+          void logger.logAsCurrentRole(
             LogEventId.MarkScanStateMachineEvent,
             { message: `Event: ${event.type}` },
             /* istanbul ignore next */
@@ -1445,7 +1445,7 @@ function setUpLogging(
           );
         } else {
           // Non-user driven events can be logged with a user of 'system'
-          await logger.log(
+          void logger.log(
             LogEventId.MarkScanStateMachineEvent,
             'system',
             { message: `Event: ${event.type}` },
@@ -1488,7 +1488,7 @@ function setUpLogging(
         ]);
 
       if (changed.length === 0) return;
-      await logger.log(
+      void logger.log(
         LogEventId.PaperHandlerStateChanged,
         'system',
         {
@@ -1501,7 +1501,7 @@ function setUpLogging(
     })
     .onTransition(async (state) => {
       if (!state.changed) return;
-      await logger.log(
+      void logger.log(
         LogEventId.PaperHandlerStateChanged,
         'system',
         {

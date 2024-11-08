@@ -65,7 +65,7 @@ export class FujitsuThermalPrinter implements FujitsuThermalPrinterInterface {
    */
   async getStatus(): Promise<PrinterStatus> {
     const newStatus = await this.getCurrentStatus();
-    await logPrinterStatusIfChanged(
+    void logPrinterStatusIfChanged(
       this.logger,
       this.lastKnownStatus,
       newStatus

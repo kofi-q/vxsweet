@@ -46,12 +46,12 @@ export function start({
   });
 
   app.listen(PORT, async () => {
-    await logger.log(LogEventId.ApplicationStartup, 'system', {
+    void logger.log(LogEventId.ApplicationStartup, 'system', {
       message: `VxScan backend running at http://localhost:${PORT}/`,
       disposition: 'success',
     });
 
-    await logger.log(LogEventId.WorkspaceConfigurationMessage, 'system', {
+    void logger.log(LogEventId.WorkspaceConfigurationMessage, 'system', {
       message: `Scanning ballots into ${workspace.ballotImagesPath}`,
     });
   });

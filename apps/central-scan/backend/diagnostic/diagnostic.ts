@@ -13,7 +13,7 @@ export async function performScanDiagnostic(
   store: Store,
   logger: Logger
 ): Promise<ScanDiagnosticOutcome> {
-  await logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
+  void logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
     message:
       'Starting diagnostic scan. Test sheet should be a blank sheet of white paper.',
   });
@@ -28,7 +28,7 @@ export async function performScanDiagnostic(
   await batchControl.endBatch();
 
   if (!sheets) {
-    await logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
+    void logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
       disposition: 'failure',
       message: 'No test sheet detected for scan diagnostic.',
     });
@@ -49,7 +49,7 @@ export async function performScanDiagnostic(
       type: 'blank-sheet-scan',
       outcome: 'pass',
     });
-    await logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
+    void logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
       disposition: 'success',
       message: 'Diagnostic scan succeeded.',
     });
@@ -58,7 +58,7 @@ export async function performScanDiagnostic(
       type: 'blank-sheet-scan',
       outcome: 'fail',
     });
-    await logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
+    void logger.logAsCurrentRole(LogEventId.DiagnosticComplete, {
       disposition: 'failure',
       message:
         'Diagnostic scan failed. The paper may not be blank or the scanner may need to be cleaned.',

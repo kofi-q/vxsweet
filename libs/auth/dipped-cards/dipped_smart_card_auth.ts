@@ -96,7 +96,7 @@ async function logAuthEventIfNecessary(
         newAuthStatus.status === 'logged_out' &&
         newAuthStatus.reason !== 'machine_locked'
       ) {
-        await logger.log(
+        void logger.log(
           LogEventId.AuthLogin,
           newAuthStatus.cardUserRole ?? 'unknown',
           {
@@ -111,14 +111,10 @@ async function logAuthEventIfNecessary(
 
     case 'checking_pin': {
       if (newAuthStatus.status === 'logged_out') {
-        await logger.log(
-          LogEventId.AuthPinEntry,
-          previousAuthStatus.user.role,
-          {
-            disposition: LogDispositionStandardTypes.Failure,
-            message: 'User canceled PIN entry.',
-          }
-        );
+        void logger.log(LogEventId.AuthPinEntry, previousAuthStatus.user.role, {
+          disposition: LogDispositionStandardTypes.Failure,
+          message: 'User canceled PIN entry.',
+        });
       } else if (newAuthStatus.status === 'checking_pin') {
         if (
           newAuthStatus.wrongPinEnteredAt &&
@@ -126,7 +122,7 @@ async function logAuthEventIfNecessary(
             previousAuthStatus.wrongPinEnteredAt
         ) {
           if (newAuthStatus.lockedOutUntil) {
-            await logger.log(
+            void logger.log(
               LogEventId.AuthPinEntryLockout,
               newAuthStatus.user.role,
               {
@@ -136,7 +132,7 @@ async function logAuthEventIfNecessary(
               }
             );
           } else {
-            await logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
+            void logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
               disposition: LogDispositionStandardTypes.Failure,
               message: 'User entered incorrect PIN.',
             });
@@ -145,7 +141,7 @@ async function logAuthEventIfNecessary(
           newAuthStatus.error &&
           newAuthStatus.error.erroredAt !== previousAuthStatus.error?.erroredAt
         ) {
-          await logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
+          void logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
             disposition: LogDispositionStandardTypes.Failure,
             message: `Error checking PIN: ${extractErrorMessage(
               newAuthStatus.error.error
@@ -153,7 +149,7 @@ async function logAuthEventIfNecessary(
           });
         }
       } else if (newAuthStatus.status === 'remove_card') {
-        await logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
+        void logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
           disposition: LogDispositionStandardTypes.Success,
           message: 'User entered correct PIN.',
         });
@@ -163,7 +159,7 @@ async function logAuthEventIfNecessary(
 
     case 'remove_card': {
       if (newAuthStatus.status === 'logged_in') {
-        await logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
+        void logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
           disposition: LogDispositionStandardTypes.Success,
           message: 'User logged in.',
         });
@@ -174,25 +170,17 @@ async function logAuthEventIfNecessary(
     case 'logged_in': {
       if (newAuthStatus.status === 'logged_out') {
         if (newAuthStatus.reason === 'machine_locked_by_session_expiry') {
-          await logger.log(
-            LogEventId.AuthLogout,
-            previousAuthStatus.user.role,
-            {
-              disposition: LogDispositionStandardTypes.Success,
-              message: 'User logged out automatically due to session expiry.',
-              reason: newAuthStatus.reason,
-            }
-          );
+          void logger.log(LogEventId.AuthLogout, previousAuthStatus.user.role, {
+            disposition: LogDispositionStandardTypes.Success,
+            message: 'User logged out automatically due to session expiry.',
+            reason: newAuthStatus.reason,
+          });
         } else {
-          await logger.log(
-            LogEventId.AuthLogout,
-            previousAuthStatus.user.role,
-            {
-              disposition: LogDispositionStandardTypes.Success,
-              message: 'User logged out.',
-              reason: newAuthStatus.reason,
-            }
-          );
+          void logger.log(LogEventId.AuthLogout, previousAuthStatus.user.role, {
+            disposition: LogDispositionStandardTypes.Success,
+            message: 'User logged out.',
+            reason: newAuthStatus.reason,
+          });
         }
       }
       return;
@@ -442,7 +430,7 @@ export class DippedSmartCardAuth implements DippedSmartCardAuthApi {
   ): Promise<void> {
     const previousAuthStatus = this.authStatus;
     this.authStatus = this.determineNewAuthStatus(machineState, action);
-    await logAuthEventIfNecessary(
+    void logAuthEventIfNecessary(
       previousAuthStatus,
       this.authStatus,
       this.logger

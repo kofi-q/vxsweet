@@ -25,7 +25,7 @@ export async function exportCastVoteRecordsToUsbDrive({
 }): Promise<ExportCastVoteRecordsToUsbDriveResult> {
   const { store, continuousExportMutex } = workspace;
 
-  await logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
+  void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
     message:
       mode === 'polls_closing'
         ? 'Marking cast vote record export as complete on polls close...'
@@ -80,7 +80,7 @@ export async function exportCastVoteRecordsToUsbDrive({
           // reason. We have to use a try-catch and can't just check for an error Result
           // because certain errors, e.g., errors involving corrupted USB drive file systems,
           // surface as unexpected errors.
-          await logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
+          void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
             message: 'Falling back to full export...',
             errorDetails: extractErrorMessage(error),
           });
@@ -102,7 +102,7 @@ export async function exportCastVoteRecordsToUsbDrive({
   }
 
   if (exportResult.isErr()) {
-    await logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
+    void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
       disposition: 'failure',
       message:
         mode === 'polls_closing'
@@ -111,7 +111,7 @@ export async function exportCastVoteRecordsToUsbDrive({
       errorDetails: JSON.stringify(exportResult.err()),
     });
   } else {
-    await logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
+    void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
       disposition: 'success',
       message:
         mode === 'polls_closing'

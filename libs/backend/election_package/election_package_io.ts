@@ -307,7 +307,7 @@ export async function readSignedElectionPackageFromUsb(
   // manager has authed. But we may reach this state if a user removes their card immediately
   // after inserting it, but after the election package configuration attempt has started
   if (authStatus.status !== 'logged_in') {
-    await logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
+    void logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
       disposition: 'failure',
       message: 'Election package configuration was attempted before auth.',
     });
@@ -335,7 +335,7 @@ export async function readSignedElectionPackageFromUsb(
         filePath: filepathResult.ok(),
       });
   if (artifactAuthenticationResult.isErr()) {
-    await logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
+    void logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
       disposition: 'failure',
       message: 'Election package authentication erred.',
     });
@@ -350,7 +350,7 @@ export async function readSignedElectionPackageFromUsb(
   );
 
   if (!deepEqual(authStatus.user.electionKey, electionKey)) {
-    await logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
+    void logger.log(LogEventId.ElectionPackageLoadedFromUsb, 'system', {
       disposition: 'failure',
       message:
         'The election key for the authorized user and most recent election package on the USB drive did not match.',

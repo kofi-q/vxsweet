@@ -253,13 +253,13 @@ function buildApi({
     async generateSignedHashValidationQrCodeValue() {
       const { codeVersion, machineId } = getMachineConfig();
       const electionRecord = getCurrentElectionRecord(workspace);
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
       const qrCodeValue = await generateSignedHashValidationQrCodeValue({
         electionRecord,
         machineId,
         softwareVersion: codeVersion,
       });
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
         disposition: 'success',
       });
       return qrCodeValue;
@@ -283,7 +283,7 @@ function buildApi({
     },
 
     async saveElectionPackageToUsb(): Promise<Result<void, ExportDataError>> {
-      await logger.logAsCurrentRole(LogEventId.SaveElectionPackageInit);
+      void logger.logAsCurrentRole(LogEventId.SaveElectionPackageInit);
       const exporter = buildExporter(usbDrive);
 
       const electionRecord = getCurrentElectionRecord(workspace);
@@ -341,7 +341,7 @@ function buildApi({
         await fs.rm(tempDirectory, { recursive: true });
       }
 
-      await logger.logAsCurrentRole(LogEventId.SaveElectionPackageComplete, {
+      void logger.logAsCurrentRole(LogEventId.SaveElectionPackageComplete, {
         disposition: 'success',
         message: 'Successfully saved election package.',
       });
@@ -444,7 +444,7 @@ function buildApi({
       })();
 
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           message: `Error configuring machine.`,
           disposition: 'failure',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -462,16 +462,16 @@ function buildApi({
         electionPackageHash,
       });
       store.setCurrentElectionId(electionId);
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         disposition: 'success',
         newBallotHash: electionDefinition.ballotHash,
       });
       return ok({ electionId });
     },
 
-    async unconfigure(): Promise<void> {
+    unconfigure(): void {
       store.deleteElection(loadCurrentElectionIdOrThrow(workspace));
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
       });
     },
@@ -488,13 +488,13 @@ function buildApi({
       return null;
     },
 
-    async markResultsOfficial(): Promise<void> {
+    markResultsOfficial(): void {
       store.setElectionResultsOfficial(
         loadCurrentElectionIdOrThrow(workspace),
         true
       );
 
-      await logger.logAsCurrentRole(LogEventId.MarkedTallyResultsOfficial, {
+      void logger.logAsCurrentRole(LogEventId.MarkedTallyResultsOfficial, {
         message:
           'User has marked the tally results as official, no more cast vote record files can be loaded.',
         disposition: 'success',
@@ -510,7 +510,7 @@ function buildApi({
         electionDefinition
       );
       if (listResult.isErr()) {
-        await logger.logAsCurrentRole(
+        void logger.logAsCurrentRole(
           LogEventId.ListCastVoteRecordExportsOnUsbDrive,
           {
             disposition: 'failure',
@@ -521,7 +521,7 @@ function buildApi({
         return [];
       }
       const castVoteRecordExportSummaries = listResult.ok();
-      await logger.logAsCurrentRole(
+      void logger.logAsCurrentRole(
         LogEventId.ListCastVoteRecordExportsOnUsbDrive,
         {
           disposition: 'success',
@@ -538,7 +538,7 @@ function buildApi({
     async addCastVoteRecordFile(input: {
       path: string;
     }): Promise<Result<CvrFileImportInfo, ImportCastVoteRecordsError>> {
-      await logger.logAsCurrentRole(LogEventId.ImportCastVoteRecordsInit, {
+      void logger.logAsCurrentRole(LogEventId.ImportCastVoteRecordsInit, {
         message: 'Importing cast vote records...',
       });
       const exportDirectoryPath =
@@ -552,15 +552,12 @@ function buildApi({
         exportDirectoryPath
       );
       if (importResult.isErr()) {
-        await logger.logAsCurrentRole(
-          LogEventId.ImportCastVoteRecordsComplete,
-          {
-            disposition: 'failure',
-            message: 'Error importing cast vote records.',
-            exportDirectoryPath,
-            errorDetails: JSON.stringify(importResult.err()),
-          }
-        );
+        void logger.logAsCurrentRole(LogEventId.ImportCastVoteRecordsComplete, {
+          disposition: 'failure',
+          message: 'Error importing cast vote records.',
+          exportDirectoryPath,
+          errorDetails: JSON.stringify(importResult.err()),
+        });
       } else {
         const { alreadyPresent: numAlreadyPresent, newlyAdded: numNewlyAdded } =
           importResult.ok();
@@ -568,20 +565,17 @@ function buildApi({
         if (numAlreadyPresent > 0) {
           message += ` Ignored ${numAlreadyPresent} duplicate(s).`;
         }
-        await logger.logAsCurrentRole(
-          LogEventId.ImportCastVoteRecordsComplete,
-          {
-            disposition: 'success',
-            message,
-            exportDirectoryPath,
-          }
-        );
+        void logger.logAsCurrentRole(LogEventId.ImportCastVoteRecordsComplete, {
+          disposition: 'success',
+          message,
+          exportDirectoryPath,
+        });
       }
       return importResult;
     },
 
-    async clearCastVoteRecordFiles(): Promise<void> {
-      await logger.logAsCurrentRole(
+    clearCastVoteRecordFiles(): void {
+      void logger.logAsCurrentRole(
         LogEventId.ClearImportedCastVoteRecordsInit,
         {
           message: 'Clearing imported cast vote records...',
@@ -590,7 +584,7 @@ function buildApi({
       const electionId = loadCurrentElectionIdOrThrow(workspace);
       store.deleteCastVoteRecordFiles(electionId);
       store.setElectionResultsOfficial(electionId, false);
-      await logger.logAsCurrentRole(
+      void logger.logAsCurrentRole(
         LogEventId.ClearImportedCastVoteRecordsComplete,
         {
           disposition: 'success',
@@ -625,8 +619,8 @@ function buildApi({
       );
     },
 
-    async adjudicateWriteIn(input: WriteInAdjudicationAction): Promise<void> {
-      await adjudicateWriteIn(input, store, logger);
+    adjudicateWriteIn(input: WriteInAdjudicationAction): void {
+      adjudicateWriteIn(input, store, logger);
     },
 
     getWriteInAdjudicationQueueMetadata(
@@ -680,22 +674,22 @@ function buildApi({
       });
     },
 
-    async deleteAllManualResults(): Promise<void> {
+    deleteAllManualResults(): void {
       store.deleteAllManualResults({
         electionId: loadCurrentElectionIdOrThrow(workspace),
       });
-      await logger.logAsCurrentRole(LogEventId.ManualTallyDataRemoved, {
+      void logger.logAsCurrentRole(LogEventId.ManualTallyDataRemoved, {
         message: 'User removed all manually entered tally data.',
         disposition: 'success',
       });
     },
 
-    async deleteManualResults(input: ManualResultsIdentifier): Promise<void> {
+    deleteManualResults(input: ManualResultsIdentifier): void {
       store.deleteManualResults({
         electionId: loadCurrentElectionIdOrThrow(workspace),
         ...input,
       });
-      await logger.logAsCurrentRole(LogEventId.ManualTallyDataRemoved, {
+      void logger.logAsCurrentRole(LogEventId.ManualTallyDataRemoved, {
         message:
           'User removed manually entered tally data for a particular ballot style, precinct, and voting method.',
         ...input,
@@ -718,7 +712,7 @@ function buildApi({
         votingMethod: input.votingMethod,
       });
 
-      await logger.logAsCurrentRole(LogEventId.ManualTallyDataEdited, {
+      void logger.logAsCurrentRole(LogEventId.ManualTallyDataEdited, {
         disposition: 'success',
         message:
           'User added or edited manually entered tally data for a particular ballot style, precinct, and voting method.',
@@ -802,7 +796,7 @@ function buildApi({
         );
 
       if (wrappedManualResults.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ParseError, {
+        void logger.logAsCurrentRole(LogEventId.ParseError, {
           message: 'Error converting ERR file to VX format',
           error: wrappedManualResults.err().message,
         });
@@ -820,7 +814,7 @@ function buildApi({
         votingMethod: input.votingMethod,
       });
 
-      await logger.logAsCurrentRole(
+      void logger.logAsCurrentRole(
         LogEventId.ElectionResultsReportingTallyFileImported,
         {
           disposition: 'success',
@@ -896,7 +890,7 @@ function buildApi({
         }),
       });
 
-      await logger.logAsCurrentRole(LogEventId.FileSaved, {
+      void logger.logAsCurrentRole(LogEventId.FileSaved, {
         disposition: exportFileResult.isOk() ? 'success' : 'failure',
         message: `${
           exportFileResult.isOk() ? 'Saved' : 'Failed to save'
@@ -948,7 +942,7 @@ function buildApi({
         ),
       });
 
-      await logger.logAsCurrentRole(LogEventId.FileSaved, {
+      void logger.logAsCurrentRole(LogEventId.FileSaved, {
         disposition: exportFileResult.isOk() ? 'success' : 'failure',
         message: `${
           exportFileResult.isOk() ? 'Saved' : 'Failed to save'
@@ -1024,7 +1018,7 @@ function buildApi({
         }),
       });
 
-      await logger.logAsCurrentRole(LogEventId.FileSaved, {
+      void logger.logAsCurrentRole(LogEventId.FileSaved, {
         disposition: exportFileResult.isOk() ? 'success' : 'failure',
         message: `${
           exportFileResult.isOk() ? 'Saved' : 'Failed to save'

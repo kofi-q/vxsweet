@@ -97,11 +97,11 @@ function buildApi({
 
     async setTestMode(input: { testMode: boolean }) {
       const { testMode } = input;
-      await logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
+      void logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
         message: `Toggling to ${testMode ? 'Test' : 'Official'} Ballot Mode...`,
       });
       await importer.setTestMode(testMode);
-      await logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
+      void logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
         disposition: 'success',
         message: `Successfully toggled to ${
           testMode ? 'Test' : 'Official'
@@ -121,7 +121,7 @@ function buildApi({
         .getBatches()
         .find((batch) => batch.id === batchId)?.count;
 
-      await logger.logAsCurrentRole(LogEventId.DeleteScanBatchInit, {
+      void logger.logAsCurrentRole(LogEventId.DeleteScanBatchInit, {
         message: `User deleting batch id ${batchId}...`,
         numberOfBallotsInBatch,
         batchId,
@@ -129,7 +129,7 @@ function buildApi({
 
       try {
         workspace.store.deleteBatch(batchId);
-        await logger.logAsCurrentRole(LogEventId.DeleteScanBatchComplete, {
+        void logger.logAsCurrentRole(LogEventId.DeleteScanBatchComplete, {
           disposition: 'success',
           message: `User successfully deleted batch id: ${batchId} containing ${numberOfBallotsInBatch} ballots.`,
           numberOfBallotsInBatch,
@@ -160,7 +160,7 @@ function buildApi({
         logger
       );
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           message: `Error configuring machine.`,
           disposition: 'failure',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -180,7 +180,7 @@ function buildApi({
       );
       store.setSystemSettings(systemSettings);
 
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         message: `Machine configured for election with hash: ${electionDefinition.ballotHash}`,
         disposition: 'success',
         ballotHash: electionDefinition.ballotHash,
@@ -204,10 +204,10 @@ function buildApi({
     async scanBatch(): Promise<void> {
       try {
         const batchId = await importer.startImport();
-        await logBatchStartSuccess(logger, batchId);
+        void logBatchStartSuccess(logger, batchId);
       } catch (error) {
         assert(error instanceof Error);
-        await logBatchStartFailure(logger, error);
+        void logBatchStartFailure(logger, error);
       }
     },
 
@@ -215,10 +215,10 @@ function buildApi({
       try {
         const { forceAccept } = input;
         importer.continueImport(input);
-        await logScanBatchContinueSuccess(logger, forceAccept);
+        void logScanBatchContinueSuccess(logger, forceAccept);
       } catch (error) {
         assert(error instanceof Error);
-        await logScanBatchContinueFailure(logger, error);
+        void logScanBatchContinueFailure(logger, error);
       }
     },
 
@@ -231,7 +231,7 @@ function buildApi({
       assert(store.getCanUnconfigure() || input.ignoreBackupRequirement);
 
       await importer.unconfigure();
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
         message:
           'User successfully unconfigured the machine to remove the current election and all current ballot data.',
@@ -249,7 +249,7 @@ function buildApi({
       isMinimalExport?: boolean;
     }): Promise<Result<void, ExportCastVoteRecordsToUsbDriveError>> {
       const logItem = input.isMinimalExport ? 'cast vote records' : 'backup';
-      await logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
+      void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsInit, {
         message: `Exporting ${logItem}...`,
       });
       const exportResult = await exportCastVoteRecordsToUsbDrive(
@@ -264,22 +264,16 @@ function buildApi({
         store.setScannerBackedUp();
       }
       if (exportResult.isErr()) {
-        await logger.logAsCurrentRole(
-          LogEventId.ExportCastVoteRecordsComplete,
-          {
-            disposition: 'failure',
-            message: `Error exporting ${logItem}.`,
-            errorDetails: JSON.stringify(exportResult.err()),
-          }
-        );
+        void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
+          disposition: 'failure',
+          message: `Error exporting ${logItem}.`,
+          errorDetails: JSON.stringify(exportResult.err()),
+        });
       } else {
-        await logger.logAsCurrentRole(
-          LogEventId.ExportCastVoteRecordsComplete,
-          {
-            disposition: 'success',
-            message: `Successfully exported ${logItem}.`,
-          }
-        );
+        void logger.logAsCurrentRole(LogEventId.ExportCastVoteRecordsComplete, {
+          disposition: 'success',
+          message: `Successfully exported ${logItem}.`,
+        });
       }
       return exportResult;
     },
@@ -309,13 +303,13 @@ function buildApi({
     async generateSignedHashValidationQrCodeValue() {
       const { codeVersion, machineId } = getMachineConfig();
       const electionRecord = store.getElectionRecord();
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
       const qrCodeValue = await generateSignedHashValidationQrCodeValue({
         electionRecord,
         machineId,
         softwareVersion: codeVersion,
       });
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
         disposition: 'success',
       });
       return qrCodeValue;

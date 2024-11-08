@@ -27,7 +27,7 @@ export async function parseElectionResultsReportingFile(
   });
 
   if (readFileResult.isErr()) {
-    await logger.logAsCurrentRole(LogEventId.FileReadError, {
+    void logger.logAsCurrentRole(LogEventId.FileReadError, {
       message: `An error occurred when reading ERR file: ${JSON.stringify(
         readFileResult.err()
       )}`,

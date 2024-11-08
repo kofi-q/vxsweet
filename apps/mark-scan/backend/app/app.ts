@@ -157,7 +157,7 @@ export function buildApi(
 
     async unconfigureMachine() {
       workspace.store.reset();
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
         message:
           'User successfully unconfigured the machine to remove the current election.',
@@ -177,7 +177,7 @@ export function buildApi(
         logger
       );
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           disposition: 'failure',
           message: 'Error configuring machine.',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -214,7 +214,7 @@ export function buildApi(
         });
       });
 
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         message: `Machine configured for election with hash: ${electionDefinition.ballotHash}`,
         disposition: 'success',
         ballotHash: electionDefinition.ballotHash,
@@ -303,7 +303,7 @@ export function buildApi(
     async confirmInvalidateBallot(): Promise<void> {
       assert(stateMachine);
 
-      await logger.log(LogEventId.BallotInvalidated, 'poll_worker');
+      void logger.log(LogEventId.BallotInvalidated, 'poll_worker');
 
       stateMachine.confirmInvalidateBallot();
     },
@@ -319,7 +319,7 @@ export function buildApi(
       workspace.store.setBallotsCastSinceLastBoxChange(0);
       stateMachine.confirmBallotBoxEmptied();
 
-      await logger.log(LogEventId.BallotBoxEmptied, 'poll_worker');
+      void logger.log(LogEventId.BallotBoxEmptied, 'poll_worker');
     },
 
     ...createUiStringsApi({
@@ -381,21 +381,21 @@ export function buildApi(
         }
       })();
 
-      await logger.logAsCurrentRole(logEvent, { disposition: 'success' });
+      void logger.logAsCurrentRole(logEvent, { disposition: 'success' });
     },
 
     async setTestMode(input: { isTestMode: boolean }) {
       const logMessage = input.isTestMode
         ? 'official to test'
         : 'test to official';
-      await logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
+      void logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
         message: `Toggling from ${logMessage} mode`,
         isTestMode: input.isTestMode,
       });
       store.setTestMode(input.isTestMode);
       store.setPollsState('polls_closed_initial');
       store.setBallotsPrintedCount(0);
-      await logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
+      void logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
         disposition: 'success',
         message: `Successfully toggled from ${logMessage} mode.`,
         isTestMode: input.isTestMode,
@@ -408,7 +408,7 @@ export function buildApi(
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       store.setPrecinctSelection(input.precinctSelection);
       store.setBallotsPrintedCount(0);
-      await logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
+      void logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
         disposition: 'success',
         message: `User set the precinct for the machine to ${getPrecinctSelectionName(
           electionDefinition.election.precincts,
@@ -465,13 +465,13 @@ export function buildApi(
     async generateSignedHashValidationQrCodeValue() {
       const { codeVersion, machineId } = getMachineConfig();
       const electionRecord = store.getElectionRecord();
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
       const qrCodeValue = await generateSignedHashValidationQrCodeValue({
         electionRecord,
         machineId,
         softwareVersion: codeVersion,
       });
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
         disposition: 'success',
       });
       return qrCodeValue;

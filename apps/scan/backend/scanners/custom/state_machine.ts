@@ -1149,7 +1149,7 @@ function setupLogging(
     .onEvent(async (event) => {
       // To protect voter privacy, we only log the event type (since some event
       // objects include ballot interpretations)
-      await logger.log(
+      void logger.log(
         LogEventId.ScannerEvent,
         'system',
         { message: `Event: ${event.type}` },
@@ -1189,7 +1189,7 @@ function setupLogging(
         ]);
 
       if (changed.length === 0) return;
-      await logger.log(
+      void logger.log(
         LogEventId.ScannerStateChanged,
         'system',
         {
@@ -1204,7 +1204,7 @@ function setupLogging(
     })
     .onTransition(async (state) => {
       if (!state.changed) return;
-      await logger.log(
+      void logger.log(
         LogEventId.ScannerStateChanged,
         'system',
         {

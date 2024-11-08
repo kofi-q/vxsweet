@@ -1150,7 +1150,7 @@ function setupLogging(
       const eventString = JSON.stringify(event, cleanLogData);
       if (isEventUserAction(event)) {
         // This event was triggered by a user so we should log as a current user role, falling back to 'cardless_voter' if there is no one authenticated.
-        await logger.logAsCurrentRole(
+        void logger.logAsCurrentRole(
           LogEventId.ScannerEvent,
           { message: `Event: ${event.type}`, eventObject: eventString },
           /* istanbul ignore next */
@@ -1159,7 +1159,7 @@ function setupLogging(
         );
       } else {
         // Non-user driven events can be logged with a user of 'system'
-        await logger.log(
+        void logger.log(
           LogEventId.ScannerEvent,
           'system',
           { message: `Event: ${event.type}`, eventObject: eventString },
@@ -1178,7 +1178,7 @@ function setupLogging(
         Object.fromEntries(changed),
         cleanLogData
       );
-      await logger.log(
+      void logger.log(
         LogEventId.ScannerStateChanged,
         'system',
         {
@@ -1190,7 +1190,7 @@ function setupLogging(
     })
     .onTransition(async (state) => {
       if (!state.changed) return;
-      await logger.log(
+      void logger.log(
         LogEventId.ScannerStateChanged,
         'system',
         {

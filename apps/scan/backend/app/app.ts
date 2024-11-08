@@ -111,13 +111,13 @@ export function buildApi({
     async generateSignedHashValidationQrCodeValue() {
       const { codeVersion, machineId } = getMachineConfig();
       const electionRecord = store.getElectionRecord();
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
       const qrCodeValue = await generateSignedHashValidationQrCodeValue({
         electionRecord,
         machineId,
         softwareVersion: codeVersion,
       });
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
         disposition: 'success',
       });
       return qrCodeValue;
@@ -155,7 +155,7 @@ export function buildApi({
         logger
       );
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           disposition: 'failure',
           message: 'Error configuring machine.',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -193,7 +193,7 @@ export function buildApi({
         });
       });
 
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         message: `Machine configured for election with hash: ${electionDefinition.ballotHash}`,
         disposition: 'success',
         ballotHash: electionDefinition.ballotHash,
@@ -231,7 +231,7 @@ export function buildApi({
 
     async unconfigureElection(): Promise<void> {
       workspace.reset();
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
         message:
           'User successfully unconfigured the machine to remove the current election and all current ballot data.',
@@ -248,7 +248,7 @@ export function buildApi({
       );
       store.setPrecinctSelection(input.precinctSelection);
       workspace.resetElectionSession();
-      await logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
+      void logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
         disposition: 'success',
         message: `User set the precinct for the machine to ${getPrecinctSelectionName(
           electionDefinition.election.precincts,
@@ -259,7 +259,7 @@ export function buildApi({
 
     async setIsSoundMuted(input: { isSoundMuted: boolean }): Promise<void> {
       store.setIsSoundMuted(input.isSoundMuted);
-      await logger.logAsCurrentRole(LogEventId.SoundToggled, {
+      void logger.logAsCurrentRole(LogEventId.SoundToggled, {
         message: `Sounds were toggled ${input.isSoundMuted ? 'off' : 'on'}`,
         disposition: 'success',
         isSoundMuted: input.isSoundMuted,
@@ -272,7 +272,7 @@ export function buildApi({
       store.setIsDoubleFeedDetectionDisabled(
         input.isDoubleFeedDetectionDisabled
       );
-      await logger.logAsCurrentRole(LogEventId.DoubleSheetDetectionToggled, {
+      void logger.logAsCurrentRole(LogEventId.DoubleSheetDetectionToggled, {
         message: `Double sheet detection was toggled ${
           input.isDoubleFeedDetectionDisabled ? 'off' : 'on'
         }`,
@@ -285,7 +285,7 @@ export function buildApi({
       isContinuousExportEnabled: boolean;
     }): Promise<void> {
       store.setIsContinuousExportEnabled(input.isContinuousExportEnabled);
-      await logger.logAsCurrentRole(LogEventId.ContinuousExportToggled, {
+      void logger.logAsCurrentRole(LogEventId.ContinuousExportToggled, {
         message: `Continuous export was ${
           input.isContinuousExportEnabled ? 'resumed' : 'paused'
         }`,
@@ -297,7 +297,7 @@ export function buildApi({
       const logMessage = input.isTestMode
         ? 'official to test'
         : 'test to official';
-      await logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
+      void logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
         message: `Toggling from ${logMessage} mode`,
         isTestMode: input.isTestMode,
       });
@@ -307,7 +307,7 @@ export function buildApi({
         workspace.resetElectionSession()
       );
       store.setTestMode(input.isTestMode);
-      await logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
+      void logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
         disposition: 'success',
         message: `Successfully toggled from ${logMessage} mode.`,
         isTestMode: input.isTestMode,

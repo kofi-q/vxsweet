@@ -109,7 +109,7 @@ export async function generateBallotCountReportPreview({
       warning: pdf.isErr() ? { type: pdf.err() } : warning,
     };
   })();
-  await logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
+  void logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
     message: `User previewed a ballot count report.${
       result.warning ? ` Warning: ${result.warning.type}` : ''
     }`,
@@ -137,13 +137,13 @@ export async function printBallotCountReport({
     // so rendering the PDF shouldn't error
     const data = (await renderToPdf({ document: report })).unsafeUnwrap();
     await printer.print({ data });
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `User printed a ballot count report.`,
       disposition: 'success',
     });
   } catch (error) {
     assert(error instanceof Error);
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `Error in attempting to print ballot count report: ${error.message}`,
       disposition: 'failure',
     });
@@ -168,7 +168,7 @@ export async function exportBallotCountReportPdf({
   const data = (await renderToPdf({ document: report })).unsafeUnwrap();
   const exportFileResult = await exportFile({ path, data });
 
-  await logger.logAsCurrentRole(LogEventId.FileSaved, {
+  void logger.logAsCurrentRole(LogEventId.FileSaved, {
     disposition: exportFileResult.isOk() ? 'success' : 'failure',
     message: `${
       exportFileResult.isOk() ? 'Saved' : 'Failed to save'
