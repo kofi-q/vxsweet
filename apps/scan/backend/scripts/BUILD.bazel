@@ -11,7 +11,7 @@ ts_library(
         "//apps/scan/backend/globals",
         "//apps/scan/backend/store",
         "//apps/scan/backend/workspace",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/basics/assert",
         "//libs/basics/errors",
         "//libs/basics/iterators",

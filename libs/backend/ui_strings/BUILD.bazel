@@ -1,0 +1,24 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "ui_strings",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//libs/backend/election_package",
+        "//libs/basics/assert",
+        "//libs/basics/result",
+        "//libs/basics/types",
+        "//libs/db/src",
+        "//libs/grout/src",
+        "//libs/logging/src",
+        "//libs/types/basic",
+        "//libs/types/elections",
+        "//libs/types/languages",
+        "//libs/types/ui_strings",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

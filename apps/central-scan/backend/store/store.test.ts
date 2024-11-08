@@ -24,7 +24,7 @@ import { sleep } from '@vx/libs/basics/async';
 import {
   type AcceptedSheet,
   type RejectedSheet,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { sha256 } from 'js-sha256';
 import { mockBaseLogger } from '@vx/libs/logging/src';

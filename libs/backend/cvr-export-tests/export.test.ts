@@ -38,15 +38,15 @@ import {
   type ExportOptions,
   type RejectedSheet,
   type Sheet,
-} from '../src/cast_vote_records/export';
+} from '../cast_vote_records/export';
 import {
   readCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '../src/cast_vote_records/import';
+} from '../cast_vote_records/import';
 import {
   getCastVoteRecordExportDirectoryPaths,
   readCastVoteRecord,
-} from '../src/cast_vote_records/test_utils';
+} from '../cast_vote_records/test_utils';
 
 jest.setTimeout(30_000);
 

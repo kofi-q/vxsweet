@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { execFile } from '@vx/libs/backend/src';
+import { execFile } from '@vx/libs/backend/command_line';
 import { NODE_ENV } from '../globals/globals';
 
 const PULSE_AUDIO_SINK_ID_VSAP_SOUND_CARD = '0';

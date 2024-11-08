@@ -1,4 +1,4 @@
-import { type DiskSpaceSummary } from '@vx/libs/backend/src';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { format } from '@vx/libs/utils/src';
 import { H2, P } from '../primitives/typography';
 import { SuccessIcon, WarningIcon } from './icons';

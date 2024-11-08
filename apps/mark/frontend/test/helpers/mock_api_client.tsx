@@ -38,7 +38,7 @@ import {
 import { err, ok, type Result } from '@vx/libs/basics/result';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type BatteryInfo } from '@vx/libs/backend/system_call';
 import { mockMachineConfig } from './mock_machine_config';
 import { initialElectionState } from '../../app/app_root';
 import { ApiProvider } from '../../api/api_provider';

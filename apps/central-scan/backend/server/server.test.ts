@@ -1,7 +1,7 @@
 import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { dirSync } from 'tmp';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
-import { testDetectDevices } from '@vx/libs/backend/src';
+import { testDetectDevices } from '@vx/libs/backend/devices';
 import { Server } from 'node:http';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from '../workspace/workspace';

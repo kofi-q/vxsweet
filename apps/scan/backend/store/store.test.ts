@@ -10,7 +10,7 @@ import {
   type RejectedSheet,
   type Sheet,
   doesUsbDriveRequireCastVoteRecordSync,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import {
   AdjudicationReason,
   type BallotMetadata,

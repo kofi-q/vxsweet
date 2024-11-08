@@ -1,5 +1,5 @@
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
-import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/src/cast_vote_records';
+import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/cast_vote_records';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { Store } from '../store/store';
 import { constructAuthMachineState } from '../auth/auth';

@@ -4,7 +4,7 @@ import { Mutex } from '@vx/libs/utils/src';
 import {
   type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import { BaseLogger } from '@vx/libs/logging/src';
 import { Store } from '../store/store';
 

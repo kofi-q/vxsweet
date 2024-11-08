@@ -25,7 +25,7 @@ import { type CandidateContest } from '@vx/libs/types/elections';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { type Client } from '@vx/libs/grout/src';
-import { modifyCastVoteRecordExport } from '@vx/libs/backend/src/cast_vote_records';
+import { modifyCastVoteRecordExport } from '@vx/libs/backend/cast_vote_records';
 import {
   buildTestEnvironment,
   configureMachine,

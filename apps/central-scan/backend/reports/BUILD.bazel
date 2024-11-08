@@ -6,7 +6,9 @@ ts_library(
     deps = [
         "//apps/central-scan/backend/time",
         "//apps/central-scan/backend/workspace",
-        "//libs/backend/src",
+        "//libs/backend/exporter",
+        "//libs/backend/scan_globals",
+        "//libs/backend/system_call",
         "//libs/logging/src",
         "//libs/printing/src",
         "//libs/ui/diagnostics",

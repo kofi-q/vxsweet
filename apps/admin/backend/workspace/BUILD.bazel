@@ -9,7 +9,7 @@ ts_library(
         "//:node_modules/@types/node",
         "//:node_modules/fs-extra",
         "//apps/admin/backend/store",
-        "//libs/backend/src",
+        "//libs/backend/diagnostics",
         "//libs/logging/src",
     ],
 )
@@ -23,7 +23,7 @@ ts_tests(
         "//:node_modules/tmp",
         "//apps/admin/backend/store",
         "//apps/admin/backend/workspace",
-        "//libs/backend/src",
+        "//libs/backend/diagnostics",
         "//libs/logging/src",
         "//libs/test-utils/src",
     ],

@@ -1,14 +1,14 @@
 jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
+  '@vx/libs/backend/diagnostics',
+  (): typeof import('@vx/libs/backend/diagnostics') => ({
+    ...jest.requireActual('@vx/libs/backend/diagnostics'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
 
 import * as tmp from 'tmp';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/src';
+import { initializeGetWorkspaceDiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { createWorkspace } from './workspace';
 import { Store } from '../store/store';

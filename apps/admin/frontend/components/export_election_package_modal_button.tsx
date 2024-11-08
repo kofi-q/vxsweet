@@ -9,7 +9,7 @@ import { Button, LoadingButton } from '@vx/libs/ui/buttons';
 import { Modal } from '@vx/libs/ui/modal';
 import { UsbControllerButton } from '@vx/libs/ui/system-controls';
 import { P } from '@vx/libs/ui/primitives';
-import { type ExportDataError } from '@vx/libs/backend/src';
+import { type ExportDataError } from '@vx/libs/backend/exporter';
 
 import { ejectUsbDrive, saveElectionPackageToUsb } from '../api/api';
 import { AppContext } from '../contexts/app_context';

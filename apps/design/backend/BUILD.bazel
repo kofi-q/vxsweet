@@ -26,7 +26,7 @@ ts_library(
         "//apps/design/backend/globals",
         "//apps/design/backend/language_and_audio/translation",
         "//apps/design/backend/language_and_audio/tts",
-        "//libs/backend/src",
+        "//libs/backend/env",
         "//libs/logging/src",
     ],
 )

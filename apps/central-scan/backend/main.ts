@@ -1,10 +1,8 @@
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { iter } from '@vx/libs/basics/iterators';
-import {
-  handleUncaughtExceptions,
-  loadEnvVarsFromDotenvFiles,
-} from '@vx/libs/backend/src';
+import { handleUncaughtExceptions } from '@vx/libs/backend/exceptions';
+import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import { MOCK_SCANNER_FILES } from './globals/globals';
 import { LoopScanner, parseBatchesFromEnv } from './scanners/loop/loop_scanner';
 import { type BatchScanner } from './scanners/fujitsu/fujitsu_scanner';

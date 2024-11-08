@@ -8,7 +8,7 @@ import {
   HP_LASER_PRINTER_CONFIG,
   getMockFilePrinterHandler,
 } from '@vx/libs/printing/src/printer';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import assert from 'node:assert';
 import {
   mockCardRemoval,

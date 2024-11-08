@@ -9,7 +9,8 @@ ts_library(
     ],
     deps = [
         "//:node_modules/@types/node",
-        "//libs/backend/src",
+        "//libs/backend/diagnostics",
+        "//libs/backend/ui_strings",
         "//libs/basics/assert",
         "//libs/basics/time",
         "//libs/basics/types",

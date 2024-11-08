@@ -5,7 +5,7 @@ ts_library(
     name = "export",
     deps = [
         "//apps/scan/backend/workspace",
-        "//libs/backend/src",
+        "//libs/backend/cast_vote_records",
         "//libs/basics/assert",
         "//libs/basics/errors",
         "//libs/basics/result",

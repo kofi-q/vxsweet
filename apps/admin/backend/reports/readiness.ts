@@ -2,12 +2,9 @@ import { AdminReadinessReport } from '@vx/libs/ui/diagnostics';
 import { type Printer } from '@vx/libs/printing/src/printer';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { LogEventId, Logger } from '@vx/libs/logging/src';
-import {
-  type ExportDataResult,
-  Exporter,
-  VX_MACHINE_ID,
-} from '@vx/libs/backend/src';
-import { getBatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type ExportDataResult, Exporter } from '@vx/libs/backend/exporter';
+import { VX_MACHINE_ID } from '@vx/libs/backend/scan_globals';
+import { getBatteryInfo } from '@vx/libs/backend/system_call';
 import { generateReadinessReportFilename } from '@vx/libs/utils/src';
 import { type UsbDrive } from '@vx/libs/usb-drive/src';
 import { type Workspace } from '../workspace/workspace';

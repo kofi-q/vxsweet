@@ -23,7 +23,7 @@ import {
   mockSessionExpiresAt,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
   constructElectionKey,

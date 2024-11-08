@@ -6,7 +6,7 @@ import { AddressInfo } from 'node:net';
 import { mockLogger, Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import tmp from 'tmp';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { Server } from 'node:http';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
 import {

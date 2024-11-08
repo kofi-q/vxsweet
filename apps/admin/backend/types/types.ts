@@ -26,7 +26,7 @@ import * as z from 'zod';
 export {
   type ExportDataResult,
   type ExportDataError,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/exporter';
 
 /**
  * Environment variables that identify the machine and its software. Set at the

@@ -9,7 +9,7 @@ import {
   ballotPaperDimensions,
 } from '@vx/libs/types/elections';
 import { LogEventId, BaseLogger } from '@vx/libs/logging/src';
-import { isDeviceAttached } from '@vx/libs/backend/src';
+import { isDeviceAttached } from '@vx/libs/backend/devices';
 import { streamExecFile } from '../../exec/exec';
 import { StreamLines } from '../../lines/stream_lines';
 

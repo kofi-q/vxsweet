@@ -18,12 +18,10 @@ import {
   type WriteInImageView,
   type ManualResultsMetadata,
 } from '../../../backend/types/types';
-import {
-  type ExportDataError,
-  type DiskSpaceSummary,
-} from '@vx/libs/backend/src';
+import { type ExportDataError } from '@vx/libs/backend/exporter';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { type TallyReportSpec } from '../../../backend/reports/tally_report';
-import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
+import { type BatteryInfo } from '@vx/libs/backend/system_call';
 import { type FileSystemEntry, FileSystemEntryType } from '@vx/libs/fs/src';
 import { type Result, ok } from '@vx/libs/basics/result';
 import { deferred } from '@vx/libs/basics/async';

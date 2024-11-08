@@ -33,7 +33,7 @@ import {
   getMockMultiLanguageElectionDefinition,
 } from '@vx/libs/utils/src';
 import { Buffer } from 'node:buffer';
-import { mockElectionPackageFileTree } from '@vx/libs/backend/src/election_package';
+import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { Server } from 'node:http';
 import * as grout from '@vx/libs/grout/src';
 import {

@@ -4,7 +4,7 @@ import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import { Application } from 'express';
 import { dirSync } from 'tmp';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
-import { testDetectDevices } from '@vx/libs/backend/src';
+import { testDetectDevices } from '@vx/libs/backend/devices';
 import { buildApp } from '../app/app';
 import { PORT } from '../globals/globals';
 import { start } from './server';

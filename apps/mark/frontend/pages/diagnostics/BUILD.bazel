@@ -14,7 +14,7 @@ ts_library(
         "//:node_modules/react-router-dom",
         "//:node_modules/styled-components",
         "//apps/mark/frontend/api",
-        "//libs/backend/src",
+        "//libs/backend/system_call",
         "//libs/types/printing",
         "//libs/ui/accessible_controllers",
         "//libs/ui/buttons",

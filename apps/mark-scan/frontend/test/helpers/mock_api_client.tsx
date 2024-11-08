@@ -41,8 +41,8 @@ import {
   mockVendorUser,
 } from '@vx/libs/test-utils/src';
 import { err, ok, type Result } from '@vx/libs/basics/result';
-import { type BatteryInfo } from '@vx/libs/backend/src/system_call';
-import { type DiskSpaceSummary } from '@vx/libs/backend/src';
+import { type BatteryInfo } from '@vx/libs/backend/system_call';
+import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { TestErrorBoundary } from '@vx/libs/ui/errors';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
 import { mockMachineConfig } from './mock_machine_config';

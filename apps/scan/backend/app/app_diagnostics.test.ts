@@ -10,9 +10,9 @@ jest.mock('../time/get_current_time', () => ({
 }));
 
 jest.mock(
-  '@vx/libs/backend/src',
-  (): typeof import('@vx/libs/backend/src') => ({
-    ...jest.requireActual('@vx/libs/backend/src'),
+  '@vx/libs/backend/diagnostics',
+  (): typeof import('@vx/libs/backend/diagnostics') => ({
+    ...jest.requireActual('@vx/libs/backend/diagnostics'),
     initializeGetWorkspaceDiskSpaceSummary: jest.fn(),
   })
 );
@@ -28,7 +28,7 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import {
   type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import { withApp } from '../test/helpers/pdi_helpers';
 import { TEST_PRINT_USER_FAIL_REASON } from '../diagnostics/diagnostics';
 import { configureApp } from '../test/helpers/shared_helpers';

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import { ok } from '@vx/libs/basics/result';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { act } from 'react';

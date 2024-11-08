@@ -26,7 +26,7 @@ ts_library(
         "//apps/scan/backend/workspace",
         "//libs/auth/inserted-cards",
         "//libs/auth/test-utils",
-        "//libs/backend/src",
+        "//libs/backend/election_package",
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/iterators",

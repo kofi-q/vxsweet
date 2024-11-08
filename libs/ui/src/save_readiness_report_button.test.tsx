@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { deferred } from '@vx/libs/basics/async';
 import { err, ok } from '@vx/libs/basics/result';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import {
   QueryClient,
   QueryClientProvider,

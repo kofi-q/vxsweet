@@ -13,7 +13,7 @@ ts_library(
         "//:node_modules/uuid",
         "//apps/admin/backend/types",
         "//apps/admin/backend/util/logging",
-        "//libs/backend/src",
+        "//libs/backend/diagnostics",
         "//libs/basics/assert",
         "//libs/basics/result",
         "//libs/basics/time",

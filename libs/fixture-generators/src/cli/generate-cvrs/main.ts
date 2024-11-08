@@ -15,7 +15,7 @@ import { iter } from '@vx/libs/basics/iterators';
 import {
   buildCastVoteRecordReportMetadata,
   buildBatchManifest,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import { readElection } from '@vx/libs/fs/src';
 import * as fs from 'node:fs/promises';
 import yargs from 'yargs/yargs';

@@ -40,7 +40,7 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { readElectionPackageFromFile } from '@vx/libs/backend/src/election_package';
+import { readElectionPackageFromFile } from '@vx/libs/backend/election_package';
 import {
   countObjectLeaves,
   getObjectLeaves,

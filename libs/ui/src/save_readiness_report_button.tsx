@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { assert, throwIllegalValue } from '@vx/libs/basics/assert';
 import path from 'node:path';
 import { type UsbDriveStatus } from '@vx/libs/usb-drive/src';
-import { type ExportDataResult } from '@vx/libs/backend/src';
+import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import { UseMutationResult } from '@tanstack/react-query';
 import { Button } from '../buttons/button';
 import { Modal } from '../modal/modal';

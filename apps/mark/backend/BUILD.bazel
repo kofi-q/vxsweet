@@ -24,7 +24,8 @@ ts_library(
         "//apps/mark/backend/globals",
         "//apps/mark/backend/server",
         "//apps/mark/backend/workspace",
-        "//libs/backend/src",
+        "//libs/backend/env",
+        "//libs/backend/exceptions",
         "//libs/logging/src",
     ],
 )

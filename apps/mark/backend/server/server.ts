@@ -12,7 +12,7 @@ import {
   isIntegrationTest,
 } from '@vx/libs/utils/src';
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
-import { initializeSystemAudio } from '@vx/libs/backend/src';
+import { initializeSystemAudio } from '@vx/libs/backend/audio';
 import { detectPrinter } from '@vx/libs/printing/src/printer';
 import { buildApp } from '../app/app';
 import { type Workspace } from '../workspace/workspace';

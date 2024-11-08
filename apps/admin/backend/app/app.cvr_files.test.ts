@@ -43,7 +43,7 @@ import {
   getLayoutHash,
   modifyCastVoteRecordExport,
   readCastVoteRecordExportMetadata,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import { type MockFileTree } from '@vx/libs/usb-drive/src';
 import {
   buildTestEnvironment,

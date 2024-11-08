@@ -12,7 +12,8 @@ import {
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
 import { detectUsbDrive } from '@vx/libs/usb-drive/src';
-import { detectDevices, initializeSystemAudio } from '@vx/libs/backend/src';
+import { detectDevices } from '@vx/libs/backend/devices';
+import { initializeSystemAudio } from '@vx/libs/backend/audio';
 import { buildApp } from '../app/app';
 import { type Workspace } from '../util/workspace';
 import { getPaperHandlerStateMachine } from '../custom-paper-handler/state_machine';

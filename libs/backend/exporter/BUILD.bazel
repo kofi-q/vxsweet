@@ -1,0 +1,36 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
+
+ts_library(
+    name = "exporter",
+    deps = [
+        "//:node_modules/@types/micromatch",
+        "//:node_modules/@types/node",
+        "//:node_modules/micromatch",
+        "//libs/backend/streams",
+        "//libs/basics/result",
+        "//libs/types/elections",
+        "//libs/usb-drive/src",
+    ],
+)
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//:node_modules/@types/tmp",
+        "//:node_modules/tmp",
+        "//:types_env",
+        "//libs/backend/command_line",
+        "//libs/backend/exporter",
+        "//libs/basics/iterators",
+        "//libs/basics/result",
+        "//libs/test-utils/src",
+        "//libs/usb-drive/src",
+    ],
+)
+
+lint_test(name = "lint")

@@ -20,7 +20,7 @@ ts_library(
         "//apps/mark/frontend/api",
         "//apps/mark/frontend/app",
         "//apps/mark/frontend/contexts",
-        "//libs/backend/src",
+        "//libs/backend/system_call",
         "//libs/basics/assert",
         "//libs/basics/result",
         "//libs/fixtures/src",

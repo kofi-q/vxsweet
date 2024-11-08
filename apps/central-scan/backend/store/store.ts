@@ -50,13 +50,13 @@ import {
   type ElectionRecord,
   type RejectedSheet,
   type Sheet,
-} from '@vx/libs/backend/src/cast_vote_records';
+} from '@vx/libs/backend/cast_vote_records';
 import {
   addDiagnosticRecord,
   getMaximumUsableDiskSpace,
   getMostRecentDiagnosticRecord,
   updateMaximumUsableDiskSpace,
-} from '@vx/libs/backend/src';
+} from '@vx/libs/backend/diagnostics';
 import {
   clearCastVoteRecordHashes,
   getCastVoteRecordRootHash,
