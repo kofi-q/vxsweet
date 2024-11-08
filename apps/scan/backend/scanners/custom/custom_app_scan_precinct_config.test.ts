@@ -34,58 +34,54 @@ beforeEach(() => {
 });
 
 test('bmd ballot is rejected when scanned for wrong precinct', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      // Ballot should be rejected when configured for the wrong precinct
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        precinctId: '22',
-        testMode: true,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    // Ballot should be rejected when configured for the wrong precinct
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      precinctId: '22',
+      testMode: true,
+    });
 
-      const interpretation: SheetInterpretation = {
-        type: 'InvalidSheet',
-        reason: 'invalid_precinct',
-      };
+    const interpretation: SheetInterpretation = {
+      type: 'InvalidSheet',
+      reason: 'invalid_precinct',
+    };
 
-      simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
+    simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
 
-      await waitForStatus(apiClient, {
-        state: 'rejecting',
-        interpretation,
-      });
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'rejected',
-        interpretation,
-      });
+    await waitForStatus(api, {
+      state: 'rejecting',
+      interpretation,
+    });
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'rejected',
+      interpretation,
+    });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });
 
 test('bmd ballot is accepted if precinct is set for the right precinct', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      // Configure for the proper precinct and verify the ballot scans
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        precinctId: '23',
-        testMode: true,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    // Configure for the proper precinct and verify the ballot scans
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      precinctId: '23',
+      testMode: true,
+    });
 
-      const validInterpretation: SheetInterpretation = {
-        type: 'ValidSheet',
-      };
+    const validInterpretation: SheetInterpretation = {
+      type: 'ValidSheet',
+    };
 
-      simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
+    simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
 
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation: validInterpretation,
-      });
-    }
-  );
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation: validInterpretation,
+    });
+  });
 });

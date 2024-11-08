@@ -45,7 +45,7 @@ export function start({
     logger,
   });
 
-  app.listen(PORT, async () => {
+  app.listen(PORT, () => {
     void logger.log(LogEventId.ApplicationStartup, 'system', {
       message: `VxScan backend running at http://localhost:${PORT}/`,
       disposition: 'success',

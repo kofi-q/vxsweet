@@ -30,71 +30,67 @@ beforeEach(() => {
 });
 
 test('if election manager card inserted, scanning paused', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
 
-      // Insert election manager card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
+    // Insert election manager card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
 
-      // Scanning should be paused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
-      expect(mockScanner.client.disableScanning).toHaveBeenCalled();
+    // Scanning should be paused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
+    expect(mockScanner.client.disableScanning).toHaveBeenCalled();
 
-      // Remove the card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_out',
-        reason: 'no_card',
-      });
+    // Remove the card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_out',
+      reason: 'no_card',
+    });
 
-      // Scanning should be unpaused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
-    }
-  );
+    // Scanning should be unpaused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+  });
 });
 
 test('if poll worker card inserted, scanning paused', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
 
-      // Insert poll worker card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockPollWorkerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
+    // Insert poll worker card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockPollWorkerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
 
-      // Scanning should be paused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
-      expect(mockScanner.client.disableScanning).toHaveBeenCalled();
+    // Scanning should be paused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
+    expect(mockScanner.client.disableScanning).toHaveBeenCalled();
 
-      // Remove the card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_out',
-        reason: 'no_card',
-      });
+    // Remove the card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_out',
+      reason: 'no_card',
+    });
 
-      // Scanning should be unpaused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
-    }
-  );
+    // Scanning should be unpaused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+  });
 });

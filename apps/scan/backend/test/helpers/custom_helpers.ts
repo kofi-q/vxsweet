@@ -19,7 +19,6 @@ import {
   electionGridLayoutNewHampshireTestBallotFixtures,
   sampleBallotImages,
 } from '@vx/libs/fixtures/src';
-import * as grout from '@vx/libs/grout/src';
 import {
   ImageData,
   RGBA_CHANNEL_COUNT,
@@ -27,9 +26,6 @@ import {
 } from '@vx/libs/image-utils/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import { type SheetOf, mapSheet } from '@vx/libs/types/elections';
-import { Application } from 'express';
-import { Server } from 'node:http';
-import { AddressInfo } from 'node:net';
 import tmp from 'tmp';
 import { createMockUsbDrive, type MockUsbDrive } from '@vx/libs/usb-drive/src';
 import {
@@ -51,7 +47,7 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import { type Api, buildApp } from '../../app/app';
+import { type Api, buildApi } from '../../app/app';
 import {
   createPrecinctScannerStateMachine,
   delays,
@@ -72,8 +68,7 @@ import {
 
 export async function withApp(
   fn: (context: {
-    apiClient: grout.Client<Api>;
-    app: Application;
+    api: Api;
     mockAuth: InsertedSmartCardAuthApi;
     mockScanner: jest.Mocked<CustomScanner>;
     workspace: Workspace;
@@ -81,7 +76,6 @@ export async function withApp(
     mockPrinterHandler: MemoryPrinterHandler;
     mockFujitsuPrinterHandler: MemoryFujitsuPrinterHandler;
     logger: Logger;
-    server: Server;
     clock: SimulatedClock;
   }) => Promise<void>
 ): Promise<void> {
@@ -118,7 +112,7 @@ export async function withApp(
   )
     ? wrapLegacyPrinter(mockPrinterHandler.printer)
     : wrapFujitsuThermalPrinter(mockFujitsuPrinterHandler.printer);
-  const app = buildApp({
+  const api = buildApi({
     auth: mockAuth,
     machine: precinctScannerMachine,
     workspace,
@@ -127,20 +121,13 @@ export async function withApp(
     logger,
   });
 
-  const server = app.listen();
-  const { port } = server.address() as AddressInfo;
-  const baseUrl = `http://localhost:${port}/api`;
-
-  const apiClient = grout.createClient<Api>({ baseUrl });
-
-  await expectStatus(apiClient, { state: 'connecting' });
+  expectStatus(api, { state: 'connecting' });
   deferredConnect.resolve();
-  await waitForStatus(apiClient, { state: 'no_paper' });
+  await waitForStatus(api, { state: 'no_paper' });
 
   try {
     await fn({
-      apiClient,
-      app,
+      api,
       mockAuth,
       mockScanner,
       workspace,
@@ -148,7 +135,6 @@ export async function withApp(
       mockPrinterHandler,
       mockFujitsuPrinterHandler,
       logger,
-      server,
       clock,
     });
     mockUsbDrive.assertComplete();
@@ -156,9 +142,6 @@ export async function withApp(
     if (workspace.store.getIsContinuousExportEnabled()) {
       await waitForContinuousExportToUsbDrive(workspace.store);
     }
-    await new Promise<void>((resolve, reject) => {
-      server.close((error) => (error ? reject(error) : resolve()));
-    });
     precinctScannerMachine.stop();
     workspace.reset();
   }
@@ -262,7 +245,7 @@ export function simulateScan(
 
 export async function scanBallot(
   mockScanner: jest.Mocked<CustomScanner>,
-  apiClient: grout.Client<Api>,
+  api: Api,
   store: Store,
   initialBallotsCounted: number,
   options: { waitForContinuousExportToUsbDrive?: boolean } = {}
@@ -272,15 +255,16 @@ export async function scanBallot(
     mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
     return ok(await ballotImages.completeBmd());
   });
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'accepting',
     ballotsCounted: initialBallotsCounted,
     interpretation: { type: 'ValidSheet' },
   });
 
-  await apiClient.acceptBallot();
+  api.acceptBallot();
+
   mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'no_paper',
     ballotsCounted: initialBallotsCounted + 1,
   });

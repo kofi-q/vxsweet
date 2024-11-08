@@ -36,15 +36,8 @@ beforeEach(() => {
 
 test('continuous CVR export, including polls closing', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+    async ({ api, mockAuth, mockScanner, mockUsbDrive, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
         openPolls: true,
       });
@@ -52,17 +45,17 @@ test('continuous CVR export, including polls closing', async () => {
       // Don't wait for continuous export to USB drive in between scans and polls closing so that
       // we can verify that the continuous export mutex prevents continuous export operations from
       // interleaving
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 0, {
         waitForContinuousExportToUsbDrive: false,
       });
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 1, {
         waitForContinuousExportToUsbDrive: false,
       });
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 2, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 2, {
         waitForContinuousExportToUsbDrive: false,
       });
 
-      await apiClient.closePolls();
+      await api.closePolls();
 
       const exportDirectoryPaths = await getCastVoteRecordExportDirectoryPaths(
         mockUsbDrive.usbDrive
@@ -118,15 +111,8 @@ test('continuous CVR export, including polls closing', async () => {
 
 test('continuous CVR export, including polls closing, followed by a full export', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+    async ({ api, mockAuth, mockScanner, mockUsbDrive, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
         openPolls: true,
       });
@@ -134,17 +120,17 @@ test('continuous CVR export, including polls closing, followed by a full export'
       // Don't wait for continuous export to USB drive in between scans and polls closing so that
       // we can verify that the continuous export mutex prevents continuous export operations from
       // interleaving
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 0, {
         waitForContinuousExportToUsbDrive: false,
       });
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 1, {
         waitForContinuousExportToUsbDrive: false,
       });
 
-      await apiClient.closePolls();
+      await api.closePolls();
 
       expect(
-        await apiClient.exportCastVoteRecordsToUsbDrive({ mode: 'full_export' })
+        await api.exportCastVoteRecordsToUsbDrive({ mode: 'full_export' })
       ).toEqual(ok());
 
       // Expect two export directories, one from continuous export finished at polls closed
@@ -172,31 +158,24 @@ test('continuous CVR export, including polls closing, followed by a full export'
 
 test('continuous CVR export with a mode switch in between', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, mockAuth, mockScanner, mockUsbDrive, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
       // Don't wait for continuous export to USB drive in between scans and polls closing so that
       // we can verify that the continuous export mutex prevents continuous export operations from
       // interleaving
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 0, {
         waitForContinuousExportToUsbDrive: false,
       });
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 1, {
         waitForContinuousExportToUsbDrive: false,
       });
 
-      await apiClient.setTestMode({ isTestMode: false });
-      await apiClient.setTestMode({ isTestMode: true });
-      (await apiClient.openPolls()).unsafeUnwrap();
+      await api.setTestMode({ isTestMode: false });
+      await api.setTestMode({ isTestMode: true });
+      (await api.openPolls()).unsafeUnwrap();
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       // Expect two export directories, one from before the mode switch and one from after
       const exportDirectoryPaths = await getCastVoteRecordExportDirectoryPaths(
@@ -228,17 +207,10 @@ test('continuous CVR export with a mode switch in between', async () => {
 
 test('CVR resync', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, mockAuth, mockScanner, mockUsbDrive, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       // When a CVR resync is required, the CVR resync modal appears on the "insert your ballot"
       // screen, i.e. the screen displayed when no card is inserted
@@ -247,7 +219,7 @@ test('CVR resync', async () => {
       );
 
       expect(
-        await apiClient.exportCastVoteRecordsToUsbDrive({
+        await api.exportCastVoteRecordsToUsbDrive({
           mode: 'recovery_export',
         })
       ).toEqual(ok());
@@ -257,23 +229,16 @@ test('CVR resync', async () => {
 
 test('CVR resync after swapping the USB drive', async () => {
   await withApp(
-    async ({
-      apiClient,
-      clock,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, clock, mockAuth, mockScanner, mockUsbDrive, workspace }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       mockUsbDrive.removeUsbDrive();
       mockUsbDrive.insertUsbDrive({});
 
       expect(
-        await apiClient.exportCastVoteRecordsToUsbDrive({
+        await api.exportCastVoteRecordsToUsbDrive({
           mode: 'recovery_export',
         })
       ).toEqual(ok());
@@ -283,47 +248,38 @@ test('CVR resync after swapping the USB drive', async () => {
 
 test('pausing and resuming continuous CVR export', async () => {
   await withApp(
-    async ({
-      apiClient,
-      clock,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, clock, mockAuth, mockScanner, mockUsbDrive, workspace }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
-      await apiClient.setIsContinuousExportEnabled({
-        isContinuousExportEnabled: false,
-      });
+      api.setIsContinuousExportEnabled({ isContinuousExportEnabled: false });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1, {
+      await scanBallot(mockScanner, clock, api, workspace.store, 1, {
         waitForContinuousExportToUsbDrive: false,
       });
 
-      let usbDriveStatus = await apiClient.getUsbDriveStatus();
+      let usbDriveStatus = await api.getUsbDriveStatus();
       expect(
         usbDriveStatus.doesUsbDriveRequireCastVoteRecordSync
       ).toBeUndefined();
 
-      await apiClient.setIsContinuousExportEnabled({
+      api.setIsContinuousExportEnabled({
         isContinuousExportEnabled: true,
       });
 
-      usbDriveStatus = await apiClient.getUsbDriveStatus();
+      usbDriveStatus = await api.getUsbDriveStatus();
       expect(usbDriveStatus.doesUsbDriveRequireCastVoteRecordSync).toEqual(
         true
       );
 
       expect(
-        await apiClient.exportCastVoteRecordsToUsbDrive({
+        await api.exportCastVoteRecordsToUsbDrive({
           mode: 'recovery_export',
         })
       ).toEqual(ok());
 
-      usbDriveStatus = await apiClient.getUsbDriveStatus();
+      usbDriveStatus = await api.getUsbDriveStatus();
       expect(
         usbDriveStatus.doesUsbDriveRequireCastVoteRecordSync
       ).toBeUndefined();
@@ -350,22 +306,15 @@ test('pausing and resuming continuous CVR export', async () => {
 
 test('CVR export error handling', async () => {
   await withApp(
-    async ({
-      apiClient,
-      clock,
-      mockAuth,
-      mockScanner,
-      mockUsbDrive,
-      workspace,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, clock, mockAuth, mockScanner, mockUsbDrive, workspace }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       mockUsbDrive.removeUsbDrive();
 
       expect(
-        await apiClient.exportCastVoteRecordsToUsbDrive({
+        await api.exportCastVoteRecordsToUsbDrive({
           mode: 'full_export',
         })
       ).toEqual(err({ type: 'missing-usb-drive' }));

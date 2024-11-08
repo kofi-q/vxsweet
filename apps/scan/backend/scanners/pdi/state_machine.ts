@@ -1146,7 +1146,7 @@ function setupLogging(
   logger: Logger
 ) {
   machineService
-    .onEvent(async (event) => {
+    .onEvent((event) => {
       const eventString = JSON.stringify(event, cleanLogData);
       if (isEventUserAction(event)) {
         // This event was triggered by a user so we should log as a current user role, falling back to 'cardless_voter' if there is no one authenticated.
@@ -1167,7 +1167,7 @@ function setupLogging(
         );
       }
     })
-    .onChange(async (context, previousContext) => {
+    .onChange((context, previousContext) => {
       /* istanbul ignore next */
       if (!previousContext) return;
       const changed = Object.entries(context).filter(
@@ -1188,7 +1188,7 @@ function setupLogging(
         () => debug(`Context updated: ${contextString}`)
       );
     })
-    .onTransition(async (state) => {
+    .onTransition((state) => {
       if (!state.changed) return;
       void logger.log(
         LogEventId.ScannerStateChanged,

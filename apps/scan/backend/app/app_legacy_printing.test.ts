@@ -38,7 +38,7 @@ const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
 test('can print and re-print polls opened report', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       mockUsbDrive,
       mockPrinterHandler,
@@ -47,19 +47,19 @@ test('can print and re-print polls opened report', async () => {
       clock,
     }) => {
       mockPrinterHandler.connectPrinter(BROTHER_THERMAL_PRINTER_CONFIG);
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
         openPolls: false,
       });
 
       // printing report before polls opened should fail
       await suppressingConsoleOutput(async () => {
-        await expect(apiClient.printReport()).rejects.toThrow();
+        await expect(api.printReport()).rejects.toThrow();
       });
 
       // initial polls opened report
-      (await apiClient.openPolls()).unsafeUnwrap();
-      await apiClient.printReport();
+      (await api.openPolls()).unsafeUnwrap();
+      await api.printReport();
       const initialReportPath = mockPrinterHandler.getLastPrintPath();
       assert(initialReportPath !== undefined);
       await expect(initialReportPath).toMatchPdfSnapshot({
@@ -68,7 +68,7 @@ test('can print and re-print polls opened report', async () => {
       });
 
       // allows re-printing identical polls opened report
-      await apiClient.printReport();
+      await api.printReport();
       const reprintedReportPath = mockPrinterHandler.getLastPrintPath();
       assert(reprintedReportPath !== undefined);
       await expect(reprintedReportPath).toMatchPdfSnapshot({
@@ -77,11 +77,11 @@ test('can print and re-print polls opened report', async () => {
       });
 
       // scan a ballot
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       // you should not be able to print polls opened reports after scanning
       await suppressingConsoleOutput(async () => {
-        await expect(apiClient.printReport()).rejects.toThrow();
+        await expect(api.printReport()).rejects.toThrow();
       });
     }
   );
@@ -90,7 +90,7 @@ test('can print and re-print polls opened report', async () => {
 test('can print voting paused and voting resumed reports', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       mockUsbDrive,
       mockPrinterHandler,
@@ -99,23 +99,23 @@ test('can print voting paused and voting resumed reports', async () => {
       clock,
     }) => {
       mockPrinterHandler.connectPrinter(BROTHER_THERMAL_PRINTER_CONFIG);
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
       });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       // pause voting
-      await apiClient.pauseVoting();
-      await apiClient.printReport();
+      await api.pauseVoting();
+      await api.printReport();
       await expect(mockPrinterHandler.getLastPrintPath()).toMatchPdfSnapshot({
         customSnapshotIdentifier: 'legacy-voting-paused-report',
         failureThreshold: 0.0001,
       });
 
       // resume voting
-      await apiClient.resumeVoting();
-      await apiClient.printReport();
+      await api.resumeVoting();
+      await api.printReport();
       await expect(mockPrinterHandler.getLastPrintPath()).toMatchPdfSnapshot({
         customSnapshotIdentifier: 'legacy-voting-resumed-report',
         failureThreshold: 0.0001,
@@ -127,7 +127,7 @@ test('can print voting paused and voting resumed reports', async () => {
 test('can tabulate results and print polls closed report', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       mockUsbDrive,
       mockPrinterHandler,
@@ -136,17 +136,17 @@ test('can tabulate results and print polls closed report', async () => {
       clock,
     }) => {
       mockPrinterHandler.connectPrinter(BROTHER_THERMAL_PRINTER_CONFIG);
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
       });
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1);
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 2);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 1);
+      await scanBallot(mockScanner, clock, api, workspace.store, 2);
 
       // close polls
-      await apiClient.closePolls();
-      await apiClient.printReport();
+      await api.closePolls();
+      await api.printReport();
       await expect(mockPrinterHandler.getLastPrintPath()).toMatchPdfSnapshot({
         customSnapshotIdentifier: 'legacy-polls-closed-report',
         failureThreshold: 0.0001,

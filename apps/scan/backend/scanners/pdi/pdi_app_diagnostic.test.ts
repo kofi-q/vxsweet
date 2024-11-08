@@ -40,8 +40,8 @@ beforeEach(() => {
 });
 
 test('scanner diagnostic, unconfigured - pass', async () => {
-  await withApp(async ({ apiClient, mockScanner, mockAuth, logger }) => {
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+  await withApp(async ({ api, mockScanner, mockAuth, logger }) => {
+    expect(api.getMostRecentScannerDiagnostic()).toBeNull();
 
     // Log in as system administrator
     mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -49,12 +49,12 @@ test('scanner diagnostic, unconfigured - pass', async () => {
       user: mockSystemAdministratorUser(),
       sessionExpiresAt: mockSessionExpiresAt(),
     });
-    await expectStatus(apiClient, { state: 'paused' });
+    expectStatus(api, { state: 'paused' });
     expect(mockScanner.client.enableScanning).not.toHaveBeenCalled();
 
     // Start scanner diagnostic
-    await apiClient.beginScannerDiagnostic();
-    await waitForStatus(apiClient, { state: 'scanner_diagnostic.running' });
+    api.beginScannerDiagnostic();
+    await waitForStatus(api, { state: 'scanner_diagnostic.running' });
     expect(mockScanner.client.enableScanning).toHaveBeenCalledTimes(1);
     expect(mockScanner.client.enableScanning).toHaveBeenCalledWith({
       doubleFeedDetectionEnabled: false,
@@ -65,19 +65,19 @@ test('scanner diagnostic, unconfigured - pass', async () => {
 
     // Simulate insert of blank sheet
     mockScanner.emitEvent({ event: 'scanStart' });
-    await expectStatus(apiClient, { state: 'scanner_diagnostic.running' });
+    expectStatus(api, { state: 'scanner_diagnostic.running' });
     mockScanner.emitEvent({
       event: 'scanComplete',
       images: await ballotImages.blankSheet(),
     });
-    await waitForStatus(apiClient, { state: 'scanner_diagnostic.done' });
+    await waitForStatus(api, { state: 'scanner_diagnostic.done' });
     expect(mockScanner.client.ejectDocument).toHaveBeenCalledTimes(1);
     expect(mockScanner.client.ejectDocument).toHaveBeenCalledWith('toFront');
 
     // End scanner diagnostic
-    await apiClient.endScannerDiagnostic();
-    await waitForStatus(apiClient, { state: 'paused' });
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toEqual({
+    api.endScannerDiagnostic();
+    await waitForStatus(api, { state: 'paused' });
+    expect(api.getMostRecentScannerDiagnostic()).toEqual({
       type: 'blank-sheet-scan',
       outcome: 'pass',
       timestamp: expect.any(Number),
@@ -107,11 +107,11 @@ test('scanner diagnostic, configured - fail', async () => {
     electionFamousNames2021Fixtures.electionJson.toElectionPackage();
   const { election } = electionPackage.electionDefinition;
   await withApp(
-    async ({ apiClient, mockScanner, mockAuth, mockUsbDrive, logger }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+    async ({ api, mockScanner, mockAuth, mockUsbDrive, logger }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         electionPackage,
       });
-      expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+      expect(api.getMostRecentScannerDiagnostic()).toBeNull();
 
       // Log in as system administrator
       mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -119,12 +119,12 @@ test('scanner diagnostic, configured - fail', async () => {
         user: mockSystemAdministratorUser(),
         sessionExpiresAt: mockSessionExpiresAt(),
       });
-      await expectStatus(apiClient, { state: 'paused' });
+      expectStatus(api, { state: 'paused' });
       expect(mockScanner.client.enableScanning).not.toHaveBeenCalled();
 
       // Start scanner diagnostic
-      await apiClient.beginScannerDiagnostic();
-      await waitForStatus(apiClient, { state: 'scanner_diagnostic.running' });
+      api.beginScannerDiagnostic();
+      await waitForStatus(api, { state: 'scanner_diagnostic.running' });
       expect(mockScanner.client.enableScanning).toHaveBeenCalledTimes(1);
       expect(mockScanner.client.enableScanning).toHaveBeenCalledWith({
         doubleFeedDetectionEnabled: false,
@@ -135,12 +135,12 @@ test('scanner diagnostic, configured - fail', async () => {
 
       // Simulate insert of non-blank sheet
       mockScanner.emitEvent({ event: 'scanStart' });
-      await expectStatus(apiClient, { state: 'scanner_diagnostic.running' });
+      expectStatus(api, { state: 'scanner_diagnostic.running' });
       mockScanner.emitEvent({
         event: 'scanComplete',
         images: await ballotImages.completeHmpb(),
       });
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'scanner_diagnostic.done',
         error: 'scanner_diagnostic_failed',
       });
@@ -148,9 +148,9 @@ test('scanner diagnostic, configured - fail', async () => {
       expect(mockScanner.client.ejectDocument).toHaveBeenCalledWith('toFront');
 
       // End scanner diagnostic
-      await apiClient.endScannerDiagnostic();
-      await waitForStatus(apiClient, { state: 'paused' });
-      expect(await apiClient.getMostRecentScannerDiagnostic()).toEqual({
+      api.endScannerDiagnostic();
+      await waitForStatus(api, { state: 'paused' });
+      expect(api.getMostRecentScannerDiagnostic()).toEqual({
         type: 'blank-sheet-scan',
         outcome: 'fail',
         timestamp: expect.any(Number),
@@ -177,9 +177,9 @@ test('scanner diagnostic, configured - fail', async () => {
 });
 
 test('removing card cancels diagnostic', async () => {
-  await withApp(async ({ apiClient, mockAuth, mockUsbDrive, clock }) => {
-    await configureApp(apiClient, mockAuth, mockUsbDrive);
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+  await withApp(async ({ api, mockAuth, mockUsbDrive, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
+    expect(api.getMostRecentScannerDiagnostic()).toBeNull();
 
     // Log in as system administrator
     mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -187,11 +187,11 @@ test('removing card cancels diagnostic', async () => {
       user: mockSystemAdministratorUser(),
       sessionExpiresAt: mockSessionExpiresAt(),
     });
-    await waitForStatus(apiClient, { state: 'paused' });
+    await waitForStatus(api, { state: 'paused' });
 
     // Start scanner diagnostic
-    await apiClient.beginScannerDiagnostic();
-    await waitForStatus(apiClient, { state: 'scanner_diagnostic.running' });
+    api.beginScannerDiagnostic();
+    await waitForStatus(api, { state: 'scanner_diagnostic.running' });
 
     // Simulate card removal
     mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -199,15 +199,15 @@ test('removing card cancels diagnostic', async () => {
       reason: 'no_card',
     });
     clock.increment(delays.DELAY_AUTH_STATUS_POLLING_INTERVAL);
-    await waitForStatus(apiClient, { state: 'no_paper' });
+    await waitForStatus(api, { state: 'no_paper' });
 
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+    expect(api.getMostRecentScannerDiagnostic()).toBeNull();
   });
 });
 
 test('scanner error fails diagnostic', async () => {
-  await withApp(async ({ apiClient, mockScanner, mockAuth }) => {
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+  await withApp(async ({ api, mockScanner, mockAuth }) => {
+    expect(api.getMostRecentScannerDiagnostic()).toBeNull();
 
     // Log in as system administrator
     mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -217,17 +217,17 @@ test('scanner error fails diagnostic', async () => {
     });
 
     // Start scanner diagnostic
-    await apiClient.beginScannerDiagnostic();
-    await waitForStatus(apiClient, { state: 'scanner_diagnostic.running' });
+    api.beginScannerDiagnostic();
+    await waitForStatus(api, { state: 'scanner_diagnostic.running' });
 
     // Simulate scanner error
     mockScanner.emitEvent({ event: 'error', code: 'scanFailed' });
-    await waitForStatus(apiClient, {
+    await waitForStatus(api, {
       state: 'scanner_diagnostic.done',
       error: 'client_error',
     });
 
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toEqual({
+    expect(api.getMostRecentScannerDiagnostic()).toEqual({
       type: 'blank-sheet-scan',
       outcome: 'fail',
       timestamp: expect.any(Number),
@@ -236,8 +236,8 @@ test('scanner error fails diagnostic', async () => {
 });
 
 test('scanner unexpected event fails diagnostic', async () => {
-  await withApp(async ({ apiClient, mockScanner, mockAuth }) => {
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toBeNull();
+  await withApp(async ({ api, mockScanner, mockAuth }) => {
+    expect(api.getMostRecentScannerDiagnostic()).toBeNull();
 
     // Log in as system administrator
     mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -247,17 +247,17 @@ test('scanner unexpected event fails diagnostic', async () => {
     });
 
     // Start scanner diagnostic
-    await apiClient.beginScannerDiagnostic();
-    await waitForStatus(apiClient, { state: 'scanner_diagnostic.running' });
+    api.beginScannerDiagnostic();
+    await waitForStatus(api, { state: 'scanner_diagnostic.running' });
 
     // Simulate unexpected event
     mockScanner.emitEvent({ event: 'ejectPaused' });
-    await waitForStatus(apiClient, {
+    await waitForStatus(api, {
       state: 'scanner_diagnostic.done',
       error: 'unexpected_event',
     });
 
-    expect(await apiClient.getMostRecentScannerDiagnostic()).toEqual({
+    expect(api.getMostRecentScannerDiagnostic()).toEqual({
       type: 'blank-sheet-scan',
       outcome: 'fail',
       timestamp: expect.any(Number),

@@ -68,8 +68,7 @@ import {
 import { saveReadinessReport } from '../printing/readiness_report';
 import path from 'node:path';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function buildApi({
+function buildApiInternal({
   auth,
   machine,
   workspace,
@@ -229,7 +228,7 @@ export function buildApi({
       };
     },
 
-    async unconfigureElection(): Promise<void> {
+    unconfigureElection(): void {
       workspace.reset();
       void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
@@ -238,9 +237,9 @@ export function buildApi({
       });
     },
 
-    async setPrecinctSelection(input: {
+    setPrecinctSelection(input: {
       precinctSelection: PrecinctSelection;
-    }): Promise<void> {
+    }): void {
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       assert(
         store.getBallotsCounted() === 0,
@@ -257,7 +256,7 @@ export function buildApi({
       });
     },
 
-    async setIsSoundMuted(input: { isSoundMuted: boolean }): Promise<void> {
+    setIsSoundMuted(input: { isSoundMuted: boolean }): void {
       store.setIsSoundMuted(input.isSoundMuted);
       void logger.logAsCurrentRole(LogEventId.SoundToggled, {
         message: `Sounds were toggled ${input.isSoundMuted ? 'off' : 'on'}`,
@@ -266,9 +265,9 @@ export function buildApi({
       });
     },
 
-    async setIsDoubleFeedDetectionDisabled(input: {
+    setIsDoubleFeedDetectionDisabled(input: {
       isDoubleFeedDetectionDisabled: boolean;
-    }): Promise<void> {
+    }): void {
       store.setIsDoubleFeedDetectionDisabled(
         input.isDoubleFeedDetectionDisabled
       );
@@ -281,9 +280,9 @@ export function buildApi({
       });
     },
 
-    async setIsContinuousExportEnabled(input: {
+    setIsContinuousExportEnabled(input: {
       isContinuousExportEnabled: boolean;
-    }): Promise<void> {
+    }): void {
       store.setIsContinuousExportEnabled(input.isContinuousExportEnabled);
       void logger.logAsCurrentRole(LogEventId.ContinuousExportToggled, {
         message: `Continuous export was ${
@@ -314,7 +313,7 @@ export function buildApi({
       });
     },
 
-    openPolls(): Promise<OpenPollsResult> {
+    openPolls(): OpenPollsResult {
       return openPolls({ store, logger });
     },
 
@@ -322,16 +321,16 @@ export function buildApi({
       return closePolls({ workspace, usbDrive, logger });
     },
 
-    pauseVoting(): Promise<void> {
-      return pauseVoting({ store, logger });
+    pauseVoting(): void {
+      pauseVoting({ store, logger });
     },
 
-    resumeVoting(): Promise<void> {
-      return resumeVoting({ store, logger });
+    resumeVoting(): void {
+      resumeVoting({ store, logger });
     },
 
-    resetPollsToPaused(): Promise<void> {
-      return resetPollsToPaused({ store, logger });
+    resetPollsToPaused(): void {
+      resetPollsToPaused({ store, logger });
     },
 
     exportCastVoteRecordsToUsbDrive(input: {
@@ -525,7 +524,18 @@ export function buildApi({
   });
 }
 
-export type Api = ReturnType<typeof buildApi>;
+export type Api = ReturnType<typeof buildApiInternal>;
+
+export function buildApi(params: {
+  auth: InsertedSmartCardAuthApi;
+  machine: PrecinctScannerStateMachine;
+  workspace: Workspace;
+  usbDrive: UsbDrive;
+  printer: Printer;
+  logger: Logger;
+}): Api {
+  return buildApiInternal(params);
+}
 
 export function buildApp({
   auth,

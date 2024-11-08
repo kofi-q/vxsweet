@@ -23,13 +23,13 @@ beforeEach(() => {
 });
 
 test('getUsbDriveStatus', async () => {
-  await withApp(async ({ apiClient, mockUsbDrive }) => {
+  await withApp(async ({ api, mockUsbDrive }) => {
     mockUsbDrive.removeUsbDrive();
-    await expect(apiClient.getUsbDriveStatus()).resolves.toEqual({
+    await expect(api.getUsbDriveStatus()).resolves.toEqual({
       status: 'no_drive',
     });
     mockUsbDrive.insertUsbDrive({});
-    await expect(apiClient.getUsbDriveStatus()).resolves.toEqual({
+    await expect(api.getUsbDriveStatus()).resolves.toEqual({
       status: 'mounted',
       mountPoint: expect.any(String),
     });
@@ -37,46 +37,39 @@ test('getUsbDriveStatus', async () => {
 });
 
 test('ejectUsbDrive', async () => {
-  await withApp(async ({ apiClient, mockUsbDrive }) => {
+  await withApp(async ({ api, mockUsbDrive }) => {
     mockUsbDrive.usbDrive.eject.expectCallWith().resolves();
-    await expect(apiClient.ejectUsbDrive()).resolves.toBeUndefined();
+    await expect(api.ejectUsbDrive()).resolves.toBeUndefined();
   });
 });
 
 test('doesUsbDriveRequireCastVoteRecordSync is properly populated', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockAuth,
-      mockUsbDrive,
-      mockScanner,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, mockAuth, mockUsbDrive, mockScanner, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
       const mountedUsbDriveStatus = {
         status: 'mounted',
         mountPoint: expect.any(String),
       } as const;
 
-      await expect(apiClient.getUsbDriveStatus()).resolves.toEqual(
+      await expect(api.getUsbDriveStatus()).resolves.toEqual(
         mountedUsbDriveStatus
       );
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
-      await expect(apiClient.getUsbDriveStatus()).resolves.toEqual(
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
+      await expect(api.getUsbDriveStatus()).resolves.toEqual(
         mountedUsbDriveStatus
       );
 
       mockUsbDrive.removeUsbDrive();
-      await expect(apiClient.getUsbDriveStatus()).resolves.toEqual({
+      await expect(api.getUsbDriveStatus()).resolves.toEqual({
         status: 'no_drive',
       });
 
       // Insert an empty USB drive and ensure that we detect that it requires a cast vote record
       // sync
       mockUsbDrive.insertUsbDrive({});
-      await expect(apiClient.getUsbDriveStatus()).resolves.toEqual({
+      await expect(api.getUsbDriveStatus()).resolves.toEqual({
         ...mountedUsbDriveStatus,
         doesUsbDriveRequireCastVoteRecordSync: true,
       });

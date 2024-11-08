@@ -1,7 +1,5 @@
 import { ImageData } from '@vx/libs/image-utils/src';
-import * as grout from '@vx/libs/grout/src';
 import * as tmp from 'tmp';
-import { Application } from 'express';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import {
@@ -21,14 +19,12 @@ import {
   createMockFujitsuPrinterHandler,
 } from '@vx/libs/fujitsu-thermal-printer/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
-import { Server } from 'node:http';
 import { type Result, ok } from '@vx/libs/basics/result';
 import { deferred } from '@vx/libs/basics/async';
 import {
   BooleanEnvironmentVariableName,
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
-import { AddressInfo } from 'node:net';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import {
   electionFamousNames2021Fixtures,
@@ -48,7 +44,7 @@ import {
   delays,
 } from '../../scanners/pdi/state_machine';
 import { type Workspace, createWorkspace } from '../../workspace/workspace';
-import { type Api, buildApp } from '../../app/app';
+import { type Api, buildApi } from '../../app/app';
 import {
   wrapFujitsuThermalPrinter,
   wrapLegacyPrinter,
@@ -188,14 +184,14 @@ export function createMockPdiScannerClient(): MockPdiScannerClient {
   };
 }
 
-export async function simulateScan(
-  apiClient: grout.Client<Api>,
+export function simulateScan(
+  api: Api,
   mockScanner: MockPdiScannerClient,
   images: SheetOf<ImageData>,
   ballotsCounted = 0
-): Promise<void> {
+): void {
   mockScanner.emitEvent({ event: 'scanStart' });
-  await expectStatus(apiClient, { state: 'scanning', ballotsCounted });
+  expectStatus(api, { state: 'scanning', ballotsCounted });
   mockScanner.setScannerStatus(mockStatus.documentInRear);
   mockScanner.emitEvent({
     event: 'scanComplete',
@@ -205,8 +201,7 @@ export async function simulateScan(
 
 export async function withApp(
   fn: (context: {
-    apiClient: grout.Client<Api>;
-    app: Application;
+    api: Api;
     mockAuth: InsertedSmartCardAuthApi;
     mockScanner: MockPdiScannerClient;
     workspace: Workspace;
@@ -214,9 +209,8 @@ export async function withApp(
     mockPrinterHandler: MemoryPrinterHandler;
     mockFujitsuPrinterHandler: MemoryFujitsuPrinterHandler;
     logger: Logger;
-    server: Server;
     clock: SimulatedClock;
-  }) => Promise<void>
+  }) => void | Promise<void>
 ): Promise<void> {
   const mockAuth = buildMockInsertedSmartCardAuth();
   const workspace = createWorkspace(tmp.dirSync().name, mockBaseLogger());
@@ -244,7 +238,7 @@ export async function withApp(
     clock,
   });
 
-  const app = buildApp({
+  const api = buildApi({
     auth: mockAuth,
     machine: precinctScannerMachine,
     workspace,
@@ -253,21 +247,14 @@ export async function withApp(
     logger,
   });
 
-  const server = app.listen();
-  const { port } = server.address() as AddressInfo;
-  const baseUrl = `http://localhost:${port}/api`;
-
-  const apiClient = grout.createClient<Api>({ baseUrl });
-
-  await expectStatus(apiClient, { state: 'connecting' });
+  expectStatus(api, { state: 'connecting' });
   deferredConnect.resolve(ok());
   // State machine should be paused since app is not configured
-  await waitForStatus(apiClient, { state: 'paused' });
+  await waitForStatus(api, { state: 'paused' });
 
   try {
     await fn({
-      apiClient,
-      app,
+      api,
       mockAuth,
       mockScanner,
       workspace,
@@ -275,15 +262,11 @@ export async function withApp(
       mockPrinterHandler,
       mockFujitsuPrinterHandler,
       logger,
-      server,
       clock,
     });
     mockUsbDrive.assertComplete();
   } finally {
     await waitForContinuousExportToUsbDrive(workspace.store);
-    await new Promise<void>((resolve, reject) => {
-      server.close((error) => (error ? reject(error) : resolve()));
-    });
     precinctScannerMachine.stop();
     workspace.reset();
   }
@@ -322,37 +305,39 @@ export const ballotImages = {
 export async function scanBallot(
   mockScanner: MockPdiScannerClient,
   clock: SimulatedClock,
-  apiClient: grout.Client<Api>,
+  api: Api,
   store: Store,
   initialBallotsCounted: number,
   options: { waitForContinuousExportToUsbDrive?: boolean } = {}
 ): Promise<void> {
   clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'no_paper',
     ballotsCounted: initialBallotsCounted,
   });
-  await simulateScan(
-    apiClient,
+  simulateScan(
+    api,
     mockScanner,
     await ballotImages.completeBmd(),
     initialBallotsCounted
   );
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'accepting',
     ballotsCounted: initialBallotsCounted,
     interpretation: { type: 'ValidSheet' },
   });
   expect(mockScanner.client.ejectDocument).toHaveBeenCalledWith('toRear');
   mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+
   clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'accepted',
     interpretation: { type: 'ValidSheet' },
     ballotsCounted: initialBallotsCounted + 1,
   });
+
   clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-  await waitForStatus(apiClient, {
+  await waitForStatus(api, {
     state: 'no_paper',
     ballotsCounted: initialBallotsCounted + 1,
   });

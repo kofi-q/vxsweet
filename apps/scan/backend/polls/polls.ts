@@ -9,13 +9,13 @@ import { getCurrentTime } from '../time/get_current_time';
 
 export type OpenPollsResult = Result<void, 'ballots-already-scanned'>;
 
-export async function openPolls({
+export function openPolls({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<OpenPollsResult> {
+}): OpenPollsResult {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_closed_initial');
 
@@ -96,13 +96,13 @@ export async function closePolls({
   }
 }
 
-export async function pauseVoting({
+export function pauseVoting({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_open');
 
@@ -122,13 +122,13 @@ export async function pauseVoting({
   });
 }
 
-export async function resumeVoting({
+export function resumeVoting({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_paused');
 
@@ -146,13 +146,13 @@ export async function resumeVoting({
   });
 }
 
-export async function resetPollsToPaused({
+export function resetPollsToPaused({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_closed_final');
   store.transitionPolls({ type: 'pause_voting', time: getCurrentTime() });
