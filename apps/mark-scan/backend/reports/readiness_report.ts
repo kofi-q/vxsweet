@@ -100,12 +100,12 @@ export async function saveReadinessReport({
     data
   );
   if (exportFileResult.isOk()) {
-    await logger.logAsCurrentRole(LogEventId.ReadinessReportSaved, {
+    void logger.logAsCurrentRole(LogEventId.ReadinessReportSaved, {
       message: `User saved the equipment readiness report to a USB drive.`,
       disposition: 'success',
     });
   } else {
-    await logger.logAsCurrentRole(LogEventId.ReadinessReportSaved, {
+    void logger.logAsCurrentRole(LogEventId.ReadinessReportSaved, {
       message: `Error while attempting to save the equipment readiness report to a USB drive: ${
         exportFileResult.err().message
       }`,

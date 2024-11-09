@@ -1,10 +1,7 @@
-import getPort from 'get-port';
-import { Server } from 'node:http';
 import { DateTime } from 'luxon';
 import { dirSync } from 'tmp';
 import { buildMockDippedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { type DippedSmartCardAuthApi } from '@vx/libs/auth/dipped-cards';
-import * as grout from '@vx/libs/grout/src';
 import { Logger, mockBaseLogger } from '@vx/libs/logging/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
@@ -16,45 +13,30 @@ import {
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMockScanner } from '../test/util/mocks';
-import { type Api, buildCentralScannerApp } from '../app/app';
+import { type Api, buildApi } from '../app/app';
 import { Importer } from '../importer/importer';
-import { start } from '../server/server';
 import { createWorkspace, type Workspace } from '../workspace/workspace';
 import { buildMockLogger } from '../test/helpers/setup_app';
 
-let apiClient: grout.Client<Api>;
+let api: Api;
 let auth: DippedSmartCardAuthApi;
-let server: Server;
 let workspace: Workspace;
 let logger: Logger;
 
-beforeEach(async () => {
-  const port = await getPort();
+beforeEach(() => {
   auth = buildMockDippedSmartCardAuth();
   workspace = createWorkspace(dirSync().name, mockBaseLogger());
   logger = buildMockLogger(auth, workspace);
   const scanner = makeMockScanner();
 
-  apiClient = grout.createClient({
-    baseUrl: `http://localhost:${port}/api`,
-  });
-  server = await start({
-    app: buildCentralScannerApp({
-      auth,
-      usbDrive: createMockUsbDrive().usbDrive,
-      scanner,
-      importer: new Importer({ workspace, scanner, logger }),
-      workspace,
-      logger,
-    }),
-    logger,
+  api = buildApi({
+    auth,
+    usbDrive: createMockUsbDrive().usbDrive,
+    scanner,
+    importer: new Importer({ workspace, scanner, logger }),
     workspace,
-    port,
+    logger,
   });
-});
-
-afterEach(() => {
-  server.close();
 });
 
 const jurisdiction = TEST_JURISDICTION;
@@ -89,7 +71,7 @@ function configureMachine(systemSettings: SystemSettings): void {
 test('getAuthStatus', async () => {
   configureMachine(systemSettings);
 
-  await apiClient.getAuthStatus();
+  await api.getAuthStatus();
   expect(auth.getAuthStatus).toHaveBeenCalledTimes(1);
   expect(auth.getAuthStatus).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -101,7 +83,7 @@ test('getAuthStatus', async () => {
 test('checkPin', async () => {
   configureMachine(systemSettings);
 
-  await apiClient.checkPin({ pin: '123456' });
+  await api.checkPin({ pin: '123456' });
   expect(auth.checkPin).toHaveBeenCalledTimes(1);
   expect(auth.checkPin).toHaveBeenNthCalledWith(
     1,
@@ -113,7 +95,7 @@ test('checkPin', async () => {
 test('logOut', async () => {
   configureMachine(systemSettings);
 
-  await apiClient.logOut();
+  await api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -125,7 +107,7 @@ test('logOut', async () => {
 test('updateSessionExpiry', async () => {
   configureMachine(systemSettings);
 
-  await apiClient.updateSessionExpiry({
+  await api.updateSessionExpiry({
     sessionExpiresAt: DateTime.now().plus({ seconds: 60 }).toJSDate(),
   });
   expect(auth.updateSessionExpiry).toHaveBeenCalledTimes(1);
@@ -141,7 +123,7 @@ test('updateSessionExpiry', async () => {
 });
 
 test('getAuthStatus before election definition has been configured', async () => {
-  await apiClient.getAuthStatus();
+  await api.getAuthStatus();
   expect(auth.getAuthStatus).toHaveBeenCalledTimes(1);
   expect(auth.getAuthStatus).toHaveBeenNthCalledWith(
     1,
@@ -150,7 +132,7 @@ test('getAuthStatus before election definition has been configured', async () =>
 });
 
 test('checkPin before election definition has been configured', async () => {
-  await apiClient.checkPin({ pin: '123456' });
+  await api.checkPin({ pin: '123456' });
   expect(auth.checkPin).toHaveBeenCalledTimes(1);
   expect(auth.checkPin).toHaveBeenNthCalledWith(
     1,
@@ -162,13 +144,13 @@ test('checkPin before election definition has been configured', async () => {
 });
 
 test('logOut before election definition has been configured', async () => {
-  await apiClient.logOut();
+  await api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, DEFAULT_SYSTEM_SETTINGS.auth);
 });
 
 test('updateSessionExpiry before election definition has been configured', async () => {
-  await apiClient.updateSessionExpiry({
+  await api.updateSessionExpiry({
     sessionExpiresAt: DateTime.now().plus({ seconds: 60 }).toJSDate(),
   });
   expect(auth.updateSessionExpiry).toHaveBeenCalledTimes(1);

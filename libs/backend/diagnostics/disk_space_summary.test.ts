@@ -145,13 +145,12 @@ test('initializeGetWorkspaceDiskSpaceSummary', async () => {
   );
 
   // disk space set up on initialize
-  expect(execFileMock).toHaveBeenCalledWith('df', ['/var', '/tmp', '--total']);
   expect(await getWorkspaceDiskSpaceSummaryFn()).toEqual({
     total: 50,
     used: 0,
     available: 50,
   });
-  expect(execFileMock).toHaveBeenCalledTimes(2);
+  expect(execFileMock).toHaveBeenCalledTimes(1);
 
   mockDiskFreeOutput({
     total: 100,
@@ -163,5 +162,5 @@ test('initializeGetWorkspaceDiskSpaceSummary', async () => {
     used: 10,
     available: 40,
   });
-  expect(execFileMock).toHaveBeenCalledTimes(3);
+  expect(execFileMock).toHaveBeenCalledTimes(2);
 });

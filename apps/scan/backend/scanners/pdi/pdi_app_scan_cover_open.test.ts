@@ -27,68 +27,62 @@ beforeEach(() => {
 });
 
 test('cover open while waiting for ballots', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.client.disableScanning.mockClear();
-      mockScanner.client.enableScanning.mockClear();
-      mockScanner.setScannerStatus(mockStatus.coverOpen);
-      mockScanner.emitEvent({ event: 'coverOpen' });
-      await waitForStatus(apiClient, { state: 'cover_open' });
-      expect(mockScanner.client.disableScanning).toHaveBeenCalled();
+    mockScanner.client.disableScanning.mockClear();
+    mockScanner.client.enableScanning.mockClear();
+    mockScanner.setScannerStatus(mockStatus.coverOpen);
+    mockScanner.emitEvent({ event: 'coverOpen' });
+    await waitForStatus(api, { state: 'cover_open' });
+    expect(mockScanner.client.disableScanning).toHaveBeenCalled();
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      mockScanner.emitEvent({ event: 'coverClosed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    mockScanner.emitEvent({ event: 'coverClosed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+  });
 });
 
 test('cover open while jammed', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.emitEvent({ event: 'scanStart' });
-      await waitForStatus(apiClient, { state: 'scanning' });
+    mockScanner.emitEvent({ event: 'scanStart' });
+    await waitForStatus(api, { state: 'scanning' });
 
-      mockScanner.setScannerStatus(mockStatus.jammed);
-      const deferredEject = deferred<Result<void, ScannerError>>();
-      mockScanner.client.ejectDocument.mockReturnValueOnce(
-        deferredEject.promise
-      );
-      mockScanner.emitEvent({ event: 'error', code: 'scanFailed' });
-      await waitForStatus(apiClient, {
-        state: 'rejecting',
-        error: 'scanning_failed',
-      });
-      deferredEject.resolve(ok());
-      await waitForStatus(apiClient, {
-        state: 'jammed',
-        error: 'scanning_failed',
-      });
+    mockScanner.setScannerStatus(mockStatus.jammed);
+    const deferredEject = deferred<Result<void, ScannerError>>();
+    mockScanner.client.ejectDocument.mockReturnValueOnce(deferredEject.promise);
+    mockScanner.emitEvent({ event: 'error', code: 'scanFailed' });
+    await waitForStatus(api, {
+      state: 'rejecting',
+      error: 'scanning_failed',
+    });
+    deferredEject.resolve(ok());
+    await waitForStatus(api, {
+      state: 'jammed',
+      error: 'scanning_failed',
+    });
 
-      mockScanner.setScannerStatus(mockStatus.jammedCoverOpen);
-      mockScanner.emitEvent({ event: 'coverOpen' });
-      await waitForStatus(apiClient, { state: 'cover_open' });
+    mockScanner.setScannerStatus(mockStatus.jammedCoverOpen);
+    mockScanner.emitEvent({ event: 'coverOpen' });
+    await waitForStatus(api, { state: 'cover_open' });
 
-      mockScanner.setScannerStatus(mockStatus.coverOpen);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'cover_open' });
+    mockScanner.setScannerStatus(mockStatus.coverOpen);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'cover_open' });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      mockScanner.emitEvent({ event: 'coverClosed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    mockScanner.emitEvent({ event: 'coverClosed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });

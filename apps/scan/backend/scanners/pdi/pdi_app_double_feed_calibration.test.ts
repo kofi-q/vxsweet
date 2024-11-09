@@ -32,188 +32,178 @@ beforeEach(() => {
 });
 
 test('calibrate double feed detection', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      // Insert election manager card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
+    // Insert election manager card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
 
-      // Scanning should be paused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
+    // Scanning should be paused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
 
-      // Initiate double feed calibration
-      await apiClient.beginDoubleFeedCalibration();
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.double_sheet',
-      });
-      expect(
-        mockScanner.client.calibrateDoubleFeedDetection
-      ).toHaveBeenLastCalledWith('double');
+    // Initiate double feed calibration
+    api.beginDoubleFeedCalibration();
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.double_sheet',
+    });
+    expect(
+      mockScanner.client.calibrateDoubleFeedDetection
+    ).toHaveBeenLastCalledWith('double');
 
-      // Simulate insert of double sheet
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.single_sheet',
-      });
-      expect(
-        mockScanner.client.calibrateDoubleFeedDetection
-      ).toHaveBeenLastCalledWith('single');
+    // Simulate insert of double sheet
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.single_sheet',
+    });
+    expect(
+      mockScanner.client.calibrateDoubleFeedDetection
+    ).toHaveBeenLastCalledWith('single');
 
-      // Simulate insert of single sheet
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.done',
-      });
+    // Simulate insert of single sheet
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.done',
+    });
 
-      // End double feed calibration
-      await apiClient.endDoubleFeedCalibration();
-      await waitForStatus(apiClient, { state: 'paused' });
-    }
-  );
+    // End double feed calibration
+    api.endDoubleFeedCalibration();
+    await waitForStatus(api, { state: 'paused' });
+  });
 });
 
 test('calibration time out waiting for double sheet', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      // Insert election manager card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
+    // Insert election manager card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
 
-      // Scanning should be paused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
+    // Scanning should be paused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
 
-      // Initiate double feed calibration
-      await apiClient.beginDoubleFeedCalibration();
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.double_sheet',
-      });
+    // Initiate double feed calibration
+    api.beginDoubleFeedCalibration();
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.double_sheet',
+    });
 
-      // Simulate PDI scanner timeout
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationTimedOut' });
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.done',
-        error: 'double_feed_calibration_timed_out',
-      });
+    // Simulate PDI scanner timeout
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationTimedOut' });
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.done',
+      error: 'double_feed_calibration_timed_out',
+    });
 
-      // End double feed calibration
-      await apiClient.endDoubleFeedCalibration();
-      await waitForStatus(apiClient, { state: 'paused' });
-    }
-  );
+    // End double feed calibration
+    api.endDoubleFeedCalibration();
+    await waitForStatus(api, { state: 'paused' });
+  });
 });
 
 test('calibration time out waiting for single sheet', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      // Insert election manager card
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
+    // Insert election manager card
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
 
-      // Scanning should be paused
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
+    // Scanning should be paused
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
 
-      // Initiate double feed calibration
-      await apiClient.beginDoubleFeedCalibration();
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.double_sheet',
-      });
+    // Initiate double feed calibration
+    api.beginDoubleFeedCalibration();
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.double_sheet',
+    });
 
-      // Simulate insert of double sheet
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.single_sheet',
-      });
+    // Simulate insert of double sheet
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.single_sheet',
+    });
 
-      // Simulate PDI scanner timeout
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationTimedOut' });
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.done',
-        error: 'double_feed_calibration_timed_out',
-      });
+    // Simulate PDI scanner timeout
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationTimedOut' });
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.done',
+      error: 'double_feed_calibration_timed_out',
+    });
 
-      // End double feed calibration
-      await apiClient.endDoubleFeedCalibration();
-      await waitForStatus(apiClient, { state: 'paused' });
-    }
-  );
+    // End double feed calibration
+    api.endDoubleFeedCalibration();
+    await waitForStatus(api, { state: 'paused' });
+  });
 });
 
 test('error with calibration command for double sheet', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
 
-      // We haven't seen this happen in practice, but we cover it just in case
-      mockScanner.client.calibrateDoubleFeedDetection.mockRejectedValue(
-        new Error('some error')
-      );
-      const deferredConnect = deferred<Result<void, ScannerError>>();
-      mockScanner.client.connect.mockResolvedValue(deferredConnect.promise);
+    // We haven't seen this happen in practice, but we cover it just in case
+    mockScanner.client.calibrateDoubleFeedDetection.mockRejectedValue(
+      new Error('some error')
+    );
+    const deferredConnect = deferred<Result<void, ScannerError>>();
+    mockScanner.client.connect.mockResolvedValue(deferredConnect.promise);
 
-      await apiClient.beginDoubleFeedCalibration();
-      await waitForStatus(apiClient, {
-        state: 'unrecoverable_error',
-      });
-    }
-  );
+    api.beginDoubleFeedCalibration();
+    await waitForStatus(api, {
+      state: 'unrecoverable_error',
+    });
+  });
 });
 
 test('error with calibration command for single sheet', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      mockOf(mockAuth.getAuthStatus).mockResolvedValue({
-        status: 'logged_in',
-        user: mockElectionManagerUser(),
-        sessionExpiresAt: mockSessionExpiresAt(),
-      });
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
+    mockOf(mockAuth.getAuthStatus).mockResolvedValue({
+      status: 'logged_in',
+      user: mockElectionManagerUser(),
+      sessionExpiresAt: mockSessionExpiresAt(),
+    });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'paused' });
 
-      // Initiate double feed calibration
-      await apiClient.beginDoubleFeedCalibration();
-      await waitForStatus(apiClient, {
-        state: 'calibrating_double_feed_detection.double_sheet',
-      });
+    // Initiate double feed calibration
+    api.beginDoubleFeedCalibration();
+    await waitForStatus(api, {
+      state: 'calibrating_double_feed_detection.double_sheet',
+    });
 
-      mockScanner.client.calibrateDoubleFeedDetection.mockRejectedValue(
-        new Error('some error')
-      );
-      const deferredConnect = deferred<Result<void, ScannerError>>();
-      mockScanner.client.connect.mockResolvedValue(deferredConnect.promise);
+    mockScanner.client.calibrateDoubleFeedDetection.mockRejectedValue(
+      new Error('some error')
+    );
+    const deferredConnect = deferred<Result<void, ScannerError>>();
+    mockScanner.client.connect.mockResolvedValue(deferredConnect.promise);
 
-      // Simulate insert of double sheet
-      mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
-      await waitForStatus(apiClient, {
-        state: 'unrecoverable_error',
-      });
-    }
-  );
+    // Simulate insert of double sheet
+    mockScanner.emitEvent({ event: 'doubleFeedCalibrationComplete' });
+    await waitForStatus(api, {
+      state: 'unrecoverable_error',
+    });
+  });
 });

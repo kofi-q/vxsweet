@@ -19,7 +19,6 @@ import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { LogEventId } from '@vx/libs/logging/src';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import { type Client } from '@vx/libs/grout/src';
 import { parseCsv } from '../test/csv';
 import {
   buildTestEnvironment,
@@ -51,26 +50,25 @@ it('logs success if export succeeds', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   const offLimitsPath = '/root/hidden';
-  const failedExportResult = await apiClient.exportBallotCountReportCsv({
+  const failedExportResult = await api.exportBallotCountReportCsv({
     path: offLimitsPath,
     filter: {},
     groupBy: {},
     includeSheetCounts: false,
   });
   expect(failedExportResult.isErr()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'failure',
       filename: offLimitsPath,
@@ -83,26 +81,25 @@ it('logs failure if export fails', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth, logger } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportBallotCountReportCsv({
+  const exportResult = await api.exportBallotCountReportCsv({
     path,
     filter: {},
     groupBy: {},
     includeSheetCounts: false,
   });
   expect(exportResult.isOk()).toEqual(true);
-  expect(logger.log).toHaveBeenLastCalledWith(
+  expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
     LogEventId.FileSaved,
-    'election_manager',
     {
       disposition: 'success',
       filename: path,
@@ -112,16 +109,16 @@ it('logs failure if export fails', async () => {
 });
 
 async function getParsedExport({
-  apiClient,
+  api,
   groupBy = {},
   filter = {},
 }: {
-  apiClient: Client<Api>;
+  api: Api;
   groupBy?: Tabulation.GroupBy;
   filter?: Tabulation.Filter;
 }): Promise<ReturnType<typeof parseCsv>> {
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportBallotCountReportCsv({
+  const exportResult = await api.exportBallotCountReportCsv({
     path,
     groupBy,
     filter,
@@ -136,18 +133,18 @@ it('creates accurate ballot count reports', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   // add CVR data
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   // add manual data
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: election.precincts[0]!.id,
     votingMethod: 'absentee',
     ballotStyleGroupId: election.ballotStyles[0]!.groupId,
@@ -160,7 +157,7 @@ it('creates accurate ballot count reports', async () => {
 
   expect(
     await getParsedExport({
-      apiClient,
+      api,
       groupBy: { groupByVotingMethod: true },
     })
   ).toEqual({
@@ -185,7 +182,7 @@ it('creates accurate ballot count reports', async () => {
 
   expect(
     await getParsedExport({
-      apiClient,
+      api,
       groupBy: { groupByPrecinct: true, groupByVotingMethod: true },
     })
   ).toEqual({

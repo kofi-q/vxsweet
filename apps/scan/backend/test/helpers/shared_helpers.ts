@@ -3,7 +3,6 @@ import { iter } from '@vx/libs/basics/iterators';
 import { ok } from '@vx/libs/basics/result';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
-import * as grout from '@vx/libs/grout/src';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -36,13 +35,13 @@ import { Store } from '../../store/store';
 import { getUserRole } from '../../auth/auth';
 import { type Workspace } from '../../workspace/workspace';
 
-export async function expectStatus(
-  apiClient: grout.Client<Api>,
+export function expectStatus(
+  api: Api,
   expectedStatus: {
     state: PrecinctScannerState;
   } & Partial<PrecinctScannerStatus>
-): Promise<void> {
-  const status = await apiClient.getScannerStatus();
+): void {
+  const status = api.getScannerStatus();
   expect(status).toEqual({
     ballotsCounted: 0,
     error: undefined,
@@ -52,25 +51,25 @@ export async function expectStatus(
 }
 
 export async function waitForStatus(
-  apiClient: grout.Client<Api>,
+  api: Api,
   status: {
     state: PrecinctScannerState;
   } & Partial<PrecinctScannerStatus>
 ): Promise<void> {
-  await waitForExpect(async () => {
-    await expectStatus(apiClient, status);
+  await waitForExpect(() => {
+    expectStatus(api, status);
   }, 2_000);
 }
 
 /**
  * configureApp is a testing convenience function that handles some common configuration of the VxScan app.
- * @param apiClient - a VxScan API client
+ * @param api - a VxScan API client
  * @param mockAuth - a mock InsertedSmartCardAuthApi
  * @param mockUsbDrive - a mock USB drive
  * @param options - an object containing optional arguments
  */
 export async function configureApp(
-  apiClient: grout.Client<Api>,
+  api: Api,
   mockAuth: InsertedSmartCardAuthApi,
   mockUsbDrive: MockUsbDrive,
   {
@@ -101,18 +100,16 @@ export async function configureApp(
     await mockElectionPackageFileTree(electionPackage)
   );
 
-  expect(await apiClient.configureFromElectionPackageOnUsbDrive()).toEqual(
-    ok()
-  );
+  expect(await api.configureFromElectionPackageOnUsbDrive()).toEqual(ok());
 
-  await apiClient.setPrecinctSelection({
+  api.setPrecinctSelection({
     precinctSelection: precinctId
       ? singlePrecinctSelectionFor(precinctId)
       : ALL_PRECINCTS_SELECTION,
   });
-  await apiClient.setTestMode({ isTestMode: testMode });
+  await api.setTestMode({ isTestMode: testMode });
   if (openPolls) {
-    (await apiClient.openPolls()).unsafeUnwrap();
+    (await api.openPolls()).unsafeUnwrap();
   }
 
   mockOf(mockAuth.getAuthStatus).mockImplementation(() =>

@@ -105,7 +105,7 @@ test('adjudicateVote', () => {
   expectVotes({ 'zoo-council-mammal': ['zebra'] });
 });
 
-test('adjudicateWriteIn', async () => {
+test('adjudicateWriteIn', () => {
   const store = Store.memoryStore();
   const logger = mockBaseLogger();
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
@@ -171,7 +171,7 @@ test('adjudicateWriteIn', async () => {
     status: 'pending',
   });
 
-  await adjudicateWriteIn({ writeInId, type: 'invalid' }, store, logger);
+  adjudicateWriteIn({ writeInId, type: 'invalid' }, store, logger);
   expectVotes({ 'zoo-council-mammal': [] });
   expectWriteInRecord({
     status: 'adjudicated',
@@ -182,7 +182,7 @@ test('adjudicateWriteIn', async () => {
     status: 'invalid',
   });
 
-  await adjudicateWriteIn(
+  adjudicateWriteIn(
     { writeInId, type: 'official-candidate', candidateId: 'lion' },
     store,
     logger
@@ -207,7 +207,7 @@ test('adjudicateWriteIn', async () => {
     contestId,
     name: 'Unofficial',
   });
-  await adjudicateWriteIn(
+  adjudicateWriteIn(
     { writeInId, type: 'write-in-candidate', candidateId: writeInCandidate.id },
     store,
     logger
@@ -228,7 +228,7 @@ test('adjudicateWriteIn', async () => {
     }
   );
 
-  await adjudicateWriteIn({ writeInId, type: 'invalid' }, store, logger);
+  adjudicateWriteIn({ writeInId, type: 'invalid' }, store, logger);
   expectVotes({ 'zoo-council-mammal': [] });
   expectWriteInRecord({
     status: 'adjudicated',
@@ -245,7 +245,7 @@ test('adjudicateWriteIn', async () => {
     }
   );
 
-  await adjudicateWriteIn({ writeInId, type: 'reset' }, store, logger);
+  adjudicateWriteIn({ writeInId, type: 'reset' }, store, logger);
   expectVotes({ 'zoo-council-mammal': ['write-in-0'] });
   expectWriteInRecord({
     status: 'pending',

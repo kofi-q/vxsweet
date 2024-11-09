@@ -66,11 +66,11 @@ test('general, full election, write in adjudication', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -80,8 +80,7 @@ test('general, full election, write in adjudication', async () => {
   const officialCandidateId = 'Obadiah-Carrigan-5c95145a';
 
   // check results before any write-in adjudication
-  const fullElectionTallyReportList =
-    await apiClient.getResultsForTallyReports();
+  const fullElectionTallyReportList = await api.getResultsForTallyReports();
   expect(fullElectionTallyReportList).toHaveLength(1);
   const [fullElectionTallyReport] = fullElectionTallyReportList;
   assert(fullElectionTallyReport);
@@ -114,11 +113,11 @@ test('general, full election, write in adjudication', async () => {
   });
 
   // adjudicate some write-ins
-  const unofficialCandidate = await apiClient.addWriteInCandidate({
+  const unofficialCandidate = api.addWriteInCandidate({
     contestId: writeInContestId,
     name: 'Unofficial Candidate',
   });
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId: writeInContestId,
   });
   expect(writeInIds).toHaveLength(56);
@@ -127,18 +126,18 @@ test('general, full election, write in adjudication', async () => {
   const NUM_UNOFFICIAL = 56 - NUM_INVALID - NUM_OFFICIAL;
   for (const [i, writeInId] of writeInIds.entries()) {
     if (i < NUM_INVALID) {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'invalid',
       });
     } else if (i < NUM_INVALID + NUM_OFFICIAL) {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'official-candidate',
         candidateId: officialCandidateId,
       });
     } else {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'write-in-candidate',
         candidateId: unofficialCandidate.id,
@@ -146,8 +145,7 @@ test('general, full election, write in adjudication', async () => {
     }
   }
 
-  const wiaFullElectionTallyReportList =
-    await apiClient.getResultsForTallyReports();
+  const wiaFullElectionTallyReportList = await api.getResultsForTallyReports();
   expect(wiaFullElectionTallyReportList).toHaveLength(1);
   const [wiaFullElectionTallyReport] = wiaFullElectionTallyReportList;
   assert(wiaFullElectionTallyReport);
@@ -184,11 +182,11 @@ test('general, reports by voting method, manual data', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -197,7 +195,7 @@ test('general, reports by voting method, manual data', async () => {
     'State-Representatives-Hillsborough-District-34-b1012d38';
 
   // add unofficial candidate for manual results to reference
-  const unofficialCandidate = await apiClient.addWriteInCandidate({
+  const unofficialCandidate = api.addWriteInCandidate({
     contestId: writeInContestId,
     name: 'Unofficial Candidate',
   });
@@ -219,7 +217,7 @@ test('general, reports by voting method, manual data', async () => {
       },
     },
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: election.precincts[0]!.id,
     ballotStyleGroupId: election.ballotStyles[0]!.groupId,
     votingMethod: 'absentee',
@@ -227,12 +225,10 @@ test('general, reports by voting method, manual data', async () => {
   });
 
   // Case 1: incorporating manual results alongside scanned results
-  const votingMethodTallyReportList = await apiClient.getResultsForTallyReports(
-    {
-      filter: {},
-      groupBy: { groupByVotingMethod: true },
-    }
-  );
+  const votingMethodTallyReportList = await api.getResultsForTallyReports({
+    filter: {},
+    groupBy: { groupByVotingMethod: true },
+  });
   expect(votingMethodTallyReportList).toHaveLength(2);
   const absenteeTallyReport = find(
     votingMethodTallyReportList,
@@ -272,11 +268,10 @@ test('general, reports by voting method, manual data', async () => {
   expect(receivedAbsenteeManualResults).toMatchObject(absenteeManualResults);
 
   // Case 2: ignoring manual results due to filter
-  const scannerFilteredTallyReportResult =
-    await apiClient.getResultsForTallyReports({
-      filter: { scannerIds: ['VX-00-000'] },
-      groupBy: { groupByVotingMethod: true },
-    });
+  const scannerFilteredTallyReportResult = await api.getResultsForTallyReports({
+    filter: { scannerIds: ['VX-00-000'] },
+    groupBy: { groupByVotingMethod: true },
+  });
   expect(scannerFilteredTallyReportResult).toHaveLength(2);
   const scannerAbsenteeTallyReport = find(
     scannerFilteredTallyReportResult,
@@ -289,11 +284,10 @@ test('general, reports by voting method, manual data', async () => {
   expect(scannerAbsenteeTallyReport.manualResults).toBeUndefined();
 
   // Case 3: incorporating manual results as separate reports due to grouping
-  const batchGroupedTallyReportResult =
-    await apiClient.getResultsForTallyReports({
-      filter: {},
-      groupBy: { groupByBatch: true, groupByVotingMethod: true },
-    });
+  const batchGroupedTallyReportResult = await api.getResultsForTallyReports({
+    filter: {},
+    groupBy: { groupByBatch: true, groupByVotingMethod: true },
+  });
   expect(batchGroupedTallyReportResult).toMatchObject(
     expect.arrayContaining([
       expect.objectContaining({
@@ -318,17 +312,16 @@ test('primary, full election', async () => {
     electionTwoPartyPrimaryFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const fullElectionTallyReportList =
-    await apiClient.getResultsForTallyReports();
+  const fullElectionTallyReportList = await api.getResultsForTallyReports();
   expect(fullElectionTallyReportList).toHaveLength(1);
   const [fullElectionTallyReport] = fullElectionTallyReportList;
   assert(fullElectionTallyReport);
@@ -381,17 +374,17 @@ test('primary, full election, with manual results', async () => {
     electionTwoPartyPrimaryFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
   // add some manual results for a single ballot style, representing only one party
-  await apiClient.setManualResults({
+  await api.setManualResults({
     precinctId: 'precinct-1',
     ballotStyleGroupId: '1M' as BallotStyleGroupId,
     votingMethod: 'absentee',
@@ -402,8 +395,7 @@ test('primary, full election, with manual results', async () => {
     }),
   });
 
-  const fullElectionTallyReportList =
-    await apiClient.getResultsForTallyReports();
+  const fullElectionTallyReportList = await api.getResultsForTallyReports();
   expect(fullElectionTallyReportList).toHaveLength(1);
   const [fullElectionTallyReport] = fullElectionTallyReportList;
   assert(fullElectionTallyReport);
@@ -435,16 +427,16 @@ test('single language primary, reports by ballot style', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const ballotStyleTallyReportList = await apiClient.getResultsForTallyReports({
+  const ballotStyleTallyReportList = await api.getResultsForTallyReports({
     filter: {},
     groupBy: { groupByBallotStyle: true },
   });
@@ -495,16 +487,16 @@ test('multi language, filtered by ballot style - grouped by precinct ', async ()
   const { electionDefinition, castVoteRecordExport } =
     electionPrimaryPrecinctSplitsFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const precinctTallyReportList = await apiClient.getResultsForTallyReports({
+  const precinctTallyReportList = await api.getResultsForTallyReports({
     filter: {
       ballotStyleGroupIds: ['1-Ma', '4-F'] as BallotStyleGroupId[],
     },
@@ -554,16 +546,16 @@ test('multi language, filtered by party - grouped by ballot style ', async () =>
   const { electionDefinition, castVoteRecordExport } =
     electionPrimaryPrecinctSplitsFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const precinctTallyReportList = await apiClient.getResultsForTallyReports({
+  const precinctTallyReportList = await api.getResultsForTallyReports({
     filter: { partyIds: ['0'] },
     groupBy: { groupByBallotStyle: true },
   });
@@ -587,16 +579,16 @@ test('multi language, reports by ballot style - agnostic to language specific ba
   const { electionDefinition, castVoteRecordExport } =
     electionPrimaryPrecinctSplitsFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const ballotStyleTallyReportList = await apiClient.getResultsForTallyReports({
+  const ballotStyleTallyReportList = await api.getResultsForTallyReports({
     filter: {},
     groupBy: { groupByBallotStyle: true },
   });
@@ -643,16 +635,16 @@ test('primary, reports grouped by voting method, filtered by precinct', async ()
   const { electionDefinition, castVoteRecordExport } =
     electionTwoPartyPrimaryFixtures;
 
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
 
-  const tallyReportList = await apiClient.getResultsForTallyReports({
+  const tallyReportList = await api.getResultsForTallyReports({
     groupBy: { groupByVotingMethod: true },
     filter: { precinctIds: ['precinct-1'] },
   });

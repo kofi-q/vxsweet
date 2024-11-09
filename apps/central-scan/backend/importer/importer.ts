@@ -181,7 +181,7 @@ export class Importer {
     );
 
     const batch = this.workspace.store.getBatch(batchId);
-    await logScanSheetSuccess(this.logger, batch);
+    void logScanSheetSuccess(this.logger, batch);
 
     return sheetId;
   }
@@ -264,7 +264,7 @@ export class Importer {
     if (this.batchId) {
       this.workspace.store.finishBatch({ batchId: this.batchId, error });
       const batch = this.workspace.store.getBatch(this.batchId);
-      await logBatchComplete(this.logger, batch);
+      void logBatchComplete(this.logger, batch);
       this.batchId = undefined;
     }
 

@@ -1,6 +1,6 @@
 import { emptyDirSync, ensureDirSync } from 'fs-extra';
 import { join, resolve } from 'node:path';
-import { Mutex } from '@vx/libs/utils/src';
+import { isIntegrationTest, Mutex } from '@vx/libs/utils/src';
 import {
   type DiskSpaceSummary,
   initializeGetWorkspaceDiskSpaceSummary,
@@ -74,7 +74,11 @@ export function createWorkspace(
   ensureDirSync(scannedImagesPath);
 
   const dbPath = join(resolvedRoot, 'ballots.db');
-  const store = options.store || Store.fileStore(dbPath, logger);
+  const store = options.store
+    ? options.store
+    : process.env.NODE_ENV === 'test' || isIntegrationTest()
+    ? Store.memoryStore()
+    : Store.fileStore(dbPath, logger);
 
   // check disk space on startup to detect a new maximum available disk space
   const getWorkspaceDiskSpaceSummary = initializeGetWorkspaceDiskSpaceSummary(

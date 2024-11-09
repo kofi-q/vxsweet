@@ -52,7 +52,7 @@ type AuthAction =
  * Given a previous auth status and a new auth status following an auth status transition, infers
  * and logs the relevant auth event, if any
  */
-async function logAuthEvent(
+function logAuthEvent(
   previousAuthStatus: InsertedSmartCardAuthTypes.AuthStatus,
   newAuthStatus: InsertedSmartCardAuthTypes.AuthStatus,
   logger: BaseLogger
@@ -64,7 +64,7 @@ async function logAuthEvent(
         newAuthStatus.status === 'logged_out' &&
         newAuthStatus.reason !== 'no_card'
       ) {
-        await logger.log(
+        void logger.log(
           LogEventId.AuthLogin,
           newAuthStatus.cardUserRole ?? 'unknown',
           {
@@ -74,7 +74,7 @@ async function logAuthEvent(
           }
         );
       } else if (newAuthStatus.status === 'logged_in') {
-        await logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
+        void logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
           disposition: LogDispositionStandardTypes.Success,
           message: 'User logged in.',
         });
@@ -84,14 +84,10 @@ async function logAuthEvent(
 
     case 'checking_pin': {
       if (newAuthStatus.status === 'logged_out') {
-        await logger.log(
-          LogEventId.AuthPinEntry,
-          previousAuthStatus.user.role,
-          {
-            disposition: LogDispositionStandardTypes.Failure,
-            message: 'User canceled PIN entry.',
-          }
-        );
+        void logger.log(LogEventId.AuthPinEntry, previousAuthStatus.user.role, {
+          disposition: LogDispositionStandardTypes.Failure,
+          message: 'User canceled PIN entry.',
+        });
       } else if (newAuthStatus.status === 'checking_pin') {
         if (
           newAuthStatus.wrongPinEnteredAt &&
@@ -99,7 +95,7 @@ async function logAuthEvent(
             newAuthStatus.wrongPinEnteredAt
         ) {
           if (newAuthStatus.lockedOutUntil) {
-            await logger.log(
+            void logger.log(
               LogEventId.AuthPinEntryLockout,
               newAuthStatus.user.role,
               {
@@ -109,7 +105,7 @@ async function logAuthEvent(
               }
             );
           } else {
-            await logger.log(
+            void logger.log(
               LogEventId.AuthPinEntry,
               previousAuthStatus.user.role,
               {
@@ -120,11 +116,11 @@ async function logAuthEvent(
           }
         }
       } else if (newAuthStatus.status === 'logged_in') {
-        await logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
+        void logger.log(LogEventId.AuthPinEntry, newAuthStatus.user.role, {
           disposition: LogDispositionStandardTypes.Success,
           message: 'User entered correct PIN.',
         });
-        await logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
+        void logger.log(LogEventId.AuthLogin, newAuthStatus.user.role, {
           disposition: LogDispositionStandardTypes.Success,
           message: 'User logged in.',
         });
@@ -136,25 +132,17 @@ async function logAuthEvent(
     case 'logged_in': {
       if (newAuthStatus.status === 'logged_out') {
         if (newAuthStatus.reason === 'session_expired') {
-          await logger.log(
-            LogEventId.AuthLogout,
-            previousAuthStatus.user.role,
-            {
-              disposition: LogDispositionStandardTypes.Success,
-              message: 'User logged out automatically due to session expiry.',
-              reason: newAuthStatus.reason,
-            }
-          );
+          void logger.log(LogEventId.AuthLogout, previousAuthStatus.user.role, {
+            disposition: LogDispositionStandardTypes.Success,
+            message: 'User logged out automatically due to session expiry.',
+            reason: newAuthStatus.reason,
+          });
         } else {
-          await logger.log(
-            LogEventId.AuthLogout,
-            previousAuthStatus.user.role,
-            {
-              disposition: LogDispositionStandardTypes.Success,
-              message: 'User logged out.',
-              reason: newAuthStatus.reason,
-            }
-          );
+          void logger.log(LogEventId.AuthLogout, previousAuthStatus.user.role, {
+            disposition: LogDispositionStandardTypes.Success,
+            message: 'User logged out.',
+            reason: newAuthStatus.reason,
+          });
         }
       }
       return;
@@ -242,14 +230,14 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
       });
       checkPinResponse = { response: 'error' };
     }
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'check_pin',
       checkPinResponse,
     });
   }
 
-  async logOut(machineState: InsertedSmartCardAuthMachineState): Promise<void> {
-    await this.updateAuthStatus(machineState, { type: 'log_out' });
+  logOut(machineState: InsertedSmartCardAuthMachineState): void {
+    this.updateAuthStatus(machineState, { type: 'log_out' });
   }
 
   async updateSessionExpiry(
@@ -257,7 +245,7 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
     input: { sessionExpiresAt: Date }
   ): Promise<void> {
     await this.checkCardReaderAndUpdateAuthStatus(machineState);
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'update_session_expiry',
       sessionExpiresAt: input.sessionExpiresAt,
     });
@@ -361,19 +349,19 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
     machineState: InsertedSmartCardAuthMachineState
   ): Promise<void> {
     const cardStatus = await this.card.getCardStatus();
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'check_card_reader',
       cardStatus,
     });
   }
 
-  private async updateAuthStatus(
+  private updateAuthStatus(
     machineState: InsertedSmartCardAuthMachineState,
     action: AuthAction
-  ): Promise<void> {
+  ): void {
     const previousAuthStatus = this.authStatus;
     this.authStatus = this.determineNewAuthStatus(machineState, action);
-    await logAuthEvent(previousAuthStatus, this.authStatus, this.logger);
+    void logAuthEvent(previousAuthStatus, this.authStatus, this.logger);
   }
 
   private determineNewAuthStatus(

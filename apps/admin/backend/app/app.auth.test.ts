@@ -32,11 +32,11 @@ beforeAll(() => {
 });
 
 test('getAuthStatus', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
   auth.getAuthStatus.mockClear(); // Clear mock calls from configureMachine
 
-  await apiClient.getAuthStatus();
+  await api.getAuthStatus();
   expect(auth.getAuthStatus).toHaveBeenCalledTimes(1);
   expect(auth.getAuthStatus).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -46,10 +46,10 @@ test('getAuthStatus', async () => {
 });
 
 test('checkPin', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  await apiClient.checkPin({ pin: '123456' });
+  await api.checkPin({ pin: '123456' });
   expect(auth.checkPin).toHaveBeenCalledTimes(1);
   expect(auth.checkPin).toHaveBeenNthCalledWith(
     1,
@@ -59,10 +59,10 @@ test('checkPin', async () => {
 });
 
 test('logOut', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  await apiClient.logOut();
+  await api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -72,10 +72,10 @@ test('logOut', async () => {
 });
 
 test('updateSessionExpiry', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  await apiClient.updateSessionExpiry({
+  await api.updateSessionExpiry({
     sessionExpiresAt: DateTime.now().plus({ seconds: 60 }).toJSDate(),
   });
   expect(auth.updateSessionExpiry).toHaveBeenCalledTimes(1);
@@ -87,10 +87,10 @@ test('updateSessionExpiry', async () => {
 });
 
 test('programCard', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  void (await apiClient.programCard({ userRole: 'system_administrator' }));
+  void (await api.programCard({ userRole: 'system_administrator' }));
   expect(auth.programCard).toHaveBeenCalledTimes(1);
   expect(auth.programCard).toHaveBeenNthCalledWith(
     1,
@@ -98,7 +98,7 @@ test('programCard', async () => {
     { userRole: 'system_administrator' }
   );
 
-  void (await apiClient.programCard({ userRole: 'election_manager' }));
+  void (await api.programCard({ userRole: 'election_manager' }));
   expect(auth.programCard).toHaveBeenCalledTimes(2);
   expect(auth.programCard).toHaveBeenNthCalledWith(
     2,
@@ -106,7 +106,7 @@ test('programCard', async () => {
     { userRole: 'election_manager' }
   );
 
-  void (await apiClient.programCard({ userRole: 'poll_worker' }));
+  void (await api.programCard({ userRole: 'poll_worker' }));
   expect(auth.programCard).toHaveBeenCalledTimes(3);
   expect(auth.programCard).toHaveBeenNthCalledWith(
     3,
@@ -116,10 +116,10 @@ test('programCard', async () => {
 });
 
 test('unprogramCard', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition, systemSettings);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  void (await apiClient.unprogramCard());
+  void (await api.unprogramCard());
   expect(auth.unprogramCard).toHaveBeenCalledTimes(1);
   expect(auth.unprogramCard).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -129,9 +129,9 @@ test('unprogramCard', async () => {
 });
 
 test('getAuthStatus before election definition has been configured', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await apiClient.getAuthStatus();
+  await api.getAuthStatus();
   expect(auth.getAuthStatus).toHaveBeenCalledTimes(1);
   expect(auth.getAuthStatus).toHaveBeenNthCalledWith(1, {
     jurisdiction,
@@ -140,9 +140,9 @@ test('getAuthStatus before election definition has been configured', async () =>
 });
 
 test('checkPin before election definition has been configured', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await apiClient.checkPin({ pin: '123456' });
+  await api.checkPin({ pin: '123456' });
   expect(auth.checkPin).toHaveBeenCalledTimes(1);
   expect(auth.checkPin).toHaveBeenNthCalledWith(
     1,
@@ -155,9 +155,9 @@ test('checkPin before election definition has been configured', async () => {
 });
 
 test('logOut before election definition has been configured', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await apiClient.logOut();
+  await api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     jurisdiction,
@@ -166,9 +166,9 @@ test('logOut before election definition has been configured', async () => {
 });
 
 test('updateSessionExpiry before election definition has been configured', async () => {
-  const { apiClient, auth } = buildTestEnvironment();
+  const { api, auth } = buildTestEnvironment();
 
-  await apiClient.updateSessionExpiry({
+  await api.updateSessionExpiry({
     sessionExpiresAt: DateTime.now().plus({ seconds: 60 }).toJSDate(),
   });
   expect(auth.updateSessionExpiry).toHaveBeenCalledTimes(1);

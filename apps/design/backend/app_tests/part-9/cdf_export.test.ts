@@ -25,22 +25,18 @@ import {
 } from '@vx/libs/utils/src';
 import { readElectionPackageFromFile } from '@vx/libs/backend/election_package';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { exportElectionPackage, testSetupHelpers } from '../../test/helpers';
+import { exportElectionPackage, newTestApi } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-const { setupApp, cleanup } = testSetupHelpers();
-
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
   MOCK_READINESS_REPORT_CONTENTS,
   'utf-8'
 );
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -62,26 +58,26 @@ test('CDF exports', async () => {
 
   const baseElectionDefinition =
     electionFamousNames2021Fixtures.electionDefinition;
-  const { apiClient, workspace } = setupApp();
+  const { api, workspace } = newTestApi();
 
-  const electionId = (
-    await apiClient.loadElection({
+  const electionId = api
+    .loadElection({
       electionData: baseElectionDefinition.electionData,
     })
-  ).unsafeUnwrap();
+    .unsafeUnwrap();
 
-  const allBallotsOutput = await apiClient.exportAllBallots({
+  const allBallotsOutput = await api.exportAllBallots({
     electionId,
     electionSerializationFormat: 'cdf',
   });
 
-  const testDecksOutput = await apiClient.exportTestDecks({
+  const testDecksOutput = await api.exportTestDecks({
     electionId,
     electionSerializationFormat: 'cdf',
   });
 
   const electionPackageFilePath = await exportElectionPackage({
-    apiClient,
+    api,
     electionId,
     workspace,
     electionSerializationFormat: 'cdf',

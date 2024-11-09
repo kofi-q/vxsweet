@@ -52,7 +52,7 @@ import {
   exportElectionPackage,
   isMockCloudSynthesizedSpeech,
   mockCloudTranslatedText,
-  testSetupHelpers,
+  newTestApi,
 } from '../../test/helpers';
 import { forEachUiString } from '../../language_and_audio/utils/utils';
 import { getAllBallotLanguages } from '../../types/types';
@@ -61,8 +61,6 @@ import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_sty
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
-const { setupApp, cleanup } = testSetupHelpers();
 
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
@@ -80,8 +78,6 @@ function expectedEnglishBallotStrings(election: Election): UiStringsPackage {
   );
   return expectedStrings;
 }
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -113,23 +109,23 @@ test('Election package export', async () => {
       AdjudicationReason.UnmarkedWriteIn,
     ],
   };
-  const { apiClient, workspace } = setupApp();
+  const { api, workspace } = newTestApi();
 
-  const electionId = (
-    await apiClient.loadElection({
+  const electionId = api
+    .loadElection({
       electionData: JSON.stringify(electionWithLegalPaper),
     })
-  ).unsafeUnwrap();
-  await apiClient.updateSystemSettings({
+    .unsafeUnwrap();
+  api.updateSystemSettings({
     electionId,
     systemSettings: mockSystemSettings,
   });
-  const electionRecord = await apiClient.getElection({ electionId });
+  const electionRecord = api.getElection({ electionId });
 
   const { ballotLanguageConfigs, election: appElection } = electionRecord;
 
   const electionPackageFilePath = await exportElectionPackage({
-    apiClient,
+    api,
     electionId,
     workspace,
     electionSerializationFormat: 'vxf',

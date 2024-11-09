@@ -9,13 +9,13 @@ import { getCurrentTime } from '../time/get_current_time';
 
 export type OpenPollsResult = Result<void, 'ballots-already-scanned'>;
 
-export async function openPolls({
+export function openPolls({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<OpenPollsResult> {
+}): OpenPollsResult {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_closed_initial');
 
@@ -23,7 +23,7 @@ export async function openPolls({
   // with VVSG 2.0 1.1.3-B, even though it should be an impossible app state.
   const sheetCount = store.getBallotsCounted();
   if (sheetCount > 0) {
-    await logger.logAsCurrentRole(LogEventId.PollsOpened, {
+    void logger.logAsCurrentRole(LogEventId.PollsOpened, {
       disposition: 'failure',
       message:
         'User prevented from opening polls because ballots have already been scanned.',
@@ -33,13 +33,13 @@ export async function openPolls({
   }
 
   store.transitionPolls({ type: 'open_polls', time: getCurrentTime() });
-  await logger.logAsCurrentRole(LogEventId.PollsOpened, {
+  void logger.logAsCurrentRole(LogEventId.PollsOpened, {
     disposition: 'success',
     message: 'User opened the polls.',
   });
 
   const batchId = store.addBatch();
-  await logger.log(LogEventId.ScannerBatchStarted, 'system', {
+  void logger.log(LogEventId.ScannerBatchStarted, 'system', {
     disposition: 'success',
     message: 'New scanning batch started on polls opened.',
     batchId,
@@ -65,7 +65,7 @@ export async function closePolls({
   );
 
   store.transitionPolls({ type: 'close_polls', time: getCurrentTime() });
-  await logger.logAsCurrentRole(LogEventId.PollsClosed, {
+  void logger.logAsCurrentRole(LogEventId.PollsClosed, {
     disposition: 'success',
     message: 'User closed the polls.',
   });
@@ -74,7 +74,7 @@ export async function closePolls({
     const ongoingBatchId = store.getOngoingBatchId();
     assert(ongoingBatchId !== undefined);
     store.finishBatch({ batchId: ongoingBatchId });
-    await logger.log(LogEventId.ScannerBatchEnded, 'system', {
+    void logger.log(LogEventId.ScannerBatchEnded, 'system', {
       disposition: 'success',
       message: 'Current scanning batch finished on polls closed.',
       batchId: ongoingBatchId,
@@ -96,18 +96,18 @@ export async function closePolls({
   }
 }
 
-export async function pauseVoting({
+export function pauseVoting({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_open');
 
   store.transitionPolls({ type: 'pause_voting', time: getCurrentTime() });
-  await logger.logAsCurrentRole(LogEventId.VotingPaused, {
+  void logger.logAsCurrentRole(LogEventId.VotingPaused, {
     disposition: 'success',
     message: 'User paused voting.',
   });
@@ -115,48 +115,48 @@ export async function pauseVoting({
   const ongoingBatchId = store.getOngoingBatchId();
   assert(ongoingBatchId !== undefined);
   store.finishBatch({ batchId: ongoingBatchId });
-  await logger.log(LogEventId.ScannerBatchEnded, 'system', {
+  void logger.log(LogEventId.ScannerBatchEnded, 'system', {
     disposition: 'success',
     message: 'Current scanning batch finished on voting paused.',
     batchId: ongoingBatchId,
   });
 }
 
-export async function resumeVoting({
+export function resumeVoting({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_paused');
 
   store.transitionPolls({ type: 'resume_voting', time: getCurrentTime() });
-  await logger.logAsCurrentRole(LogEventId.VotingResumed, {
+  void logger.logAsCurrentRole(LogEventId.VotingResumed, {
     disposition: 'success',
     message: 'User resumed voting.',
   });
 
   const batchId = store.addBatch();
-  await logger.log(LogEventId.ScannerBatchStarted, 'system', {
+  void logger.log(LogEventId.ScannerBatchStarted, 'system', {
     disposition: 'success',
     message: 'New scanning batch started on voting resumed.',
     batchId,
   });
 }
 
-export async function resetPollsToPaused({
+export function resetPollsToPaused({
   store,
   logger,
 }: {
   store: Store;
   logger: Logger;
-}): Promise<void> {
+}): void {
   const previousPollsState = store.getPollsState();
   assert(previousPollsState === 'polls_closed_final');
   store.transitionPolls({ type: 'pause_voting', time: getCurrentTime() });
-  await logger.logAsCurrentRole(LogEventId.ResetPollsToPaused, {
+  void logger.logAsCurrentRole(LogEventId.ResetPollsToPaused, {
     disposition: 'success',
     message: 'User reset the polls to paused.',
   });

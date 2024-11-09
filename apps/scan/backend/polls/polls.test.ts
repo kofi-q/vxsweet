@@ -3,12 +3,12 @@ import { err } from '@vx/libs/basics/result';
 import { openPolls } from './polls';
 import { Store } from '../store/store';
 
-test('opening polls fails if ballots have already been scanned', async () => {
+test('opening polls fails if ballots have already been scanned', () => {
   const logger = mockLogger();
   const store = Store.memoryStore();
   jest.spyOn(store, 'getBallotsCounted').mockReturnValue(1);
 
-  const openPollsResult = await openPolls({
+  const openPollsResult = openPolls({
     store,
     logger,
   });

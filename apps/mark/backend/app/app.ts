@@ -123,9 +123,9 @@ export function buildApi(
       return workspace.store.getSystemSettings() ?? DEFAULT_SYSTEM_SETTINGS;
     },
 
-    async unconfigureMachine() {
+    unconfigureMachine() {
       workspace.store.reset();
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
         message:
           'User successfully unconfigured the machine to remove the current election.',
@@ -145,7 +145,7 @@ export function buildApi(
         logger
       );
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           disposition: 'failure',
           message: 'Error configuring machine.',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -182,7 +182,7 @@ export function buildApi(
         });
       });
 
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         message: `Machine configured for election with hash: ${electionDefinition.ballotHash}`,
         disposition: 'success',
         ballotHash: electionDefinition.ballotHash,
@@ -212,7 +212,7 @@ export function buildApi(
       });
     },
 
-    async setPollsState(input: { pollsState: PollsState }) {
+    setPollsState(input: { pollsState: PollsState }) {
       const newPollsState = input.pollsState;
       const oldPollsState = store.getPollsState();
 
@@ -239,7 +239,7 @@ export function buildApi(
         }
       })();
 
-      await logger.logAsCurrentRole(logEvent, { disposition: 'success' });
+      void logger.logAsCurrentRole(logEvent, { disposition: 'success' });
     },
 
     setTestMode(input: { isTestMode: boolean }) {
@@ -248,13 +248,13 @@ export function buildApi(
       store.setBallotsPrintedCount(0);
     },
 
-    async setPrecinctSelection(input: {
+    setPrecinctSelection(input: {
       precinctSelection: PrecinctSelection;
-    }): Promise<void> {
+    }): void {
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       store.setPrecinctSelection(input.precinctSelection);
       store.setBallotsPrintedCount(0);
-      await logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
+      void logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
         disposition: 'success',
         message: `User set the precinct for the machine to ${getPrecinctSelectionName(
           electionDefinition.election.precincts,

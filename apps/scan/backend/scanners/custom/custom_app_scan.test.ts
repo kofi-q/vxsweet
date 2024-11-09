@@ -105,15 +105,8 @@ beforeEach(() => {
 
 test('configure and scan hmpb', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockScanner,
-      mockUsbDrive,
-      logger,
-      mockAuth,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+    async ({ api, mockScanner, mockUsbDrive, logger, mockAuth, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         electionPackage:
           electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
       });
@@ -123,21 +116,21 @@ test('configure and scan hmpb', async () => {
         deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
       mockScanner.scan.mockResolvedValueOnce(deferredScan.promise);
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'scanning' });
+      await waitForStatus(api, { state: 'scanning' });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
       deferredScan.resolve(ok(await ballotImages.completeHmpb()));
       const interpretation: SheetInterpretation = {
         type: 'ValidSheet',
       };
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'accepting',
         interpretation,
       });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'accepted',
         interpretation,
         ballotsCounted: 1,
@@ -145,7 +138,7 @@ test('configure and scan hmpb', async () => {
 
       // Test waiting for automatic transition back to no_paper
       clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, { state: 'no_paper', ballotsCounted: 1 });
+      await waitForStatus(api, { state: 'no_paper', ballotsCounted: 1 });
 
       checkLogs(logger);
     }
@@ -154,29 +147,22 @@ test('configure and scan hmpb', async () => {
 
 test('configure and scan bmd ballot', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockScanner,
-      mockUsbDrive,
-      logger,
-      mockAuth,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+    async ({ api, mockScanner, mockUsbDrive, logger, mockAuth, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       const deferredScan =
         deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
       mockScanner.scan.mockResolvedValueOnce(deferredScan.promise);
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'scanning' });
+      await waitForStatus(api, { state: 'scanning' });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
       deferredScan.resolve(ok(await ballotImages.completeBmd()));
       const interpretation: SheetInterpretation = {
         type: 'ValidSheet',
       };
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'accepting',
         interpretation,
       });
@@ -185,7 +171,7 @@ test('configure and scan bmd ballot', async () => {
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'accepted',
         interpretation,
         ballotsCounted: 1,
@@ -199,7 +185,7 @@ test('configure and scan bmd ballot', async () => {
 test('ballot needs review - return', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       workspace,
       mockUsbDrive,
@@ -207,7 +193,7 @@ test('ballot needs review - return', async () => {
       mockAuth,
       clock,
     }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         electionPackage:
           electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(
             {
@@ -234,28 +220,28 @@ test('ballot needs review - return', async () => {
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      await waitForStatus(apiClient, { state: 'scanning' });
+      await waitForStatus(api, { state: 'scanning' });
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
       scanDeferred.resolve(ok(await ballotImages.overvoteHmpb()));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      await waitForStatus(apiClient, { state: 'needs_review', interpretation });
+      await waitForStatus(api, { state: 'needs_review', interpretation });
 
-      await apiClient.returnBallot();
-      await expectStatus(apiClient, {
+      api.returnBallot();
+      expectStatus(api, {
         state: 'returning',
         interpretation,
       });
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'returned',
         interpretation,
       });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'no_paper',
       });
 
@@ -270,7 +256,7 @@ test('ballot needs review - return', async () => {
 test('invalid ballot rejected', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       workspace,
       mockUsbDrive,
@@ -278,7 +264,7 @@ test('invalid ballot rejected', async () => {
       mockAuth,
       clock,
     }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+      await configureApp(api, mockAuth, mockUsbDrive);
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
 
@@ -288,20 +274,20 @@ test('invalid ballot rejected', async () => {
       };
 
       simulateScan(mockScanner, await ballotImages.wrongElection(), clock);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'rejecting',
         interpretation,
       });
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'rejected',
         interpretation,
       });
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+      await waitForStatus(api, { state: 'no_paper' });
 
       // Make sure the ballot was still recorded in the db for backup purposes
       expect(Array.from(workspace.store.forEachSheet())).toHaveLength(1);
@@ -312,63 +298,52 @@ test('invalid ballot rejected', async () => {
 });
 
 test('blank sheet ballot rejected', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
 
-      const interpretation: SheetInterpretation = {
-        type: 'InvalidSheet',
-        reason: 'unknown',
-      };
+    const interpretation: SheetInterpretation = {
+      type: 'InvalidSheet',
+      reason: 'unknown',
+    };
 
-      simulateScan(mockScanner, await ballotImages.blankSheet(), clock);
-      await waitForStatus(apiClient, {
-        state: 'rejecting',
-        interpretation,
-      });
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'rejected',
-        interpretation,
-      });
+    simulateScan(mockScanner, await ballotImages.blankSheet(), clock);
+    await waitForStatus(api, {
+      state: 'rejecting',
+      interpretation,
+    });
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'rejected',
+      interpretation,
+    });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });
 
 test('scan fail immediately gives up', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      mockScanner.scan.mockResolvedValue(err(ErrorCode.NoDocumentToBeScanned));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'rejected',
-        error: 'scanning_failed',
-      });
-    }
-  );
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    mockScanner.scan.mockResolvedValue(err(ErrorCode.NoDocumentToBeScanned));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'rejected',
+      error: 'scanning_failed',
+    });
+  });
 });
 
 test('unexpected interpretation error retries and eventually fails', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockScanner,
-      mockUsbDrive,
-      mockAuth,
-      workspace,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+    async ({ api, mockScanner, mockUsbDrive, mockAuth, workspace, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive);
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       mockScanner.scan.mockImplementation(async () => {
@@ -386,7 +361,7 @@ test('unexpected interpretation error retries and eventually fails', async () =>
         await waitForExpect(() => {
           expect(mockScanner.scan).toHaveBeenCalledTimes(i + 1);
         });
-        await waitForStatus(apiClient, { state: 'returning_to_rescan' });
+        await waitForStatus(api, { state: 'returning_to_rescan' });
         expect(mockScanner.move).toHaveBeenCalledWith(
           FormMovement.RETRACT_PAPER_BACKWARD
         );
@@ -400,13 +375,13 @@ test('unexpected interpretation error retries and eventually fails', async () =>
           MAX_FAILED_SCAN_ATTEMPTS + 1
         );
       });
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'rejecting',
         error: 'client_error',
       });
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'rejected',
         error: 'client_error',
       });
@@ -416,15 +391,8 @@ test('unexpected interpretation error retries and eventually fails', async () =>
 
 test('scanning time out', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockScanner,
-      logger,
-      mockUsbDrive,
-      mockAuth,
-      clock,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+    async ({ api, mockScanner, logger, mockUsbDrive, mockAuth, clock }) => {
+      await configureApp(api, mockAuth, mockUsbDrive);
 
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
 
@@ -435,15 +403,15 @@ test('scanning time out', async () => {
         }
       });
       clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'scanning' });
+      await waitForStatus(api, { state: 'scanning' });
       clock.increment(delays.DELAY_SCANNING_TIMEOUT);
-      await waitForStatus(apiClient, {
+      await waitForStatus(api, {
         state: 'recovering_from_error',
         error: 'scanning_timed_out',
       });
       mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
       clock.increment(delays.DELAY_RECONNECT_ON_UNEXPECTED_ERROR);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+      await waitForStatus(api, { state: 'no_paper' });
 
       // Make sure the underlying error got logged correctly
       expect(logger.log).toHaveBeenCalledWith(
@@ -539,99 +507,95 @@ test("scannerStatusToEvent's cases are exhaustive and can all be reached", () =>
 });
 
 test('scanning paused when election manager card is inserted', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      const electionPackage =
-        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage();
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    const electionPackage =
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage();
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage,
+    });
 
-      mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
-        Promise.resolve({
-          status: 'logged_in',
-          user: mockElectionManagerUser({
-            electionKey: constructElectionKey(
-              electionPackage.electionDefinition.election
-            ),
-          }),
-          sessionExpiresAt: mockSessionExpiresAt(),
-        })
-      );
+    mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
+      Promise.resolve({
+        status: 'logged_in',
+        user: mockElectionManagerUser({
+          electionKey: constructElectionKey(
+            electionPackage.electionDefinition.election
+          ),
+        }),
+        sessionExpiresAt: mockSessionExpiresAt(),
+      })
+    );
 
-      simulateScan(mockScanner, await ballotImages.completeHmpb(), clock);
+    simulateScan(mockScanner, await ballotImages.completeHmpb(), clock);
 
-      clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
-      // we don't scan because the election manager card is inserted
-      await waitForStatus(apiClient, {
-        state: 'hardware_ready_to_scan',
-      });
+    clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
+    // we don't scan because the election manager card is inserted
+    await waitForStatus(api, {
+      state: 'hardware_ready_to_scan',
+    });
 
-      // remove the card
-      mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
-        Promise.resolve({
-          status: 'logged_out',
-          reason: 'no_card',
-        })
-      );
+    // remove the card
+    mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
+      Promise.resolve({
+        status: 'logged_out',
+        reason: 'no_card',
+      })
+    );
 
-      // now we can scan
-      clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation: {
-          type: 'ValidSheet',
-        },
-      });
-    }
-  );
+    // now we can scan
+    clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation: {
+        type: 'ValidSheet',
+      },
+    });
+  });
 });
 
 test('scanning paused when poll worker card is inserted', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      const electionPackage =
-        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage();
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    const electionPackage =
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage();
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage,
+    });
 
-      mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
-        Promise.resolve({
-          status: 'logged_in',
-          user: mockPollWorkerUser({
-            electionKey: constructElectionKey(
-              electionPackage.electionDefinition.election
-            ),
-          }),
-          sessionExpiresAt: mockSessionExpiresAt(),
-        })
-      );
+    mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
+      Promise.resolve({
+        status: 'logged_in',
+        user: mockPollWorkerUser({
+          electionKey: constructElectionKey(
+            electionPackage.electionDefinition.election
+          ),
+        }),
+        sessionExpiresAt: mockSessionExpiresAt(),
+      })
+    );
 
-      simulateScan(mockScanner, await ballotImages.completeHmpb(), clock);
-      clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
+    simulateScan(mockScanner, await ballotImages.completeHmpb(), clock);
+    clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
 
-      // we don't scan because the poll worker card is inserted
-      await waitForStatus(apiClient, {
-        state: 'hardware_ready_to_scan',
-      });
+    // we don't scan because the poll worker card is inserted
+    await waitForStatus(api, {
+      state: 'hardware_ready_to_scan',
+    });
 
-      // remove the card
-      mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
-        Promise.resolve({
-          status: 'logged_out',
-          reason: 'no_card',
-        })
-      );
+    // remove the card
+    mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
+      Promise.resolve({
+        status: 'logged_out',
+        reason: 'no_card',
+      })
+    );
 
-      // now we can scan
-      clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation: {
-          type: 'ValidSheet',
-        },
-      });
-    }
-  );
+    // now we can scan
+    clock.increment(delays.DELAY_APP_READY_TO_SCAN_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation: {
+        type: 'ValidSheet',
+      },
+    });
+  });
 });

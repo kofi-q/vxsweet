@@ -20,8 +20,8 @@ const RECORDS_PER_REPORT = 10000;
 
 test('loading CVR file performance', async () => {
   const timer = getPerformanceTimer();
-  const { apiClient, workspace, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, workspace, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
   timer.checkpoint(`test setup complete`);
 
@@ -32,7 +32,7 @@ test('loading CVR file performance', async () => {
       RECORDS_PER_REPORT.toString(),
       i.toString()
     );
-    const addReportResult = await apiClient.addCastVoteRecordFile({
+    const addReportResult = await api.addCastVoteRecordFile({
       path: reportDirectoryPath,
     });
     assert(addReportResult.isOk());

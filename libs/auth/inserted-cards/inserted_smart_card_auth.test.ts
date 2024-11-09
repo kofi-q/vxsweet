@@ -597,7 +597,7 @@ test('Logout through logout method', async () => {
 
   // Because the card is still inserted, we'll automatically transition back to the PIN checking
   // state after logout
-  await auth.logOut(defaultMachineState);
+  auth.logOut(defaultMachineState);
   expect(await auth.getAuthStatus(defaultMachineState)).toEqual({
     status: 'checking_pin',
     user: electionManagerUser,

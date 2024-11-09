@@ -44,7 +44,7 @@ export function adjudicateVote(
   store.createVoteAdjudication(voteAdjudication);
 }
 
-async function logWriteInAdjudication({
+function logWriteInAdjudication({
   initialWriteInRecord,
   adjudicationAction,
   logger,
@@ -52,7 +52,7 @@ async function logWriteInAdjudication({
   initialWriteInRecord: WriteInRecord;
   adjudicationAction: WriteInAdjudicationAction;
   logger: BaseLogger;
-}): Promise<void> {
+}) {
   const { cvrId, contestId, optionId } = initialWriteInRecord;
 
   const formerStatusText = (() => {
@@ -90,7 +90,7 @@ async function logWriteInAdjudication({
   })();
 
   const message = `User adjudicated a write-in from ${formerStatusText} to ${newStatusText}.`;
-  await logger.log(LogEventId.WriteInAdjudicated, 'election_manager', {
+  void logger.log(LogEventId.WriteInAdjudicated, 'election_manager', {
     disposition: 'success',
     message,
     cvrId,
@@ -119,11 +119,11 @@ async function logWriteInAdjudication({
  * Adjudicates a write-in record for an official candidate, write-in candidate,
  * or marks it as invalid.
  */
-export async function adjudicateWriteIn(
+export function adjudicateWriteIn(
   adjudicationAction: WriteInAdjudicationAction,
   store: Store,
   logger: BaseLogger
-): Promise<void> {
+): void {
   const [initialWriteInRecord] = store.getWriteInRecords({
     electionId: assertDefined(store.getCurrentElectionId()),
     writeInId: adjudicationAction.writeInId,
@@ -187,7 +187,7 @@ export async function adjudicateWriteIn(
     );
   }
 
-  await logWriteInAdjudication({
+  logWriteInAdjudication({
     initialWriteInRecord,
     adjudicationAction,
     logger,

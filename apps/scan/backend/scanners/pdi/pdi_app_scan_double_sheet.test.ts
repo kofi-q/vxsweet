@@ -47,349 +47,310 @@ beforeEach(() => {
 });
 
 test('insert second ballot after scan', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.emitEvent({ event: 'scanStart' });
-      await expectStatus(apiClient, { state: 'scanning' });
-      mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
-      mockScanner.emitEvent({
-        event: 'scanComplete',
-        images: await ballotImages.completeHmpb(),
-      });
+    mockScanner.emitEvent({ event: 'scanStart' });
+    expectStatus(api, { state: 'scanning' });
+    mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
+    mockScanner.emitEvent({
+      event: 'scanComplete',
+      images: await ballotImages.completeHmpb(),
+    });
 
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.emitEvent({ event: 'ejectPaused' });
-      await waitForStatus(apiClient, {
-        state: 'both_sides_have_paper',
-        interpretation,
-      });
+    mockScanner.emitEvent({ event: 'ejectPaused' });
+    await waitForStatus(api, {
+      state: 'both_sides_have_paper',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.documentInRear);
-      mockScanner.emitEvent({ event: 'ejectResumed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    mockScanner.setScannerStatus(mockStatus.documentInRear);
+    mockScanner.emitEvent({ event: 'ejectResumed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted: 1,
-      });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted: 1,
+    });
+  });
 });
 
 test('insert second ballot before accept', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb()
-      );
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    simulateScan(api, mockScanner, await ballotImages.completeHmpb());
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
-      mockScanner.emitEvent({ event: 'ejectPaused' });
-      await waitForStatus(apiClient, {
-        state: 'both_sides_have_paper',
-        interpretation,
-      });
+    mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
+    mockScanner.emitEvent({ event: 'ejectPaused' });
+    await waitForStatus(api, {
+      state: 'both_sides_have_paper',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.documentInRear);
-      mockScanner.emitEvent({ event: 'ejectResumed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.documentInRear);
+    mockScanner.emitEvent({ event: 'ejectResumed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
+  });
 });
 
 test('insert second ballot during accept', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb()
-      );
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    simulateScan(api, mockScanner, await ballotImages.completeHmpb());
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      // Simulate that the first ballot was already ejected when the second
-      // ballot is inserted
-      mockScanner.setScannerStatus(mockStatus.documentInFront);
-      mockScanner.emitEvent({ event: 'ejectPaused' });
-      await waitForStatus(apiClient, {
-        state: 'both_sides_have_paper',
-        interpretation,
-      });
+    // Simulate that the first ballot was already ejected when the second
+    // ballot is inserted
+    mockScanner.setScannerStatus(mockStatus.documentInFront);
+    mockScanner.emitEvent({ event: 'ejectPaused' });
+    await waitForStatus(api, {
+      state: 'both_sides_have_paper',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      mockScanner.emitEvent({ event: 'ejectResumed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted: 1,
-      });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    mockScanner.emitEvent({ event: 'ejectResumed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted: 1,
+    });
+  });
 });
 
 test('insert second ballot before accept after review', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(
-            {
-              ...DEFAULT_SYSTEM_SETTINGS,
-              precinctScanAdjudicationReasons: [AdjudicationReason.Overvote],
-            }
-          ),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(
+          {
+            ...DEFAULT_SYSTEM_SETTINGS,
+            precinctScanAdjudicationReasons: [AdjudicationReason.Overvote],
+          }
+        ),
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.overvoteHmpb()
-      );
+    simulateScan(api, mockScanner, await ballotImages.overvoteHmpb());
 
-      const interpretation: SheetInterpretation = {
-        type: 'NeedsReviewSheet',
-        reasons: [
-          expect.objectContaining(
-            typedAs<Partial<AdjudicationReasonInfo>>({
-              type: AdjudicationReason.Overvote,
-            })
-          ),
-        ],
-      };
-      await waitForStatus(apiClient, { state: 'needs_review', interpretation });
+    const interpretation: SheetInterpretation = {
+      type: 'NeedsReviewSheet',
+      reasons: [
+        expect.objectContaining(
+          typedAs<Partial<AdjudicationReasonInfo>>({
+            type: AdjudicationReason.Overvote,
+          })
+        ),
+      ],
+    };
+    await waitForStatus(api, { state: 'needs_review', interpretation });
 
-      mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
-      await apiClient.acceptBallot();
-      mockScanner.emitEvent({ event: 'ejectPaused' });
-      await waitForStatus(apiClient, {
-        state: 'both_sides_have_paper',
-        interpretation,
-      });
+    mockScanner.setScannerStatus(mockStatus.documentInFrontAndRear);
+    api.acceptBallot();
+    mockScanner.emitEvent({ event: 'ejectPaused' });
+    await waitForStatus(api, {
+      state: 'both_sides_have_paper',
+      interpretation,
+    });
 
-      mockScanner.setScannerStatus(mockStatus.documentInRear);
-      mockScanner.emitEvent({ event: 'ejectResumed' });
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting_after_review',
-        interpretation,
-      });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.documentInRear);
+    mockScanner.emitEvent({ event: 'ejectResumed' });
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting_after_review',
+      interpretation,
+    });
+  });
 });
 
 test('insert second ballot after accept, should be scanned', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(),
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb()
-      );
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    simulateScan(api, mockScanner, await ballotImages.completeHmpb());
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.client.enableScanning.mockClear();
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      const ballotsCounted = 1;
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted,
-      });
-      // Ensure that scanning was disabled and not re-enabled yet
-      expect(mockScanner.client.ejectDocument).toHaveBeenCalled(); // Disables scanning
-      expect(mockScanner.client.enableScanning).not.toHaveBeenCalled();
+    mockScanner.client.enableScanning.mockClear();
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    const ballotsCounted = 1;
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted,
+    });
+    // Ensure that scanning was disabled and not re-enabled yet
+    expect(mockScanner.client.ejectDocument).toHaveBeenCalled(); // Disables scanning
+    expect(mockScanner.client.enableScanning).not.toHaveBeenCalled();
 
-      // Simulate inserting a second ballot
-      mockScanner.setScannerStatus(mockStatus.documentInFront);
+    // Simulate inserting a second ballot
+    mockScanner.setScannerStatus(mockStatus.documentInFront);
 
-      clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, {
-        state: 'no_paper',
-        ballotsCounted,
-      });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb(),
-        ballotsCounted
-      );
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-        ballotsCounted,
-      });
-    }
-  );
+    clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
+    await waitForStatus(api, {
+      state: 'no_paper',
+      ballotsCounted,
+    });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+    simulateScan(
+      api,
+      mockScanner,
+      await ballotImages.completeHmpb(),
+      ballotsCounted
+    );
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+      ballotsCounted,
+    });
+  });
 });
 
 test('insert two sheets back-to-back as if they were one long sheet', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.emitEvent({ event: 'scanStart' });
-      await expectStatus(apiClient, { state: 'scanning' });
-      // Since we set the max paper length, the scanner will declare a jam in
-      // this case
-      mockScanner.setScannerStatus(mockStatus.jammed);
-      mockScanner.emitEvent({
-        event: 'scanComplete',
-        images: await ballotImages.completeBmd(),
-      });
-      await waitForStatus(apiClient, { state: 'jammed' });
+    mockScanner.emitEvent({ event: 'scanStart' });
+    expectStatus(api, { state: 'scanning' });
+    // Since we set the max paper length, the scanner will declare a jam in
+    // this case
+    mockScanner.setScannerStatus(mockStatus.jammed);
+    mockScanner.emitEvent({
+      event: 'scanComplete',
+      images: await ballotImages.completeBmd(),
+    });
+    await waitForStatus(api, { state: 'jammed' });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });
 
 test('insert two sheets at once - scanFailed event', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.emitEvent({ event: 'scanStart' });
-      await expectStatus(apiClient, { state: 'scanning' });
-      // Scanner stops the scan immediately when multiple sheets are detected,
-      // usually before the rear sensors are covered
-      mockScanner.setScannerStatus(mockStatus.documentInFront);
-      mockScanner.emitEvent({ event: 'error', code: 'doubleFeedDetected' });
-      mockScanner.emitEvent({ event: 'error', code: 'scanFailed' });
+    mockScanner.emitEvent({ event: 'scanStart' });
+    expectStatus(api, { state: 'scanning' });
+    // Scanner stops the scan immediately when multiple sheets are detected,
+    // usually before the rear sensors are covered
+    mockScanner.setScannerStatus(mockStatus.documentInFront);
+    mockScanner.emitEvent({ event: 'error', code: 'doubleFeedDetected' });
+    mockScanner.emitEvent({ event: 'error', code: 'scanFailed' });
 
-      await waitForStatus(apiClient, {
-        state: 'rejected',
-        error: 'double_feed_detected',
-      });
+    await waitForStatus(api, {
+      state: 'rejected',
+      error: 'double_feed_detected',
+    });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });
 
 test('insert two sheets at once - scanComplete event', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
 
-      mockScanner.emitEvent({ event: 'scanStart' });
-      await expectStatus(apiClient, { state: 'scanning' });
-      // In this case, the scanner seems to set the documentJam flag as well
-      mockScanner.setScannerStatus({
-        ...mockStatus.documentInFront,
-        documentJam: true,
-      });
-      mockScanner.emitEvent({ event: 'error', code: 'doubleFeedDetected' });
-      mockScanner.emitEvent({
-        event: 'scanComplete',
-        images: await ballotImages.completeHmpb(),
-      });
+    mockScanner.emitEvent({ event: 'scanStart' });
+    expectStatus(api, { state: 'scanning' });
+    // In this case, the scanner seems to set the documentJam flag as well
+    mockScanner.setScannerStatus({
+      ...mockStatus.documentInFront,
+      documentJam: true,
+    });
+    mockScanner.emitEvent({ event: 'error', code: 'doubleFeedDetected' });
+    mockScanner.emitEvent({
+      event: 'scanComplete',
+      images: await ballotImages.completeHmpb(),
+    });
 
-      await waitForStatus(apiClient, {
-        state: 'rejected',
-        error: 'double_feed_detected',
-      });
+    await waitForStatus(api, {
+      state: 'rejected',
+      error: 'double_feed_detected',
+    });
 
-      mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
-      clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.setScannerStatus(mockStatus.idleScanningDisabled);
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });
 
 test('disabling double feed detection', async () => {
   await withApp(
-    async ({
-      apiClient,
-      mockScanner,
-      mockUsbDrive,
-      mockAuth,
-      clock,
-      logger,
-    }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
-      await apiClient.setIsDoubleFeedDetectionDisabled({
+    async ({ api, mockScanner, mockUsbDrive, mockAuth, clock, logger }) => {
+      await configureApp(api, mockAuth, mockUsbDrive);
+      api.setIsDoubleFeedDetectionDisabled({
         isDoubleFeedDetectionDisabled: true,
       });
       expect(logger.logAsCurrentRole).toHaveBeenLastCalledWith(
@@ -402,7 +363,7 @@ test('disabling double feed detection', async () => {
       );
 
       clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+      await waitForStatus(api, { state: 'no_paper' });
       expect(mockScanner.client.enableScanning).toHaveBeenLastCalledWith(
         expect.objectContaining({
           doubleFeedDetectionEnabled: false,
@@ -420,8 +381,8 @@ test('disabling double feed detection', async () => {
         sessionExpiresAt: mockSessionExpiresAt(),
       });
       clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'paused' });
-      await apiClient.setIsDoubleFeedDetectionDisabled({
+      await waitForStatus(api, { state: 'paused' });
+      api.setIsDoubleFeedDetectionDisabled({
         isDoubleFeedDetectionDisabled: false,
       });
       mockOf(mockAuth.getAuthStatus).mockResolvedValue({
@@ -430,7 +391,7 @@ test('disabling double feed detection', async () => {
       });
 
       clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
+      await waitForStatus(api, { state: 'no_paper' });
       expect(mockScanner.client.enableScanning).toHaveBeenLastCalledWith(
         expect.objectContaining({
           doubleFeedDetectionEnabled: true,

@@ -36,7 +36,7 @@ beforeEach(() => {
 test('polls state flow', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       mockUsbDrive,
       mockAuth,
@@ -44,16 +44,16 @@ test('polls state flow', async () => {
       logger,
       clock,
     }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
         openPolls: false,
       });
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_closed_initial',
       });
 
-      (await apiClient.openPolls()).unsafeUnwrap();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      api.openPolls().unsafeUnwrap();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_open',
         lastPollsTransition: {
           type: 'open_polls',
@@ -69,9 +69,9 @@ test('polls state flow', async () => {
         })
       );
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
-      await apiClient.pauseVoting();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
+      api.pauseVoting();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_paused',
         lastPollsTransition: {
           type: 'pause_voting',
@@ -87,8 +87,8 @@ test('polls state flow', async () => {
         })
       );
 
-      await apiClient.resumeVoting();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      api.resumeVoting();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_open',
         lastPollsTransition: {
           type: 'resume_voting',
@@ -104,9 +104,9 @@ test('polls state flow', async () => {
         })
       );
 
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1);
-      await apiClient.closePolls();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      await scanBallot(mockScanner, clock, api, workspace.store, 1);
+      await api.closePolls();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_closed_final',
         lastPollsTransition: {
           type: 'close_polls',
@@ -122,8 +122,8 @@ test('polls state flow', async () => {
         })
       );
 
-      await apiClient.resetPollsToPaused();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      api.resetPollsToPaused();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_paused',
         lastPollsTransition: {
           type: 'pause_voting',
@@ -141,8 +141,8 @@ test('polls state flow', async () => {
 
       // closing from paused is also allowed
 
-      await apiClient.closePolls();
-      expect(await apiClient.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
+      await api.closePolls();
+      expect(api.getPollsInfo()).toEqual<PrecinctScannerPollsInfo>({
         pollsState: 'polls_closed_final',
         lastPollsTransition: {
           type: 'close_polls',
@@ -164,7 +164,7 @@ test('polls state flow', async () => {
 test('scanner batch flow', async () => {
   await withApp(
     async ({
-      apiClient,
+      api,
       mockScanner,
       logger,
       workspace,
@@ -172,7 +172,7 @@ test('scanner batch flow', async () => {
       mockAuth,
       clock,
     }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
+      await configureApp(api, mockAuth, mockUsbDrive, {
         testMode: true,
         openPolls: false,
       });
@@ -186,7 +186,7 @@ test('scanner batch flow', async () => {
         return store.getBatches().map((b) => b.id);
       }
 
-      (await apiClient.openPolls()).unsafeUnwrap();
+      api.openPolls().unsafeUnwrap();
       let batchIds = getBatchIds();
       expect(batchIds).toHaveLength(1);
       const batch1Id = batchIds[0];
@@ -202,12 +202,12 @@ test('scanner batch flow', async () => {
       );
 
       // Scan two ballots, which should have the same batch
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 0);
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 1);
+      await scanBallot(mockScanner, clock, api, workspace.store, 0);
+      await scanBallot(mockScanner, clock, api, workspace.store, 1);
       expect(getCvrIds()).toHaveLength(2);
 
       // Pause voting, which should stop the current batch
-      await apiClient.pauseVoting();
+      api.pauseVoting();
       expect(logger.log).toHaveBeenCalledWith(
         LogEventId.ScannerBatchEnded,
         'system',
@@ -219,7 +219,7 @@ test('scanner batch flow', async () => {
       );
 
       // Resume voting, which should start a new batch
-      await apiClient.resumeVoting();
+      api.resumeVoting();
       expect(logger.log).toHaveBeenCalledWith(
         LogEventId.ScannerBatchStarted,
         'system',
@@ -231,14 +231,14 @@ test('scanner batch flow', async () => {
       );
 
       // Confirm there is a new, second batch distinct from the first
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 2);
-      await scanBallot(mockScanner, clock, apiClient, workspace.store, 3);
+      await scanBallot(mockScanner, clock, api, workspace.store, 2);
+      await scanBallot(mockScanner, clock, api, workspace.store, 3);
       batchIds = getBatchIds();
       expect(getCvrIds()).toHaveLength(4);
       expect(batchIds).toHaveLength(2);
       const batch2Id = find(batchIds, (batchId) => batchId !== batch1Id);
 
-      await apiClient.closePolls();
+      await api.closePolls();
       expect(logger.log).toHaveBeenCalledWith(
         LogEventId.ScannerBatchEnded,
         'system',

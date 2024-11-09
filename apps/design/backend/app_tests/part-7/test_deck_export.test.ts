@@ -37,15 +37,13 @@ import {
   renderAllBallotsAndCreateElectionDefinition,
   vxDefaultBallotTemplate,
 } from '@vx/libs/hmpb/src';
-import { testSetupHelpers } from '../../test/helpers';
+import { newTestApi } from '../../test/helpers';
 import { FULL_TEST_DECK_TALLY_REPORT_FILE_NAME } from '../../test-decks/test_decks';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
-
-const { setupApp, cleanup } = testSetupHelpers();
 
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
@@ -63,8 +61,6 @@ function expectedEnglishBallotStrings(election: Election): UiStringsPackage {
   );
   return expectedStrings;
 }
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -85,16 +81,16 @@ test('Export test decks', async () => {
   );
 
   const electionDefinition = electionTwoPartyPrimaryDefinition;
-  const { apiClient } = setupApp();
+  const { api } = newTestApi();
 
-  const electionId = (
-    await apiClient.loadElection({
+  const electionId = api
+    .loadElection({
       electionData: electionDefinition.electionData,
     })
-  ).unsafeUnwrap();
-  const { election } = await apiClient.getElection({ electionId });
+    .unsafeUnwrap();
+  const { election } = api.getElection({ electionId });
 
-  const { zipContents } = await apiClient.exportTestDecks({
+  const { zipContents } = await api.exportTestDecks({
     electionId,
     electionSerializationFormat: 'vxf',
   });

@@ -46,85 +46,81 @@ beforeEach(() => {
 });
 
 test('insert second ballot before first ballot accept', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
 
-      const scanDeferred =
-        deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
-      mockScanner.scan.mockResolvedValue(scanDeferred.promise);
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'scanning' });
-      scanDeferred.resolve(ok(await ballotImages.completeBmd()));
+    const scanDeferred =
+      deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
+    mockScanner.scan.mockResolvedValue(scanDeferred.promise);
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'scanning' });
+    scanDeferred.resolve(ok(await ballotImages.completeBmd()));
 
-      mockScanner.getStatus.mockResolvedValue(
-        ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
-      );
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'both_sides_have_paper' });
+    mockScanner.getStatus.mockResolvedValue(
+      ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
+    );
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'both_sides_have_paper' });
 
-      const interpretation: SheetInterpretation = {
-        type: 'ValidSheet',
-      };
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    const interpretation: SheetInterpretation = {
+      type: 'ValidSheet',
+    };
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted: 1,
-      });
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted: 1,
+    });
 
-      clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, {
-        state: 'no_paper',
-        ballotsCounted: 1,
-      });
-    }
-  );
+    clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
+    await waitForStatus(api, {
+      state: 'no_paper',
+      ballotsCounted: 1,
+    });
+  });
 });
 
 test('insert second ballot while first ballot is accepting', async () => {
   const interpretation: SheetInterpretation = {
     type: 'ValidSheet',
   };
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, { testMode: true });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, { testMode: true });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    simulateScan(mockScanner, await ballotImages.completeBmd(), clock);
 
-      await waitForStatus(apiClient, {
-        state: 'accepting',
-        interpretation,
-      });
+    await waitForStatus(api, {
+      state: 'accepting',
+      interpretation,
+    });
 
-      mockScanner.getStatus.mockResolvedValue(
-        ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
-      );
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted: 1,
-      });
+    mockScanner.getStatus.mockResolvedValue(
+      ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
+    );
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted: 1,
+    });
 
-      clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, {
-        state: 'returning_to_rescan',
-        ballotsCounted: 1,
-      });
-    }
-  );
+    clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
+    await waitForStatus(api, {
+      state: 'returning_to_rescan',
+      ballotsCounted: 1,
+    });
+  });
 });
 
 test('insert second ballot while first ballot needs review', async () => {
@@ -136,98 +132,94 @@ test('insert second ballot while first ballot needs review', async () => {
       }),
     ],
   };
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(
-            {
-              ...DEFAULT_SYSTEM_SETTINGS,
-              precinctScanAdjudicationReasons: [AdjudicationReason.Overvote],
-            }
-          ),
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage:
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage(
+          {
+            ...DEFAULT_SYSTEM_SETTINGS,
+            precinctScanAdjudicationReasons: [AdjudicationReason.Overvote],
+          }
+        ),
+    });
 
-      // set up deferred scan result
-      const scanDeferred =
-        deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
-      mockScanner.scan.mockResolvedValue(scanDeferred.promise);
+    // set up deferred scan result
+    const scanDeferred =
+      deferred<Result<SheetOf<ImageFromScanner>, ErrorCode>>();
+    mockScanner.scan.mockResolvedValue(scanDeferred.promise);
 
-      // mark as ready and trigger the scan
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    // mark as ready and trigger the scan
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      // ensure we're scanning before we release the deferred scan result
-      await waitForStatus(apiClient, { state: 'scanning' });
+    // ensure we're scanning before we release the deferred scan result
+    await waitForStatus(api, { state: 'scanning' });
 
-      // switch to being ready to eject with the scan result
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
-      scanDeferred.resolve(ok(await ballotImages.overvoteHmpb()));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    // switch to being ready to eject with the scan result
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
+    scanDeferred.resolve(ok(await ballotImages.overvoteHmpb()));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      // now we're in review
-      await waitForStatus(apiClient, { state: 'needs_review', interpretation });
+    // now we're in review
+    await waitForStatus(api, { state: 'needs_review', interpretation });
 
-      // simulate another sheet of paper being inserted in front
-      mockScanner.getStatus.mockResolvedValue(
-        ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
-      );
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    // simulate another sheet of paper being inserted in front
+    mockScanner.getStatus.mockResolvedValue(
+      ok(mocks.MOCK_BOTH_SIDES_HAVE_PAPER)
+    );
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      // we can't accept the in-review ballot
-      await waitForStatus(apiClient, {
-        state: 'both_sides_have_paper',
-        interpretation,
-      });
+    // we can't accept the in-review ballot
+    await waitForStatus(api, {
+      state: 'both_sides_have_paper',
+      interpretation,
+    });
 
-      // simulate removing the paper from the front
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    // simulate removing the paper from the front
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_EJECT));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
 
-      // now we're back to review
-      await waitForStatus(apiClient, { state: 'needs_review', interpretation });
+    // now we're back to review
+    await waitForStatus(api, { state: 'needs_review', interpretation });
 
-      // trigger accepting the ballot
-      await apiClient.acceptBallot();
-      await waitForStatus(apiClient, {
-        state: 'accepting_after_review',
-        interpretation,
-      });
+    // trigger accepting the ballot
+    api.acceptBallot();
+    await waitForStatus(api, {
+      state: 'accepting_after_review',
+      interpretation,
+    });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted: 1,
-      });
-    }
-  );
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL_DURING_ACCEPT);
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted: 1,
+    });
+  });
 });
 
 test('double sheet on scan', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive);
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive);
 
-      mockScanner.scan.mockImplementation(() => {
-        mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_DOUBLE_SHEET));
-        return Promise.resolve(err(ErrorCode.PaperJam));
-      });
+    mockScanner.scan.mockImplementation(() => {
+      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_DOUBLE_SHEET));
+      return Promise.resolve(err(ErrorCode.PaperJam));
+    });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'scanning' });
-      clock.increment(delays.DELAY_JAM_WHEN_SCANNING);
-      await waitForStatus(apiClient, { state: 'double_sheet_jammed' });
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_READY_TO_SCAN));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'scanning' });
+    clock.increment(delays.DELAY_JAM_WHEN_SCANNING);
+    await waitForStatus(api, { state: 'double_sheet_jammed' });
 
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_JAM_CLEARED));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'double_sheet_jammed' });
-      expect(mockScanner.resetHardware).toHaveBeenCalled();
-      mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
-      clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-    }
-  );
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_JAM_CLEARED));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'double_sheet_jammed' });
+    expect(mockScanner.resetHardware).toHaveBeenCalled();
+    mockScanner.getStatus.mockResolvedValue(ok(mocks.MOCK_NO_PAPER));
+    clock.increment(delays.DELAY_PAPER_STATUS_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+  });
 });

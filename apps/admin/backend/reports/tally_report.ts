@@ -135,7 +135,7 @@ export async function generateTallyReportPreview({
       warning: pdfResult.isErr() ? { type: pdfResult.err() } : warning,
     };
   })();
-  await logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
+  void logger.logAsCurrentRole(LogEventId.ElectionReportPreviewed, {
     message: `User previewed a tally report.${
       result.warning ? ` Warning: ${result.warning.type}` : ''
     }`,
@@ -163,13 +163,13 @@ export async function printTallyReport({
     // so rendering the PDF shouldn't error
     const data = (await renderToPdf({ document: report })).unsafeUnwrap();
     await printer.print({ data });
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `User printed a tally report.`,
       disposition: 'success',
     });
   } catch (error) {
     assert(error instanceof Error);
-    await logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
+    void logger.logAsCurrentRole(LogEventId.ElectionReportPrinted, {
       message: `Error in attempting to print tally report: ${error.message}`,
       disposition: 'failure',
     });
@@ -194,7 +194,7 @@ export async function exportTallyReportPdf({
   const data = (await renderToPdf({ document: report })).unsafeUnwrap();
   const exportFileResult = await exportFile({ path, data });
 
-  await logger.logAsCurrentRole(LogEventId.FileSaved, {
+  void logger.logAsCurrentRole(LogEventId.FileSaved, {
     disposition: exportFileResult.isOk() ? 'success' : 'failure',
     message: `${
       exportFileResult.isOk() ? 'Saved' : 'Failed to save'

@@ -133,7 +133,5 @@ export function initializeGetWorkspaceDiskSpaceSummary(
   store: UsableDiskSpaceStore,
   workspacePaths: string[]
 ): () => Promise<DiskSpaceSummary> {
-  void getWorkspaceDiskSpaceSummary(store, workspacePaths);
-
   return () => getWorkspaceDiskSpaceSummary(store, workspacePaths);
 }

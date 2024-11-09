@@ -67,11 +67,11 @@ test('write-in adjudication report', async () => {
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
-  const { apiClient, auth, mockPrinterHandler } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   loadFileResult.assertOk('load file failed');
@@ -84,14 +84,14 @@ test('write-in adjudication report', async () => {
   async function expectIdenticalSnapshotsAcrossExportMethods(
     customSnapshotIdentifier: string
   ) {
-    const preview = await apiClient.getWriteInAdjudicationReportPreview();
+    const preview = await api.getWriteInAdjudicationReportPreview();
     expect(preview.warning).toBeUndefined();
     await expect(preview.pdf).toMatchPdfSnapshot({
       failureThreshold: 0.0001,
       customSnapshotIdentifier,
     });
 
-    await apiClient.printWriteInAdjudicationReport();
+    await api.printWriteInAdjudicationReport();
     const printPath = mockPrinterHandler.getLastPrintPath();
     assert(printPath !== undefined);
     await expect(printPath).toMatchPdfSnapshot({
@@ -100,7 +100,7 @@ test('write-in adjudication report', async () => {
     });
 
     const exportPath = tmpNameSync();
-    const exportResult = await apiClient.exportWriteInAdjudicationReportPdf({
+    const exportResult = await api.exportWriteInAdjudicationReportPdf({
       path: exportPath,
     });
     exportResult.assertOk('export failed');
@@ -112,11 +112,11 @@ test('write-in adjudication report', async () => {
 
   await expectIdenticalSnapshotsAcrossExportMethods('wia-report-zero');
 
-  const writeInIds = await apiClient.getWriteInAdjudicationQueue({
+  const writeInIds = api.getWriteInAdjudicationQueue({
     contestId: writeInContestId,
   });
 
-  const unofficialCandidate1 = await apiClient.addWriteInCandidate({
+  const unofficialCandidate1 = api.addWriteInCandidate({
     contestId: writeInContestId,
     name: 'Unofficial Candidate 1',
   });
@@ -124,19 +124,19 @@ test('write-in adjudication report', async () => {
   // generate some adjudication information
   for (const [i, writeInId] of writeInIds.entries()) {
     if (i < 24) {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'write-in-candidate',
         candidateId: unofficialCandidate1.id,
       });
     } else if (i < 48) {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'official-candidate',
         candidateId: 'Obadiah-Carrigan-5c95145a',
       });
     } else {
-      await apiClient.adjudicateWriteIn({
+      api.adjudicateWriteIn({
         writeInId,
         type: 'invalid',
       });
@@ -146,11 +146,11 @@ test('write-in adjudication report', async () => {
   await expectIdenticalSnapshotsAcrossExportMethods('wia-report-adjudicated');
 
   // add manual data
-  const unofficialCandidate2 = await apiClient.addWriteInCandidate({
+  const unofficialCandidate2 = api.addWriteInCandidate({
     contestId: writeInContestId,
     name: 'Unofficial Candidate 2',
   });
-  await apiClient.setManualResults({
+  await api.setManualResults({
     ballotStyleGroupId: 'card-number-3' as BallotStyleGroupId,
     votingMethod: 'precinct',
     precinctId: 'town-id-00701-precinct-id-default',
@@ -190,19 +190,18 @@ test('write-in adjudication report logging', async () => {
   const { electionDefinition } =
     electionGridLayoutNewHampshireTestBallotFixtures;
 
-  const { apiClient, auth, logger, mockPrinterHandler } =
-    buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
   // successful file export
   const validTmpFilePath = tmpNameSync();
-  const validExportResult = await apiClient.exportWriteInAdjudicationReportPdf({
+  const validExportResult = await api.exportWriteInAdjudicationReportPdf({
     path: validTmpFilePath,
   });
   validExportResult.assertOk('export failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'success',
     message: `Saved write-in adjudication report PDF file to ${validTmpFilePath} on the USB drive.`,
     filename: validTmpFilePath,
@@ -210,22 +209,20 @@ test('write-in adjudication report logging', async () => {
 
   // failed file export
   const invalidFilePath = '/invalid/path';
-  const invalidExportResult =
-    await apiClient.exportWriteInAdjudicationReportPdf({
-      path: invalidFilePath,
-    });
+  const invalidExportResult = await api.exportWriteInAdjudicationReportPdf({
+    path: invalidFilePath,
+  });
   invalidExportResult.assertErr('export should have failed');
-  expect(logger.log).lastCalledWith(LogEventId.FileSaved, 'election_manager', {
+  expect(logger.logAsCurrentRole).lastCalledWith(LogEventId.FileSaved, {
     disposition: 'failure',
     message: `Failed to save write-in adjudication report PDF file to ${invalidFilePath} on the USB drive.`,
     filename: invalidFilePath,
   });
 
   // successful print
-  await apiClient.printWriteInAdjudicationReport();
-  expect(logger.log).lastCalledWith(
+  await api.printWriteInAdjudicationReport();
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `User printed the write-in adjudication report.`,
       disposition: 'success',
@@ -234,10 +231,9 @@ test('write-in adjudication report logging', async () => {
 
   // failed print
   mockPrinterHandler.disconnectPrinter();
-  await apiClient.printWriteInAdjudicationReport();
-  expect(logger.log).lastCalledWith(
+  await api.printWriteInAdjudicationReport();
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPrinted,
-    'election_manager',
     {
       message: `Error in attempting to print the write-in adjudication report: cannot print without printer connected`,
       disposition: 'failure',
@@ -245,10 +241,9 @@ test('write-in adjudication report logging', async () => {
   );
 
   // preview
-  await apiClient.getWriteInAdjudicationReportPreview();
-  expect(logger.log).lastCalledWith(
+  await api.getWriteInAdjudicationReportPreview();
+  expect(logger.logAsCurrentRole).lastCalledWith(
     LogEventId.ElectionReportPreviewed,
-    'election_manager',
     {
       message: `User previewed the write-in adjudication report.`,
       disposition: 'success',
@@ -258,12 +253,12 @@ test('write-in adjudication report logging', async () => {
 
 test('write-in adjudication report warning', async () => {
   const { electionDefinition } = electionTwoPartyPrimaryFixtures;
-  const { apiClient, auth } = buildTestEnvironment();
-  await configureMachine(apiClient, auth, electionDefinition);
+  const { api, auth } = buildTestEnvironment();
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   mockOf(renderToPdf).mockResolvedValueOnce(err('content-too-large'));
-  expect(await apiClient.getWriteInAdjudicationReportPreview()).toEqual({
+  expect(await api.getWriteInAdjudicationReportPreview()).toEqual({
     pdf: undefined,
     warning: { type: 'content-too-large' },
   });

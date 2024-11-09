@@ -61,8 +61,8 @@ export async function start({
   return app.listen(
     port,
     /* istanbul ignore next */
-    async () => {
-      await logger.log(LogEventId.ApplicationStartup, 'system', {
+    () => {
+      void logger.log(LogEventId.ApplicationStartup, 'system', {
         message: `VxMark backend running at http://localhost:${port}/`,
         disposition: 'success',
       });

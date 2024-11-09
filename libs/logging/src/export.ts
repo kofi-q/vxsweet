@@ -50,7 +50,7 @@ async function* generateCdfEventsForExport(
   for await (const [idx, log] of logs.enumerate()) {
     const decodedLogResult = safeParseJson(log, LogLineSchema);
     if (decodedLogResult.isErr()) {
-      await logger.logAsCurrentRole(LogEventId.LogConversionToCdfLogLineError, {
+      void logger.logAsCurrentRole(LogEventId.LogConversionToCdfLogLineError, {
         message: `Malformed log line identified, log line will be ignored: ${log} `,
         result: 'Log line will not be included in CDF output',
         disposition: 'failure',

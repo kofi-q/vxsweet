@@ -25,22 +25,18 @@ import {
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { testSetupHelpers } from '../../test/helpers';
+import { newTestApi } from '../../test/helpers';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
 
 jest.setTimeout(60_000);
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
-const { setupApp, cleanup } = testSetupHelpers();
-
 const MOCK_READINESS_REPORT_CONTENTS = '%PDF - MockReadinessReport';
 const MOCK_READINESS_REPORT_PDF = Buffer.from(
   MOCK_READINESS_REPORT_CONTENTS,
   'utf-8'
 );
-
-afterAll(cleanup);
 
 beforeEach(() => {
   mockFeatureFlagger.resetFeatureFlags();
@@ -53,15 +49,15 @@ beforeEach(() => {
   );
 });
 
-test('Updating contests with candidate rotation', async () => {
-  const { apiClient } = setupApp();
-  const electionId = (
-    await apiClient.loadElection({
+test('Updating contests with candidate rotation', () => {
+  const { api } = newTestApi();
+  const electionId = api
+    .loadElection({
       electionData:
         electionFamousNames2021Fixtures.electionDefinition.electionData,
     })
-  ).unsafeUnwrap();
-  const electionRecord = await apiClient.getElection({ electionId });
+    .unsafeUnwrap();
+  const electionRecord = api.getElection({ electionId });
   const contest = electionRecord.election.contests.find(
     (c): c is CandidateContest =>
       c.type === 'candidate' && c.candidates.length > 2
@@ -75,12 +71,12 @@ test('Updating contests with candidate rotation', async () => {
 `);
 
   // Update with no changes just to trigger candidate rotation
-  await apiClient.updateElection({
+  api.updateElection({
     electionId,
     election: electionRecord.election,
   });
 
-  const updatedElectionRecord = await apiClient.getElection({ electionId });
+  const updatedElectionRecord = api.getElection({ electionId });
   const updatedContest = updatedElectionRecord.election.contests.find(
     (c): c is CandidateContest => c.id === contest.id
   )!;

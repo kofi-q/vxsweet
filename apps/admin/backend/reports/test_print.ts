@@ -88,13 +88,13 @@ export async function printTestPage({
     // The test print shouldn't hit the PDF size limit
     const data = (await renderToPdf({ document: report })).unsafeUnwrap();
     await printer.print({ data });
-    await logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
+    void logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
       message: `User started a print diagnostic by printing a test page.`,
       disposition: 'success',
     });
   } catch (error) {
     assert(error instanceof Error);
-    await logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
+    void logger.logAsCurrentRole(LogEventId.DiagnosticInit, {
       message: `Error attempting to send test page to the printer: ${error.message}`,
       disposition: 'failure',
     });

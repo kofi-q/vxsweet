@@ -7,7 +7,6 @@ jest.mock('@vx/libs/utils/src', () => {
 });
 
 import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
-import { type Client } from '@vx/libs/grout/src';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { assert } from '@vx/libs/basics/assert';
@@ -32,12 +31,12 @@ featureFlagMock.enableFeatureFlag(
 );
 
 async function getParsedExport({
-  apiClient,
+  api,
 }: {
-  apiClient: Client<Api>;
+  api: Api;
 }): Promise<ReturnType<typeof parseCsv>> {
   const path = tmpNameSync();
-  const exportResult = await apiClient.exportTallyReportCsv({
+  const exportResult = await api.exportTallyReportCsv({
     path,
     filter: {},
     groupBy: {},
@@ -52,7 +51,7 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   const { electionDefinition, castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
 
-  const { apiClient, auth, workspace } = buildTestEnvironment();
+  const { api, auth, workspace } = buildTestEnvironment();
   const { store } = workspace;
 
   // The purpose of caching is to avoid reloading and re-tabulating the same
@@ -60,11 +59,11 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   // as a proxy for whether results are tabulated from scratch.
   const tabulationSpy = jest.spyOn(store, 'getCastVoteRecords');
 
-  await configureMachine(apiClient, auth, electionDefinition);
+  await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);
 
   const zeroExport = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(1);
   expect(zeroExport.rows.every((row) => row['Total Votes'] === '0')).toEqual(
@@ -72,25 +71,25 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   );
 
   // adding a CVR file should should clear the cache
-  const loadFileResult = await apiClient.addCastVoteRecordFile({
+  const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
   expect(loadFileResult).toEqual(ok(expect.anything()));
   const resultsExport = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(2);
   expect(resultsExport).not.toEqual(zeroExport);
 
   // loading the same results should not trigger a tabulation
   const resultsExportFromCache = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(2);
   expect(resultsExportFromCache).toEqual(resultsExport);
 
   // adding another CVR file should should clear the cache again
-  const loadFileAgainResult = await apiClient.addCastVoteRecordFile({
+  const loadFileAgainResult = await api.addCastVoteRecordFile({
     path: await modifyCastVoteRecordExport(
       castVoteRecordExport.asDirectoryPath(),
       {
@@ -103,34 +102,34 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   });
   loadFileAgainResult.assertOk('load file failed');
   const doubledResultsExport = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(3);
   expect(doubledResultsExport).not.toEqual(resultsExport);
 
   // adjudicating a mark as a non-vote (by invalidating a write-in) should clear the cache
-  const [writeInId] = await apiClient.getWriteInAdjudicationQueue({
+  const [writeInId] = api.getWriteInAdjudicationQueue({
     contestId: 'State-Representatives-Hillsborough-District-34-b1012d38',
   });
   assert(writeInId !== undefined);
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId,
     type: 'invalid',
   });
   const resultsExportAfterAdjudication = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(4);
   expect(resultsExportAfterAdjudication).not.toEqual(doubledResultsExport);
 
   // adjudicating a mark as a vote (by un-invalidating a write-in) should clear the cache
-  await apiClient.adjudicateWriteIn({
+  api.adjudicateWriteIn({
     writeInId,
     type: 'official-candidate',
     candidateId: 'Obadiah-Carrigan-5c95145a',
   });
   const resultsExportAfterReAdjudication = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(5);
   expect(resultsExportAfterReAdjudication).not.toEqual(
@@ -138,9 +137,9 @@ it('uses and clears CVR tabulation cache appropriately', async () => {
   );
 
   // deleting CVR files should clear the cache
-  await apiClient.clearCastVoteRecordFiles();
+  api.clearCastVoteRecordFiles();
   const clearedResultsExport = await getParsedExport({
-    apiClient,
+    api,
   });
   expect(tabulationSpy).toHaveBeenCalledTimes(6);
   expect(clearedResultsExport).toEqual(zeroExport);

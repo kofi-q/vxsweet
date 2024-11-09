@@ -68,8 +68,7 @@ import {
 import { saveReadinessReport } from '../printing/readiness_report';
 import path from 'node:path';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function buildApi({
+function buildApiInternal({
   auth,
   machine,
   workspace,
@@ -111,13 +110,13 @@ export function buildApi({
     async generateSignedHashValidationQrCodeValue() {
       const { codeVersion, machineId } = getMachineConfig();
       const electionRecord = store.getElectionRecord();
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationInit);
       const qrCodeValue = await generateSignedHashValidationQrCodeValue({
         electionRecord,
         machineId,
         softwareVersion: codeVersion,
       });
-      await logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
+      void logger.logAsCurrentRole(LogEventId.SignedHashValidationComplete, {
         disposition: 'success',
       });
       return qrCodeValue;
@@ -155,7 +154,7 @@ export function buildApi({
         logger
       );
       if (electionPackageResult.isErr()) {
-        await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+        void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
           disposition: 'failure',
           message: 'Error configuring machine.',
           errorDetails: JSON.stringify(electionPackageResult.err()),
@@ -193,7 +192,7 @@ export function buildApi({
         });
       });
 
-      await logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionConfigured, {
         message: `Machine configured for election with hash: ${electionDefinition.ballotHash}`,
         disposition: 'success',
         ballotHash: electionDefinition.ballotHash,
@@ -229,18 +228,18 @@ export function buildApi({
       };
     },
 
-    async unconfigureElection(): Promise<void> {
+    unconfigureElection(): void {
       workspace.reset();
-      await logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
+      void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
         message:
           'User successfully unconfigured the machine to remove the current election and all current ballot data.',
       });
     },
 
-    async setPrecinctSelection(input: {
+    setPrecinctSelection(input: {
       precinctSelection: PrecinctSelection;
-    }): Promise<void> {
+    }): void {
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       assert(
         store.getBallotsCounted() === 0,
@@ -248,7 +247,7 @@ export function buildApi({
       );
       store.setPrecinctSelection(input.precinctSelection);
       workspace.resetElectionSession();
-      await logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
+      void logger.logAsCurrentRole(LogEventId.PrecinctConfigurationChanged, {
         disposition: 'success',
         message: `User set the precinct for the machine to ${getPrecinctSelectionName(
           electionDefinition.election.precincts,
@@ -257,22 +256,22 @@ export function buildApi({
       });
     },
 
-    async setIsSoundMuted(input: { isSoundMuted: boolean }): Promise<void> {
+    setIsSoundMuted(input: { isSoundMuted: boolean }): void {
       store.setIsSoundMuted(input.isSoundMuted);
-      await logger.logAsCurrentRole(LogEventId.SoundToggled, {
+      void logger.logAsCurrentRole(LogEventId.SoundToggled, {
         message: `Sounds were toggled ${input.isSoundMuted ? 'off' : 'on'}`,
         disposition: 'success',
         isSoundMuted: input.isSoundMuted,
       });
     },
 
-    async setIsDoubleFeedDetectionDisabled(input: {
+    setIsDoubleFeedDetectionDisabled(input: {
       isDoubleFeedDetectionDisabled: boolean;
-    }): Promise<void> {
+    }): void {
       store.setIsDoubleFeedDetectionDisabled(
         input.isDoubleFeedDetectionDisabled
       );
-      await logger.logAsCurrentRole(LogEventId.DoubleSheetDetectionToggled, {
+      void logger.logAsCurrentRole(LogEventId.DoubleSheetDetectionToggled, {
         message: `Double sheet detection was toggled ${
           input.isDoubleFeedDetectionDisabled ? 'off' : 'on'
         }`,
@@ -281,11 +280,11 @@ export function buildApi({
       });
     },
 
-    async setIsContinuousExportEnabled(input: {
+    setIsContinuousExportEnabled(input: {
       isContinuousExportEnabled: boolean;
-    }): Promise<void> {
+    }): void {
       store.setIsContinuousExportEnabled(input.isContinuousExportEnabled);
-      await logger.logAsCurrentRole(LogEventId.ContinuousExportToggled, {
+      void logger.logAsCurrentRole(LogEventId.ContinuousExportToggled, {
         message: `Continuous export was ${
           input.isContinuousExportEnabled ? 'resumed' : 'paused'
         }`,
@@ -297,7 +296,7 @@ export function buildApi({
       const logMessage = input.isTestMode
         ? 'official to test'
         : 'test to official';
-      await logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
+      void logger.logAsCurrentRole(LogEventId.TogglingTestMode, {
         message: `Toggling from ${logMessage} mode`,
         isTestMode: input.isTestMode,
       });
@@ -307,14 +306,14 @@ export function buildApi({
         workspace.resetElectionSession()
       );
       store.setTestMode(input.isTestMode);
-      await logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
+      void logger.logAsCurrentRole(LogEventId.ToggledTestMode, {
         disposition: 'success',
         message: `Successfully toggled from ${logMessage} mode.`,
         isTestMode: input.isTestMode,
       });
     },
 
-    openPolls(): Promise<OpenPollsResult> {
+    openPolls(): OpenPollsResult {
       return openPolls({ store, logger });
     },
 
@@ -322,16 +321,16 @@ export function buildApi({
       return closePolls({ workspace, usbDrive, logger });
     },
 
-    pauseVoting(): Promise<void> {
-      return pauseVoting({ store, logger });
+    pauseVoting(): void {
+      pauseVoting({ store, logger });
     },
 
-    resumeVoting(): Promise<void> {
-      return resumeVoting({ store, logger });
+    resumeVoting(): void {
+      resumeVoting({ store, logger });
     },
 
-    resetPollsToPaused(): Promise<void> {
-      return resetPollsToPaused({ store, logger });
+    resetPollsToPaused(): void {
+      resetPollsToPaused({ store, logger });
     },
 
     exportCastVoteRecordsToUsbDrive(input: {
@@ -525,7 +524,18 @@ export function buildApi({
   });
 }
 
-export type Api = ReturnType<typeof buildApi>;
+export type Api = ReturnType<typeof buildApiInternal>;
+
+export function buildApi(params: {
+  auth: InsertedSmartCardAuthApi;
+  machine: PrecinctScannerStateMachine;
+  workspace: Workspace;
+  usbDrive: UsbDrive;
+  printer: Printer;
+  logger: Logger;
+}): Api {
+  return buildApiInternal(params);
+}
 
 export function buildApp({
   auth,

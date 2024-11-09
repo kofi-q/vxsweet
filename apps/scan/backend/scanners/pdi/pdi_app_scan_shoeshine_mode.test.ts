@@ -39,90 +39,78 @@ const electionPackage =
   );
 
 test('shoeshine mode scans the same ballot repeatedly', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage,
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb()
-      );
+    simulateScan(api, mockScanner, await ballotImages.completeHmpb());
 
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      let ballotsCounted = 1;
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted,
-      });
-      expect(mockScanner.client.ejectDocument).not.toHaveBeenCalled();
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    let ballotsCounted = 1;
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted,
+    });
+    expect(mockScanner.client.ejectDocument).not.toHaveBeenCalled();
 
-      clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        ballotsCounted: 1,
-      });
-      expect(mockScanner.client.ejectDocument).toHaveBeenCalledWith(
-        'toFrontAndRescan'
-      );
+    clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
+    await waitForStatus(api, {
+      state: 'accepted',
+      ballotsCounted: 1,
+    });
+    expect(mockScanner.client.ejectDocument).toHaveBeenCalledWith(
+      'toFrontAndRescan'
+    );
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb(),
-        ballotsCounted
-      );
-      ballotsCounted = 2;
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted,
-      });
-    }
-  );
+    simulateScan(
+      api,
+      mockScanner,
+      await ballotImages.completeHmpb(),
+      ballotsCounted
+    );
+    ballotsCounted = 2;
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted,
+    });
+  });
 });
 
 test('handles error on eject for rescan', async () => {
-  await withApp(
-    async ({ apiClient, mockScanner, mockUsbDrive, mockAuth, clock }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        electionPackage,
-      });
+  await withApp(async ({ api, mockScanner, mockUsbDrive, mockAuth, clock }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      electionPackage,
+    });
 
-      clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
-      await waitForStatus(apiClient, { state: 'no_paper' });
-      expect(mockScanner.client.enableScanning).toHaveBeenCalled();
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
+    await waitForStatus(api, { state: 'no_paper' });
+    expect(mockScanner.client.enableScanning).toHaveBeenCalled();
 
-      await simulateScan(
-        apiClient,
-        mockScanner,
-        await ballotImages.completeHmpb()
-      );
+    simulateScan(api, mockScanner, await ballotImages.completeHmpb());
 
-      const interpretation: SheetInterpretation = { type: 'ValidSheet' };
-      const ballotsCounted = 1;
-      await waitForStatus(apiClient, {
-        state: 'accepted',
-        interpretation,
-        ballotsCounted,
-      });
-      expect(mockScanner.client.ejectDocument).not.toHaveBeenCalled();
+    const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    const ballotsCounted = 1;
+    await waitForStatus(api, {
+      state: 'accepted',
+      interpretation,
+      ballotsCounted,
+    });
+    expect(mockScanner.client.ejectDocument).not.toHaveBeenCalled();
 
-      mockScanner.client.ejectDocument.mockRejectedValue(
-        new Error('eject failed')
-      );
-      clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
-      await waitForStatus(apiClient, {
-        state: 'unrecoverable_error',
-        ballotsCounted: 1,
-      });
-    }
-  );
+    mockScanner.client.ejectDocument.mockRejectedValue(
+      new Error('eject failed')
+    );
+    clock.increment(delays.DELAY_ACCEPTED_READY_FOR_NEXT_BALLOT);
+    await waitForStatus(api, {
+      state: 'unrecoverable_error',
+      ballotsCounted: 1,
+    });
+  });
 });

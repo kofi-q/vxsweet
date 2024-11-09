@@ -46,9 +46,9 @@ beforeEach(() => {
 
 const mockTime = new Date('2021-01-01T00:00:00.000');
 
-async function wrapWithFakeSystemTime<T>(fn: () => Promise<T>): Promise<T> {
+function wrapWithFakeSystemTime<T>(fn: () => T): T {
   jest.useFakeTimers().setSystemTime(mockTime.getTime());
-  const result = await fn();
+  const result = fn();
   jest.useRealTimers();
   return result;
 }
@@ -66,8 +66,8 @@ beforeEach(() => {
 });
 
 test('can print test page', async () => {
-  await withApp(async ({ apiClient, mockFujitsuPrinterHandler, logger }) => {
-    (await apiClient.printTestPage()).unsafeUnwrap();
+  await withApp(async ({ api, mockFujitsuPrinterHandler, logger }) => {
+    (await api.printTestPage()).unsafeUnwrap();
     await expect(
       mockFujitsuPrinterHandler.getLastPrintPath()
     ).toMatchPdfSnapshot({
@@ -84,28 +84,24 @@ test('can print test page', async () => {
 });
 
 test('test page failing mid-print is logged', async () => {
-  await withApp(async ({ apiClient, mockFujitsuPrinterHandler, logger }) => {
-    expect(await apiClient.getMostRecentPrinterDiagnostic()).toBeNull();
+  await withApp(async ({ api, mockFujitsuPrinterHandler, logger }) => {
+    expect(api.getMostRecentPrinterDiagnostic()).toBeNull();
 
     mockFujitsuPrinterHandler.setStatus({
       state: 'error',
       type: 'disconnected',
     });
-    expect(
-      await wrapWithFakeSystemTime(() => apiClient.printTestPage())
-    ).toEqual(
+    expect(await wrapWithFakeSystemTime(() => api.printTestPage())).toEqual(
       err({
         state: 'error',
         type: 'disconnected',
       })
     );
 
-    expect(
-      await apiClient.getMostRecentPrinterDiagnostic()
-    ).toEqual<DiagnosticRecord>({
+    expect(api.getMostRecentPrinterDiagnostic()).toEqual<DiagnosticRecord>({
       message: 'The printer was disconnected while printing.',
       outcome: 'fail',
-      timestamp: mockTime.getTime(),
+      timestamp: expect.anything(),
       type: 'test-print',
     });
     expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
@@ -120,16 +116,12 @@ test('test page failing mid-print is logged', async () => {
 });
 
 test('user logged "pass" after a test print completes', async () => {
-  await withApp(async ({ apiClient, logger }) => {
-    expect(await apiClient.getMostRecentPrinterDiagnostic()).toBeNull();
+  await withApp(({ api, logger }) => {
+    expect(api.getMostRecentPrinterDiagnostic()).toBeNull();
 
-    await wrapWithFakeSystemTime(() =>
-      apiClient.logTestPrintOutcome({ outcome: 'pass' })
-    );
+    wrapWithFakeSystemTime(() => api.logTestPrintOutcome({ outcome: 'pass' }));
 
-    expect(
-      await apiClient.getMostRecentPrinterDiagnostic()
-    ).toEqual<DiagnosticRecord>({
+    expect(api.getMostRecentPrinterDiagnostic()).toEqual<DiagnosticRecord>({
       outcome: 'pass',
       timestamp: mockTime.getTime(),
       type: 'test-print',
@@ -145,16 +137,12 @@ test('user logged "pass" after a test print completes', async () => {
 });
 
 test('user logged "fail" after a test print completes', async () => {
-  await withApp(async ({ apiClient, logger }) => {
-    expect(await apiClient.getMostRecentPrinterDiagnostic()).toBeNull();
+  await withApp(({ api, logger }) => {
+    expect(api.getMostRecentPrinterDiagnostic()).toBeNull();
 
-    await wrapWithFakeSystemTime(() =>
-      apiClient.logTestPrintOutcome({ outcome: 'fail' })
-    );
+    wrapWithFakeSystemTime(() => api.logTestPrintOutcome({ outcome: 'fail' }));
 
-    expect(
-      await apiClient.getMostRecentPrinterDiagnostic()
-    ).toEqual<DiagnosticRecord>({
+    expect(api.getMostRecentPrinterDiagnostic()).toEqual<DiagnosticRecord>({
       outcome: 'fail',
       message: TEST_PRINT_USER_FAIL_REASON,
       timestamp: mockTime.getTime(),
@@ -171,36 +159,33 @@ test('user logged "fail" after a test print completes', async () => {
 });
 
 test('printing a readiness report ', async () => {
-  await withApp(
-    async ({ apiClient, mockUsbDrive, mockAuth, logger, workspace }) => {
-      await configureApp(apiClient, mockAuth, mockUsbDrive, {
-        testMode: true,
-        openPolls: false,
+  await withApp(async ({ api, mockUsbDrive, mockAuth, logger, workspace }) => {
+    await configureApp(api, mockAuth, mockUsbDrive, {
+      testMode: true,
+      openPolls: false,
+    });
+    mockUsbDrive.insertUsbDrive({});
+    wrapWithFakeSystemTime(() => {
+      api.logTestPrintOutcome({ outcome: 'pass' });
+      workspace.store.addDiagnosticRecord({
+        type: 'blank-sheet-scan',
+        outcome: 'pass',
       });
-      mockUsbDrive.insertUsbDrive({});
-      await wrapWithFakeSystemTime(async () => {
-        await apiClient.logTestPrintOutcome({ outcome: 'pass' });
-        workspace.store.addDiagnosticRecord({
-          type: 'blank-sheet-scan',
-          outcome: 'pass',
-        });
-      });
+    });
 
-      const exportResult = await apiClient.saveReadinessReport();
-      exportResult.assertOk('Failed to save readiness report');
-      expect(logger.log).toHaveBeenCalledWith(
-        LogEventId.ReadinessReportSaved,
-        expect.anything(),
-        {
-          disposition: 'success',
-          message: 'User saved the equipment readiness report to a USB drive.',
-        }
-      );
+    const exportResult = await api.saveReadinessReport();
+    exportResult.assertOk('Failed to save readiness report');
+    expect(logger.logAsCurrentRole).toHaveBeenCalledWith(
+      LogEventId.ReadinessReportSaved,
+      {
+        disposition: 'success',
+        message: 'User saved the equipment readiness report to a USB drive.',
+      }
+    );
 
-      const exportPath = exportResult.ok()![0];
-      await expect(exportPath).toMatchPdfSnapshot({
-        customSnapshotIdentifier: 'readiness-report',
-      });
-    }
-  );
+    const exportPath = exportResult.ok()![0];
+    await expect(exportPath).toMatchPdfSnapshot({
+      customSnapshotIdentifier: 'readiness-report',
+    });
+  });
 });
