@@ -52,7 +52,7 @@ type AuthAction =
  * Given a previous auth status and a new auth status following an auth status transition, infers
  * and logs the relevant auth event, if any
  */
-async function logAuthEvent(
+function logAuthEvent(
   previousAuthStatus: InsertedSmartCardAuthTypes.AuthStatus,
   newAuthStatus: InsertedSmartCardAuthTypes.AuthStatus,
   logger: BaseLogger
@@ -230,14 +230,14 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
       });
       checkPinResponse = { response: 'error' };
     }
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'check_pin',
       checkPinResponse,
     });
   }
 
-  async logOut(machineState: InsertedSmartCardAuthMachineState): Promise<void> {
-    await this.updateAuthStatus(machineState, { type: 'log_out' });
+  logOut(machineState: InsertedSmartCardAuthMachineState): void {
+    this.updateAuthStatus(machineState, { type: 'log_out' });
   }
 
   async updateSessionExpiry(
@@ -245,7 +245,7 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
     input: { sessionExpiresAt: Date }
   ): Promise<void> {
     await this.checkCardReaderAndUpdateAuthStatus(machineState);
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'update_session_expiry',
       sessionExpiresAt: input.sessionExpiresAt,
     });
@@ -349,16 +349,16 @@ export class InsertedSmartCardAuth implements InsertedSmartCardAuthApi {
     machineState: InsertedSmartCardAuthMachineState
   ): Promise<void> {
     const cardStatus = await this.card.getCardStatus();
-    await this.updateAuthStatus(machineState, {
+    this.updateAuthStatus(machineState, {
       type: 'check_card_reader',
       cardStatus,
     });
   }
 
-  private async updateAuthStatus(
+  private updateAuthStatus(
     machineState: InsertedSmartCardAuthMachineState,
     action: AuthAction
-  ): Promise<void> {
+  ): void {
     const previousAuthStatus = this.authStatus;
     this.authStatus = this.determineNewAuthStatus(machineState, action);
     void logAuthEvent(previousAuthStatus, this.authStatus, this.logger);

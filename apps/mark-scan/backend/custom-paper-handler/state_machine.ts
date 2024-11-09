@@ -1431,7 +1431,7 @@ function setUpLogging(
   logger: Logger
 ) {
   machineService
-    .onEvent(async (event) => {
+    .onEvent((event) => {
       // To protect voter privacy, we only log the event type (since some event
       // objects include ballot interpretations)
       if (event.type !== 'PAT_DEVICE_NO_STATUS_CHANGE') {
@@ -1455,7 +1455,7 @@ function setUpLogging(
         }
       }
     })
-    .onChange(async (context, previousContext) => {
+    .onChange((context, previousContext) => {
       if (!previousContext) return;
       const changed = Object.entries(context)
         .filter(
@@ -1499,7 +1499,7 @@ function setUpLogging(
         () => debug('Context updated: %o', Object.fromEntries(changed))
       );
     })
-    .onTransition(async (state) => {
+    .onTransition((state) => {
       if (!state.changed) return;
       void logger.log(
         LogEventId.PaperHandlerStateChanged,

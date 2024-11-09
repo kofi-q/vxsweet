@@ -65,7 +65,7 @@ beforeEach(() => {
   );
 });
 
-test('CRUD elections', async () => {
+test('CRUD elections', () => {
   const { api } = newTestApi();
   expect(api.listElections()).toEqual([]);
 

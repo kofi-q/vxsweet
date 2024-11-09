@@ -118,7 +118,7 @@ export async function* buildCdfLog(
     GeneratedTime: new Date().toISOString(),
   };
 
-  void logger.logAsCurrentRole(LogEventId.LogConversionToCdfComplete, {
+  await logger.logAsCurrentRole(LogEventId.LogConversionToCdfComplete, {
     message: 'Log file successfully converted to CDF format.',
     disposition: 'success',
   });

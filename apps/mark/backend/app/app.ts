@@ -123,7 +123,7 @@ export function buildApi(
       return workspace.store.getSystemSettings() ?? DEFAULT_SYSTEM_SETTINGS;
     },
 
-    async unconfigureMachine() {
+    unconfigureMachine() {
       workspace.store.reset();
       void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
@@ -212,7 +212,7 @@ export function buildApi(
       });
     },
 
-    async setPollsState(input: { pollsState: PollsState }) {
+    setPollsState(input: { pollsState: PollsState }) {
       const newPollsState = input.pollsState;
       const oldPollsState = store.getPollsState();
 
@@ -248,9 +248,9 @@ export function buildApi(
       store.setBallotsPrintedCount(0);
     },
 
-    async setPrecinctSelection(input: {
+    setPrecinctSelection(input: {
       precinctSelection: PrecinctSelection;
-    }): Promise<void> {
+    }): void {
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       store.setPrecinctSelection(input.precinctSelection);
       store.setBallotsPrintedCount(0);

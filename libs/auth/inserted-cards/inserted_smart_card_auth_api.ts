@@ -28,7 +28,7 @@ export interface InsertedSmartCardAuthApi {
    * smart card auth, this method is still useful for clearing the session and re-requiring PIN
    * entry, e.g. after the inactive session time limit has been hit.
    */
-  logOut(machineState: InsertedSmartCardAuthMachineState): Promise<void>;
+  logOut(machineState: InsertedSmartCardAuthMachineState): void;
   updateSessionExpiry(
     machineState: InsertedSmartCardAuthMachineState,
     input: { sessionExpiresAt: Date }

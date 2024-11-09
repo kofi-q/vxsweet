@@ -155,7 +155,7 @@ export function buildApi(
       return workspace.store.getSystemSettings() ?? DEFAULT_SYSTEM_SETTINGS;
     },
 
-    async unconfigureMachine() {
+    unconfigureMachine() {
       workspace.store.reset();
       void logger.logAsCurrentRole(LogEventId.ElectionUnconfigured, {
         disposition: 'success',
@@ -300,7 +300,7 @@ export function buildApi(
       assertDefined(stateMachine).returnPreprintedBallot();
     },
 
-    async confirmInvalidateBallot(): Promise<void> {
+    confirmInvalidateBallot(): void {
       assert(stateMachine);
 
       void logger.log(LogEventId.BallotInvalidated, 'poll_worker');
@@ -384,7 +384,7 @@ export function buildApi(
       void logger.logAsCurrentRole(logEvent, { disposition: 'success' });
     },
 
-    async setTestMode(input: { isTestMode: boolean }) {
+    setTestMode(input: { isTestMode: boolean }) {
       const logMessage = input.isTestMode
         ? 'official to test'
         : 'test to official';
@@ -402,9 +402,9 @@ export function buildApi(
       });
     },
 
-    async setPrecinctSelection(input: {
+    setPrecinctSelection(input: {
       precinctSelection: PrecinctSelection;
-    }): Promise<void> {
+    }): void {
       const { electionDefinition } = assertDefined(store.getElectionRecord());
       store.setPrecinctSelection(input.precinctSelection);
       store.setBallotsPrintedCount(0);

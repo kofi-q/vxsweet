@@ -1,11 +1,11 @@
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { type PrinterStatus } from './types';
 
-export async function logPrinterStatusIfChanged(
+export function logPrinterStatusIfChanged(
   logger: BaseLogger,
   previousStatus?: PrinterStatus,
   newStatus?: PrinterStatus
-): Promise<void> {
+): void {
   if (!previousStatus && !newStatus) {
     return;
   }

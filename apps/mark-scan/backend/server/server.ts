@@ -121,7 +121,7 @@ export async function start({
   return app.listen(
     port,
     /* istanbul ignore next */
-    async () => {
+    () => {
       void logger.log(LogEventId.ApplicationStartup, 'system', {
         message: `VxMarkScan backend running at http://localhost:${port}/`,
         disposition: 'success',
