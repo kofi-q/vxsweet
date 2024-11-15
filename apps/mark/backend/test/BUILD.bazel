@@ -20,7 +20,7 @@ ts_library(
         "//libs/auth/inserted-cards",
         "//libs/auth/test-utils",
         "//libs/backend/election_package",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/grout/src",
         "//libs/logging/src",
         "//libs/printing/src",

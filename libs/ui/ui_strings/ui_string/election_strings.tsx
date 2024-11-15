@@ -12,7 +12,6 @@ import {
   type Precinct,
   type YesNoOption,
 } from '@vx/libs/types/elections';
-import { LanguageCode } from '@vx/libs/types/languages';
 import { ElectionStringKey as Key } from '@vx/libs/types/ui_strings';
 import { format } from '@vx/libs/utils/src';
 
@@ -32,7 +31,7 @@ type ContestWithDescription = ContestLike & {
  */
 /* istanbul ignore next - mostly presentational, tested via apps where relevant */
 export const electionStrings = {
-  [Key.BALLOT_LANGUAGE]: (languageCode: LanguageCode) => (
+  [Key.BALLOT_LANGUAGE]: (languageCode: string) => (
     <LanguageOverride languageCode={languageCode}>
       <UiString uiStringKey={Key.BALLOT_LANGUAGE}>
         {format.languageDisplayName({ languageCode })}

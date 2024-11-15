@@ -1,8 +1,6 @@
-import {
-  electionGeneral,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import {
   type BallotStyleId,
@@ -116,7 +114,7 @@ it('Single Seat Contest', async () => {
   }
 
   const reviewTitle = getByTextWithMarkup(
-    `${getContestDistrictName(electionGeneral, measure102Contest)}${
+    `${getContestDistrictName(electionGeneral.election, measure102Contest)}${
       measure102Contest.title
     }`
   );

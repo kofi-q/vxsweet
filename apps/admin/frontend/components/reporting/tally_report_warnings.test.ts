@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimary } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { type TallyReportWarning } from '../../../backend/reports/warnings';
 import {
   getTallyReportWarningText,

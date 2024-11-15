@@ -1,6 +1,6 @@
 import '../../test/set_up_react_pdf_mock';
 
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 
 import userEvent from '@testing-library/user-event';
 import { ok } from '@vx/libs/basics/result';
@@ -32,8 +32,8 @@ afterAll(() => {
 });
 
 test('renders provided data', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   apiMock.setPrinterStatus({ connected: true });
   apiMock.expectGetWriteInAdjudicationReportPreview(
@@ -60,7 +60,7 @@ test('renders provided data', async () => {
   jest.setSystemTime(new Date('2021-01-01T00:00:00'));
   apiMock.apiClient.exportWriteInAdjudicationReportPdf
     .expectCallWith({
-      path: 'test-mount-point/test-ballot_general-election_8c89a21840/reports/unofficial-full-election-write-in-adjudication-report__2021-01-01_00-00-00.pdf',
+      path: 'test-mount-point/test-ballot_general-election_c5d895d735/reports/unofficial-full-election-write-in-adjudication-report__2021-01-01_00-00-00.pdf',
     })
     .resolves(ok([]));
   userEvent.click(screen.getButton('Export Report PDF'));
@@ -72,8 +72,8 @@ test('renders provided data', async () => {
 });
 
 test('shows warning and prevents actions when PDF is too large', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   apiMock.setPrinterStatus({ connected: true });
   apiMock.apiClient.getWriteInAdjudicationReportPreview

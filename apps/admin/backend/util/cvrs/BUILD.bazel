@@ -19,7 +19,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/admin/backend/types",
         "//apps/admin/backend/util/cvrs",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/types/tabulation",
     ],
 )

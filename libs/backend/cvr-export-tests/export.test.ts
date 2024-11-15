@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
 import { sleep } from '@vx/libs/basics/async';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   type BatchInfo,
   DEFAULT_SYSTEM_SETTINGS,
@@ -50,7 +50,8 @@ import {
 
 jest.setTimeout(30_000);
 
-const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+const electionDefinition =
+  electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
 const batch1Id = uuid();
 const batch1: BatchInfo = {

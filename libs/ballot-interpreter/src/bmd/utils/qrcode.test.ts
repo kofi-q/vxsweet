@@ -1,9 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { err, ok } from '@vx/libs/basics/result';
-import {
-  electionFamousNames2021Fixtures,
-  sampleBallotImages,
-} from '@vx/libs/fixtures/src';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   type QrCodePageResult,
@@ -21,7 +19,8 @@ test('does not find QR codes when there are none to find', async () => {
 
 test('can read metadata encoded in a QR code with base64', async () => {
   const ballotPdf = await renderBmdBallotFixture({
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   });
   const pageImages = await pdfToPageImages(ballotPdf).toArray();
   const detectResult = await detectInBallot(pageImages[0]!);

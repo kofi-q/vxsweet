@@ -23,7 +23,7 @@ ts_library(
         "//libs/backend/diagnostics",
         "//libs/backend/system_call",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/grout/test-utils/src",
         "//libs/logging/src",
         "//libs/test-utils/src",

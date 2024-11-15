@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import { election } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { find } from '@vx/libs/basics/collections';
 import {
   type CandidateContest,
@@ -10,9 +10,6 @@ import {
   getTallyReportCandidateRows,
   shorthandTallyReportCandidateRow,
 } from './tally_reports';
-
-const { electionDefinition } = electionTwoPartyPrimaryFixtures;
-const { election } = electionDefinition;
 
 const contestId = 'zoo-council-mammal';
 const contest = find(

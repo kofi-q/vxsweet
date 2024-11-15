@@ -1,6 +1,8 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { LanguageCode } from '@vx/libs/types/languages';
 import { getMockMultiLanguageElectionDefinition } from './multi_language_mock';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 test('getMockMultiLanguageElectionDefinition', () => {
   const electionDefinition = electionGeneralDefinition;

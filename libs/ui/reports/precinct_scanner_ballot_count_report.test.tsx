@@ -1,8 +1,9 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { formatElectionHashes } from '@vx/libs/types/elections';
 import { render, screen } from '../test/react_testing_library';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { PrecinctScannerBallotCountReport } from './precinct_scanner_ballot_count_report';
 

@@ -352,7 +352,7 @@ export function extractCdfUiStrings(
 
 function getUiString(
   uiStrings: UiStringsPackage,
-  languageCode: LanguageCode,
+  languageCode: string,
   stringKey: string | [string, string]
 ): string | undefined {
   const uiStringsInLanguage = uiStrings[languageCode];

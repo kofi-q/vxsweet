@@ -1,8 +1,5 @@
-import {
-  electionTwoPartyPrimary,
-  electionTwoPartyPrimaryDefinition,
-  electionFamousNames2021Fixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimaryLib from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { formatElectionHashes, type PartyId } from '@vx/libs/types/elections';
 import {
   ALL_PRECINCTS_SELECTION,
@@ -14,10 +11,13 @@ import { render, screen, within } from '../test/react_testing_library';
 
 import { PrecinctScannerTallyReport } from './precinct_scanner_tally_report';
 
-const {
-  election: generalElection,
-  electionDefinition: generalElectionDefinition,
-} = electionFamousNames2021Fixtures;
+const generalElection = electionFamousNames2021Fixtures.electionJson.election;
+const generalElectionDefinition =
+  electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
+
+const electionTwoPartyPrimary = electionTwoPartyPrimaryLib.election;
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimaryLib.toElectionDefinition();
 
 const pollsTransitionedTime = new Date(2021, 8, 19, 11, 5).getTime();
 const reportPrintedTime = new Date(2021, 8, 19, 11, 6).getTime();

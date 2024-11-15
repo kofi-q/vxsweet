@@ -11,6 +11,7 @@ ts_library(
         "//apps/design/backend/logging",
         "//apps/design/backend/store",
         "//libs/basics/assert",
+        "//libs/types/basic",
         "//libs/types/languages",
     ],
 )

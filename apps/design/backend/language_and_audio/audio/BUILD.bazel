@@ -7,7 +7,6 @@ ts_library(
         "//:node_modules/@types/node",
         "//apps/design/backend/language_and_audio/tts",
         "//apps/design/backend/language_and_audio/utils",
-        "//libs/types/languages",
         "//libs/types/ui_strings",
         "//libs/utils/src",
     ],

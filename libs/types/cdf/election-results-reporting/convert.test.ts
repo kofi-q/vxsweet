@@ -22,7 +22,7 @@ import { type ElectionReport } from '.';
 
 function makeLanguageString(
   content: string,
-  language: LanguageCode
+  language: string
 ): ResultsReporting.LanguageString {
   return {
     '@type': 'ElectionResults.LanguageString',

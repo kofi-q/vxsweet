@@ -25,7 +25,7 @@ ts_tests(
         "//:node_modules/react-router-dom",
         "//apps/mark-scan/frontend/pages/contests",
         "//apps/mark-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/mark-flow-ui/src",
     ],
 )

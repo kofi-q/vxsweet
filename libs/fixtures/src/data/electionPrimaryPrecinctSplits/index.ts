@@ -3,6 +3,7 @@ import path from 'node:path';
 import * as castVoteRecords from './castVoteRecords';
 
 export * from './election.json';
+export * as electionJson from './election.json';
 
 export const castVoteRecordExport = {
   asDirectoryPath: () =>

@@ -34,7 +34,7 @@ ts_tests(
         "//:node_modules/tmp",
         "//libs/basics/iterators",
         "//libs/basics/types",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireHudson",
         "//libs/image-utils/src",
         "//libs/image-utils/test",
         "//libs/types/geometry",

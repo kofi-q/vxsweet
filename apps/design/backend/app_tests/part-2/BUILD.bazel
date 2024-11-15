@@ -11,7 +11,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/hmpb/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

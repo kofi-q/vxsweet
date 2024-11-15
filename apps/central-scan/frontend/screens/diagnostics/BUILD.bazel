@@ -28,7 +28,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/central-scan/frontend/screens/diagnostics",
         "//apps/central-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/ui/test-utils",
     ],
 )

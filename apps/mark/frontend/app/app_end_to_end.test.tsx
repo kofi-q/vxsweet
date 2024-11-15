@@ -10,9 +10,11 @@ import {
   getContestDistrictName,
   constructElectionKey,
 } from '@vx/libs/types/elections';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
 import * as GLOBALS from '../config/globals';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { App } from './app';
 

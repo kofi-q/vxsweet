@@ -3,7 +3,6 @@ import getDeepValue from 'lodash.get';
 
 import { type Optional } from '@vx/libs/basics/types';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/languages';
 
 import { useAudioContext } from '../audio-context/audio_context';
 import { type ClipParams, PlayAudioClips } from './play_audio_clips';
@@ -40,7 +39,7 @@ export interface UiStringScreenReaderProps {
 
 interface UiStringParams {
   i18nKey: string;
-  languageCode: LanguageCode;
+  languageCode: string;
 }
 
 export interface UiStringScreenReaderContextInterface {
@@ -207,12 +206,10 @@ export function UiStringScreenReader(
 
     for (const audioElement of audioElements.values()) {
       const i18nKey = audioElement.getAttribute(I18N_KEY);
-      const languageCodeResult = LanguageCodeSchema.safeParse(
-        audioElement.getAttribute(LANGUAGE_CODE)
-      );
+      const languageCode = audioElement.getAttribute(LANGUAGE_CODE);
 
-      if (i18nKey && languageCodeResult.success) {
-        newI18nKeys.push({ i18nKey, languageCode: languageCodeResult.data });
+      if (i18nKey && languageCode) {
+        newI18nKeys.push({ i18nKey, languageCode });
       }
     }
 

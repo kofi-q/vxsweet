@@ -13,12 +13,10 @@ import {
   ScanSide,
   mocks,
 } from '@vx/libs/custom-scanner/src';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneralDefinition,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  sampleBallotImages,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
 import {
   ImageData,
   RGBA_CHANNEL_COUNT,
@@ -65,6 +63,7 @@ import {
   wrapFujitsuThermalPrinter,
   wrapLegacyPrinter,
 } from '../../printing/printer';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 export async function withApp(
   fn: (context: {
@@ -186,7 +185,7 @@ export const ballotImages = {
       await pdfToImageSheet(
         await renderBmdBallotFixture({
           electionDefinition:
-            electionFamousNames2021Fixtures.electionDefinition,
+            electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
           ballotStyleId: DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
           precinctId: DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
           votes: DEFAULT_FAMOUS_NAMES_VOTES,

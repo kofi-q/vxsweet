@@ -1,6 +1,6 @@
 import { err, ok } from '@vx/libs/basics/result';
 import { typedAs } from '@vx/libs/basics/types';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { writeFileSync } from 'node:fs';
 import { makeTmpFile } from '../test/utils';
 import { type ReadElectionError, readElection } from './election';
@@ -65,9 +65,8 @@ test('file system error: file exceeds max size', async () => {
 
 test('success', async () => {
   const path = makeTmpFile();
-  const contents = electionFamousNames2021Fixtures.electionJson.asText();
-  writeFileSync(path, contents);
-  expect(await readElection(path)).toEqual(
-    ok(electionFamousNames2021Fixtures.electionDefinition)
-  );
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
+  writeFileSync(path, electionDefinition.electionData);
+  expect(await readElection(path)).toEqual(ok(electionDefinition));
 });

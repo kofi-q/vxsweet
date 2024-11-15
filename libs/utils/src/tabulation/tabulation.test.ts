@@ -1,9 +1,6 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimary,
-  electionTwoPartyPrimaryDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { typedAs } from '@vx/libs/basics/types';
@@ -60,7 +57,7 @@ function castVoteRecordToTabulationCastVoteRecord(
   return {
     ballotStyleGroupId: getGroupIdFromBallotStyleId({
       ballotStyleId: castVoteRecord.BallotStyleId as BallotStyleId,
-      election: electionTwoPartyPrimaryDefinition.election,
+      election: electionTwoPartyPrimary,
     }),
     batchId: castVoteRecord.BatchId,
     card: castVoteRecord.BallotSheetId
@@ -105,7 +102,7 @@ async function readCastVoteRecordExport(
 }
 
 test('getEmptyElectionResult', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   const emptyElectionResult = getEmptyElectionResults(election);
 
@@ -177,7 +174,7 @@ test('getEmptyElectionResult', () => {
 });
 
 test('getEmptyElectionResults without generic write-in', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   const emptyElectionResult = getEmptyElectionResults(election, false);
   // check an empty candidate contest
@@ -220,7 +217,7 @@ test('getEmptyElectionResults without generic write-in', () => {
 });
 
 test('getEmptyManualElectionResults', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   const emptyManualElectionResults = getEmptyManualElectionResults(election);
 
@@ -237,7 +234,7 @@ test('getEmptyManualElectionResults', () => {
 });
 
 test('buildElectionResultsFixture', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   const ballotCount = 10;
   const cardCounts: Tabulation.CardCounts = {
@@ -543,9 +540,7 @@ test('getSheetCount', () => {
 });
 
 test('getBallotStyleIdPartyIdLookup', () => {
-  expect(
-    getBallotStyleIdPartyIdLookup(electionTwoPartyPrimaryDefinition.election)
-  ).toEqual({
+  expect(getBallotStyleIdPartyIdLookup(electionTwoPartyPrimary)).toEqual({
     '1M': '0',
     '2F': '1',
   });
@@ -648,7 +643,7 @@ test('extractGroupSpecifier', () => {
 });
 
 describe('tabulateCastVoteRecords', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
   let cvrs: Tabulation.CastVoteRecord[] = [];
   beforeAll(async () => {
     cvrs = await readCastVoteRecordExport(
@@ -1045,7 +1040,7 @@ describe('tabulateCastVoteRecords', () => {
 });
 
 test('getOfficialCandidateNameLookup', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
   const nameLookup = getOfficialCandidateNameLookup(election);
 
   expect(nameLookup.get('zoo-council-mammal', 'lion')).toEqual('Lion');
@@ -1056,7 +1051,7 @@ test('getOfficialCandidateNameLookup', () => {
 });
 
 test('combineManualElectionResults', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   const manualResults1 = buildManualResultsFixture({
     election,
@@ -1216,7 +1211,7 @@ test('convertManualElectionResults', () => {
 });
 
 test('mergeManualWriteInTallies', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
 
   expect(
     mergeWriteInTallies(

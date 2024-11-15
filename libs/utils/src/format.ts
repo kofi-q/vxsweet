@@ -1,15 +1,12 @@
 import { assertDefined } from '@vx/libs/basics/assert';
 import { LanguageCode } from '@vx/libs/types/languages';
 
-export const DEFAULT_LOCALE: LanguageCode = LanguageCode.ENGLISH;
+export const DEFAULT_LOCALE: string = LanguageCode.ENGLISH;
 
 /**
  * Format integers for display as whole numbers, i.e. a count of something.
  */
-export function count(
-  value: number,
-  locale: LanguageCode = DEFAULT_LOCALE
-): string {
+export function count(value: number, locale: string = DEFAULT_LOCALE): string {
   return new Intl.NumberFormat(locale, { useGrouping: true }).format(value);
 }
 
@@ -56,7 +53,7 @@ export function localeWeekdayAndDate(time?: number | Date): string {
 
 export function localeLongDate(
   time?: number | Date,
-  locale: LanguageCode = DEFAULT_LOCALE
+  locale: string = DEFAULT_LOCALE
 ): string {
   return new Intl.DateTimeFormat(locale, {
     month: 'long',
@@ -74,10 +71,10 @@ export function localeDate(time?: number | Date): string {
 }
 
 export function languageDisplayName(params: {
-  languageCode: LanguageCode;
+  languageCode: string;
 
   /** @default {@link params.languageCode} */
-  displayLanguageCode?: LanguageCode;
+  displayLanguageCode?: string;
 
   /** @default 'narrow' */
   style?: Intl.RelativeTimeFormatStyle;

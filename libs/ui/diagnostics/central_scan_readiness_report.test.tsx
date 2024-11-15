@@ -1,7 +1,9 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { CentralScanReadinessReport } from './central_scan_readiness_report';
 import { render, screen } from '../test/react_testing_library';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 test('CentralScanReadinessReport', () => {
   const generatedAtTime = new Date('2022-01-01T00:00:00');

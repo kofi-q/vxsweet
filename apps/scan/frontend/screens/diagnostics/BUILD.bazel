@@ -32,7 +32,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/scan/frontend/screens/diagnostics",
         "//apps/scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/utils/src",
     ],
 )

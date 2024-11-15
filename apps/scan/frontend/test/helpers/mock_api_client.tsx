@@ -1,5 +1,5 @@
 import React from 'react';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   DEFAULT_SYSTEM_SETTINGS,
@@ -45,6 +45,7 @@ import { type DiskSpaceSummary } from '@vx/libs/backend/diagnostics';
 import { type ExportDataResult } from '@vx/libs/backend/exporter';
 import { mockPollsInfo } from './mock_polls_info';
 import { ApiProvider } from '../../api/api_provider';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 export const machineConfig: MachineConfig = {
   machineId: '0002',

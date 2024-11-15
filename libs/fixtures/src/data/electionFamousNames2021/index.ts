@@ -1,4 +1,5 @@
 import {
+  ElectionDefinition,
   type BallotStyleId,
   type Election,
   type GridLayout,
@@ -7,7 +8,7 @@ import { election } from './election.json';
 import { asElectionDefinition } from '../../util';
 
 export * as electionJson from './election.json';
-export { election, electionDefinition } from './election.json';
+export { election } from './election.json';
 
 const partialMockGridPosition = {
   type: 'option',
@@ -57,5 +58,6 @@ export const multiSheetElection: Election = {
  * Election definition with mock multi-sheet grid layouts. The layouts are invalid and
  * cannot be used for scanning, but the data structure is useful for testing.
  */
-export const multiSheetElectionDefinition =
-  asElectionDefinition(multiSheetElection);
+export function asMultiSheetElectionDefinition(): ElectionDefinition {
+  return asElectionDefinition(multiSheetElection);
+}

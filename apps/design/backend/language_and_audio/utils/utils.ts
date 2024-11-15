@@ -1,6 +1,6 @@
 import { sha256 } from 'js-sha256';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
-import { LanguageCode, isLanguageCode } from '@vx/libs/types/languages';
+import { isLanguageCode } from '@vx/libs/types/languages';
 import {
   type UiStringAudioIdsPackage,
   type UiStringsPackage,
@@ -56,7 +56,7 @@ export function splitInterpolatedText(text: string): Segment[] {
  * audio IDs for the resulting segments
  */
 export function prepareTextForSpeechSynthesis(
-  languageCode: LanguageCode,
+  languageCode: string,
   text: string
 ): Array<{ audioId: string; segment: Segment }> {
   return splitInterpolatedText(cleanText(text)).map((segment) => ({
@@ -69,7 +69,7 @@ export function prepareTextForSpeechSynthesis(
 
 export function setUiString(
   uiStrings: UiStringsPackage,
-  languageCode: LanguageCode,
+  languageCode: string,
   stringKey: string | [string, string],
   stringInLanguage: string
 ): void {
@@ -91,7 +91,7 @@ export function setUiString(
 
 export function setUiStringAudioIds(
   uiStringAudioIds: UiStringAudioIdsPackage,
-  languageCode: LanguageCode,
+  languageCode: string,
   stringKey: string | [string, string],
   audioIds: string[]
 ): void {
@@ -116,7 +116,7 @@ export function setUiStringAudioIds(
 export function forEachUiString(
   uiStrings: UiStringsPackage,
   fn: (entry: {
-    languageCode: LanguageCode;
+    languageCode: string;
     stringKey: string | [string, string];
     stringInLanguage: string;
   }) => void

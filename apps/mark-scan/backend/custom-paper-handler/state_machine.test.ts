@@ -37,16 +37,13 @@ import { backendWaitFor, mockOf } from '@vx/libs/test-utils/src';
 import { assert } from '@vx/libs/basics/assert';
 import { type Deferred, deferred, sleep } from '@vx/libs/basics/async';
 import { iter } from '@vx/libs/basics/iterators';
-import {
-  electionGeneralDefinition,
-  electionGridLayoutNewHampshireHudsonFixtures,
-  systemSettings,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayout from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireHudson/election.json';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   type BallotId,
   type BallotStyleId,
   BallotType,
-  safeParseSystemSettings,
+  DEFAULT_SYSTEM_SETTINGS,
   type SheetOf,
   TEST_JURISDICTION,
 } from '@vx/libs/types/elections';
@@ -120,6 +117,7 @@ let ballotPdfData: Buffer;
 let scannedBallotFixtureFilepaths: string;
 let clock: SimulatedClock;
 
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 const precinctId = electionGeneralDefinition.election.precincts[1].id;
 const featureFlagMock = getFeatureFlagMock();
 jest.setTimeout(2000);
@@ -191,9 +189,7 @@ beforeEach(async () => {
     electionPackageHash: 'test-election-package-hash',
   });
   workspace.store.setPrecinctSelection(singlePrecinctSelectionFor(precinctId));
-  workspace.store.setSystemSettings(
-    safeParseSystemSettings(systemSettings.asText()).unsafeUnwrap()
-  );
+  workspace.store.setSystemSettings(DEFAULT_SYSTEM_SETTINGS);
   driver = new MockPaperHandlerDriver();
   clock = new SimulatedClock();
 
@@ -553,7 +549,7 @@ test('ballot box empty flow', async () => {
 });
 
 test('elections with grid layouts still try to interpret BMD ballots', async () => {
-  const { electionDefinition } = electionGridLayoutNewHampshireHudsonFixtures;
+  const electionDefinition = electionGridLayout.toElectionDefinition();
 
   workspace.store.setElectionAndJurisdiction({
     electionData: electionDefinition.electionData,

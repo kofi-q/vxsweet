@@ -51,7 +51,7 @@ import {
   useIsPatDeviceConnected,
 } from '@vx/libs/ui/accessible_controllers';
 import React from 'react';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type SimpleServerStatus } from '../../../backend/custom-paper-handler/types';
 import { act, render, screen } from '../../test/react_testing_library';
 import { VoterFlow, type VoterFlowProps } from './voter_flow';
@@ -60,6 +60,7 @@ import { Ballot } from './ballot';
 import { PatDeviceCalibrationPage } from '../pat_device_identification/pat_device_calibration_page';
 import { createApiMock } from '../../test/helpers/mock_api_client';
 import { ApiProvider } from '../../api/api_provider';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let setMockControllerHelpTriggered:
   | ((shouldShowHelp: boolean) => void)

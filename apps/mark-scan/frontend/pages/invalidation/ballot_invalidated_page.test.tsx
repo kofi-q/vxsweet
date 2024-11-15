@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
 import { type VxRenderResult } from '@vx/libs/ui/themes';
 import { render } from '../../test/test_utils';
@@ -13,6 +13,7 @@ import {
   mockCardlessVoterLoggedInAuth,
   mockPollWorkerAuth,
 } from '../../test/helpers/mock_auth';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 beforeEach(() => {

@@ -74,6 +74,8 @@ ts_tests(
         "//libs/basics/collections",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionWithMsEitherNeither",
         "//libs/mark-flow-ui/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

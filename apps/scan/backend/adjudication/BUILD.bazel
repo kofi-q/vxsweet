@@ -18,7 +18,7 @@ ts_tests(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/scan/backend/adjudication",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/types/basic",
         "//libs/types/elections",
         "//libs/types/scanning",

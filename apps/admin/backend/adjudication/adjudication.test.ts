@@ -5,7 +5,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/elections';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { assert } from '@vx/libs/basics/assert';
 import { LogEventId, mockBaseLogger } from '@vx/libs/logging/src';
 import {
@@ -16,11 +16,12 @@ import { Store } from '../store/store';
 import { adjudicateVote, adjudicateWriteIn } from './adjudication';
 import { type WriteInRecord } from '../types/types';
 
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
+
 const contestId = 'zoo-council-mammal';
 
 test('adjudicateVote', () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -108,7 +109,6 @@ test('adjudicateVote', () => {
 test('adjudicateWriteIn', () => {
   const store = Store.memoryStore();
   const logger = mockBaseLogger();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,

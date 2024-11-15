@@ -1,12 +1,13 @@
 import { buildContestResultsFixture } from '@vx/libs/utils/src/tabulation';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { assert } from '@vx/libs/basics/assert';
 import { render, screen, within } from '../test/react_testing_library';
 
 import { ContestResultsTable } from './contest_results_table';
 
-const { election } = electionTwoPartyPrimaryFixtures.electionDefinition;
+const { election } =
+  electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
 // candidate contest without write-in
 const candidateContestId = 'best-animal-fish';

@@ -20,7 +20,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
 import { find } from '@vx/libs/basics/collections';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { BallotType, type Election } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
 import {
@@ -83,7 +83,7 @@ test('Export all ballots', async () => {
   );
 
   const baseElectionDefinition =
-    electionFamousNames2021Fixtures.electionDefinition;
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { api } = newTestApi();
 
   const electionId = api

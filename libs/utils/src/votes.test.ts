@@ -1,9 +1,7 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionGeneral,
-  electionWithMsEitherNeither,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import { election as electionGridLayoutNewHampshire } from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionWithMsEitherNeither } from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import {
   type BallotTargetMark,
   type CandidateContest,
@@ -80,7 +78,7 @@ const ballotTargetMarkBase: Pick<
 };
 
 test('markInfoToVotesDict candidate', () => {
-  const { election } = electionFamousNames2021Fixtures;
+  const election = electionFamousNames2021Fixtures.electionJson.election;
   const sherlockForMayorMark: BallotTargetMark = {
     type: 'candidate',
     contestId: 'mayor',
@@ -182,7 +180,7 @@ test('markInfoToVotesDict candidate', () => {
 });
 
 test('markInfoToVotesDict yesno', () => {
-  const { election } = electionGridLayoutNewHampshireTestBallotFixtures;
+  const election = electionGridLayoutNewHampshire;
   const yesnoContest = find(
     election.contests,
     (c): c is YesNoContest => c.type === 'yesno'

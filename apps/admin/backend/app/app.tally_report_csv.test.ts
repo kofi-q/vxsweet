@@ -6,11 +6,9 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionPrimaryPrecinctSplitsFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionPrimaryPrecinctSplitsFixtures from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -67,8 +65,9 @@ async function getParsedExport({
 }
 
 it('exports expected results for full election', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, logger } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -136,8 +135,9 @@ it('exports expected results for full election', async () => {
 });
 
 it('logs failure if export fails for some reason', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, logger } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -166,8 +166,10 @@ it('logs failure if export fails for some reason', async () => {
 });
 
 it('incorporates wia and manual data (grouping by voting method)', async () => {
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
 
   const { api, auth } = buildTestEnvironment();
@@ -403,8 +405,9 @@ it('incorporates wia and manual data (grouping by voting method)', async () => {
 });
 
 it('exports ballot styles grouped by language agnostic parent in multi-language elections', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionPrimaryPrecinctSplitsFixtures;
+  const { castVoteRecordExport } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, logger } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -413,6 +416,7 @@ it('exports ballot styles grouped by language agnostic parent in multi-language 
   const loadFileResult = await api.addCastVoteRecordFile({
     path: castVoteRecordExport.asDirectoryPath(),
   });
+  console.warn(loadFileResult);
   loadFileResult.assertOk('load file failed');
 
   const path = tmpNameSync();

@@ -1,10 +1,11 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { screen, waitFor, within } from '../test/react_testing_library';
 import { buildApp } from '../test/helpers/build_app';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

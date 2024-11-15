@@ -18,10 +18,9 @@ jest.mock('@vx/libs/printing/src', () => {
   };
 });
 
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGridLayoutNewHampshire from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -63,7 +62,9 @@ afterEach(() => {
 });
 
 test('write-in adjudication report', async () => {
-  const { electionDefinition, castVoteRecordExport } =
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
@@ -187,8 +188,8 @@ test('write-in adjudication report', async () => {
 });
 
 test('write-in adjudication report logging', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
 
   const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -252,7 +253,7 @@ test('write-in adjudication report logging', async () => {
 });
 
 test('write-in adjudication report warning', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { api, auth } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
   mockElectionManagerAuth(auth, electionDefinition.election);

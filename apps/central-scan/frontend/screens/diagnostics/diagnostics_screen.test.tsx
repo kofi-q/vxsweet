@@ -1,9 +1,11 @@
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { createApiMock, type ApiMock } from '../../test/api';
 import { DiagnosticsScreen } from './diagnostics_screen';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 

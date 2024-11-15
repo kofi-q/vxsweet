@@ -1,7 +1,6 @@
 import { PrintSides, type Printer } from '@vx/libs/printing/src/printer';
 import { renderToPdf } from '@vx/libs/printing/src';
 import { type BallotStyleId, type VotesDict } from '@vx/libs/types/elections';
-import { LanguageCode } from '@vx/libs/types/languages';
 
 import { assertDefined } from '@vx/libs/basics/assert';
 import { BmdPaperBallot } from '@vx/libs/ui/ballots';
@@ -15,7 +14,7 @@ export interface PrintBallotProps {
   precinctId: string;
   ballotStyleId: BallotStyleId;
   votes: VotesDict;
-  languageCode: LanguageCode;
+  languageCode: string;
 }
 
 export async function printBallot({

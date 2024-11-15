@@ -35,7 +35,7 @@ function trimVxIdPrefix(id: string): string {
 }
 
 export interface LanguageStringQueryParams {
-  language?: LanguageCode;
+  language?: string;
   content?: RegExp;
 }
 

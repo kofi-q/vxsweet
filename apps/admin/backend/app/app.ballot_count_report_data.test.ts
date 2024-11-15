@@ -6,7 +6,7 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -39,8 +39,9 @@ afterEach(() => {
 });
 
 test('card counts', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
 
   const { api, auth } = buildTestEnvironment();

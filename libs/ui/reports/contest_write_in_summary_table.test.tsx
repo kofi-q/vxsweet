@@ -1,6 +1,9 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../test/react_testing_library';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 import { ContestWriteInSummaryTable } from './contest_write_in_summary_table';
 

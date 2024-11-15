@@ -44,7 +44,7 @@ ts_tests(
         "//libs/basics/collections",
         "//libs/basics/iterators",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/types/basic",
         "//libs/types/cdf",
         "//libs/types/cvrs",

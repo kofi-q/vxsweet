@@ -26,13 +26,15 @@ import {
 import { getBatteryInfo } from '@vx/libs/backend/system_call';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   buildTestEnvironment,
   configureMachine,
   mockSystemAdministratorAuth,
 } from '../test/app';
 import '@vx/libs/image-test-utils/register';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 jest.setTimeout(60_000);
 

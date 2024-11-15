@@ -1,7 +1,5 @@
-import {
-  electionGeneralDefinition,
-  electionWithMsEitherNeitherDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneralLib from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import userEvent from '@testing-library/user-event';
 import { find } from '@vx/libs/basics/collections';
 import {
@@ -10,6 +8,9 @@ import {
 } from '@vx/libs/types/elections';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../../test/react_testing_library';
+const electionGeneralDefinition = electionGeneralLib.toElectionDefinition();
+const electionWithMsEitherNeitherDefinition =
+  electionWithMsEitherNeither.toElectionDefinition();
 
 import { Contest } from './contest';
 import {

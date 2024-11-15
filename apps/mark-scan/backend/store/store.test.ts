@@ -2,7 +2,8 @@ import {
   safeParseSystemSettings,
   TEST_JURISDICTION,
 } from '@vx/libs/types/elections';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { Store } from './store';
 
 // We pause in some of these tests so we need to increase the timeout
@@ -16,7 +17,7 @@ test('getDbPath', () => {
 });
 
 test('get/set/has election', () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const store = Store.memoryStore();
 
   expect(store.getElectionRecord()).toBeUndefined();
@@ -54,7 +55,7 @@ test('get/set/delete system settings', () => {
 
 test('get/set ballots cast since last box change', () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
   // 0 if no election is defined
   expect(store.getBallotsCastSinceLastBoxChange()).toEqual(0);
@@ -83,7 +84,7 @@ test('errors when election definition cannot be parsed', () => {
 });
 
 test('reset clears the database', () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const store = Store.memoryStore();
 
   store.setElectionAndJurisdiction({

@@ -1,8 +1,6 @@
-import {
-  electionPrimaryPrecinctSplitsFixtures,
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionPrimaryPrecinctSplits from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits/election.json';
+import * as electionFamousNames2021 from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { find } from '@vx/libs/basics/collections';
 import {
   doesContestAppearOnPartyBallot,
@@ -10,6 +8,13 @@ import {
   getContestIdsForPrecinct,
   getContestsForPrecinct,
 } from './contest_filtering';
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+const electionPrimaryPrecinctSplitsDefinition =
+  electionPrimaryPrecinctSplits.toElectionDefinition();
+const electionFamousNames2021Definition =
+  electionFamousNames2021.toElectionDefinition();
 
 describe('doesContestAppearOnPartyBallot', () => {
   test('in a primary election', () => {
@@ -31,7 +36,7 @@ describe('doesContestAppearOnPartyBallot', () => {
   });
 
   test('in a general election', () => {
-    const { electionDefinition } = electionFamousNames2021Fixtures;
+    const electionDefinition = electionFamousNames2021Definition;
 
     const { contests } = electionDefinition.election;
     const generalElectionCandidateContest = find(
@@ -64,7 +69,7 @@ test('getContestIdsForBallotStyle', () => {
 });
 
 test('getContestIdsForPrecinct', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition = electionPrimaryPrecinctSplitsDefinition;
   expect([
     ...getContestIdsForPrecinct(electionDefinition, 'precinct-c1-w1-1'),
   ]).toEqual([
@@ -86,7 +91,7 @@ test('getContestIdsForPrecinct', () => {
 });
 
 test('getContestsForPrecinct', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition = electionPrimaryPrecinctSplitsDefinition;
   expect(
     getContestsForPrecinct(electionDefinition, 'precinct-c1-w2').map(
       (c) => c.id

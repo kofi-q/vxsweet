@@ -1,5 +1,5 @@
 import fc from 'fast-check';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type Election } from '@vx/libs/types/elections';
 import {
   generateElectionBasedSubfolderName,
@@ -11,6 +11,9 @@ import {
   parseCastVoteRecordReportExportDirectoryName,
   generateReadinessReportFilename,
 } from './filenames';
+const electionGeneralDefinition = {
+  election: electionGeneral,
+} as const;
 
 describe('generateElectionBasedSubfolderName', () => {
   test('generates basic election subfolder name as expected', () => {

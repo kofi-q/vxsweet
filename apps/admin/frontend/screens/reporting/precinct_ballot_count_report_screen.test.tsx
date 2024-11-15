@@ -1,9 +1,7 @@
 import '../../test/set_up_react_pdf_mock';
 
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   type ApiMock,
   createApiMock,
@@ -26,7 +24,8 @@ afterEach(() => {
 });
 
 test('displays report (primary)', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   apiMock.setPrinterStatus({ connected: true });
   apiMock.expectGetBallotCountReportPreview({
@@ -54,7 +53,8 @@ test('displays report (primary)', async () => {
 });
 
 test('displays report (general)', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   apiMock.setPrinterStatus({ connected: true });
   apiMock.expectGetBallotCountReportPreview({

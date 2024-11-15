@@ -1,9 +1,6 @@
 jest.mock('./report_header');
 
-import {
-  electionGeneral,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneralLib from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   type BallotStyle,
   type BallotStyleGroupId,
@@ -25,6 +22,9 @@ import {
   ReadinessReportHeader,
   type ReadinessReportHeaderProps,
 } from './report_header';
+
+const electionGeneral = electionGeneralLib.election;
+const electionGeneralDefinition = electionGeneralLib.toElectionDefinition();
 
 const { ENGLISH, SPANISH } = LanguageCode;
 

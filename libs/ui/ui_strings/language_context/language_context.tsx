@@ -14,17 +14,17 @@ export const DEFAULT_LANGUAGE_CODE = LanguageCode.ENGLISH;
 export const DEFAULT_I18NEXT_NAMESPACE = 'translation';
 
 export interface BackendLanguageContextInterface {
-  currentLanguageCode: LanguageCode;
+  currentLanguageCode: string;
   i18next: i18n;
   translationFunction: ReturnType<typeof useTranslation>['t'];
 }
 
 export interface FrontendLanguageContextInterface {
   api: UiStringsReactQueryApi;
-  availableLanguages: LanguageCode[];
-  currentLanguageCode: LanguageCode;
+  availableLanguages: string[];
+  currentLanguageCode: string;
   i18next: i18n;
-  setLanguage: (code: LanguageCode) => void;
+  setLanguage: (code: string) => void;
   translationFunction: ReturnType<typeof useTranslation>['t'];
 }
 
@@ -104,7 +104,7 @@ export function FrontendLanguageContextProvider(
 ): JSX.Element {
   const { api, children } = props;
 
-  const [currentLanguageCode, setLanguage] = React.useState(
+  const [currentLanguageCode, setLanguage] = React.useState<string>(
     DEFAULT_LANGUAGE_CODE
   );
   const [isI18nextReady, setIs18nReady] = React.useState(false);
@@ -150,7 +150,7 @@ export function FrontendLanguageContextProvider(
 }
 
 export interface BackendLanguageContextProviderProps {
-  currentLanguageCode: LanguageCode;
+  currentLanguageCode: string;
   uiStringsPackage: UiStringsPackage;
   children: React.ReactNode;
 }

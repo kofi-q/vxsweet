@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 import {
-  electionGeneralDefinition,
-  electionGeneralFixtures,
-} from '@vx/libs/fixtures/src';
+  election,
+  toElectionPackage,
+} from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
 import {
   HP_LASER_PRINTER_CONFIG,
@@ -32,8 +32,6 @@ test.beforeEach(async ({ page }) => {
 test('configure, open polls, and test contest scroll buttons', async ({
   page,
 }) => {
-  const electionDefinition = electionGeneralDefinition;
-  const { election } = electionDefinition;
   printerHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
 
   await page.goto('/');
@@ -48,11 +46,7 @@ test('configure, open polls, and test contest scroll buttons', async ({
     .getByText('Insert a USB drive containing an election package')
     .waitFor();
 
-  usbHandler.insert(
-    await mockElectionPackageFileTree(
-      electionGeneralFixtures.toElectionPackage()
-    )
-  );
+  usbHandler.insert(await mockElectionPackageFileTree(toElectionPackage()));
 
   // Election Manager: set precinct
   await page.getByText('Precinct', { exact: true }).waitFor();

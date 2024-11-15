@@ -21,7 +21,10 @@ import {
 } from '@vx/libs/utils/src';
 
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
-import { configureApp } from '../test/helpers/shared_helpers';
+import {
+  configureApp,
+  waitForContinuousExportToUsbDrive,
+} from '../test/helpers/shared_helpers';
 
 jest.setTimeout(30_000);
 
@@ -173,7 +176,7 @@ test('continuous CVR export with a mode switch in between', async () => {
 
       await api.setTestMode({ isTestMode: false });
       await api.setTestMode({ isTestMode: true });
-      (await api.openPolls()).unsafeUnwrap();
+      api.openPolls().unsafeUnwrap();
 
       await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
@@ -181,6 +184,7 @@ test('continuous CVR export with a mode switch in between', async () => {
       const exportDirectoryPaths = await getCastVoteRecordExportDirectoryPaths(
         mockUsbDrive.usbDrive
       );
+      await waitForContinuousExportToUsbDrive(workspace.store);
       expect(exportDirectoryPaths).toHaveLength(2);
 
       for (const [i, exportDirectoryPath] of exportDirectoryPaths.entries()) {

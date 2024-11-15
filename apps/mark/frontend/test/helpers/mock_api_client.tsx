@@ -312,7 +312,7 @@ export function createApiMock() {
 
     expectPrintBallot(
       input: Omit<PrintBallotProps, 'languageCode'> & {
-        languageCode?: LanguageCode;
+        languageCode?: string;
       }
     ) {
       mockApiClient.printBallot

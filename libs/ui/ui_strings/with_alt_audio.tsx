@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { LanguageCode } from '@vx/libs/types/languages';
 import { UiStringsAudioContext } from './audio-context/audio_context';
 import { AudioOnly } from './audio_only';
 import { LanguageOverride } from './language_context/language_override';
 import { useCurrentLanguage } from './use_current_language';
 
 export interface WithAltAudioProps {
-  audioLanguageOverride?: LanguageCode;
+  audioLanguageOverride?: string;
   audioText: React.ReactNode;
   children: React.ReactNode;
 }

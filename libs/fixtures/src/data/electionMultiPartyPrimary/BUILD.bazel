@@ -1,0 +1,15 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "electionMultiPartyPrimary",
+    deps = [
+        "//libs/basics/time",
+        "//libs/fixtures/src/data/electionMultiPartyPrimary/csvFiles",
+        "//libs/fixtures/src/data/electionMultiPartyPrimary/semsFiles",
+        "//libs/fixtures/src/util",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

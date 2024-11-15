@@ -1,8 +1,9 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

@@ -6,10 +6,9 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGridLayoutNewHampshire from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { typedAs } from '@vx/libs/basics/types';
@@ -62,9 +61,13 @@ afterEach(() => {
 
 test('getWriteInAdjudicationQueue', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(api, auth, electionDefinition);
+  await configureMachine(
+    api,
+    auth,
+    electionGridLayoutNewHampshire.toElectionDefinition()
+  );
 
   (
     await api.addCastVoteRecordFile({
@@ -104,8 +107,10 @@ test('getWriteInAdjudicationQueue', async () => {
 
 test('getWriteInAdjudicationQueueMetadata', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
   await configureMachine(api, auth, electionDefinition);
 
   (
@@ -141,9 +146,13 @@ test('getWriteInAdjudicationQueueMetadata', async () => {
 
 test('getWriteInAdjudicationContext', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, manualCastVoteRecordExport } =
+  const { manualCastVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(api, auth, electionDefinition);
+  await configureMachine(
+    api,
+    auth,
+    electionGridLayoutNewHampshire.toElectionDefinition()
+  );
 
   const reportDirectoryPath = manualCastVoteRecordExport.asDirectoryPath();
   (
@@ -251,9 +260,13 @@ test('getWriteInAdjudicationContext', async () => {
 
 test('getWriteInImageView on hmpb', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, manualCastVoteRecordExport } =
+  const { manualCastVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(api, auth, electionDefinition);
+  await configureMachine(
+    api,
+    auth,
+    electionGridLayoutNewHampshire.toElectionDefinition()
+  );
 
   const reportDirectoryPath = manualCastVoteRecordExport.asDirectoryPath();
   (
@@ -344,9 +357,12 @@ test('getWriteInImageView on hmpb', async () => {
 
 test('getWriteInImageView on bmd', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
-  await configureMachine(api, auth, electionDefinition);
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  await configureMachine(
+    api,
+    auth,
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition()
+  );
 
   const reportDirectoryPath = castVoteRecordExport.asDirectoryPath();
   (
@@ -388,9 +404,13 @@ test('getWriteInImageView on bmd', async () => {
 
 test('getFirstPendingWriteInId', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
-  await configureMachine(api, auth, electionDefinition);
+  await configureMachine(
+    api,
+    auth,
+    electionGridLayoutNewHampshire.toElectionDefinition()
+  );
 
   (
     await api.addCastVoteRecordFile({
@@ -430,11 +450,13 @@ test('getFirstPendingWriteInId', async () => {
 
 test('handling unmarked write-ins', async () => {
   const { api, auth } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
   const { election } = electionDefinition;
   await configureMachine(api, auth, electionDefinition);
-  mockElectionManagerAuth(auth, electionDefinition.election);
+  mockElectionManagerAuth(auth, election);
 
   // modify the write-ins for a contest to be unmarked write-ins
   const WRITE_IN_CONTEST_ID = 'Governor-061a401b';
@@ -589,8 +611,10 @@ test('handling unmarked write-ins', async () => {
 
 test('adjudicating write-ins changes their status and is reflected in tallies', async () => {
   const { auth, api } = buildTestEnvironment();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
   const { election } = electionDefinition;
   await configureMachine(api, auth, electionDefinition);
   (

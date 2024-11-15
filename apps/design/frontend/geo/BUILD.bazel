@@ -43,7 +43,7 @@ ts_tests(
         "//apps/design/frontend/test",
         "//apps/design/frontend/util",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/elections",
     ],
 )

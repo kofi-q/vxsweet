@@ -7,7 +7,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 
 import { ok } from '@vx/libs/basics/result';
 import { mocks } from '@vx/libs/custom-scanner/src';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import {

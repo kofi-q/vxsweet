@@ -14,7 +14,6 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/types",
-        "//libs/types/languages",
         "//libs/types/ui_strings",
         "//libs/ui/ui_strings",
         "//libs/ui/ui_strings/audio-context",

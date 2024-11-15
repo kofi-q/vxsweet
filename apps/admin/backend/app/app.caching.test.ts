@@ -6,7 +6,7 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { tmpNameSync } from 'tmp';
 import { readFileSync } from 'node:fs';
 import { assert } from '@vx/libs/basics/assert';
@@ -29,6 +29,9 @@ const featureFlagMock = getFeatureFlagMock();
 featureFlagMock.enableFeatureFlag(
   BooleanEnvironmentVariableName.SKIP_CAST_VOTE_RECORDS_AUTHENTICATION
 );
+featureFlagMock.enableFeatureFlag(
+  BooleanEnvironmentVariableName.SKIP_CVR_BALLOT_HASH_CHECK
+);
 
 async function getParsedExport({
   api,
@@ -48,8 +51,10 @@ async function getParsedExport({
 // TODO: Improve performance - loading a lot of files into the server, but we'd
 // get the same coverage with a small sample.
 it('uses and clears CVR tabulation cache appropriately', async () => {
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, workspace } = buildTestEnvironment();
   const { store } = workspace;

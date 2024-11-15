@@ -5,9 +5,10 @@ jest.mock('../pages/poll-worker/poll_worker_screen');
 jest.mock('../pages/poll-worker/poll_worker_auth_ended_unexpectedly_page');
 
 import { advancePromises, mockOf } from '@vx/libs/test-utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import React from 'react';
 import { AUTH_STATUS_POLLING_INTERVAL_MS } from '@vx/libs/ui/src';

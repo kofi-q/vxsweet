@@ -15,7 +15,6 @@ ts_library(
         "//:node_modules/react-router-dom",
         "//:node_modules/styled-components",
         "//libs/basics/assert",
-        "//libs/types/languages",
         "//libs/types/ui_strings",
         "//libs/ui/primitives",
         "//libs/ui/styled-components",

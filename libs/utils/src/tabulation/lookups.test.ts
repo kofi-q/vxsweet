@@ -3,10 +3,8 @@ import {
   type ElectionDefinition,
 } from '@vx/libs/types/elections';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import {
-  electionPrimaryPrecinctSplitsFixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionPrimaryPrecinctSplits from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits/election.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   getContestById,
   getPartyById,
@@ -17,6 +15,11 @@ import {
   getBallotStylesByPrecinctId,
   determinePartyId,
 } from './lookups';
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+const electionPrimaryPrecinctSplitsDefinition =
+  electionPrimaryPrecinctSplits.toElectionDefinition();
 
 test('getPrecinctById', () => {
   const electionDefinition = electionTwoPartyPrimaryDefinition;
@@ -74,8 +77,7 @@ test('getBallotStyleById', () => {
   expect(getBallotStyleById(electionDefinition, '2F').partyId).toEqual('1');
   expect(() => getBallotStyleById(electionDefinition, '3D')).toThrowError();
 
-  const { electionDefinition: multiLangElectionDefinition } =
-    electionPrimaryPrecinctSplitsFixtures;
+  const multiLangElectionDefinition = electionPrimaryPrecinctSplitsDefinition;
   expect(
     getBallotStyleById(multiLangElectionDefinition, '1-Ma_en').partyId
   ).toEqual('0');
@@ -85,7 +87,7 @@ test('getBallotStyleById', () => {
 });
 
 test('getParentBallotStyleById', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition = electionPrimaryPrecinctSplitsDefinition;
   expect(getParentBallotStyleById(electionDefinition, '1-Ma').partyId).toEqual(
     '0'
   );
@@ -152,7 +154,7 @@ test('determinePartyId', () => {
 });
 
 test('determinePartyId - multi language election', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition = electionPrimaryPrecinctSplitsDefinition;
 
   const partyCardCounts: Tabulation.GroupOf<Tabulation.CardCounts> = {
     partyId: '0',

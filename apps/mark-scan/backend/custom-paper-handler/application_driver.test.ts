@@ -18,7 +18,7 @@ import {
 } from '@vx/libs/custom-paper-handler/src';
 import { Buffer } from 'node:buffer';
 import { mockOf } from '@vx/libs/test-utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { renderBmdBallotFixture } from '@vx/libs/bmd-ballot-fixtures/src';
 import {
   loadAndParkPaper,
@@ -27,6 +27,7 @@ import {
   scanAndSave,
 } from './application_driver';
 import { getDefaultPaperHandlerStatus } from './test_utils/utils';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let driver: PaperHandlerDriver;
 let webDevice: MinimalWebUsbDevice;

@@ -12,11 +12,12 @@ import { typedAs } from '@vx/libs/basics/types';
 import fetchMock from 'fetch-mock';
 import userEvent from '@testing-library/user-event';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { screen } from '../../test/react_testing_library';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { BallotEjectScreen } from './ballot_eject_screen';
 import { createApiMock, type ApiMock } from '../../test/api';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

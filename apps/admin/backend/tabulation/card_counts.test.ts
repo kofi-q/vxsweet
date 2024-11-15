@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { Admin } from '@vx/libs/types/admin';
 import { Tabulation } from '@vx/libs/types/tabulation';
 import {
@@ -23,7 +23,8 @@ import {
 
 test('tabulateScannedCardCounts - grouping', () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -175,7 +176,8 @@ test('tabulateScannedCardCounts - grouping', () => {
 
 test('tabulateScannedCardCounts - merging card tallies', () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -244,7 +246,9 @@ test('tabulateScannedCardCounts - merging card tallies', () => {
 
 test('tabulateFullCardCounts - manual results', () => {
   const store = Store.memoryStore();
-  const { electionDefinition, election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -383,7 +387,8 @@ test('tabulateFullCardCounts - manual results', () => {
 
 test('tabulateFullCardCounts - blankBallots', () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,

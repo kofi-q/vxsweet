@@ -17,12 +17,12 @@ import {
   within,
 } from '../test/react_testing_library';
 
-import {
-  eitherNeitherElectionDefinition,
-  renderInAppContext,
-} from '../test/render_in_app_context';
+import { renderInAppContext } from '../test/render_in_app_context';
+import * as eitherNeitherElection from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import { SettingsScreen } from './settings_screen';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+const eitherNeitherElectionDefinition =
+  eitherNeitherElection.toElectionDefinition();
 
 let apiMock: ApiMock;
 

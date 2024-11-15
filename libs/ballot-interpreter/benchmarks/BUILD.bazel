@@ -14,7 +14,7 @@ ts_library(
         "//libs/basics/collections",
         "//libs/basics/iterators",
         "//libs/bmd-ballot-fixtures/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/fs/src",
         "//libs/hmpb/src",
         "//libs/types/elections",

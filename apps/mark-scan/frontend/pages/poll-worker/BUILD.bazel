@@ -54,6 +54,7 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/languages",

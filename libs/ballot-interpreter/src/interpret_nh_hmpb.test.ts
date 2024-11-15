@@ -2,10 +2,8 @@ jest.mock('./validation');
 
 import { assert } from '@vx/libs/basics/assert';
 import { unique } from '@vx/libs/basics/collections';
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  sampleBallotImages,
-} from '@vx/libs/fixtures/src';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { loadImageData } from '@vx/libs/image-utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
@@ -33,7 +31,7 @@ beforeEach(() => {
 
 describe('NH HMPB interpretation', () => {
   const fixtures = electionGridLayoutNewHampshireTestBallotFixtures;
-  const { electionDefinition } = fixtures;
+  const electionDefinition = fixtures.electionJson.toElectionDefinition();
   const hmpbFront = fixtures.scanMarkedFront.asImageData();
   const hmpbBack = fixtures.scanMarkedBack.asImageData();
   const hmpbFrontUnmarkedWriteIns =
@@ -310,7 +308,7 @@ test('blank sheet of paper', async () => {
   const interpretationWithImages = await interpretSheet(
     {
       electionDefinition:
-        electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition,
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition(),
       precinctSelection: ALL_PRECINCTS_SELECTION,
       testMode: false,
       markThresholds: DEFAULT_MARK_THRESHOLDS,

@@ -1,3 +1,4 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
@@ -31,3 +32,21 @@ ts_tests(
 )
 
 lint_test(name = "lint")
+
+js_binary(
+    name = "cli",
+    data = [
+        ":src",
+        "//:node_modules/tsx",
+    ],
+    entry_point = "cli.js",
+    env = {
+        "BAZEL_BINDIR": ".",
+    },
+    node_options = [
+        "--import",
+        "tsx",
+    ],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

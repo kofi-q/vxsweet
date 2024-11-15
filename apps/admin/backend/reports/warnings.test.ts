@@ -5,10 +5,8 @@ import {
   buildSimpleMockTallyReportResults,
   getEmptyCardCounts,
 } from '@vx/libs/utils/src/tabulation';
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimary,
-} from '@vx/libs/fixtures/src';
+import { election as electionFamousNames } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { Admin } from '@vx/libs/types/admin';
 import { Tabulation } from '@vx/libs/types/tabulation';
 import { type ContestId } from '@vx/libs/types/elections';
@@ -52,7 +50,7 @@ describe('getTallyReportWarning', () => {
   });
 
   test("doesn't give a warning on zero report", () => {
-    const { election } = electionFamousNames2021Fixtures;
+    const election = electionFamousNames;
     expect(
       getTallyReportWarning({
         allTallyReports: [
@@ -168,7 +166,7 @@ describe('getTallyReportWarning', () => {
   });
 
   test('does give warning when ballot count is low', () => {
-    const { election } = electionFamousNames2021Fixtures;
+    const election = electionFamousNames;
     const tallyReport: Admin.TallyReportResults = {
       hasPartySplits: false,
       cardCounts: {

@@ -1,6 +1,6 @@
 import { LanguageCode } from '@vx/libs/types/languages';
 import {
-  type UiStringAudioIds,
+  UiStringAudioIdsPackage,
   type UiStringsPackage,
 } from '@vx/libs/types/ui_strings';
 import {
@@ -200,7 +200,7 @@ test('setUiString', () => {
 });
 
 test('setUiStringAudioIds', () => {
-  const uiStringAudioIds: UiStringAudioIds = {};
+  const uiStringAudioIds: UiStringAudioIdsPackage = {};
 
   setUiStringAudioIds(uiStringAudioIds, LanguageCode.ENGLISH, 'A', ['ab']);
   setUiStringAudioIds(
@@ -266,7 +266,7 @@ test('forEachUiString', () => {
   };
 
   const entries: Array<{
-    languageCode: LanguageCode;
+    languageCode: string;
     stringKey: string | [string, string];
     stringInLanguage: string;
   }> = [];

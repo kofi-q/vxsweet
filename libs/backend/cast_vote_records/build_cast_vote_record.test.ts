@@ -1,6 +1,6 @@
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   BallotIdSchema,
   BallotType,
@@ -27,7 +27,7 @@ import {
   getLayoutHash,
 } from './build_cast_vote_record';
 
-const electionDefinition = electionTwoPartyPrimaryDefinition;
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 const { election } = electionDefinition;
 
 const mammalCouncilContest = find(

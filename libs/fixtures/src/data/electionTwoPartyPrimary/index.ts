@@ -1,17 +1,15 @@
 import path from 'node:path';
-import { type Election } from '@vx/libs/types/elections';
+import { ElectionDefinition, type Election } from '@vx/libs/types/elections';
 import { asElectionDefinition } from '../../util';
 import { asText as batchResultsCsvAsText } from './csvFiles/batchResults.csv';
 import { asText as finalResultsCsvAsText } from './csvFiles/finalResults.csv';
 import { election } from './election.json';
 
 import * as castVoteRecords from './castVoteRecords';
+export * as electionJson from './election.json';
 
 export const batchCsvData = batchResultsCsvAsText();
 export const finalCsvData = finalResultsCsvAsText();
-
-export * as electionJson from './election.json';
-export { election, electionDefinition } from './election.json';
 
 export const singlePrecinctElection: Election = {
   ...election,
@@ -21,9 +19,9 @@ export const singlePrecinctElection: Election = {
     precincts: [election.precincts[0].id],
   })),
 };
-export const singlePrecinctElectionDefinition = asElectionDefinition(
-  singlePrecinctElection
-);
+export function asSinglePrecinctElectionDefinition(): ElectionDefinition {
+  return asElectionDefinition(singlePrecinctElection);
+}
 
 export * as systemSettings from '../systemSettings.json';
 

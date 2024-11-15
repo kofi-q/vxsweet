@@ -16,7 +16,7 @@ import * as fs from 'node:fs';
 import { sha256 } from 'js-sha256';
 import waitForExpect from 'wait-for-expect';
 import { assert } from '@vx/libs/basics/assert';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { election as electionFamousNames } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
@@ -97,9 +97,7 @@ afterEach(() => {
   mockCardReader.transmit.assertComplete();
 });
 
-const electionKey = constructElectionKey(
-  electionFamousNames2021Fixtures.election
-);
+const electionKey = constructElectionKey(electionFamousNames);
 const vendorUser = mockVendorUser();
 const systemAdministratorUser = mockSystemAdministratorUser();
 const electionManagerUser = mockElectionManagerUser({ electionKey });

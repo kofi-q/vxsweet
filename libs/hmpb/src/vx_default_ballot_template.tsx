@@ -63,7 +63,7 @@ const Colors = {
   DARKER_GRAY: '#B0B0B0',
 } as const;
 
-function primaryLanguageCode(ballotStyle: BallotStyle): LanguageCode {
+function primaryLanguageCode(ballotStyle: BallotStyle): string {
   return ballotStyle.languages?.[0] ?? LanguageCode.ENGLISH;
 }
 
@@ -218,7 +218,7 @@ function WriteInLabel() {
   );
 }
 
-function Instructions({ languageCode }: { languageCode?: LanguageCode }) {
+function Instructions({ languageCode }: { languageCode?: string }) {
   // To minimize vertical space used, we do a slightly different layout for
   // English-only vs bilingual ballots.
   if (!languageCode || languageCode === LanguageCode.ENGLISH) {

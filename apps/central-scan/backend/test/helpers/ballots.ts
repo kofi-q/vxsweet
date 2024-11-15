@@ -5,14 +5,15 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
 import { type SheetOf, asSheet } from '@vx/libs/types/elections';
 import { tmpNameSync } from 'tmp';
 
 export async function generateBmdBallotFixture(): Promise<SheetOf<string>> {
   const ballotPdf = await renderBmdBallotFixture({
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
     ballotStyleId: DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
     precinctId: DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
     votes: DEFAULT_FAMOUS_NAMES_VOTES,

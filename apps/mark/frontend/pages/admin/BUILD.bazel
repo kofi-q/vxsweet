@@ -36,6 +36,7 @@ ts_tests(
         "//apps/mark/frontend/pages/admin",
         "//apps/mark/frontend/test",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/ui/test-utils",
         "//libs/utils/src",
     ],

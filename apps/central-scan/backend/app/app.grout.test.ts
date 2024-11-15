@@ -6,13 +6,8 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import {
-  electionGeneral,
-  electionGeneralDefinition,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionNhFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   type BallotMetadata,
   type BallotStyleId,
@@ -39,15 +34,12 @@ const featureFlagMock = getFeatureFlagMock();
 
 const jurisdiction = TEST_JURISDICTION;
 
-const frontImagePath =
-  electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedFront.asFilePath();
-const backImagePath =
-  electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedBack.asFilePath();
+const frontImagePath = electionNhFixtures.scanMarkedFront.asFilePath();
+const backImagePath = electionNhFixtures.scanMarkedBack.asFilePath();
 const sheet: SheetOf<PageInterpretationWithFiles> = (() => {
   const metadata: BallotMetadata = {
     ballotHash:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
-        .ballotHash,
+      electionNhFixtures.electionJson.toElectionDefinition().ballotHash,
     ballotType: BallotType.Precinct,
     ballotStyleId: '12' as BallotStyleId,
     precinctId: '23',
@@ -116,7 +108,8 @@ const sheet: SheetOf<PageInterpretationWithFiles> = (() => {
 })();
 
 test('getElectionDefinition', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionNhFixtures.electionJson.toElectionDefinition();
   const electionPackageHash = 'test-election-package-hash';
   await withApp(async ({ apiClient, importer }) => {
     expect(await apiClient.getElectionRecord()).toEqual(null);
@@ -134,8 +127,8 @@ test('getElectionDefinition', async () => {
 });
 
 test('unconfigure', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionNhFixtures.electionJson.toElectionDefinition();
 
   await withApp(async ({ apiClient, importer, store, logger }) => {
     importer.configure(
@@ -172,8 +165,8 @@ test('unconfigure', async () => {
 });
 
 test('unconfigure w/ ignoreBackupRequirement', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionNhFixtures.electionJson.toElectionDefinition();
 
   await withApp(async ({ apiClient, importer, store }) => {
     importer.configure(
@@ -196,8 +189,8 @@ test('unconfigure w/ ignoreBackupRequirement', async () => {
 });
 
 test('clearing scanning data', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionNhFixtures.electionJson.toElectionDefinition();
 
   await withApp(async ({ apiClient, importer, store, logger }) => {
     importer.configure(
@@ -242,8 +235,8 @@ test('clearing scanning data', async () => {
 });
 
 test('getting / setting test mode', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionNhFixtures.electionJson.toElectionDefinition();
   await withApp(async ({ apiClient, importer, store }) => {
     importer.configure(
       electionDefinition,
@@ -315,8 +308,9 @@ test('configure with CDF election', async () => {
   );
 
   await withApp(async ({ apiClient, auth, mockUsbDrive, logger }) => {
-    const cdfElection =
-      convertVxfElectionToCdfBallotDefinition(electionGeneral);
+    const cdfElection = convertVxfElectionToCdfBallotDefinition(
+      electionGeneral.election
+    );
     const cdfElectionDefinition = safeParseElectionDefinition(
       JSON.stringify(cdfElection)
     ).unsafeUnwrap();
@@ -331,7 +325,7 @@ test('configure with CDF election', async () => {
 
     const electionRecord = await apiClient.getElectionRecord();
     expect(electionRecord?.electionDefinition.election.id).toEqual(
-      electionGeneral.id
+      electionGeneral.election.id
     );
     expect(logger.log).toHaveBeenLastCalledWith(
       LogEventId.ElectionConfigured,
@@ -352,10 +346,11 @@ test('configure with CDF election', async () => {
 
 test('configure with invalid file', async () => {
   await withApp(async ({ apiClient, auth, mockUsbDrive, logger }) => {
-    mockElectionManagerAuth(auth, electionGeneralDefinition);
+    mockElectionManagerAuth(auth, electionGeneral.toElectionDefinition());
     mockUsbDrive.insertUsbDrive(
       await mockElectionPackageFileTree({
-        electionDefinition: electionTwoPartyPrimaryDefinition,
+        electionDefinition:
+          electionNhFixtures.electionJson.toElectionDefinition(),
       })
     );
 

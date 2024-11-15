@@ -17,7 +17,7 @@ ts_tests(
         "//apps/design/backend/types",
         "//libs/backend/election_package",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/hmpb/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

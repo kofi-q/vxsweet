@@ -9,7 +9,7 @@ import {
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { Keybinding } from '@vx/libs/ui/keybindings';
 import { ok } from '@vx/libs/basics/result';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   fireEvent,
@@ -27,6 +27,8 @@ import {
   provideApi,
 } from '../../test/helpers/mock_api_client';
 import { DIAGNOSTIC_STEPS } from './accessible_controller_diagnostic_screen';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 
@@ -200,7 +202,7 @@ test('election information', async () => {
 
   renderScreen();
 
-  await screen.findByText(/Example Primary Election/);
+  await screen.findByText(/General Election/);
   await screen.findByText(/All Precincts/);
 });
 

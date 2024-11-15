@@ -10,10 +10,8 @@ import {
 } from '@vx/libs/types/elections';
 import { BmdPaperBallot, type BmdPaperBallotProps } from '@vx/libs/ui/ballots';
 import { Buffer } from 'node:buffer';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionFamousNames } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { pdfToImages, writeImageData } from '@vx/libs/image-utils/src';
@@ -73,62 +71,51 @@ export async function writeFirstBallotPageToImageFile(
 export const DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID = '1' as BallotStyleId;
 export const DEFAULT_FAMOUS_NAMES_PRECINCT_ID: PrecinctId = '23';
 
-export const DEFAULT_FAMOUS_NAMES_VOTES = vote(
-  electionFamousNames2021Fixtures.election.contests,
-  {
-    mayor: 'sherlock-holmes',
-    controller: 'winston-churchill',
-    attorney: 'john-snow',
-    'public-works-director': 'benjamin-franklin',
-    'chief-of-police': 'natalie-portman',
-    'parks-and-recreation-director': 'charles-darwin',
-    'board-of-alderman': [
-      'helen-keller',
-      'steve-jobs',
-      'nikola-tesla',
-      'vincent-van-gogh',
-    ],
-    'city-council': [
-      'marie-curie',
-      'indiana-jones',
-      'mona-lisa',
-      'jackie-chan',
-    ],
-  }
-);
+export const DEFAULT_FAMOUS_NAMES_VOTES = vote(electionFamousNames.contests, {
+  mayor: 'sherlock-holmes',
+  controller: 'winston-churchill',
+  attorney: 'john-snow',
+  'public-works-director': 'benjamin-franklin',
+  'chief-of-police': 'natalie-portman',
+  'parks-and-recreation-director': 'charles-darwin',
+  'board-of-alderman': [
+    'helen-keller',
+    'steve-jobs',
+    'nikola-tesla',
+    'vincent-van-gogh',
+  ],
+  'city-council': ['marie-curie', 'indiana-jones', 'mona-lisa', 'jackie-chan'],
+});
 
 export const DEFAULT_ELECTION_GENERAL_BALLOT_STYLE_ID =
-  electionGeneralDefinition.election.ballotStyles[0].id;
+  electionGeneral.ballotStyles[0].id;
 export const DEFAULT_ELECTION_GENERAL_PRECINCT_ID: PrecinctId =
-  electionGeneralDefinition.election.precincts[0].id;
+  electionGeneral.precincts[0].id;
 
-export const DEFAULT_ELECTION_GENERAL_VOTES = vote(
-  electionGeneralDefinition.election.contests,
-  {
-    president: ['barchi-hallaren'],
-    senator: ['weiford'],
-    'representative-district-6': ['plunkard'],
-    governor: ['franz'],
-    'lieutenant-governor': ['norberg'],
-    'secretary-of-state': ['shamsi'],
-    'state-senator-district-31': ['shiplett'],
-    'state-assembly-district-54': ['solis'],
-    'county-commissioners': [
-      'argent',
-      'witherspoonsmithson',
-      'bainbridge',
-      'hennessey',
-    ],
-    'county-registrar-of-wills': ['ramachandrani'],
-    'city-mayor': ['white'],
-    'city-council': ['eagle', 'rupp', 'shry'],
-    'judicial-robert-demergue': ['judicial-robert-demergue-option-yes'],
-    'judicial-elmer-hull': ['judicial-elmer-hull-option-yes'],
-    'question-a': ['question-a-option-yes'],
-    'question-b': ['question-b-option-yes'],
-    'question-c': ['question-c-option-yes'],
-    'proposition-1': ['proposition-1-option-yes'],
-    'measure-101': ['measure-101-option-yes'],
-    '102': ['measure-102-option-yes'],
-  }
-);
+export const DEFAULT_ELECTION_GENERAL_VOTES = vote(electionGeneral.contests, {
+  president: ['barchi-hallaren'],
+  senator: ['weiford'],
+  'representative-district-6': ['plunkard'],
+  governor: ['franz'],
+  'lieutenant-governor': ['norberg'],
+  'secretary-of-state': ['shamsi'],
+  'state-senator-district-31': ['shiplett'],
+  'state-assembly-district-54': ['solis'],
+  'county-commissioners': [
+    'argent',
+    'witherspoonsmithson',
+    'bainbridge',
+    'hennessey',
+  ],
+  'county-registrar-of-wills': ['ramachandrani'],
+  'city-mayor': ['white'],
+  'city-council': ['eagle', 'rupp', 'shry'],
+  'judicial-robert-demergue': ['judicial-robert-demergue-option-yes'],
+  'judicial-elmer-hull': ['judicial-elmer-hull-option-yes'],
+  'question-a': ['question-a-option-yes'],
+  'question-b': ['question-b-option-yes'],
+  'question-c': ['question-c-option-yes'],
+  'proposition-1': ['proposition-1-option-yes'],
+  'measure-101': ['measure-101-option-yes'],
+  '102': ['measure-102-option-yes'],
+});

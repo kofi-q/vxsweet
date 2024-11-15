@@ -28,7 +28,7 @@ ts_tests(
         "//libs/basics/iterators",
         "//libs/basics/result",
         "//libs/basics/types",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/fs/src",
         "//libs/fs/test",
     ],

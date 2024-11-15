@@ -30,7 +30,7 @@ ts_tests(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/pages/invalidation",
         "//apps/mark-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/elections",
         "//libs/ui/themes",
     ],

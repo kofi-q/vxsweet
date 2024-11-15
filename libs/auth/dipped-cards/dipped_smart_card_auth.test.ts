@@ -6,10 +6,8 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => ({
 
 import { DateTime } from 'luxon';
 import { err, ok } from '@vx/libs/basics/result';
-import {
-  electionGeneral,
-  electionTwoPartyPrimary,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   mockBaseLogger,
   LogDispositionStandardTypes,

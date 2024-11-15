@@ -1,0 +1,12 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "util",
+    deps = [
+        "//:node_modules/js-sha256",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

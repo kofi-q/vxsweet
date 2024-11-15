@@ -2,7 +2,6 @@
 
 import { BaseLogger } from '@vx/libs/logging/src';
 import * as grout from '@vx/libs/grout/src';
-import { LanguageCode } from '@vx/libs/types/languages';
 import {
   type UiStringAudioClips,
   type UiStringAudioIds,
@@ -20,24 +19,22 @@ function buildApi(context: UiStringsApiContext) {
   const { store } = context;
 
   return grout.createApi({
-    getAvailableLanguages(): LanguageCode[] {
+    getAvailableLanguages(): string[] {
       return store.getLanguages();
     },
 
-    getUiStrings(input: {
-      languageCode: LanguageCode;
-    }): UiStringTranslations | null {
+    getUiStrings(input: { languageCode: string }): UiStringTranslations | null {
       return store.getUiStrings(input.languageCode);
     },
 
     getUiStringAudioIds(input: {
-      languageCode: LanguageCode;
+      languageCode: string;
     }): UiStringAudioIds | null {
       return store.getUiStringAudioIds(input.languageCode);
     },
 
     getAudioClips(input: {
-      languageCode: LanguageCode;
+      languageCode: string;
       audioIds: string[];
     }): UiStringAudioClips {
       return store.getAudioClips(input);

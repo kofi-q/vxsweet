@@ -7,10 +7,8 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import {
-  electionFamousNames2021Fixtures,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { ImageData, pdfToImages } from '@vx/libs/image-utils/src';
 import {
   AdjudicationReason,
@@ -64,12 +62,14 @@ beforeAll(async () => {
     ],
     normalBmdBallot: await ballotAsSheet(
       await renderBmdBallotFixture({
-        electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+        electionDefinition:
+          electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
       })
     ),
     undervoteBmdBallot: await ballotAsSheet(
       await renderBmdBallotFixture({
-        electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+        electionDefinition:
+          electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
         precinctId: DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
         ballotStyleId: DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
         votes: {
@@ -94,7 +94,8 @@ afterEach(async () => {
 
 test('treats BMD ballot with one blank side as valid', async () => {
   const result = await interpret('foo-sheet-id', ballotImages.normalBmdBallot, {
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
     precinctSelection: ALL_PRECINCTS_SELECTION,
     ballotImagesPath,
     testMode: true,
@@ -109,7 +110,8 @@ test('respects adjudication reasons for a BMD ballot on the front side', async (
     'foo-sheet-id',
     ballotImages.undervoteBmdBallot,
     {
-      electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+      electionDefinition:
+        electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
       precinctSelection: ALL_PRECINCTS_SELECTION,
       ballotImagesPath,
       testMode: true,
@@ -142,7 +144,9 @@ test('treats either page being an invalid test mode as an invalid sheet', () => 
       precinctId:
         electionFamousNames2021Fixtures.election.ballotStyles[0].precincts[0],
       ballotType: BallotType.Precinct,
-      ballotHash: electionFamousNames2021Fixtures.electionDefinition.ballotHash,
+      ballotHash:
+        electionFamousNames2021Fixtures.electionJson.toElectionDefinition()
+          .ballotHash,
       isTestMode: false,
       pageNumber: 1,
     },
@@ -209,7 +213,7 @@ test('differentiates vertical streaks detected from other unreadable errors', ()
 test('NH interpreter of overvote yields a sheet that needs to be reviewed', async () => {
   const result = await interpret('foo-sheet-id', ballotImages.overvoteBallot, {
     electionDefinition:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition,
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition(),
     precinctSelection: ALL_PRECINCTS_SELECTION,
     ballotImagesPath,
     testMode: true,
@@ -225,7 +229,7 @@ test.each([true, false])(
     const sheet = (
       await interpret('foo-sheet-id', ballotImages.normalBallot, {
         electionDefinition:
-          electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition,
+          electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition(),
         precinctSelection: ALL_PRECINCTS_SELECTION,
         ballotImagesPath,
         testMode,

@@ -5,12 +5,9 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneral,
-  electionGeneralDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGeneralLib from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { LogEventId } from '@vx/libs/logging/src';
 import {
   BooleanEnvironmentVariableName,
@@ -34,6 +31,8 @@ import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { withApp } from '../test/helpers/pdi_helpers';
 import { type PrecinctScannerPollsInfo } from '../types/types';
+const electionGeneral = electionGeneralLib.election;
+const electionGeneralDefinition = electionGeneralLib.toElectionDefinition();
 
 jest.setTimeout(30_000);
 
@@ -129,7 +128,7 @@ test('fails to configure election package if election definition on card does no
   await withApp(async ({ api, mockUsbDrive, mockAuth }) => {
     mockElectionManager(
       mockAuth,
-      electionFamousNames2021Fixtures.electionDefinition
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition()
     );
     mockUsbDrive.insertUsbDrive(
       await mockElectionPackageFileTree({
@@ -144,7 +143,7 @@ test('fails to configure election package if election definition on card does no
 
 test("if there's only one precinct in the election, it's selected automatically on configure", async () => {
   const electionDefinition =
-    electionTwoPartyPrimaryFixtures.singlePrecinctElectionDefinition;
+    electionTwoPartyPrimaryFixtures.asSinglePrecinctElectionDefinition();
   await withApp(async ({ api, mockUsbDrive, mockAuth, logger }) => {
     mockElectionManager(mockAuth, electionDefinition);
     mockUsbDrive.insertUsbDrive(

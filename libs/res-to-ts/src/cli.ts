@@ -4,6 +4,7 @@ import { basename, dirname, isAbsolute, join, relative } from 'node:path';
 import { convert, type Resource } from './convert';
 import { getMimeType } from './mime';
 import { assert } from './utils/assert';
+import { stderr, stdin, stdout } from 'node:process';
 
 /**
  * Represents IO for a CLI. Facilitates mocking for testing.
@@ -257,3 +258,5 @@ export async function main(
 
   return exitCode;
 }
+
+void main(process.argv, { stdin: stdin, stderr: stderr, stdout: stdout });

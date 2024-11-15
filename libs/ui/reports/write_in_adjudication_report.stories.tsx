@@ -1,8 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { PrintedReportPreview } from './layout';
 import {
   WriteInAdjudicationReport,
@@ -36,7 +34,8 @@ const meta: Meta<typeof WriteInTallyReportPreview> = {
 };
 
 const generalReportArgs: WriteInAdjudicationReportProps = {
-  electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+  electionDefinition:
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   electionPackageHash: '11111111111111111111',
   isOfficial: false,
   isTest: false,
@@ -166,7 +165,7 @@ export const GeneralReport: Story = {
 };
 
 const primaryReportArgs: WriteInAdjudicationReportProps = {
-  electionDefinition: electionTwoPartyPrimaryDefinition,
+  electionDefinition: electionTwoPartyPrimary.toElectionDefinition(),
   electionPackageHash: '11111111111111111111',
   isOfficial: true,
   isTest: false,
@@ -232,7 +231,7 @@ export const PrimaryReport: Story = {
 
 export const EmptyPrimaryReport: Story = {
   args: {
-    electionDefinition: electionTwoPartyPrimaryDefinition,
+    electionDefinition: electionTwoPartyPrimary.toElectionDefinition(),
     electionPackageHash: '11111111111111111111',
     isOfficial: true,
     generatedAtTime: new Date('2020-11-03T12:00:00.000'),

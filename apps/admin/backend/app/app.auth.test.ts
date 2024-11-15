@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
@@ -14,7 +14,8 @@ beforeEach(() => {
 });
 
 const jurisdiction = TEST_JURISDICTION;
-const { electionDefinition } = electionFamousNames2021Fixtures;
+const electionDefinition =
+  electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
 const electionKey = constructElectionKey(electionDefinition.election);
 const systemSettings: SystemSettings = {
   ...DEFAULT_SYSTEM_SETTINGS,

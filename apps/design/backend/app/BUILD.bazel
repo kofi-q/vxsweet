@@ -10,6 +10,7 @@ ts_library(
         "//:node_modules/express",
         "//:node_modules/fs-extra",
         "//:node_modules/jszip",
+        "//:types_env",
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/candidate-rotation",
         "//apps/design/backend/globals",
@@ -30,6 +31,7 @@ ts_library(
         "//libs/types/basic",
         "//libs/types/election-parsing",
         "//libs/types/elections",
+        "//libs/utils/src",
     ],
 )
 

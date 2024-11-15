@@ -1,5 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
-
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import userEvent from '@testing-library/user-event';
 import { screen } from '../../test/react_testing_library';
 import { TallyScreen } from './tally_screen';
@@ -21,7 +20,7 @@ afterEach(() => {
   apiMock.assertComplete();
 });
 
-const electionDefinition = electionTwoPartyPrimaryDefinition;
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
 test('has tabs for CVRs and Manual Tallies', async () => {
   apiMock.expectGetCastVoteRecordFileMode('unlocked');

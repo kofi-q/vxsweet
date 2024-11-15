@@ -1,6 +1,9 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { render, screen } from '../test/react_testing_library';
 import { Seal } from './seal';
+const electionGeneralDefinition = {
+  election: electionGeneral,
+} as const;
 
 test('sets styles according to props', () => {
   render(

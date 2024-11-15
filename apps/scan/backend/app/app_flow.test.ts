@@ -12,7 +12,7 @@ import {
   mockSystemAdministratorUser,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import {
   constructElectionKey,
@@ -21,6 +21,7 @@ import {
 import { doesUsbDriveRequireCastVoteRecordSync } from '@vx/libs/backend/cast_vote_records';
 import { isReadyToScan } from './app_flow';
 import { Store } from '../store/store';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 const electionDefinition = electionGeneralDefinition;
 const electionKey = constructElectionKey(electionDefinition.election);

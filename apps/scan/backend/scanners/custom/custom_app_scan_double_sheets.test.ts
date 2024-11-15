@@ -12,7 +12,7 @@ import {
   type ImageFromScanner,
   mocks,
 } from '@vx/libs/custom-scanner/src';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import {
   AdjudicationReason,
   type AdjudicationReasonInfo,

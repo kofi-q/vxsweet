@@ -44,7 +44,7 @@ ts_tests(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/custom-scanner/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

@@ -1,6 +1,6 @@
 jest.mock('../importer/importer');
 
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import {
   AdjudicationReason,
   type BallotMetadata,
@@ -47,7 +47,7 @@ beforeEach(() => {
   workspace = createWorkspace(dirSync().name, mockBaseLogger());
   workspace.store.setElectionAndJurisdiction({
     electionData:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .electionData,
     jurisdiction,
     electionPackageHash: 'test-election-package-hash',
@@ -84,7 +84,7 @@ const backImagePath =
 const sheet: SheetOf<PageInterpretationWithFiles> = (() => {
   const metadata: BallotMetadata = {
     ballotHash:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .ballotHash,
     ballotType: BallotType.Precinct,
     ballotStyleId: '12' as BallotStyleId,
@@ -215,7 +215,7 @@ test('get next sheet', async () => {
 test('get next sheet layouts', async () => {
   const metadata: BallotMetadata = {
     ballotHash:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .ballotHash,
     ballotType: BallotType.Precinct,
     ballotStyleId: 'card-number-3' as BallotStyleId,

@@ -2,7 +2,7 @@ import {
   getEmptyCardCounts,
   getEmptyElectionResults,
 } from '@vx/libs/utils/src/tabulation';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   AdminTallyReportByParty,
   type AdminTallyReportByPartyProps,
@@ -18,7 +18,8 @@ import { iter } from '@vx/libs/basics/iterators';
 import { PAPER_DIMENSIONS, type RenderSpec, renderToPdf } from './render';
 import '@vx/libs/image-test-utils/register';
 
-const { electionDefinition } = electionFamousNames2021Fixtures;
+const electionDefinition =
+  electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
 const { election } = electionDefinition;
 
 const FAILURE_THRESHOLD = 0.0001;

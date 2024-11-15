@@ -4,7 +4,7 @@ import {
   getContestDistrictName,
 } from '@vx/libs/types/elections';
 
-import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';
@@ -15,6 +15,8 @@ import {
   within,
 } from '../test/react_testing_library';
 import { App } from './app';
+const electionWithMsEitherNeitherDefinition =
+  electionWithMsEitherNeither.toElectionDefinition();
 
 import { withMarkup } from '../test/helpers/with_markup';
 import { advanceTimersAndPromises } from '../test/helpers/timers';

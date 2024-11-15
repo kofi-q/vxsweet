@@ -7,7 +7,7 @@ import {
   getContests,
 } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { vxDefaultBallotTemplate } from '../vx_default_ballot_template';

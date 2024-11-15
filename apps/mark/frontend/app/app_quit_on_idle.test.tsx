@@ -1,6 +1,5 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import userEvent from '@testing-library/user-event';
 import { createMocks as createReactIdleTimerMocks } from 'react-idle-timer';
 import {
@@ -10,6 +9,8 @@ import {
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import { App } from './app';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 

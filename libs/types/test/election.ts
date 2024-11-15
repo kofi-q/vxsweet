@@ -168,7 +168,7 @@ export const primaryElection: Election = {
   ],
   ballotStrings: {
     en: {
-      ...assertDefined(election.ballotStrings.en),
+      ...assertDefined(election.ballotStrings['en']),
       electionTitle: 'Primary Election',
       ballotStyleId: {
         '1D': '1D',

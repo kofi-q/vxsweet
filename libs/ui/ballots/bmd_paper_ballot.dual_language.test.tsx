@@ -18,7 +18,8 @@ import {
 } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
 import { ElectionStringKey } from '@vx/libs/types/ui_strings';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { mockOf } from '@vx/libs/test-utils/src';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
@@ -67,11 +68,11 @@ type UiStringKey = ElectionStringKey | AppStringKey;
 
 interface MockUiStringOutput {
   key: UiStringKey;
-  languageCode: LanguageCode;
+  languageCode: string;
   subKey?: string;
 }
 
-function getMockUiStringPrefix(languageCode: LanguageCode) {
+function getMockUiStringPrefix(languageCode: string) {
   return `~${languageCode}~`;
 }
 

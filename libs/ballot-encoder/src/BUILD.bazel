@@ -23,6 +23,7 @@ ts_tests(
         "//libs/ballot-encoder/test",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/basic",
         "//libs/types/elections",
     ],

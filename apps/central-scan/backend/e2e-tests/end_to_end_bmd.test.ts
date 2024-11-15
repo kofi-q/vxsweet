@@ -11,7 +11,7 @@ import {
   readCastVoteRecordExport,
 } from '@vx/libs/backend/cast_vote_records';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { CVR } from '@vx/libs/types/cdf';
 import {
   BooleanEnvironmentVariableName,
@@ -31,7 +31,8 @@ jest.setTimeout(20000);
 const featureFlagMock = getFeatureFlagMock();
 
 test('going through the whole process works - BMD', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   featureFlagMock.enableFeatureFlag(
     BooleanEnvironmentVariableName.SKIP_ELECTION_PACKAGE_AUTHENTICATION
   );

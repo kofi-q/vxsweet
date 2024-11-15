@@ -1,7 +1,7 @@
 jest.mock('./replace_jammed_sheet_screen');
 
 import { mockOf } from '@vx/libs/test-utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   createApiMock,
   type ApiMock,
@@ -13,6 +13,7 @@ import {
   mockCardlessVoterLoggedInAuth,
   mockPollWorkerAuth,
 } from '../../test/helpers/mock_auth';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 beforeEach(() => {

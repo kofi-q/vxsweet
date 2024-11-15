@@ -25,7 +25,7 @@ import {
   type AcceptedSheet,
   type RejectedSheet,
 } from '@vx/libs/backend/cast_vote_records';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { sha256 } from 'js-sha256';
 import { mockBaseLogger } from '@vx/libs/logging/src';
 import { zeroRect } from '../test/fixtures/zero_rect';
@@ -35,7 +35,8 @@ import { Store } from './store';
 jest.setTimeout(20000);
 
 const jurisdiction = TEST_JURISDICTION;
-const { electionDefinition } = electionGridLayoutNewHampshireTestBallotFixtures;
+const electionDefinition =
+  electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 const { election, electionData, ballotHash } = electionDefinition;
 const electionPackageHash = 'test-election-package-hash';
 
@@ -568,7 +569,7 @@ test('iterating over sheets', () => {
   const store = Store.memoryStore();
   store.setElectionAndJurisdiction({
     electionData:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .electionData,
     jurisdiction,
     electionPackageHash,

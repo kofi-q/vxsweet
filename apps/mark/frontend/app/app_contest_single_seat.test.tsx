@@ -1,7 +1,6 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import {
   fireEvent,
@@ -11,6 +10,8 @@ import {
   within,
 } from '../test/react_testing_library';
 import { App } from './app';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 

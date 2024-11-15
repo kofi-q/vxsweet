@@ -5,17 +5,16 @@ import {
   type CandidateContest,
   type Election,
 } from '@vx/libs/types/elections';
-import {
-  asElectionDefinition,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
 
 let apiMock: ApiMock;
 

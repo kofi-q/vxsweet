@@ -6,7 +6,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { election } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
@@ -22,7 +22,6 @@ import { mockOf } from '@vx/libs/test-utils/src';
 import { configureApp, createApp } from '../test/app_helpers';
 
 const jurisdiction = TEST_JURISDICTION;
-const { election } = electionFamousNames2021Fixtures;
 const electionKey = constructElectionKey(election);
 const systemSettings: SystemSettings = {
   ...DEFAULT_SYSTEM_SETTINGS,

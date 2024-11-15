@@ -13,7 +13,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/central-scan/frontend/app",
         "//apps/central-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/ui/test-utils",

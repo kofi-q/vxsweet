@@ -3,7 +3,7 @@ import { ok } from '@vx/libs/basics/result';
 import { unique } from '@vx/libs/basics/collections';
 import { iter } from '@vx/libs/basics/iterators';
 import { ImageData } from 'canvas';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import {
   type Election,
   type ElectionDefinition,
@@ -17,7 +17,7 @@ test('interpret exists', () => {
 
 test('interpret with bad election data', () => {
   const electionDefinition: ElectionDefinition = {
-    ...electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition,
+    ...electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition(),
     election: { bad: 'election' } as unknown as Election,
   };
 
@@ -27,8 +27,8 @@ test('interpret with bad election data', () => {
 });
 
 test('interpret with bad ballot image paths', () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 
   expect(() => interpret(electionDefinition, ['a', 'b'])).toThrowError(
     'failed to load ballot card images: a, b'
@@ -36,8 +36,8 @@ test('interpret with bad ballot image paths', () => {
 });
 
 test('interpret `ImageData` objects', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const ballotImages: SheetOf<ImageData> = [
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedFront.asImageData(),
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedBack.asImageData(),
@@ -370,8 +370,8 @@ test('interpret `ImageData` objects', async () => {
 });
 
 test('interpret images from paths', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const ballotImagePaths: SheetOf<string> = [
     electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedFront.asFilePath(),
     electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedBack.asFilePath(),
@@ -708,8 +708,8 @@ test('interpret images from paths', async () => {
 });
 
 test('score write in areas', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const ballotImages: SheetOf<ImageData> = [
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedFront.asImageData(),
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedBack.asImageData(),
@@ -727,8 +727,8 @@ test('score write in areas', async () => {
 });
 
 test('interpret with grainy timing marks', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const ballotImages: SheetOf<ImageData> = [
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedGrainyTimingMarksFront.asImageData(),
     await electionGridLayoutNewHampshireTestBallotFixtures.scanMarkedGrainyTimingMarksBack.asImageData(),

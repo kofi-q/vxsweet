@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
@@ -9,6 +9,8 @@ import { formatElectionHashes } from '@vx/libs/types/elections';
 import { render, screen, within } from '../test/react_testing_library';
 import { AdminTallyReport } from './admin_tally_report';
 import { mockScannerBatches } from '../test/fixtures';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;
 const { election } = electionDefinition;

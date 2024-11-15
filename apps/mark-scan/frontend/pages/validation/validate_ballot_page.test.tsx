@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
 import { render as renderWithBallotContext } from '../../test/test_utils';
 import {
@@ -9,6 +9,7 @@ import {
 import { screen } from '../../test/react_testing_library';
 import { ValidateBallotPage } from './validate_ballot_page';
 import { getMockInterpretation } from '../../test/helpers/interpretation';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 beforeEach(() => {

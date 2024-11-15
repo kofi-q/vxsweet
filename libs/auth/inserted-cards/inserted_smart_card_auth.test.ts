@@ -8,10 +8,8 @@ import { Buffer } from 'node:buffer';
 import { DateTime } from 'luxon';
 import { assert } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
-import {
-  electionGeneralDefinition,
-  electionTwoPartyPrimary,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   mockBaseLogger,
   LogDispositionStandardTypes,
@@ -81,7 +79,7 @@ afterEach(() => {
 
 const jurisdiction = TEST_JURISDICTION;
 const otherJurisdiction = `${TEST_JURISDICTION}-2`;
-const { election, electionData } = electionGeneralDefinition;
+const { election, electionData } = electionGeneral.toElectionDefinition();
 const electionKey = constructElectionKey(election);
 const otherElectionKey = constructElectionKey(electionTwoPartyPrimary);
 const defaultConfig: InsertedSmartCardAuthConfig = {};

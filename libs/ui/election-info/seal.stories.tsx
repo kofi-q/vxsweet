@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 
 import { Seal, type SealProps } from './seal';
 

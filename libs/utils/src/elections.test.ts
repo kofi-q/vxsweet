@@ -1,22 +1,14 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneralDefinition,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@vx/libs/fixtures/src';
 import { getMaxSheetsPerBallot } from './elections';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionGridLayoutNewHampshire } from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 
 test('getMaxSheetsPerBallot', () => {
   // election with no gridLayouts available
-  expect(
-    getMaxSheetsPerBallot(electionGeneralDefinition.election)
-  ).toBeUndefined();
+  expect(getMaxSheetsPerBallot(electionGeneral)).toBeUndefined();
 
   // single page election
-  expect(
-    getMaxSheetsPerBallot(
-      electionGridLayoutNewHampshireTestBallotFixtures.election
-    )
-  ).toEqual(1);
+  expect(getMaxSheetsPerBallot(electionGridLayoutNewHampshire)).toEqual(1);
 
   // multi-page election
   expect(

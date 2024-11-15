@@ -6,11 +6,12 @@ import { parse as parseHtml, Node, HTMLElement } from 'node-html-parser';
 
 import { Store } from '../../store/store';
 import { rootDebug } from '../../logging/debug';
+import { Dictionary } from '@vx/libs/types/basic';
 
 const debug = rootDebug.extend('speech');
 
 export interface SpeechSynthesizer {
-  synthesizeSpeech(text: string, languageCode: LanguageCode): Promise<string>;
+  synthesizeSpeech(text: string, languageCode: string): Promise<string>;
 }
 
 /**
@@ -18,10 +19,10 @@ export interface SpeechSynthesizer {
  *
  * TODO: Decide which voices we want to use.
  */
-export const GoogleCloudVoices: Record<
-  LanguageCode,
-  { languageCode: string; name: string }
-> = {
+export const GoogleCloudVoices: Dictionary<{
+  languageCode: string;
+  name: string;
+}> = {
   [LanguageCode.CHINESE_SIMPLIFIED]: {
     languageCode: 'cmn-CN',
     name: 'cmn-CN-Wavenet-B',
@@ -158,10 +159,7 @@ export class GoogleCloudSpeechSynthesizer implements SpeechSynthesizer {
       /* istanbul ignore next */ new GoogleCloudTextToSpeechClient();
   }
 
-  async synthesizeSpeech(
-    text: string,
-    languageCode: LanguageCode
-  ): Promise<string> {
+  async synthesizeSpeech(text: string, languageCode: string): Promise<string> {
     const audioClipBase64FromCache = this.store.getAudioClipBase64FromCache({
       languageCode,
       text,
@@ -187,7 +185,7 @@ export class GoogleCloudSpeechSynthesizer implements SpeechSynthesizer {
 
   private async synthesizeSpeechWithGoogleCloud(
     text: string,
-    languageCode: LanguageCode
+    languageCode: string
   ): Promise<string> {
     const [response] = await this.textToSpeechClient.synthesizeSpeech({
       audioConfig: { audioEncoding: 'MP3' },

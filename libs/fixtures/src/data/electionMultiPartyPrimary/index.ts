@@ -4,7 +4,4 @@ import { asText as semsDataAsText } from './semsFiles/standard.csv';
 export const csvData = batchResultsCsvAsText();
 export const semsData = semsDataAsText();
 
-export {
-  election,
-  electionDefinition,
-} from './electionMultiPartyPrimarySample.json';
+export { election } from './electionMultiPartyPrimarySample.json';

@@ -11,10 +11,12 @@ import {
 import { type MachineConfig } from '../../backend/types/types';
 
 import { randomBallotId } from '@vx/libs/utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { render as testRender } from './react_testing_library';
 import { BallotContext } from '../contexts/ballot_context';
 import { mockMachineConfig } from './helpers/mock_machine_config';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 export function render(
   component: React.ReactNode,

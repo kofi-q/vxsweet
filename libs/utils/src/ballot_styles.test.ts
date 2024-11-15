@@ -8,7 +8,7 @@ import {
   type PartyId,
 } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   generateBallotStyleId,
   getBallotStyleGroup,

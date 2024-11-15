@@ -61,7 +61,7 @@ ts_tests(
         "//libs/basics/async",
         "//libs/basics/iterators",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/image-test-utils",
         "//libs/image-utils/src",
         "//libs/logging/src",

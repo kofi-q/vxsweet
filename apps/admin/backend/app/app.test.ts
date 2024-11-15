@@ -7,11 +7,9 @@ jest.mock('../globals/globals', (): typeof import('../globals/globals') => ({
 
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
-import {
-  electionTwoPartyPrimaryFixtures,
-  electionGeneral,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { LogEventId } from '@vx/libs/logging/src';
 import { Buffer } from 'node:buffer';
 import {
@@ -118,7 +116,7 @@ test('managing the current election', async () => {
     })
   );
 
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { ballotHash } = electionDefinition;
 
   const badSystemSettingsPackage = await zipFile({
@@ -209,7 +207,7 @@ test('configuring with an election.json file', async () => {
 
   mockSystemAdministratorAuth(auth);
 
-  const electionDefinition = electionGeneralDefinition;
+  const electionDefinition = electionGeneral.toElectionDefinition();
   const configureResult = await api.configure({
     electionFilePath: saveTmpFile(electionDefinition.electionData, '.json'),
   });
@@ -227,7 +225,9 @@ test('configuring with a CDF election', async () => {
   mockSystemAdministratorAuth(auth);
 
   const { electionData, ballotHash } = safeParseElectionDefinition(
-    JSON.stringify(convertVxfElectionToCdfBallotDefinition(electionGeneral))
+    JSON.stringify(
+      convertVxfElectionToCdfBallotDefinition(electionGeneral.election)
+    )
   ).unsafeUnwrap();
   const electionPackage = await zipFile({
     [ElectionPackageFileName.ELECTION]: electionData,
@@ -257,7 +257,7 @@ test('configuring with a CDF election', async () => {
   );
 
   // Ensure loading auth election key from db works
-  mockElectionManagerAuth(auth, electionGeneral);
+  mockElectionManagerAuth(auth, electionGeneral.election);
   expect(await api.getAuthStatus()).toMatchObject({
     status: 'logged_in',
   });
@@ -284,8 +284,8 @@ test('configuring with an election not from removable media in prod errs', async
 test('getSystemSettings happy path', async () => {
   const { api, auth } = buildTestEnvironment();
 
-  const { electionDefinition, systemSettings } =
-    electionTwoPartyPrimaryFixtures;
+  const { systemSettings } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   await configureMachine(
     api,
     auth,
@@ -345,7 +345,7 @@ test('listPotentialElectionPackagesOnUsbDrive', async () => {
 
 test('saveElectionPackageToUsb', async () => {
   const { api, auth, mockUsbDrive } = buildTestEnvironment();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   await configureMachine(api, auth, electionDefinition);
 
   mockUsbDrive.insertUsbDrive({});
@@ -356,7 +356,7 @@ test('saveElectionPackageToUsb', async () => {
 
 test('saveElectionPackageToUsb when no USB drive', async () => {
   const { api, auth, mockUsbDrive } = buildTestEnvironment();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   await configureMachine(api, auth, electionDefinition);
 
   mockUsbDrive.usbDrive.status
@@ -374,7 +374,7 @@ test('usbDrive', async () => {
     auth,
     mockUsbDrive: { usbDrive },
   } = buildTestEnvironment();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   await configureMachine(api, auth, electionDefinition);
 
   mockSystemAdministratorAuth(auth);
@@ -426,7 +426,7 @@ test('printer status', async () => {
 describe('ERR file import', () => {
   test('success', async () => {
     const { api, auth } = buildTestEnvironment();
-    await configureMachine(api, auth, electionGeneralDefinition);
+    await configureMachine(api, auth, electionGeneral.toElectionDefinition());
     const errContents = testElectionReport;
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
@@ -508,7 +508,7 @@ describe('ERR file import', () => {
 
   test('logs when file parsing fails', async () => {
     const { api, auth } = buildTestEnvironment();
-    await configureMachine(api, auth, electionGeneralDefinition);
+    await configureMachine(api, auth, electionGeneral.toElectionDefinition());
     const errContents = 'not json';
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
@@ -527,15 +527,14 @@ describe('ERR file import', () => {
 
   test('rejects when conversion to VX tabulation format fails', async () => {
     const { api, auth } = buildTestEnvironment();
-    await configureMachine(api, auth, electionGeneralDefinition);
+    await configureMachine(api, auth, electionGeneral.toElectionDefinition());
     const errContents = testElectionReportUnsupportedContestType;
     const filepath = tmpNameSync();
     await writeFile(filepath, JSON.stringify(errContents));
     const manualResultsIdentifier: ManualResultsIdentifier = {
-      precinctId: assertDefined(electionGeneralDefinition.election.precincts[0])
-        .id,
+      precinctId: assertDefined(electionGeneral.election.precincts[0]).id,
       ballotStyleGroupId: assertDefined(
-        electionGeneralDefinition.election.ballotStyles[0]
+        electionGeneral.election.ballotStyles[0]
       ).groupId,
       votingMethod: 'precinct',
     };

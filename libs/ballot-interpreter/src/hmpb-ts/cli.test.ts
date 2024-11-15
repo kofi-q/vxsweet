@@ -1,4 +1,4 @@
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { dirSync, fileSync } from 'tmp';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -29,8 +29,13 @@ test('interpret CVRs', async () => {
     );
   }
 
-  const electionFilePath =
-    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.asFilePath();
+  const electionFilePath = fileSync().name;
+  await writeFile(
+    electionFilePath,
+    JSON.stringify(
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.election
+    )
+  );
   const systemSettingsPath = fileSync().name;
   await writeFile(systemSettingsPath, JSON.stringify(DEFAULT_SYSTEM_SETTINGS));
 

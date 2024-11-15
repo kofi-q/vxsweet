@@ -6,10 +6,10 @@ jest.mock('@vx/libs/utils/src', () => {
   };
 });
 
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGridLayoutNewHampshire from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -52,7 +52,7 @@ afterEach(() => {
 });
 
 it('logs success if export succeeds', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
   const { api, auth, logger } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -74,7 +74,7 @@ it('logs success if export succeeds', async () => {
 });
 
 it('logs failure if export fails', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
   const { api, auth, logger } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -112,7 +112,9 @@ async function getCurrentReport(
 }
 
 it('exports results and metadata accurately', async () => {
-  const { electionDefinition, castVoteRecordExport } =
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
@@ -375,8 +377,9 @@ it('exports results and metadata accurately', async () => {
 });
 
 it('marks report as certified when official, as primary when primary, and as non-test when official files loaded', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);

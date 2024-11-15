@@ -53,7 +53,7 @@ export interface VirtualKeyboardProps {
 }
 
 interface Key {
-  audioLanguageOverride?: LanguageCode;
+  audioLanguageOverride?: string;
   renderAudioString: () => React.ReactNode;
   /** @defaultvalue () => {@link value} */
   renderLabel?: () => React.ReactNode;

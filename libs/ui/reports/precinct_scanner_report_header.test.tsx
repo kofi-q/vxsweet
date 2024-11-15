@@ -1,11 +1,9 @@
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
 } from '@vx/libs/utils/src';
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionFamousNames2021Fixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { formatElectionHashes, type PartyId } from '@vx/libs/types/elections';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen } from '../test/react_testing_library';
@@ -14,8 +12,11 @@ import { PrecinctScannerReportHeader } from './precinct_scanner_report_header';
 const pollsTransitionedTime = new Date('2022-10-31T16:23:00.000').getTime();
 const reportPrintedTime = new Date('2022-10-31T16:24:00.000').getTime();
 
-const { electionDefinition: generalElectionDefinition } =
-  electionFamousNames2021Fixtures;
+const generalElectionDefinition =
+  electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 test('general election, all precincts, polls open, test mode', () => {
   render(

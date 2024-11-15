@@ -1,8 +1,6 @@
 import { Route } from 'react-router-dom';
-import {
-  electionGeneralDefinition,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { createMemoryHistory } from 'history';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
@@ -11,6 +9,9 @@ import { screen } from '../../test/react_testing_library';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
 import { render } from '../../test/test_utils';
 import { StartScreen } from './start_screen';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 test('renders StartScreen', () => {
   const electionDefinition = electionTwoPartyPrimaryDefinition;

@@ -8,7 +8,7 @@ import {
   WriteInAreaStatus,
   type YesNoContest,
 } from '@vx/libs/types/elections';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { allContestOptions } from '@vx/libs/utils/src/hmpb';
@@ -16,6 +16,9 @@ import {
   getAllPossibleAdjudicationReasons,
   adjudicationReasonDescription,
 } from './adjudication_reasons';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 const bestAnimalMammal =
   electionTwoPartyPrimaryDefinition.election.contests.find(

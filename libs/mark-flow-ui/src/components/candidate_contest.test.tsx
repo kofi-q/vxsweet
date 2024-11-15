@@ -10,7 +10,10 @@ import {
   type CandidateContest as CandidateContestInterface,
   getCandidateParties,
 } from '@vx/libs/types/elections';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+const electionGeneralDefinition = {
+  election: electionGeneral,
+} as const;
 
 import { act } from 'react';
 import userEvent from '@testing-library/user-event';

@@ -18,7 +18,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 });
 
 import { Buffer } from 'node:buffer';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { type CandidateContest } from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
@@ -54,7 +54,8 @@ test('Updating contests with candidate rotation', () => {
   const electionId = api
     .loadElection({
       electionData:
-        electionFamousNames2021Fixtures.electionDefinition.electionData,
+        electionFamousNames2021Fixtures.electionJson.toElectionDefinition()
+          .electionData,
     })
     .unsafeUnwrap();
   const electionRecord = api.getElection({ electionId });

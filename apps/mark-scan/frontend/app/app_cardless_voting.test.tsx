@@ -2,7 +2,7 @@ import {
   singlePrecinctSelectionFor,
   ALL_PRECINCTS_SELECTION,
 } from '@vx/libs/utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import userEvent from '@testing-library/user-event';
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
@@ -13,6 +13,7 @@ import {
   screen,
   within,
 } from '../test/react_testing_library';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { App } from './app';
 

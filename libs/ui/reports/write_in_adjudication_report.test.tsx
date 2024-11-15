@@ -1,14 +1,12 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { formatElectionHashes } from '@vx/libs/types/elections';
 import { render, screen, within } from '../test/react_testing_library';
 import { WriteInAdjudicationReport } from './write_in_adjudication_report';
 
 test('primary', () => {
-  const electionDefinition = electionTwoPartyPrimaryDefinition;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   render(
     <WriteInAdjudicationReport
       electionDefinition={electionDefinition}
@@ -106,7 +104,8 @@ test('primary', () => {
 });
 
 test('general', () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
   render(
     <WriteInAdjudicationReport

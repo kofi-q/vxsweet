@@ -24,12 +24,34 @@ DATA_FILES = glob(
 
 js_library(
     name = "data",
-    data = DATA_FILES,
+    data = [
+        "//libs/fixtures/data/electionFamousNames2021:data",
+        "//libs/fixtures/data/electionGeneral:data",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireHudson:data",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:data",
+        "//libs/fixtures/data/electionMultiPartyPrimary:data",
+        "//libs/fixtures/data/electionPrimaryPrecinctSplits:data",
+        "//libs/fixtures/data/electionTwoPartyPrimary:data",
+        "//libs/fixtures/data/electionWithMsEitherNeither:data",
+    ],
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )
 
 exports_files(
     DATA_FILES,
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "generate",
+    srcs = ["build_resources.sh"],
+    data = [
+        "//libs/res-to-ts/src:cli",
+    ],
+    env = {
+        "RES_TO_TS_PATH": "$(rootpath //libs/res-to-ts/src:cli)",
+    },
+    tags = ["manual"],
     visibility = ["//visibility:public"],
 )

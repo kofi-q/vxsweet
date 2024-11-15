@@ -30,7 +30,7 @@ ts_library(
         "//libs/basics/iterators",
         "//libs/basics/types",
         "//libs/bmd-ballot-fixtures/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/grout/src",
         "//libs/image-utils/src",
         "//libs/logging/src",

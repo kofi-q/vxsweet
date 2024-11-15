@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimary } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,

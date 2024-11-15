@@ -39,7 +39,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
+    size = "enormous",
     timeout = "short",
     env = {"VX_MACHINE_TYPE": "scan"},
     shard_count = 10,
@@ -70,7 +70,9 @@ ts_tests(
         "//libs/basics/collections",
         "//libs/basics/iterators",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/image-test-utils",
         "//libs/logging/src",
         "//libs/printing/src",

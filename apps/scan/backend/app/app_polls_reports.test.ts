@@ -13,11 +13,13 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
 } from '@vx/libs/utils/src';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { configureApp } from '../test/helpers/shared_helpers';
 import { scanBallot, withApp } from '../test/helpers/pdi_helpers';
 import '@vx/libs/image-test-utils/register';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 jest.setTimeout(60_000);
 
@@ -40,7 +42,7 @@ test('printReport prints first section and printReportSection can print the rest
           electionDefinition: electionTwoPartyPrimaryDefinition,
         },
       });
-      (await api.openPolls()).unsafeUnwrap();
+      api.openPolls().unsafeUnwrap();
 
       // print first section
       await api.printReport();
@@ -106,7 +108,7 @@ test('re-printing report after scanning a ballot should fail', async () => {
         testMode: true,
         openPolls: false,
       });
-      (await api.openPolls()).unsafeUnwrap();
+      api.openPolls().unsafeUnwrap();
 
       await scanBallot(mockScanner, clock, api, workspace.store, 0);
       await suppressingConsoleOutput(async () => {
@@ -134,7 +136,7 @@ test('can print voting paused and voting resumed reports', async () => {
       await scanBallot(mockScanner, clock, api, workspace.store, 0);
 
       // pause voting
-      await api.pauseVoting();
+      api.pauseVoting();
       await api.printReport();
       await expect(
         mockFujitsuPrinterHandler.getLastPrintPath()
@@ -144,7 +146,7 @@ test('can print voting paused and voting resumed reports', async () => {
       });
 
       // resume voting
-      await api.resumeVoting();
+      api.resumeVoting();
       await api.printReport();
       await expect(
         mockFujitsuPrinterHandler.getLastPrintPath()

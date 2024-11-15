@@ -27,7 +27,7 @@ import { LogEventId } from '@vx/libs/logging/src';
 import { join } from 'node:path';
 import { type DiagnosticRecord } from '@vx/libs/types/diagnostics';
 import { TEST_JURISDICTION } from '@vx/libs/types/elections';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { mockSystemAdministratorAuth } from '../test/helpers/auth';
 import { withApp } from '../test/helpers/setup_app';
 import '@vx/libs/image-test-utils/register';
@@ -63,7 +63,7 @@ const reportPrintedTime = new Date('2021-01-01T00:00:00.000');
 const jurisdiction = TEST_JURISDICTION;
 
 test('save readiness report', async () => {
-  const electionDefinition = electionTwoPartyPrimaryDefinition;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   await withApp(
     async ({ apiClient, mockUsbDrive, scanner, auth, logger, importer }) => {
       mockSystemAdministratorAuth(auth);

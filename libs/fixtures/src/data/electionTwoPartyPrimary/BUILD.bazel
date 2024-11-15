@@ -1,0 +1,19 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "electionTwoPartyPrimary",
+    data = ["//libs/fixtures/data/electionTwoPartyPrimary:data"],
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//libs/basics/time",
+        "//libs/fixtures/src/data",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary/csvFiles",
+        "//libs/fixtures/src/util",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

@@ -1,6 +1,6 @@
 import '../../test/set_up_react_pdf_mock';
 
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import userEvent from '@testing-library/user-event';
 import {
   type ApiMock,
@@ -10,6 +10,8 @@ import { renderInAppContext } from '../../test/render_in_app_context';
 import { TallyReportBuilder } from './tally_report_builder';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import { canonicalizeFilter, canonicalizeGroupBy } from '../../utils/reporting';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 

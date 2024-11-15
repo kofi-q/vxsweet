@@ -6,10 +6,11 @@ import {
   IDLE_RESET_TIMEOUT_SECONDS,
   IDLE_TIMEOUT_SECONDS,
 } from '@vx/libs/mark-flow-ui/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen, waitFor } from '../test/react_testing_library';
 import { App } from './app';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 

@@ -13,7 +13,7 @@ import { type Result, ok } from '@vx/libs/basics/result';
 import { deferred } from '@vx/libs/basics/async';
 import { typedAs } from '@vx/libs/basics/types';
 import { type ScannerError } from '@vx/libs/pdi-scanner/src/ts';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import {
   AdjudicationReason,
   type AdjudicationReasonInfo,

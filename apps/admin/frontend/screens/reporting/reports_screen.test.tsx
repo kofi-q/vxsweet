@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { type ElectionDefinition } from '@vx/libs/types/elections';
 import { ReportsScreen } from './reports_screen';
@@ -8,6 +8,8 @@ import {
   createApiMock,
 } from '../../test/helpers/mock_api_client';
 import { screen } from '../../test/react_testing_library';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 

@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import JsZip from 'jszip';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { BallotType, type Election } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
 import {
@@ -40,6 +40,8 @@ import {
 import { newTestApi } from '../../test/helpers';
 import { FULL_TEST_DECK_TALLY_REPORT_FILE_NAME } from '../../test-decks/test_decks';
 import { renderBallotStyleReadinessReport } from '../../ballot-styles/ballot_style_reports';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 jest.setTimeout(60_000);
 

@@ -8,9 +8,8 @@ import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { type SimpleServerStatus } from '../../backend/custom-paper-handler/types';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import React from 'react';
-import { electionDefinition } from '../test/helpers/election';
 import { render, screen } from '../test/react_testing_library';
 import { App } from './app';
 import { createApiMock, type ApiMock } from '../test/helpers/mock_api_client';
@@ -19,6 +18,8 @@ import { JamClearedPage } from '../pages/jams/jam_cleared_page';
 import { BallotContext } from '../contexts/ballot_context';
 import { StartScreen } from '../pages/start/start_screen';
 import { JAM_CLEARED_STATES } from '../pages/jams/replace_jammed_sheet_screen';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
+const electionDefinition = electionGeneralDefinition;
 
 let apiMock: ApiMock;
 

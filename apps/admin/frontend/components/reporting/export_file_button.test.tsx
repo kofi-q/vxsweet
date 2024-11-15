@@ -119,7 +119,7 @@ test('overall flow', async () => {
 
   expect(jestMockMutate).toHaveBeenCalledTimes(1);
   expect(jestMockMutate).toHaveBeenCalledWith({
-    path: 'test-mount-point/choctaw-county_mock-general-election-choctaw-2020_5ed54f2a25/reports/unofficial-full-election-success__2021-01-01_00-00-00.txt',
+    path: 'test-mount-point/choctaw-county_mock-general-election-choctaw-2020_720ddeff28/reports/unofficial-full-election-success__2021-01-01_00-00-00.txt',
     echo: 'success',
   });
 

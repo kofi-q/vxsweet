@@ -1,7 +1,7 @@
 import test from '@playwright/test';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { getMockFileUsbDriveHandler } from '@vx/libs/usb-drive/src';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as election from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
 import { logInAsElectionManager, forceReset } from './helpers';
 
 test.beforeEach(async ({ page }) => {
@@ -13,15 +13,12 @@ test('configure + scan', async ({ page }) => {
   await page
     .getByText(/Insert an election manager card to configure VxCentralScan/)
     .waitFor();
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition = election.toElectionDefinition();
 
   void logInAsElectionManager(page, electionDefinition.election);
 
   usbHandler.insert(
-    await mockElectionPackageFileTree(
-      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionPackage()
-    )
+    await mockElectionPackageFileTree(election.toElectionPackage())
   );
   await page.getByText('No ballots have been scanned').waitFor();
   usbHandler.remove();

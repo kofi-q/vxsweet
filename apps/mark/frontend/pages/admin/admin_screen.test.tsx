@@ -1,7 +1,5 @@
-import {
-  asElectionDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
@@ -108,7 +106,7 @@ test('precinct change disabled if polls closed', () => {
 test('precinct selection disabled if single precinct election', async () => {
   renderScreen({
     electionDefinition:
-      electionTwoPartyPrimaryFixtures.singlePrecinctElectionDefinition,
+      electionTwoPartyPrimaryFixtures.asSinglePrecinctElectionDefinition(),
     appPrecinct: singlePrecinctSelectionFor('precinct-1'),
   });
 

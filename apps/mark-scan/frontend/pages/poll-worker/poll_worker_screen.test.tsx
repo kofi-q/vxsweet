@@ -19,16 +19,14 @@ jest.mock(
   })
 );
 
-import {
-  asElectionDefinition,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   type ElectionDefinition,
   formatElectionHashes,
   InsertedSmartCardAuth,
 } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import {
   BooleanEnvironmentVariableName,
@@ -68,6 +66,7 @@ import { InsertedInvalidNewSheetScreen } from '../preprinted-ballots/inserted_in
 import { InsertedPreprintedBallotScreen } from '../preprinted-ballots/inserted_preprinted_ballot_screen';
 import { BallotReadyForReviewScreen } from '../ready-for-review/ballot_ready_for_review_screen';
 import { BALLOT_REINSERTION_SCREENS } from '../ballot-reinsertion/ballot_reinsertion_flow';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
 
 const { election } = electionGeneralDefinition;
 

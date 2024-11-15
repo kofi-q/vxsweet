@@ -18,10 +18,10 @@ jest.mock('@vx/libs/printing/src', () => {
   };
 });
 
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionGridLayoutNewHampshire from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -106,8 +106,8 @@ async function expectIdenticalSnapshotsAcrossExportMethods({
 
 // test split into two parts because it is long running
 test('general election tally report PDF - Part 1', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
 
   const { api, auth, mockPrinterHandler } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -152,7 +152,9 @@ test('general election tally report PDF - Part 1', async () => {
 });
 
 test('general election tally report PDF - Part 2', async () => {
-  const { electionDefinition, castVoteRecordExport } =
+  const electionDefinition =
+    electionGridLayoutNewHampshire.toElectionDefinition();
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
   const { election } = electionDefinition;
 
@@ -259,8 +261,9 @@ test('general election tally report PDF - Part 2', async () => {
 });
 
 test('tally report PDF - primary', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, mockPrinterHandler } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -310,7 +313,7 @@ test('tally report PDF - primary', async () => {
 });
 
 test('tally report warning', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
   const { api, auth } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -355,7 +358,7 @@ test('tally report warning', async () => {
 });
 
 test('tally report logging', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
   const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);

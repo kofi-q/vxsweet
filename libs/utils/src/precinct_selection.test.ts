@@ -1,4 +1,4 @@
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   ALL_PRECINCTS_NAME,
   ALL_PRECINCTS_SELECTION,

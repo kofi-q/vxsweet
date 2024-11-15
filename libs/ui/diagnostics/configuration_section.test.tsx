@@ -1,7 +1,5 @@
-import {
-  electionGeneralFixtures,
-  electionPrimaryPrecinctSplitsFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneralFixtures from '@vx/libs/fixtures/src/data/electionGeneral';
+import * as electionPrimaryPrecinctSplitsFixtures from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits';
 import { formatElectionHashes } from '@vx/libs/types/elections';
 import { getGroupedBallotStyles } from '@vx/libs/utils/src';
 import { render, screen } from '../test/react_testing_library';
@@ -16,7 +14,8 @@ test('no election', async () => {
 });
 
 test('election, no precinct expected', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
@@ -46,7 +45,8 @@ test('election, no precinct expected', () => {
 });
 
 test('single language election, no precinct expected', () => {
-  const { electionDefinition } = electionGeneralFixtures;
+  const electionDefinition =
+    electionGeneralFixtures.electionJson.toElectionDefinition();
 
   render(
     <ConfigurationSection
@@ -69,7 +69,8 @@ test('single language election, no precinct expected', () => {
 });
 
 test('election, precinct expected but not selected', async () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
@@ -89,7 +90,8 @@ test('election, precinct expected but not selected', async () => {
 });
 
 test('election, all precincts selected', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
@@ -123,7 +125,8 @@ test('election, all precincts selected', () => {
 });
 
 test('election, single precinct selected', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
@@ -149,7 +152,8 @@ test('election, single precinct selected', () => {
 });
 
 test('election, mark threshold provided', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
@@ -173,7 +177,8 @@ test('election, mark threshold provided', () => {
 });
 
 test('election, mark threshold properly truncated', () => {
-  const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+  const electionDefinition =
+    electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
   render(
     <ConfigurationSection
       electionDefinition={electionDefinition}
