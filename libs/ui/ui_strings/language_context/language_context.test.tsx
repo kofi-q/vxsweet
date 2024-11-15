@@ -16,18 +16,13 @@ import {
   DEFAULT_LANGUAGE_CODE,
 } from './language_context';
 
-const {
-  getLanguageContext,
-  mockApiClient,
-  mockReactQueryUiStringsApi,
-  queryClient,
-  render,
-} = newTestContext();
+function setUp() {
+  const testContext = newTestContext();
+  const { mockApiClient } = testContext;
 
-beforeEach(() => {
   jest.resetAllMocks();
 
-  mockApiClient.getAvailableLanguages.mockResolvedValueOnce([
+  mockApiClient.getAvailableLanguages.mockResolvedValue([
     LanguageCode.ENGLISH,
     LanguageCode.CHINESE_TRADITIONAL,
   ]);
@@ -35,9 +30,13 @@ beforeEach(() => {
   mockApiClient.getUiStrings.mockImplementation(({ languageCode }) =>
     Promise.resolve(TEST_UI_STRING_TRANSLATIONS[languageCode] || null)
   );
-});
+
+  return testContext;
+}
 
 test('availableLanguages', async () => {
+  const { getLanguageContext, render } = setUp();
+
   render(<div>foo</div>);
 
   await waitFor(() => expect(getLanguageContext()).toBeDefined());
@@ -48,6 +47,8 @@ test('availableLanguages', async () => {
 });
 
 test('setLanguage', async () => {
+  const { getLanguageContext, render } = setUp();
+
   render(<div>foo</div>);
 
   await waitFor(() => expect(getLanguageContext()).toBeDefined());
@@ -80,6 +81,14 @@ test('setLanguage', async () => {
 });
 
 test('resets language cache when backend data changes', async () => {
+  const {
+    getLanguageContext,
+    mockApiClient,
+    mockReactQueryUiStringsApi,
+    queryClient,
+    render,
+  } = setUp();
+
   mockApiClient.getUiStrings.mockImplementation(({ languageCode }) =>
     Promise.resolve(TEST_UI_STRING_TRANSLATIONS[languageCode] || null)
   );
@@ -117,6 +126,8 @@ test('resets language cache when backend data changes', async () => {
 });
 
 test('BackendLanguageContextProvider', async () => {
+  setUp();
+
   genericRender(
     <BackendLanguageContextProvider
       currentLanguageCode={DEFAULT_LANGUAGE_CODE}
