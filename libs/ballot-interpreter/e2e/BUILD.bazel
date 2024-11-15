@@ -4,6 +4,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 ts_tests(
     name = "tests",
     size = "enormous",
+    timeout = "moderate",
     data = ["//libs/ballot-interpreter/test:fixtures_js"],
     shard_count = 4,
     deps = [
