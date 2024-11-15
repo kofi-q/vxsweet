@@ -161,6 +161,7 @@ test('scanner disconnected while accepting', async () => {
     simulateScan(api, mockScanner, await ballotImages.completeHmpb());
 
     const interpretation: SheetInterpretation = { type: 'ValidSheet' };
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
     await waitForStatus(api, {
       state: 'accepting',
       interpretation,

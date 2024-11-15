@@ -505,6 +505,7 @@ async function mockLoadAndPrint(
     ballotStyleId: '12' as BallotStyleId,
     votes: {},
   });
+  clock.increment(delays.DELAY_PAPER_HANDLER_STATUS_POLLING_INTERVAL_MS);
   await waitForStatus('presenting_ballot');
 }
 
