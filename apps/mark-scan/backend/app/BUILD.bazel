@@ -38,8 +38,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    shard_count = 5,
+    size = "enormous",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",

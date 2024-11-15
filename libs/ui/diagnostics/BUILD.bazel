@@ -34,8 +34,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    shard_count = 2,
+    size = "enormous",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",

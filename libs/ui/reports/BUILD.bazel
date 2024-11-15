@@ -31,7 +31,6 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "large",
-    shard_count = 2,
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@types/jest",

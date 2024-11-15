@@ -29,9 +29,8 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "enormous",
-    timeout = "short",
     env = {"VX_MACHINE_TYPE": "scan"},
-    shard_count = 6,
+    shard_count = 2,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/testing-library__jest-dom",

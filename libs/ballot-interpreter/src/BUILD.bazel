@@ -41,10 +41,10 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "enormous",
-    timeout = "short",
+    timeout = "moderate",
     data = ["//libs/ballot-interpreter/test:fixtures_js"],
     jest_environment = "node",  # (Defaults to jsdom for any package that imports React.)
-    shard_count = 18,
+    shard_count = 4,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
