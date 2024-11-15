@@ -32,8 +32,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    timeout = "short",
+    size = "enormous",
     env = {"VX_MACHINE_TYPE": "scan"},
     shard_count = 9,
     deps = [

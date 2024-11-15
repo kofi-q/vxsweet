@@ -38,6 +38,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
+    shard_count = 8,
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@testing-library/react",

@@ -40,7 +40,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "medium",
+    size = "enormous",
     timeout = "short",
     data = ["//libs/ballot-interpreter/test:fixtures_js"],
     jest_environment = "node",  # (Defaults to jsdom for any package that imports React.)

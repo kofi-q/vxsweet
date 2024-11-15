@@ -9,10 +9,10 @@ def ts_tests(
         env = {},
         jest_environment = None,
         shard_count = 1,
-        size = "small",
+        size = "medium",
         skip = False,
         tags = [],
-        timeout = None,
+        timeout = "short",
         visibility = None):
     """Declares build and test targets for Typescript test files in a package.
 

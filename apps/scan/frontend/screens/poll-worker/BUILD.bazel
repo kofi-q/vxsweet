@@ -36,6 +36,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",

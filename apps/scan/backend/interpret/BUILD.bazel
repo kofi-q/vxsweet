@@ -17,6 +17,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "enormous",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

@@ -44,6 +44,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    shard_count = 5,
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/jest",

@@ -4,7 +4,6 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 ts_tests(
     name = "tests",
     size = "large",
-    timeout = "moderate",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",

@@ -43,5 +43,6 @@ def jest_test(
             allow_empty = True,
         ),
         timeout = timeout,
-        tags = ["jest", "js", "ts"],
+        tags = tags + ["jest", "js", "ts"],
+        visibility = visibility,
     )

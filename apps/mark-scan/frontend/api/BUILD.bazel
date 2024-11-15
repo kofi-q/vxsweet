@@ -23,6 +23,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",

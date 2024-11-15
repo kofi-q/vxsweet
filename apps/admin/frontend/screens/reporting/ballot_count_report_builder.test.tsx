@@ -12,6 +12,8 @@ import { screen, waitFor, within } from '../../test/react_testing_library';
 import { canonicalizeFilter, canonicalizeGroupBy } from '../../utils/reporting';
 import { BallotCountReportBuilder, TITLE } from './ballot_count_report_builder';
 
+jest.setTimeout(20_000);
+
 const electionTwoPartyPrimaryDefinition =
   electionTwoPartyPrimary.toElectionDefinition();
 

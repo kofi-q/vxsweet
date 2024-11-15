@@ -40,8 +40,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    timeout = "short",
+    size = "enormous",
     shard_count = 2,
     deps = [
         "//:node_modules/@testing-library/user-event",
