@@ -30,6 +30,7 @@ ts_tests(
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/pages/auth",
         "//apps/mark-scan/frontend/test",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/utils/src",
     ],
 )

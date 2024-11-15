@@ -11,7 +11,7 @@ import set from 'lodash.set';
 import path from 'node:path';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { err } from '@vx/libs/basics/result';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
 import { CVR } from '@vx/libs/types/cdf';
 import {

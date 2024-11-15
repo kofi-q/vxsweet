@@ -1,14 +1,12 @@
 import userEvent from '@testing-library/user-event';
-import {
-  asElectionDefinition,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { render, screen, waitFor } from '../test/react_testing_library';
 
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
 
 let apiMock: ApiMock;
 
@@ -24,7 +22,7 @@ afterEach(() => {
 
 it('Prompts to change from test mode to live mode on election day', async () => {
   const electionDefinition = asElectionDefinition({
-    ...electionGeneralDefinition.election,
+    ...electionGeneral,
     date: DateWithoutTime.today(),
   });
 

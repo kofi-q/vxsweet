@@ -6,8 +6,9 @@ import {
 } from '../../test/helpers/mock_api_client';
 import { render } from '../../test/test_utils';
 import { InsertCardScreen } from './insert_card_screen';
-import { electionDefinition } from '../../test/helpers/election';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ApiProvider } from '../../api/api_provider';
+const electionDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

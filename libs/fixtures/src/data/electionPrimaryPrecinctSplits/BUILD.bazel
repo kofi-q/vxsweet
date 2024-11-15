@@ -1,0 +1,17 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "electionPrimaryPrecinctSplits",
+    data = ["//libs/fixtures/data/electionPrimaryPrecinctSplits:data"],
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//libs/basics/time",
+        "//libs/fixtures/src/util",
+        "//libs/types/elections",
+    ],
+)
+
+lint_test(name = "lint")

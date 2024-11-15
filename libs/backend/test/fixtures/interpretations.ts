@@ -16,7 +16,9 @@ import {
   type InterpretedHmpbPage,
   type PageInterpretation,
 } from '@vx/libs/types/scanning';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;
 const { election, ballotHash } = electionDefinition;

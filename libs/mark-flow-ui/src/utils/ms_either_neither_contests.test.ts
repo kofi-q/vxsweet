@@ -1,9 +1,7 @@
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
-import {
-  electionGeneral,
-  electionWithMsEitherNeither,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionWithMsEitherNeither } from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import {
   getContestDistrictName,
   mergeMsEitherNeitherContests,

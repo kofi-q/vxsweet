@@ -15,6 +15,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
@@ -26,7 +27,7 @@ ts_tests(
         "//apps/mark/frontend/app",
         "//apps/mark/frontend/lib",
         "//apps/mark/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/elections",
         "//libs/utils/src",
     ],

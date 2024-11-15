@@ -8,10 +8,8 @@ import {
   SCANNER_RESULTS_FOLDER,
   generateElectionBasedSubfolderName,
 } from '@vx/libs/utils/src';
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
@@ -34,7 +32,7 @@ test.beforeEach(async ({ page }) => {
 test('viewing and exporting reports', async ({ page }) => {
   const usbHandler = getMockFileUsbDriveHandler();
   const printerHandler = getMockFilePrinterHandler();
-  const electionDefinition = electionTwoPartyPrimaryDefinition;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { election, ballotHash, electionData } = electionDefinition;
   const electionPackage = await zipFile({
     [ElectionPackageFileName.ELECTION]: electionData,

@@ -4,7 +4,7 @@ import {
   getContestDistrictName,
 } from '@vx/libs/types/elections';
 
-import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';
@@ -32,7 +32,7 @@ afterEach(() => {
   apiMock.mockApiClient.assertComplete();
 });
 
-const electionDefinition = electionWithMsEitherNeitherDefinition;
+const electionDefinition = electionWithMsEitherNeither.toElectionDefinition();
 const { election } = electionDefinition;
 const eitherNeitherContestId = '750000015';
 const pickOneContestId = '750000016';

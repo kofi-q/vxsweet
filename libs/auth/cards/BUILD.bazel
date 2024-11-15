@@ -40,7 +40,7 @@ ts_tests(
         "//libs/auth/test",
         "//libs/basics/assert",
         "//libs/basics/time",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/test-utils/src",
         "//libs/types/basic",
         "//libs/types/elections",

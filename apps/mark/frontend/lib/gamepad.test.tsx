@@ -1,6 +1,6 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { Button } from 'react-gamepad';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import {
   act,
@@ -10,6 +10,8 @@ import {
   waitFor,
 } from '../test/react_testing_library';
 import { App } from '../app/app';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { advanceTimersAndPromises } from '../test/helpers/timers';
 

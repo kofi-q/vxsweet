@@ -1,4 +1,4 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type CastVoteRecordFileRecord } from '../../../backend/types/types';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
@@ -29,7 +29,7 @@ afterEach(() => {
   apiMock.assertComplete();
 });
 
-const electionDefinition = electionGeneralDefinition;
+const electionDefinition = electionGeneral.toElectionDefinition();
 const { election } = electionDefinition;
 
 const mockCvrFiles: CastVoteRecordFileRecord[] = [

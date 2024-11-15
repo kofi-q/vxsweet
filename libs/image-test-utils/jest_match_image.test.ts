@@ -1,4 +1,4 @@
-import { sampleBallotImages } from '@vx/libs/fixtures/src';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
 import { createImageData } from 'canvas';
 import { basename } from 'node:path';
 import { crop } from '@vx/libs/image-utils/src';

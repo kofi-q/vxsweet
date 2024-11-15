@@ -1,4 +1,4 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
@@ -8,6 +8,7 @@ import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { render, screen, within } from '../test/react_testing_library';
 import { ElectionInfoBar, VerticalElectionInfoBar } from './election_info_bar';
 import { makeTheme } from '../themes/make_theme';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 const mockElectionPackageHash = '1111111111111111111111111';
 

@@ -17,6 +17,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "enormous",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
@@ -29,7 +30,8 @@ ts_tests(
         "//libs/basics/iterators",
         "//libs/basics/types",
         "//libs/bmd-ballot-fixtures/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/image-utils/src",
         "//libs/types/elections",
         "//libs/types/scanning",

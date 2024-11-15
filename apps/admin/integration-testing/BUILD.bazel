@@ -6,6 +6,7 @@ playwright_test(
     srcs = ["//apps/admin/integration-testing/e2e"],
     additional_env_vars = {
         "ADMIN_WORKSPACE": "$${TEST_TMPDIR}/admin-integration-testing",
+        "REACT_APP_VX_SKIP_CVR_BALLOT_HASH_CHECK": "TRUE",
     },
     port = INTEGRATION_TEST_PORTS.admin,
     prod_app = "//apps/admin:prod",

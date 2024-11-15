@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import userEvent from '@testing-library/user-event';
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { FilterEditor } from './filter_editor';
@@ -7,6 +7,9 @@ import {
   type ApiMock,
   createApiMock,
 } from '../../test/helpers/mock_api_client';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 let apiMock: ApiMock;
 

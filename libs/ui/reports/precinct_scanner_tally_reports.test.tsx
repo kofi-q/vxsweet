@@ -1,7 +1,5 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   ALL_PRECINCTS_SELECTION,
   singlePrecinctSelectionFor,
@@ -11,7 +9,7 @@ import { render, screen, within } from '../test/react_testing_library';
 import { PrecinctScannerTallyReports } from './precinct_scanner_tally_reports';
 
 const MAMMAL_RESULTS = buildElectionResultsFixture({
-  election: electionTwoPartyPrimaryDefinition.election,
+  election: electionTwoPartyPrimary.election,
   cardCounts: {
     bmd: 200,
     hmpb: [],
@@ -38,7 +36,7 @@ const MAMMAL_RESULTS = buildElectionResultsFixture({
   includeGenericWriteIn: true,
 });
 const FISH_RESULTS = buildElectionResultsFixture({
-  election: electionTwoPartyPrimaryDefinition.election,
+  election: electionTwoPartyPrimary.election,
   cardCounts: {
     bmd: 100,
     hmpb: [],
@@ -70,7 +68,7 @@ test('polls open, primary, single precinct, live mode', () => {
 
   render(
     <PrecinctScannerTallyReports
-      electionDefinition={electionTwoPartyPrimaryDefinition}
+      electionDefinition={electionTwoPartyPrimary.toElectionDefinition()}
       electionPackageHash="test-election-package-hash"
       precinctSelection={precinctSelection}
       electionResultsByParty={[
@@ -145,7 +143,7 @@ test('primary reports interpolate missing results with empty results', () => {
 
   render(
     <PrecinctScannerTallyReports
-      electionDefinition={electionTwoPartyPrimaryDefinition}
+      electionDefinition={electionTwoPartyPrimary.toElectionDefinition()}
       electionPackageHash="test-election-package-hash"
       precinctSelection={precinctSelection}
       electionResultsByParty={[
@@ -188,7 +186,8 @@ test('primary reports interpolate missing results with empty results', () => {
 });
 
 test('polls closed, general, All Precincts, test mode', () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
 
   const results = buildElectionResultsFixture({

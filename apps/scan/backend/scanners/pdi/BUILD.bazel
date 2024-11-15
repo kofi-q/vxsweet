@@ -32,8 +32,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    timeout = "short",
+    size = "enormous",
     env = {"VX_MACHINE_TYPE": "scan"},
     shard_count = 9,
     deps = [
@@ -52,7 +51,8 @@ ts_tests(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/bmd-ballot-fixtures/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/logging/src",
         "//libs/pdi-scanner/src/ts",
         "//libs/test-utils/src",

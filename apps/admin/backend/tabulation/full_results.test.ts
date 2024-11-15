@@ -7,10 +7,8 @@ jest.mock('@vx/libs/utils/src', () => {
 });
 
 import { Buffer } from 'node:buffer';
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -58,7 +56,8 @@ afterEach(() => {
 
 test('tabulateCastVoteRecords', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -270,7 +269,8 @@ test('tabulateCastVoteRecords', async () => {
 
 test('tabulateElectionResults - includes empty groups', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -300,8 +300,10 @@ test('tabulateElectionResults - write-in handling', async () => {
   const store = Store.memoryStore();
   const logger = mockBaseLogger();
 
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
   const electionId = store.addElection({
     electionData: electionDefinition.electionData,
@@ -708,8 +710,10 @@ test('tabulateElectionResults - write-in handling', async () => {
 test('tabulateElectionResults - group and filter by voting method', async () => {
   const store = Store.memoryStore();
   const logger = mockBaseLogger();
-  const { electionDefinition, castVoteRecordExport } =
+  const { castVoteRecordExport } =
     electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { election, electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,

@@ -2,7 +2,7 @@ import { createMemoryHistory, MemoryHistory } from 'history';
 import React from 'react';
 import { Router } from 'react-router-dom';
 
-import { electionWithMsEitherNeitherDefinition } from '@vx/libs/fixtures/src';
+import * as electionWithEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import {
   type ElectionDefinition,
   constructElectionKey,
@@ -32,10 +32,6 @@ import {
   systemCallApi,
 } from '../api/api';
 import { type ApiMock } from './helpers/mock_api_client';
-
-export const eitherNeitherElectionDefinition =
-  electionWithMsEitherNeitherDefinition;
-
 export interface RenderInAppContextParams {
   route?: string;
   history?: MemoryHistory;
@@ -83,7 +79,7 @@ export function renderInAppContext(
   {
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-    electionDefinition = eitherNeitherElectionDefinition,
+    electionDefinition = electionWithEitherNeither.toElectionDefinition(),
     configuredAt = new Date().toISOString(),
     isOfficialResults = false,
     usbDriveStatus = mockUsbDriveStatus('no_drive'),

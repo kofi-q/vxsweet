@@ -20,7 +20,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 import { Buffer } from 'node:buffer';
 import get from 'lodash.get';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   AdjudicationReason,
   HmpbBallotPaperSize,
@@ -92,7 +92,7 @@ beforeEach(() => {
 
 test('Election package export', async () => {
   const baseElectionDefinition =
-    electionFamousNames2021Fixtures.electionDefinition;
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   // Without mocking all the translations some ballot styles for non-English languages don't fit on a letter
   // page for this election. To get around this we use legal paper size for the purposes of this test.
   const electionWithLegalPaper: Election = {

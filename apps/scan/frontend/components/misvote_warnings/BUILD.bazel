@@ -33,7 +33,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/scan/frontend/components/misvote_warnings",
         "//apps/scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/ui-theme",

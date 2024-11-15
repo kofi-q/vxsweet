@@ -42,7 +42,7 @@ ts_tests(
         "//apps/central-scan/frontend/test",
         "//libs/api/src",
         "//libs/basics/types",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

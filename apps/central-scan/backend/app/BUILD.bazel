@@ -40,8 +40,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "medium",
-    timeout = "short",
+    size = "large",
     data = ["//apps/central-scan/backend/test:fixtures"],
     shard_count = 4,
     deps = [
@@ -70,7 +69,10 @@ ts_tests(
         "//libs/backend/election_package",
         "//libs/backend/system_call",
         "//libs/basics/types",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/image-test-utils",
         "//libs/logging/src",
         "//libs/test-utils/src",

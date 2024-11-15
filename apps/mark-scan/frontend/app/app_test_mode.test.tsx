@@ -1,14 +1,13 @@
 import userEvent from '@testing-library/user-event';
-import {
-  asElectionDefinition,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { DateWithoutTime } from '@vx/libs/basics/time';
 import { render, screen, waitFor } from '../test/react_testing_library';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from './app';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
 
 let apiMock: ApiMock;
 

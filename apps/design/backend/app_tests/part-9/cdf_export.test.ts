@@ -18,7 +18,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 });
 
 import { Buffer } from 'node:buffer';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -57,7 +57,7 @@ test('CDF exports', async () => {
   );
 
   const baseElectionDefinition =
-    electionFamousNames2021Fixtures.electionDefinition;
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { api, workspace } = newTestApi();
 
   const electionId = api

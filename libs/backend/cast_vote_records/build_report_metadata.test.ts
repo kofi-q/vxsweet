@@ -1,7 +1,7 @@
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';
 import { iter } from '@vx/libs/basics/iterators';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   type CandidateContest,
   type YesNoContest,
@@ -11,6 +11,9 @@ import {
   buildBatchManifest,
   buildCastVoteRecordReportMetadata,
 } from './build_report_metadata';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 const { election } = electionTwoPartyPrimaryDefinition;
 

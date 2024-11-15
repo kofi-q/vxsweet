@@ -6,7 +6,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
@@ -30,7 +30,7 @@ import { type Api } from './app';
 import { type PaperHandlerStateMachine } from '../custom-paper-handler/state_machine';
 
 const jurisdiction = TEST_JURISDICTION;
-const { election } = electionFamousNames2021Fixtures;
+const election = electionFamousNames2021Fixtures.electionJson.election;
 const electionKey = constructElectionKey(election);
 const systemSettings: SystemSettings = {
   ...DEFAULT_SYSTEM_SETTINGS,

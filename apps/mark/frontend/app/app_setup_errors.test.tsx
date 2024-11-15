@@ -1,12 +1,14 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   act,
   render,
   screen,
   waitForElementToBeRemoved,
 } from '../test/react_testing_library';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { App } from './app';
 

@@ -1,5 +1,5 @@
 import { join } from 'node:path';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { assert } from '@vx/libs/basics/assert';
 import {
   buildTestEnvironment,
@@ -8,6 +8,9 @@ import {
 } from '../test/app';
 import { takeBackup } from '../test/backups';
 import { getPerformanceTimer } from '../test/timer';
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 // depending on the test conditions, you may need to increase this
 jest.setTimeout(3000000);

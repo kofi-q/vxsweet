@@ -1,9 +1,11 @@
 import { Route } from 'react-router-dom';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneralLib from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { createMemoryHistory } from 'history';
 import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
 import { screen } from '../../test/react_testing_library';
 import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
+
+const electionGeneralDefinition = electionGeneralLib.toElectionDefinition();
 
 import { render as renderWithBallotContext } from '../../test/test_utils';
 

@@ -1,8 +1,6 @@
 import { Buffer } from 'node:buffer';
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
@@ -20,7 +18,7 @@ import { generateBallotCountReportCsv } from './csv_ballot_count_report';
 
 test('uses appropriate headers', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { election, electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -164,7 +162,7 @@ test('uses appropriate headers', async () => {
 
 test('includes rows for empty but known result groups', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -190,7 +188,7 @@ test('includes rows for empty but known result groups', async () => {
 
 test('does not include results groups when they are excluded by the filter', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -236,7 +234,7 @@ test('does not include results groups when they are excluded by the filter', asy
 
 test('excludes Manual column if no manual data exists', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -262,7 +260,7 @@ test('excludes Manual column if no manual data exists', async () => {
 test('can include sheet counts', async () => {
   const store = Store.memoryStore();
   const electionDefinition =
-    electionFamousNames2021Fixtures.multiSheetElectionDefinition;
+    electionFamousNames2021Fixtures.asMultiSheetElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,

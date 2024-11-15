@@ -31,7 +31,7 @@ interface ElectionStringConfigTranslatable {
   translatable: true;
   customTranslationMethod?: (input: {
     election: Election;
-    languageCode: LanguageCode;
+    languageCode: string;
     stringInEnglish: string;
   }) => string;
 }

@@ -1,3 +1,4 @@
+import * as electionPrimaryPrecinctSplitsFixtures from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits';
 import { type ElectionRecord } from '../../backend/store/store';
 import {
   createBlankElection,
@@ -5,10 +6,7 @@ import {
 } from '../../backend/app/app';
 import { generateBallotStyles } from '../../backend/ballot-styles/ballot_styles';
 import { type BallotLanguageConfigs } from '../../backend/types/types';
-import {
-  electionPrimaryPrecinctSplitsFixtures,
-  electionGeneral,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type Election,

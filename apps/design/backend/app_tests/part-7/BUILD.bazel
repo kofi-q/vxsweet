@@ -3,7 +3,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
     name = "tests",
-    size = "large",
+    size = "enormous",
     timeout = "short",
     deps = [
         "//:node_modules/@types/jest",
@@ -13,7 +13,7 @@ ts_tests(
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/test",
         "//apps/design/backend/test-decks",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/hmpb/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

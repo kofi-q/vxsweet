@@ -10,7 +10,6 @@ ts_library(
         "//libs/basics/assert",
         "//libs/printing/src",
         "//libs/types/elections",
-        "//libs/types/languages",
         "//libs/ui/ballots",
         "//libs/ui/ui_strings/language_context",
         "//libs/utils/src",

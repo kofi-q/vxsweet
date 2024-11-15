@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { sleep } from '@vx/libs/basics/async';
 import { createMemoryHistory } from 'history';
 import { act, screen } from '../test/react_testing_library';
@@ -9,7 +9,8 @@ import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 
 jest.setTimeout(20000);
 
-const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+const electionDefinition =
+  electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
 let apiMock: ApiMock;
 

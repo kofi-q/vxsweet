@@ -1,4 +1,5 @@
 import * as fixtures from '.';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 
 test('has various election definitions', () => {
   expect(
@@ -10,9 +11,9 @@ test('has various election definitions', () => {
 });
 
 test('asElectionDefinition', () => {
-  expect(fixtures.asElectionDefinition(fixtures.electionGeneral)).toStrictEqual(
+  expect(fixtures.asElectionDefinition(electionGeneral)).toStrictEqual(
     expect.objectContaining({
-      election: fixtures.electionGeneral,
+      election: electionGeneral,
       electionData: expect.any(String),
       ballotHash: expect.any(String),
     })

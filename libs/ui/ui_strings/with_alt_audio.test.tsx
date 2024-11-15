@@ -16,7 +16,7 @@ import { useCurrentLanguage } from './use_current_language';
 
 const { ENGLISH, SPANISH } = LanguageCode;
 
-function getMockAudioOnlyContentPrefix(languageCode: LanguageCode) {
+function getMockAudioOnlyContentPrefix(languageCode: string) {
   return `[${languageCode}]`;
 }
 

@@ -1,24 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`has various election definitions 1`] = `
-[
-  "electionFamousNames2021Fixtures",
-  "electionGeneral",
-  "electionGeneralDefinition",
-  "electionGeneralFixtures",
-  "electionGridLayoutNewHampshireHudsonFixtures",
-  "electionGridLayoutNewHampshireTestBallotFixtures",
-  "electionMultiPartyPrimaryFixtures",
-  "electionPrimaryPrecinctSplitsFixtures",
-  "electionTwoPartyPrimary",
-  "electionTwoPartyPrimaryDefinition",
-  "electionTwoPartyPrimaryFixtures",
-  "electionWithMsEitherNeither",
-  "electionWithMsEitherNeitherDefinition",
-  "electionWithMsEitherNeitherFixtures",
-  "multiPartyPrimaryElection",
-  "multiPartyPrimaryElectionDefinition",
-  "sampleBallotImages",
-  "systemSettings",
-]
-`;
+exports[`has various election definitions 1`] = `[]`;

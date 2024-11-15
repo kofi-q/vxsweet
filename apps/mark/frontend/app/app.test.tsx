@@ -12,7 +12,7 @@ import { mockOf, suppressingConsoleOutput } from '@vx/libs/test-utils/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 
 import fetchMock from 'fetch-mock';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   useBallotStyleManager,
   useSessionSettingsManager,
@@ -25,6 +25,8 @@ import { render } from '../test/test_utils';
 import { App } from './app';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { buildApp } from '../test/helpers/build_app';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

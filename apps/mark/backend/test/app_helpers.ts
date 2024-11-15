@@ -8,7 +8,7 @@ import { LogSource } from '@vx/libs/logging/src/base_types';
 import tmp from 'tmp';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
 import { Server } from 'node:http';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -87,12 +87,13 @@ export async function configureApp(
   systemSettings: SystemSettings = DEFAULT_SYSTEM_SETTINGS
 ): Promise<void> {
   const jurisdiction = TEST_JURISDICTION;
-  const { electionJson, election } = electionFamousNames2021Fixtures;
+  // eslint-disable-next-line vx/gts-direct-module-export-access-only
+  const { electionJson } = electionFamousNames2021Fixtures;
   mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
     Promise.resolve({
       status: 'logged_in',
       user: mockElectionManagerUser({
-        electionKey: constructElectionKey(election),
+        electionKey: constructElectionKey(electionJson.election),
         jurisdiction,
       }),
       sessionExpiresAt: mockSessionExpiresAt(),

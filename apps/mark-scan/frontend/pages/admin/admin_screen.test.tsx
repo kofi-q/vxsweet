@@ -1,11 +1,11 @@
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
 import { formatElectionHashes } from '@vx/libs/types/elections';
 import { act, screen, within } from '../../test/react_testing_library';
 import { render } from '../../test/test_utils';
-import { electionDefinition, election } from '../../test/helpers/election';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 
 import { advanceTimers } from '../../test/helpers/timers';
 
@@ -16,6 +16,8 @@ import {
   createApiMock,
   provideApi,
 } from '../../test/helpers/mock_api_client';
+const election = electionGeneral.election;
+const electionDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 
@@ -105,7 +107,7 @@ test('precinct change disabled if polls closed', async () => {
 test('precinct selection disabled if single precinct election', async () => {
   renderScreen({
     electionDefinition:
-      electionTwoPartyPrimaryFixtures.singlePrecinctElectionDefinition,
+      electionTwoPartyPrimaryFixtures.asSinglePrecinctElectionDefinition(),
   });
 
   await screen.findByRole('heading', { name: 'Election Manager Settings' });

@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition as electionDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { type ContestId } from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import {
@@ -14,6 +14,7 @@ import {
 } from '../test/render_in_app_context';
 import { WriteInsAdjudicationScreen } from './write_ins_adjudication_screen';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
 const mockPartialWriteInIdentifier = {
   contestId: 'contest-id',

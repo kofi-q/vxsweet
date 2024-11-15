@@ -1,6 +1,5 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { Route } from 'react-router-dom';
-
 import { type BallotStyleGroupId, getContests } from '@vx/libs/types/elections';
 import { Tabulation } from '@vx/libs/types/tabulation';
 import userEvent from '@testing-library/user-event';
@@ -29,7 +28,7 @@ afterEach(() => {
   apiMock.assertComplete();
 });
 
-const electionDefinition = electionTwoPartyPrimaryDefinition;
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 const { election } = electionDefinition;
 
 const ballotStyleGroupId = '1M' as BallotStyleGroupId;

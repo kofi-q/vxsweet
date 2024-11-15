@@ -14,7 +14,7 @@ import {
 } from '@vx/libs/types/ui_strings';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
 import styled from 'styled-components';
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { assert } from '@vx/libs/basics/assert';
 import { find } from '@vx/libs/basics/collections';

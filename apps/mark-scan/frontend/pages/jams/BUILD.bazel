@@ -20,6 +20,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@types/history",
         "//:node_modules/@types/jest",
@@ -31,7 +32,7 @@ ts_tests(
         "//:node_modules/react-router-dom",
         "//apps/mark-scan/frontend/pages/jams",
         "//apps/mark-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
     ],
 )

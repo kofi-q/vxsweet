@@ -34,13 +34,17 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
+    shard_count = 2,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
         "//libs/backend/diagnostics",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionPrimaryPrecinctSplits",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/languages",

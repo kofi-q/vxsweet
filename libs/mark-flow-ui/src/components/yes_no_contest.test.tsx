@@ -15,10 +15,8 @@ jest.mock(
   })
 );
 
-import {
-  electionGeneral,
-  electionTwoPartyPrimary,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { type YesNoContest as YesNoContestInterface } from '@vx/libs/types/elections';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';

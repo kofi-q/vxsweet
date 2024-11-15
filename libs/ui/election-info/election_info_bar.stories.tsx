@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 
 import {
   ElectionInfoBar,
@@ -9,7 +9,7 @@ import {
 
 const initialArgs: ElectionInfoBarProps = {
   codeVersion: '00986543',
-  electionDefinition: electionTwoPartyPrimaryDefinition,
+  electionDefinition: electionTwoPartyPrimary.toElectionDefinition(),
   electionPackageHash: '11111111111111111111',
   machineId: '00123456',
   mode: 'admin',

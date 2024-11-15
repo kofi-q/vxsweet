@@ -1,7 +1,5 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { buildSimpleMockTallyReportResults } from '@vx/libs/utils/src/tabulation';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { formatBallotHash } from '@vx/libs/types/elections';
@@ -9,8 +7,13 @@ import { render, screen, within } from '../test/react_testing_library';
 import { AdminTallyReportByParty } from './admin_tally_report_by_party';
 import { mockScannerBatches } from '../test/fixtures';
 
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+
 test('general election, full election report', () => {
-  const { election, electionDefinition } = electionFamousNames2021Fixtures;
+  const election = electionFamousNames2021Fixtures.electionJson.election;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   render(
     <AdminTallyReportByParty
       electionDefinition={electionDefinition}
@@ -46,7 +49,9 @@ test('general election, full election report', () => {
 });
 
 test('general election, precinct report with manual results', () => {
-  const { election, electionDefinition } = electionFamousNames2021Fixtures;
+  const election = electionFamousNames2021Fixtures.electionJson.election;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   render(
     <AdminTallyReportByParty
       electionDefinition={electionDefinition}

@@ -27,7 +27,7 @@ ts_tests(
         "//:node_modules/@types/react",
         "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/ui/election-info",
@@ -45,7 +45,8 @@ ts_stories(
         "//:node_modules/@storybook/react",
         "//:node_modules/@types/react",
         "//:node_modules/react",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/ui/election-info",
     ],
 )

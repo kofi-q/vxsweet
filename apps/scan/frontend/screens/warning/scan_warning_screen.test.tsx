@@ -21,7 +21,7 @@ jest.mock(
 );
 
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   AdjudicationReason,
   type CandidateContest,
@@ -38,6 +38,7 @@ import {
 } from '../../test/helpers/mock_api_client';
 import { WarningDetails as MisvoteWarningDetails } from '../../components/misvote_warnings/warning_details';
 import { MisvoteWarnings } from '../../components/misvote_warnings/misvote_warnings';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

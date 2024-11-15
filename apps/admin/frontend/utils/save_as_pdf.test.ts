@@ -1,4 +1,4 @@
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { generateDefaultReportFilename } from './save_as_pdf';
 
 test('file path name is generated properly', () => {

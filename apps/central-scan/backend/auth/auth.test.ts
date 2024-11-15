@@ -10,7 +10,7 @@ import {
   TEST_JURISDICTION,
 } from '@vx/libs/types/elections';
 
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { createMockUsbDrive } from '@vx/libs/usb-drive/src';
 import { makeMockScanner } from '../test/util/mocks';
 import { type Api, buildApi } from '../app/app';
@@ -40,7 +40,8 @@ beforeEach(() => {
 });
 
 const jurisdiction = TEST_JURISDICTION;
-const { electionDefinition } = electionGridLayoutNewHampshireTestBallotFixtures;
+const electionDefinition =
+  electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 const { electionData, election } = electionDefinition;
 const electionKey = constructElectionKey(election);
 const systemSettings: SystemSettings = {

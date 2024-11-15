@@ -25,7 +25,7 @@ ts_library(
         "//libs/ballot-interpreter/src",
         "//libs/basics/assert",
         "//libs/custom-paper-handler/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/grout/src",
         "//libs/image-utils/src",
         "//libs/logging/src",

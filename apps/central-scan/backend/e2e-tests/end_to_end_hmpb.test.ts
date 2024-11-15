@@ -12,7 +12,7 @@ import {
   readCastVoteRecordExport,
 } from '@vx/libs/backend/cast_vote_records';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { BallotType, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/elections';
 import { CVR } from '@vx/libs/types/cdf';
 import {
@@ -37,8 +37,8 @@ test('going through the whole process works - HMPB', async () => {
 
   await withApp(
     async ({ apiClient, auth, scanner, importer, mockUsbDrive }) => {
-      const { electionDefinition } =
-        electionGridLayoutNewHampshireTestBallotFixtures;
+      const electionDefinition =
+        electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 
       mockElectionManagerAuth(auth, electionDefinition);
       mockUsbDrive.insertUsbDrive(

@@ -1,4 +1,4 @@
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   type BatchInfo,
   DEFAULT_SYSTEM_SETTINGS,
@@ -12,7 +12,8 @@ import { type ScannedSheetInfo } from '../scanners/fujitsu/fujitsu_scanner';
 const jurisdiction = TEST_JURISDICTION;
 
 test('scanBatch with multiple sheets', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const ballot = await generateBmdBallotFixture();
   const scannedBallot: ScannedSheetInfo = {
     frontPath: ballot[0],
@@ -54,7 +55,8 @@ test('scanBatch with multiple sheets', async () => {
 });
 
 test('continueScanning after invalid ballot', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const ballot = await generateBmdBallotFixture();
   await withApp(async ({ auth, apiClient, scanner, importer, workspace }) => {
     mockElectionManagerAuth(auth, electionDefinition);

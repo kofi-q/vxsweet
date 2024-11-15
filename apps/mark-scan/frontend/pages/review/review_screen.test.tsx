@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { createMemoryHistory } from 'history';
 import { MARK_FLOW_UI_VOTER_SCREEN_TEST_ID } from '@vx/libs/mark-flow-ui/src';
 import { screen } from '../../test/react_testing_library';
@@ -8,8 +8,6 @@ import { mockMachineConfig } from '../../test/helpers/mock_machine_config';
 import { render as renderWithBallotContext } from '../../test/test_utils';
 
 import { ReviewScreen } from './review_screen';
-
-const electionGeneral = electionGeneralDefinition.election;
 
 it('Renders ReviewScreen', () => {
   renderWithBallotContext(<Route path="/review" component={ReviewScreen} />, {

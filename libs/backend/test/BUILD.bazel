@@ -11,7 +11,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/collections",
         "//libs/db/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/fs/src",
         "//libs/types/elections",
         "//libs/types/scanning",

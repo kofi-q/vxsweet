@@ -27,7 +27,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/mark-scan/frontend/pages/empty-ballot-box",
         "//apps/mark-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
     ],
 )
 

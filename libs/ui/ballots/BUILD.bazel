@@ -41,6 +41,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@testing-library/react",
         "//:node_modules/@testing-library/user-event",
@@ -54,7 +55,9 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/collections",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
+        "//libs/fixtures/src/data/electionWithMsEitherNeither",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/languages",
@@ -80,7 +83,7 @@ ts_stories(
         "//:node_modules/styled-components",
         "//libs/basics/assert",
         "//libs/basics/collections",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/election-parsing",
         "//libs/types/elections",
         "//libs/types/languages",

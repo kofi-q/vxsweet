@@ -48,7 +48,7 @@ ts_tests(
         "//apps/central-scan/backend/test",
         "//libs/backend/cast_vote_records",
         "//libs/basics/async",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/logging/src",
         "//libs/types/elections",
         "//libs/types/scanning",

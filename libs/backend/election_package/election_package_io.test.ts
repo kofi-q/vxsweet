@@ -17,7 +17,6 @@ import {
   ElectionPackageFileName,
   type ElectionPackageMetadata,
   type SystemSettings,
-  safeParseSystemSettings,
   constructElectionKey,
   InsertedSmartCardAuth,
 } from '@vx/libs/types/elections';
@@ -39,13 +38,10 @@ import {
   mockOf,
   zipFile,
 } from '@vx/libs/test-utils/src';
-import {
-  electionTwoPartyPrimaryFixtures,
-  electionFamousNames2021Fixtures,
-  systemSettings,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
 import { typedAs } from '@vx/libs/basics/types';
@@ -72,6 +68,7 @@ import {
   readSignedElectionPackageFromUsb,
 } from './election_package_io';
 
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 const mockFeatureFlagger = getFeatureFlagMock();
 
 beforeEach(() => {
@@ -104,8 +101,8 @@ function saveTmpFile(contents: Buffer) {
 }
 
 test('readElectionPackageFromFile reads an election package without system settings from a file', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const pkg = await zipFile({
     [ElectionPackageFileName.ELECTION]: electionDefinition.electionData,
   });
@@ -126,8 +123,8 @@ test('readElectionPackageFromFile reads an election package without system setti
 });
 
 test('readElectionPackageFromFile reads an election package with system settings from a file', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const pkg = await zipFile({
     [ElectionPackageFileName.ELECTION]: electionDefinition.electionData,
     [ElectionPackageFileName.SYSTEM_SETTINGS]: JSON.stringify(
@@ -231,8 +228,8 @@ test('readElectionPackageFromFile loads election strings from CDF', async () => 
 });
 
 test('readElectionPackageFromFile loads UI string audio IDs', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
 
   const audioIds: UiStringAudioIdsPackage = {
@@ -277,8 +274,8 @@ test('readElectionPackageFromFile loads UI string audio IDs', async () => {
 });
 
 test('readElectionPackageFromFile loads UI string audio clips', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
 
   const audioClips: UiStringAudioClips = [
@@ -309,8 +306,8 @@ test('readElectionPackageFromFile loads UI string audio clips', async () => {
 });
 
 test('readElectionPackageFromFile reads metadata', async () => {
-  const { electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const metadata: ElectionPackageMetadata = { version: 'latest' };
 
@@ -375,7 +372,7 @@ test('readElectionPackageFromFile errors when given an invalid election', async 
 test('readElectionPackageFromFile errors when given invalid system settings', async () => {
   const pkg = await zipFile({
     [ElectionPackageFileName.ELECTION]:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .electionData,
     [ElectionPackageFileName.SYSTEM_SETTINGS]: 'not a valid system settings',
   });
@@ -392,7 +389,7 @@ test('readElectionPackageFromFile errors when given invalid system settings', as
 test('readElectionPackageFromFile errors when given invalid metadata', async () => {
   const pkg = await zipFile({
     [ElectionPackageFileName.ELECTION]:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition()
         .electionData,
     [ElectionPackageFileName.METADATA]: 'asdf',
   });
@@ -407,7 +404,9 @@ test('readElectionPackageFromFile errors when given invalid metadata', async () 
 });
 
 test('readElectionPackageFromUsb can read an election package from usb', async () => {
-  const { electionDefinition, election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const electionKey = constructElectionKey(election);
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
@@ -419,9 +418,7 @@ test('readElectionPackageFromUsb can read an election package from usb', async (
   mockUsbDrive.insertUsbDrive(
     await mockElectionPackageFileTree({
       electionDefinition,
-      systemSettings: safeParseSystemSettings(
-        systemSettings.asText()
-      ).unsafeUnwrap(),
+      systemSettings: DEFAULT_SYSTEM_SETTINGS,
     })
   );
 
@@ -433,9 +430,7 @@ test('readElectionPackageFromUsb can read an election package from usb', async (
   assert(electionPackageResult.isOk());
   const { electionPackage } = electionPackageResult.ok();
   expect(electionPackage.electionDefinition).toEqual(electionDefinition);
-  expect(electionPackage.systemSettings).toEqual(
-    safeParseSystemSettings(systemSettings.asText()).unsafeUnwrap()
-  );
+  expect(electionPackage.systemSettings).toEqual(DEFAULT_SYSTEM_SETTINGS);
   expect(authenticateArtifactUsingSignatureFile).toHaveBeenCalledTimes(1);
   expect(authenticateArtifactUsingSignatureFile).toHaveBeenNthCalledWith(1, {
     type: 'election_package',
@@ -446,7 +441,9 @@ test('readElectionPackageFromUsb can read an election package from usb', async (
 });
 
 test("readElectionPackageFromUsb uses default system settings when system settings don't exist in the zip file", async () => {
-  const { electionDefinition, election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
     user: mockElectionManagerUser({
@@ -474,7 +471,8 @@ test("readElectionPackageFromUsb uses default system settings when system settin
 });
 
 test('errors if logged-out auth is passed', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_out',
     reason: 'no_card',
@@ -499,9 +497,9 @@ test('errors if logged-out auth is passed', async () => {
 });
 
 test('errors if election key on provided auth is different than election package election key', async () => {
-  const { election } = electionTwoPartyPrimaryFixtures;
-  const { electionDefinition: otherElectionDefinition } =
-    electionFamousNames2021Fixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
+  const otherElectionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
     user: mockElectionManagerUser({
@@ -527,7 +525,7 @@ test('errors if election key on provided auth is different than election package
 });
 
 test('errors if there is no election package on usb drive', async () => {
-  const { election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
     user: mockElectionManagerUser({
@@ -551,7 +549,9 @@ test('errors if there is no election package on usb drive', async () => {
 });
 
 test('errors if a user is authenticated but is not an election manager', async () => {
-  const { electionDefinition, election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
     user: mockPollWorkerUser({ electionKey: constructElectionKey(election) }),
@@ -575,7 +575,8 @@ test('errors if a user is authenticated but is not an election manager', async (
 });
 
 test('configures using the most recently created election package for an election', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, ballotHash } = electionDefinition;
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
@@ -631,11 +632,12 @@ test('configures using the most recently created election package for an electio
 });
 
 test('configures using the most recently created election package across elections', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, ballotHash } = electionDefinition;
 
-  const { electionDefinition: otherElectionDefinition } =
-    electionFamousNames2021Fixtures;
+  const otherElectionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { election: otherElection, ballotHash: otherBallotHash } =
     otherElectionDefinition;
 
@@ -696,7 +698,8 @@ test('configures using the most recently created election package across electio
 });
 
 test('ignores hidden `.`-prefixed files, even if they are newer', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, ballotHash } = electionDefinition;
   const authStatus: InsertedSmartCardAuth.AuthStatus = {
     status: 'logged_in',
@@ -716,9 +719,7 @@ test('ignores hidden `.`-prefixed files, even if they are newer', async () => {
       [ELECTION_PACKAGE_FOLDER]: {
         'older-election-package.zip': await createElectionPackageZipArchive({
           electionDefinition,
-          systemSettings: safeParseSystemSettings(
-            systemSettings.asText()
-          ).unsafeUnwrap(),
+          systemSettings: DEFAULT_SYSTEM_SETTINGS,
         }),
         '._newer-hidden-file-election-package.zip':
           Buffer.from('not a zip file'),
@@ -743,9 +744,7 @@ test('ignores hidden `.`-prefixed files, even if they are newer', async () => {
   assert(electionPackageResult.isOk());
   const { electionPackage } = electionPackageResult.ok();
   expect(electionPackage.electionDefinition).toEqual(electionDefinition);
-  expect(electionPackage.systemSettings).toEqual(
-    safeParseSystemSettings(systemSettings.asText()).unsafeUnwrap()
-  );
+  expect(electionPackage.systemSettings).toEqual(DEFAULT_SYSTEM_SETTINGS);
 });
 
 test('readElectionPackageFromUsb returns error result if election package authentication errs', async () => {

@@ -15,13 +15,14 @@ import {
 import { LanguageCode } from '@vx/libs/types/languages';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { generateBallotStyleId } from '@vx/libs/utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { useBallotStyleManager } from './use_ballot_style_manager';
 import { act, renderHook } from '../../test/react_testing_library';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
-let setMockLanguage: (languageCode: LanguageCode) => void;
+let setMockLanguage: (languageCode: string) => void;
 function useCurrentLanguageMock() {
-  const [language, setLanguage] = React.useState(LanguageCode.ENGLISH);
+  const [language, setLanguage] = React.useState<string>(LanguageCode.ENGLISH);
 
   setMockLanguage = (l) => setLanguage(l);
 

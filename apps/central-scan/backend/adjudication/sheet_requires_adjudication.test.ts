@@ -1,5 +1,5 @@
 import { throwIllegalValue } from '@vx/libs/basics/assert';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as election from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot/election.json';
 import {
   AdjudicationReason,
   BallotIdSchema,
@@ -20,9 +20,7 @@ import { sheetRequiresAdjudication } from './sheet_requires_adjudication';
 const metadata: BallotMetadata = {
   ballotStyleId: '12' as BallotStyleId,
   ballotType: BallotType.Precinct,
-  ballotHash:
-    electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition
-      .ballotHash,
+  ballotHash: election.toElectionDefinition().ballotHash,
   isTestMode: false,
   precinctId: '23',
 };

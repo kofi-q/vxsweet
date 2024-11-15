@@ -1,7 +1,5 @@
-import {
-  electionFamousNames2021Fixtures,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import {
   type BallotStyleId,
   BallotType,
@@ -15,8 +13,10 @@ import { generateCvrs } from './generate_cvrs';
 import { IMAGE_URI_REGEX } from './utils';
 
 test('produces well-formed cast vote records with all contests in HMPB (gridlayouts) case', async () => {
-  const { election, electionDefinition } =
-    electionGridLayoutNewHampshireTestBallotFixtures;
+  const election =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.election;
+  const electionDefinition =
+    electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
   for await (const cvr of generateCvrs({
     electionDefinition,
     scannerIds: ['scanner-1'],
@@ -42,7 +42,9 @@ test('produces well-formed cast vote records with all contests in HMPB (gridlayo
 });
 
 test('produces well-formed cast vote records with all contests in BMD (non-gridlayouts) case', async () => {
-  const { election, electionDefinition } = electionFamousNames2021Fixtures;
+  const election = electionFamousNames2021Fixtures.electionJson.election;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   for await (const cvr of generateCvrs({
     electionDefinition,
     scannerIds: ['scanner-1'],
@@ -74,7 +76,8 @@ test('has absentee and precinct ballot types', async () => {
   for await (const cvr of generateCvrs({
     testMode: false,
     scannerIds: ['scanner-1'],
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   })) {
     const ballotType = getCastVoteRecordBallotType(cvr);
     assert(ballotType);
@@ -110,7 +113,8 @@ test('uses all the scanners given', async () => {
   for await (const cvr of generateCvrs({
     testMode: false,
     scannerIds: ['scanner-1', 'scanner-2'],
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   })) {
     expect(cvr.CreatingDeviceId).toBeDefined();
     assert(typeof cvr.CreatingDeviceId !== 'undefined');
@@ -129,7 +133,8 @@ test('adds write-ins for contests that allow them', async () => {
   for await (const cvr of generateCvrs({
     testMode: false,
     scannerIds: ['scanner-1'],
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   })) {
     const cvrContests = cvr.CVRSnapshot[0]?.CVRContest;
     assert(cvrContests);
@@ -163,7 +168,8 @@ test('adds write-ins for contests that have 1 seat', async () => {
   for await (const cvr of generateCvrs({
     scannerIds: ['scanner-1'],
     testMode: false,
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   })) {
     const cvrContests = cvr.CVRSnapshot[0]?.CVRContest;
     assert(cvrContests);
@@ -191,7 +197,7 @@ test('can include ballot image references for write-ins (gridLayouts)', async ()
     testMode: false,
     scannerIds: ['scanner-1'],
     electionDefinition:
-      electionGridLayoutNewHampshireTestBallotFixtures.electionDefinition,
+      electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition(),
   })) {
     let cvrHasWriteIn = false;
     const selectionPositions = cvr.CVRSnapshot[0]!.CVRContest.flatMap(

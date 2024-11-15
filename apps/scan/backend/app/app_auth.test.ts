@@ -6,7 +6,7 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 });
 
 import { DateTime } from 'luxon';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,

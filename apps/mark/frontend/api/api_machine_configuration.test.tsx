@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
 import { ok } from '@vx/libs/basics/result';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { renderHook, waitFor } from '../test/react_testing_library';
 import {
   type ApiClient,
@@ -10,6 +10,8 @@ import {
   unconfigureMachine,
 } from './api';
 import { ApiProvider } from './api_provider';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 const queryClient = new QueryClient();
 const mockBackendApi: ApiClient = {

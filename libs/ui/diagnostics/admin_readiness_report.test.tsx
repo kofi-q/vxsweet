@@ -1,11 +1,13 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   type IppMarkerInfo,
   type PrinterConfig,
 } from '@vx/libs/types/printing';
 import { AdminReadinessReport } from './admin_readiness_report';
 import { render, screen } from '../test/react_testing_library';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 export const MOCK_PRINTER_CONFIG: PrinterConfig = {
   label: '',

@@ -1,8 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionWithMsEitherNeitherDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import {
   type BallotStyleId,
   type ElectionDefinition,
@@ -16,6 +14,10 @@ import {
   type BallotCountReportProps,
 } from './ballot_count_report';
 import { type LabeledScannerBatch } from './utils';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+const electionWithMsEitherNeitherDefinition =
+  electionWithMsEitherNeither.toElectionDefinition();
 
 const ReportPreview = styled.div`
   section {

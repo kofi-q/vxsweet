@@ -3,6 +3,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/fetch-mock",
@@ -13,7 +14,7 @@ ts_tests(
         "//:node_modules/react",
         "//apps/central-scan/frontend/app",
         "//apps/central-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/ui/test-utils",

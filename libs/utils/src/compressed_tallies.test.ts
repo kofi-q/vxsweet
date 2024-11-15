@@ -1,10 +1,5 @@
 import { type CandidateContest } from '@vx/libs/types/elections';
 import { Tabulation } from '@vx/libs/types/tabulation';
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionGeneralDefinition,
-  electionWithMsEitherNeitherFixtures,
-} from '@vx/libs/fixtures/src';
 import { getZeroCompressedTally } from '@vx/libs/test-utils/src';
 import { find } from '@vx/libs/basics/collections';
 import { assert } from '@vx/libs/basics/assert';
@@ -13,11 +8,13 @@ import {
   buildElectionResultsFixture,
   getEmptyElectionResults,
 } from './tabulation/tabulation';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral';
+import { election as electionWithMsEitherNeither } from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither';
 
 describe('compressTally', () => {
   test('compressTally returns empty tally when no contest tallies provided', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const compressedTally = compressTally(
       electionEitherNeither,
       getEmptyElectionResults(electionEitherNeither)
@@ -30,15 +27,14 @@ describe('compressTally', () => {
     expect(compressedTally[0]).toStrictEqual([0, 0, 0, 0, 0, 0, 0]);
 
     // A yes no contest compressed tally should be all zeros
-    const yesNoContestIdx = electionEitherNeither.contests.findIndex(
+    const yesNoContestIdx = electionWithMsEitherNeither.contests.findIndex(
       (contest) => contest.id === '750000017'
     );
     expect(compressedTally[yesNoContestIdx]).toStrictEqual([0, 0, 0, 0, 0]);
   });
 
   test('compressTally compresses a candidate tally properly', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const presidentContest = find(
       electionEitherNeither.contests,
       (c): c is CandidateContest =>
@@ -76,8 +72,7 @@ describe('compressTally', () => {
   });
 
   test('compressTally compresses a yes no tally properly', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const yesNoContestId = '750000017';
     const yesNoContestIdx = electionEitherNeither.contests.findIndex(
       (contest) => contest.id === yesNoContestId
@@ -117,8 +112,7 @@ const EMPTY_CARD_COUNTS: Tabulation.CardCounts = {
 
 describe('readCompressTally', () => {
   test('reads a empty tally as expected', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const zeroTally = getZeroCompressedTally(electionEitherNeither);
     const tally = readCompressedTally(
       electionEitherNeither,
@@ -145,8 +139,7 @@ describe('readCompressTally', () => {
   });
 
   test('reads a candidate tally with write ins as expected', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const compressedTally = getZeroCompressedTally(electionEitherNeither);
     compressedTally[0] = [5, 4, 20, 0, 2, 4, 5];
     const presidentContest = electionEitherNeither.contests.find(
@@ -186,16 +179,14 @@ describe('readCompressTally', () => {
   });
 
   test('reads a candidate tally without write ins as expected', () => {
-    const compressedTally = getZeroCompressedTally(
-      electionGeneralDefinition.election
-    );
+    const compressedTally = getZeroCompressedTally(electionGeneral);
     compressedTally[0] = [5, 4, 20, 3, 2, 2, 1, 1, 2, 50];
-    const presidentContest = electionGeneralDefinition.election.contests.find(
+    const presidentContest = electionGeneral.contests.find(
       (contest) => contest.id === 'president'
     );
     assert(presidentContest?.type === 'candidate');
     const tally = readCompressedTally(
-      electionGeneralDefinition.election,
+      electionGeneral,
       compressedTally,
       EMPTY_CARD_COUNTS
     );
@@ -242,8 +233,7 @@ describe('readCompressTally', () => {
   });
 
   test('reads a yes no tally as expected', () => {
-    const electionEitherNeither =
-      electionWithMsEitherNeitherFixtures.electionDefinition.election;
+    const electionEitherNeither = electionWithMsEitherNeither;
     const compressedTally = getZeroCompressedTally(electionEitherNeither);
     const yesNoContestIdx = electionEitherNeither.contests.findIndex(
       (contest) => contest.id === '750000017'
@@ -267,7 +257,7 @@ describe('readCompressTally', () => {
 });
 
 test('primary tally can compress and be read back and end with the original tally', () => {
-  const { election } = electionTwoPartyPrimaryDefinition;
+  const election = electionTwoPartyPrimary;
   const expectedTally = buildElectionResultsFixture({
     election,
     cardCounts: EMPTY_CARD_COUNTS,

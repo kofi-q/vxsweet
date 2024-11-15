@@ -2,7 +2,7 @@ import {
   type ManualResultsIdentifier,
   type ImportElectionResultsReportingError,
 } from '../../../backend/types/types';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { deferred } from '@vx/libs/basics/async';
 import { err, ok, type Result } from '@vx/libs/basics/result';
@@ -27,6 +27,9 @@ import {
 import { renderInAppContext } from '../../test/render_in_app_context';
 import { ImportElectionsResultReportingFileModal } from './import_election_results_reporting_file_modal';
 import { fireEvent, screen } from '../../test/react_testing_library';
+const electionGeneralDefinition = {
+  election: electionGeneral,
+} as const;
 
 let apiMock: ApiMock;
 

@@ -1,9 +1,7 @@
 import { ImageData } from 'canvas';
 import { err } from '@vx/libs/basics/result';
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  sampleBallotImages,
-} from '@vx/libs/fixtures/src';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { type SheetOf } from '@vx/libs/types/elections';
 import { findTemplateGridAndBubbles } from './find_template_grid_and_bubbles';
 import { type TimingMarkGrid } from './types';

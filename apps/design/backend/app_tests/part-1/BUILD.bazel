@@ -14,7 +14,7 @@ ts_tests(
         "//apps/design/backend/test",
         "//apps/design/backend/types",
         "//libs/basics/time",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/hmpb/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

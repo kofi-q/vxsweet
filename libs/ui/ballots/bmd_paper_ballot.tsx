@@ -288,7 +288,7 @@ const InlineBlockSpan = styled.span`
 
 function DualLanguageText(props: {
   children: React.ReactNode;
-  primaryLanguage: LanguageCode;
+  primaryLanguage: string;
   englishTextWrapper: React.JSXElementConstructor<{
     children: React.ReactElement;
   }>;
@@ -333,9 +333,7 @@ function ParenthesizedText(props: { children: JSX.Element }) {
   return <React.Fragment> ({children})</React.Fragment>;
 }
 
-function NoSelection(props: {
-  primaryBallotLanguage: LanguageCode;
-}): JSX.Element {
+function NoSelection(props: { primaryBallotLanguage: string }): JSX.Element {
   const { primaryBallotLanguage } = props;
 
   return (
@@ -356,7 +354,7 @@ interface CandidateContestResultProps {
   contest: CandidateContest;
   election: Election;
   layout: Layout;
-  primaryBallotLanguage: LanguageCode;
+  primaryBallotLanguage: string;
   vote?: CandidateVote;
 }
 
@@ -421,7 +419,7 @@ function CandidateContestResult({
 
 interface YesNoContestResultProps {
   contest: YesNoContest;
-  primaryBallotLanguage: LanguageCode;
+  primaryBallotLanguage: string;
   vote: OptionalYesNoVote;
 }
 

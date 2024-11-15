@@ -1,7 +1,5 @@
-import {
-  asElectionDefinition,
-  electionGeneralDefinition,
-} from '@vx/libs/fixtures/src';
+import { asElectionDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   constructElectionKey,
   InsertedSmartCardAuth,
@@ -38,6 +36,7 @@ import {
 } from '../../test/helpers/mock_api_client';
 import { ApiProvider } from '../../api/api_provider';
 
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 const { election } = electionGeneralDefinition;
 
 let apiMock: ApiMock;

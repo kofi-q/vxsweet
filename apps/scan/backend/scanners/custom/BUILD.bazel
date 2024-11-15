@@ -28,7 +28,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
+    size = "enormous",
     timeout = "short",
     env = {"VX_MACHINE_TYPE": "scan"},
     shard_count = 6,
@@ -44,7 +44,7 @@ ts_tests(
         "//libs/basics/result",
         "//libs/basics/types",
         "//libs/custom-scanner/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

@@ -10,7 +10,7 @@ ts_library(
         "//libs/auth/integration-test-utils",
         "//libs/auth/mock-cards",
         "//libs/backend/election_package",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot",
         "//libs/grout/src",
         "//libs/types/elections",
         "//libs/usb-drive/src",

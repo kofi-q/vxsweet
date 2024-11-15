@@ -1,9 +1,9 @@
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { Tabulation } from '@vx/libs/types/tabulation';
 import { getCastVoteRecordAdjudicationFlags } from './cast_vote_records';
 import { type CastVoteRecordAdjudicationFlags } from '../../types/types';
 
-const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+const electionDefinition = electionTwoPartyPrimary.toElectionDefinition();
 
 const noStatusVotes: Tabulation.Votes = {
   'best-animal-mammal': ['fox'],

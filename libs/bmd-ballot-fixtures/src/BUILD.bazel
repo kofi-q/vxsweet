@@ -14,7 +14,8 @@ ts_library(
         "//:node_modules/tmp",
         "//libs/basics/assert",
         "//libs/basics/iterators",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/image-utils/src",
         "//libs/printing/src",
         "//libs/types/elections",
@@ -24,6 +25,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     jest_environment = "node",
     deps = [
         "//:node_modules/@types/jest",
@@ -32,7 +34,7 @@ ts_tests(
         "//:node_modules/react",
         "//libs/basics/iterators",
         "//libs/bmd-ballot-fixtures/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/fs/src",
         "//libs/image-test-utils",
         "//libs/image-utils/src",

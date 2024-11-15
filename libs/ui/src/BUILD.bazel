@@ -63,7 +63,7 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/test-utils/src",
         "//libs/ui/auth-screens",
         "//libs/ui/primitives",

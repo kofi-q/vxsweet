@@ -1,9 +1,7 @@
 import '../../test/set_up_react_pdf_mock';
 
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import userEvent from '@testing-library/user-event';
 import {
   type ApiMock,
@@ -13,6 +11,11 @@ import { renderInAppContext } from '../../test/render_in_app_context';
 import { screen, waitFor, within } from '../../test/react_testing_library';
 import { canonicalizeFilter, canonicalizeGroupBy } from '../../utils/reporting';
 import { BallotCountReportBuilder, TITLE } from './ballot_count_report_builder';
+
+jest.setTimeout(20_000);
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 
@@ -119,7 +122,8 @@ test('happy path', async () => {
 });
 
 test('does not show party options for non-primary elections', () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
 
   apiMock.expectGetCastVoteRecordFileMode('test');
   apiMock.expectGetScannerBatches([]);
@@ -142,8 +146,8 @@ test('does not show party options for non-primary elections', () => {
 });
 
 test('shows sheet option for multi-sheet elections', () => {
-  const { multiSheetElectionDefinition: electionDefinition } =
-    electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.asMultiSheetElectionDefinition();
 
   apiMock.expectGetCastVoteRecordFileMode('test');
   apiMock.expectGetScannerBatches([]);

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { buildManualResultsFixture } from '@vx/libs/utils/src/tabulation';
 import { assert } from '@vx/libs/basics/assert';
 import {
@@ -54,7 +54,8 @@ describe('tabulateManualResults & tabulateManualBallotCounts', () => {
     const store = Store.memoryStore();
     const electionId = store.addElection({
       electionData:
-        electionTwoPartyPrimaryFixtures.electionDefinition.electionData,
+        electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition()
+          .electionData,
       systemSettingsData: JSON.stringify(DEFAULT_SYSTEM_SETTINGS),
       electionPackageFileContents: Buffer.of(),
       electionPackageHash: 'test-election-package-hash',
@@ -79,7 +80,8 @@ describe('tabulateManualResults & tabulateManualBallotCounts', () => {
   });
   test('grouping and filtering', () => {
     const store = Store.memoryStore();
-    const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+    const electionDefinition =
+      electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
     const { election, electionData } = electionDefinition;
     const electionId = store.addElection({
       electionData,
@@ -320,7 +322,7 @@ describe('tabulateManualResults & tabulateManualBallotCounts', () => {
 });
 
 test('extractManualWriteInSummary', () => {
-  const { election } = electionTwoPartyPrimaryFixtures;
+  const election = electionTwoPartyPrimaryFixtures.electionJson.election;
   expect(
     extractWriteInSummary({
       election,

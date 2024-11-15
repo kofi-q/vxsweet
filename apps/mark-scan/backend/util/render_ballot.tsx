@@ -8,7 +8,6 @@ import {
   type ElectionDefinition,
   type VotesDict,
 } from '@vx/libs/types/elections';
-import { LanguageCode } from '@vx/libs/types/languages';
 import { Buffer } from 'node:buffer';
 
 import { assertDefined } from '@vx/libs/basics/assert';
@@ -23,7 +22,7 @@ export interface RenderBallotProps {
   precinctId: string;
   ballotStyleId: BallotStyleId;
   votes: VotesDict;
-  languageCode: LanguageCode;
+  languageCode: string;
 }
 
 function getPaperDimensions(): PaperDimensions {

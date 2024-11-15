@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer';
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   type BallotStyleGroupId,
   DEFAULT_SYSTEM_SETTINGS,
@@ -17,7 +17,8 @@ import { Store } from '../store/store';
 
 test('uses appropriate headers', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -234,7 +235,8 @@ test('uses appropriate headers', async () => {
 
 test('includes rows for empty but known result groups', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -259,7 +261,8 @@ test('includes rows for empty but known result groups', async () => {
 
 test('included contests are specific to each results group', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -298,7 +301,8 @@ test('included contests are specific to each results group', async () => {
 
 test('included contests are restricted by the overall export filter', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -327,7 +331,8 @@ test('included contests are restricted by the overall export filter', async () =
 
 test('does not include results groups when they are excluded by the filter', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -371,7 +376,8 @@ test('does not include results groups when they are excluded by the filter', asy
 
 test('incorporates manual data', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,
@@ -472,7 +478,8 @@ test('incorporates manual data', async () => {
 
 test('separate rows for manual data when grouping by an incompatible dimension', async () => {
   const store = Store.memoryStore();
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election, electionData } = electionDefinition;
   const electionId = store.addElection({
     electionData,

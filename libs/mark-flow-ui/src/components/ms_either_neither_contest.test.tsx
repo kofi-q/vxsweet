@@ -1,4 +1,4 @@
-import { electionWithMsEitherNeither } from '@vx/libs/fixtures/src';
+import { election as electionWithMsEitherNeither } from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither';
 import { find } from '@vx/libs/basics/collections';
 import userEvent from '@testing-library/user-event';
 import { advanceTimers } from '@vx/libs/test-utils/src';

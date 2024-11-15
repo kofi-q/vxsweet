@@ -1,5 +1,5 @@
 import { iter } from '@vx/libs/basics/iterators';
-import { electionGridLayoutNewHampshireHudsonFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireHudsonFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireHudson';
 import { type Size } from '@vx/libs/types/geometry';
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 import { readFileSync } from 'node:fs';

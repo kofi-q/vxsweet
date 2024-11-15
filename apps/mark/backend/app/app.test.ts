@@ -9,14 +9,8 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
 jest.mock('../devices/accessible_controller');
 
 import { assert } from '@vx/libs/basics/assert';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneral,
-  electionGeneralDefinition,
-  electionGeneralFixtures,
-  electionTwoPartyPrimaryFixtures,
-  systemSettings,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,
@@ -26,14 +20,11 @@ import {
 } from '@vx/libs/test-utils/src';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import {
-  safeParseSystemSettings,
   DEFAULT_SYSTEM_SETTINGS,
-  SystemSettingsSchema,
   type ElectionDefinition,
   constructElectionKey,
 } from '@vx/libs/types/elections';
 import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';
-import { safeParseJson } from '@vx/libs/types/basic';
 import { type PrinterStatus } from '@vx/libs/types/printing';
 import { LanguageCode } from '@vx/libs/types/languages';
 import { convertVxfElectionToCdfBallotDefinition } from '@vx/libs/types/cdf';
@@ -44,8 +35,8 @@ import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
   singlePrecinctSelectionFor,
-  getMockMultiLanguageElectionDefinition,
   generateMockVotes,
+  getMockMultiLanguageElectionDefinition,
 } from '@vx/libs/utils/src';
 
 import { Buffer } from 'node:buffer';
@@ -63,6 +54,9 @@ import { type Api } from './app';
 import { type ElectionState } from '../types/types';
 import { isAccessibleControllerAttached } from '../devices/accessible_controller';
 import '@vx/libs/image-test-utils/register';
+import { uiStringsPackage } from '@vx/libs/fixtures/ui_strings/ui_strings_package';
+
+const electionDefinition = electionGeneral.toElectionDefinition();
 
 const mockFeatureFlagger = getFeatureFlagMock();
 
@@ -73,24 +67,24 @@ let mockUsbDrive: MockUsbDrive;
 let mockPrinterHandler: MemoryPrinterHandler;
 let server: Server;
 
-function mockElectionManagerAuth(electionDefinition: ElectionDefinition) {
+function mockElectionManagerAuth(definition: ElectionDefinition) {
   mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
     Promise.resolve({
       status: 'logged_in',
       user: mockElectionManagerUser({
-        electionKey: constructElectionKey(electionDefinition.election),
+        electionKey: constructElectionKey(definition.election),
       }),
       sessionExpiresAt: mockSessionExpiresAt(),
     })
   );
 }
 
-function mockPollWorkerAuth(electionDefinition: ElectionDefinition) {
+function mockPollWorkerAuth(definition: ElectionDefinition) {
   mockOf(mockAuth.getAuthStatus).mockImplementation(() =>
     Promise.resolve({
       status: 'logged_in',
       user: mockPollWorkerUser({
-        electionKey: constructElectionKey(electionDefinition.election),
+        electionKey: constructElectionKey(definition.election),
       }),
       sessionExpiresAt: mockSessionExpiresAt(),
     })
@@ -146,17 +140,12 @@ test('uses default machine config if not set', async () => {
 });
 
 test('configureElectionPackageFromUsb reads to and writes from store', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
-
   mockElectionManagerAuth(electionDefinition);
 
   mockUsbDrive.insertUsbDrive(
     await mockElectionPackageFileTree({
       electionDefinition,
-      systemSettings: safeParseJson(
-        systemSettings.asText(),
-        SystemSettingsSchema
-      ).unsafeUnwrap(),
+      systemSettings: DEFAULT_SYSTEM_SETTINGS,
     })
   );
 
@@ -170,9 +159,7 @@ test('configureElectionPackageFromUsb reads to and writes from store', async () 
   );
 
   const readResult = await apiClient.getSystemSettings();
-  expect(readResult).toEqual(
-    safeParseSystemSettings(systemSettings.asText()).unsafeUnwrap()
-  );
+  expect(readResult).toEqual(DEFAULT_SYSTEM_SETTINGS);
   const electionRecord = await apiClient.getElectionRecord();
   expect(electionRecord).toEqual({
     electionDefinition,
@@ -181,17 +168,12 @@ test('configureElectionPackageFromUsb reads to and writes from store', async () 
 });
 
 test('unconfigureMachine deletes system settings and election definition', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
-
   mockElectionManagerAuth(electionDefinition);
 
   mockUsbDrive.insertUsbDrive(
     await mockElectionPackageFileTree({
       electionDefinition,
-      systemSettings: safeParseJson(
-        systemSettings.asText(),
-        SystemSettingsSchema
-      ).unsafeUnwrap(),
+      systemSettings: DEFAULT_SYSTEM_SETTINGS,
     })
   );
 
@@ -212,7 +194,6 @@ test('unconfigureMachine deletes system settings and election definition', async
 });
 
 test('configureElectionPackageFromUsb throws when no USB drive mounted', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
   mockElectionManagerAuth(electionDefinition);
 
   mockUsbDrive.usbDrive.status
@@ -254,7 +235,9 @@ test('configureElectionPackageFromUsb returns an error if election package parsi
 });
 
 test('configure with CDF election', async () => {
-  const cdfElection = convertVxfElectionToCdfBallotDefinition(electionGeneral);
+  const cdfElection = convertVxfElectionToCdfBallotDefinition(
+    electionGeneral.election
+  );
   const cdfElectionDefinition = safeParseElectionDefinition(
     JSON.stringify(cdfElection)
   ).unsafeUnwrap();
@@ -263,10 +246,7 @@ test('configure with CDF election', async () => {
   mockUsbDrive.insertUsbDrive(
     await mockElectionPackageFileTree({
       electionDefinition: cdfElectionDefinition,
-      systemSettings: safeParseJson(
-        systemSettings.asText(),
-        SystemSettingsSchema
-      ).unsafeUnwrap(),
+      systemSettings: DEFAULT_SYSTEM_SETTINGS,
     })
   );
 
@@ -274,7 +254,7 @@ test('configure with CDF election', async () => {
 
   const electionRecord = await apiClient.getElectionRecord();
   expect(electionRecord?.electionDefinition.election.id).toEqual(
-    electionGeneral.id
+    electionGeneral.election.id
   );
 
   // Ensure loading auth election key from db works
@@ -294,7 +274,7 @@ test('usbDrive', async () => {
   usbDrive.eject.expectCallWith().resolves();
   await apiClient.ejectUsbDrive();
 
-  mockElectionManagerAuth(electionFamousNames2021Fixtures.electionDefinition);
+  mockElectionManagerAuth(electionDefinition);
   usbDrive.eject.expectCallWith().resolves();
   await apiClient.ejectUsbDrive();
 });
@@ -305,18 +285,15 @@ async function expectElectionState(expected: Partial<ElectionState>) {
 
 async function configureMachine(
   usbDrive: MockUsbDrive,
-  electionDefinition: ElectionDefinition,
+  definition: ElectionDefinition,
   uiStrings?: UiStringsPackage
 ) {
-  mockElectionManagerAuth(electionDefinition);
+  mockElectionManagerAuth(definition);
 
   usbDrive.insertUsbDrive(
     await mockElectionPackageFileTree({
-      electionDefinition,
-      systemSettings: safeParseJson(
-        systemSettings.asText(),
-        SystemSettingsSchema
-      ).unsafeUnwrap(),
+      electionDefinition: definition,
+      systemSettings: DEFAULT_SYSTEM_SETTINGS,
       uiStrings,
     })
   );
@@ -331,7 +308,7 @@ async function configureMachine(
 test('single precinct election automatically has precinct set on configure', async () => {
   await configureMachine(
     mockUsbDrive,
-    electionTwoPartyPrimaryFixtures.singlePrecinctElectionDefinition
+    electionTwoPartyPrimaryFixtures.asSinglePrecinctElectionDefinition()
   );
 
   await expectElectionState({
@@ -342,13 +319,10 @@ test('single precinct election automatically has precinct set on configure', asy
 test('polls state', async () => {
   await expectElectionState({ pollsState: 'polls_closed_initial' });
 
-  await configureMachine(
-    mockUsbDrive,
-    electionFamousNames2021Fixtures.electionDefinition
-  );
+  await configureMachine(mockUsbDrive, electionDefinition);
   await expectElectionState({ pollsState: 'polls_closed_initial' });
 
-  mockPollWorkerAuth(electionFamousNames2021Fixtures.electionDefinition);
+  mockPollWorkerAuth(electionDefinition);
   await apiClient.setPollsState({ pollsState: 'polls_open' });
   expect(logger.log).toHaveBeenLastCalledWith(
     LogEventId.PollsOpened,
@@ -389,10 +363,7 @@ test('polls state', async () => {
 test('test mode', async () => {
   await expectElectionState({ isTestMode: true });
 
-  await configureMachine(
-    mockUsbDrive,
-    electionFamousNames2021Fixtures.electionDefinition
-  );
+  await configureMachine(mockUsbDrive, electionDefinition);
 
   await apiClient.setTestMode({ isTestMode: false });
   await expectElectionState({ isTestMode: false });
@@ -406,10 +377,7 @@ test('setting precinct', async () => {
     (await apiClient.getElectionState()).precinctSelection
   ).toBeUndefined();
 
-  await configureMachine(
-    mockUsbDrive,
-    electionFamousNames2021Fixtures.electionDefinition
-  );
+  await configureMachine(mockUsbDrive, electionDefinition);
   expect(
     (await apiClient.getElectionState()).precinctSelection
   ).toBeUndefined();
@@ -432,7 +400,7 @@ test('setting precinct', async () => {
     LogEventId.PrecinctConfigurationChanged,
     {
       disposition: 'success',
-      message: 'User set the precinct for the machine to North Lincoln',
+      message: 'User set the precinct for the machine to Center Springfield',
     }
   );
 });
@@ -455,24 +423,24 @@ test('printer status', async () => {
 });
 
 test('printing ballots', async () => {
-  const electionDefinition = getMockMultiLanguageElectionDefinition(
-    electionGeneralDefinition,
+  const multiLanguageElectionDef = getMockMultiLanguageElectionDefinition(
+    electionDefinition,
     [LanguageCode.ENGLISH, LanguageCode.CHINESE_SIMPLIFIED]
   );
   mockPrinterHandler.connectPrinter(HP_LASER_PRINTER_CONFIG);
   await configureMachine(
     mockUsbDrive,
-    electionDefinition,
-    electionGeneralFixtures.uiStrings
+    multiLanguageElectionDef,
+    uiStringsPackage
   );
 
   await expectElectionState({ ballotsPrintedCount: 0 });
 
   // vote a ballot in English
-  const mockVotes = generateMockVotes(electionDefinition.election);
+  const mockVotes = generateMockVotes(multiLanguageElectionDef.election);
   await apiClient.printBallot({
     precinctId: '21',
-    ballotStyleId: electionDefinition.election.ballotStyles.find(
+    ballotStyleId: multiLanguageElectionDef.election.ballotStyles.find(
       (bs) => bs.languages?.includes(LanguageCode.ENGLISH)
     )!.id,
     votes: mockVotes,
@@ -488,7 +456,7 @@ test('printing ballots', async () => {
   // vote a ballot in Chinese
   await apiClient.printBallot({
     precinctId: '21',
-    ballotStyleId: electionDefinition.election.ballotStyles.find(
+    ballotStyleId: multiLanguageElectionDef.election.ballotStyles.find(
       (bs) => bs.languages?.includes(LanguageCode.CHINESE_SIMPLIFIED)
     )!.id,
     votes: mockVotes,

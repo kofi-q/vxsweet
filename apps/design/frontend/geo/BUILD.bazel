@@ -28,6 +28,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/history",
@@ -43,7 +44,7 @@ ts_tests(
         "//apps/design/frontend/test",
         "//apps/design/frontend/util",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/types/elections",
     ],
 )

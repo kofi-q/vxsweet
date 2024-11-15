@@ -1,11 +1,9 @@
 import { assert, assertDefined } from '@vx/libs/basics/assert';
 import { iter } from '@vx/libs/basics/iterators';
 import { Buffer } from 'node:buffer';
-import {
-  electionGeneral,
-  electionFamousNames2021Fixtures,
-  electionPrimaryPrecinctSplitsFixtures,
-} from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionFamousNames } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
+import { election as electionPrimaryPrecinctSplits } from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits/election.json';
 import {
   HmpbBallotPaperSize,
   type BallotStyle,
@@ -38,7 +36,7 @@ export const famousNamesFixtures = (() => {
   const blankBallotPath = join(dir, 'blank-ballot.pdf');
   const markedBallotPath = join(dir, 'marked-ballot.pdf');
 
-  const { election } = electionFamousNames2021Fixtures;
+  const election = electionFamousNames;
   const allBallotProps = election.ballotStyles.flatMap((ballotStyle) =>
     ballotStyle.precincts.map(
       (precinctId): BaseBallotProps => ({
@@ -308,7 +306,7 @@ export const primaryElectionFixtures = (() => {
   const dir = join(fixturesDir, 'primary-election');
   const electionPath = join(dir, 'election.json');
 
-  const { election } = electionPrimaryPrecinctSplitsFixtures;
+  const election = electionPrimaryPrecinctSplits;
   const allBallotProps = election.ballotStyles.flatMap((ballotStyle) =>
     ballotStyle.precincts.map(
       (precinctId): BaseBallotProps => ({

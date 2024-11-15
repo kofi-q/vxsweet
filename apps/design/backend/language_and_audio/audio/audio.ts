@@ -1,5 +1,4 @@
 import { Readable } from 'node:stream';
-import { LanguageCode } from '@vx/libs/types/languages';
 import {
   type UiStringAudioClip,
   type UiStringAudioIdsPackage,
@@ -19,7 +18,7 @@ import {
 
 interface TextToSynthesizeSpeechFor {
   audioId: string;
-  languageCode: LanguageCode;
+  languageCode: string;
   text: string;
 }
 
@@ -52,7 +51,7 @@ export function generateAudioIdsAndClips({
     stringKey,
     stringInLanguage,
   }: {
-    languageCode: LanguageCode;
+    languageCode: string;
     stringKey: string | [string, string];
     stringInLanguage: string;
   }): void {

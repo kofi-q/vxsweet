@@ -1,6 +1,6 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { advanceTimersAndPromises } from '@vx/libs/test-utils/src';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { render, screen } from '../test/react_testing_library';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { App } from '../app/app';
@@ -22,7 +22,8 @@ test('machineConfig is fetched from api client by default', async () => {
   apiMock.expectGetMachineConfig({
     codeVersion: 'mock-code-version',
   });
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetElectionRecord(electionDefinition);
   apiMock.expectGetElectionState({
     precinctSelection: ALL_PRECINCTS_SELECTION,
@@ -30,7 +31,7 @@ test('machineConfig is fetched from api client by default', async () => {
   render(<App apiClient={apiMock.mockApiClient} />);
   await advanceTimersAndPromises();
   apiMock.setAuthStatusPollWorkerLoggedIn(
-    electionFamousNames2021Fixtures.electionDefinition
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition()
   );
   await advanceTimersAndPromises();
   await screen.findByText('mock-code-version');

@@ -10,11 +10,9 @@ import {
   DEFAULT_FAMOUS_NAMES_VOTES,
   renderBmdBallotFixture,
 } from '@vx/libs/bmd-ballot-fixtures/src';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneralDefinition,
-  electionPrimaryPrecinctSplitsFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneralFixtures from '@vx/libs/fixtures/src/data/electionGeneral';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionPrimaryPrecinctSplitsFixtures from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits';
 import { mockOf } from '@vx/libs/test-utils/src';
 import {
   AdjudicationReason,
@@ -51,7 +49,8 @@ beforeEach(() => {
 });
 
 describe('adjudication reporting', () => {
-  const electionDefinition = electionGeneralDefinition;
+  const electionDefinition =
+    electionGeneralFixtures.electionJson.toElectionDefinition();
   const ballotStyleId: BallotStyleId = DEFAULT_ELECTION_GENERAL_BALLOT_STYLE_ID;
   const precinctId: PrecinctId = DEFAULT_ELECTION_GENERAL_PRECINCT_ID;
 
@@ -279,8 +278,8 @@ describe('adjudication reporting', () => {
   });
 
   test('test adjudication for a primary election', async () => {
-    const { electionDefinition: primaryElectionDefinition } =
-      electionPrimaryPrecinctSplitsFixtures;
+    const primaryElectionDefinition =
+      electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition();
     const { election } = primaryElectionDefinition;
     const primaryPrecinctId = 'precinct-c1-w1-1';
     const primaryBallotStyleId = '1-Ma_en' as BallotStyleId;
@@ -308,7 +307,7 @@ describe('adjudication reporting', () => {
 
     const result = await interpretSimplexBmdBallot(bmdSummaryBallotPage, {
       electionDefinition:
-        electionPrimaryPrecinctSplitsFixtures.electionDefinition,
+        electionPrimaryPrecinctSplitsFixtures.electionJson.toElectionDefinition(),
       precinctSelection: ALL_PRECINCTS_SELECTION,
       testMode: true,
       markThresholds: DEFAULT_MARK_THRESHOLDS,
@@ -338,8 +337,8 @@ describe('adjudication reporting', () => {
 });
 
 describe('VX BMD interpretation', () => {
-  const fixtures = electionFamousNames2021Fixtures;
-  const { electionDefinition } = fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const ballotStyleId: BallotStyleId = DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID;
   const precinctId: PrecinctId = DEFAULT_FAMOUS_NAMES_PRECINCT_ID;
 
@@ -352,7 +351,7 @@ describe('VX BMD interpretation', () => {
       await pdfToPageImages(
         await renderBmdBallotFixture({
           electionDefinition:
-            electionFamousNames2021Fixtures.electionDefinition,
+            electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
           precinctId,
           ballotStyleId,
           votes: DEFAULT_FAMOUS_NAMES_VOTES,
@@ -433,7 +432,7 @@ describe('VX BMD interpretation', () => {
     const interpretationResult = await interpretSheet(
       {
         electionDefinition: {
-          ...electionGeneralDefinition,
+          ...electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
           ballotHash: 'd34db33f',
         },
         testMode: true,

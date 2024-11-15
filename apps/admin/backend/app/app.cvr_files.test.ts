@@ -18,11 +18,8 @@ import { Buffer } from 'node:buffer';
 import set from 'lodash.set';
 import { assert } from '@vx/libs/basics/assert';
 import { err, ok } from '@vx/libs/basics/result';
-import {
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  electionTwoPartyPrimaryDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { LogEventId } from '@vx/libs/logging/src';
 import { CVR, CVR as CVRType } from '@vx/libs/types/cdf';
 import { CastVoteRecordExportFileName } from '@vx/libs/types/cvrs';
@@ -59,6 +56,9 @@ import { type CvrFileImportInfo } from '../types/types';
 
 jest.setTimeout(60_000);
 
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
+
 // mock SKIP_CVR_BALLOT_HASH_CHECK to allow us to use old cvr fixtures
 const featureFlagMock = getFeatureFlagMock();
 
@@ -74,8 +74,10 @@ afterEach(() => {
   featureFlagMock.resetFeatureFlags();
 });
 
-const { electionDefinition, castVoteRecordExport } =
+const { castVoteRecordExport } =
   electionGridLayoutNewHampshireTestBallotFixtures;
+const electionDefinition =
+  electionGridLayoutNewHampshireTestBallotFixtures.electionJson.toElectionDefinition();
 
 async function getOfficialReportPath(): Promise<string> {
   return await modifyCastVoteRecordExport(

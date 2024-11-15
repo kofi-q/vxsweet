@@ -1,9 +1,8 @@
 import path from 'node:path';
 import * as castVoteRecords from './castVoteRecords';
 
-export * as definitionXml from './definition.xml';
 export * as electionJson from './election.json';
-export { election, electionDefinition } from './election.json';
+export * as definitionXml from './definition.xml';
 export * as scanMarkedFront from './scan-marked-front.jpeg';
 export * as scanMarkedFrontUnmarkedWriteIns from './scan-marked-front-unmarked-write-ins.jpeg';
 export * as scanMarkedBackUnmarkedWriteIns from './scan-marked-back-unmarked-write-ins.jpeg';

@@ -1,4 +1,4 @@
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   type BallotId,
   type BallotStyleId,
@@ -9,6 +9,7 @@ import { type PageInterpretation } from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { normalizeBallotMode } from './validation';
 import { type InterpreterOptions } from './types';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 const BLANK_INTERPRETATION: PageInterpretation = { type: 'BlankPage' };
 

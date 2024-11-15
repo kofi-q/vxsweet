@@ -19,7 +19,7 @@ import {
   HmpbBallotPaperSize,
 } from '@vx/libs/types/elections';
 import { iter } from '@vx/libs/basics/iterators';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { LogEventId } from '@vx/libs/logging/src';
 import { ballotImages, withApp } from '../../test/helpers/pdi_helpers';
 import {

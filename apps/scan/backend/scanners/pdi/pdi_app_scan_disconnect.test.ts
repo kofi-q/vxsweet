@@ -19,7 +19,7 @@ import {
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/elections';
 import { type SheetInterpretation } from '@vx/libs/types/scanning';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
 import { dirSync } from 'tmp';

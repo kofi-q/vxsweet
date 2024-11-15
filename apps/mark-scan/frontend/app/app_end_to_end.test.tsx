@@ -10,9 +10,10 @@ import {
   constructElectionKey,
 } from '@vx/libs/types/elections';
 import { LanguageCode } from '@vx/libs/types/languages';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { assert } from '@vx/libs/basics/assert';
 import { render, screen, waitFor, within } from '../test/react_testing_library';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { App } from './app';
 

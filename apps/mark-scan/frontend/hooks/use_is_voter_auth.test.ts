@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { advancePromises } from '@vx/libs/test-utils/src';
 import { useIsVoterAuth } from './use_is_voter_auth';
 import {
@@ -7,6 +7,7 @@ import {
   createApiMock,
   provideApi,
 } from '../test/helpers/mock_api_client';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

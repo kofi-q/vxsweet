@@ -1,4 +1,4 @@
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { Admin } from '@vx/libs/types/admin';
 import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { assertIsBackendFilter, convertFrontendFilter } from './filters';

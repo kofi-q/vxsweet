@@ -8,8 +8,10 @@ ts_library(
         "//:node_modules/@types/fs-extra",
         "//:node_modules/@types/node",
         "//:node_modules/fs-extra",
+        "//:types_env",
         "//apps/mark/backend/store",
         "//libs/logging/src",
+        "//libs/utils/src",
     ],
 )
 

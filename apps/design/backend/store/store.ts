@@ -366,7 +366,7 @@ export class Store {
 
   getTranslatedTextFromCache(
     text: string,
-    targetLanguageCode: LanguageCode
+    targetLanguageCode: string
   ): Optional<string> {
     const cacheEntry = this.client.one(
       `
@@ -385,7 +385,7 @@ export class Store {
 
   addTranslationCacheEntry(cacheEntry: {
     text: string;
-    targetLanguageCode: LanguageCode;
+    targetLanguageCode: string;
     translatedText: string;
   }): void {
     this.client.run(
@@ -403,7 +403,7 @@ export class Store {
   }
 
   getAudioClipBase64FromCache(key: {
-    languageCode: LanguageCode;
+    languageCode: string;
     text: string;
   }): Optional<string> {
     const cacheEntry = this.client.one(
@@ -422,7 +422,7 @@ export class Store {
   }
 
   addSpeechSynthesisCacheEntry(cacheEntry: {
-    languageCode: LanguageCode;
+    languageCode: string;
     text: string;
     audioClipBase64: string;
   }): void {

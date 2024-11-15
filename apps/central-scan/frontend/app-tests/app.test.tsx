@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -21,7 +21,7 @@ import { App } from '../app/app';
 import { type ApiMock, createApiMock } from '../test/api';
 import { mockBatch, mockStatus } from '../test/fixtures';
 
-const electionDefinition = electionGeneralDefinition;
+const electionDefinition = electionGeneral.toElectionDefinition();
 const electionKey = constructElectionKey(electionDefinition.election);
 
 let apiMock: ApiMock;

@@ -40,6 +40,7 @@ ts_tests(
         "//apps/mark/frontend/test",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/languages",

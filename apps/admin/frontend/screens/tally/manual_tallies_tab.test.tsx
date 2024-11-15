@@ -1,4 +1,4 @@
-import { electionPrimaryPrecinctSplitsFixtures } from '@vx/libs/fixtures/src';
+import * as electionPrimaryPrecinctSplits from '@vx/libs/fixtures/src/data/electionPrimaryPrecinctSplits/election.json';
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
@@ -30,7 +30,7 @@ afterEach(() => {
   apiMock.assertComplete();
 });
 
-const { electionDefinition } = electionPrimaryPrecinctSplitsFixtures;
+const electionDefinition = electionPrimaryPrecinctSplits.toElectionDefinition();
 const { election } = electionDefinition;
 
 test('initial table without manual tallies & adding a manual tally', async () => {

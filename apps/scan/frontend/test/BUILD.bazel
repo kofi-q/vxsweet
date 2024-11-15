@@ -19,7 +19,7 @@ ts_library(
         "//libs/basics/assert",
         "//libs/basics/async",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/grout/test-utils/src",
         "//libs/printing/src",
         "//libs/test-utils/src",

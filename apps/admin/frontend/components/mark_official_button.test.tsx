@@ -1,4 +1,4 @@
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import userEvent from '@testing-library/user-event';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import {
@@ -19,7 +19,8 @@ afterEach(() => {
 });
 
 test('mark results as official', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
 
   renderInAppContext(<MarkResultsOfficialButton />, {
@@ -47,7 +48,8 @@ test('mark results as official', async () => {
 });
 
 test('mark official results button disabled when no cvr files', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('unlocked'); // no CVR files
   renderInAppContext(<MarkResultsOfficialButton />, {
     electionDefinition,
@@ -63,7 +65,8 @@ test('mark official results button disabled when no cvr files', async () => {
 });
 
 test('mark official results button disabled when already official', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   renderInAppContext(<MarkResultsOfficialButton />, {
     electionDefinition,

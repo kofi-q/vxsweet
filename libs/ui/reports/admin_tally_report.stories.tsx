@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   buildElectionResultsFixture,
   buildManualResultsFixture,
@@ -16,6 +16,8 @@ import {
   AdminTallyReport,
 } from './admin_tally_report';
 import { PrintedReportPreview } from './layout';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 const electionDefinition = electionTwoPartyPrimaryDefinition;
 const { election } = electionDefinition;

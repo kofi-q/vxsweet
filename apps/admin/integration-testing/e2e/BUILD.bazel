@@ -14,7 +14,7 @@ ts_library(
         "//:node_modules/@types/testing-library__jest-dom",
         "//apps/admin/integration-testing/e2e/support",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/printing/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

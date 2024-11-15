@@ -1,9 +1,7 @@
 import '../../test/set_up_react_pdf_mock';
 
-import {
-  electionFamousNames2021Fixtures,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import userEvent from '@testing-library/user-event';
 import { waitForElementToBeRemoved } from '@testing-library/react';
 import { mockUsbDriveStatus } from '@vx/libs/ui/test-utils/mock_usb_drive';
@@ -45,7 +43,8 @@ const MOCK_REPORT_SPEC: TallyReportSpec = {
 };
 
 test('disabled shows disabled buttons and no preview', () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   renderInAppContext(
     <TallyReportViewer
       disabled
@@ -63,7 +62,8 @@ test('disabled shows disabled buttons and no preview', () => {
 });
 
 test('when auto-generation is on, it loads the preview automatically', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     pdfContent: 'Unofficial Lincoln Municipal General Election Tally Report',
@@ -91,7 +91,8 @@ test('when auto-generation is on, it loads the preview automatically', async () 
 });
 
 test('when auto-generation is off, it requires a button press to load the report', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
 
   renderInAppContext(
     <TallyReportViewer
@@ -122,7 +123,8 @@ test('when auto-generation is off, it requires a button press to load the report
 });
 
 test('shows no results warning and prevents actions when no results', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     warning: { type: 'no-reports-match-filter' },
@@ -152,7 +154,8 @@ test('shows no results warning and prevents actions when no results', async () =
 });
 
 test('shows warning and prevents actions when PDF is too large', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     warning: { type: 'content-too-large' },
@@ -179,7 +182,8 @@ test('shows warning and prevents actions when PDF is too large', async () => {
 });
 
 test('printing report', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     pdfContent: 'Unofficial Lincoln Municipal General Election Tally Report',
@@ -214,7 +218,8 @@ test('exporting PDF', async () => {
   jest.useFakeTimers();
   jest.setSystemTime(new Date('2023-09-06T21:45:08'));
 
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     pdfContent: 'Unofficial Lincoln Municipal General Election Tally Report',
@@ -246,7 +251,7 @@ test('exporting PDF', async () => {
 
   const { resolve } = apiMock.expectExportTallyReportPdf({
     expectCallWith: {
-      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_8ff0a69bd9/reports/unofficial-tally-reports-by-voting-method__2023-09-06_21-45-08.pdf',
+      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_d923cbfdf6/reports/unofficial-tally-reports-by-voting-method__2023-09-06_21-45-08.pdf',
       ...MOCK_REPORT_SPEC,
     },
     returnValue: ok([]),
@@ -262,7 +267,8 @@ test('exporting CSV', async () => {
   jest.useFakeTimers();
   jest.setSystemTime(new Date('2023-09-06T21:45:08'));
 
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: MOCK_REPORT_SPEC,
     pdfContent: 'Unofficial Lincoln Municipal General Election Tally Report',
@@ -294,7 +300,7 @@ test('exporting CSV', async () => {
 
   const { resolve } = apiMock.expectExportTallyReportCsv({
     expectCallWith: {
-      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_8ff0a69bd9/reports/unofficial-tally-report-by-voting-method__2023-09-06_21-45-08.csv',
+      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_d923cbfdf6/reports/unofficial-tally-report-by-voting-method__2023-09-06_21-45-08.csv',
       filter: MOCK_REPORT_SPEC.filter,
       groupBy: MOCK_REPORT_SPEC.groupBy,
     },
@@ -311,7 +317,8 @@ test('when full election report - allows CDF export and includes signature lines
   jest.useFakeTimers();
   jest.setSystemTime(new Date('2023-09-06T21:45:08'));
 
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetTallyReportPreview({
     reportSpec: {
       filter: {},
@@ -348,7 +355,7 @@ test('when full election report - allows CDF export and includes signature lines
 
   const { resolve } = apiMock.expectExportCdfReport({
     expectCallWith: {
-      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_8ff0a69bd9/reports/unofficial-cdf-election-results-report__2023-09-06_21-45-08.json',
+      path: 'test-mount-point/franklin-county_lincoln-municipal-general-election_d923cbfdf6/reports/unofficial-cdf-election-results-report__2023-09-06_21-45-08.json',
     },
     returnValue: ok([]),
     deferred: true,

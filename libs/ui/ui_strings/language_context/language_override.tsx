@@ -8,7 +8,7 @@ import {
 
 export interface LanguageOverrideProps {
   children: React.ReactNode;
-  languageCode: LanguageCode;
+  languageCode: string;
 }
 
 /**

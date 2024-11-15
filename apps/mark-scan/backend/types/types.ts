@@ -4,7 +4,6 @@ import {
   type PrecinctSelection,
   type PollsState,
 } from '@vx/libs/types/elections';
-import { LanguageCode } from '@vx/libs/types/languages';
 
 export interface MachineConfig {
   machineId: string;
@@ -22,7 +21,7 @@ export interface ElectionState {
 export type ScreenOrientation = 'portrait' | 'landscape';
 
 export interface PrintBallotProps {
-  languageCode: LanguageCode;
+  languageCode: string;
   precinctId: string;
   ballotStyleId: BallotStyleId;
   votes: VotesDict;

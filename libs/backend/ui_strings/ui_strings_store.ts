@@ -2,7 +2,7 @@
 
 import { type Optional, typedAs } from '@vx/libs/basics/types';
 import { Client as DbClient } from '@vx/libs/db/src';
-import { LanguageCode, LanguageCodeSchema } from '@vx/libs/types/languages';
+import { LanguageCodeSchema } from '@vx/libs/types/languages';
 import { safeParse, safeParseJson } from '@vx/libs/types/basic';
 import {
   type UiStringAudioClip,
@@ -17,30 +17,30 @@ import {
 
 /** Store interface for UI String API endpoints. */
 export interface UiStringsStore {
-  addLanguage(code: LanguageCode): void;
+  addLanguage(code: string): void;
 
-  getLanguages(): LanguageCode[];
+  getLanguages(): string[];
 
   getAllUiStrings(): UiStringsPackage;
 
-  getUiStrings(languageCode: LanguageCode): UiStringTranslations | null;
+  getUiStrings(languageCode: string): UiStringTranslations | null;
 
   getAudioClips(input: {
-    languageCode: LanguageCode;
+    languageCode: string;
     audioIds: string[];
   }): UiStringAudioClips;
 
-  getUiStringAudioIds(languageCode: LanguageCode): UiStringAudioIds | null;
+  getUiStringAudioIds(languageCode: string): UiStringAudioIds | null;
 
   setAudioClip(input: UiStringAudioClip): void;
 
   setUiStringAudioIds(input: {
-    languageCode: LanguageCode;
+    languageCode: string;
     data: UiStringAudioIds;
   }): void;
 
   setUiStrings(input: {
-    languageCode: LanguageCode;
+    languageCode: string;
     data: UiStringTranslations;
   }): void;
 }
@@ -48,7 +48,7 @@ export interface UiStringsStore {
 /** Creates a shareable implementation of the {@link UiStringsStore}. */
 export function createUiStringStore(dbClient: DbClient): UiStringsStore {
   return {
-    addLanguage(languageCode: LanguageCode): void {
+    addLanguage(languageCode: string): void {
       dbClient.run(
         'insert or ignore into languages (code) values (?)',
         languageCode
@@ -78,7 +78,7 @@ export function createUiStringStore(dbClient: DbClient): UiStringsStore {
       );
     },
 
-    getLanguages(): LanguageCode[] {
+    getLanguages(): string[] {
       const result = dbClient.all('select code from languages') as Array<{
         code: string;
       }>;

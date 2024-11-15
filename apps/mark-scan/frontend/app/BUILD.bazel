@@ -47,8 +47,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "medium",
-    timeout = "short",
+    size = "large",
     shard_count = 19,
     deps = [
         "//:node_modules/@testing-library/user-event",
@@ -74,6 +73,8 @@ ts_tests(
         "//libs/basics/collections",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionWithMsEitherNeither",
         "//libs/mark-flow-ui/src",
         "//libs/test-utils/src",
         "//libs/types/elections",

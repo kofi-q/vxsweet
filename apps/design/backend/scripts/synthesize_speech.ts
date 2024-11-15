@@ -14,7 +14,7 @@ Arguments:
   <output-file-path>\tShould end in .mp3`;
 
 interface SynthesizeSpeechInput {
-  languageCode: LanguageCode;
+  languageCode: string;
   outputFilePath: string;
   text: string;
 }

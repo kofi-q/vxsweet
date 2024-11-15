@@ -2,7 +2,7 @@ import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { iter } from '@vx/libs/basics/iterators';
 import { ok } from '@vx/libs/basics/result';
 import { mockElectionPackageFileTree } from '@vx/libs/backend/election_package';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   mockElectionManagerUser,
   mockSessionExpiresAt,
@@ -109,7 +109,7 @@ export async function configureApp(
   });
   await api.setTestMode({ isTestMode: testMode });
   if (openPolls) {
-    (await api.openPolls()).unsafeUnwrap();
+    api.openPolls().unsafeUnwrap();
   }
 
   mockOf(mockAuth.getAuthStatus).mockImplementation(() =>

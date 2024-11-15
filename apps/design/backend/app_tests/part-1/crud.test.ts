@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import { DateWithoutTime } from '@vx/libs/basics/time';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type DistrictId,
@@ -110,7 +110,7 @@ test('CRUD elections', () => {
   expect(api.listElections()).toEqual([election]);
 
   const election2Definition =
-    electionFamousNames2021Fixtures.electionDefinition;
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const electionId2 = api
     .loadElection({
       electionData: election2Definition.electionData,

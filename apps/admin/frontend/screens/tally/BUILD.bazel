@@ -45,8 +45,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "medium",
-    timeout = "short",
+    size = "large",
     shard_count = 6,
     deps = [
         "//:node_modules/@testing-library/user-event",
@@ -67,7 +66,9 @@ ts_tests(
         "//libs/basics/async",
         "//libs/basics/objects",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
+        "//libs/fixtures/src/data/electionPrimaryPrecinctSplits",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/tabulation",

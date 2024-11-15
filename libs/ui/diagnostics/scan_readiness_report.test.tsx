@@ -1,5 +1,5 @@
 import { hasTextAcrossElements } from '@vx/libs/test-utils/src';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { ScanReadinessReport } from './scan_readiness_report';
 import { render, screen } from '../test/react_testing_library';
 
@@ -24,7 +24,7 @@ test('ScanReadinessReport', () => {
         outcome: 'pass',
         timestamp: generatedAtTime.getTime(),
       }}
-      electionDefinition={electionTwoPartyPrimaryDefinition}
+      electionDefinition={electionTwoPartyPrimary.toElectionDefinition()}
       electionPackageHash="mock-election-package-hash"
     />
   );

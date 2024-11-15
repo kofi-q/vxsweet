@@ -38,6 +38,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
+    shard_count = 8,
     deps = [
         "//:node_modules/@tanstack/react-query",
         "//:node_modules/@testing-library/react",
@@ -53,7 +55,8 @@ ts_tests(
         "//apps/admin/frontend/utils",
         "//libs/backend/exporter",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/test-utils/src",
         "//libs/types/tabulation",
         "//libs/ui/test-utils",

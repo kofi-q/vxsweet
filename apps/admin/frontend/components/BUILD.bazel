@@ -44,6 +44,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    shard_count = 5,
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/jest",
@@ -58,7 +59,7 @@ ts_tests(
         "//libs/backend/exporter",
         "//libs/basics/async",
         "//libs/basics/result",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/test-utils/src",
         "//libs/types/printing",
         "//libs/ui/test-utils",

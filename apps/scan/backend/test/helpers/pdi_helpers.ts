@@ -1,7 +1,10 @@
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { ImageData } from '@vx/libs/image-utils/src';
 import * as tmp from 'tmp';
 import { type InsertedSmartCardAuthApi } from '@vx/libs/auth/inserted-cards';
 import { buildMockInsertedSmartCardAuth } from '@vx/libs/auth/test-utils';
+import * as sampleBallotImages from '@vx/libs/fixtures/src/data/sample-ballot-images';
 import {
   type Listener,
   type ScannerClient,
@@ -26,12 +29,7 @@ import {
   isFeatureFlagEnabled,
 } from '@vx/libs/utils/src';
 import { SimulatedClock } from 'xstate/lib/SimulatedClock';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneralDefinition,
-  electionGridLayoutNewHampshireTestBallotFixtures,
-  sampleBallotImages,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type SheetOf } from '@vx/libs/types/elections';
 import {
   DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
@@ -280,7 +278,8 @@ export const ballotImages = {
   completeBmd: async () =>
     pdfToImageSheet(
       await renderBmdBallotFixture({
-        electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+        electionDefinition:
+          electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
         ballotStyleId: DEFAULT_FAMOUS_NAMES_BALLOT_STYLE_ID,
         precinctId: DEFAULT_FAMOUS_NAMES_PRECINCT_ID,
         votes: DEFAULT_FAMOUS_NAMES_VOTES,
@@ -293,7 +292,7 @@ export const ballotImages = {
   wrongElectionBmd: async () =>
     pdfToImageSheet(
       await renderBmdBallotFixture({
-        electionDefinition: electionGeneralDefinition,
+        electionDefinition: electionGeneral.toElectionDefinition(),
       })
     ),
   blankSheet: async () => [

@@ -1,4 +1,4 @@
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { createPlaywrightRenderer } from '@vx/libs/hmpb/src';
 import { type Election } from '@vx/libs/types/elections';
 import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';

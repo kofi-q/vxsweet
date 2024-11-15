@@ -1,4 +1,4 @@
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { pdfToImages, toImageBuffer } from '@vx/libs/image-utils/src';
 import { iter } from '@vx/libs/basics/iterators';
 import { readFile } from '@vx/libs/fs/src';
@@ -12,7 +12,8 @@ const MAX_BALLOT_IMAGE_SIZE_BYTES = 250 * 1024;
 
 test('renderBmdBallotFixture', async () => {
   const pdf = await renderBmdBallotFixture({
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   });
   const pages = await iter(pdfToImages(pdf, { scale: 200 / 72 }))
     .map((page) => toImageBuffer(page.page))
@@ -24,7 +25,8 @@ test('renderBmdBallotFixture', async () => {
 
 test('renderBmdBallotFixture rotated', async () => {
   const pdf = await renderBmdBallotFixture({
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
     rotateImage: true,
   });
 
@@ -38,7 +40,8 @@ test('renderBmdBallotFixture rotated', async () => {
 
 test('writeFirstBallotPageToImageFile', async () => {
   const pdf = await renderBmdBallotFixture({
-    electionDefinition: electionFamousNames2021Fixtures.electionDefinition,
+    electionDefinition:
+      electionFamousNames2021Fixtures.electionJson.toElectionDefinition(),
   });
   const imagePath = await writeFirstBallotPageToImageFile(pdf);
 

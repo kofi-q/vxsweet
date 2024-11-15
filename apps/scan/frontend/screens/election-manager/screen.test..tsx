@@ -1,8 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import {
-  electionGeneralDefinition,
-  electionTwoPartyPrimaryFixtures,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import { mockKiosk } from '@vx/libs/test-utils/src';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { ok } from '@vx/libs/basics/result';
@@ -28,6 +26,7 @@ import {
 } from './screen';
 import { RELOAD_REMINDER_TEXT } from '../../components/printer_management/election_manager_printer_tab_content';
 
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 let apiMock: ApiMock;
 
 jest.useFakeTimers();
@@ -119,7 +118,7 @@ test('option to set precinct if more than one', async () => {
 
 test('no option to change precinct if there is only one precinct', async () => {
   const electionDefinition =
-    electionTwoPartyPrimaryFixtures.singlePrecinctElectionDefinition;
+    electionTwoPartyPrimaryFixtures.asSinglePrecinctElectionDefinition();
   apiMock.expectGetConfig({
     electionDefinition,
     precinctSelection: singlePrecinctSelectionFor('precinct-1'),

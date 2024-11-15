@@ -19,7 +19,7 @@ import { type Result, err, ok } from '@vx/libs/basics/result';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { deferred, sleep } from '@vx/libs/basics/async';
 import { typedAs } from '@vx/libs/basics/types';
-import { electionGridLayoutNewHampshireTestBallotFixtures } from '@vx/libs/fixtures/src';
+import * as electionGridLayoutNewHampshireTestBallotFixtures from '@vx/libs/fixtures/src/data/electionGridLayoutNewHampshireTestBallot';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {
   ErrorCode,

@@ -54,7 +54,7 @@ function getBallotStyleGroupMap(
 export function getRelatedBallotStyle(params: {
   ballotStyles: readonly BallotStyle[];
   sourceBallotStyleId: BallotStyleId;
-  targetBallotStyleLanguage: LanguageCode;
+  targetBallotStyleLanguage: string;
 }): Result<BallotStyle, string> {
   const { ballotStyles, sourceBallotStyleId, targetBallotStyleLanguage } =
     params;

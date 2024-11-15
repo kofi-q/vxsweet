@@ -10,10 +10,8 @@ import {
   DippedSmartCardAuth,
   DEFAULT_SYSTEM_SETTINGS,
 } from '@vx/libs/types/elections';
-import {
-  electionGeneralDefinition,
-  electionTwoPartyPrimary,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import userEvent from '@testing-library/user-event';
 import { deferred } from '@vx/libs/basics/async';
 import { err, ok } from '@vx/libs/basics/result';
@@ -25,6 +23,7 @@ import {
   type RenderInAppContextParams,
 } from '../test/render_in_app_context';
 import { SmartCardsScreen } from './smart_cards_screen';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 const electionDefinition = electionGeneralDefinition;
 const { election } = electionDefinition;

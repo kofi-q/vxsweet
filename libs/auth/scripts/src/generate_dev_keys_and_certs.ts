@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import yargs from 'yargs/yargs';
 import { extractErrorMessage } from '@vx/libs/basics/errors';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import { election as electionFamousNames } from '@vx/libs/fixtures/src/data/electionFamousNames2021/election.json';
 import {
   constructElectionKey,
   TEST_JURISDICTION,
@@ -178,7 +178,7 @@ async function generateDevKeysAndCerts({
       await certPemToDer(vxAdminCertAuthorityCert)
     );
 
-    const { election } = electionFamousNames2021Fixtures.electionDefinition;
+    const election = electionFamousNames;
     const electionKey = constructElectionKey(election);
     const cardConfigs: Array<{ cardType: CardType; cardDetails: CardDetails }> =
       [

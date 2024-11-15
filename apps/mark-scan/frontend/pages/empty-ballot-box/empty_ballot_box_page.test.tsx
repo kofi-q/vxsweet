@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { render } from '../../test/test_utils';
 import {
   createApiMock,
@@ -11,6 +11,7 @@ import {
   mockCardlessVoterLoggedInAuth,
   mockPollWorkerAuth,
 } from '../../test/helpers/mock_auth';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 let apiMock: ApiMock;
 

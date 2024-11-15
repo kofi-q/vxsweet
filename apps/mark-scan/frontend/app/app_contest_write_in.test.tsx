@@ -9,7 +9,7 @@ jest.mock(
 import { mockOf } from '@vx/libs/test-utils/src';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { ContestPage, type ContestPageProps } from '@vx/libs/mark-flow-ui/src';
 import {
   type BallotStyleId,
@@ -22,6 +22,7 @@ import { useHistory } from 'react-router-dom';
 import { act, fireEvent, render, screen } from '../test/react_testing_library';
 import { App } from './app';
 import { advanceTimers } from '../test/helpers/timers';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { singleSeatContestWithWriteIn } from '../test/helpers/election';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';

@@ -7,11 +7,8 @@ import {
   mockSystemAdministratorUser,
   mockOf,
 } from '@vx/libs/test-utils/src';
-import {
-  electionGeneral,
-  electionGeneralDefinition,
-  electionTwoPartyPrimaryDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionGeneralLib from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   AdjudicationReason,
   formatElectionHashes,
@@ -20,6 +17,8 @@ import {
 import { type SheetInterpretation } from '@vx/libs/types/scanning';
 import { type Result, err, ok } from '@vx/libs/basics/result';
 import { deferred } from '@vx/libs/basics/async';
+const electionGeneral = electionGeneralLib.election;
+const electionGeneralDefinition = electionGeneralLib.toElectionDefinition();
 
 import { type PrecinctScannerConfig } from '../../backend/types/types';
 import { waitFor, screen, within, render } from '../test/react_testing_library';
@@ -32,6 +31,9 @@ import {
 } from '../test/helpers/mock_api_client';
 import { App, type AppProps } from './app';
 import { useSessionSettingsManager } from '../session-manager/use_session_settings_manager';
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 const startNewSessionMock = jest.fn();

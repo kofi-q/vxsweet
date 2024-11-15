@@ -5,10 +5,10 @@ import {
   getContests,
   type YesNoContest,
 } from '@vx/libs/types/elections';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 
-export const electionDefinition = electionGeneralDefinition;
-export const { election } = electionDefinition;
+export const getElectionDefinition = electionGeneral.toElectionDefinition;
+export const election = electionGeneral.election;
 
 export const contest0 = election.contests[0] as CandidateContest;
 export const contest1 = election.contests[1] as CandidateContest;

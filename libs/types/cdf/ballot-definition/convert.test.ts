@@ -22,10 +22,7 @@ import { LanguageCode } from '../../languages/language_code';
 import * as Cdf from '.';
 import { normalizeVxfAfterCdfConversion } from '../../test/cdf_conversion_helpers';
 
-function languageString(
-  content: string,
-  language: LanguageCode
-): Cdf.LanguageString {
+function languageString(content: string, language: string): Cdf.LanguageString {
   return {
     '@type': 'BallotDefinition.LanguageString',
     Content: content,

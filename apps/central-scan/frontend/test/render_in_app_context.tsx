@@ -1,4 +1,4 @@
-import { electionGeneralDefinition as testElectionDefinition } from '@vx/libs/fixtures/src';
+import * as testElection from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { BaseLogger } from '@vx/libs/logging/src';
 import {
@@ -21,6 +21,8 @@ import { render, type RenderResult } from './react_testing_library';
 import { ApiClientContext, createQueryClient, systemCallApi } from '../api/api';
 import { AppContext, type AppContextInterface } from '../contexts/app_context';
 import { type ApiMock } from './api';
+
+const testElectionDefinition = testElection.toElectionDefinition();
 
 interface RenderInAppContextParams {
   route?: string;

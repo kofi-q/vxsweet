@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import userEvent from '@testing-library/user-event';
 import {
@@ -9,6 +9,8 @@ import {
 } from '../../test/helpers/mock_api_client';
 import { render, screen, waitFor } from '../../test/react_testing_library';
 import { DiagnosticsScreen } from './screen';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 

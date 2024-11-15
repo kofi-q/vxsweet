@@ -19,7 +19,7 @@ jest.mock('@vx/libs/hmpb/src', () => {
 
 import { Buffer } from 'node:buffer';
 import { assertDefined } from '@vx/libs/basics/assert';
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import { HmpbBallotPaperSize } from '@vx/libs/types/elections';
 import {
   BooleanEnvironmentVariableName,
@@ -56,7 +56,7 @@ beforeEach(() => {
 
 test('Election package management', async () => {
   const baseElectionDefinition =
-    electionFamousNames2021Fixtures.electionDefinition;
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   const { api, workspace } = newTestApi();
 
   const electionId = api

@@ -23,7 +23,7 @@ ts_tests(
         "//apps/admin/backend/test",
         "//apps/admin/backend/types",
         "//libs/basics/assert",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionTwoPartyPrimary",
         "//libs/logging/src",
         "//libs/types/elections",
         "//libs/types/tabulation",

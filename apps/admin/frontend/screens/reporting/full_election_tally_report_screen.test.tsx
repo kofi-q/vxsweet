@@ -1,6 +1,6 @@
 import '../../test/set_up_react_pdf_mock';
 
-import { electionFamousNames2021Fixtures } from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
 import {
   type ApiMock,
   createApiMock,
@@ -24,7 +24,8 @@ afterEach(() => {
 });
 
 test('displays report', async () => {
-  const { electionDefinition } = electionFamousNames2021Fixtures;
+  const electionDefinition =
+    electionFamousNames2021Fixtures.electionJson.toElectionDefinition();
   apiMock.expectGetCastVoteRecordFileMode('official');
   apiMock.setPrinterStatus({ connected: true });
   apiMock.expectGetTallyReportPreview({

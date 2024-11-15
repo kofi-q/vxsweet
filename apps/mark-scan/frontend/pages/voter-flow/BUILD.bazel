@@ -31,6 +31,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
@@ -42,7 +43,7 @@ ts_tests(
         "//apps/mark-scan/frontend/pages/pat_device_identification",
         "//apps/mark-scan/frontend/pages/voter-flow",
         "//apps/mark-scan/frontend/test",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/ui/accessible_controllers",
     ],

@@ -8,6 +8,12 @@ ts_library(
     name = "src",
     data = [
         "//libs/auth/scripts",
+        "//libs/fixtures/data/electionFamousNames2021:data",
+        "//libs/fixtures/data/electionGeneral:data",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:data",
+        "//libs/fixtures/data/electionMultiPartyPrimary:data",
+        "//libs/fixtures/data/electionTwoPartyPrimary:data",
+        "//libs/fixtures/data/electionWithMsEitherNeither:data",
     ],
     deps = [
         "//:node_modules/@types/express",
@@ -39,7 +45,8 @@ ts_tests(
         "//libs/auth/src",
         "//libs/basics/types",
         "//libs/dev-dock/backend/src",
-        "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionFamousNames2021",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/grout/src",
         "//libs/printing/src",
         "//libs/test-utils/src",

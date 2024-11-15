@@ -1,12 +1,14 @@
 import userEvent from '@testing-library/user-event';
 import { type PrinterConfig } from '@vx/libs/types/printing';
 import { ok } from '@vx/libs/basics/result';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { screen, within, act } from '../test/react_testing_library';
 import { renderInAppContext } from '../test/render_in_app_context';
 import { type ApiMock, createApiMock } from '../test/helpers/mock_api_client';
 import { DiagnosticsScreen } from './diagnostics_screen';
 import { TEST_PAGE_PRINT_DELAY_SECONDS } from '../components/print_diagnostic_button';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 let apiMock: ApiMock;
 

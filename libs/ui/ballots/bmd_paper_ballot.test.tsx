@@ -30,11 +30,14 @@ import {
   type PrecinctId,
   vote,
 } from '@vx/libs/types/elections';
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionGeneralDefinition,
-  electionWithMsEitherNeitherDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
+const electionWithMsEitherNeitherDefinition =
+  electionWithMsEitherNeither.toElectionDefinition();
 
 import { encodeBallot } from '@vx/libs/ballot-encoder/src';
 import { hasTextAcrossElements, mockOf } from '@vx/libs/test-utils/src';

@@ -20,10 +20,8 @@ import {
   mockSystemAdministratorUser,
 } from '@vx/libs/test-utils/src';
 import { DEV_JURISDICTION } from '@vx/libs/auth/src';
-import {
-  electionFamousNames2021Fixtures,
-  electionGeneral,
-} from '@vx/libs/fixtures/src';
+import * as electionFamousNames2021Fixtures from '@vx/libs/fixtures/src/data/electionFamousNames2021';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { Server } from 'node:http';
 import { typedAs } from '@vx/libs/basics/types';
 import { constructElectionKey } from '@vx/libs/types/elections';

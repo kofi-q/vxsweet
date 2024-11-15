@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   mockElectionManagerUser,
   mockPollWorkerUser,

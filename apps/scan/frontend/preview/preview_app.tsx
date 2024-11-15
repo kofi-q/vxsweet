@@ -2,11 +2,9 @@
 /* eslint-disable vx/gts-direct-module-export-access-only */
 /* istanbul ignore file */
 
-import {
-  electionTwoPartyPrimaryDefinition,
-  electionGeneralDefinition,
-  electionWithMsEitherNeitherDefinition,
-} from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
+import * as electionWithMsEitherNeither from '@vx/libs/fixtures/src/data/electionWithMsEitherNeither/electionWithMsEitherNeither.json';
 import { PreviewDashboard } from './dashboard';
 import * as CardErrorScreen from '../screens/error/card_error_screen';
 import * as ElectionManagerScreen from '../screens/election-manager/screen';
@@ -28,6 +26,11 @@ import * as SetupScannerScreen from '../screens/error/internal_connection_proble
 import * as UnconfiguredElectionScreenWrapper from '../screens/configuration/unconfigured_election_screen_wrapper';
 import * as UnconfiguredPrecinctScreen from '../screens/configuration/unconfigured_precinct_screen';
 import { ScanAppBase } from '../app-base/scan_app_base';
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
+const electionWithMsEitherNeitherDefinition =
+  electionWithMsEitherNeither.toElectionDefinition();
 
 export function PreviewApp(): JSX.Element {
   return (

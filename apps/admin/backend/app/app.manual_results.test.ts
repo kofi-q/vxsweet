@@ -1,4 +1,4 @@
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 
 import {
   type BallotStyleGroupId,
@@ -19,7 +19,8 @@ beforeEach(() => {
   jest.restoreAllMocks();
 });
 
-const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+const electionDefinition =
+  electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 const { election } = electionDefinition;
 
 test('manual results flow (official candidates only)', async () => {

@@ -1,10 +1,13 @@
 import { err, ok } from '@vx/libs/basics/result';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimary from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { Admin } from '@vx/libs/types/admin';
 import { Tabulation } from '@vx/libs/types/tabulation';
 import { type BallotStyleGroupId } from '@vx/libs/types/elections';
 import { generateTitleForReport } from './titles';
 import { type ScannerBatch } from '../types/types';
+
+const electionTwoPartyPrimaryDefinition =
+  electionTwoPartyPrimary.toElectionDefinition();
 
 const MOCK_SCANNER_BATCHES: ScannerBatch[] = [
   {

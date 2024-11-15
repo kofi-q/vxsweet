@@ -4,7 +4,7 @@ import {
   type BallotStyleGroupId,
   type Election,
 } from '@vx/libs/types/elections';
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import {
   canonicalizeFilter,
   canonicalizeGroupBy,
@@ -12,6 +12,9 @@ import {
   generateTallyReportPdfFilename,
   isFilterEmpty,
 } from './reporting';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 test('canonicalizeFilter', () => {
   expect(canonicalizeFilter({})).toEqual({});

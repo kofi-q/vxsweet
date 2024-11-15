@@ -1,5 +1,8 @@
-import { electionTwoPartyPrimaryDefinition } from '@vx/libs/fixtures/src';
+import { election as electionTwoPartyPrimary } from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary/election.json';
 import { buildElectionOptionPositionMap } from './option_map';
+const electionTwoPartyPrimaryDefinition = {
+  election: electionTwoPartyPrimary,
+} as const;
 
 test('buildElectionOptionMap', () => {
   const { election } = electionTwoPartyPrimaryDefinition;

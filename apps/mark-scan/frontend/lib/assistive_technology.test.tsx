@@ -1,11 +1,13 @@
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import userEvent from '@testing-library/user-event';
 import { mockOf } from '@vx/libs/test-utils/src';
 import { Keybinding } from '@vx/libs/ui/keybindings';
 import { simulateKeyPress } from '@vx/libs/ui/accessible_controllers';
 import { type BallotStyleId } from '@vx/libs/types/elections';
 import { render, screen, waitFor } from '../test/react_testing_library';
+
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import { App } from '../app/app';
 import { advanceTimersAndPromises } from '../test/helpers/timers';

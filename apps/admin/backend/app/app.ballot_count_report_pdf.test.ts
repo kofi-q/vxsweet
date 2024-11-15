@@ -18,7 +18,7 @@ jest.mock('@vx/libs/printing/src', () => {
   };
 });
 
-import { electionTwoPartyPrimaryFixtures } from '@vx/libs/fixtures/src';
+import * as electionTwoPartyPrimaryFixtures from '@vx/libs/fixtures/src/data/electionTwoPartyPrimary';
 import {
   BooleanEnvironmentVariableName,
   getFeatureFlagMock,
@@ -102,8 +102,9 @@ async function expectIdenticalSnapshotsAcrossExportMethods({
 }
 
 test('ballot count report PDF', async () => {
-  const { electionDefinition, castVoteRecordExport } =
-    electionTwoPartyPrimaryFixtures;
+  const { castVoteRecordExport } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
   const { election } = electionDefinition;
 
   const { api, auth, mockPrinterHandler } = buildTestEnvironment();
@@ -209,7 +210,8 @@ test('ballot count report PDF', async () => {
 });
 
 test('ballot count report warning', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);
@@ -251,7 +253,8 @@ test('ballot count report warning', async () => {
 });
 
 test('ballot count report logging', async () => {
-  const { electionDefinition } = electionTwoPartyPrimaryFixtures;
+  const electionDefinition =
+    electionTwoPartyPrimaryFixtures.electionJson.toElectionDefinition();
 
   const { api, auth, logger, mockPrinterHandler } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition);

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { suppressingConsoleOutput } from '@vx/libs/test-utils/src';
+const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 
 import userEvent from '@testing-library/user-event';
 

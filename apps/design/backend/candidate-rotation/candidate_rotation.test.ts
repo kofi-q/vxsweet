@@ -1,4 +1,4 @@
-import { electionGeneral } from '@vx/libs/fixtures/src';
+import { election as electionGeneral } from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import { type CandidateContest } from '@vx/libs/types/elections';
 import { rotateCandidates } from './candidate_rotation';
 

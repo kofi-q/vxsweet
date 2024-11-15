@@ -11,8 +11,8 @@ import {
 import { type MachineConfig } from '../../backend/types/types';
 
 import { randomBallotId } from '@vx/libs/utils/src';
-import { electionGeneralDefinition } from '@vx/libs/fixtures/src';
 import { render as testRender } from './react_testing_library';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 
 import { BallotContext } from '../contexts/ballot_context';
 import { mockMachineConfig } from './helpers/mock_machine_config';
@@ -24,7 +24,7 @@ export function render(
   {
     route = '/',
     ballotStyleId,
-    electionDefinition = electionGeneralDefinition,
+    electionDefinition = electionGeneral.toElectionDefinition(),
     contests = electionDefinition.election.contests,
     endVoterSession = jest.fn(),
     history = createMemoryHistory({ initialEntries: [route] }),

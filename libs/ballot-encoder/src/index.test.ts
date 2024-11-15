@@ -1,4 +1,4 @@
-import { electionGeneralDefinition as electionDefinition } from '@vx/libs/fixtures/src';
+import * as electionGeneral from '@vx/libs/fixtures/src/data/electionGeneral/election.json';
 import {
   BallotIdSchema,
   type BallotStyleId,
@@ -34,6 +34,7 @@ import {
   MAXIMUM_PRECINCTS,
   MAXIMUM_BALLOT_STYLES,
 } from '.';
+const electionDefinition = electionGeneral.toElectionDefinition();
 
 const precinctBallotTypeIndex = Object.values(BallotType).indexOf(
   BallotType.Precinct

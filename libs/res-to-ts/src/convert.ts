@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { promises as fs } from 'node:fs';
 import { sha256 } from 'js-sha256';
 import { dirname, parse, relative } from 'node:path';
@@ -50,6 +51,39 @@ export function asDirectoryPath(): string {
 `;
 }
 
+function getElectionDefinitionSection(
+  resourceData: Buffer,
+  relativePath: string
+) {
+  return `
+/**
+ * Election for ${relativePath}.
+ */
+export const election: Election = ${resourceData.toString('utf-8')};
+
+let cachedElectionDefinition: ElectionDefinition;
+
+/**
+ * Full election definition for ${relativePath}.
+ */
+export function toElectionDefinition(): ElectionDefinition {
+  cachedElectionDefinition ??= asElectionDefinition(election);
+
+  return cachedElectionDefinition;
+}
+
+/**
+ * Election package for ${relativePath}.
+ */
+export function toElectionPackage(systemSettings = DEFAULT_SYSTEM_SETTINGS): ElectionPackage {
+  return {
+    electionDefinition: toElectionDefinition(),
+    systemSettings,
+  };
+}
+`;
+}
+
 /**
  * Converts a resource to be readable as a TypeScript file.
  */
@@ -90,60 +124,71 @@ export async function convert({
 
   if (isElectionDefinition) {
     lines.push(
-      `import { ElectionPackage, safeParseElectionDefinition, DEFAULT_SYSTEM_SETTINGS } from '@vx/libs/types/src';`
+      `import {`,
+      `  type Election,`,
+      `  type ElectionDefinition,`,
+      `  type ElectionPackage,`,
+      `  DEFAULT_SYSTEM_SETTINGS,`,
+      `  HmpbBallotPaperSize,`,
+      `} from '@vx/libs/types/elections';`,
+      `import { safeParseElectionDefinition } from '@vx/libs/types/election-parsing';`,
+      `import { DateWithoutTime } from '@vx/libs/basics/time';`,
+      ``
     );
   }
 
   const hash = sha256(resourceData);
 
-  lines.push(
-    ``,
-    `/**`,
-    ` * Data of ${relativePath} encoded as base64.`,
-    ` *`,
-    ` * SHA-256 hash of file data: ${hash}`,
-    ` */`,
-    `const resourceDataBase64 = '${resourceData.toString('base64')}';`,
-    ``,
-    `/**`,
-    ` * MIME type of ${relativePath}.`,
-    ` */`,
-    `export const mimeType = '${mimeType}';`,
-    ``,
-    `/**`,
-    ` * Path to a file containing this file's contents.`,
-    ` *`,
-    ` * SHA-256 hash of file data: ${hash}`,
-    ` */`,
-    `export function asFilePath(): string {`,
-    `  const directoryPath = mkdtempSync(tmpdir() + sep);`,
-    `  const filePath = join(directoryPath, '${pathParts.base}');`,
-    `  writeFileSync(filePath, asBuffer());`,
-    `  return filePath;`,
-    `}`,
-    ``,
-    `/**`,
-    ` * Convert to a \`data:\` URL of ${relativePath}, suitable for embedding in HTML.`,
-    ` *`,
-    ` * SHA-256 hash of file data: ${hash}`,
-    ` */`,
-    `export function asDataUrl(): string {`,
-    `  return \`data:\${mimeType};base64,\${resourceDataBase64}\`;`,
-    `}`,
-    ``,
-    `/**`,
-    ` * Raw data of ${relativePath}.`,
-    ` *`,
-    ` * SHA-256 hash of file data: ${hash}`,
-    ` */`,
-    `export function asBuffer(): Buffer {`,
-    `  return Buffer.from(resourceDataBase64, 'base64');`,
-    `}`
-  );
-
-  if (isTextResource) {
+  if (!isElectionDefinition) {
     lines.push(
       ``,
+      `/**`,
+      ` * Data of ${relativePath} encoded as base64.`,
+      ` *`,
+      ` * SHA-256 hash of file data: ${hash}`,
+      ` */`,
+      `const resourceDataBase64 = '${resourceData.toString('base64')}';`,
+      ``,
+      `/**`,
+      ` * MIME type of ${relativePath}.`,
+      ` */`,
+      `export const mimeType = '${mimeType}';`,
+      ``,
+      `/**`,
+      ` * Path to a file containing this file's contents.`,
+      ` *`,
+      ` * SHA-256 hash of file data: ${hash}`,
+      ` */`,
+      `export function asFilePath(): string {`,
+      `  const directoryPath = mkdtempSync(tmpdir() + sep);`,
+      `  const filePath = join(directoryPath, '${pathParts.base}');`,
+      `  writeFileSync(filePath, asBuffer());`,
+      `  return filePath;`,
+      `}`,
+      ``,
+      `/**`,
+      ` * Convert to a \`data:\` URL of ${relativePath}, suitable for embedding in HTML.`,
+      ` *`,
+      ` * SHA-256 hash of file data: ${hash}`,
+      ` */`,
+      `export function asDataUrl(): string {`,
+      `  return \`data:\${mimeType};base64,\${resourceDataBase64}\`;`,
+      `}`,
+      ``,
+      `/**`,
+      ` * Raw data of ${relativePath}.`,
+      ` *`,
+      ` * SHA-256 hash of file data: ${hash}`,
+      ` */`,
+      `export function asBuffer(): Buffer {`,
+      `  return Buffer.from(resourceDataBase64, 'base64');`,
+      `}`,
+      ``
+    );
+  }
+
+  if (isTextResource && !isElectionDefinition) {
+    lines.push(
       `/**`,
       ` * Text content of ${relativePath}.`,
       ` *`,
@@ -151,13 +196,13 @@ export async function convert({
       ` */`,
       `export function asText(): string {`,
       `  return asBuffer().toString('utf-8');`,
-      `}`
+      `}`,
+      ``
     );
   }
 
   if (isImageResource) {
     lines.push(
-      ``,
       `/**`,
       ` * Converts ${relativePath} to an \`ImageData\`.`,
       ` *`,
@@ -169,41 +214,13 @@ export async function convert({
       `  const context = canvas.getContext('2d');`,
       `  context.drawImage(image, 0, 0);`,
       `  return context.getImageData(0, 0, image.width, image.height);`,
-      `}`
+      `}`,
+      ``
     );
   }
 
   if (isElectionDefinition) {
-    lines.push(
-      ``,
-      `/**`,
-      ` * Full election definition for ${relativePath}.`,
-      ` *`,
-      ` * SHA-256 hash of file data: ${hash}`,
-      ` */`,
-      `export const electionDefinition = safeParseElectionDefinition(`,
-      `  asText()`,
-      `).unsafeUnwrap();`,
-      ``,
-      `/**`,
-      ` * Election definition for ${relativePath}.`,
-      ` *`,
-      ` * SHA-256 hash of file data: ${hash}`,
-      ` */`,
-      `export const election = electionDefinition.election;`,
-      ``,
-      `/**`,
-      ` * Election package for ${relativePath}.`,
-      ` *`,
-      ` * SHA-256 hash of file data: ${hash}`,
-      ` */`,
-      `export function toElectionPackage(systemSettings = DEFAULT_SYSTEM_SETTINGS): ElectionPackage {`,
-      `  return {`,
-      `    electionDefinition,`,
-      `    systemSettings,`,
-      `  };`,
-      `}`
-    );
+    lines.push(getElectionDefinitionSection(resourceData, relativePath), ``);
   }
 
   return lines.join('\n');

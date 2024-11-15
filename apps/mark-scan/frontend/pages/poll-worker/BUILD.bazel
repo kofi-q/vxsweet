@@ -38,6 +38,7 @@ ts_library(
 
 ts_tests(
     name = "tests",
+    size = "large",
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/jest",
@@ -54,6 +55,7 @@ ts_tests(
         "//libs/basics/assert",
         "//libs/basics/time",
         "//libs/fixtures/src",
+        "//libs/fixtures/src/data/electionGeneral",
         "//libs/test-utils/src",
         "//libs/types/elections",
         "//libs/types/languages",

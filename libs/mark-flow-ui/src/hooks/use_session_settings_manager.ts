@@ -12,7 +12,6 @@ import {
   useLanguageControls,
 } from '@vx/libs/ui/ui_strings';
 import { InsertedSmartCardAuth } from '@vx/libs/types/elections';
-import { LanguageCode } from '@vx/libs/types/languages';
 import { isCardlessVoterAuth } from '@vx/libs/utils/src';
 
 export interface UseSessionSettingsManagerParams {
@@ -25,7 +24,7 @@ export interface UseSessionSettingsManagerResult {
 
 interface VoterSettings {
   isAudioEnabled: boolean;
-  language: LanguageCode;
+  language: string;
   theme: DefaultTheme;
 }
 
