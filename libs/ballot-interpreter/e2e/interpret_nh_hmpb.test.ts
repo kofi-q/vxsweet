@@ -1,4 +1,4 @@
-jest.mock('./validation');
+jest.mock('../src/validation');
 
 import { assert } from '@vx/libs/basics/assert';
 import { unique } from '@vx/libs/basics/collections';
@@ -21,9 +21,9 @@ import {
 import { ImageData } from 'canvas';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { interpretSheet } from './interpret';
-import { type InterpreterOptions } from './types';
-import { normalizeBallotMode } from './validation';
+import { interpretSheet } from '../src/interpret';
+import { type InterpreterOptions } from '../src/types';
+import { normalizeBallotMode } from '../src/validation';
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

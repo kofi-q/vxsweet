@@ -1,4 +1,4 @@
-jest.mock('./validation');
+jest.mock('../src/validation');
 
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import { assert, assertDefined } from '@vx/libs/basics/assert';
@@ -31,9 +31,9 @@ import {
   unmarkedWriteInsForSheet,
   votesForSheet,
 } from '../test/helpers/interpretation';
-import { interpretSheet } from './interpret';
-import { type InterpreterOptions } from './types';
-import { normalizeBallotMode } from './validation';
+import { interpretSheet } from '../src/interpret';
+import { type InterpreterOptions } from '../src/types';
+import { normalizeBallotMode } from '../src/validation';
 import '@vx/libs/image-test-utils/register';
 
 beforeEach(() => {

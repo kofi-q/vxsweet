@@ -40,9 +40,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
+    size = "enormous",
     data = ["//apps/central-scan/backend/test:fixtures"],
-    shard_count = 4,
     deps = [
         "//:node_modules/@types/express",
         "//:node_modules/@types/jest",

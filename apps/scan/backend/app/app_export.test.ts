@@ -141,6 +141,7 @@ test('continuous CVR export, including polls closing, followed by a full export'
       const exportDirectoryPaths = await getCastVoteRecordExportDirectoryPaths(
         mockUsbDrive.usbDrive
       );
+      await waitForContinuousExportToUsbDrive(workspace.store);
       expect(exportDirectoryPaths).toHaveLength(2);
 
       for (const exportDirectoryPath of exportDirectoryPaths) {

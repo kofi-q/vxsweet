@@ -35,10 +35,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "large",
-    timeout = "short",
+    size = "enormous",
     env = {"VX_MACHINE_TYPE": "mark"},
-    shard_count = 3,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",

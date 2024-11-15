@@ -8,7 +8,7 @@ import {
 } from '@vx/libs/types/scanning';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
-import { interpretSheet } from './interpret';
+import { interpretSheet } from '../src/interpret';
 
 test('interpret BMD ballot for an election supporting hand-marked paper ballots', async () => {
   const electionDefinition = (

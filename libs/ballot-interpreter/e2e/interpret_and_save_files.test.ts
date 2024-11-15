@@ -10,7 +10,7 @@ import { DEFAULT_MARK_THRESHOLDS, asSheet } from '@vx/libs/types/elections';
 import { ALL_PRECINCTS_SELECTION } from '@vx/libs/utils/src';
 import { pdfToPageImages } from '../test/helpers/interpretation';
 import { tmpDir } from '../test/helpers/tmp';
-import { interpretSheetAndSaveImages } from './interpret';
+import { interpretSheetAndSaveImages } from '../src/interpret';
 
 test('interprets ballot images and saves images for storage', async () => {
   const fixtures = electionFamousNames2021Fixtures;

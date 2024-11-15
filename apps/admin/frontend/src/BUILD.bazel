@@ -37,7 +37,6 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "large",
-    shard_count = 2,
     deps = [
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/fetch-mock",

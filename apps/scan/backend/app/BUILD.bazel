@@ -40,9 +40,9 @@ ts_library(
 ts_tests(
     name = "tests",
     size = "enormous",
-    timeout = "short",
+    timeout = "moderate",
     env = {"VX_MACHINE_TYPE": "scan"},
-    shard_count = 10,
+    shard_count = 2,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
