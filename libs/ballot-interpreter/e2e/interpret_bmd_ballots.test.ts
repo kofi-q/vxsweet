@@ -1,4 +1,4 @@
-jest.mock('./validation');
+jest.mock('../src/validation');
 
 import { sliceBallotHashForEncoding } from '@vx/libs/ballot-encoder/src';
 import {
@@ -40,9 +40,9 @@ import { ImageData } from 'canvas';
 import { assert } from 'node:console';
 import { assertDefined } from '@vx/libs/basics/assert';
 import { pdfToPageImages } from '../test/helpers/interpretation';
-import { interpretSheet, interpretSimplexBmdBallot } from './interpret';
-import { type InterpreterOptions } from './types';
-import { normalizeBallotMode } from './validation';
+import { interpretSheet, interpretSimplexBmdBallot } from '../src/interpret';
+import { type InterpreterOptions } from '../src/types';
+import { normalizeBallotMode } from '../src/validation';
 
 beforeEach(() => {
   mockOf(normalizeBallotMode).mockImplementation((input) => input);

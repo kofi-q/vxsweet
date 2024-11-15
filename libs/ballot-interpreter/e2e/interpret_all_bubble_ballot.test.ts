@@ -12,7 +12,7 @@ import {
 } from '@vx/libs/types/elections';
 import { singlePrecinctSelectionFor } from '@vx/libs/utils/src';
 import { pdfToPageImages, sortVotesDict } from '../test/helpers/interpretation';
-import { interpretSheet } from './interpret';
+import { interpretSheet } from '../src/interpret';
 
 describe('Interpret - HMPB - All bubble ballot', () => {
   const {
