@@ -1,0 +1,39 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "worker",
+    data = [
+        "//tools/eslint/formatter",
+    ],
+    deps = [
+        "//:node_modules/@bazel/worker",
+        "//:node_modules/@types/eslint",
+        "//:node_modules/@types/node",
+        "//:node_modules/chalk",
+        "//:node_modules/eslint",
+        "//:types_env",
+    ],
+)
+
+lint_test(name = "lint")
+
+js_binary(
+    name = "exe",
+    data = [
+        "//tools/eslint",
+        "//tools/eslint:config.js",
+        "//tools/eslint/formatter",
+        "//tools/eslint/formatter:formatter.js",
+    ],
+    entry_point = "worker.js",
+    env = {
+        "BAZEL_BINDIR": ".",
+        "ESLINT_CONFIG_PATH": "$(execpath //tools/eslint:config.js)",
+        "ESLINT_FORMATTER_PATH": "$(execpath //tools/eslint/formatter:formatter.js)",
+    },
+    patch_node_fs = False,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

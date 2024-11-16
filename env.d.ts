@@ -83,6 +83,18 @@ declare namespace NodeJS {
     BUILD_WORKSPACE_DIRECTORY?: string;
 
     /**
+     * Root-relative path to the config file for ESLint, when running under
+     * Bazel.
+     */
+    ESLINT_CONFIG_PATH?: string;
+
+    /**
+     * Root-relative path to the result formatter for ESLint, when running under
+     * Bazel.
+     */
+    ESLINT_FORMATTER_PATH?: string;
+
+    /**
      * The repo-relative path to the root of the currently running integration
      * test package.
      */

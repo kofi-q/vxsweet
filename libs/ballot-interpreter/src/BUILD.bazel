@@ -10,7 +10,6 @@ ts_library(
     data = [":rust_addon"],
     deps = [
         "//:node_modules/@types/better-sqlite3",
-        "//:node_modules/@types/chalk",
         "//:node_modules/@types/debug",
         "//:node_modules/@types/node",
         "//:node_modules/@types/tmp",

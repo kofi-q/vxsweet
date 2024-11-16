@@ -63,7 +63,7 @@ test('logOut', async () => {
   const { api, auth } = buildTestEnvironment();
   await configureMachine(api, auth, electionDefinition, systemSettings);
 
-  await api.logOut();
+  api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -155,10 +155,10 @@ test('checkPin before election definition has been configured', async () => {
   );
 });
 
-test('logOut before election definition has been configured', async () => {
+test('logOut before election definition has been configured', () => {
   const { api, auth } = buildTestEnvironment();
 
-  await api.logOut();
+  api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     jurisdiction,

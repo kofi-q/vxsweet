@@ -8,7 +8,6 @@ ts_library(
     name = "src",
     deps = [
         "//:node_modules/@testing-library/react",
-        "//:node_modules/@types/chalk",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/luxon",
         "//:node_modules/@types/node",

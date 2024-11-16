@@ -23,6 +23,14 @@ const tsExtensions = ['.ts', '.tsx'];
 const allExtensions = jsExtensions.concat(tsExtensions);
 
 module.exports = [
+  {
+    settings: {
+      react: {
+        version: 'detect',
+        defaultVersion: '18.3.1',
+      },
+    },
+  },
   pluginImports.flatConfigs.errors,
   pluginImports.flatConfigs.warnings,
   eslintJs.configs.recommended,
@@ -258,11 +266,6 @@ module.exports = [
       react: pluginReact,
       'react-hooks': {
         rules: pluginReactHooks.rules,
-      },
-    },
-    settings: {
-      react: {
-        version: 'detect',
       },
     },
     rules: {
