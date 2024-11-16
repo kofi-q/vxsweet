@@ -49,3 +49,10 @@ sh_binary(
 eslint.eslint_binary(name = "binary")
 
 lint_test(name = "lint")
+
+exports_files(
+    [
+        "checker.sh.template",
+    ],
+    visibility = ["//visibility:public"],
+)

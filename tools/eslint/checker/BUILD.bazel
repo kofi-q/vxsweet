@@ -1,0 +1,30 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+ts_library(
+    name = "checker",
+    deps = [
+        "//:node_modules/@types/node",
+        "//:node_modules/chalk",
+    ],
+)
+
+lint_test(name = "lint")
+
+js_binary(
+    name = "exe",
+    data = [
+        ":checker",
+        "//tools/eslint",
+        "//tools/eslint:config.js",
+    ],
+    entry_point = "checker.js",
+    env = {
+        "BAZEL_BINDIR": ".",
+        "ESLINT_CONFIG_PATH": "$(execpath //tools/eslint:config.js)",
+    },
+    patch_node_fs = False,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

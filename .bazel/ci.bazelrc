@@ -3,6 +3,9 @@
 # NOTE: Keep in sync with .circleci/config.yml:
 common:ci --disk_cache=~/bazel_build_cache
 
+# Docs: https://bazel.build/docs/user-manual#keep-going
+common:ci --keep_going
+
 # Docs: https://bazel.build/docs/user-manual#test-output
 test:ci --test_output=errors
 

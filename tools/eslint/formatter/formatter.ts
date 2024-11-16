@@ -12,6 +12,8 @@ import table from 'text-table';
 import util from 'node:util';
 import { ESLint } from 'eslint';
 
+chalk.level = 3;
+
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
@@ -115,7 +117,7 @@ function format(
           ' and ',
           fixableWarningCount,
           pluralize(' warning', fixableWarningCount),
-          ' potentially fixable with the `--fix` option.\n',
+          ' potentially fixable with the `--fix` option!!!\n',
         ].join('')
       );
     }

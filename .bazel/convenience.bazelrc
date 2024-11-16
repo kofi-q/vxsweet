@@ -1,5 +1,5 @@
 # Docs: https://bazel.build/docs/user-manual#keep-going
-common --keep_going
+common --nokeep_going
 
 # Docs: https://bazel.build/docs/user-manual#test-output
 test --test_output=errors

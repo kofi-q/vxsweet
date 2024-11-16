@@ -3,7 +3,6 @@ load(":files.bzl", "list_all_files")
 
 def lint_test(
         name = "lib",
-        data = [],
         size = "medium",
         tags = [],
         timeout = "short",
@@ -13,7 +12,6 @@ def lint_test(
     Args:
       name: Name for the build target. This should usually match the name of
           the package/directory.
-      data: Data/script/asset files that are written/read at runtime.
       size: Size tag for the test target - defaults to "small".
       tags: Additional tags to attach to the generated targets.
       timeout: Timeout ("short" | "moderate" | "long" | "eternal") for the
@@ -24,7 +22,6 @@ def lint_test(
     eslint_test(
         name = name,
         srcs = list_all_files(),
-        data = data,
         size = size,
         tags = tags + ["lint"],
         timeout = timeout,

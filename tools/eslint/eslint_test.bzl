@@ -1,46 +1,81 @@
-load("@npm//:eslint/package_json.bzl", eslint = "bin")
+def _eslint_test_impl(ctx):
+    args = ctx.actions.args()
 
-def eslint_test(
-        name,
-        srcs,
-        data = [],
-        tags = [],
-        size = "medium",
-        timeout = "short",
-        **kwargs):
-    """Runs eslint checks on the given source files and fails the test if any lint errors are found.
+    out = ctx.actions.declare_file("{}.lint.log".format(ctx.label.name))
+    args.add("--outputPath")
+    args.add(out)
+    args.add_all(ctx.files.srcs)
 
-    Args:
-      name: Name of the target
-      srcs: List of sources to run eslint on.
-      data: Optional list of targets needed at runtime.
-      size: Size tag for the test target - defaults to "small".
-      tags: Additional tags to attach to the generated targets.
-      timeout: Timeout ("short" | "moderate" | "long" | "eternal") for the
-          test target. Default value will correspond to the `size`.
-      **kwargs: Additional arguments to pass to the underlying js_test target.
-    """
+    args.set_param_file_format("multiline")
+    args.use_param_file("@%s", use_always = True)
 
-    eslint.eslint_test(
-        name = name,
-        args = [
-            "-c",
-            "$(location //tools/eslint:config.js)",
-            "-f",
-            "$(location //tools/eslint/formatter:formatter.js)",
-            "--color",
-        ] + ["$(location %s)" % (s) for s in srcs],
-        data = data + srcs + [
-            "//tools/eslint/formatter:formatter.js",
-            "//tools/eslint/formatter",
-            "//tools/eslint:config.js",
-            "//tools/eslint",
-        ],
-        env = {
-            "ESLINT_USE_FLAT_CONFIG": "true",
+    ctx.actions.run(
+        arguments = [args],
+        executable = ctx.executable._worker_exe,
+        execution_requirements = {
+            "supports-workers": "1",
         },
-        size = size,
-        tags = tags + ["eslint"],
-        timeout = timeout,
-        **kwargs
+        inputs = ctx.files.srcs,
+        mnemonic = "ESLint",
+        progress_message = "[ESLint] Generating lint results for %{label}",
+        outputs = [out],
+        tools = [ctx.attr._worker_exe[DefaultInfo].files_to_run],
     )
+
+    checker = ctx.actions.declare_file("{}.test.sh".format(ctx.label.name))
+    ctx.actions.expand_template(
+        template = ctx.file._checker_script_template,
+        output = checker,
+        substitutions = {
+            "{{CHECKER_EXE}}": ctx.executable._checker_exe.short_path,
+            "{{FILES}}": out.short_path,
+        },
+        is_executable = True,
+    )
+
+    runfiles = ctx.runfiles(
+        files = ctx.files.srcs + [
+            out,
+            ctx.executable._checker_exe,
+        ],
+    )
+    runfiles = runfiles.merge(
+        ctx.attr._checker_exe[DefaultInfo].default_runfiles,
+    )
+
+    return [
+        DefaultInfo(
+            files = depset([out]),
+            executable = checker,
+            runfiles = runfiles,
+        ),
+    ]
+
+eslint_test = rule(
+    attrs = {
+        "srcs": attr.label_list(
+            allow_files = True,
+            doc = "Source files to lint",
+        ),
+        "data": attr.label_list(
+            allow_files = True,
+            doc = "Files needed at runtimes",
+        ),
+        "_checker_exe": attr.label(
+            cfg = "target",
+            default = Label("//tools/eslint/checker:exe"),
+            executable = True,
+        ),
+        "_checker_script_template": attr.label(
+            allow_single_file = True,
+            default = Label("//tools/eslint:checker.sh.template"),
+        ),
+        "_worker_exe": attr.label(
+            cfg = "target",
+            default = Label("//tools/eslint/worker:exe"),
+            executable = True,
+        ),
+    },
+    implementation = _eslint_test_impl,
+    test = True,
+)

@@ -4,7 +4,6 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 ts_library(
     name = "multirun",
     deps = [
-        "//:node_modules/@types/chalk",
         "//:node_modules/@types/node",
         "//:node_modules/chalk",
         "//:node_modules/concurrently",
