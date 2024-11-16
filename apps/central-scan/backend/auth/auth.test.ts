@@ -93,10 +93,10 @@ test('checkPin', async () => {
   );
 });
 
-test('logOut', async () => {
+test('logOut', () => {
   configureMachine(systemSettings);
 
-  await api.logOut();
+  api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, {
     electionKey,
@@ -144,8 +144,8 @@ test('checkPin before election definition has been configured', async () => {
   );
 });
 
-test('logOut before election definition has been configured', async () => {
-  await api.logOut();
+test('logOut before election definition has been configured', () => {
+  api.logOut();
   expect(auth.logOut).toHaveBeenCalledTimes(1);
   expect(auth.logOut).toHaveBeenNthCalledWith(1, DEFAULT_SYSTEM_SETTINGS.auth);
 });

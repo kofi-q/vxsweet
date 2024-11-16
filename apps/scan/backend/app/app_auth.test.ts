@@ -86,7 +86,7 @@ test('logOut', async () => {
   await withApp(async ({ api, mockAuth, mockUsbDrive }) => {
     await configureApp(api, mockAuth, mockUsbDrive, { electionPackage });
 
-    await api.logOut();
+    api.logOut();
     expect(mockAuth.logOut).toHaveBeenCalledTimes(1);
     expect(mockAuth.logOut).toHaveBeenNthCalledWith(1, {
       ...systemSettings.auth,
@@ -137,8 +137,8 @@ test('checkPin before election definition has been configured', async () => {
 });
 
 test('logOut before election definition has been configured', async () => {
-  await withApp(async ({ api, mockAuth }) => {
-    await api.logOut();
+  await withApp(({ api, mockAuth }) => {
+    api.logOut();
     expect(mockAuth.logOut).toHaveBeenCalledTimes(1);
     expect(mockAuth.logOut).toHaveBeenNthCalledWith(
       1,

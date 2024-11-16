@@ -1309,6 +1309,7 @@ export class Store {
         }).unsafeUnwrap()
       )
       .map<CastVoteRecordFileRecord>((parsedResult) => ({
+        /* eslint-disable-next-line vx/gts-spread-like-types */
         ...parsedResult,
         precinctIds: [...parsedResult.precinctIds].sort(),
         scannerIds: [...parsedResult.scannerIds].sort(),
