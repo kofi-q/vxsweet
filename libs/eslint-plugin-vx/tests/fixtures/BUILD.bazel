@@ -2,10 +2,14 @@ load("//tools/ts_build:json_package.bzl", "json_package")
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
 
-json_package(name = "json")
+json_package(
+    name = "json",
+    tags = ["manual"],
+)
 
 ts_library(
     name = "fixtures",
+    tags = ["manual"],
     deps = [
         "//:node_modules/@types/react",
         "//:node_modules/react",
@@ -20,5 +24,6 @@ filegroup(
         "*.ts",
         "*.tsx",
     ]) + ["tsconfig.fixtures.json"],
+    tags = ["manual"],
     visibility = ["//libs/eslint-plugin-vx/tests:__subpackages__"],
 )

@@ -6,6 +6,7 @@ ts_tests(
     size = "enormous",
     data = ["//libs/eslint-plugin-vx/tests/fixtures:files"],
     shard_count = 4,
+    tags = ["lint"],
     deps = [
         "//:node_modules/@types/node",
         "//:node_modules/@types/react",
