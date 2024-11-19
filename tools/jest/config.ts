@@ -47,7 +47,7 @@ const config: Config.InitialOptions = {
     testEnvironment === 'jsdom' ? `${__dirname}/setup_dom` : '',
   ].filter(Boolean),
   testEnvironment,
-  testMatch: ['<rootDir>/**/?(*.)test.ts?(x)'],
+  testMatch: ['<rootDir>/**/?(*.)test.{j,t}s?(x)'],
   testPathIgnorePatterns: [
     '.*/node_modules/.*',
     IS_BAZEL_TEST ? '' : '.*/bazel-.+?/.*',
