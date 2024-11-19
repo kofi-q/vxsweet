@@ -6,8 +6,9 @@ ts_library(
     name = "eslint",
     data = [
         "//:.prettierrc.mjs",
-        "//:tsconfig_base",
+        "//:tsconfig",
     ],
+    tags = ["manual"],
     deps = [
         "//:node_modules/@eslint/js",
         "//:node_modules/@types/eslint",
@@ -44,9 +45,13 @@ sh_binary(
         "BINARY_PATH": "$(location :binary)",
         "ESLINT_USE_FLAT_CONFIG": "true",
     },
+    tags = ["manual"],
 )
 
-eslint.eslint_binary(name = "binary")
+eslint.eslint_binary(
+    name = "binary",
+    tags = ["manual"],
+)
 
 lint_test(name = "lint")
 
