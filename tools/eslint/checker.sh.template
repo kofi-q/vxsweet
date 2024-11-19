@@ -2,4 +2,11 @@
 
 set -euo pipefail
 
-exec {{CHECKER_EXE}} {{FILES}}
+LINT_LOG="{{LINT_LOG}}"
+
+if [ -s "${LINT_LOG}" ]; then
+  cat "${LINT_LOG}"
+  exit 1
+fi
+
+exit 0

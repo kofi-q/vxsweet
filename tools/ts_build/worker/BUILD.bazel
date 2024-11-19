@@ -1,0 +1,15 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+
+js_binary(
+    name = "exe",
+    data = [
+        "//:node_modules/@bazel/worker",
+        "//:node_modules/@types/node",
+        "//:node_modules/chalk",
+        "//:node_modules/typescript",
+        "//:tsconfig",
+    ],
+    entry_point = "worker.mjs",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

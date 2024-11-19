@@ -42,14 +42,14 @@ var (
 	//
 
 	regexJestReference = regexp.MustCompile(
-		`\s(?:` +
+		`\s(?m:^[^/*]*\b(?:` +
 			strings.Join([]string{
 				`jest\.\w+\(`,
 				`test(:?\.each)?\(`,
 				`(?:before|after)(?:Each|All)\(`,
 				`expect(?:\.\w+)?\(`,
 			}, "|") +
-			`)`,
+			`))`,
 	)
 	regexJestStyledComponents = regexp.MustCompile(`\.toHaveStyleRule\(`)
 	regexProcessEnv           = regexp.MustCompile(`\bprocess\.env\b`)

@@ -3,6 +3,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 ts_library(
     name = "rules",
+    tags = ["manual"],
     deps = [
         "//:node_modules/@types/eslint",
         "//:node_modules/@types/node",

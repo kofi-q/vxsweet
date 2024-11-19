@@ -27,27 +27,16 @@ def _eslint_test_impl(ctx):
         template = ctx.file._checker_script_template,
         output = checker,
         substitutions = {
-            "{{CHECKER_EXE}}": ctx.executable._checker_exe.short_path,
-            "{{FILES}}": out.short_path,
+            "{{LINT_LOG}}": out.short_path,
         },
         is_executable = True,
-    )
-
-    runfiles = ctx.runfiles(
-        files = ctx.files.srcs + [
-            out,
-            ctx.executable._checker_exe,
-        ],
-    )
-    runfiles = runfiles.merge(
-        ctx.attr._checker_exe[DefaultInfo].default_runfiles,
     )
 
     return [
         DefaultInfo(
             files = depset([out]),
             executable = checker,
-            runfiles = runfiles,
+            runfiles = ctx.runfiles([out]),
         ),
     ]
 
@@ -60,11 +49,6 @@ eslint_test = rule(
         "data": attr.label_list(
             allow_files = True,
             doc = "Files needed at runtimes",
-        ),
-        "_checker_exe": attr.label(
-            cfg = "target",
-            default = Label("//tools/eslint/checker:exe"),
-            executable = True,
         ),
         "_checker_script_template": attr.label(
             allow_single_file = True,

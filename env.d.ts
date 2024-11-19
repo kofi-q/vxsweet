@@ -125,6 +125,14 @@ declare namespace NodeJS {
     JEST_ENVIRONMENT?: 'jsdom' | 'node';
 
     /**
+     * When running under `aspect_build` rules like `js_binary`, the `PWD` env
+     * can be replaced with a different working directory by setting the
+     * `BAZEL_BINDIR` env var. When that happens, the original Bazel execution
+     * root path is copied to `OLDPWD`.
+     */
+    OLDPWD?: string;
+
+    /**
      * When running under Bazel, `PWD` is set to the absolute path to the root
      * of the Bazel sandbox, which mirrors the root of the repo.
      */
@@ -141,5 +149,10 @@ declare namespace NodeJS {
      * sandbox path and will be equal to {@link TEST_TMPDIR} when running tests.
      */
     TMPDIR?: string;
+
+    /**
+     * Root-relative path to tsconfig, when running under Bazel.
+     */
+    TSCONFIG_PATH?: string;
   }
 }

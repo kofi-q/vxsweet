@@ -7,7 +7,7 @@ ts_library(
     data = [
         "//:node_modules/jest-environment-jsdom",
         "//:node_modules/jest-watch-typeahead",
-        "//:tsconfig_base",
+        "//:tsconfig",
     ],
     tags = ["manual"],
     deps = [

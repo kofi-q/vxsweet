@@ -27,7 +27,7 @@ def playwright_test(
             "//:env",
             "//:node_modules/@playwright/browser-chromium",
             "//:node_modules/tsx",
-            "//:tsconfig_base",
+            "//:tsconfig",
             "//tools/playwright:config.js",
             prod_app,
         ] + native.glob(["**/.env"], allow_empty = True),

@@ -22,7 +22,7 @@ def frontend_bundle(name, srcs, index_html_path, static_asset_dir, tags = []):
         name = name,
         srcs = srcs + ASSET_FILES + [
             "//:env",
-            "//:tsconfig_base",
+            "//:tsconfig",
             "//:node_modules/vite/dir",
             "//tools/vite",
             "//tools/vite:config.js",

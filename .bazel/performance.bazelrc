@@ -23,3 +23,10 @@ build --nolegacy_external_runfiles
 # improve performance in dev/CI environments.
 # Docs: https://bazel.build/docs/user-manual#compilation-mode
 common --compilation_mode=opt
+
+# Set limits for the Bazel worker instances.
+# ESLint workers are quite chonky. Conservatively limit to CPUS/2 to keep them
+# from overrunning the system.
+# https://bazel.build/reference/command-line-reference#flag--worker_max_instances
+common --worker_max_instances=ESLint=HOST_CPUS*0.5
+common --worker_max_instances=TSBuild=HOST_CPUS

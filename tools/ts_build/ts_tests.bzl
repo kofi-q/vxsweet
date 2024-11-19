@@ -46,7 +46,6 @@ def ts_tests(
       visibility: Defaults to public.
     """
 
-    TEST_FILES = list_test_files()
     lib_name = "{}_lib".format(name)
 
     fallback_jest_env = "node"
@@ -56,10 +55,10 @@ def ts_tests(
     if not skip:
         jest_test(
             name = name,
-            srcs = TEST_FILES,
-            data = [
+            srcs = [
                 ":{}".format(lib_name),
             ],
+            data = [],
             env = env,
             jest_environment = jest_environment or fallback_jest_env,
             shard_count = shard_count,
@@ -71,7 +70,7 @@ def ts_tests(
 
     ts_transpile(
         name = lib_name,
-        srcs = TEST_FILES,
+        srcs = list_test_files(),
         deps = deps,
         data = data,
         tags = tags + ["test_lib"],

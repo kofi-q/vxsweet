@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable vx/gts-identifiers */
+
+process.title = 'vx-eslint-worker';
+
 import chalk from 'chalk';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -17,8 +20,10 @@ declare module 'eslint/use-at-your-own-risk' {
 const cwd = process.cwd();
 
 const eslint = new FlatESLint({
-  overrideConfigFile: process.env.ESLINT_CONFIG_PATH,
   cwd,
+  overrideConfigFile: process.env.ESLINT_CONFIG_PATH,
+  // @ts-expect-error - types are incomplete
+  warnIgnored: false,
 });
 
 void runWorkerLoop(async (args) => {
@@ -52,7 +57,7 @@ void runWorkerLoop(async (args) => {
 
     let output = '';
 
-    const hasErrors = results.some((r) => r.messages.length === 0);
+    const hasErrors = results.some((r) => r.messages.length > 0);
     if (hasErrors) {
       output = await formatter.format(results, {
         cwd,

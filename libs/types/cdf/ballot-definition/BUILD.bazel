@@ -45,6 +45,7 @@ ts_tests(
         "//libs/types/election-parsing",
         "//libs/types/languages",
         "//libs/types/test",
+        "//libs/types/test/helpers",
         "//libs/types/ui_strings",
     ],
 )

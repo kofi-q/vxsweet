@@ -3,25 +3,20 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
-    name = "election-event-logging",
+    name = "helpers",
     deps = [
-        "//:node_modules/@antongolub/iso8601",
-        "//:node_modules/zod",
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/node",
+        "//:node_modules/@types/testing-library__jest-dom",
     ],
 )
 
 ts_tests(
     name = "tests",
-    data = [
-        "index.ts",
-        "//libs/types/data",
-    ],
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
         "//:node_modules/@types/testing-library__jest-dom",
-        "//libs/cdf-schema-builder/src",
-        "//libs/types/cdf/election-event-logging",
         "//libs/types/test/helpers",
     ],
 )
