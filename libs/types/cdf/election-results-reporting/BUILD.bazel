@@ -35,6 +35,7 @@ ts_tests(
         "//libs/types/languages",
         "//libs/types/tabulation",
         "//libs/types/test",
+        "//libs/types/test/helpers",
     ],
 )
 

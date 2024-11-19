@@ -26,6 +26,7 @@ ts_tests(
         "//libs/cdf-schema-builder/src",
         "//libs/types/cdf/cast-vote-records",
         "//libs/types/test",
+        "//libs/types/test/helpers",
     ],
 )
 

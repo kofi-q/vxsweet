@@ -29,6 +29,6 @@ def prod_app(
             "$(rootpath {})".format(backend_entry_point),
         ],
         patch_node_fs = False,
-        tags = tags,
+        tags = tags + ["manual"],
         visibility = ["//visibility:public"],
     )
