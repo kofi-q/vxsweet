@@ -64,6 +64,7 @@ const diagnosticFormatHost = {
   getNewLine: () => '\n',
 };
 
+tsconfigJson.compilerOptions.allowJs = false;
 tsconfigJson.compilerOptions.noEmit = false;
 const tsconfig = tsc.convertCompilerOptionsFromJson(
   tsconfigJson.compilerOptions,
