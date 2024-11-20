@@ -23,6 +23,7 @@ lint_test(name = "lint")
 js_binary(
     name = "exe",
     data = [
+        ":worker",
         "//tools/eslint",
         "//tools/eslint:config.js",
         "//tools/eslint/formatter",
