@@ -64,8 +64,11 @@ const diagnosticFormatHost = {
   getNewLine: () => '\n',
 };
 
+// Avoid trying to recompile cached .js files:
 tsconfigJson.compilerOptions.allowJs = false;
+
 tsconfigJson.compilerOptions.noEmit = false;
+
 const tsconfig = tsc.convertCompilerOptionsFromJson(
   tsconfigJson.compilerOptions,
   CWD
@@ -76,12 +79,19 @@ if (tsconfig.errors.length > 0) {
     tsc.formatDiagnosticsWithColorAndContext(
       tsconfig.errors,
       diagnosticFormatHost
-    ),
-    '\n'
+    )
   );
 
   process.exit(1);
 }
+
+/**
+ * Stores build information from the last task on this worker and is fed into
+ * the next program for potential speed gains during program creation and
+ * type-checking, similar to leveraging `.tsbuildinfo` files.
+ */
+// @ts-ignore
+let oldProgram = undefined;
 
 void runWorkerLoop((srcPaths, buildInputs) => {
   /** @type {string[]} */
@@ -142,9 +152,12 @@ void runWorkerLoop((srcPaths, buildInputs) => {
           return tsc.sys.readFile(filePathResolved, encoding);
         },
       }),
+      // @ts-ignore
+      oldProgram,
       options: tsconfig.options,
       rootNames,
     });
+    oldProgram = program;
 
     const result = program.emit();
 
