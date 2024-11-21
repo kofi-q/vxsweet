@@ -19,9 +19,18 @@ build:ci --show_result=1
 common:ci --local_resources=cpu=8
 
 # Set limits for the Bazel worker instances.
+#
+# ESLint workers are quite chonky, so pushing past 7 workers is risky with the
+# 16GB allocation in CircleCI (each worker can use upwards of 1.5GB for larger
+# packages).
+#
+# The TSBuild graph only has parallel speed gains up to ~6 workers for a full
+# repo build at the moment. More package splitting might bump that up a bit, but
+# probably not by much, given the nature of the connections.
+#
 # https://bazel.build/reference/command-line-reference#flag--worker_max_instances
 common:ci --worker_max_instances=ESLint=7
-common:ci --worker_max_instances=TSBuild=7
+common:ci --worker_max_instances=TSBuild=6
 
 # Machines in CircleCI may have more cores than what's allocated to a workflow,
 # so we need to explicitly limit Bazel CPU usage to 8 cores to avoid
