@@ -24,7 +24,6 @@ def ts_transpile(
     """
     outputs_js = []
     outputs_dts = []
-    outputs_dts_map = []
     for src in srcs:
         if src.endswith(".d.ts"):
             continue
@@ -35,7 +34,6 @@ def ts_transpile(
         idx_extension = src.rindex(".")
         outputs_js.append(src[:idx_extension] + ".js")
         outputs_dts.append(src[:idx_extension] + ".d.ts")
-        outputs_dts_map.append(src[:idx_extension] + ".d.ts.map")
 
     _ts_transpile_rule(
         name = name,
@@ -43,9 +41,15 @@ def ts_transpile(
         deps = deps,
         outputs_js = outputs_js,
         outputs_dts = outputs_dts,
-        outputs_dts_map = outputs_dts_map,
         srcs = srcs,
         tags = tags + ["js", "ts"],
+        visibility = visibility,
+    )
+
+    native.filegroup(
+        name = "{}_typecheck".format(name),
+        srcs = outputs_dts,
+        tags = tags + ["typecheck"],
         visibility = visibility,
     )
 
@@ -54,8 +58,13 @@ def _ts_transpile_impl(ctx):
     tsc_args.set_param_file_format("multiline")
     tsc_args.use_param_file("@%s", use_always = True)
 
+    esbuild_args = ctx.actions.args()
+    esbuild_args.add("--outDir", ctx.bin_dir.path)
+
     inputs_srcs = []
     outputs_transpiled = []
+    outputs_transpiled_srcs = []
+    outputs_transpiled_types = []
     outputs_srcs = []
     outputs_types = []
     outputs_noop = []
@@ -65,7 +74,6 @@ def _ts_transpile_impl(ctx):
         src_without_extension = src.basename.removesuffix(extension)
         js_filename = "{}.js".format(src_without_extension)
         dts_filename = "{}.d.ts".format(src_without_extension)
-        dts_map_filename = "{}.d.ts.map".format(src_without_extension)
 
         if src.path.endswith(".d.ts"):
             type_output = copy_file_to_bin_action(ctx, src)
@@ -77,18 +85,17 @@ def _ts_transpile_impl(ctx):
         if extension == ".ts" or extension == ".tsx":
             inputs_srcs.append(src)
             tsc_args.add(src.path)
+            esbuild_args.add(src.path)
 
             js = ctx.actions.declare_file(js_filename, sibling = src)
             outputs_transpiled.append(js)
+            outputs_transpiled_srcs.append(js)
             outputs_srcs.append(js)
 
             dts = ctx.actions.declare_file(dts_filename, sibling = src)
             outputs_transpiled.append(dts)
+            outputs_transpiled_types.append(dts)
             outputs_types.append(dts)
-
-            dts_map = ctx.actions.declare_file(dts_map_filename, sibling = src)
-            outputs_transpiled.append(dts_map)
-            outputs_types.append(dts_map)
 
             continue
 
@@ -151,9 +158,22 @@ def _ts_transpile_impl(ctx):
                 transitive = inputs_transitive_srcs_types,
             ),
             mnemonic = "TSBuild",
-            outputs = outputs_transpiled,
-            progress_message = "[TSBuild] Transpiling & Typechecking %{label}",
+            outputs = outputs_transpiled_types,
+            progress_message = "[TSBuild] Typechecking %{label}",
             tools = [ctx.attr._worker_exe[DefaultInfo].files_to_run],
+        )
+
+        ctx.actions.run(
+            arguments = [esbuild_args],
+            executable = ctx.executable._esbuild_exe,
+            inputs = depset(
+                inputs_srcs,
+                transitive = depsets_transitive_srcs,
+            ),
+            mnemonic = "TSBuild",
+            outputs = outputs_transpiled_srcs,
+            progress_message = "[TSBuild] Transpiling %{label}",
+            tools = [ctx.attr._esbuild_exe[DefaultInfo].files_to_run],
         )
 
     runfiles = ctx.runfiles(
@@ -189,13 +209,6 @@ def _ts_transpile_impl(ctx):
 
 _ts_transpile_rule = rule(
     attrs = {
-        "srcs": attr.label_list(
-            allow_files = True,
-            doc = """
-              JS/TS source files - TS files are transpiles, JS files are
-              propagated without modification.
-            """,
-        ),
         "deps": attr.label_list(
             allow_files = True,
             doc = """
@@ -214,8 +227,17 @@ _ts_transpile_rule = rule(
         "outputs_dts": attr.output_list(
             doc = "Expected .d.ts output filenames.",
         ),
-        "outputs_dts_map": attr.output_list(
-            doc = "Expected .d.ts.map output filenames.",
+        "srcs": attr.label_list(
+            allow_files = True,
+            doc = """
+              JS/TS source files - TS files are transpiled, JS files are
+              propagated without modification.
+            """,
+        ),
+        "_esbuild_exe": attr.label(
+            cfg = "exec",
+            default = Label("//tools/esbuild/transpile"),
+            executable = True,
         ),
         "_worker_exe": attr.label(
             cfg = "target",

@@ -19,6 +19,11 @@ jest.mock('@vx/libs/utils/src', (): typeof import('@vx/libs/utils/src') => {
   };
 });
 
+jest.mock('./qrcode', (): typeof import('./qrcode') => ({
+  ...jest.requireActual('./qrcode'),
+  QrCode: jest.fn(jest.requireActual('./qrcode').QrCode),
+}));
+
 import {
   type BallotStyleId,
   BallotType,
@@ -52,7 +57,7 @@ import {
   MAX_MARK_SCAN_TOP_MARGIN,
   type BmdBallotSheetSize,
 } from './bmd_paper_ballot';
-import * as QrCodeModule from './qrcode';
+import { QrCode } from './qrcode';
 
 const encodeBallotMock = mockOf(encodeBallot);
 const mockEncodedBallotData = new Uint8Array([0, 1, 2, 3]);
@@ -243,8 +248,6 @@ test('BmdPaperBallot renders seal', () => {
 });
 
 test('BmdPaperBallot passes expected data to encodeBallot for use in QR code', () => {
-  const QrCodeSpy = jest.spyOn(QrCodeModule, 'QrCode');
-
   renderBmdPaperBallot({
     electionDefinition: electionGeneralDefinition,
     ballotStyleId: '5' as BallotStyleId,
@@ -274,7 +277,7 @@ test('BmdPaperBallot passes expected data to encodeBallot for use in QR code', (
     })
   );
 
-  expect(QrCodeSpy).toBeCalledWith(
+  expect(mockOf(QrCode)).toBeCalledWith(
     expect.objectContaining({
       value: fromByteArray(mockEncodedBallotData),
     }),

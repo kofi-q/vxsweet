@@ -5,8 +5,9 @@
     "alwaysStrict": true,
     "baseUrl": ".",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "esModuleInterop": true,
+    "emitDeclarationOnly": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSourceMap": true,
@@ -16,7 +17,6 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noFallthroughCasesInSwitch": true,
-    "noEmit": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": false,
     "noUnusedLocals": false,
@@ -24,6 +24,7 @@
     "paths": {
       "@vx/*": ["*"]
     },
+    "removeComments": true,
     "resolveJsonModule": true,
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
