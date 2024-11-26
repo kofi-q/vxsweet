@@ -4,9 +4,10 @@ def prod_app(
         name,
         backend_src,
         backend_entry_point,
-        frontend_bundle,
-        vx_machine_type,
         default_port,
+        frontend_bundle,
+        static_file_dir,
+        vx_machine_type,
         data = [],
         tags = [],
         additional_env_vars = {}):
@@ -22,7 +23,7 @@ def prod_app(
             "BAZEL_BINDIR": ".",
             "NODE_ENV": "production",
             "PORT": "$${PORT-%s}" % default_port,
-            "STATIC_FILE_DIR": "$(rootpath {})".format(frontend_bundle),
+            "STATIC_FILE_DIR": static_file_dir,
             "VX_MACHINE_TYPE": vx_machine_type,
         } | additional_env_vars,
         fixed_args = [

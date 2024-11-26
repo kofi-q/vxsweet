@@ -109,7 +109,7 @@ func main() {
 		Color:       esbuild.ColorAlways,
 		Define:      envVars,
 		EntryPoints: []string{*pathEntryPoint},
-		Format:      esbuild.FormatCommonJS,
+		Format:      esbuild.FormatESModule,
 		LogLevel:    esbuild.LogLevelWarning,
 		Outbase:     ".",
 		Outfile:     *pathOutJs,

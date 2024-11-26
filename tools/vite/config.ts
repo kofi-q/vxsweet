@@ -188,7 +188,9 @@ export default import('vite').then(({ defineConfig, loadEnv }) =>
           configureServer: (app: { middlewares: Server }) => {
             app.middlewares.use(
               proxy({
-                pathFilter: '/api',
+                // [TODO] Maybe rename the `**/frontend/api` dirs to avoid this:
+                pathFilter: (pathname) =>
+                  pathname.startsWith('/api') && !/.tsx?$/.test(pathname),
                 target: `http://localhost:${DEV_BACKEND_PORT}/`,
               })
             );

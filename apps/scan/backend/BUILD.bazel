@@ -7,7 +7,11 @@ dev_backend(
     name = "dev_server",
     backend_entry_point_from_root = package_name() + "/src/main.ts",
     backend_path_from_root = package_name(),
-    data = ["//libs/pdi-scanner/src/ts:pdictl_binary"],  # Pre-build to generate symlink
+    data = [
+        # Make sure Rust deps are built before running the dev server:
+        "//libs/ballot-interpreter/src:rust_addon",
+        "//libs/pdi-scanner/src/ts:pdictl_binary",
+    ],
     port = "3002",
     vx_machine_type = "scan",
 )
