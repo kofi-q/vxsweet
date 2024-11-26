@@ -1,5 +1,5 @@
 # Docs: https://bazel.build/docs/user-manual#keep-going
-common --nokeep_going
+common --keep_going
 
 # Docs: https://bazel.build/docs/user-manual#test-output
 test --test_output=errors
@@ -25,3 +25,6 @@ common --heap_dump_on_oom
 
 # Docs: https://bazel.build/reference/command-line-reference#flag--incompatible_disallow_empty_glob
 common --noincompatible_disallow_empty_glob
+
+build --build_tag_filters=-lint,-typecheck
+test --test_tag_filters=-lint --build_tag_filters=-lint,-typecheck

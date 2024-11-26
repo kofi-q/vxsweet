@@ -20,7 +20,7 @@ common:ci --local_resources=cpu=8
 
 # Set limits for the Bazel worker instances.
 #
-# ESLint workers are quite chonky, so pushing past 7 workers is risky with the
+# ESLint workers are quite chonky, so pushing past 6 workers is risky with the
 # 16GB allocation in CircleCI (each worker can use upwards of 1.5GB for larger
 # packages).
 #
@@ -29,7 +29,7 @@ common:ci --local_resources=cpu=8
 # probably not by much, given the nature of the connections.
 #
 # https://bazel.build/reference/command-line-reference#flag--worker_max_instances
-common:ci --worker_max_instances=ESLint=7
+common:ci --worker_max_instances=ESLint=6
 common:ci --worker_max_instances=TSBuild=6
 
 # Machines in CircleCI may have more cores than what's allocated to a workflow,

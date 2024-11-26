@@ -119,6 +119,7 @@ test('plays audio instructions in all languages', async () => {
     screen.getByTestId(MOCK_ALT_AUDIO_PRIMARY_TEXT_TEST_ID)
   ).toHaveTextContent('Español');
 
+  await advancePromises();
   expect(screen.getByTestId(MOCK_ALT_AUDIO_ALT_TEXT_TEST_ID)).toHaveTextContent(
     [
       '(Spanish Label) Español',
