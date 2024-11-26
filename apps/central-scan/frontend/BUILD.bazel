@@ -6,6 +6,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 frontend_bundle(
     name = "bundle",
     srcs = ["//apps/central-scan/frontend"],
+    entry_point = "index.js",
     index_html_path = "index.html",
     static_asset_dir = "public",
 )

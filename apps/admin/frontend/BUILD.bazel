@@ -4,6 +4,7 @@ load("//tools/apps:frontend_bundle.bzl", "frontend_bundle")
 frontend_bundle(
     name = "bundle",
     srcs = ["//apps/admin/frontend/src"],
+    entry_point = "//apps/admin/frontend/src:index.js",
     index_html_path = "index.html",
     static_asset_dir = "public",
 )

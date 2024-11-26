@@ -7,6 +7,7 @@ prod_app(
     backend_src = "//apps/scan/backend",
     default_port = "3000",
     frontend_bundle = "//apps/scan/frontend:bundle",
+    static_file_dir = "//apps/scan/frontend/build",
     vx_machine_type = "scan",
 )
 

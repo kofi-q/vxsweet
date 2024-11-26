@@ -37,7 +37,7 @@ js_library(
 js_library(
     name = "env",
     srcs = [".env"] + glob(
-        ["**/.env.local"],
+        ["**/.env.*"],
         allow_empty = True,
     ),
     tags = ["manual"],

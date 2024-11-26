@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import pluralize from 'pluralize';
+import pluralizeLib from 'pluralize';
 import { Button } from '@vx/libs/ui/buttons';
 import { Font, Icons, P, Loading } from '@vx/libs/ui/primitives';
 import { TD, Table } from '@vx/libs/ui/src';
@@ -13,6 +13,12 @@ import { NavigationScreen } from '../nav/navigation_screen';
 import { ExportResultsModal } from '../../components/export_results_modal';
 import { ScanButton } from '../../components/scan_button';
 import { clearBallotData } from '../../api/api';
+
+// [TODO] esbuild bundler imports this as a module with `pluralize` nested -
+// not sure why yet.
+const pluralize = ('pluralize' in pluralizeLib
+  ? pluralizeLib.pluralize
+  : pluralizeLib) as unknown as typeof pluralizeLib;
 
 pluralize.addIrregularRule('requires', 'require');
 pluralize.addIrregularRule('has', 'have');
