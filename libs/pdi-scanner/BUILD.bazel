@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_clippy", "rust_library", "rust_test", "rustfmt_test")
 
 rust_binary(
     name = "pdictl",
@@ -77,4 +77,21 @@ rust_test(
     size = "small",
     crate = ":lib",
     tags = ["rust"],
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":lib",
+        ":rust_tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":lib",
+        ":rust_tests",
+    ],
 )

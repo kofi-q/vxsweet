@@ -45,12 +45,3 @@ common:ci --keep_going
 # Make sure we have as much info in the CI output as possible to debug failures.
 # Docs: https://bazel.build/docs/user-manual#keep-going
 common:ci --verbose_failures
-
-# Enable rustfmt checks as part of the CI build.
-# Not currently enabled locally to ease dev iteration, assuming rustfmt is
-# enabled in the IDE.
-# TODO: Set up pre-commit hooks for linting/formatting.
-#
-# https://bazelbuild.github.io/rules_rust/rust_fmt.html#setup
-build:ci --aspects=@rules_rust//rust:defs.bzl%rustfmt_aspect
-build:ci --output_groups=+rustfmt_checks
