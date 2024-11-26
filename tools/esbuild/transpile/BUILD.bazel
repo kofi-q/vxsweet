@@ -1,0 +1,15 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "transpile_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/kofi-q/vxsweet/tools/esbuild/transpile",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_evanw_esbuild//pkg/api"],
+)
+
+go_binary(
+    name = "transpile",
+    embed = [":transpile_lib"],
+    visibility = ["//visibility:public"],
+)
