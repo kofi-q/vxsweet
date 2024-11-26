@@ -488,25 +488,23 @@ export function PollWorkerScreen({
                   <H3 as="h2">More Actions</H3>
                 </React.Fragment>
               )}
-              <P>
-                {getPollTransitionsFromState(pollsState).map(
-                  (pollsTransition, index) => {
-                    return (
-                      <P key={`${pollsTransition}-button`}>
-                        <UpdatePollsButton
-                          pollsTransition={pollsTransition}
-                          updatePollsState={(newPollsState) =>
-                            setPollsStateMutation.mutate({
-                              pollsState: newPollsState,
-                            })
-                          }
-                          isPrimaryButton={index === 0}
-                        />
-                      </P>
-                    );
-                  }
-                )}
-              </P>
+              {getPollTransitionsFromState(pollsState).map(
+                (pollsTransition, index) => {
+                  return (
+                    <P key={`${pollsTransition}-button`}>
+                      <UpdatePollsButton
+                        pollsTransition={pollsTransition}
+                        updatePollsState={(newPollsState) =>
+                          setPollsStateMutation.mutate({
+                            pollsState: newPollsState,
+                          })
+                        }
+                        isPrimaryButton={index === 0}
+                      />
+                    </P>
+                  );
+                }
+              )}
               <P>
                 <SignedHashValidationButton apiClient={apiClient} />
               </P>
