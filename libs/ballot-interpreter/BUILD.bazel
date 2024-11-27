@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_shared_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_clippy", "rust_shared_library", "rust_test", "rustfmt_test")
 
 DATA_FILE_EXTENSIONS = [
     "png",
@@ -54,5 +54,22 @@ rust_test(
     deps = [
         "@crates//:proptest",
         "@crates//:tempfile",
+    ],
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":rust",
+        ":rust_tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":rust",
+        ":rust_tests",
     ],
 )

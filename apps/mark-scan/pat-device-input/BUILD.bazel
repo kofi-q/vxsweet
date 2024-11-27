@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_clippy", "rust_test", "rustfmt_test")
 
 rust_binary(
     name = "pat-device-input",
@@ -20,4 +20,21 @@ rust_test(
     name = "tests",
     size = "small",
     crate = ":pat-device-input",
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":pat-device-input",
+        ":tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":pat-device-input",
+        ":tests",
+    ],
 )

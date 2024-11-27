@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_clippy", "rust_test", "rustfmt_test")
 
 rust_binary(
     name = "fai-100-controller",
@@ -26,4 +26,21 @@ rust_test(
     name = "tests",
     size = "small",
     crate = ":fai-100-controller",
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":fai-100-controller",
+        ":tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":fai-100-controller",
+        ":tests",
+    ],
 )

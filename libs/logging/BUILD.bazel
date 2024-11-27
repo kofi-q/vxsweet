@@ -1,5 +1,5 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_clippy", "rust_library", "rust_test", "rustfmt_test")
 
 rust_library(
     name = "rust",
@@ -17,6 +17,23 @@ rust_test(
     name = "rust_tests",
     size = "small",
     crate = ":rust",
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":rust",
+        ":rust_tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":rust",
+        ":rust_tests",
+    ],
 )
 
 js_library(

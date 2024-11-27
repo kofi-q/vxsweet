@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_clippy", "rust_library", "rust_test", "rustfmt_test")
 
 rust_library(
     name = "types-rs",
@@ -17,5 +17,22 @@ rust_test(
     crate = ":types-rs",
     deps = [
         "@crates//:proptest",
+    ],
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":tests",
+        ":types-rs",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":tests",
+        ":types-rs",
     ],
 )

@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_library")
+load("@rules_rust//rust:defs.bzl", "rust_clippy", "rust_library", "rustfmt_test")
 
 rust_library(
     name = "daemon-utils",
@@ -8,5 +8,20 @@ rust_library(
     visibility = ["//visibility:public"],
     deps = [
         "//libs/logging:rust",
+    ],
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":daemon-utils",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":daemon-utils",
     ],
 )

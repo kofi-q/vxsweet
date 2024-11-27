@@ -1,4 +1,4 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_clippy", "rust_test", "rustfmt_test")
 
 rust_binary(
     name = "accessible-controller",
@@ -27,4 +27,21 @@ rust_test(
     name = "tests",
     size = "small",
     crate = ":accessible-controller",
+)
+
+rust_clippy(
+    name = "clippy",
+    testonly = True,
+    deps = [
+        ":accessible-controller",
+        ":tests",
+    ],
+)
+
+rustfmt_test(
+    name = "rustfmt",
+    targets = [
+        ":accessible-controller",
+        ":tests",
+    ],
 )
