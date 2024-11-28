@@ -28,3 +28,8 @@ common --noincompatible_disallow_empty_glob
 
 build --build_tag_filters=-lint,-typecheck
 test --test_tag_filters=-lint --build_tag_filters=-lint,-typecheck
+
+# Enable garbage collection of old unused build artifacts when the Bazel server
+# is idle.
+# https://bazel.build/reference/command-line-reference#flag--experimental_disk_cache_gc_max_age
+common --experimental_disk_cache_gc_max_age=7d

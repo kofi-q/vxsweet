@@ -24,7 +24,7 @@ workflows:
       - lint
 
   daily_cache_regenerate:
-    description: Regenerate the Bazel cache from scratch daily to prune stale/unused artifacts.
+    description: Attempt Bazel cache GC daily, to prune stale/unused artifacts.
     jobs:
       - regenerate_cache
     triggers:
@@ -70,12 +70,15 @@ jobs:
     steps:
       - checkout
       - restore_playwright_cache
+      - restore_bazel_cache:
+          key_prefix: build_cache
       - run_build_test
+      - save_test_outputs
       - save_playwright_cache
+      - wait_for_gc
       - save_bazel_cache:
           key_prefix: build_cache
           key_suffix: clean
-      - save_test_outputs
 
 commands:
   run_build_test:
@@ -157,3 +160,8 @@ commands:
           key: playwright_cache-<< pipeline.parameters.cache_version >>-{{checksum "tools/playwright/version.json" }}
           paths:
             - /root/.cache/ms-playwright
+
+  wait_for_gc:
+    description: Sleeps for 5 minutes to try to let Bazel's cache GC kick in.
+    steps:
+      - run: sleep 300
