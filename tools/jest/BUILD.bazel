@@ -11,7 +11,6 @@ ts_library(
     ],
     tags = ["manual"],
     deps = [
-        "//:node_modules/@jest/transform",
         "//:node_modules/@jest/types",
         "//:node_modules/@testing-library/jest-dom",
         "//:node_modules/@testing-library/react",
@@ -25,7 +24,6 @@ ts_library(
         "//:node_modules/jest-styled-components",
         "//:node_modules/nanoid",
         "//:node_modules/styled-components",
-        "//:node_modules/ts-jest",
         "//:types_env",
         "//libs/ui/styled-components",
     ],

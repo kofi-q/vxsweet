@@ -39,6 +39,7 @@ rust_clippy(
 
 rustfmt_test(
     name = "rustfmt",
+    size = "small",
     targets = [
         ":fai-100-controller",
         ":tests",

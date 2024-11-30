@@ -1,5 +1,6 @@
 load("//tools/ts_build:lint_test.bzl", "lint_test")
 load("//tools/ts_build:ts_library.bzl", "ts_library")
+load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "audio",
@@ -12,3 +13,17 @@ ts_library(
 )
 
 lint_test(name = "lint")
+
+ts_tests(
+    name = "tests",
+    deps = [
+        "//:node_modules/@types/jest",
+        "//:node_modules/@types/testing-library__jest-dom",
+        "//apps/mark-scan/backend/audio",
+        "//apps/mark-scan/backend/globals",
+        "//libs/backend/command_line",
+        "//libs/basics/async",
+        "//libs/logging/src",
+        "//libs/test-utils/src",
+    ],
+)

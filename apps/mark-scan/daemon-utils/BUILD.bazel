@@ -21,6 +21,7 @@ rust_clippy(
 
 rustfmt_test(
     name = "rustfmt",
+    size = "small",
     targets = [
         ":daemon-utils",
     ],

@@ -1,6 +1,6 @@
-jest.mock('@votingworks/backend');
+jest.mock('@vx/libs/backend/command_line');
 
-jest.mock('../globals');
+jest.mock('../globals/globals');
 
 jest.mock(
   '@vx/libs/basics/async',

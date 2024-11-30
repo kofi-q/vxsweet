@@ -90,6 +90,7 @@ rust_clippy(
 
 rustfmt_test(
     name = "rustfmt",
+    size = "small",
     targets = [
         ":lib",
         ":rust_tests",
