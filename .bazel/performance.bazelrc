@@ -29,10 +29,6 @@ common --compilation_mode=opt
 # ESLint workers are quite chonky. Conservatively limit to CPUS/2 to keep them
 # from overrunning the system.
 #
-# The TSBuild graph only has parallel speed gains up to ~6 workers for a full
-# repo build at the moment. More package splitting might bump that up a bit, but
-# probably not by much, given the nature of the connections.
-#
 # https://bazel.build/reference/command-line-reference#flag--worker_max_instances
 common --worker_max_instances=ESLint=HOST_CPUS*0.5
-common --worker_max_instances=TSBuild=6
+common --worker_max_instances=TSBuild=HOST_CPUS*0.8

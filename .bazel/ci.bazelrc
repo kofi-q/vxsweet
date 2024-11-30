@@ -9,6 +9,11 @@ common:ci --disk_cache=~/bazel_build_cache
 common:ci --experimental_disk_cache_gc_max_age=1h
 common:ci --experimental_disk_cache_gc_idle_delay=1m
 
+# If set, the repository cache will hardlink the file in case of a cache hit, rather than copying.
+# This is intended to save disk space.
+# https://bazel.build/reference/command-line-reference#flag--experimental_repository_cache_hardlinks
+common:ci --experimental_repository_cache_hardlinks
+
 # Docs: https://bazel.build/docs/user-manual#keep-going
 common:ci --keep_going
 
@@ -36,7 +41,7 @@ common:ci --local_resources=cpu=8
 #
 # https://bazel.build/reference/command-line-reference#flag--worker_max_instances
 common:ci --worker_max_instances=ESLint=6
-common:ci --worker_max_instances=TSBuild=6
+common:ci --worker_max_instances=TSBuild=8
 
 # Machines in CircleCI may have more cores than what's allocated to a workflow,
 # so we need to explicitly limit Bazel CPU usage to 8 cores to avoid

@@ -22,6 +22,7 @@ def prod_app(
         env = {
             "BAZEL_BINDIR": ".",
             "NODE_ENV": "production",
+            "PLAYWRIGHT_BROWSERS_PATH": "./node_modules/@playwright/browser-chromium",
             "PORT": "$${PORT-%s}" % default_port,
             "STATIC_FILE_DIR": static_file_dir,
             "VX_MACHINE_TYPE": vx_machine_type,

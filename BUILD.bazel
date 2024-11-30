@@ -4,6 +4,18 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
+alias(
+    name = "ci",
+    actual = "//script:run_ci",
+    tags = ["manual"],
+)
+
+alias(
+    name = "lint",
+    actual = "//script:run_lint",
+    tags = ["manual"],
+)
+
 # Set up all node_modules packages as individual bazel targets that can be used
 # as build dependencies for source packages.
 npm_link_all_packages(name = "node_modules")

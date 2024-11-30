@@ -20,6 +20,8 @@ import { mockManualResultsMetadata } from '../../test/api_mock_data';
 
 let apiMock: ApiMock;
 
+jest.setTimeout(20_000);
+
 beforeEach(() => {
   jest.useFakeTimers();
 

@@ -291,6 +291,7 @@ test('ballot with wrong precinct rejected', async () => {
 
     simulateScan(api, mockScanner, await ballotImages.completeBmd());
 
+    clock.increment(delays.DELAY_SCANNING_ENABLED_POLLING_INTERVAL);
     const interpretation: SheetInterpretation = {
       type: 'InvalidSheet',
       reason: 'invalid_precinct',

@@ -1,23 +1,13 @@
-load("//tools/ts_build:lint_test.bzl", "lint_test")
-load("//tools/ts_build:ts_library.bzl", "ts_library")
-
-exports_files(
-    srcs = [
-        "bootstrap",
-        "build-all.sh",
-        "build-stubs",
-        "prod-build",
-        "run-dev",
-        "test-all.sh",
-        "update-go-builds.sh",
-        "update-ts-builds.sh",
-    ],
+sh_binary(
+    name = "run_ci",
+    srcs = ["run_ci.sh"],
+    tags = ["manual"],
     visibility = ["//visibility:public"],
 )
 
-ts_library(
-    name = "script",
-    deps = ["//:node_modules/@types/node"],
+sh_binary(
+    name = "run_lint",
+    srcs = ["run_lint.sh"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
 )
-
-lint_test(name = "lint")

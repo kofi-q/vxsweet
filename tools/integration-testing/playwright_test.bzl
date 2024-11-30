@@ -39,6 +39,7 @@ def playwright_test(
             "PORT": port,
             "INTEGRATION_SERVER_START_SCRIPT": "cd $${TEST_SRCDIR}/$${TEST_WORKSPACE} && $(rootpath %s)" % prod_app,
             "INTEGRATION_TEST_DIR": test_dir,
+            "PLAYWRIGHT_BROWSERS_PATH": "./node_modules/@playwright/browser-chromium",
             "VIEWPORT_HEIGHT": viewport_height,
             "VIEWPORT_WIDTH": viewport_width,
             "VX_MACHINE_TYPE": vx_machine_type,
