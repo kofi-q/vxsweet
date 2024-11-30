@@ -31,6 +31,7 @@ rust_clippy(
 
 rustfmt_test(
     name = "rustfmt",
+    size = "small",
     targets = [
         ":tests",
         ":types-rs",

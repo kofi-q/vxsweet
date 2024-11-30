@@ -31,6 +31,13 @@ use_repo(rules_ts_ext, "npm_typescript")
 npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm")
 npm.npm_translate_lock(
     name = "npm",
+    lifecycle_hooks_envs = {
+        "@playwright/browser-chromium": [
+            # Make sure browsers are installed within the Bazel output tree:
+            # https://playwright.dev/docs/browsers#hermetic-install
+            "PLAYWRIGHT_BROWSERS_PATH=./node_modules/@playwright/browser-chromium",
+        ],
+    },
     # These dependencies have tricky transitive dependencies and assumptions
     # about shared libraries installed on the system, so this makes sure they
     # have access to the non-hermetic env vars to simplify things.
@@ -101,6 +108,7 @@ crate.spec(package = "anyhow", version = "1.0.75")
 crate.spec(package = "base64", version = "0.22.0")
 crate.spec(package = "bitter", version = "0.6.1")
 crate.spec(package = "chrono", version = "0.4.31")
+crate.spec(package = "cc", version = "1.2.2")  # Might be a red herring, but this seems to randomly trigger rebuilds if not locked.
 crate.spec(package = "clap", version = "4.0.29", features = ["cargo", "derive", "env"])
 crate.spec(package = "color-eyre", version = "0.6.2")
 crate.spec(package = "crc16", version = "0.4.0")

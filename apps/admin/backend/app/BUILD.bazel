@@ -68,6 +68,7 @@ ts_tests(
     env = {
         "VX_MACHINE_TYPE": "admin",
     },
+    shard_count = 15,
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.set",

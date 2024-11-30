@@ -8,9 +8,10 @@ dev_backend(
     backend_entry_point_from_root = package_name() + "/src/main.ts",
     backend_path_from_root = package_name(),
     data = [
-        # Make sure Rust deps are built before running the dev server:
+        # Make sure all runtime deps are built before running the dev server:
         "//libs/ballot-interpreter/src:rust_addon",
         "//libs/pdi-scanner/src/ts:pdictl_binary",
+        "//:node_modules/@playwright/browser-chromium",
     ],
     port = "3002",
     vx_machine_type = "scan",

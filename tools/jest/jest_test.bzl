@@ -31,6 +31,7 @@ def jest_test(
             "IS_BAZEL_TEST": "true",
             "JEST_ENVIRONMENT": jest_environment,
             "NODE_ENV": "test",
+            "PLAYWRIGHT_BROWSERS_PATH": "./node_modules/@playwright/browser-chromium",
             "TMPDIR": "$${TEST_TMPDIR}",
             "TZ": "America/Anchorage",
         },

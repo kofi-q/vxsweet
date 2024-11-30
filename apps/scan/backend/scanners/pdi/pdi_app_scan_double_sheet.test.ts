@@ -64,6 +64,7 @@ test('insert second ballot after scan', async () => {
       images: await ballotImages.completeHmpb(),
     });
 
+    clock.increment(delays.DELAY_SCANNER_STATUS_POLLING_INTERVAL);
     const interpretation: SheetInterpretation = { type: 'ValidSheet' };
     await waitForStatus(api, {
       state: 'accepting',
