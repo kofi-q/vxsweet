@@ -16,6 +16,24 @@ alias(
     tags = ["manual"],
 )
 
+# gazelle:exclude **/__snapshots__
+# gazelle:exclude **/build
+# gazelle:exclude **/coverage
+# gazelle:exclude **/node_modules
+# gazelle:exclude **/public
+# gazelle:exclude **/target
+# gazelle:exclude bazel-*/**
+# gazelle:exclude docs
+# gazelle:exclude libs/fixtures/data
+# gazelle:exclude libs/hmpb/fixtures
+# gazelle:exclude tsconfig.json
+# gazelle:prefix github.com/kofi-q/vxsweet
+alias(
+    name = "tidy",
+    actual = "//tools/gazelle",
+    tags = ["manual"],
+)
+
 # Set up all node_modules packages as individual bazel targets that can be used
 # as build dependencies for source packages.
 npm_link_all_packages(name = "node_modules")

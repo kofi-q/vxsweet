@@ -5,7 +5,7 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 dev_backend(
     name = "dev_server",
-    backend_entry_point_from_root = package_name() + "/src/main.ts",
+    backend_entry_point_from_root = package_name() + "/main.ts",
     backend_path_from_root = package_name(),
     data = [
         # Make sure all runtime deps are built before running the dev server:
@@ -27,6 +27,7 @@ js_library(
 ts_library(
     name = "backend",
     deps = [
+        "//:node_modules/@types/node",
         "//apps/scan/backend/app",
         "//apps/scan/backend/auth",
         "//apps/scan/backend/globals",

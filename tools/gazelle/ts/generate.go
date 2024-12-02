@@ -90,6 +90,7 @@ func (t *tsPackage) collectSourceFiles(
 		fileExtension := path.Ext(filePathRel)
 		if fileExtension == ".json" {
 			jsFiles.jsonFiles = append(jsFiles.jsonFiles, filePathRel)
+			return
 		}
 
 		if !isTsExtension(fileExtension) {
@@ -157,9 +158,6 @@ func (t *tsPackage) addPackageRules(
 	jsFiles *JsFiles,
 	result *language.GenerateResult,
 ) error {
-	// Clear out instances of the old rule:
-	result.Empty = append(result.Empty, newTsPackageRule())
-
 	if err := t.addLibraryRule(args, jsFiles, result); err != nil {
 		return err
 	}
@@ -322,19 +320,6 @@ func (t *tsPackage) findImports(
 	return imports
 }
 
-func newTsPackageRule() *rule.Rule {
-	packageRule := rule.NewRule(tsPackageKindName, "")
-	packageRule.SetSortedAttrs([]string{
-		"src_deps",
-		"story_deps",
-		"test_deps",
-		"type_deps",
-		"visibility",
-	})
-
-	return packageRule
-}
-
 func newTsLibraryRule() *rule.Rule {
 	libraryRule := rule.NewRule(tsLibraryKindName, "")
 	libraryRule.SetSortedAttrs([]string{
@@ -410,7 +395,6 @@ func newEmptyLanguageResult() language.GenerateResult {
 	return language.GenerateResult{
 		Empty: []*rule.Rule{
 			newJsonPackageRule(),
-			newTsPackageRule(),
 			newTsLibraryRule(),
 			newTsStoriesRule(),
 			newTsTestsRule(),

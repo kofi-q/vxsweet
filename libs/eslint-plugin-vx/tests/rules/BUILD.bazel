@@ -9,10 +9,8 @@ ts_tests(
     tags = ["lint"],
     deps = [
         "//:node_modules/@types/node",
-        "//:node_modules/@types/react",
         "//:node_modules/@typescript-eslint/parser",
         "//:node_modules/@typescript-eslint/utils",
-        "//:node_modules/react",
         "//libs/eslint-plugin-vx/src/rules",
     ],
 )

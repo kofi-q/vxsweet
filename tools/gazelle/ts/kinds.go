@@ -6,7 +6,6 @@ import (
 
 var (
 	lintTestKindName    = "lint_test"
-	tsPackageKindName   = "ts_package"
 	tsLibraryKindName   = "ts_library"
 	tsTestsKindName     = "ts_tests"
 	tsStoriesKindName   = "ts_stories"
@@ -75,42 +74,13 @@ var (
 			},
 		},
 
-		tsPackageKindName: {
-			MatchAny: true,
-			SubstituteAttrs: map[string]bool{
-				"src_deps":   true,
-				"test_deps":  true,
-				"type_deps":  true,
-				"story_deps": true,
-			},
-			MergeableAttrs: map[string]bool{
-				"name":       true,
-				"src_deps":   true,
-				"test_deps":  true,
-				"type_deps":  true,
-				"story_deps": true,
-			},
-			NonEmptyAttrs: map[string]bool{
-				"name": true,
-			},
-			ResolveAttrs: map[string]bool{
-				"name":       true,
-				"src_deps":   true,
-				"test_deps":  true,
-				"type_deps":  true,
-				"story_deps": true,
-			},
-		},
-
 		jsonPackageKindName: {
 			MatchAny: true,
 			SubstituteAttrs: map[string]bool{
-				"tags":       true,
 				"visibility": true,
 			},
 			MergeableAttrs: map[string]bool{
 				"name":       true,
-				"tags":       true,
 				"visibility": true,
 			},
 			NonEmptyAttrs: map[string]bool{
@@ -118,7 +88,6 @@ var (
 			},
 			ResolveAttrs: map[string]bool{
 				"name":       true,
-				"tags":       true,
 				"visibility": true,
 			},
 		},
@@ -166,10 +135,6 @@ func (*tsPackage) Loads() []rule.LoadInfo {
 // moduleToApparentName["foobar"] == ""
 func (*tsPackage) ApparentLoads(_ func(string) string) []rule.LoadInfo {
 	return []rule.LoadInfo{
-		{
-			Name:    "//tools/ts_build:defs.bzl",
-			Symbols: []string{tsPackageKindName},
-		},
 		{
 			Name:    "//tools/ts_build:ts_library.bzl",
 			Symbols: []string{tsLibraryKindName},

@@ -9,7 +9,6 @@ ts_tests(
         "//:node_modules/@types/jest",
         "//:node_modules/@types/lodash.get",
         "//:node_modules/@types/node",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/lodash.get",
         "//apps/design/backend/ballot-styles",
         "//apps/design/backend/language_and_audio/utils",

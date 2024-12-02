@@ -25,6 +25,7 @@ js_library(
 ts_library(
     name = "backend",
     deps = [
+        "//:node_modules/@types/node",
         "//apps/mark/backend/globals",
         "//apps/mark/backend/server",
         "//apps/mark/backend/workspace",

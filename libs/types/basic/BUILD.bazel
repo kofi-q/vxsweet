@@ -17,7 +17,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
         "//:node_modules/zod",
         "//libs/basics/time",

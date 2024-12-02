@@ -9,7 +9,6 @@ ts_library(
         "//:node_modules/@types/jest-image-snapshot",
         "//:node_modules/@types/node",
         "//:node_modules/@types/pixelmatch",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/canvas",
         "//:node_modules/jest-image-snapshot",
         "//:node_modules/pixelmatch",
@@ -24,7 +23,6 @@ ts_tests(
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/canvas",
         "//libs/fixtures/src/data/sample-ballot-images",
         "//libs/image-test-utils",

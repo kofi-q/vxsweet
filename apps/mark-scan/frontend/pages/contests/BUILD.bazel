@@ -19,6 +19,7 @@ ts_tests(
     size = "large",
     deps = [
         "//:node_modules/@types/history",
+        "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
         "//:node_modules/@types/react-router-dom",
         "//:node_modules/history",

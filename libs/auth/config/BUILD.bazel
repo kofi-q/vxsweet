@@ -17,7 +17,6 @@ ts_tests(
     deps = [
         "//:node_modules/@types/jest",
         "//:node_modules/@types/node",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:types_env",
         "//libs/auth/config",
         "//libs/test-utils/src",

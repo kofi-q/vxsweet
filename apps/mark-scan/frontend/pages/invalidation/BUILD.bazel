@@ -25,7 +25,6 @@ ts_tests(
         "//:node_modules/@testing-library/user-event",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
         "//apps/mark-scan/frontend/api",
         "//apps/mark-scan/frontend/pages/invalidation",

@@ -20,7 +20,6 @@ ts_tests(
         "//:node_modules/@testing-library/react",
         "//:node_modules/@types/jest",
         "//:node_modules/@types/react",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/react",
         "//libs/ui/hooks",
         "//libs/ui/test",
