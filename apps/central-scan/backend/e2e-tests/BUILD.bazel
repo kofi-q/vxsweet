@@ -7,7 +7,6 @@ ts_tests(
     env = {"VX_MACHINE_TYPE": "central-scan"},
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//apps/central-scan/backend/scanners/fujitsu",
         "//apps/central-scan/backend/test",
         "//libs/backend/cast_vote_records",

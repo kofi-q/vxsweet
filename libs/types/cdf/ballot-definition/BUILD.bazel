@@ -35,7 +35,6 @@ ts_tests(
         "//:node_modules/@types/lodash.clonedeep",
         "//:node_modules/@types/lodash.set",
         "//:node_modules/@types/node",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/lodash.clonedeep",
         "//:node_modules/lodash.set",
         "//libs/basics/assert",

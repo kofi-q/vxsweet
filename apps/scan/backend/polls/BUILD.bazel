@@ -20,7 +20,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//apps/scan/backend/polls",
         "//apps/scan/backend/store",
         "//libs/basics/result",

@@ -8,7 +8,6 @@ ts_library(
     name = "test",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
         "//libs/ballot-encoder/src",
     ],
@@ -18,7 +17,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/fast-check",
         "//libs/ballot-encoder/src",
         "//libs/ballot-encoder/test",

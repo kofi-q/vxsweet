@@ -11,7 +11,7 @@ go_library(
         "parser.go",
         "resolve.go",
     ],
-    importpath = "github.com/kofi-q/vxsweet/ts",
+    importpath = "github.com/kofi-q/vxsweet/tools/gazelle/ts",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [

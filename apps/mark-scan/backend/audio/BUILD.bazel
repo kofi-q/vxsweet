@@ -18,7 +18,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//apps/mark-scan/backend/audio",
         "//apps/mark-scan/backend/globals",
         "//libs/backend/command_line",

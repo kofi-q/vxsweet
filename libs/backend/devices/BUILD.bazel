@@ -6,7 +6,6 @@ ts_library(
     name = "devices",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/usb",
         "//libs/logging/src",
     ],
@@ -16,7 +15,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//:node_modules/usb",
         "//libs/backend/devices",
         "//libs/logging/src",

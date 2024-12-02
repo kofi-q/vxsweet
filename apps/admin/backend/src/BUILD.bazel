@@ -7,6 +7,7 @@ ts_library(
     name = "src",
     data = ["//apps/admin/backend:db_schema"],
     deps = [
+        "//:node_modules/@types/node",
         "//apps/admin/backend/server",
         "//libs/backend/env",
         "//libs/backend/exceptions",

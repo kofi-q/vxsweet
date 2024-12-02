@@ -20,7 +20,6 @@ ts_tests(
     name = "tests",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/testing-library__jest-dom",
         "//apps/design/backend/language_and_audio/translation",
         "//apps/design/backend/language_and_audio/vendored-translations",
         "//apps/design/backend/store",
