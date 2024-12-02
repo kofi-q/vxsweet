@@ -5,25 +5,12 @@ load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
 # associated BUILD files and updates the BUILD file declarations to keep things
 # in sync:
 
-# gazelle:exclude **/__snapshots__
-# gazelle:exclude **/build
-# gazelle:exclude **/coverage
-# gazelle:exclude **/node_modules
-# gazelle:exclude **/public
-# gazelle:exclude **/target
-# gazelle:exclude tsconfig.json
-# gazelle:prefix github.com/kofi-q/vxsweet
-sh_binary(
-    name = "update_deps",
-    srcs = ["update-deps.sh"],
-    tags = ["manual"],
-)
-
 gazelle(
     name = "gazelle",
     command = "fix",
     gazelle = ":gazelle_binary",
     tags = ["manual"],
+    visibility = ["//visibility:public"],
 )
 
 gazelle_binary(

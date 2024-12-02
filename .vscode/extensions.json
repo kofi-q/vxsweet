@@ -1,11 +1,14 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
+    "bazelbuild.vscode-bazel",
     "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint",
-    "streetsidesoftware.code-spell-checker",
+    "emeraldwalk.runonsave",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
     "rust-lang.rust-analyzer",
+    "streetsidesoftware.code-spell-checker",
+    "stylelint.vscode-stylelint",
     "tamasfe.even-better-toml",
-    "bazelbuild.vscode-bazel"
+    "timonwong.shellcheck"
   ]
 }

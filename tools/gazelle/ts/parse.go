@@ -5,10 +5,10 @@ package ts
 
 import (
 	"log"
-	"math"
 	"os"
 	"path"
 	"regexp"
+	"runtime"
 	"strings"
 	"sync"
 
@@ -59,7 +59,7 @@ func (t *tsPackage) parseFiles(
 	resultsChannel := make(chan parseResult)
 
 	// Limit number of workers:
-	workerCount := int(math.Min(MaxWorkerCount, float64(1+len(*sourceFiles)/2)))
+	workerCount := min(MaxWorkerCount, runtime.NumCPU()-1, len(*sourceFiles))
 
 	// Kick off workers:
 	var wg sync.WaitGroup
@@ -96,7 +96,7 @@ func (t *tsPackage) collectImports(
 	runConfig *config.Config,
 	sourcePath string,
 ) parseResult {
-	parseResults, errs := ParseSourceFile(runConfig.RepoRoot, sourcePath)
+	parseResults, errs := newParser(runConfig.RepoRoot, sourcePath).parse()
 
 	result := parseResult{
 		SourcePath: sourcePath,

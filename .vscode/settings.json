@@ -1,5 +1,67 @@
 {
   "npm.packageManager": "pnpm",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+        {
+            "match": "\\.(ts|tsx)$",
+            "cmd": "bazel run //:tidy"
+        }
+    ]
+},
+  "files.watcherExclude": {
+    "/**/.cache/bazel/**": true,
+    "**/.git/**": true,
+    "**/bazel-*/**": true,
+    "**/coverage/**": true,
+    "**/node_modules/**": true
+  },
+  "search.exclude": {
+    "**/*.tsbuildinfo": true,
+    "**/pdf.worker.min.js": true,
+    "**/.jestcache": true,
+    "**/build": true,
+    "**/coverage": true
+  },
+  "typescript.workspaceSymbols.scope": "currentProject",
+  "typescript.tsdk": "bazel-bin/node_modules/typescript/lib",
+  "go.goroot": "${workspaceFolder}/bazel-${workspaceFolderBasename}/external/rules_go~~go_sdk~go_sdk",
+  "go.toolsEnvVars": {},
+  "go.enableCodeLens": {
+    "runtest": false
+  },
+  "gopls": {
+    "build.directoryFilters": [
+      "-**/bazel-bin",
+      "-**/bazel-out",
+      "-**/bazel-testlogs",
+      "-**/bazel-${workspaceFolderBasename}",
+      "-**/node_modules"
+    ],
+    "formatting.gofumpt": true,
+    "formatting.local": "github.com/kofi-q/${workspaceFolderBasename}",
+    "ui.completion.usePlaceholders": false,
+    "ui.semanticTokens": true,
+    "ui.codelenses": {
+      "gc_details": false,
+      "regenerate_cgo": false,
+      "generate": false,
+      "test": false,
+      "tidy": false,
+      "upgrade_dependency": false,
+      "vendor": false
+    },
+  },
+  "go.useLanguageServer": true,
+  "go.buildOnSave": "off",
+  "go.lintOnSave": "off",
+  "go.vetOnSave": "off",
+  "files.associations": {
+    ".bazeliskrc": "shellscript"
+  },
   "cSpell.words": [
     "accuvote",
     "AGPL",
@@ -68,59 +130,5 @@
     "VVSG",
     "vxsweet",
     "yesno"
-  ],
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.removeUnusedImports": "explicit",
-    "source.fixAll": "explicit"
-  },
-  "files.watcherExclude": {
-    "/**/.cache/bazel/**": true,
-    "**/.git/**": true,
-    "**/bazel-*/**": true,
-    "**/coverage/**": true,
-    "**/node_modules/**": true
-  },
-  "search.exclude": {
-    "**/*.tsbuildinfo": true,
-    "**/pdf.worker.min.js": true,
-    "**/.jestcache": true,
-    "**/build": true,
-    "**/coverage": true
-  },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "go.goroot": "${workspaceFolder}/bazel-${workspaceFolderBasename}/external/rules_go~~go_sdk~go_sdk",
-  "go.toolsEnvVars": {},
-  "go.enableCodeLens": {
-    "runtest": false
-  },
-  "gopls": {
-    "build.directoryFilters": [
-      "-**/bazel-bin",
-      "-**/bazel-out",
-      "-**/bazel-testlogs",
-      "-**/bazel-${workspaceFolderBasename}",
-      "-**/node_modules"
-    ],
-    "formatting.gofumpt": true,
-    "formatting.local": "github.com/kofi-q/${workspaceFolderBasename}",
-    "ui.completion.usePlaceholders": false,
-    "ui.semanticTokens": true,
-    "ui.codelenses": {
-      "gc_details": false,
-      "regenerate_cgo": false,
-      "generate": false,
-      "test": false,
-      "tidy": false,
-      "upgrade_dependency": false,
-      "vendor": false
-    },
-  },
-  "go.useLanguageServer": true,
-  "go.buildOnSave": "off",
-  "go.lintOnSave": "off",
-  "go.vetOnSave": "off",
-  "files.associations": {
-    ".bazeliskrc": "shellscript"
-  }
+  ]
 }
