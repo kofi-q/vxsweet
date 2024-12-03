@@ -1,0 +1,11 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "scripts",
+    srcs = [
+        "format_fat32.sh",
+        "mount.sh",
+        "unmount.sh",
+    ],
+    visibility = ["//visibility:public"],
+)

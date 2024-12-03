@@ -6,6 +6,9 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 
 ts_library(
     name = "src",
+    data = [
+        "//libs/usb-drive/scripts",
+    ],
     deps = [
         "//:node_modules/@types/debug",
         "//:node_modules/@types/jest",
