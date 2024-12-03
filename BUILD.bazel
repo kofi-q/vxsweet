@@ -66,14 +66,27 @@ js_library(
 
 js_library(
     name = "env",
-    srcs = [".env"] + glob(
-        ["**/.env.*"],
+    srcs = glob(
+        [
+            "**/.env",
+            "**/.env.test",
+            "**/.env.production",
+        ],
         allow_empty = True,
     ),
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )
 
+js_library(
+    name = "env_local",
+    srcs = glob(
+        ["**/.env.local"],
+        allow_empty = True,
+    ),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
 #
 # Ambient types for globals referenced throughout the codebase without
 # the need for explicit imports:

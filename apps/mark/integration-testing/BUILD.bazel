@@ -4,9 +4,6 @@ load("//tools/integration-testing:ports.bzl", "INTEGRATION_TEST_PORTS")
 playwright_test(
     name = "tests",
     srcs = ["//apps/mark/integration-testing/e2e"],
-    additional_env_vars = {
-        "MARK_WORKSPACE": "$${TEST_TMPDIR}/mark-integration-testing",
-    },
     port = INTEGRATION_TEST_PORTS.mark,
     prod_app = "//apps/mark:prod",
     test_dir = "e2e",

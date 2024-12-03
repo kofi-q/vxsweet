@@ -26,6 +26,7 @@ ts_library(
     name = "backend",
     deps = [
         "//:node_modules/@types/node",
+        "//:node_modules/tsx",
         "//apps/design/backend/app",
         "//apps/design/backend/globals",
         "//apps/design/backend/language_and_audio/translation",

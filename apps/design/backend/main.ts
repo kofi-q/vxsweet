@@ -1,3 +1,5 @@
+import 'tsx/cjs';
+
 import { resolve } from 'node:path';
 import { loadEnvVarsFromDotenvFiles } from '@vx/libs/backend/env';
 import { BaseLogger } from '@vx/libs/logging/src';

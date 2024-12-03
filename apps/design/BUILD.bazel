@@ -3,6 +3,9 @@ load("//tools/apps:prod_app.bzl", "prod_app")
 
 prod_app(
     name = "prod",
+    additional_env_vars = {
+        "WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+    },
     backend_entry_point = "//apps/design/backend:main.js",
     backend_src = "//apps/design/backend",
     default_port = "3000",

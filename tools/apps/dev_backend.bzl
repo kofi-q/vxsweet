@@ -10,6 +10,7 @@ def dev_backend(
         srcs = ["//tools/apps:run_dev_backend.sh"],
         data = data + [
             "//:env",
+            "//:env_local",
             "//tools/tsx:cli",
         ],
         env = {

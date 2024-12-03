@@ -1,5 +1,6 @@
 import * as grout from '@vx/libs/grout/src';
 import { Buffer } from 'node:buffer';
+import path from 'node:path';
 import {
   type Election,
   getPrecinctById,
@@ -367,6 +368,18 @@ export function buildApp(context: AppContext): Application {
   const app: Application = express();
   const api = buildApi(context);
   app.use('/api', grout.buildRouter(api, express));
-  app.use(express.static(context.workspace.assetDirectoryPath));
+
+  // `STATIC_FILE_DIR` is set when running the in `production` mode - when its
+  // specified, set up static file serving routes for frontend files:
+  const { STATIC_FILE_DIR } = process.env;
+  if (STATIC_FILE_DIR) {
+    const STATIC_FILE_DIR_ABS = path.join(process.cwd(), STATIC_FILE_DIR);
+
+    app.use(express.static(STATIC_FILE_DIR_ABS));
+    app.get('*', (_, res) => {
+      res.sendFile(path.join(STATIC_FILE_DIR_ABS, 'index.html'));
+    });
+  }
+
   return app;
 }

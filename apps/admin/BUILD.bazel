@@ -3,6 +3,10 @@ load("//tools/apps:prod_app.bzl", "prod_app")
 
 prod_app(
     name = "prod",
+    additional_env_vars = {
+        "ADMIN_WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+        "REACT_APP_VX_DEV": "TRUE",  # Avoid needing prod certs when dev testing.
+    },
     backend_entry_point = "//apps/admin/backend/src:main.js",
     backend_src = "//apps/admin/backend/src",
     default_port = "3000",
