@@ -1,5 +1,27 @@
 load("//tools/apps:dev_app.bzl", "dev_app")
 load("//tools/apps:prod_app.bzl", "prod_app")
+load("//tools/apps:prod_archive.bzl", "prod_archive")
+
+prod_archive(
+    name = "archive",
+    archive_name = "VxMarkScan-150",
+    server = "//apps/mark-scan/backend",
+    ui_bundle = "//apps/mark-scan/frontend:bundle",
+    deps = [
+        "//apps/mark-scan/fai-100-controller",
+    ],
+)
+
+prod_archive(
+    name = "archive_155",
+    archive_name = "VxMarkScan-155",
+    server = "//apps/mark-scan/backend",
+    ui_bundle = "//apps/mark-scan/frontend:bundle",
+    deps = [
+        "//apps/mark-scan/accessible-controller",
+        "//apps/mark-scan/pat-device-input",
+    ],
+)
 
 prod_app(
     name = "prod",
