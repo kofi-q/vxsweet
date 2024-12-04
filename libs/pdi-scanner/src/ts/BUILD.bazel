@@ -43,8 +43,5 @@ copy_file(
     src = "//libs/pdi-scanner:pdictl",
     out = "pdictl",
     is_executable = True,
-    visibility = [
-        ":__pkg__",
-        "//apps/scan/backend:__pkg__",  # Used when running the dev server.
-    ],
+    visibility = [":__pkg__"],
 )

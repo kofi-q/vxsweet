@@ -19,6 +19,6 @@ def dev_frontend(name, frontend_path_from_root, port, port_backend):
             "SHOULD_EMPTY_OUT_DIR": "true",
             "VITE_PATH": "$(rootpath //tools/vite:cli)",
         },
-        tags = ["manual"],
+        tags = ["dev_frontend", "manual"],
         visibility = ["//visibility:public"],
     )

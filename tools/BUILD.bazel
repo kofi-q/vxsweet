@@ -1,0 +1,6 @@
+exports_files(
+    [
+        "tools.lock.json`",
+    ],
+    visibility = ["//visibility:public"],
+)

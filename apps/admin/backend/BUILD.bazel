@@ -3,13 +3,12 @@ load("//tools/apps:dev_backend.bzl", "dev_backend")
 
 dev_backend(
     name = "dev_server",
-    backend_entry_point_from_root = package_name() + "/src/main.ts",
-    backend_path_from_root = package_name(),
-    data = [
-        # Make sure all runtime deps are built before running the dev server:
-        "//:node_modules/@playwright/browser-chromium",
-    ],
-    port = "3004",
+    additional_env_vars = {
+        "ADMIN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/admin/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/admin/backend/src:main.js",
+    backend_src = "//apps/admin/backend/src",
+    default_port = "3004",
     vx_machine_type = "admin",
 )
 

@@ -12,7 +12,20 @@ prod_archive(
 prod_app(
     name = "prod",
     additional_env_vars = {
-        "SCAN_WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+        "SCAN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/scan/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/scan/backend:main.js",
+    backend_src = "//apps/scan/backend",
+    default_port = "3000",
+    frontend_bundle = "//apps/scan/frontend:bundle",
+    static_file_dir = "//apps/scan/frontend/build",
+    vx_machine_type = "scan",
+)
+
+prod_app(
+    name = "integration",
+    additional_env_vars = {
+        "SCAN_WORKSPACE": "$${TEST_TMPDIR-.}/apps/scan/backend/dev-workspace",
     },
     backend_entry_point = "//apps/scan/backend:main.js",
     backend_src = "//apps/scan/backend",
@@ -26,5 +39,4 @@ dev_app(
     name = "dev",
     backend_server = "//apps/scan/backend:dev_server",
     frontend_server = "//apps/scan/frontend:dev_server",
-    tags = ["manual"],
 )

@@ -12,7 +12,20 @@ prod_archive(
 prod_app(
     name = "prod",
     additional_env_vars = {
-        "WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+        "WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/design/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/design/backend:main.js",
+    backend_src = "//apps/design/backend",
+    default_port = "3000",
+    frontend_bundle = "//apps/design/frontend:bundle",
+    static_file_dir = "//apps/design/frontend/build",
+    vx_machine_type = "design",
+)
+
+prod_app(
+    name = "integration",
+    additional_env_vars = {
+        "WORKSPACE": "$${TEST_TMPDIR-.}/apps/design/backend/dev-workspace",
     },
     backend_entry_point = "//apps/design/backend:main.js",
     backend_src = "//apps/design/backend",
@@ -26,5 +39,4 @@ dev_app(
     name = "dev",
     backend_server = "//apps/design/backend:dev_server",
     frontend_server = "//apps/design/frontend:dev_server",
-    tags = ["manual"],
 )

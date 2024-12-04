@@ -28,6 +28,6 @@ def prod_app(
             "VX_MACHINE_TYPE": vx_machine_type,
         } | additional_env_vars,
         patch_node_fs = False,
-        tags = tags + ["manual"],
+        tags = tags + ["manual", "prod_app"],
         visibility = ["//visibility:public"],
     )

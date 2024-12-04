@@ -368,6 +368,7 @@
       "better-sqlite3",
       "canvas",
       "fsevents",
+      "node-hid",
       "node-quirc",
       "pcsclite"
     ],

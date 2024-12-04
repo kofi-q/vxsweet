@@ -76,10 +76,7 @@ copy_file(
     name = "rust_addon",
     src = "//libs/ballot-interpreter:rust",
     out = "hmpb-ts/rust_addon.node",
-    visibility = [
-        ":__pkg__",
-        "//apps/mark-scan/backend:__pkg__",  # Used when running the dev server.
-    ],
+    visibility = [":__pkg__"],
 )
 
 lint_test(name = "lint")

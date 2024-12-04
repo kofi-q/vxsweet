@@ -12,8 +12,21 @@ prod_archive(
 prod_app(
     name = "prod",
     additional_env_vars = {
-        "ADMIN_WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
-        "REACT_APP_VX_DEV": "TRUE",  # Avoid needing prod certs when dev testing.
+        "ADMIN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/admin/backend/dev-workspace",
+        "REACT_APP_VX_DEV": "TRUE",
+    },
+    backend_entry_point = "//apps/admin/backend/src:main.js",
+    backend_src = "//apps/admin/backend/src",
+    default_port = "3000",
+    frontend_bundle = "//apps/admin/frontend:bundle",
+    static_file_dir = "//apps/admin/frontend/build",
+    vx_machine_type = "admin",
+)
+
+prod_app(
+    name = "integration",
+    additional_env_vars = {
+        "ADMIN_WORKSPACE": "$${TEST_TMPDIR-.}/apps/admin/backend/dev-workspace",
     },
     backend_entry_point = "//apps/admin/backend/src:main.js",
     backend_src = "//apps/admin/backend/src",
@@ -27,5 +40,4 @@ dev_app(
     name = "dev",
     backend_server = "//apps/admin/backend:dev_server",
     frontend_server = "//apps/admin/frontend:dev_server",
-    tags = ["manual"],
 )

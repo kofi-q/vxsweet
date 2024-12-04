@@ -7,6 +7,7 @@ def dev_app(name, backend_server, frontend_server, tags = []):
             backend_server,
             frontend_server,
         ],
-        tags = tags,
+        tags = tags + ["dev_app", "manual"],
+        watch = True,
         visibility = ["//visibility:public"],
     )
