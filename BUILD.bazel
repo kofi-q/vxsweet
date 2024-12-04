@@ -4,6 +4,25 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
+# Build/test/run a target in "watch" mode, so that it's rebuilt/rerun on
+# relevant file changes.
+#
+# Usage:
+# ```sh
+#   bazel run //:watch <build|test|run> <target> [-- args...]
+# ```
+#
+# e.g.:
+# ```sh
+#   bazel run //:watch run //apps/admin:prod
+# ```
+sh_binary(
+    name = "watch",
+    srcs = ["@multitool//tools/ibazel:cwd"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
 alias(
     name = "ci",
     actual = "//script:run_ci",

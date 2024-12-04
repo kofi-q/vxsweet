@@ -9,6 +9,11 @@ bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "buildifier_prebuilt", version = "6.4.0")
 bazel_dep(name = "buildozer", version = "7.1.2")
 bazel_dep(name = "gazelle", version = "0.38.0")
+bazel_dep(name = "rules_multitool", version = "1.0.0")
+
+multitool = use_extension("@rules_multitool//multitool:extension.bzl", "multitool")
+multitool.hub(lockfile = "//tools:tools.lock.json")
+use_repo(multitool, "multitool")
 
 ################################################################################
 # JAVASCRIPT
