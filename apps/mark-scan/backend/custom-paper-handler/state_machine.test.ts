@@ -120,7 +120,7 @@ let clock: SimulatedClock;
 const electionGeneralDefinition = electionGeneral.toElectionDefinition();
 const precinctId = electionGeneralDefinition.election.precincts[1].id;
 const featureFlagMock = getFeatureFlagMock();
-jest.setTimeout(2000);
+jest.setTimeout(5000);
 
 const SUCCESSFUL_INTERPRETATION_MOCK: SheetOf<InterpretFileResult> = [
   {

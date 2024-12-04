@@ -1,4 +1,4 @@
-load("@npm//:tsx/package_json.bzl", tsx = "bin")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
 
 def prod_app(
         name,
@@ -11,14 +11,14 @@ def prod_app(
         data = [],
         tags = [],
         additional_env_vars = {}):
-    tsx.tsx_binary(
+    js_binary(
         name = name,
         data = data + [
             "//:env",
-            backend_entry_point,
             backend_src,
             frontend_bundle,
         ],
+        entry_point = backend_entry_point,
         env = {
             "BAZEL_BINDIR": ".",
             "NODE_ENV": "production",
@@ -27,9 +27,6 @@ def prod_app(
             "STATIC_FILE_DIR": static_file_dir,
             "VX_MACHINE_TYPE": vx_machine_type,
         } | additional_env_vars,
-        fixed_args = [
-            "$(rootpath {})".format(backend_entry_point),
-        ],
         patch_node_fs = False,
         tags = tags + ["manual"],
         visibility = ["//visibility:public"],

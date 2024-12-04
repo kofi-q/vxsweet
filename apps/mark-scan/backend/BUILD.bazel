@@ -27,6 +27,7 @@ ts_library(
     name = "backend",
     deps = [
         "//:node_modules/@types/node",
+        "//:node_modules/tsx",
         "//apps/mark-scan/backend/globals",
         "//apps/mark-scan/backend/server",
         "//apps/mark-scan/backend/util",

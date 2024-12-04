@@ -4,6 +4,8 @@ def dev_frontend(name, frontend_path_from_root, port, port_backend):
         srcs = ["//tools/apps:run_dev_frontend.sh"],
         data = [
             "//:env",
+            "//:env_local",
+            "//tools/vite",
             "//tools/vite:cli",
             "//tools/vite:config.js",
         ],
