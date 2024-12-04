@@ -5,7 +5,7 @@ playwright_test(
     name = "tests",
     srcs = ["//apps/mark/integration-testing/e2e"],
     port = INTEGRATION_TEST_PORTS.mark,
-    prod_app = "//apps/mark:prod",
+    prod_app = "//apps/mark:integration",
     test_dir = "e2e",
     viewport_height = "1920",
     viewport_width = "1080",

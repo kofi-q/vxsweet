@@ -6,7 +6,7 @@ playwright_test(
     timeout = "short",
     srcs = ["//apps/mark-scan/integration-testing/e2e"],
     port = INTEGRATION_TEST_PORTS.mark_scan,
-    prod_app = "//apps/mark-scan:prod",
+    prod_app = "//apps/mark-scan:integration",
     test_dir = "e2e",
     viewport_height = "1920",
     viewport_width = "1080",

@@ -5,14 +5,16 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 dev_backend(
     name = "dev_server",
-    backend_entry_point_from_root = package_name() + "/main.ts",
-    backend_path_from_root = package_name(),
-    data = [
-        # Make sure all runtime deps are built before running the dev server:
-        "//libs/ballot-interpreter/src:rust_addon",
-        "//:node_modules/@playwright/browser-chromium",
-    ],
-    port = "3002",
+    additional_env_vars = {
+        "MOCK_SCANNER_FILES": ",".join([
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-front.jpeg",
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-back.jpeg",
+        ]),
+        "SCAN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/central-scan/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/central-scan/backend:main.js",
+    backend_src = "//apps/central-scan/backend",
+    default_port = "3002",
     vx_machine_type = "central-scan",
 )
 

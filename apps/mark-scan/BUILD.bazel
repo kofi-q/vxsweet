@@ -26,7 +26,20 @@ prod_archive(
 prod_app(
     name = "prod",
     additional_env_vars = {
-        "MARK_SCAN_WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+        "MARK_SCAN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/mark-scan/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/mark-scan/backend:main.js",
+    backend_src = "//apps/mark-scan/backend",
+    default_port = "3000",
+    frontend_bundle = "//apps/mark-scan/frontend:bundle",
+    static_file_dir = "//apps/mark-scan/frontend/build",
+    vx_machine_type = "mark-scan",
+)
+
+prod_app(
+    name = "integration",
+    additional_env_vars = {
+        "MARK_SCAN_WORKSPACE": "$${TEST_TMPDIR-.}/apps/mark-scan/backend/dev-workspace",
     },
     backend_entry_point = "//apps/mark-scan/backend:main.js",
     backend_src = "//apps/mark-scan/backend",
@@ -40,5 +53,4 @@ dev_app(
     name = "dev",
     backend_server = "//apps/mark-scan/backend:dev_server",
     frontend_server = "//apps/mark-scan/frontend:dev_server",
-    tags = ["manual"],
 )

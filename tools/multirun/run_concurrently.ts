@@ -1,6 +1,7 @@
 import {
   concurrently,
   ConcurrentlyCommandInput,
+  KillOnSignal,
   KillOthers,
   LogError,
   LogExit,
@@ -60,6 +61,7 @@ export async function main(
       new LogOutput({ logger }),
       new LogError({ logger }),
       new LogExit({ logger }),
+      new KillOnSignal({ process }),
       new KillOthers({
         logger,
         conditions: ['failure', 'success'],

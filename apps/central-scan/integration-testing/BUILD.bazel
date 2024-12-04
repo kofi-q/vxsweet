@@ -5,7 +5,7 @@ playwright_test(
     name = "tests",
     srcs = ["//apps/central-scan/integration-testing/e2e"],
     port = INTEGRATION_TEST_PORTS.central_scan,
-    prod_app = "//apps/central-scan:prod",
+    prod_app = "//apps/central-scan:integration",
     test_dir = "e2e",
     viewport_height = "1080",
     viewport_width = "1920",

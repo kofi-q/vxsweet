@@ -16,7 +16,24 @@ prod_app(
             "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-front.jpeg",
             "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-back.jpeg",
         ]),
-        "SCAN_WORKSPACE": "$${TEST_TMPDIR:-BUILD_WORKSPACE_DIRECTORY}/%s/backend/dev-workspace" % package_name(),
+        "SCAN_WORKSPACE": "$${BUILD_WORKSPACE_DIRECTORY}/apps/central-scan/backend/dev-workspace",
+    },
+    backend_entry_point = "//apps/central-scan/backend:main.js",
+    backend_src = "//apps/central-scan/backend",
+    default_port = "3000",
+    frontend_bundle = "//apps/central-scan/frontend:bundle",
+    static_file_dir = "//apps/central-scan/frontend/build",
+    vx_machine_type = "central-scan",
+)
+
+prod_app(
+    name = "integration",
+    additional_env_vars = {
+        "MOCK_SCANNER_FILES": ",".join([
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-front.jpeg",
+            "libs/fixtures/data/electionGridLayoutNewHampshireTestBallot/scan-marked-back.jpeg",
+        ]),
+        "SCAN_WORKSPACE": "$${TEST_TMPDIR-.}/apps/central-scan/backend/dev-workspace",
     },
     backend_entry_point = "//apps/central-scan/backend:main.js",
     backend_src = "//apps/central-scan/backend",
@@ -30,5 +47,4 @@ dev_app(
     name = "dev",
     backend_server = "//apps/central-scan/backend:dev_server",
     frontend_server = "//apps/central-scan/frontend:dev_server",
-    tags = ["manual"],
 )

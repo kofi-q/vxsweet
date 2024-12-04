@@ -8,7 +8,7 @@ playwright_test(
         "REACT_APP_VX_SKIP_CVR_BALLOT_HASH_CHECK": "TRUE",
     },
     port = INTEGRATION_TEST_PORTS.admin,
-    prod_app = "//apps/admin:prod",
+    prod_app = "//apps/admin:integration",
     test_dir = "e2e",
     viewport_height = "1080",
     viewport_width = "1920",
