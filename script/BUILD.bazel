@@ -1,13 +1,48 @@
 sh_binary(
-    name = "run_ci",
-    srcs = ["run_ci.sh"],
+    name = "dev_env",
+    srcs = ["dev_env.sh"],
+    data = ["@pnpm"],
+    env = {
+        "BAZEL_BINDIR": ".",
+        "PNPM_PATH": "$(rootpath @pnpm)",
+    },
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )
 
 sh_binary(
-    name = "run_lint",
-    srcs = ["run_lint.sh"],
+    name = "full_ci",
+    srcs = ["full_ci.sh"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "lint",
+    srcs = ["lint.sh"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "typecheck",
+    srcs = ["typecheck.sh"],
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "ci_typecheck",
+    srcs = ["ci_typecheck.sh"],
+    data = [
+        "//tools/tsc",
+        "@pnpm",
+    ],
+    env = {
+        "BAZEL_BINDIR": ".",
+        "PNPM_PATH": "$(rootpath @pnpm)",
+        "TSC_PATH": "$(rootpath //tools/tsc)",
+    },
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )

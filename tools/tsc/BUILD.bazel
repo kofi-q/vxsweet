@@ -1,0 +1,18 @@
+load("@aspect_bazel_lib//lib:directory_path.bzl", "directory_path")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+
+js_binary(
+    name = "tsc",
+    data = [":cli"],
+    entry_point = ":cli",
+    env = {"BAZEL_BINDIR": "."},
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+directory_path(
+    name = "cli",
+    directory = "//:node_modules/typescript/dir",
+    path = "bin/tsc",
+    tags = ["manual"],
+)

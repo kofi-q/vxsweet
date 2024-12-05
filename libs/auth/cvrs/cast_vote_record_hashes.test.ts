@@ -89,6 +89,7 @@ const expectedCastVoteRecordRootHash =
 test('readableFileFromData', async () => {
   const readableFile = readableFileFromData('1', 'a');
   expect(readableFile.fileName).toEqual('1');
+  // eslint-disable-next-line @typescript-eslint/await-thenable
   expect(await iter(readableFile.open()).toString()).toEqual('a');
   expect(await readableFile.computeSha256Hash()).toEqual(sha256('a'));
 });
@@ -97,6 +98,7 @@ test('readableFileFromDisk', async () => {
   fs.writeFileSync(path.join(tempDirectoryPath, '1'), 'a');
   const readableFile = readableFileFromDisk(path.join(tempDirectoryPath, '1'));
   expect(readableFile.fileName).toEqual('1');
+  // eslint-disable-next-line @typescript-eslint/await-thenable
   expect(await iter(readableFile.open()).toString()).toEqual('a');
   expect(await readableFile.computeSha256Hash()).toEqual(sha256('a'));
 });

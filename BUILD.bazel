@@ -25,13 +25,25 @@ sh_binary(
 
 alias(
     name = "ci",
-    actual = "//script:run_ci",
+    actual = "//script:full_ci",
+    tags = ["manual"],
+)
+
+alias(
+    name = "dev_env",
+    actual = "//script:dev_env",
     tags = ["manual"],
 )
 
 alias(
     name = "lint",
-    actual = "//script:run_lint",
+    actual = "//script:lint",
+    tags = ["manual"],
+)
+
+alias(
+    name = "typecheck",
+    actual = "//script:typecheck",
     tags = ["manual"],
 )
 

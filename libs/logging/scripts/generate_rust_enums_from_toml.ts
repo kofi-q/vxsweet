@@ -55,6 +55,7 @@ async function main(): Promise<void> {
   const typedConfig = getTypedConfig(untypedConfig);
   const out = createWriteStream(filepath);
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   await pipeline(async function* makeRustFile() {
     yield* createReadStream(rustEnumsTemplateFilepath);
     yield* formatLogEventIdEnum(typedConfig);

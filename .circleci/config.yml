@@ -39,7 +39,7 @@ jobs:
 
   ts_typecheck:
     executor: nodejs
-    resource_class: xlarge
+    resource_class: large
     steps:
       - checkout
       - restore_bazel_cache:
@@ -75,7 +75,7 @@ commands:
       - run:
           name: Typescript Typecheck
           command: |
-            bazel build //... --config=ci --build_tag_filters=typecheck
+            bazel run //script:ci_typecheck --config=ci
 
   run_lint_checks:
     description: Lint all relevant source files in the build graph.

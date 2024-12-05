@@ -101,6 +101,7 @@ test('lines (async)', async () => {
   ]);
 
   expect(
+    // eslint-disable-next-line @typescript-eslint/await-thenable
     await lines(
       (async function* gen() {
         yield 'a';
@@ -113,6 +114,7 @@ test('lines (async)', async () => {
   ).toEqual(['abc', 'de']);
 
   const input = createReadStream(__filename);
+  // eslint-disable-next-line @typescript-eslint/await-thenable
   expect(await lines(input).toString('\n')).toEqual(
     await readFile(__filename, 'utf8')
   );
@@ -131,6 +133,7 @@ test('lines (async)', async () => {
         )
         .filter((arr) => arr.length > 0),
       async (arr) => {
+        // eslint-disable-next-line @typescript-eslint/await-thenable
         expect(await lines(iter(arr).async()).toArray()).toEqual(
           arr.join('').split(/\r?\n/)
         );
