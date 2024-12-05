@@ -26,7 +26,7 @@ common --heap_dump_on_oom
 # Docs: https://bazel.build/reference/command-line-reference#flag--incompatible_disallow_empty_glob
 common --noincompatible_disallow_empty_glob
 
-build --build_tag_filters=-lint
+build --build_tag_filters=-jest,-lint,-typecheck
 test --test_tag_filters=-lint --build_tests_only
 
 # Enable garbage collection of old unused build artifacts when the Bazel server

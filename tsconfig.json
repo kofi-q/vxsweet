@@ -7,15 +7,17 @@
     "declaration": true,
     "declarationMap": false,
     "esModuleInterop": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "inlineSourceMap": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": false,
@@ -32,11 +34,17 @@
     "target": "ESNext"
   },
   "include": [
-    "**/*",
-    "**/.storybook/**/*"
+    "./*.mjs",
+    "./*.ts",
+    "**/apps/**/*",
+    "**/libs/**/*",
+    "**/libs/**/.storybook/**/*",
+    "**/tools/**/*"
   ],
   "exclude": [
-    "bazel-*/**",
-    "**/node_modules/**"
+    "**/*.js",
+    "**/bazel-*/**/*",
+    "**/libs/fixtures/data/**/*",
+    "**/node_modules/**/*"
   ]
 }
