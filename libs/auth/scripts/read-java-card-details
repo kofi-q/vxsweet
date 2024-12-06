@@ -1,4 +1,3 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('./src/read_java_card_details').main();

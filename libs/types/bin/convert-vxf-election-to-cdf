@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
-
 require('../src/cdf/ballot-definition/cli.ts')
   .main(process.argv, {
     stdin: process.stdin,

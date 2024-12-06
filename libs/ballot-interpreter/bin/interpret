@@ -12,8 +12,6 @@ if (!fs.existsSync(join(__dirname, '../build/hmpb-ts/rust_addon.node'))) {
   process.exit(1);
 }
 
-require('tsx/cjs');
-
 require('../src/hmpb-ts/cli')
   .main(process.argv.slice(2))
   .then(

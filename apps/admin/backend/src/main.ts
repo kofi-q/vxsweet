@@ -1,7 +1,3 @@
-// [TODO] Really only needed for dev servers - see if this can be replaced with
-// a custom node resolve hook to make prod runs a smidge more lightweight.
-import 'tsx/cjs';
-
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { handleUncaughtExceptions } from '@vx/libs/backend/exceptions';

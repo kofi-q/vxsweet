@@ -2,8 +2,6 @@
 
 // @ts-check
 
-require('tsx/cjs');
-
 require('../src/cli')
   .main(process.argv)
   .then((code) => {

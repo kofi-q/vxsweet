@@ -26,7 +26,6 @@ def playwright_test(
         data = srcs + data + [
             "//:env",
             "//:node_modules/@playwright/browser-chromium",
-            "//:node_modules/tsx",
             "//:tsconfig",
             "//tools/playwright:config.js",
             prod_app,
@@ -46,8 +45,6 @@ def playwright_test(
         } | additional_env_vars,
         tags = tags + ["integration", "js", "playwright", "ts"],
         node_options = [
-            "--import",
-            "tsx",
             "--import",
             "@playwright/browser-chromium",
         ],
