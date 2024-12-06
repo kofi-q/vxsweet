@@ -8,7 +8,6 @@ import (
 	"path"
 	"regexp"
 	"slices"
-	"strings"
 
 	esbuild "github.com/evanw/esbuild/pkg/api"
 	dotenv "github.com/joho/godotenv"
@@ -113,10 +112,6 @@ func main() {
 		LogLevel:    esbuild.LogLevelWarning,
 		Outbase:     ".",
 		Outfile:     *pathOutJs,
-		Plugins: []esbuild.Plugin{{
-			Name:  "VxPathResolver",
-			Setup: setUpPluginVxPaths,
-		}},
 		Target:      esbuild.ESNext,
 		TreeShaking: esbuild.TreeShakingTrue,
 		Write:       true,
@@ -145,27 +140,6 @@ func writeIndexHtml() {
 	if err != nil {
 		log.Fatalln("[ERROR] Unable to write index.html asset", *pathOutHtml, err)
 	}
-}
-
-func setUpPluginVxPaths(build esbuild.PluginBuild) {
-	build.OnResolve(
-		esbuild.OnResolveOptions{Filter: `^@vx/`},
-		func(resolveArgs esbuild.OnResolveArgs) (esbuild.OnResolveResult, error) {
-			resolveResult := build.Resolve(
-				"./"+strings.TrimPrefix(resolveArgs.Path, "@vx/"),
-				esbuild.ResolveOptions{
-					Kind:       esbuild.ResolveJSImportStatement,
-					ResolveDir: ".",
-				},
-			)
-
-			if len(resolveResult.Errors) > 0 {
-				return esbuild.OnResolveResult{Errors: resolveResult.Errors}, nil
-			}
-
-			return esbuild.OnResolveResult{Path: resolveResult.Path}, nil
-		},
-	)
 }
 
 func loadDotEnvVars(pwd string) map[string]string {
