@@ -1,4 +1,3 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('./src/configure_java_card').main();

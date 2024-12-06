@@ -8,7 +8,6 @@ ts_library(
     data = ["//apps/admin/backend:db_schema"],
     deps = [
         "//:node_modules/@types/node",
-        "//:node_modules/tsx",
         "//apps/admin/backend/server",
         "//libs/backend/env",
         "//libs/backend/exceptions",

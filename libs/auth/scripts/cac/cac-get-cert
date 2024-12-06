@@ -1,4 +1,3 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('./src/cac_get_cert').main(process.argv.slice(2));

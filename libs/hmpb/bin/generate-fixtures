@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('../src/generate_fixtures')
   .main()
   .catch((e) => {

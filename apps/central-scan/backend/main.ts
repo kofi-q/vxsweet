@@ -1,5 +1,3 @@
-import 'tsx/cjs';
-
 import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 import { LogSource } from '@vx/libs/logging/src/base_types';
 import { iter } from '@vx/libs/basics/iterators';

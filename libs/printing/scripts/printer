@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
-
 require('../src/printer/cli')
   .main(process.argv)
   .then((code) => {

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('./demo.ts')
   .main(process.argv.slice(2))
   .catch((e) => {

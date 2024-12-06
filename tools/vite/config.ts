@@ -86,25 +86,25 @@ export default import('vite').then(({ defineConfig, loadEnv }) =>
           { find: 'node:events', replacement: require.resolve('events') },
           {
             find: 'fs',
-            replacement: require.resolve('@vx/libs/browser-stubs/fs'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/fs`,
           },
           {
             find: 'node:fs',
-            replacement: require.resolve('@vx/libs/browser-stubs/fs'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/fs`,
           },
           {
             find: 'jsdom',
-            replacement: require.resolve('@vx/libs/browser-stubs/jsdom'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/jsdom`,
           },
           { find: 'path', replacement: require.resolve('path') },
           { find: 'node:path', replacement: require.resolve('path') },
           {
             find: 'os',
-            replacement: require.resolve('@vx/libs/browser-stubs/os'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/os`,
           },
           {
             find: 'node:os',
-            replacement: require.resolve('@vx/libs/browser-stubs/os'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/os`,
           },
           { find: 'stream', replacement: require.resolve('stream-browserify') },
           {
@@ -131,7 +131,7 @@ export default import('vite').then(({ defineConfig, loadEnv }) =>
           // Fix: https://github.com/isaacs/node-glob/pull/479
           {
             find: 'glob',
-            replacement: require.resolve('@vx/libs/browser-stubs/glob'),
+            replacement: `${REPO_ROOT}/libs/browser-stubs/glob`,
           },
         ],
       },

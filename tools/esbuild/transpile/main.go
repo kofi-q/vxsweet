@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -18,7 +20,7 @@ var (
 	pathOutDir = flag.String(
 		"outDir",
 		"",
-		"Output file path, relative to PWD "+
+		"Output dir path, relative to PWD "+
 			"(or the exec root, if running under Bazel).",
 	)
 
@@ -72,10 +74,24 @@ func main() {
 		os.Exit(0)
 	}
 
+	outputRepoRoot := pwd + "/" + *pathOutDir
 	for _, outputFile := range result.OutputFiles {
-		updatedOutput := maybeHoistJestMocks(&outputFile)
+		pathToRepoRootRel, err := filepath.Rel(
+			path.Dir(outputFile.Path),
+			outputRepoRoot,
+		)
+		if err != nil {
+			log.Fatalln("[ERROR] Unable to replace @vx paths:", err)
+		}
 
-		err := os.WriteFile(updatedOutput.Path, updatedOutput.Contents, 0o666)
+		updatedOutput := maybeHoistJestMocks(&outputFile)
+		updatedOutput.Contents = bytes.ReplaceAll(
+			updatedOutput.Contents,
+			[]byte("@vx/"),
+			[]byte(pathToRepoRootRel+"/"),
+		)
+
+		err = os.WriteFile(updatedOutput.Path, updatedOutput.Contents, 0o666)
 		if err != nil {
 			log.Fatalln(
 				"[ERROR] Unable to write output file",

@@ -4,16 +4,9 @@ load("//tools/ts_build:ts_library.bzl", "ts_library")
 
 vite.vite_binary(
     name = "cli",
-    data = [
-        "//:node_modules/tsx",
-    ],
     env = {
         "BAZEL_BINDIR": ".",
     },
-    node_options = [
-        "--import",
-        "tsx",
-    ],
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )
@@ -36,7 +29,6 @@ ts_library(
         "//:node_modules/vite",
         "//:types_env",
         "//libs/basics/assert",
-        "//libs/browser-stubs",
     ],
 )
 

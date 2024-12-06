@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
-
 process.exitCode = require('../src/cli/generate-election').main(process.argv, {
   stdin: process.stdin,
   stdout: process.stdout,

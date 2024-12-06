@@ -1,4 +1,3 @@
 #!/usr/bin/env node
 
-require('tsx/cjs');
 require('./src/mock_card').main(process.argv.slice(2));
