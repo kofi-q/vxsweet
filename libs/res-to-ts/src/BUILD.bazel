@@ -34,16 +34,11 @@ js_binary(
     name = "cli",
     data = [
         ":src",
-        "//:node_modules/tsx",
     ],
     entry_point = "cli.js",
     env = {
         "BAZEL_BINDIR": ".",
     },
-    node_options = [
-        "--import",
-        "tsx",
-    ],
     tags = ["manual"],
     visibility = ["//visibility:public"],
 )

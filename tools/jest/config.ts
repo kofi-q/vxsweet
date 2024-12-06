@@ -1,11 +1,7 @@
-import path from 'node:path';
 import process from 'node:process';
 import { Config } from '@jest/types';
 
 const IS_BAZEL_TEST = process.env.IS_BAZEL_TEST === 'true';
-const REPO_ROOT =
-  (IS_BAZEL_TEST ? process.env.PWD : process.env.BUILD_WORKSPACE_DIRECTORY) ||
-  path.join(__dirname, '../..');
 
 const testEnvironment = process.env.JEST_ENVIRONMENT || 'jsdom';
 
@@ -28,9 +24,6 @@ const config: Config.InitialOptions = {
   //   },
   // },
   moduleFileExtensions: ['js', 'node', 'mjs', 'json'],
-  moduleNameMapper: {
-    '@vx/(.*)': [`${REPO_ROOT}/$1`],
-  },
   passWithNoTests: true,
   sandboxInjectedGlobals: ['Math'],
   setupFilesAfterEnv: [

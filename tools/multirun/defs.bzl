@@ -1,5 +1,5 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
 load("@bazel_skylib//lib:shell.bzl", "shell")
-load("@npm//:tsx/package_json.bzl", tsx = "bin")
 
 def multirun(
         name,
@@ -22,14 +22,13 @@ def multirun(
 
     cmd_template = "cd $${BUILD_WORKSPACE_DIRECTORY} && " + cmd_template
 
-    tsx.tsx_binary(
+    js_binary(
         name = name,
         data = [
             "//tools/multirun",
         ],
+        entry_point = "//tools/multirun:run_concurrently.js",
         fixed_args = [
-            "$(rootpath //tools/multirun)",
-        ] + [
             shell.quote(cmd_template % target)
             for target in exe_targets
         ],
