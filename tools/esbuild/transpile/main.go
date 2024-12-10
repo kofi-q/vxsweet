@@ -54,24 +54,24 @@ func main() {
 		Define: map[string]string{
 			"process.env.NODE_ENV": "process.env.NODE_ENV",
 		},
-		EntryPoints:    flag.Args(),
-		Format:         esbuild.FormatCommonJS,
-		JSX:            esbuild.JSXTransform,
-		LogLevel:       esbuild.LogLevelWarning,
-		Outdir:         *pathOutDir,
-		Outbase:        ".",
-		Sourcemap:      esbuild.SourceMapInline,
-		SourcesContent: esbuild.SourcesContentExclude,
-		Target:         esbuild.ESNext,
-		Write:          !SHOULD_HOIST_JEST_MOCKS,
+		EntryPoints:       flag.Args(),
+		Format:            esbuild.FormatCommonJS,
+		JSX:               esbuild.JSXAutomatic,
+		LogLevel:          esbuild.LogLevelWarning,
+		Outbase:           ".",
+		Outdir:            *pathOutDir,
+		Platform:          esbuild.PlatformNeutral,
+		PreserveSymlinks:  true,
+		ResolveExtensions: []string{".js", ".node", ".json"},
+		Sourcemap:         esbuild.SourceMapInline,
+		SourceRoot:        *pathOutDir,
+		SourcesContent:    esbuild.SourcesContentExclude,
+		Target:            esbuild.ESNext,
+		Write:             false,
 	})
 
 	if len(result.Errors) > 0 {
 		os.Exit(1)
-	}
-
-	if !SHOULD_HOIST_JEST_MOCKS {
-		os.Exit(0)
 	}
 
 	outputRepoRoot := pwd + "/" + *pathOutDir
@@ -111,7 +111,8 @@ func main() {
 // [TODO] Try building to ESM and avoid this, if Jest support for ESM isn't
 // too lacking.
 func maybeHoistJestMocks(outputFile *esbuild.OutputFile) *esbuild.OutputFile {
-	if !strings.HasSuffix(outputFile.Path, ".test.js") {
+	if !SHOULD_HOIST_JEST_MOCKS ||
+		!strings.HasSuffix(outputFile.Path, ".test.js") {
 		return outputFile
 	}
 
@@ -128,18 +129,10 @@ func maybeHoistJestMocks(outputFile *esbuild.OutputFile) *esbuild.OutputFile {
 		return outputFile
 	}
 
-	idxLineAfterStrictModeStatement := bytes.IndexAny(updatedCode, "\n") + 1
-	newHeader := append(
-		[]byte{},
-		updatedCode[:idxLineAfterStrictModeStatement]...)
-	newHeader = append(newHeader, bytes.Join(yankedStatements, nil)...)
-
 	// [TODO] Update the inline sourcemap? Don't expect too many stack traces
 	// referencing the mocks/imports section, compared to in-code traces.
-	outputFile.Contents = append(
-		newHeader,
-		updatedCode[idxLineAfterStrictModeStatement:]...,
-	)
+	updatedCodeChunks := append(yankedStatements, updatedCode)
+	outputFile.Contents = bytes.Join(updatedCodeChunks, nil)
 
 	return outputFile
 }
