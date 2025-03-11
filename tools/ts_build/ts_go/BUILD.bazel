@@ -1,0 +1,33 @@
+load("//tools/ts_build:lint_test.bzl", "lint_test")
+load("//tools/ts_build:ts_library.bzl", "ts_library")
+
+sh_binary(
+    name = "exe",
+    srcs = select({
+        ":arm_build": ["tsgo_arm64"],
+        ":x86_build": ["tsgo_amd64"],
+        "//conditions:default": ["tsgo_amd64"],
+    }),
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
+    name = "arm_build",
+    values = {
+        "cpu": "aarch64",
+    },
+)
+
+config_setting(
+    name = "x86_build",
+    values = {
+        "cpu": "x86_64",
+    },
+)
+
+ts_library(name = "ts_go")
+
+lint_test(
+    name = "lint",
+    tags = ["manual"],
+)

@@ -35,13 +35,13 @@ sh_binary(
     name = "ci_typecheck",
     srcs = ["ci_typecheck.sh"],
     data = [
-        "//tools/tsc",
+        "//tools/ts_build/ts_go:exe",
         "@pnpm",
     ],
     env = {
         "BAZEL_BINDIR": ".",
         "PNPM_PATH": "$(rootpath @pnpm)",
-        "TSC_PATH": "$(rootpath //tools/tsc)",
+        "TSGO_PATH": "$(rootpath //tools/ts_build/ts_go:exe)",
     },
     tags = ["manual"],
     visibility = ["//visibility:public"],

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PNPM_PATH_ABS="${PWD}/${PNPM_PATH}"
-TSC_PATH_ABS="${PWD}/${TSC_PATH}"
+TSGO_PATH_ABS="${PWD}/${TSGO_PATH}"
 
 cd "${BUILD_WORKSPACE_DIRECTORY}" || exit 1
 
@@ -13,7 +13,7 @@ ${PNPM_PATH_ABS} --dir "${BUILD_WORKSPACE_DIRECTORY}" install --frozen-lockfile 
 
 echo
 echo "Running typecheck..."
-${TSC_PATH_ABS} -p ./tsconfig.json || exit 1
+${TSGO_PATH_ABS} -p ./tsconfig.json || exit 1
 
 echo
 echo "✅  Done"
