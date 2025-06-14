@@ -9,7 +9,7 @@ overrides:
   nan: ^2.20.0
   typescript: 5.6.2
 
-packageExtensionsChecksum: 8937cbf806bb21f24069862c6102440a
+packageExtensionsChecksum: 34d6165eb32a9b56181cc894909d65a0
 
 pnpmfileChecksum: uetddhm7yuyz4oy3jwth2zsotq
 
@@ -314,9 +314,9 @@ importers:
       path:
         specifier: 0.12.7
         version: 0.12.7
-      pcsclite:
-        specifier: 1.0.1
-        version: 1.0.1
+      pcsc-mini:
+        specifier: 0.1.1
+        version: 0.1.1
       pdf-lib:
         specifier: 1.17.1
         version: 1.17.1
@@ -2076,6 +2076,56 @@ packages:
   '@npmcli/fs@3.1.1':
     resolution: {integrity: sha512-q9CRWjpHCMIh5sVyefoD1cA7PkvILqCZsnSOEUUivORLjxCO/Irmue2DprETiNgEqktDBZaM1Bi+jrarx1XdCg==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  '@pcsc-mini/linux-aarch64-gnu@0.1.1':
+    resolution: {integrity: sha512-DeTKq2DSBsKRYCauoqKV8LoE/jUpNxeIT0skreSae9f0H2dmlWc2ScasgNah3Tl/MEdY8UuCjxrNlpzoYUJ/pA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@pcsc-mini/linux-aarch64-musl@0.1.1':
+    resolution: {integrity: sha512-Jh7ztOvD8aJVFT3muc1WM3ShdhUe8Kib0HO52bP1M3jcpc8TF/TzbznkTwR8sdWYLJXrQIBr/H82DMzmiTABVw==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@pcsc-mini/linux-x86-gnu@0.1.1':
+    resolution: {integrity: sha512-JKzekqq4uMXzdHuPh5cqb6tZRCB+fQFmVrbaGyTCLhIvhDPgLGEwza8mEMrULw8f9nmKvRZCxqVz7yKry2/f/g==}
+    cpu: [ia32]
+    os: [linux]
+
+  '@pcsc-mini/linux-x86-musl@0.1.1':
+    resolution: {integrity: sha512-9rCKFDngo5YDtw2PngFPUPREpg0eobp8TgI6NelCeNjzWQh1NpXSvxK6v0OU+Pxe9woc3q5yBTVTpJAQ7Ve5fQ==}
+    cpu: [ia32]
+    os: [linux]
+
+  '@pcsc-mini/linux-x86_64-gnu@0.1.1':
+    resolution: {integrity: sha512-kMZ1Ofi3UXvkTS993u7WEQFra+7atCXl4pXvFI3s21UD0LuWrYyyehXPU3K3NLnEdZSgsoMWqJAuQJz4QUYPBA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@pcsc-mini/linux-x86_64-musl@0.1.1':
+    resolution: {integrity: sha512-ml4IUu8whL1/9GKUTFd6awrf3p0V2FWfR92U7rHtFqp0Cl4WNEeITd3sV3onI2hkw+P9d+vU8i1gvf4QaaMd3A==}
+    cpu: [x64]
+    os: [linux]
+
+  '@pcsc-mini/macos-aarch64@0.1.1':
+    resolution: {integrity: sha512-nWgKwACUeJ4lFasM50r2zuDQtUebl9Pa/cuFBJ217HA9OtX35DuAQ/Lvkwz7EEA1nlqkMX3B+UU2/hq95+K93g==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@pcsc-mini/macos-x86_64@0.1.1':
+    resolution: {integrity: sha512-G3kqkkjP3V2LeaVfNj+mNFZdWqpO8dOrtS8POFrHEvAaDvv4tWHtNloO4e89F4tH6pwg+oiLrvMarRYDvE1qZg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@pcsc-mini/windows-aarch64@0.1.1':
+    resolution: {integrity: sha512-ahKhIRW5UmzuNzDf8pK0W0rwu1OdhtJn9DR5X235AeZ2tTe9RTFl/hRCJe3g3SYZwZqcT+Klp23aZ7dpxjryNA==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@pcsc-mini/windows-x86_64@0.1.1':
+    resolution: {integrity: sha512-kucg1eFs9UtnRNAa0xxXNPMwYep2z87mrQFtg/WEg1pfcB+3JmV9ThTKLgqFpRTXFp/PNTGyTgkQkyzR21QGSQ==}
+    cpu: [x64]
+    os: [win32]
 
   '@pdf-lib/standard-fonts@1.0.0':
     resolution: {integrity: sha512-hU30BK9IUN/su0Mn9VdlVKsWBS6GyhVfqjwl1FjZN4TxP6cCw0jP2w7V3Hf5uX7M0AZJ16vey9yE0ny7Sa59ZA==}
@@ -7718,9 +7768,9 @@ packages:
     resolution: {integrity: sha512-iuh7L6jA7JEGu2WxDwtQP1ddOpaJNC4KlDEFfdQajSGgGPNi4OyDc2R7QnbY2bR9QjBVGwgvTdNJZoE7RaxUMA==}
     engines: {node: '>=0.12'}
 
-  pcsclite@1.0.1:
-    resolution: {integrity: sha512-KffeR9V+Q0ERHsOp2Ys4K81XEkRSFfn/G6Nbfieq2BPbP90KnMFFClKLgJ/hKmCddxUdpcu3OVVSY+tTy5FXRw==}
-    engines: {node: '>=4.8.0'}
+  pcsc-mini@0.1.1:
+    resolution: {integrity: sha512-LeWWbs7i9G3DHcGy47SgQi/s1ZicJjAxGVcubiUPAJFoIAQxdP1Klm3bTggvEi3Qx+qk16qunu9Ohi+VYa+YpA==}
+    engines: {node: '>=16'}
 
   pdf-lib@1.17.1:
     resolution: {integrity: sha512-V/mpyJAoTsN4cnP31vc0wfNA1+p20evqqnap0KLoRUN0Yk/p3wN52DOEsL4oBFcLdb76hlpKPtzJIgo67j/XLw==}
@@ -11547,6 +11597,36 @@ snapshots:
   '@npmcli/fs@3.1.1':
     dependencies:
       semver: 7.6.3
+
+  '@pcsc-mini/linux-aarch64-gnu@0.1.1':
+    optional: true
+
+  '@pcsc-mini/linux-aarch64-musl@0.1.1':
+    optional: true
+
+  '@pcsc-mini/linux-x86-gnu@0.1.1':
+    optional: true
+
+  '@pcsc-mini/linux-x86-musl@0.1.1':
+    optional: true
+
+  '@pcsc-mini/linux-x86_64-gnu@0.1.1':
+    optional: true
+
+  '@pcsc-mini/linux-x86_64-musl@0.1.1':
+    optional: true
+
+  '@pcsc-mini/macos-aarch64@0.1.1':
+    optional: true
+
+  '@pcsc-mini/macos-x86_64@0.1.1':
+    optional: true
+
+  '@pcsc-mini/windows-aarch64@0.1.1':
+    optional: true
+
+  '@pcsc-mini/windows-x86_64@0.1.1':
+    optional: true
 
   '@pdf-lib/standard-fonts@1.0.0':
     dependencies:
@@ -18693,13 +18773,18 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.11
 
-  pcsclite@1.0.1:
-    dependencies:
-      bindings: 1.5.0
-      nan: 2.20.0
-      node-gyp: 10.2.0
-    transitivePeerDependencies:
-      - supports-color
+  pcsc-mini@0.1.1:
+    optionalDependencies:
+      '@pcsc-mini/linux-aarch64-gnu': 0.1.1
+      '@pcsc-mini/linux-aarch64-musl': 0.1.1
+      '@pcsc-mini/linux-x86-gnu': 0.1.1
+      '@pcsc-mini/linux-x86-musl': 0.1.1
+      '@pcsc-mini/linux-x86_64-gnu': 0.1.1
+      '@pcsc-mini/linux-x86_64-musl': 0.1.1
+      '@pcsc-mini/macos-aarch64': 0.1.1
+      '@pcsc-mini/macos-x86_64': 0.1.1
+      '@pcsc-mini/windows-aarch64': 0.1.1
+      '@pcsc-mini/windows-x86_64': 0.1.1
 
   pdf-lib@1.17.1:
     dependencies:

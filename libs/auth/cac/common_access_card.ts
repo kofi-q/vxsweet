@@ -180,6 +180,7 @@ export class CommonAccessCard implements CommonAccessCardCompatibleCard {
       onReaderStatusChange: async (readerStatus) => {
         switch (readerStatus) {
           case 'no_card':
+          case 'connecting':
           case 'no_card_reader': {
             this.cardStatus = { status: 'no_card' };
             return;

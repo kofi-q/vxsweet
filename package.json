@@ -114,7 +114,7 @@
     "object-hash": "3.0.0",
     "pagedjs": "0.1.43",
     "path": "0.12.7",
-    "pcsclite": "1.0.1",
+    "pcsc-mini": "0.1.1",
     "pdf-lib": "1.17.1",
     "pdfjs-dist": "2.3.200",
     "pixelmatch": "5.3.0",
@@ -354,11 +354,6 @@
         "dependencies": {
           "node-gyp": "*"
         }
-      },
-      "pcsclite": {
-        "dependencies": {
-          "node-gyp": "*"
-        }
       }
     },
     "onlyBuiltDependencies": [
@@ -368,8 +363,7 @@
       "canvas",
       "fsevents",
       "node-hid",
-      "node-quirc",
-      "pcsclite"
+      "node-quirc"
     ],
     "//a": "@rules_js downloads all optional dependencies instead of just",
     "//b": "those that match the target architecture. Filtering down to",
