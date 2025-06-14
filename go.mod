@@ -1,9 +1,9 @@
 module github.com/kofi-q/vxsweet
 
-go 1.23.0
+go 1.24.3
 
 require (
-	github.com/bazelbuild/bazel-gazelle v0.38.0
+	github.com/bazelbuild/bazel-gazelle v0.42.0
 	github.com/evanw/esbuild v0.24.0
 	github.com/joho/godotenv v1.5.1
 	github.com/smacker/go-tree-sitter v0.0.0-20240827094217-dd81d9e9be82

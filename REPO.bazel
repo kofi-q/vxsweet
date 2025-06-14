@@ -1,0 +1,20 @@
+""" vxsweet """
+
+ignore_directories([
+    "**/.git",
+    "**/.github",
+    "**/.vscode",
+    "**/.zig-cache",
+    "**/bazel-bin",
+    "**/bazel-n5e",
+    "**/bazel-out",
+    "**/bazel-testlogs",
+    "**/coverage",
+    "**/external",
+    "**/genhtml",
+    "**/lcov-report",
+    "**/node_modules",
+    "**/playground",
+    "**/target",
+    "**/zig-out",
+])

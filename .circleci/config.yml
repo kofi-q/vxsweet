@@ -47,6 +47,7 @@ jobs:
       - run_ts_typecheck
       - save_bazel_cache:
           key_prefix: typecheck_cache
+          gc_delay: 5
 
   lint:
     executor: nodejs
@@ -59,6 +60,7 @@ jobs:
       - save_test_outputs
       - save_bazel_cache:
           key_prefix: lint_cache
+          gc_delay: 10
 
 commands:
   run_build_test:
@@ -115,6 +117,9 @@ commands:
     parameters:
       key_prefix:
         type: string
+      gc_delay:
+        type: integer
+        default: 15
     steps:
       - when:
           condition:
@@ -122,16 +127,11 @@ commands:
                 - equal: [ main, << pipeline.git.branch >> ]
                 - << pipeline.parameters.force_cache_save >>
           steps:
-            - wait_for_gc
+            - run:
+                name: Wait for GC
+                command: sleep << parameters.gc_delay >>
             - save_cache:
                 key: << parameters.key_prefix >>-<< pipeline.parameters.cache_version >>-{{ .Branch }}-{{ .Revision }}
                 paths:
                   # NOTE: Keep in sync with .bazel/ci.bazelrc:
                   - /root/bazel_build_cache
-
-  wait_for_gc:
-    description: Sleeps briefly to let Bazel's GC kick in before saving the cache.
-    steps:
-      - run:
-          name: Wait for GC
-          command: sleep 30
