@@ -1,10 +1,8 @@
 [workspace]
 resolver = "2"
 members = [
-  "apps/mark-scan/accessible-controller",
   "apps/mark-scan/fai-100-controller",
   "apps/mark-scan/daemon-utils",
-  "apps/mark-scan/pat-device-input",
   "libs/ballot-interpreter",
   "libs/libudev-sys",
   "libs/logging",
@@ -45,7 +43,6 @@ members = [
   rusb = "0.9.3"
   serde = { version = "1.0.150", features = ["derive"] }
   serde_json = "1.0.89"
-  serialport = "4.2.2"
   tempfile = "3.3.0"
   thiserror = "1.0.50"
   tracing = "0.1.40"

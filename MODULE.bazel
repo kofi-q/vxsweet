@@ -92,10 +92,8 @@ crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")
 #     cargo_lockfile = "//:Cargo.lock",
 #     manifests = [
 #         "//:Cargo.toml",
-#         "//apps/mark-scan/accessible-controller:Cargo.toml",
 #         "//apps/mark-scan/daemon-utils:Cargo.toml",
 #         "//apps/mark-scan/fai-100-controller:Cargo.toml",
-#         "//apps/mark-scan/pat-device-input:Cargo.toml",
 #         "//libs/ballot-interpreter:Cargo.toml",
 #         "//libs/logging:Cargo.toml",
 #         "//libs/pdi-scanner:Cargo.toml",
@@ -142,7 +140,6 @@ crate.spec(package = "rusb", version = "0.9.3")
 crate.spec(package = "serde", version = "1.0.150", features = ["derive"])
 crate.spec(package = "serde_bytes", version = "0.11.14")
 crate.spec(package = "serde_json", version = "1.0.89")
-crate.spec(package = "serialport", version = "4.2.2")
 crate.spec(package = "tempfile", version = "3.3.0")
 crate.spec(package = "thiserror", version = "1.0.50")
 crate.spec(package = "tracing", version = "0.1.40")
