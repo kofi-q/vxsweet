@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
-import newPcscLite from 'pcsclite';
-import { promisify } from 'node:util';
+import * as pcsc from 'pcsc-mini';
+
 import { assert } from '@vx/libs/basics/assert';
 import { type Byte, isByte } from '@vx/libs/types/basic';
 
@@ -8,32 +8,30 @@ import {
   CardCommand,
   CommandApdu,
   GET_RESPONSE,
-  MAX_APDU_LENGTH,
   ResponseApduError,
   STATUS_WORD,
 } from '../apdu/apdu';
 
-/**
- * A PCSC Lite instance
- */
-export type PcscLite = ReturnType<typeof newPcscLite>;
-
 interface ReaderReady {
+  card: pcsc.Card;
   status: 'ready';
-  disconnect: () => Promise<void>;
-  transmit: (data: Buffer) => Promise<Buffer>;
 }
 
 interface ReaderNotReady {
-  status: 'card_error' | 'no_card_reader' | 'no_card' | 'unknown_error';
+  status:
+    | 'card_error'
+    | 'connecting'
+    | 'no_card_reader'
+    | 'no_card'
+    | 'unknown_error';
 }
 
-type Reader = ReaderReady | ReaderNotReady;
+type State = ReaderReady | ReaderNotReady;
 
 /**
  * The status of the smart card reader
  */
-export type ReaderStatus = Reader['status'];
+export type ReaderStatus = State['status'];
 
 /**
  * A on-change handler for reader status changes
@@ -45,69 +43,81 @@ export type OnReaderStatusChange = (readerStatus: ReaderStatus) => void;
  */
 export class CardReader {
   private readonly onReaderStatusChange: OnReaderStatusChange;
-  private readonly pcscLite: PcscLite;
-  private reader: Reader;
+  private readonly client: pcsc.Client;
+  private state: State;
+  private reader?: pcsc.Reader;
 
   constructor(input: { onReaderStatusChange: OnReaderStatusChange }) {
     this.onReaderStatusChange = input.onReaderStatusChange;
-    this.pcscLite = newPcscLite();
-    this.reader = { status: 'no_card_reader' };
+    this.state = { status: 'no_card_reader' };
 
-    this.pcscLite.on('error', () => {
-      this.updateReader({ status: 'unknown_error' });
-    });
-
-    this.pcscLite.on('reader', (reader) => {
-      reader.on('error', () => {
-        this.updateReader({ status: 'unknown_error' });
-      });
-
-      reader.on('status', (status) => {
-        const isCardPresent = Boolean(
-          // eslint-disable-next-line no-bitwise
-          status.state & reader.SCARD_STATE_PRESENT
-        );
-        if (isCardPresent) {
-          reader.connect(
-            // Don't allow anyone else to access the card reader while this code is accessing it
-            { share_mode: reader.SCARD_SHARE_EXCLUSIVE },
-            (error, protocol) => {
-              if (error) {
-                this.updateReader({ status: 'card_error' });
-                return;
-              }
-              const disconnectPromisified = promisify(reader.disconnect).bind(
-                reader
-              );
-              const transmitPromisified = promisify(reader.transmit).bind(
-                reader
-              );
-              this.updateReader({
-                status: 'ready',
-                disconnect: disconnectPromisified,
-                transmit: (data: Buffer) =>
-                  transmitPromisified(data, MAX_APDU_LENGTH, protocol),
-              });
-            }
-          );
-        } else {
-          this.updateReader({ status: 'no_card' });
-          reader.disconnect(/* istanbul ignore next */ () => undefined);
-        }
-      });
-
-      reader.on('end', () => {
-        this.updateReader({ status: 'no_card_reader' });
-      });
-    });
+    this.client = new pcsc.Client()
+      .on('reader', this.onReader)
+      .on('error', this.onError)
+      .start();
   }
+
+  async dispose(): Promise<void> {
+    if (this.state.status === 'ready') {
+      const card = this.state.card;
+      this.state = { status: 'no_card_reader' };
+      await card.disconnect(pcsc.CardDisposition.RESET);
+    }
+
+    if (this.reader) this.reader.removeAllListeners();
+
+    this.client.stop();
+    this.client.removeAllListeners();
+  }
+
+  private readonly onError = () => {
+    this.updateReader({ status: 'unknown_error' });
+    this.client.stop();
+  };
+
+  private readonly onReader = (reader: pcsc.Reader) => {
+    this.reader = reader
+      .on('change', this.onChange)
+      .on('disconnect', this.onDisconnect);
+  };
+
+  private readonly onChange = async (status: pcsc.ReaderStatusFlags) => {
+    if (!status.has(pcsc.ReaderStatus.PRESENT)) {
+      await this.disconnectCard();
+      return this.updateReader({ status: 'no_card' });
+    }
+
+    if (status.has(pcsc.ReaderStatus.MUTE)) {
+      return this.updateReader({ status: 'card_error' });
+    }
+
+    if (this.state.status === 'ready' || this.state.status === 'connecting') {
+      return;
+    }
+
+    this.state = { status: 'connecting' };
+
+    try {
+      assert(this.reader);
+      const card = await this.reader.connect(pcsc.CardMode.EXCLUSIVE);
+
+      this.updateReader({ status: 'ready', card });
+    } catch (err) {
+      this.updateReader({ status: 'card_error' });
+    }
+  };
+
+  private readonly onDisconnect = async () => {
+    await this.disconnectCard();
+    this.updateReader({ status: 'no_card_reader' });
+  };
 
   /**
    * Disconnects the currently connected card, if any
    */
   async disconnectCard(): Promise<void> {
-    if (this.reader.status === 'ready') {
-      await this.reader.disconnect();
+    if (this.state.status === 'ready') {
+      await this.state.card.disconnect(pcsc.CardDisposition.RESET);
     }
   }
 
@@ -156,13 +166,14 @@ export class CardReader {
     moreDataAvailable: boolean;
     moreDataLength: Byte;
   }> {
-    if (this.reader.status !== 'ready') {
-      throw new Error(`Reader not ready: ${this.reader.status}`);
+    if (this.state.status !== 'ready') {
+      throw new Error(`Reader not ready: ${this.state.status}`);
     }
 
     let response: Buffer;
     try {
-      response = await this.reader.transmit(apdu.asBuffer());
+      const res = await this.state.card.transmit(apdu.asBuffer());
+      response = Buffer.from(res.buffer, res.byteOffset, res.length);
     } catch {
       throw new Error('Failed to transmit data to card');
     }
@@ -180,11 +191,11 @@ export class CardReader {
     throw new ResponseApduError([sw1, sw2]);
   }
 
-  private updateReader(reader: Reader): void {
-    const readerStatusChange = this.reader.status !== reader.status;
-    this.reader = reader;
+  private updateReader(state: State): void {
+    const readerStatusChange = this.state.status !== state.status;
+    this.state = state;
     if (readerStatusChange) {
-      this.onReaderStatusChange(reader.status);
+      this.onReaderStatusChange(state.status);
     }
   }
 }

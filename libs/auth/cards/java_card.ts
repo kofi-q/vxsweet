@@ -181,6 +181,7 @@ export class JavaCard implements Card {
             this.cardStatus = { status: 'no_card_reader' };
             return;
           }
+          case 'connecting':
           case 'no_card': {
             this.cardStatus = { status: 'no_card' };
             return;
