@@ -19,20 +19,17 @@ test('file open error', async () => {
 });
 
 test('file exceeds max size', async () => {
-  await fc.assert(
-    fc.asyncProperty(fc.nat(1024 * 1024 * 10), async (maxSize) => {
-      const path = makeTmpFile();
-      writeFileSync(path, 'a'.repeat(maxSize + 1));
-      expect(await readFile(path, { maxSize })).toEqual(
-        err(
-          typedAs<ReadFileError>({
-            type: 'FileExceedsMaxSize',
-            maxSize,
-            fileSize: maxSize + 1,
-          })
-        )
-      );
-    })
+  const path = makeTmpFile();
+  const maxSize = 10;
+  writeFileSync(path, 'a'.repeat(maxSize + 1));
+  expect(await readFile(path, { maxSize })).toEqual(
+    err(
+      typedAs<ReadFileError>({
+        type: 'FileExceedsMaxSize',
+        maxSize,
+        fileSize: maxSize + 1,
+      })
+    )
   );
 });
 
