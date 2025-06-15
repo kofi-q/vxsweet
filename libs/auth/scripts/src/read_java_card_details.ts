@@ -8,6 +8,9 @@ import {
 import { verifyFirstCertWasSignedBySecondCert } from '../../cryptography/cryptography';
 import { JavaCard } from '../../cards/java_card';
 import { waitForReadyCardStatus } from './utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+
+const logger = new BaseLogger(LogSource.System);
 
 const ENVS = ['development', 'production'] as const;
 
@@ -26,7 +29,7 @@ const VX_CERT_AUTHORITY_CERT_PATHS: Record<Env, string> = {
 async function readJavaCardDetails(): Promise<ExtendedCardDetails | undefined> {
   for (const env of ENVS) {
     const vxCertAuthorityCertPath = VX_CERT_AUTHORITY_CERT_PATHS[env];
-    const card = new JavaCard({ vxCertAuthorityCertPath });
+    const card = new JavaCard(logger, { vxCertAuthorityCertPath });
     const { cardDetails } = await waitForReadyCardStatus(card);
     if (cardDetails) {
       // Card has been run through initial Java Card configuration script and programmed for a user

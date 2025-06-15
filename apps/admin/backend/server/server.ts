@@ -72,7 +72,7 @@ export async function start({
         isFeatureFlagEnabled(BooleanEnvironmentVariableName.USE_MOCK_CARDS) ||
         isIntegrationTest()
           ? new MockFileCard()
-          : new JavaCard(),
+          : new JavaCard(baseLogger),
       config: {
         allowElectionManagersToAccessUnconfiguredMachines: false,
       },

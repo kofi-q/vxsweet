@@ -20,7 +20,7 @@ export function getDefaultAuth(logger: BaseLogger): InsertedSmartCardAuth {
       isFeatureFlagEnabled(BooleanEnvironmentVariableName.USE_MOCK_CARDS) ||
       isIntegrationTest()
         ? new MockFileCard()
-        : new JavaCard(),
+        : new JavaCard(logger),
     config: { allowCardlessVoterSessions: true },
     logger,
   });

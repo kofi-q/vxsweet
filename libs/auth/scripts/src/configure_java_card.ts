@@ -27,12 +27,15 @@ import {
 } from '../../src/piv';
 import { runCommand } from '../../src/shell';
 import { waitForReadyCardStatus } from './utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 
 const APPLET_PATH = path.join(
   __dirname,
   '../../applets/OpenFIPS201-v1.10.2-with-vx-mods.cap'
 );
 const GLOBAL_PLATFORM_JAR_FILE_PATH = path.join(__dirname, '../gp.jar');
+
+const logger = new BaseLogger(LogSource.System);
 
 /**
  * CHANGE REFERENCE DATA ADMIN is an OpenFIPS201-specific extension of the PIV-standard CHANGE
@@ -276,7 +279,7 @@ async function createAndStoreCardVxCert({
 }: ScriptEnv): Promise<void> {
   sectionLog('🔏', 'Creating and storing card VotingWorks cert...');
 
-  const card = new JavaCard(javaCardConfig);
+  const card = new JavaCard(logger, javaCardConfig);
   await waitForReadyCardStatus(card);
   await card.createAndStoreCardVxCert();
 }

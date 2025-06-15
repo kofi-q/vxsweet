@@ -8,6 +8,9 @@ import { getRequiredEnvVar, isNodeEnvProduction } from '../../src/env_vars';
 import { JavaCard } from '../../cards/java_card';
 import { DEV_JURISDICTION } from '../../src/jurisdictions';
 import { programJavaCard } from './utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+
+const logger = new BaseLogger(LogSource.System);
 
 interface ScriptEnv {
   isProduction: boolean;
@@ -31,7 +34,7 @@ function readScriptEnvVars(): ScriptEnv {
 export async function main(): Promise<void> {
   try {
     const { isProduction, javaCardConfig, jurisdiction } = readScriptEnvVars();
-    const card = new JavaCard(javaCardConfig);
+    const card = new JavaCard(logger, javaCardConfig);
     await programJavaCard({
       card,
       isProduction,

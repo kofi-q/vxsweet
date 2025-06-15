@@ -65,6 +65,7 @@ import {
   RESET_RETRY_COUNTER,
   VERIFY,
 } from '../src/piv';
+import { BaseLogger } from '@vx/libs/logging/src';
 
 /**
  * The OpenFIPS201 applet ID
@@ -162,6 +163,7 @@ export class JavaCard implements Card {
   private readonly vxCertAuthorityCertPath: string;
 
   constructor(
+    logger: BaseLogger,
     // Support specifying a custom config for tests
     /* istanbul ignore next */
     input: JavaCardConfig = constructJavaCardConfig()
@@ -175,6 +177,10 @@ export class JavaCard implements Card {
     this.vxCertAuthorityCertPath = input.vxCertAuthorityCertPath;
 
     this.cardReader = new CardReader({
+      logger,
+      onFatalError(err) {
+        throw err;
+      },
       onReaderStatusChange: async (readerStatus) => {
         switch (readerStatus) {
           case 'no_card_reader': {

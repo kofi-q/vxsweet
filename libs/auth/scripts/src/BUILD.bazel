@@ -26,6 +26,7 @@ ts_library(
         "//libs/basics/types",
         "//libs/fixtures/src/data/electionFamousNames2021",
         "//libs/fs/src",
+        "//libs/logging/src",
         "//libs/types/basic",
         "//libs/types/elections",
         "//libs/utils/src",

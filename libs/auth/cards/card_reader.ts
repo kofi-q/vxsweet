@@ -1,4 +1,5 @@
 import { Buffer } from 'node:buffer';
+import util from 'node:util';
 import * as pcsc from 'pcsc-mini';
 
 import { assert } from '@vx/libs/basics/assert';
@@ -11,6 +12,7 @@ import {
   ResponseApduError,
   STATUS_WORD,
 } from '../apdu/apdu';
+import { BaseLogger, LogEventId } from '@vx/libs/logging/src';
 
 interface ReaderReady {
   card: pcsc.Card;
@@ -38,16 +40,27 @@ export type ReaderStatus = State['status'];
  */
 export type OnReaderStatusChange = (readerStatus: ReaderStatus) => void;
 
+export type OnFatalError = (err: Error) => void;
+
 /**
  * A class for interfacing with a smart card reader, implemented using PCSC Lite
  */
 export class CardReader {
+  private readonly onFatalError: OnFatalError;
   private readonly onReaderStatusChange: OnReaderStatusChange;
   private readonly client: pcsc.Client;
+  private readonly logger: BaseLogger;
   private state: State;
   private reader?: pcsc.Reader;
+  private errorCount = 0;
 
-  constructor(input: { onReaderStatusChange: OnReaderStatusChange }) {
+  constructor(input: {
+    logger: BaseLogger;
+    onFatalError: OnFatalError;
+    onReaderStatusChange: OnReaderStatusChange;
+  }) {
+    this.logger = input.logger;
+    this.onFatalError = input.onFatalError;
     this.onReaderStatusChange = input.onReaderStatusChange;
     this.state = { status: 'no_card_reader' };
 
@@ -70,9 +83,35 @@ export class CardReader {
     this.client.removeAllListeners();
   }
 
-  private readonly onError = () => {
+  private readonly onError = async (err: pcsc.Err) => {
+    this.errorCount += 1;
+
+    void this.logger.log(LogEventId.UnknownError, 'system', {
+      disposition: 'failure',
+      message: `Unexpected PC/SC error: ${util.inspect(err)}`,
+    });
+
     this.updateReader({ status: 'unknown_error' });
+
+    const MAX_ERROR_COUNT = 3;
+    if (this.errorCount > MAX_ERROR_COUNT) {
+      try {
+        await this.dispose();
+      } catch {
+        // ignore
+      }
+
+      return this.onFatalError(new Error('Too many PC/SC failures.'));
+    }
+
     this.client.stop();
+
+    void this.logger.log(LogEventId.UnknownError, 'system', {
+      disposition: 'failure',
+      message: `Restarting PC/SC monitoring after ${this.errorCount} error(s)`,
+    });
+
+    this.client.start();
   };
 
   private readonly onReader = (reader: pcsc.Reader) => {

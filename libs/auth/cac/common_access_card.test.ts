@@ -48,6 +48,7 @@ import {
   CommonAccessCard,
   buildGenerateSignatureCardCommand,
 } from './common_access_card';
+import { mockLogger } from '@vx/libs/logging/src';
 
 const DEV_CERT_PEM = fs.readFileSync(join(__dirname, './cac-dev-cert.pem'));
 const CERTIFYING_PRIVATE_KEY_PATH = join(
@@ -207,7 +208,7 @@ function mockCardGenerateSignatureRequest({
 }
 
 test('cardStatus', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
   mockCardReader.setReaderStatus('no_card_reader');
   expect((await cac.getCardStatus()).status).toEqual('no_card');
   mockCardReader.setReaderStatus('no_card');
@@ -244,7 +245,7 @@ test('checkPin: success', async () => {
   // hardcode the challenge so that we can use a real signature
   const challenge =
     'VotingWorks/2023-10-10T21:10:22.225Z/f3667bb5-9692-43be-8d2d-52934c2a15e4';
-  const cac = new CommonAccessCard({
+  const cac = new CommonAccessCard(mockLogger(), {
     customChallengeGenerator: () => challenge,
   });
 
@@ -271,7 +272,7 @@ test('checkPin: success', async () => {
 });
 
 test('checkPin: failure', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   mockCardAppletSelectionRequest();
   mockCardGetCertificateRequest(
@@ -286,7 +287,7 @@ test('checkPin: failure', async () => {
 });
 
 test('checkPin: failure with incorrect pin status word', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   mockCardAppletSelectionRequest();
   mockCardGetCertificateRequest(
@@ -301,7 +302,7 @@ test('checkPin: failure with incorrect pin status word', async () => {
 });
 
 test('checkPin: failure with card error', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   mockCardAppletSelectionRequest();
   mockCardGetCertificateRequest(
@@ -316,7 +317,7 @@ test('checkPin: failure with card error', async () => {
 });
 
 test('checkPin: unexpected error', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   mockCardAppletSelectionRequest();
   mockCardGetCertificateRequest(
@@ -331,7 +332,7 @@ test('generateSignature: success with PIN', async () => {
   // hardcode the challenge so that we can use a real signature
   const challenge =
     'VotingWorks/2023-10-10T21:10:22.225Z/f3667bb5-9692-43be-8d2d-52934c2a15e4';
-  const cac = new CommonAccessCard({
+  const cac = new CommonAccessCard(mockLogger(), {
     customChallengeGenerator: () => challenge,
   });
 
@@ -365,7 +366,7 @@ test('generateSignature: success without PIN', async () => {
   // hardcode the challenge so that we can use a real signature
   const challenge =
     'VotingWorks/2023-10-10T21:10:22.225Z/f3667bb5-9692-43be-8d2d-52934c2a15e4';
-  const cac = new CommonAccessCard({
+  const cac = new CommonAccessCard(mockLogger(), {
     customChallengeGenerator: () => challenge,
   });
 
@@ -397,7 +398,7 @@ test('generateSignature: incorrect PIN (security condition not satisfied respons
   // hardcode the challenge so that we can use a real signature
   const challenge =
     'VotingWorks/2023-10-10T21:10:22.225Z/f3667bb5-9692-43be-8d2d-52934c2a15e4';
-  const cac = new CommonAccessCard({
+  const cac = new CommonAccessCard(mockLogger(), {
     customChallengeGenerator: () => challenge,
   });
 
@@ -418,7 +419,7 @@ test('generateSignature: incorrect PIN (security condition not satisfied respons
 
 test('generateSignature: incorrect PIN (wrong PIN response)', async () => {
   // hardcode the challenge so that we can use a real signature
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   const error = new ResponseApduError([STATUS_WORD.VERIFY_FAIL.SW1, 0xc0]);
   mockCardPinVerificationRequest('1234', error);
@@ -436,7 +437,7 @@ test('generateSignature: incorrect PIN (wrong PIN response)', async () => {
 });
 
 test('generateSignature: incorrect PIN (incorrect data field parameters response)', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   const error = new ResponseApduError([
     STATUS_WORD.INCORRECT_DATA_FIELD_PARAMETERS.SW1,
@@ -457,7 +458,7 @@ test('generateSignature: incorrect PIN (incorrect data field parameters response
 });
 
 test('generateSignature: card error', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
 
   const error = new ResponseApduError([0x6f, 0x00]);
   mockCardPinVerificationRequest('1234', error);
@@ -485,7 +486,7 @@ test('create and store cert', async () => {
     certDerToPem(fs.readFileSync(certPath))
   );
 
-  const cac = new CommonAccessCard({ certPath });
+  const cac = new CommonAccessCard(mockLogger(), { certPath });
 
   mockCardAppletSelectionRequest();
   mockCardKeyPairGenerationRequest(CARD_DOD_CERT.PRIVATE_KEY_ID);
@@ -503,7 +504,7 @@ test('create and store cert', async () => {
 });
 
 test('throws error when attempting to create a cert without a signing authority', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
   await expect(async () => {
     await cac.createAndStoreCert(
       {
@@ -516,7 +517,7 @@ test('throws error when attempting to create a cert without a signing authority'
 });
 
 test('disconnect', async () => {
-  const cac = new CommonAccessCard();
+  const cac = new CommonAccessCard(mockLogger());
   mockCardReader.disconnectCard.expectCallWith().resolves();
   await cac.disconnect();
 });

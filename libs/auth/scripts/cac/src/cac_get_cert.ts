@@ -6,6 +6,9 @@ import {
 } from '../../../cac/common_access_card';
 import { type CommonAccessCardCompatibleCard } from '../../../cac/common_access_card_api';
 import { waitForReadyCardStatus } from '../../src/utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+
+const logger = new BaseLogger(LogSource.System);
 
 /**
  * Gets the certificate from a Common Access Card.
@@ -58,7 +61,7 @@ export async function main(args: readonly string[]): Promise<void> {
     }
   }
 
-  const card: CommonAccessCardCompatibleCard = new CommonAccessCard();
+  const card: CommonAccessCardCompatibleCard = new CommonAccessCard(logger);
   await waitForReadyCardStatus(card);
 
   switch (format) {
