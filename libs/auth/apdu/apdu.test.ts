@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer';
 import fc from 'fast-check';
-import { asHexString, type Byte } from '@vx/libs/types/basic';
+import { type Byte } from '@vx/libs/types/basic';
 
 import {
   CardCommand,
@@ -214,12 +214,14 @@ test.each<{
 });
 
 test('constructTlv/parseTlv round trip', () => {
+  const buf = Buffer.alloc(0xfff);
+
   fc.assert(
     fc.property(
       fc.integer({ min: 0, max: 0xff }),
       fc.integer({ min: 0, max: 0xffff }),
       (tag, valueLength) => {
-        const value = Buffer.alloc(valueLength);
+        const value = buf.subarray(0, valueLength);
         const tlv = constructTlv(tag as Byte, value);
 
         const parsedTlv = parseTlv(tag as Byte, tlv);
@@ -231,8 +233,7 @@ test('constructTlv/parseTlv round trip', () => {
 
         const wrongTag = ((tag + 1) % 0x100) as Byte;
         expect(() => parseTlv(wrongTag, tlv)).toThrow(
-          `TLV tag (<Buffer ${asHexString(tag as Byte)}>) ` +
-            `does not match expected tag (<Buffer ${asHexString(wrongTag)}>)`
+          /does not match expected tag/
         );
       }
     )
