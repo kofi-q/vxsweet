@@ -47,6 +47,7 @@ import {
   constructCardCertSubject,
   parseCardDetailsFromCert,
 } from './common_access_card_certs';
+import { BaseLogger } from '@vx/libs/logging/src';
 
 /**
  * The standard CAC applet ID.
@@ -165,18 +166,25 @@ export class CommonAccessCard implements CommonAccessCardCompatibleCard {
   private readonly customChallengeGenerator?: () => string;
   private readonly certPath?: string;
 
-  constructor({
-    customChallengeGenerator,
-    certPath,
-  }: {
-    customChallengeGenerator?: () => string;
-    certPath?: string;
-  } = {}) {
+  constructor(
+    logger: BaseLogger,
+    {
+      customChallengeGenerator,
+      certPath,
+    }: {
+      customChallengeGenerator?: () => string;
+      certPath?: string;
+    } = {}
+  ) {
     this.cardStatus = { status: 'no_card' };
     this.customChallengeGenerator = customChallengeGenerator;
     this.certPath = certPath;
 
     this.cardReader = new CardReader({
+      logger,
+      onFatalError(error) {
+        throw error;
+      },
       onReaderStatusChange: async (readerStatus) => {
         switch (readerStatus) {
           case 'no_card':

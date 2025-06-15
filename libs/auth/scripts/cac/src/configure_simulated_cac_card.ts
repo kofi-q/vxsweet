@@ -24,12 +24,15 @@ import {
   CommonAccessCard,
   DEFAULT_PIN,
 } from '../../../cac/common_access_card';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 
 const APPLET_PATH = path.join(
   __dirname,
   '../../../applets/OpenFIPS201-v1.10.2-with-vx-mods.cap'
 );
 const GLOBAL_PLATFORM_JAR_FILE_PATH = path.join(__dirname, '../../gp.jar');
+
+const logger = new BaseLogger(LogSource.System);
 
 /**
  * CHANGE REFERENCE DATA ADMIN is an OpenFIPS201-specific extension of the PIV-standard CHANGE
@@ -263,7 +266,9 @@ async function createAndStoreCardVxCert(commonName: string): Promise<void> {
     '🔏',
     `Creating and storing simulated CAC cert for ${commonName} ...`
   );
-  const card = new CommonAccessCard({ certPath: vxCertAuthorityCertPath });
+  const card = new CommonAccessCard(logger, {
+    certPath: vxCertAuthorityCertPath,
+  });
   await waitForReadyCardStatus(card);
   await card.createAndStoreCert(
     {

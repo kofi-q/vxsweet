@@ -11,8 +11,10 @@ import {
 } from '../../cards/card';
 import { JavaCard } from '../../cards/java_card';
 import { waitForReadyCardStatus } from './utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
 
 const usageMessage = 'Usage: check-pin [--cac|--vxsuite (default)]';
+const logger = new BaseLogger(LogSource.System);
 
 interface CheckPinInput {
   cardType: 'cac' | 'vxsuite';
@@ -38,13 +40,13 @@ async function checkPin({ cardType }: CheckPinInput): Promise<void> {
     StatefulCard<CardDetails | CommonAccessCardDetails>;
   switch (cardType) {
     case 'cac': {
-      card = new CommonAccessCard();
+      card = new CommonAccessCard(logger);
       break;
     }
     case 'vxsuite': {
       (process.env.NODE_ENV as string) = 'development';
       (process.env.VX_MACHINE_TYPE as string) = 'admin';
-      card = new JavaCard();
+      card = new JavaCard(logger);
       break;
     }
     default: {

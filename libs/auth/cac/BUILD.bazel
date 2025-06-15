@@ -18,6 +18,7 @@ ts_library(
         "//libs/auth/src",
         "//libs/basics/assert",
         "//libs/basics/result",
+        "//libs/logging/src",
         "//libs/types/basic",
     ],
 )
@@ -36,6 +37,7 @@ ts_tests(
         "//libs/auth/test",
         "//libs/basics/assert",
         "//libs/basics/result",
+        "//libs/logging/src",
         "//libs/test-utils/src",
         "//libs/types/basic",
     ],

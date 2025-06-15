@@ -18,18 +18,21 @@ import {
 import { CardReader } from './card_reader';
 import { EventEmitter } from 'node:stream';
 import { sleep } from '@vx/libs/basics/async';
+import { LogEventId, BaseLogger, mockLogger } from '@vx/libs/logging/src';
 
 class MockClient extends EventEmitter {
-  start = () => this;
+  start = jest.fn();
   stop = jest.fn();
 }
 const mockClient = new MockClient() as unknown as jest.Mocked<pcsc.Client>;
 
-const mockPcscErr: pcsc.Err = {
-  code: 'SomethingWentWrong',
-  message: 'something went wrong',
-  name: 'Error',
-};
+function mockPcscErr(code: string = 'SomethingWentWrong'): pcsc.Err {
+  return {
+    code,
+    message: 'something went wrong',
+    name: 'Error',
+  };
+}
 
 class MockReader extends EventEmitter {
   connect = jest.fn();
@@ -53,6 +56,7 @@ function newStatus(...flags: pcsc.ReaderStatus[]) {
 const emptyAtr = Uint8Array.of();
 
 beforeEach(() => {
+  mockClient.start.mockImplementation(() => mockClient);
   jest.mocked(pcsc.Client).mockReturnValue(mockClient);
   mockReader.connect.mockResolvedValue(mockCard);
 });
@@ -86,8 +90,20 @@ const commandWithLotsOfData = {
 
 async function newCardReader(
   startingStatus: 'default' | 'ready' = 'default'
-): Promise<CardReader> {
-  const cardReader = new CardReader({ onReaderStatusChange });
+): Promise<{
+  cardReader: CardReader;
+  loggerMock: jest.Mocked<BaseLogger>;
+  onFatalMock: jest.Func;
+}> {
+  const logger = mockLogger();
+  const onFatalError = jest.fn();
+  const cardReader = new CardReader({
+    logger,
+    onFatalError,
+    onReaderStatusChange,
+  });
+
+  expect(mockClient.start).toHaveBeenCalledTimes(1);
 
   if (startingStatus === 'ready') {
     mockClient.emit('reader', mockReader);
@@ -98,7 +114,11 @@ async function newCardReader(
     onReaderStatusChange.mockClear();
   }
 
-  return cardReader;
+  return {
+    cardReader,
+    loggerMock: jest.mocked(logger),
+    onFatalMock: onFatalError,
+  };
 }
 
 async function emitStatus(...flags: pcsc.ReaderStatus[]) {
@@ -106,52 +126,150 @@ async function emitStatus(...flags: pcsc.ReaderStatus[]) {
   await sleep(0);
 }
 
-test('CardReader status changes', async () => {
-  const reader = await newCardReader();
+function expectErrorLog(
+  loggerMock: jest.Mocked<BaseLogger>,
+  message: string | RegExp
+) {
+  expect(loggerMock.log).toHaveBeenCalledWith(
+    LogEventId.UnknownError,
+    'system',
+    {
+      disposition: 'failure',
+      message: expect.stringMatching(message),
+    }
+  );
+}
 
-  mockClient.emit('error', mockPcscErr);
+test('handles PCSC errors', async () => {
+  const { loggerMock, onFatalMock } = await newCardReader();
+
+  mockClient.emit('error', mockPcscErr('Error1'));
+  await sleep(0);
+
   expect(onReaderStatusChange).toHaveBeenCalledTimes(1);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(1, 'unknown_error');
+  expect(onReaderStatusChange).toHaveBeenCalledWith('unknown_error');
+  expectErrorLog(loggerMock, /Error1/);
+  expect(mockClient.stop).toHaveBeenCalledTimes(1);
+  expect(mockClient.start).toHaveBeenCalledTimes(2);
+
+  mockClient.emit('error', mockPcscErr('Error2'));
+  await sleep(0);
+
+  expectErrorLog(loggerMock, /Error2/);
+  expect(mockClient.stop).toHaveBeenCalledTimes(2);
+  expect(mockClient.start).toHaveBeenCalledTimes(3);
+
+  mockClient.emit('error', mockPcscErr('Error3'));
+  await sleep(0);
+
+  expectErrorLog(loggerMock, /Error3/);
+  expect(mockClient.stop).toHaveBeenCalledTimes(3);
+  expect(mockClient.start).toHaveBeenCalledTimes(4);
+
+  expect(onFatalMock).not.toHaveBeenCalled();
+
+  mockClient.emit('error', mockPcscErr('Error4'));
+  await sleep(0);
+
+  expectErrorLog(loggerMock, /Error4/);
+  expect(mockClient.stop).toHaveBeenCalledTimes(4);
+
+  // No more `start()` calls expected:
+  expect(mockClient.start).toHaveBeenCalledTimes(4);
+
+  // Only the first error status change should be reported externally:
+  expect(onReaderStatusChange).toHaveBeenCalledTimes(1);
+
+  expect(onFatalMock).toHaveBeenCalledWith(
+    expect.objectContaining({ message: 'Too many PC/SC failures.' })
+  );
+});
+
+test('status change to "card_error" on MUTE status', async () => {
+  const { cardReader } = await newCardReader();
 
   mockClient.emit('reader', mockReader);
-  mockClient.emit('error', mockPcscErr);
-  // Verify that onReaderStatusChange hasn't been called, since the status is
-  // still unknown_error
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(1);
 
-  mockReader.connect.mockRejectedValueOnce(mockPcscErr);
+  mockReader.connect.mockRejectedValue(mockPcscErr());
+
+  await emitStatus(pcsc.ReaderStatus.PRESENT, pcsc.ReaderStatus.MUTE);
+  expect(mockReader.connect).not.toHaveBeenCalled();
+  expect(onReaderStatusChange).toHaveBeenCalledWith('card_error');
+
+  onReaderStatusChange.mockClear();
+  mockReader.connect.mockClear();
+
+  await emitStatus(pcsc.ReaderStatus.PRESENT, pcsc.ReaderStatus.MUTE);
+  expect(mockReader.connect).not.toHaveBeenCalled();
+  expect(onReaderStatusChange).not.toHaveBeenCalled();
+
+  await cardReader.dispose();
+});
+
+test('status change to "card_error" on connect failure', async () => {
+  const { cardReader } = await newCardReader();
+
+  mockClient.emit('reader', mockReader);
+
+  mockReader.connect.mockRejectedValue(mockPcscErr());
+
   await emitStatus(pcsc.ReaderStatus.PRESENT);
   expect(mockReader.connect).toHaveBeenCalledWith(pcsc.CardMode.EXCLUSIVE);
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(2);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(2, 'card_error');
+  expect(onReaderStatusChange).toHaveBeenCalledWith('card_error');
+
+  onReaderStatusChange.mockClear();
+
+  await emitStatus(pcsc.ReaderStatus.PRESENT);
+  expect(mockReader.connect).toHaveBeenCalledWith(pcsc.CardMode.EXCLUSIVE);
+  expect(onReaderStatusChange).toHaveBeenCalledWith('card_error');
+
+  await cardReader.dispose();
+});
+
+test('status change to "ready" on connect success', async () => {
+  const { cardReader } = await newCardReader();
+
+  mockClient.emit('reader', mockReader);
 
   mockReader.connect.mockResolvedValueOnce(mockCard);
+
   await emitStatus(pcsc.ReaderStatus.PRESENT);
   expect(mockReader.connect).toHaveBeenCalledWith(pcsc.CardMode.EXCLUSIVE);
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(3);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(3, 'ready');
+  expect(onReaderStatusChange).toHaveBeenCalledWith('ready');
+
+  mockReader.connect.mockClear();
+  onReaderStatusChange.mockClear();
+
+  await emitStatus(pcsc.ReaderStatus.PRESENT);
+  expect(mockReader.connect).not.toHaveBeenCalled();
+  expect(onReaderStatusChange).not.toHaveBeenCalled();
+
+  await cardReader.dispose();
+});
+
+test('status change to "no_card" on PRESENT status missing', async () => {
+  const { cardReader } = await newCardReader('ready');
 
   mockCard.disconnect.mockResolvedValueOnce();
   await emitStatus(pcsc.ReaderStatus.EMPTY);
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(4);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(4, 'no_card');
+  expect(onReaderStatusChange).toHaveBeenLastCalledWith('no_card');
   expect(mockCard.disconnect).toHaveBeenCalledTimes(1);
 
-  mockClient.emit('error', mockPcscErr);
-  await sleep(0);
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(5);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(5, 'unknown_error');
+  await cardReader.dispose();
+});
+
+test('status change to "no_card_reader" on "disconnect" event', async () => {
+  const { cardReader } = await newCardReader('ready');
 
   mockReader.emit('disconnect');
   await sleep(0);
-  expect(onReaderStatusChange).toHaveBeenCalledTimes(6);
-  expect(onReaderStatusChange).toHaveBeenNthCalledWith(6, 'no_card_reader');
+  expect(onReaderStatusChange).toHaveBeenLastCalledWith('no_card_reader');
 
-  await reader.dispose();
+  await cardReader.dispose();
 });
 
 test('CardReader card disconnect - success', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.disconnect.mockResolvedValueOnce();
 
   await cardReader.disconnectCard();
@@ -162,18 +280,18 @@ test('CardReader card disconnect - success', async () => {
 });
 
 test('CardReader card disconnect - error', async () => {
-  const cardReader = await newCardReader('ready');
-  mockCard.disconnect.mockRejectedValueOnce(mockPcscErr);
+  const { cardReader } = await newCardReader('ready');
 
-  await expect(cardReader.disconnectCard()).rejects.toEqual(mockPcscErr);
+  const mockErr = mockPcscErr();
+  mockCard.disconnect.mockRejectedValueOnce(mockErr);
 
-  expect(mockCard.disconnect).toHaveBeenCalledTimes(1);
+  await expect(cardReader.disconnectCard()).rejects.toEqual(mockErr);
 
   await cardReader.dispose();
 });
 
 test('CardReader command transmission - reader not ready', async () => {
-  const cardReader = await newCardReader();
+  const { cardReader } = await newCardReader();
 
   await expect(cardReader.transmit(simpleCommand.command)).rejects.toThrow(
     'Reader not ready'
@@ -183,7 +301,7 @@ test('CardReader command transmission - reader not ready', async () => {
 });
 
 test('CardReader command transmission - success', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockResolvedValueOnce(
     Buffer.of(STATUS_WORD.SUCCESS.SW1, STATUS_WORD.SUCCESS.SW2)
   );
@@ -197,7 +315,7 @@ test('CardReader command transmission - success', async () => {
 });
 
 test('CardReader command transmission - response APDU with error status word', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockResolvedValueOnce(
     Buffer.of(STATUS_WORD.FILE_NOT_FOUND.SW1, STATUS_WORD.FILE_NOT_FOUND.SW2)
   );
@@ -216,7 +334,7 @@ test('CardReader command transmission - response APDU with error status word', a
 });
 
 test('CardReader command transmission - response APDU with no status word', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockResolvedValueOnce(Buffer.of());
 
   await expect(cardReader.transmit(simpleCommand.command)).rejects.toThrow();
@@ -228,7 +346,7 @@ test('CardReader command transmission - response APDU with no status word', asyn
 });
 
 test('CardReader command transmission - chained command', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockResolvedValueOnce(
     Buffer.of(STATUS_WORD.SUCCESS.SW1, STATUS_WORD.SUCCESS.SW2)
   );
@@ -261,7 +379,7 @@ test('CardReader command transmission - chained command', async () => {
 });
 
 test('CardReader command transmission - chained response', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockResolvedValueOnce(
     Buffer.concat([
       Buffer.alloc(MAX_RESPONSE_APDU_DATA_LENGTH, 1),
@@ -293,7 +411,7 @@ test('CardReader command transmission - chained response', async () => {
 });
 
 test('CardReader command transmission - transmit failure', async () => {
-  const cardReader = await newCardReader('ready');
+  const { cardReader } = await newCardReader('ready');
   mockCard.transmit.mockRejectedValueOnce(mockPcscErr);
 
   await expect(cardReader.transmit(simpleCommand.command)).rejects.toThrow(

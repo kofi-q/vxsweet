@@ -48,7 +48,7 @@ async function main(): Promise<number> {
       isFeatureFlagEnabled(BooleanEnvironmentVariableName.USE_MOCK_CARDS) ||
       isIntegrationTest()
         ? new MockFileCard()
-        : new JavaCard(),
+        : new JavaCard(baseLogger),
     config: {},
     logger: baseLogger,
   });

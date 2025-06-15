@@ -12,6 +12,9 @@ import { createCert } from '../../cryptography/cryptography';
 import { getRequiredEnvVar } from '../../src/env_vars';
 import { JavaCard } from '../../cards/java_card';
 import { generatePrivateKey, programJavaCard } from './utils';
+import { BaseLogger, LogSource } from '@vx/libs/logging/src';
+
+const logger = new BaseLogger(LogSource.System);
 
 interface ScriptEnv {
   jurisdiction: string;
@@ -52,7 +55,7 @@ async function instantiateJavaCardWithOneOffVxAdminPrivateKeyAndCertAuthorityCer
   );
   await fs.writeFile(vxAdminCertAuthorityCertPath, vxAdminCertAuthorityCert);
 
-  const card = new JavaCard({
+  const card = new JavaCard(logger, {
     cardProgrammingConfig: {
       configType: 'vx_admin',
       vxAdminCertAuthorityCertPath,
