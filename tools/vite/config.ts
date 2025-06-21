@@ -119,13 +119,6 @@ export default import('vite').then(({ defineConfig, loadEnv }) =>
             replacement: require.resolve('browserify-zlib'),
           },
 
-          // Work around a broken `module` entry in pagedjs's `package.json`.
-          // https://github.com/vitejs/vite/issues/1488
-          {
-            find: 'pagedjs',
-            replacement: require.resolve('pagedjs/dist/paged.esm'),
-          },
-
           // Work around an internet curmudgeon.
           // Problem: https://github.com/isaacs/node-glob/pull/374
           // Fix: https://github.com/isaacs/node-glob/pull/479
