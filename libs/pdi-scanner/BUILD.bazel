@@ -34,7 +34,6 @@ rust_binary(
         "@crates//:thiserror",
         "@crates//:tracing",
         "@crates//:tracing-subscriber",
-        "@crates//:users",
     ],
 )
 
@@ -68,7 +67,6 @@ rust_library(
         "@crates//:thiserror",
         "@crates//:tracing",
         "@crates//:tracing-subscriber",
-        "@crates//:users",
     ],
 )
 

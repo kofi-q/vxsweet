@@ -102,7 +102,6 @@ func main() {
 			"node:stream": "stream-browserify",
 			"node:util":   "util",
 			"node:zlib":   "browserify-zlib",
-			"pagedjs":     "pagedjs/dist/paged.esm",
 		},
 		Bundle:      true,
 		Color:       esbuild.ColorAlways,

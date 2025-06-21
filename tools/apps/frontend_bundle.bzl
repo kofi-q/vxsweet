@@ -60,7 +60,6 @@ def frontend_bundle(
             "//:node_modules/browserify-zlib",
             "//:node_modules/buffer",
             "//:node_modules/events",
-            "//:node_modules/pagedjs",
             "//:node_modules/path",
             "//:node_modules/stream-browserify",
             "//:node_modules/util",
