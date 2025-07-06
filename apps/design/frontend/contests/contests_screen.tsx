@@ -171,7 +171,7 @@ function ContestsTab(): JSX.Element | null {
                 onPress={() => onSaveReorderedContests(reorderedContests)}
                 variant="primary"
                 icon="Done"
-                disabled={updateElectionMutation.isLoading}
+                disabled={updateElectionMutation.isPending}
               >
                 Save
               </Button>
@@ -626,7 +626,7 @@ function ContestForm({
             onPress={() => onSavePress(contest)}
             variant="primary"
             icon="Done"
-            disabled={updateElectionMutation.isLoading}
+            disabled={updateElectionMutation.isPending}
           >
             Save
           </Button>
@@ -883,7 +883,7 @@ function PartyForm({
             onPress={() => onSavePress(party)}
             variant="primary"
             icon="Done"
-            disabled={updateElectionMutation.isLoading}
+            disabled={updateElectionMutation.isPending}
           >
             Save
           </Button>

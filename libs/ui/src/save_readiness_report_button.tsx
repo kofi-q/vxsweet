@@ -83,7 +83,7 @@ function SaveReadinessReportModal({
         />
       );
 
-    case 'loading':
+    case 'pending':
       return <Modal content={<Loading>Saving Report</Loading>} />;
     case 'success': {
       const exportResult = saveReadinessReportMutation.data;

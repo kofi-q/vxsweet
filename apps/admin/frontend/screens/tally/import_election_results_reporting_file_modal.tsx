@@ -114,7 +114,7 @@ export function ImportElectionsResultReportingFileModal({
     );
   }
 
-  if (importElectionResultReportingFileMutation.isLoading) {
+  if (importElectionResultReportingFileMutation.isPending) {
     return <Modal content={<Loading>Importing Results</Loading>} />;
   }
 

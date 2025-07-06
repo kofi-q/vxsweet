@@ -180,7 +180,7 @@ export function AdminScreen({
             primary
             usbDriveStatus={usbDriveStatus}
             usbDriveEject={() => ejectUsbDriveMutation.mutate()}
-            usbDriveIsEjecting={ejectUsbDriveMutation.isLoading}
+            usbDriveIsEjecting={ejectUsbDriveMutation.isPending}
           />
         </P>
         <H6 as="h2">Security</H6>

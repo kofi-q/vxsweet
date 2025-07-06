@@ -45,7 +45,7 @@ export function ExportElectionPackageModalButton(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function closeModal() {
-    if (saveElectionPackageToUsbMutation.isLoading) return;
+    if (saveElectionPackageToUsbMutation.isPending) return;
     setIsModalOpen(false);
     setSaveState({ state: 'unsaved' });
   }
@@ -84,7 +84,7 @@ export function ExportElectionPackageModalButton(): JSX.Element {
         case 'mounted': {
           actions = (
             <React.Fragment>
-              {saveElectionPackageToUsbMutation.isLoading ? (
+              {saveElectionPackageToUsbMutation.isPending ? (
                 <LoadingButton variant="primary">Saving...</LoadingButton>
               ) : (
                 <Button
@@ -97,7 +97,7 @@ export function ExportElectionPackageModalButton(): JSX.Element {
               )}
               <Button
                 onPress={closeModal}
-                disabled={saveElectionPackageToUsbMutation.isLoading}
+                disabled={saveElectionPackageToUsbMutation.isPending}
               >
                 Cancel
               </Button>
@@ -127,7 +127,7 @@ export function ExportElectionPackageModalButton(): JSX.Element {
               primary
               usbDriveEject={() => ejectUsbDriveMutation.mutate()}
               usbDriveStatus={usbDriveStatus}
-              usbDriveIsEjecting={ejectUsbDriveMutation.isLoading}
+              usbDriveIsEjecting={ejectUsbDriveMutation.isPending}
             />
             <Button onPress={closeModal}>Close</Button>
           </React.Fragment>

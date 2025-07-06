@@ -111,14 +111,14 @@ export function ElectionsScreen(): JSX.Element | null {
               variant={elections.length === 0 ? 'primary' : undefined}
               icon="Add"
               onPress={onCreateElectionPress}
-              disabled={createElectionMutation.isLoading}
+              disabled={createElectionMutation.isPending}
             >
               Create Election
             </Button>
             <FileInputButton
               accept=".json"
               onChange={onSelectElectionFile}
-              disabled={createElectionMutation.isLoading}
+              disabled={createElectionMutation.isPending}
             >
               Load Election
             </FileInputButton>

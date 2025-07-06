@@ -91,9 +91,9 @@ function SelectElectionPackage({
               {potentialElectionPackageFiles.map((file) => (
                 <ButtonRow
                   key={file.name}
-                  aria-disabled={configureMutation.isLoading}
+                  aria-disabled={configureMutation.isPending}
                   onClick={() => {
-                    if (configureMutation.isLoading) return;
+                    if (configureMutation.isPending) return;
                     configureMutation.mutate({ electionFilePath: file.path });
                   }}
                 >
@@ -108,7 +108,7 @@ function SelectElectionPackage({
         )}
         <div>
           <Button
-            disabled={configureMutation.isLoading}
+            disabled={configureMutation.isPending}
             onPress={onSelectOtherFile}
           >
             Select Other File...

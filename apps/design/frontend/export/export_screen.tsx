@@ -94,7 +94,7 @@ export function ExportScreen(): JSX.Element | null {
   }
   const electionPackage = electionPackageQuery.data;
   const isElectionPackageExportInProgress =
-    exportElectionPackageMutation.isLoading ||
+    exportElectionPackageMutation.isPending ||
     (electionPackage.task && !electionPackage.task.completedAt);
 
   return (
@@ -107,7 +107,7 @@ export function ExportScreen(): JSX.Element | null {
           <Button
             variant="primary"
             onPress={onPressExportAllBallots}
-            disabled={exportAllBallotsMutation.isLoading}
+            disabled={exportAllBallotsMutation.isPending}
           >
             Export All Ballots
           </Button>
@@ -116,7 +116,7 @@ export function ExportScreen(): JSX.Element | null {
           <Button
             variant="primary"
             onPress={onPressExportTestDecks}
-            disabled={exportTestDecksMutation.isLoading}
+            disabled={exportTestDecksMutation.isPending}
           >
             Export Test Decks
           </Button>

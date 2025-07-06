@@ -66,9 +66,10 @@ function createReactQueryApi(getApiClient: () => UiStringsApiClient) {
           languageCode: params.languageCode,
         });
 
-        return useQuery(this.getQueryKey(params), () =>
-          batchClient.fetch({ id: params.id })
-        );
+        return useQuery({
+          queryKey: this.getQueryKey(params),
+          queryFn: () => batchClient.fetch({ id: params.id }),
+        });
       },
     },
 
@@ -80,9 +81,10 @@ function createReactQueryApi(getApiClient: () => UiStringsApiClient) {
       useQuery() {
         const apiClient = getApiClient();
 
-        return useQuery(this.getQueryKey(), () =>
-          apiClient.getAvailableLanguages()
-        );
+        return useQuery({
+          queryKey: this.getQueryKey(),
+          queryFn: () => apiClient.getAvailableLanguages(),
+        });
       },
     },
 
@@ -96,9 +98,10 @@ function createReactQueryApi(getApiClient: () => UiStringsApiClient) {
       useQuery(languageCode: string) {
         const apiClient = getApiClient();
 
-        return useQuery(this.getQueryKey(languageCode), () =>
-          apiClient.getUiStrings({ languageCode })
-        );
+        return useQuery({
+          queryKey: this.getQueryKey(languageCode),
+          queryFn: () => apiClient.getUiStrings({ languageCode }),
+        });
       },
     },
 
@@ -137,12 +140,18 @@ function createReactQueryApi(getApiClient: () => UiStringsApiClient) {
     async onMachineConfigurationChange(
       queryClient: QueryClient
     ): Promise<void> {
-      await queryClient.invalidateQueries(
-        this.getAvailableLanguages.getQueryKey()
-      );
-      await queryClient.invalidateQueries([this.getUiStrings.queryKeyPrefix]);
-      await queryClient.invalidateQueries([this.getAudioIds.queryKeyPrefix]);
-      await queryClient.invalidateQueries([this.getAudioClip.queryKeyPrefix]);
+      await queryClient.invalidateQueries({
+        queryKey: this.getAvailableLanguages.getQueryKey(),
+      });
+      await queryClient.invalidateQueries({
+        queryKey: [this.getUiStrings.queryKeyPrefix],
+      });
+      await queryClient.invalidateQueries({
+        queryKey: [this.getAudioIds.queryKeyPrefix],
+      });
+      await queryClient.invalidateQueries({
+        queryKey: [this.getAudioClip.queryKeyPrefix],
+      });
     },
   };
 }

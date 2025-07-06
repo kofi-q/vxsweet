@@ -108,7 +108,7 @@ export function NavigationScreen({
                 <UsbControllerButton
                   usbDriveEject={() => ejectUsbDriveMutation.mutate()}
                   usbDriveStatus={usbDriveStatus}
-                  usbDriveIsEjecting={ejectUsbDriveMutation.isLoading}
+                  usbDriveIsEjecting={ejectUsbDriveMutation.isPending}
                 />
                 <Button onPress={() => logOutMutation.mutate()} icon="Lock">
                   Lock Machine
