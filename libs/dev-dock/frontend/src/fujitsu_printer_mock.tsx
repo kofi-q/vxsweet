@@ -72,6 +72,7 @@ function getPrinterStatusOptionKey(
         default:
           throwIllegalValue(status.type);
       }
+    // eslint-disable-next-line no-fallthrough
     default:
       throwIllegalValue(status, 'state');
   }

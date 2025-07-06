@@ -179,7 +179,7 @@ test('happy usb path - save as', async () => {
 test('renders saving modal when mutation is loading', () => {
   renderInAppContext(
     <SaveBackendFileModal
-      saveFileStatus="loading"
+      saveFileStatus="pending"
       saveFile={jest.fn()}
       saveFileResult={undefined}
       resetSaveFileResult={jest.fn()}
