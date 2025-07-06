@@ -21,25 +21,25 @@ function createReactQueryApi(getApiClient: () => SystemCallApiClient) {
     rebootToBios: {
       useMutation: () => {
         const apiClient = getApiClient();
-        return useMutation(async(apiClient.rebootToBios));
+        return useMutation({ mutationFn: async(apiClient.rebootToBios) });
       },
     },
     powerDown: {
       useMutation: () => {
         const apiClient = getApiClient();
-        return useMutation(async(apiClient.powerDown));
+        return useMutation({ mutationFn: async(apiClient.powerDown) });
       },
     },
     setClock: {
       useMutation: () => {
         const apiClient = getApiClient();
-        return useMutation(apiClient.setClock);
+        return useMutation({ mutationFn: apiClient.setClock });
       },
     },
     exportLogsToUsb: {
       useMutation: () => {
         const apiClient = getApiClient();
-        return useMutation(apiClient.exportLogsToUsb);
+        return useMutation({ mutationFn: apiClient.exportLogsToUsb });
       },
     },
     getBatteryInfo: {
@@ -48,7 +48,9 @@ function createReactQueryApi(getApiClient: () => SystemCallApiClient) {
       },
       useQuery() {
         const apiClient = getApiClient();
-        return useQuery(this.queryKey(), () => apiClient.getBatteryInfo(), {
+        return useQuery({
+          queryKey: this.queryKey(),
+          queryFn: () => apiClient.getBatteryInfo(),
           refetchInterval: BATTERY_POLLING_INTERVAL_GROUT,
         });
       },
@@ -59,7 +61,9 @@ function createReactQueryApi(getApiClient: () => SystemCallApiClient) {
       },
       useQuery() {
         const apiClient = getApiClient();
-        return useQuery(this.queryKey(), () => apiClient.getAudioInfo(), {
+        return useQuery({
+          queryKey: this.queryKey(),
+          queryFn: () => apiClient.getAudioInfo(),
           refetchInterval: AUDIO_INFO_POLLING_INTERVAL_MS,
         });
       },

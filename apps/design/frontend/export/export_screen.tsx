@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { H1, P, Icons } from '@vx/libs/ui/primitives';
 import { Button, LoadingButton } from '@vx/libs/ui/buttons';
 import { MainContent, MainHeader } from '@vx/libs/ui/screens';
 import { CheckboxButton } from '@vx/libs/ui/checkbox';
-import { useQueryChangeListener } from '@vx/libs/ui/hooks/use_change_listener';
 import fileDownload from 'js-file-download';
 import { useParams } from 'react-router-dom';
 import {
@@ -33,23 +32,15 @@ export function ExportScreen(): JSX.Element | null {
     useState<ElectionSerializationFormat>('vxf');
   const [exportError, setExportError] = useState<string>();
 
-  useQueryChangeListener(electionPackageQuery, {
-    onChange: (currentElectionPackage, previousElectionPackage) => {
-      const taskJustCompleted = Boolean(
-        previousElectionPackage?.task &&
-          !previousElectionPackage.task.completedAt &&
-          currentElectionPackage.task?.completedAt
-      );
-      if (taskJustCompleted) {
-        const { error } = assertDefined(currentElectionPackage.task);
-        if (error) {
-          setExportError(error);
-        } else {
-          downloadFile(assertDefined(currentElectionPackage.url));
-        }
-      }
-    },
-  });
+  const completed = !!electionPackageQuery.data?.task?.completedAt;
+  const error = electionPackageQuery.data?.task?.error;
+  const url = electionPackageQuery.data?.url;
+  React.useEffect(() => {
+    if (!completed) return;
+    if (error) return setExportError(error);
+
+    downloadFile(assertDefined(url));
+  }, [completed, error, url]);
 
   function onPressExportAllBallots() {
     setExportError(undefined);
@@ -94,7 +85,7 @@ export function ExportScreen(): JSX.Element | null {
   }
   const electionPackage = electionPackageQuery.data;
   const isElectionPackageExportInProgress =
-    exportElectionPackageMutation.isLoading ||
+    exportElectionPackageMutation.isPending ||
     (electionPackage.task && !electionPackage.task.completedAt);
 
   return (
@@ -107,7 +98,7 @@ export function ExportScreen(): JSX.Element | null {
           <Button
             variant="primary"
             onPress={onPressExportAllBallots}
-            disabled={exportAllBallotsMutation.isLoading}
+            disabled={exportAllBallotsMutation.isPending}
           >
             Export All Ballots
           </Button>
@@ -116,7 +107,7 @@ export function ExportScreen(): JSX.Element | null {
           <Button
             variant="primary"
             onPress={onPressExportTestDecks}
-            disabled={exportTestDecksMutation.isLoading}
+            disabled={exportTestDecksMutation.isPending}
           >
             Export Test Decks
           </Button>

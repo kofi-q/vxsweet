@@ -47,7 +47,7 @@ export function DeleteBatchModal({
             disabled={!deleteBatchMutation.isIdle}
             autoFocus
           >
-            {deleteBatchMutation.isLoading ? 'Deleting…' : 'Yes, Delete Batch'}
+            {deleteBatchMutation.isPending ? 'Deleting…' : 'Yes, Delete Batch'}
           </Button>
           <Button onPress={onClose} disabled={!deleteBatchMutation.isIdle}>
             Cancel

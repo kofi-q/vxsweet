@@ -48,7 +48,10 @@ export const getMachineConfig = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getMachineConfig());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getMachineConfig(),
+    });
   },
 } as const;
 
@@ -61,7 +64,9 @@ export const getAuthStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getAuthStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getAuthStatus(),
       refetchInterval: AUTH_STATUS_POLLING_INTERVAL_MS,
       structuralSharing(oldData, newData) {
         if (!oldData) {
@@ -80,11 +85,14 @@ export const checkPin = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.checkPin, {
+    return useMutation({
+      mutationFn: apiClient.checkPin,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -94,11 +102,14 @@ export const logOut = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.logOut, {
+    return useMutation({
+      mutationFn: apiClient.logOut,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -108,11 +119,14 @@ export const updateSessionExpiry = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.updateSessionExpiry, {
+    return useMutation({
+      mutationFn: apiClient.updateSessionExpiry,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -122,11 +136,14 @@ export const programCard = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.programCard, {
+    return useMutation({
+      mutationFn: apiClient.programCard,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -136,11 +153,14 @@ export const unprogramCard = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.unprogramCard, {
+    return useMutation({
+      mutationFn: apiClient.unprogramCard,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -152,7 +172,9 @@ export const getPrinterStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getPrinterStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getPrinterStatus(),
       refetchInterval: PRINTER_STATUS_POLLING_INTERVAL_MS,
     });
   },
@@ -166,7 +188,9 @@ export const getUsbDriveStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getUsbDriveStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getUsbDriveStatus(),
       refetchInterval: USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
       structuralSharing(oldData, newData) {
         if (!oldData) {
@@ -185,9 +209,12 @@ export const ejectUsbDrive = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.ejectUsbDrive, {
+    return useMutation({
+      mutationFn: apiClient.ejectUsbDrive,
       async onSuccess() {
-        await queryClient.invalidateQueries(getUsbDriveStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getUsbDriveStatus.queryKey(),
+        });
       },
     });
   },
@@ -197,9 +224,12 @@ export const formatUsbDrive = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.formatUsbDrive, {
+    return useMutation({
+      mutationFn: apiClient.formatUsbDrive,
       async onSuccess() {
-        await queryClient.invalidateQueries(getUsbDriveStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getUsbDriveStatus.queryKey(),
+        });
       },
     });
   },
@@ -217,9 +247,10 @@ export const getCurrentElectionMetadata = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getCurrentElectionMetadata()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getCurrentElectionMetadata(),
+    });
   },
 } as const;
 
@@ -229,9 +260,10 @@ export const listCastVoteRecordFilesOnUsb = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.listCastVoteRecordFilesOnUsb()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.listCastVoteRecordFilesOnUsb(),
+    });
   },
 } as const;
 
@@ -241,7 +273,10 @@ export const getCastVoteRecordFiles = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getCastVoteRecordFiles());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getCastVoteRecordFiles(),
+    });
   },
 } as const;
 
@@ -251,9 +286,10 @@ export const getCastVoteRecordFileMode = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getCastVoteRecordFileMode()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getCastVoteRecordFileMode(),
+    });
   },
 } as const;
 
@@ -267,9 +303,10 @@ export const getWriteInAdjudicationQueue = {
   },
   useQuery(input: GetWriteInAdjudicationQueueInput) {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(input), () =>
-      apiClient.getWriteInAdjudicationQueue(input)
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getWriteInAdjudicationQueue(input),
+    });
   },
 } as const;
 
@@ -282,13 +319,11 @@ export const getFirstPendingWriteInId = {
   },
   useQuery(input: GetFirstPendingWriteInIdInput) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () => apiClient.getFirstPendingWriteInId(input),
-      {
-        cacheTime: 0,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getFirstPendingWriteInId(input),
+      gcTime: 0,
+    });
   },
 } as const;
 
@@ -302,9 +337,10 @@ export const getWriteInAdjudicationQueueMetadata = {
   },
   useQuery(input?: GetWriteInAdjudicationQueueMetadataInput) {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(input), () =>
-      apiClient.getWriteInAdjudicationQueueMetadata(input)
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getWriteInAdjudicationQueueMetadata(input),
+    });
   },
 } as const;
 
@@ -315,9 +351,10 @@ export const getWriteInCandidates = {
   },
   useQuery(input?: GetWriteInCandidatesInput) {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(input), () =>
-      apiClient.getWriteInCandidates(input)
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getWriteInCandidates(input),
+    });
   },
 } as const;
 
@@ -330,11 +367,12 @@ export const getWriteInImageView = {
   },
   useQuery(input: GetWriteInImageViewInput, enabled = true) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () => apiClient.getWriteInImageView({ writeInId: input.writeInId }),
-      { enabled }
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () =>
+        apiClient.getWriteInImageView({ writeInId: input.writeInId }),
+      enabled,
+    });
   },
 } as const;
 
@@ -348,12 +386,12 @@ export const getWriteInAdjudicationContext = {
   },
   useQuery(input: GetWriteInAdjudicationContextInput, enabled = true) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () =>
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () =>
         apiClient.getWriteInAdjudicationContext({ writeInId: input.writeInId }),
-      { enabled }
-    );
+      enabled,
+    });
   },
 } as const;
 
@@ -363,7 +401,10 @@ export const getSystemSettings = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getSystemSettings());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getSystemSettings(),
+    });
   },
 } as const;
 
@@ -374,9 +415,10 @@ export const getManualResults = {
   },
   useQuery(input: GetManualResultsInput) {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(input), () =>
-      apiClient.getManualResults(input)
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getManualResults(input),
+    });
   },
 } as const;
 
@@ -386,9 +428,10 @@ export const getManualResultsMetadata = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getManualResultsMetadata()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getManualResultsMetadata(),
+    });
   },
 } as const;
 
@@ -398,7 +441,10 @@ export const getTotalBallotCount = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getTotalBallotCount());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getTotalBallotCount(),
+    });
   },
 } as const;
 
@@ -408,7 +454,10 @@ export const getScannerBatches = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getScannerBatches());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getScannerBatches(),
+    });
   },
 } as const;
 
@@ -419,12 +468,11 @@ export const listPotentialElectionPackagesOnUsbDrive = {
   },
   useQuery(usbDriveStatus: UsbDriveStatus) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(usbDriveStatus),
-      () => apiClient.listPotentialElectionPackagesOnUsbDrive(),
-      // Don't reuse stale data (e.g. from the last mounted USB drive)
-      { staleTime: 0 }
-    );
+    return useQuery({
+      queryKey: this.queryKey(usbDriveStatus),
+      queryFn: () => apiClient.listPotentialElectionPackagesOnUsbDrive(),
+      staleTime: 0,
+    });
   },
 } as const;
 
@@ -438,19 +486,14 @@ export const getTallyReportPreview = {
     options: { enabled: boolean } = { enabled: true }
   ) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () => apiClient.getTallyReportPreview(input),
-      // We avoid caching previews because cache invalidation for reports is
-      // tricky and therefore risky. The benefit is also minimal because the
-      // backend is already caching its most expensive computations.
-      {
-        cacheTime: 0,
-        staleTime: 0,
-        refetchOnWindowFocus: false,
-        ...options,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getTallyReportPreview(input),
+      gcTime: 0,
+      staleTime: 0,
+      refetchOnWindowFocus: false,
+      ...options,
+    });
   },
 } as const;
 
@@ -467,19 +510,14 @@ export const getBallotCountReportPreview = {
     options: { enabled: boolean } = { enabled: true }
   ) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () => apiClient.getBallotCountReportPreview(input),
-      // We avoid caching previews because cache invalidation for reports is
-      // tricky and therefore risky. The benefit is also minimal because the
-      // backend is already caching its most expensive computations.
-      {
-        cacheTime: 0,
-        staleTime: 0,
-        refetchOnWindowFocus: false,
-        ...options,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getBallotCountReportPreview(input),
+      gcTime: 0,
+      staleTime: 0,
+      refetchOnWindowFocus: false,
+      ...options,
+    });
   },
 } as const;
 
@@ -489,18 +527,13 @@ export const getWriteInAdjudicationReportPreview = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(),
-      () => apiClient.getWriteInAdjudicationReportPreview(),
-      // We avoid caching previews because cache invalidation for reports is
-      // tricky and therefore risky. The benefit is also minimal because the
-      // backend is already caching its most expensive computations.
-      {
-        cacheTime: 0,
-        staleTime: 0,
-        refetchOnWindowFocus: false,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getWriteInAdjudicationReportPreview(),
+      gcTime: 0,
+      staleTime: 0,
+      refetchOnWindowFocus: false,
+    });
   },
 } as const;
 
@@ -510,9 +543,10 @@ export const getMostRecentPrinterDiagnostic = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getMostRecentPrinterDiagnostic()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getMostRecentPrinterDiagnostic(),
+    });
   },
 } as const;
 
@@ -522,15 +556,13 @@ export const getApplicationDiskSpaceSummary = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(),
-      () => apiClient.getApplicationDiskSpaceSummary(),
-      {
-        // disk space availability could change between queries for a variety
-        // reasons, so always treat it as stale
-        staleTime: 0,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getApplicationDiskSpaceSummary(),
+      // disk space availability could change between queries for a variety
+      // reasons, so always treat it as stale
+      staleTime: 0,
+    });
   },
 } as const;
 
@@ -539,28 +571,38 @@ export const getApplicationDiskSpaceSummary = {
 function invalidateCastVoteRecordQueries(queryClient: QueryClient) {
   return Promise.all([
     // cast vote record endpoints
-    queryClient.invalidateQueries(getCastVoteRecordFileMode.queryKey()),
-    queryClient.invalidateQueries(getCastVoteRecordFiles.queryKey()),
+    queryClient.invalidateQueries({
+      queryKey: getCastVoteRecordFileMode.queryKey(),
+    }),
+    queryClient.invalidateQueries({
+      queryKey: getCastVoteRecordFiles.queryKey(),
+    }),
 
     // scanner batches are generated from cast vote records
-    queryClient.invalidateQueries(getScannerBatches.queryKey()),
+    queryClient.invalidateQueries({ queryKey: getScannerBatches.queryKey() }),
 
     // total ballot count may be affected
-    queryClient.invalidateQueries(getTotalBallotCount.queryKey()),
+    queryClient.invalidateQueries({ queryKey: getTotalBallotCount.queryKey() }),
 
     // write-in queues
-    queryClient.invalidateQueries(getWriteInAdjudicationQueue.queryKey()),
+    queryClient.invalidateQueries({
+      queryKey: getWriteInAdjudicationQueue.queryKey(),
+    }),
   ]);
 }
 
 function invalidateWriteInQueries(queryClient: QueryClient) {
   const invalidations = [
     // write-in endpoints
-    queryClient.invalidateQueries(getWriteInAdjudicationContext.queryKey()),
-    queryClient.invalidateQueries(getWriteInCandidates.queryKey()),
-    queryClient.invalidateQueries(
-      getWriteInAdjudicationQueueMetadata.queryKey()
-    ),
+    queryClient.invalidateQueries({
+      queryKey: getWriteInAdjudicationContext.queryKey(),
+    }),
+    queryClient.invalidateQueries({
+      queryKey: getWriteInCandidates.queryKey(),
+    }),
+    queryClient.invalidateQueries({
+      queryKey: getWriteInAdjudicationQueueMetadata.queryKey(),
+    }),
   ];
 
   return Promise.all(invalidations);
@@ -569,11 +611,13 @@ function invalidateWriteInQueries(queryClient: QueryClient) {
 function invalidateManualResultsQueries(queryClient: QueryClient) {
   return Promise.all([
     // manual results queries
-    queryClient.invalidateQueries(getManualResults.queryKey()),
-    queryClient.invalidateQueries(getManualResultsMetadata.queryKey()),
+    queryClient.invalidateQueries({ queryKey: getManualResults.queryKey() }),
+    queryClient.invalidateQueries({
+      queryKey: getManualResultsMetadata.queryKey(),
+    }),
 
     // total ballot count may be affected
-    queryClient.invalidateQueries(getTotalBallotCount.queryKey()),
+    queryClient.invalidateQueries({ queryKey: getTotalBallotCount.queryKey() }),
   ]);
 }
 
@@ -583,12 +627,15 @@ export const configure = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.configure, {
+    return useMutation({
+      mutationFn: apiClient.configure,
       async onSuccess() {
-        await queryClient.invalidateQueries(
-          getCurrentElectionMetadata.queryKey()
-        );
-        await queryClient.invalidateQueries(getSystemSettings.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getCurrentElectionMetadata.queryKey(),
+        });
+        await queryClient.invalidateQueries({
+          queryKey: getSystemSettings.queryKey(),
+        });
       },
     });
   },
@@ -598,7 +645,8 @@ export const unconfigure = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.unconfigure, {
+    return useMutation({
+      mutationFn: apiClient.unconfigure,
       async onSuccess() {
         // If we configure with a different election, any data in the cache will
         // correspond to the previous election, so we don't just invalidate, but
@@ -614,11 +662,12 @@ export const markResultsOfficial = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.markResultsOfficial, {
+    return useMutation({
+      mutationFn: apiClient.markResultsOfficial,
       async onSuccess() {
-        await queryClient.invalidateQueries(
-          getCurrentElectionMetadata.queryKey()
-        );
+        await queryClient.invalidateQueries({
+          queryKey: getCurrentElectionMetadata.queryKey(),
+        });
       },
     });
   },
@@ -628,12 +677,15 @@ export const clearCastVoteRecordFiles = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.clearCastVoteRecordFiles, {
+    return useMutation({
+      mutationFn: apiClient.clearCastVoteRecordFiles,
       async onSuccess() {
         return Promise.all([
           invalidateCastVoteRecordQueries(queryClient),
           invalidateWriteInQueries(queryClient),
-          queryClient.invalidateQueries(getCurrentElectionMetadata.queryKey()),
+          queryClient.invalidateQueries({
+            queryKey: getCurrentElectionMetadata.queryKey(),
+          }),
         ]);
       },
     });
@@ -644,7 +696,8 @@ export const addCastVoteRecordFile = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.addCastVoteRecordFile, {
+    return useMutation({
+      mutationFn: apiClient.addCastVoteRecordFile,
       async onSuccess() {
         await invalidateCastVoteRecordQueries(queryClient);
         await invalidateWriteInQueries(queryClient);
@@ -657,7 +710,8 @@ export const importElectionResultsReportingFile = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.importElectionResultsReportingFile, {
+    return useMutation({
+      mutationFn: apiClient.importElectionResultsReportingFile,
       async onSuccess() {
         // The backend treats ERR files like manual results
         await invalidateManualResultsQueries(queryClient);
@@ -671,7 +725,8 @@ export const setManualResults = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.setManualResults, {
+    return useMutation({
+      mutationFn: apiClient.setManualResults,
       async onSuccess() {
         await invalidateManualResultsQueries(queryClient);
         await invalidateWriteInQueries(queryClient);
@@ -684,10 +739,13 @@ export const deleteAllManualResults = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.deleteAllManualResults, {
+    return useMutation({
+      mutationFn: apiClient.deleteAllManualResults,
       async onSuccess() {
         await invalidateManualResultsQueries(queryClient);
-        await queryClient.invalidateQueries(getWriteInCandidates.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getWriteInCandidates.queryKey(),
+        });
       },
     });
   },
@@ -697,10 +755,13 @@ export const deleteManualResults = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.deleteManualResults, {
+    return useMutation({
+      mutationFn: apiClient.deleteManualResults,
       async onSuccess() {
         await invalidateManualResultsQueries(queryClient);
-        await queryClient.invalidateQueries(getWriteInCandidates.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getWriteInCandidates.queryKey(),
+        });
       },
     });
   },
@@ -710,9 +771,12 @@ export const addWriteInCandidate = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.addWriteInCandidate, {
+    return useMutation({
+      mutationFn: apiClient.addWriteInCandidate,
       async onSuccess() {
-        await queryClient.invalidateQueries(getWriteInCandidates.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getWriteInCandidates.queryKey(),
+        });
       },
     });
   },
@@ -722,7 +786,8 @@ export const adjudicateWriteIn = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.adjudicateWriteIn, {
+    return useMutation({
+      mutationFn: apiClient.adjudicateWriteIn,
       async onSuccess() {
         await invalidateWriteInQueries(queryClient);
       },
@@ -733,70 +798,76 @@ export const adjudicateWriteIn = {
 export const saveElectionPackageToUsb = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.saveElectionPackageToUsb);
+    return useMutation({ mutationFn: apiClient.saveElectionPackageToUsb });
   },
 } as const;
 
 export const printTallyReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.printTallyReport);
+    return useMutation({ mutationFn: apiClient.printTallyReport });
   },
 } as const;
 
 export const exportTallyReportPdf = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportTallyReportPdf);
+    return useMutation({ mutationFn: apiClient.exportTallyReportPdf });
   },
 } as const;
 
 export const exportTallyReportCsv = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportTallyReportCsv);
+    return useMutation({ mutationFn: apiClient.exportTallyReportCsv });
   },
 } as const;
 
 export const exportCdfElectionResultsReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportCdfElectionResultsReport);
+    return useMutation({
+      mutationFn: apiClient.exportCdfElectionResultsReport,
+    });
   },
 } as const;
 
 export const printBallotCountReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.printBallotCountReport);
+    return useMutation({ mutationFn: apiClient.printBallotCountReport });
   },
 } as const;
 
 export const exportBallotCountReportPdf = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportBallotCountReportPdf);
+    return useMutation({ mutationFn: apiClient.exportBallotCountReportPdf });
   },
 } as const;
 
 export const exportBallotCountReportCsv = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportBallotCountReportCsv);
+    return useMutation({ mutationFn: apiClient.exportBallotCountReportCsv });
   },
 } as const;
 
 export const printWriteInAdjudicationReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.printWriteInAdjudicationReport);
+    return useMutation({
+      mutationFn: apiClient.printWriteInAdjudicationReport,
+    });
   },
 } as const;
 
 export const exportWriteInAdjudicationReportPdf = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportWriteInAdjudicationReportPdf);
+    return useMutation({
+      mutationFn: apiClient.exportWriteInAdjudicationReportPdf,
+    });
   },
 } as const;
 
@@ -804,11 +875,12 @@ export const addDiagnosticRecord = {
   useMutation() {
     const queryClient = useQueryClient();
     const apiClient = useApiClient();
-    return useMutation(apiClient.addDiagnosticRecord, {
+    return useMutation({
+      mutationFn: apiClient.addDiagnosticRecord,
       async onSuccess() {
-        await queryClient.invalidateQueries(
-          getMostRecentPrinterDiagnostic.queryKey()
-        );
+        await queryClient.invalidateQueries({
+          queryKey: getMostRecentPrinterDiagnostic.queryKey(),
+        });
       },
     });
   },
@@ -817,14 +889,14 @@ export const addDiagnosticRecord = {
 export const printTestPage = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.printTestPage);
+    return useMutation({ mutationFn: apiClient.printTestPage });
   },
 } as const;
 
 export const saveReadinessReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.saveReadinessReport);
+    return useMutation({ mutationFn: apiClient.saveReadinessReport });
   },
 } as const;
 

@@ -154,7 +154,7 @@ function ElectionInfoForm({
             variant="primary"
             icon="Done"
             onPress={onSaveButtonPress}
-            disabled={updateElectionMutation.isLoading}
+            disabled={updateElectionMutation.isPending}
           >
             Save
           </Button>
@@ -175,7 +175,7 @@ function ElectionInfoForm({
               variant="danger"
               icon="Delete"
               onPress={onDeletePress}
-              disabled={deleteElectionMutation.isLoading}
+              disabled={deleteElectionMutation.isPending}
             >
               Delete Election
             </Button>

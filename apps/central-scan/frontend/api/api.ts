@@ -46,7 +46,9 @@ export const getUsbDriveStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getUsbDriveStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getUsbDriveStatus(),
       refetchInterval: USB_DRIVE_STATUS_POLLING_INTERVAL_MS,
       structuralSharing(oldData, newData) {
         if (!oldData) {
@@ -65,9 +67,12 @@ export const ejectUsbDrive = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.ejectUsbDrive, {
+    return useMutation({
+      mutationFn: apiClient.ejectUsbDrive,
       async onSuccess() {
-        await queryClient.invalidateQueries(getUsbDriveStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getUsbDriveStatus.queryKey(),
+        });
       },
     });
   },
@@ -81,7 +86,9 @@ export const getAuthStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getAuthStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getAuthStatus(),
       refetchInterval: AUTH_STATUS_POLLING_INTERVAL_MS,
     });
   },
@@ -93,9 +100,10 @@ export const getApplicationDiskSpaceSummary = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getApplicationDiskSpaceSummary()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getApplicationDiskSpaceSummary(),
+    });
   },
 } as const;
 
@@ -105,7 +113,10 @@ export const getTestMode = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getTestMode());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getTestMode(),
+    });
   },
 } as const;
 
@@ -115,7 +126,10 @@ export const getSystemSettings = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getSystemSettings());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getSystemSettings(),
+    });
   },
 } as const;
 
@@ -125,7 +139,10 @@ export const getMachineConfig = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getMachineConfig());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getMachineConfig(),
+    });
   },
 } as const;
 
@@ -135,7 +152,10 @@ export const getElectionRecord = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getElectionRecord());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getElectionRecord(),
+    });
   },
 } as const;
 
@@ -145,7 +165,9 @@ export const getStatus = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.getStatus(), {
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getStatus(),
       refetchInterval: 100,
     });
   },
@@ -157,9 +179,10 @@ export const getMostRecentScannerDiagnostic = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () =>
-      apiClient.getMostRecentScannerDiagnostic()
-    );
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.getMostRecentScannerDiagnostic(),
+    });
   },
 } as const;
 
@@ -169,9 +192,12 @@ export const setTestMode = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.setTestMode, {
+    return useMutation({
+      mutationFn: apiClient.setTestMode,
       async onSuccess() {
-        await queryClient.invalidateQueries(getTestMode.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getTestMode.queryKey(),
+        });
       },
     });
   },
@@ -181,11 +207,14 @@ export const checkPin = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.checkPin, {
+    return useMutation({
+      mutationFn: apiClient.checkPin,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -195,11 +224,14 @@ export const logOut = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.logOut, {
+    return useMutation({
+      mutationFn: apiClient.logOut,
       async onSuccess() {
         // Because we poll auth status with high frequency, this invalidation isn't strictly
         // necessary
-        await queryClient.invalidateQueries(getAuthStatus.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getAuthStatus.queryKey(),
+        });
       },
     });
   },
@@ -208,7 +240,7 @@ export const logOut = {
 export const updateSessionExpiry = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.updateSessionExpiry);
+    return useMutation({ mutationFn: apiClient.updateSessionExpiry });
   },
 } as const;
 
@@ -216,9 +248,10 @@ export const scanBatch = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.scanBatch, {
+    return useMutation({
+      mutationFn: apiClient.scanBatch,
       async onSuccess() {
-        await queryClient.invalidateQueries(getStatus.queryKey());
+        await queryClient.invalidateQueries({ queryKey: getStatus.queryKey() });
       },
     });
   },
@@ -228,9 +261,10 @@ export const continueScanning = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.continueScanning, {
+    return useMutation({
+      mutationFn: apiClient.continueScanning,
       async onSuccess() {
-        await queryClient.invalidateQueries(getStatus.queryKey());
+        await queryClient.invalidateQueries({ queryKey: getStatus.queryKey() });
       },
     });
   },
@@ -240,9 +274,10 @@ export const deleteBatch = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.deleteBatch, {
+    return useMutation({
+      mutationFn: apiClient.deleteBatch,
       async onSuccess() {
-        await queryClient.invalidateQueries(getStatus.queryKey());
+        await queryClient.invalidateQueries({ queryKey: getStatus.queryKey() });
       },
     });
   },
@@ -252,10 +287,15 @@ export const configureFromElectionPackageOnUsbDrive = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.configureFromElectionPackageOnUsbDrive, {
+    return useMutation({
+      mutationFn: apiClient.configureFromElectionPackageOnUsbDrive,
       async onSuccess() {
-        await queryClient.invalidateQueries(getSystemSettings.queryKey());
-        await queryClient.invalidateQueries(getElectionRecord.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: getSystemSettings.queryKey(),
+        });
+        await queryClient.invalidateQueries({
+          queryKey: getElectionRecord.queryKey(),
+        });
       },
     });
   },
@@ -265,7 +305,8 @@ export const unconfigure = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.unconfigure, {
+    return useMutation({
+      mutationFn: apiClient.unconfigure,
       async onSuccess() {
         // If we configure with a different election, any data in the cache will
         // correspond to the previous election, so we don't just invalidate, but
@@ -280,14 +321,16 @@ export const unconfigure = {
 export const clearBallotData = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.clearBallotData);
+    return useMutation({ mutationFn: apiClient.clearBallotData });
   },
 } as const;
 
 export const exportCastVoteRecordsToUsbDrive = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportCastVoteRecordsToUsbDrive);
+    return useMutation({
+      mutationFn: apiClient.exportCastVoteRecordsToUsbDrive,
+    });
   },
 } as const;
 
@@ -295,11 +338,12 @@ export const performScanDiagnostic = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.performScanDiagnostic, {
+    return useMutation({
+      mutationFn: apiClient.performScanDiagnostic,
       async onSuccess() {
-        await queryClient.invalidateQueries(
-          getMostRecentScannerDiagnostic.queryKey()
-        );
+        await queryClient.invalidateQueries({
+          queryKey: getMostRecentScannerDiagnostic.queryKey(),
+        });
       },
     });
   },
@@ -308,7 +352,7 @@ export const performScanDiagnostic = {
 export const saveReadinessReport = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.saveReadinessReport);
+    return useMutation({ mutationFn: apiClient.saveReadinessReport });
   },
 } as const;
 

@@ -93,7 +93,7 @@ export function ExportResultsModal({ onClose }: Props): JSX.Element {
               primary
               usbDriveStatus={usbDriveStatus}
               usbDriveEject={() => ejectUsbDriveMutation.mutate()}
-              usbDriveIsEjecting={ejectUsbDriveMutation.isLoading}
+              usbDriveIsEjecting={ejectUsbDriveMutation.isPending}
             />
             <Button onPress={onClose}>Cancel</Button>
           </React.Fragment>

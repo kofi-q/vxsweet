@@ -72,7 +72,7 @@ function getPrinterStatusOptionKey(
         default:
           throwIllegalValue(status.type);
       }
-      break;
+    // eslint-disable-next-line no-fallthrough
     default:
       throwIllegalValue(status, 'state');
   }
@@ -95,17 +95,17 @@ const SELECT_ID = 'fujitsu-printer-status-select';
 function PrinterStatusSelect(): JSX.Element {
   const queryClient = useQueryClient();
   const apiClient = useApiClient();
-  const getFujitsuPrinterStatusQuery = useQuery(
-    ['getFujitsuPrinterStatus'],
-    () => apiClient.getFujitsuPrinterStatus()
-  );
-  const setFujitsuPrinterStatusMutation = useMutation(
-    apiClient.setFujitsuPrinterStatus,
-    {
-      onSuccess: async () =>
-        await queryClient.invalidateQueries(['getFujitsuPrinterStatus']),
-    }
-  );
+  const getFujitsuPrinterStatusQuery = useQuery({
+    queryKey: ['getFujitsuPrinterStatus'],
+    queryFn: () => apiClient.getFujitsuPrinterStatus(),
+  });
+  const setFujitsuPrinterStatusMutation = useMutation({
+    mutationFn: apiClient.setFujitsuPrinterStatus,
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({
+        queryKey: ['getFujitsuPrinterStatus'],
+      }),
+  });
 
   const status = getFujitsuPrinterStatusQuery.data ?? undefined;
 

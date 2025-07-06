@@ -225,7 +225,7 @@ function DistrictForm({
             variant="primary"
             icon="Done"
             onPress={() => onSavePress(district)}
-            disabled={updateElectionMutation.isLoading}
+            disabled={updateElectionMutation.isPending}
           >
             Save
           </Button>
@@ -236,7 +236,7 @@ function DistrictForm({
               variant="danger"
               icon="Delete"
               onPress={() => onDeletePress(districtId as DistrictId)}
-              disabled={updateElectionMutation.isLoading}
+              disabled={updateElectionMutation.isPending}
             >
               Delete District
             </Button>
@@ -615,7 +615,7 @@ function PrecinctForm({
             variant="primary"
             icon="Done"
             onPress={() => onSavePress(precinct)}
-            disabled={updatePrecinctsMutation.isLoading}
+            disabled={updatePrecinctsMutation.isPending}
           >
             Save
           </Button>
@@ -626,7 +626,7 @@ function PrecinctForm({
               variant="danger"
               icon="Delete"
               onPress={() => onDeletePress(precinctId)}
-              disabled={updatePrecinctsMutation.isLoading}
+              disabled={updatePrecinctsMutation.isPending}
             >
               Delete Precinct
             </Button>

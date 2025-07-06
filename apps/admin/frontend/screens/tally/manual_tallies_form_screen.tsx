@@ -507,7 +507,7 @@ function BallotCountForm({
               variant="primary"
               icon="Done"
               onPress={saveBallotCount}
-              disabled={ballotCount === '' || setManualTallyMutation.isLoading}
+              disabled={ballotCount === '' || setManualTallyMutation.isPending}
             >
               Save & Next
             </Button>
@@ -976,7 +976,7 @@ function ContestForm({
                 onPress={saveResults}
                 disabled={
                   validationError === 'incomplete' ||
-                  setManualTallyMutation.isLoading
+                  setManualTallyMutation.isPending
                 }
               >
                 {nextContest ? 'Save & Next' : 'Finish'}

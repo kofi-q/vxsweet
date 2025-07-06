@@ -112,7 +112,7 @@ export function DiagnosticsScreen({
           <P>
             <Button
               disabled={
-                beginScannerDiagnosticMutation.isLoading ||
+                beginScannerDiagnosticMutation.isPending ||
                 scannerStatus.state !== 'paused'
               }
               onPress={() => beginScannerDiagnosticMutation.mutate()}

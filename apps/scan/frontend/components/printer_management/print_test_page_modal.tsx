@@ -43,7 +43,7 @@ export function PrintTestPageModal({
     return null;
   }
 
-  if (printTestPageMutation.status === 'loading') {
+  if (printTestPageMutation.status === 'pending') {
     return <Modal content={<Loading>Printing</Loading>} />;
   }
 
@@ -91,7 +91,7 @@ export function PrintTestPageModal({
 
   if (
     logTestPrintOutcomeMutation.status === 'idle' ||
-    logTestPrintOutcomeMutation.status === 'loading'
+    logTestPrintOutcomeMutation.status === 'pending'
   ) {
     return (
       <Modal

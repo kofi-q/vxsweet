@@ -30,7 +30,7 @@ function MockComponent({
   usbDriveStatus,
   usbImage,
 }: Omit<SaveReadinessReportProps, 'saveReadinessReportMutation'>): JSX.Element {
-  const mutation = useMutation(jestMockMutate);
+  const mutation = useMutation({ mutationFn: jestMockMutate });
   return (
     <SaveReadinessReportButton
       saveReadinessReportMutation={mutation}

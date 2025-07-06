@@ -66,17 +66,20 @@ const ElectionControlSelect = styled.select`
 function ElectionControl(): JSX.Element | null {
   const queryClient = useQueryClient();
   const apiClient = useApiClient();
-  const getElectionQuery = useQuery(
-    ['getElection'],
-    async () => (await apiClient.getElection()) ?? null
-  );
-  const currentFixturesQuery = useQuery(
-    ['getCurrentFixtureElectionPaths'],
-    async () => (await apiClient.getCurrentFixtureElectionPaths()) ?? null
-  );
+  const getElectionQuery = useQuery({
+    queryKey: ['getElection'],
+    queryFn: async () => (await apiClient.getElection()) ?? null,
+  });
+  const currentFixturesQuery = useQuery({
+    queryKey: ['getCurrentFixtureElectionPaths'],
+    queryFn: async () =>
+      (await apiClient.getCurrentFixtureElectionPaths()) ?? null,
+  });
   const fixturesElections = currentFixturesQuery.data || [];
-  const setElectionMutation = useMutation(apiClient.setElection, {
-    onSuccess: async () => await queryClient.invalidateQueries(['getElection']),
+  const setElectionMutation = useMutation({
+    mutationFn: apiClient.setElection,
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({ queryKey: ['getElection'] }),
   });
 
   if (!getElectionQuery.isSuccess) return <ElectionControlSelect />;
@@ -201,17 +204,19 @@ const ROLES = [
 function SmartCardMockControls() {
   const queryClient = useQueryClient();
   const apiClient = useApiClient();
-  const getCardStatusQuery = useQuery(
-    ['getCardStatus'],
-    async () => (await apiClient.getCardStatus()) ?? null
-  );
-  const insertCardMutation = useMutation(apiClient.insertCard, {
-    onSuccess: async () =>
-      await queryClient.invalidateQueries(['getCardStatus']),
+  const getCardStatusQuery = useQuery({
+    queryKey: ['getCardStatus'],
+    queryFn: async () => (await apiClient.getCardStatus()) ?? null,
   });
-  const removeCardMutation = useMutation(apiClient.removeCard, {
+  const insertCardMutation = useMutation({
+    mutationFn: apiClient.insertCard,
     onSuccess: async () =>
-      await queryClient.invalidateQueries(['getCardStatus']),
+      await queryClient.invalidateQueries({ queryKey: ['getCardStatus'] }),
+  });
+  const removeCardMutation = useMutation({
+    mutationFn: apiClient.removeCard,
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({ queryKey: ['getCardStatus'] }),
   });
 
   const cardStatus = getCardStatusQuery.data;
@@ -320,20 +325,24 @@ const UsbMocksDisabledMessage = styled.div`
 function UsbDriveMockControls() {
   const queryClient = useQueryClient();
   const apiClient = useApiClient();
-  const getUsbDriveStatusQuery = useQuery(['getUsbDriveStatus'], () =>
-    apiClient.getUsbDriveStatus()
-  );
-  const insertUsbDriveMutation = useMutation(apiClient.insertUsbDrive, {
-    onSuccess: async () =>
-      await queryClient.invalidateQueries(['getUsbDriveStatus']),
+  const getUsbDriveStatusQuery = useQuery({
+    queryKey: ['getUsbDriveStatus'],
+    queryFn: () => apiClient.getUsbDriveStatus(),
   });
-  const removeUsbDriveMutation = useMutation(apiClient.removeUsbDrive, {
+  const insertUsbDriveMutation = useMutation({
+    mutationFn: apiClient.insertUsbDrive,
     onSuccess: async () =>
-      await queryClient.invalidateQueries(['getUsbDriveStatus']),
+      await queryClient.invalidateQueries({ queryKey: ['getUsbDriveStatus'] }),
   });
-  const clearUsbDriveMutation = useMutation(apiClient.clearUsbDrive, {
+  const removeUsbDriveMutation = useMutation({
+    mutationFn: apiClient.removeUsbDrive,
     onSuccess: async () =>
-      await queryClient.invalidateQueries(['getUsbDriveStatus']),
+      await queryClient.invalidateQueries({ queryKey: ['getUsbDriveStatus'] }),
+  });
+  const clearUsbDriveMutation = useMutation({
+    mutationFn: apiClient.clearUsbDrive,
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({ queryKey: ['getUsbDriveStatus'] }),
   });
 
   const status = getUsbDriveStatusQuery.data ?? undefined;
@@ -465,16 +474,19 @@ const PrinterButton = styled.button<{ isConnected: boolean }>`
 function PrinterMockControl() {
   const queryClient = useQueryClient();
   const apiClient = useApiClient();
-  const getPrinterStatusQuery = useQuery(['getPrinterStatus'], () =>
-    apiClient.getPrinterStatus()
-  );
-  const connectPrinterMutation = useMutation(apiClient.connectPrinter, {
-    onSuccess: async () =>
-      await queryClient.invalidateQueries(['getPrinterStatus']),
+  const getPrinterStatusQuery = useQuery({
+    queryKey: ['getPrinterStatus'],
+    queryFn: () => apiClient.getPrinterStatus(),
   });
-  const disconnectPrinterMutation = useMutation(apiClient.disconnectPrinter, {
+  const connectPrinterMutation = useMutation({
+    mutationFn: apiClient.connectPrinter,
     onSuccess: async () =>
-      await queryClient.invalidateQueries(['getPrinterStatus']),
+      await queryClient.invalidateQueries({ queryKey: ['getPrinterStatus'] }),
+  });
+  const disconnectPrinterMutation = useMutation({
+    mutationFn: apiClient.disconnectPrinter,
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({ queryKey: ['getPrinterStatus'] }),
   });
 
   const status = getPrinterStatusQuery.data ?? undefined;
@@ -599,10 +611,7 @@ function createQueryClient() {
       queries: {
         networkMode: 'always',
         staleTime: Infinity,
-        onError: (error) => {
-          // eslint-disable-next-line no-console
-          console.error('Dev Dock error:', error);
-        },
+        throwOnError: true,
       },
       mutations: {
         networkMode: 'always',
@@ -621,10 +630,10 @@ function DevDock() {
 
   const apiClient = useApiClient();
 
-  const getMachineTypeQuery = useQuery(
-    ['getMachineType'],
-    async () => (await apiClient.getMachineType()) ?? null
-  );
+  const getMachineTypeQuery = useQuery({
+    queryKey: ['getMachineType'],
+    queryFn: async () => (await apiClient.getMachineType()) ?? null,
+  });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function onKeyDown(event: KeyboardEvent): void {

@@ -38,10 +38,10 @@ export function createQueryClient(): QueryClient {
         // In test, we only want to refetch when we explicitly invalidate. In
         // dev/prod, it's fine to refetch more aggressively.
         refetchOnMount: process.env.NODE_ENV !== 'test',
-        useErrorBoundary: true,
+        throwOnError: true,
       },
       mutations: {
-        useErrorBoundary: true,
+        throwOnError: true,
       },
     },
   });
@@ -53,7 +53,10 @@ export const listElections = {
   },
   useQuery() {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(), () => apiClient.listElections());
+    return useQuery({
+      queryKey: this.queryKey(),
+      queryFn: () => apiClient.listElections(),
+    });
   },
 } as const;
 
@@ -63,9 +66,10 @@ export const getElection = {
   },
   useQuery(id: Id) {
     const apiClient = useApiClient();
-    return useQuery(this.queryKey(id), () =>
-      apiClient.getElection({ electionId: id })
-    );
+    return useQuery({
+      queryKey: this.queryKey(id),
+      queryFn: () => apiClient.getElection({ electionId: id }),
+    });
   },
 } as const;
 
@@ -73,9 +77,12 @@ export const loadElection = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.loadElection, {
+    return useMutation({
+      mutationFn: apiClient.loadElection,
       async onSuccess() {
-        await queryClient.invalidateQueries(listElections.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: listElections.queryKey(),
+        });
       },
     });
   },
@@ -85,9 +92,12 @@ export const createElection = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.createElection, {
+    return useMutation({
+      mutationFn: apiClient.createElection,
       async onSuccess() {
-        await queryClient.invalidateQueries(listElections.queryKey());
+        await queryClient.invalidateQueries({
+          queryKey: listElections.queryKey(),
+        });
       },
     });
   },
@@ -97,15 +107,19 @@ export const updateElection = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.updateElection, {
+    return useMutation({
+      mutationFn: apiClient.updateElection,
       async onSuccess(_, { electionId }) {
         // Invalidate list, since title/date may have changed
-        await queryClient.invalidateQueries(listElections.queryKey(), {
+        await queryClient.invalidateQueries({
+          queryKey: listElections.queryKey(),
           // Ensure list of elections is refetched in the background so it's
           // fresh when user navigates back to elections list
           refetchType: 'all',
         });
-        await queryClient.invalidateQueries(getElection.queryKey(electionId));
+        await queryClient.invalidateQueries({
+          queryKey: getElection.queryKey(electionId),
+        });
       },
     });
   },
@@ -115,9 +129,12 @@ export const updateSystemSettings = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.updateSystemSettings, {
+    return useMutation({
+      mutationFn: apiClient.updateSystemSettings,
       async onSuccess(_, { electionId }) {
-        await queryClient.invalidateQueries(getElection.queryKey(electionId));
+        await queryClient.invalidateQueries({
+          queryKey: getElection.queryKey(electionId),
+        });
       },
     });
   },
@@ -127,9 +144,12 @@ export const updatePrecincts = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.updatePrecincts, {
+    return useMutation({
+      mutationFn: apiClient.updatePrecincts,
       async onSuccess(_, { electionId }) {
-        await queryClient.invalidateQueries(getElection.queryKey(electionId));
+        await queryClient.invalidateQueries({
+          queryKey: getElection.queryKey(electionId),
+        });
       },
     });
   },
@@ -139,10 +159,14 @@ export const deleteElection = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.deleteElection, {
+    return useMutation({
+      mutationFn: apiClient.deleteElection,
       async onSuccess(_, { electionId }) {
-        queryClient.removeQueries(getElection.queryKey(electionId));
-        await queryClient.invalidateQueries(listElections.queryKey(), {
+        queryClient.removeQueries({
+          queryKey: getElection.queryKey(electionId),
+        });
+        await queryClient.invalidateQueries({
+          queryKey: listElections.queryKey(),
           // Ensure list of elections is refetched in the background so it's
           // fresh when we redirect to elections list
           refetchType: 'all',
@@ -155,7 +179,7 @@ export const deleteElection = {
 export const exportAllBallots = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportAllBallots);
+    return useMutation({ mutationFn: apiClient.exportAllBallots });
   },
 } as const;
 
@@ -173,12 +197,12 @@ export const getBallotPreviewPdf = {
   },
   useQuery(input: GetBallotPreviewInput) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(input),
-      () => apiClient.getBallotPreviewPdf(input),
-      // Never cache PDFs, that way we don't have to worry about invalidating them
-      { staleTime: 0, cacheTime: 0 }
-    );
+    return useQuery({
+      queryKey: this.queryKey(input),
+      queryFn: () => apiClient.getBallotPreviewPdf(input),
+      staleTime: 0,
+      gcTime: 0,
+    });
   },
 } as const;
 
@@ -188,15 +212,13 @@ export const getElectionPackage = {
   },
   useQuery(electionId: Id) {
     const apiClient = useApiClient();
-    return useQuery(
-      this.queryKey(electionId),
-      () => apiClient.getElectionPackage({ electionId }),
-      {
-        // Poll if an export is in progress
-        refetchInterval: (result) =>
-          result?.task && !result.task.completedAt ? 1000 : 0,
-      }
-    );
+    return useQuery({
+      queryKey: this.queryKey(electionId),
+      queryFn: () => apiClient.getElectionPackage({ electionId }),
+      // Poll if an export is in progress
+      refetchInterval: (result) =>
+        result?.state.data?.task?.completedAt ? 1000 : 0,
+    });
   },
 } as const;
 
@@ -204,11 +226,12 @@ export const exportElectionPackage = {
   useMutation() {
     const apiClient = useApiClient();
     const queryClient = useQueryClient();
-    return useMutation(apiClient.exportElectionPackage, {
+    return useMutation({
+      mutationFn: apiClient.exportElectionPackage,
       async onSuccess(_, { electionId }) {
-        await queryClient.invalidateQueries(
-          getElectionPackage.queryKey(electionId)
-        );
+        await queryClient.invalidateQueries({
+          queryKey: getElectionPackage.queryKey(electionId),
+        });
       },
     });
   },
@@ -217,6 +240,6 @@ export const exportElectionPackage = {
 export const exportTestDecks = {
   useMutation() {
     const apiClient = useApiClient();
-    return useMutation(apiClient.exportTestDecks);
+    return useMutation({ mutationFn: apiClient.exportTestDecks });
   },
 } as const;

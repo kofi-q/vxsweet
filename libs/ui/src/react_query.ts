@@ -45,7 +45,7 @@ export const QUERY_CLIENT_DEFAULT_OPTIONS: DefaultOptions = {
     // If a query fails with an unexpected error, throw it during the render
     // phase so it will propagate up to the nearest error boundary. Consumers
     // are responsible for defining a global error boundary.
-    useErrorBoundary: true,
+    throwOnError: true,
 
     // react-query's default method here, `replaceEqualDeep`, does not consider
     // two objects equal unless they both have the same plain object prototype.
@@ -56,6 +56,6 @@ export const QUERY_CLIENT_DEFAULT_OPTIONS: DefaultOptions = {
   mutations: {
     networkMode: 'always',
     retry: shouldRetry,
-    useErrorBoundary: true,
+    throwOnError: true,
   },
 };

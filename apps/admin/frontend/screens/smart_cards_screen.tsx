@@ -475,7 +475,7 @@ function CardDetailsAndActions({
   const createElectionCardsDisabled = !electionDefinition;
 
   const actionInProgress =
-    unprogramCardMutation.isLoading || programCardMutation.isLoading;
+    unprogramCardMutation.isPending || programCardMutation.isPending;
 
   return (
     <SmartCardsScreenContainer>

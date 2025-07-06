@@ -50,7 +50,7 @@ function TestComponent({
   echo: string;
   disabled?: boolean;
 } & { disabled?: boolean }): JSX.Element {
-  const mockMutation = useMutation(jestMockMutate);
+  const mockMutation = useMutation({ mutationFn: jestMockMutate });
 
   return (
     <ExportFileButton

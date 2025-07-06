@@ -162,7 +162,7 @@ export function ElectionManagerScreen({
   const ballotMode = (
     <SegmentedButton
       disabled={
-        setTestModeMutation.isLoading ||
+        setTestModeMutation.isPending ||
         isCvrSyncRequired ||
         disableConfiguration
       }
