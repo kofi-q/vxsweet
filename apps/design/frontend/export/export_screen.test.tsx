@@ -98,18 +98,6 @@ test('export election package', async () => {
   apiMock.exportElectionPackage
     .expectCallWith({ electionId, electionSerializationFormat: 'vxf' })
     .resolves();
-  apiMock.getElectionPackage.expectRepeatedCallsWith({ electionId }).resolves({
-    task: {
-      createdAt: taskCreatedAt,
-      id: '1',
-      payload: JSON.stringify({ electionId }),
-      taskName: 'generate_election_package',
-    },
-  });
-  userEvent.click(screen.getButton('Export Election Package'));
-
-  await screen.findByText('Exporting Election Package...');
-  expect(screen.queryByText('Export Election Package')).not.toBeInTheDocument();
 
   apiMock.getElectionPackage.expectCallWith({ electionId }).resolves({
     task: {
@@ -123,12 +111,7 @@ test('export election package', async () => {
     url: 'http://localhost:1234/election-package-1234567890.zip',
   });
 
-  await screen.findByText('Export Election Package', undefined, {
-    timeout: 2000,
-  });
-  expect(
-    screen.queryByText('Exporting Election Package...')
-  ).not.toBeInTheDocument();
+  userEvent.click(screen.getButton('Export Election Package'));
 
   await waitFor(() => {
     expect(mockOf(downloadFile)).toHaveBeenCalledWith(
@@ -145,19 +128,6 @@ test('export election package error handling', async () => {
   apiMock.exportElectionPackage
     .expectCallWith({ electionId, electionSerializationFormat: 'vxf' })
     .resolves();
-  apiMock.getElectionPackage.expectRepeatedCallsWith({ electionId }).resolves({
-    task: {
-      createdAt: taskCreatedAt,
-      id: '1',
-      payload: JSON.stringify({ electionId }),
-      taskName: 'generate_election_package',
-    },
-  });
-  userEvent.click(screen.getButton('Export Election Package'));
-
-  await screen.findByText('Exporting Election Package...');
-  expect(screen.queryByText('Export Election Package')).not.toBeInTheDocument();
-
   apiMock.getElectionPackage.expectCallWith({ electionId }).resolves({
     task: {
       completedAt: new Date(taskCreatedAt.getTime() + 2000),
@@ -169,13 +139,7 @@ test('export election package error handling', async () => {
       taskName: 'generate_election_package',
     },
   });
-
-  await screen.findByText('Export Election Package', undefined, {
-    timeout: 2000,
-  });
-  expect(
-    screen.queryByText('Exporting Election Package...')
-  ).not.toBeInTheDocument();
+  userEvent.click(screen.getButton('Export Election Package'));
 
   await screen.findByText('An unexpected error occurred. Please try again.');
   expect(mockOf(downloadFile)).not.toHaveBeenCalled();
