@@ -118,14 +118,6 @@ export default import('vite').then(({ defineConfig, loadEnv }) =>
             find: 'node:zlib',
             replacement: require.resolve('browserify-zlib'),
           },
-
-          // Work around an internet curmudgeon.
-          // Problem: https://github.com/isaacs/node-glob/pull/374
-          // Fix: https://github.com/isaacs/node-glob/pull/479
-          {
-            find: 'glob',
-            replacement: `${REPO_ROOT}/libs/browser-stubs/glob`,
-          },
         ],
       },
 
