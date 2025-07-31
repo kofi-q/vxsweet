@@ -1,0 +1,27 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "example_lib",
+    srcs = ["main.go"],
+    embedsrcs = ["seal.png"],
+    importpath = "github.com/kofi-q/vxsweet/libs/hmpb/go/example",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//libs/elections",
+        "//libs/hmpb/go",
+    ],
+)
+
+go_binary(
+    name = "example",
+    data = [
+        "//libs/fixtures/data/electionGeneral:election.json",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:election.json",
+    ],
+    embed = [":example_lib"],
+    env = {
+        "ELECTION_GENERAL": "$(rootpath //libs/fixtures/data/electionGeneral:election.json)",
+        "ELECTION_NH": "$(rootpath //libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:election.json)",
+    },
+    visibility = ["//visibility:public"],
+)

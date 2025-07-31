@@ -1,0 +1,57 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go",
+    srcs = [
+        "all_bubble.go",
+        "cfg.go",
+        "cfg_all_bubble.go",
+        "cfg_base.go",
+        "cfg_nh.go",
+        "doc.go",
+        "grid_only.go",
+        "m.go",
+        "packager.go",
+        "printer.go",
+        "rich_text.go",
+        "string_catalog.go",
+    ],
+    embedsrcs = [
+        "mark-bubble.png",
+        "write-in.png",
+    ],
+    importpath = "github.com/kofi-q/vxsweet/libs/hmpb/go",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/elections",
+        "//libs/hmpb/go/fonts",
+        "@com_github_kofi_q_scribe_go//:scribe-go",
+        "@com_github_piglig_go_qr//:go-qr",
+        "@org_golang_x_net//html",
+        "@org_golang_x_net//html/atom",
+        "@org_golang_x_text//language",
+        "@org_golang_x_text//language/display",
+    ],
+)
+
+go_test(
+    name = "go_test",
+    size = "small",
+    srcs = [
+        "package_test.go",
+        "printer_test.go",
+    ],
+    data = [
+        "//libs/fixtures/data/electionGeneral:election.json",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireHudson:election.json",
+    ],
+    embed = [":go"],
+    embedsrcs = ["seal.png"],
+    env = {
+        "ELECTION_JSON": "$(rootpath //libs/fixtures/data/electionGeneral:election.json)",
+    },
+    deps = [
+        "//libs/elections",
+        "@com_github_stretchr_testify//require",
+    ],
+)
