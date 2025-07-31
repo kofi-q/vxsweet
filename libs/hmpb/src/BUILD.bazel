@@ -50,8 +50,8 @@ ts_library(
 
 ts_tests(
     name = "tests",
-    size = "enormous",
-    timeout = "moderate",
+    size = "medium",
+    timeout = "short",
     deps = [
         "//:node_modules/@types/jest",
         "//libs/hmpb/src",
