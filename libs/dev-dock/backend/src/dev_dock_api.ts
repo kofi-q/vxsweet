@@ -93,10 +93,10 @@ function buildApi(devDockFilePath: string, machineType: MachineType) {
         'utf-8'
       );
       const parseResult = safeParseElectionDefinition(electionData);
-      assert(parseResult.isOk());
+      const election = parseResult.unsafeUnwrap().election;
       const electionInfo: DevDockElectionInfo = {
         path: input.path,
-        title: parseResult.ok().election.title,
+        title: election.title,
       };
 
       writeDevDockFileContents(devDockFilePath, {

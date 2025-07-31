@@ -6,86 +6,662 @@
   "ballotStrings": {
     "en": {
       "ballotLanguage": "English",
-      "ballotStyleId.1M": "1M",
-      "ballotStyleId.2F": "2F",
-      "candidateName.elephant": "Elephant",
+      "ballotStyleId.1-F_en": "1-F",
+      "ballotStyleId.1-F_es-US": "1-F",
+      "ballotStyleId.1-F_zh-Hans": "1-F",
+      "ballotStyleId.1-F_zh-Hant": "1-F",
+      "ballotStyleId.1-Ma_en": "1-Ma",
+      "ballotStyleId.1-Ma_es-US": "1-Ma",
+      "ballotStyleId.1-Ma_zh-Hans": "1-Ma",
+      "ballotStyleId.1-Ma_zh-Hant": "1-Ma",
+      "ballotStyleId.2-F_en": "2-F",
+      "ballotStyleId.2-F_es-US": "2-F",
+      "ballotStyleId.2-F_zh-Hans": "2-F",
+      "ballotStyleId.2-F_zh-Hant": "2-F",
+      "ballotStyleId.2-Ma_en": "2-Ma",
+      "ballotStyleId.2-Ma_es-US": "2-Ma",
+      "ballotStyleId.2-Ma_zh-Hans": "2-Ma",
+      "ballotStyleId.2-Ma_zh-Hant": "2-Ma",
+      "ballotStyleId.3-F_en": "3-F",
+      "ballotStyleId.3-F_es-US": "3-F",
+      "ballotStyleId.3-F_zh-Hans": "3-F",
+      "ballotStyleId.3-F_zh-Hant": "3-F",
+      "ballotStyleId.3-Ma_en": "3-Ma",
+      "ballotStyleId.3-Ma_es-US": "3-Ma",
+      "ballotStyleId.3-Ma_zh-Hans": "3-Ma",
+      "ballotStyleId.3-Ma_zh-Hant": "3-Ma",
+      "ballotStyleId.4-F_en": "4-F",
+      "ballotStyleId.4-F_es-US": "4-F",
+      "ballotStyleId.4-F_zh-Hans": "4-F",
+      "ballotStyleId.4-F_zh-Hant": "4-F",
+      "ballotStyleId.4-Ma_en": "4-Ma",
+      "ballotStyleId.4-Ma_es-US": "4-Ma",
+      "ballotStyleId.4-Ma_zh-Hans": "4-Ma",
+      "ballotStyleId.4-Ma_zh-Hant": "4-Ma",
+      "candidateName.elephant-1": "Elephant",
+      "candidateName.elephant-2": "Elephant",
       "candidateName.fox": "Fox",
       "candidateName.horse": "Horse",
-      "candidateName.kangaroo": "Kangaroo",
-      "candidateName.lion": "Lion",
-      "candidateName.manta-ray": "Manta Ray",
+      "candidateName.kangaroo-1": "Kangaroo",
+      "candidateName.kangaroo-2": "Kangaroo",
+      "candidateName.lion-1": "Lion",
+      "candidateName.lion-2": "Lion",
+      "candidateName.manta-ray-1": "Manta Ray",
+      "candidateName.manta-ray-2": "Manta Ray",
       "candidateName.otter": "Otter",
-      "candidateName.pufferfish": "Pufferfish",
-      "candidateName.rockfish": "Rockfish",
+      "candidateName.pufferfish-1": "Pufferfish",
+      "candidateName.pufferfish-2": "Pufferfish",
+      "candidateName.rockfish-1": "Rockfish",
+      "candidateName.rockfish-2": "Rockfish",
       "candidateName.salmon": "Salmon",
       "candidateName.seahorse": "Seahorse",
-      "candidateName.triggerfish": "Triggerfish",
-      "candidateName.zebra": "Zebra",
-      "contestDescription.fishing": "Should fishing be banned in all city owned lakes and rivers?",
-      "contestDescription.new-zoo-either": "Initiative Measure No. 12, Should Sample City establish a new safari-style zoo costing 2,000,000?\n\n Alternative Measure 12 A, Should Sample City establish a new traditional zoo costing 1,000,000?",
-      "contestDescription.new-zoo-pick": "Initiative Measure No. 12, Should Sample City establish a new safari-style zoo costing 2,000,000?\n\n Alternative Measure 12 A, Should Sample City establish a new traditional zoo costing 1,000,000?",
-      "contestOptionLabel.allow-fishing": "NO",
-      "contestOptionLabel.ban-fishing": "YES",
-      "contestOptionLabel.new-zoo-either-approved": "FOR APPROVAL OF EITHER Initiative No. 12 OR Alternative Initiative No. 12 A",
-      "contestOptionLabel.new-zoo-neither-approved": "AGAINST BOTH Initiative No. 12 AND Alternative Measure 12 A",
-      "contestOptionLabel.new-zoo-safari": "FOR Initiative No. 12",
-      "contestOptionLabel.new-zoo-traditional": "FOR Alternative Measure No. 12 A",
-      "contestTerm.aquarium-council-fish": "For three years",
-      "contestTerm.best-animal-fish": "For three years",
-      "contestTerm.best-animal-mammal": "For three years",
-      "contestTerm.zoo-council-mammal": "For three years",
-      "contestTitle.aquarium-council-fish": "Zoo Council",
-      "contestTitle.best-animal-fish": "Best Animal",
-      "contestTitle.best-animal-mammal": "Best Animal",
-      "contestTitle.fishing": "Ballot Measure 3",
-      "contestTitle.new-zoo-either": "Ballot Measure 1",
-      "contestTitle.new-zoo-pick": "Ballot Measure 1",
-      "contestTitle.zoo-council-mammal": "Zoo Council",
+      "candidateName.triggerfish-1": "Triggerfish",
+      "candidateName.triggerfish-2": "Triggerfish",
+      "candidateName.zebra-1": "Zebra",
+      "candidateName.zebra-2": "Zebra",
+      "contestDescription.water-1-fishing": "Should fishing be banned in all city owned lakes and rivers?",
+      "contestDescription.water-2-fishing": "Should fishing be banned in all city owned lakes and rivers?",
+      "contestOptionlabel.water-1-fishing-allow-fishing": "NO",
+      "contestOptionlabel.water-1-fishing-ban-fishing": "YES",
+      "contestOptionlabel.water-2-fishing-allow-fishing": "NO",
+      "contestOptionlabel.water-2-fishing-ban-fishing": "YES",
+      "contestTitle.congressional-1-fish": "Congressional 1 Representative - Fish",
+      "contestTitle.congressional-1-mammal": "Congressional 1 Representative - Mammal",
+      "contestTitle.congressional-2-fish": "Congressional 2 Representative - Fish",
+      "contestTitle.congressional-2-mammal": "Congressional 2 Representative - Mammal",
+      "contestTitle.county-leader-fish": "County Leader Fish",
+      "contestTitle.county-leader-mammal": "County Leader Mammal",
+      "contestTitle.water-1-fishing": "Water District 1 Fishing",
+      "contestTitle.water-2-fishing": "Water District 2 Fishing",
       "countyName": "Sample County",
-      "districtName.district-1": "District 1",
+      "districtName.congressional-1": "Congressional District 1",
+      "districtName.congressional-2": "Congressional District 2",
+      "districtName.county": "County",
+      "districtName.water-1": "Water District 1",
+      "districtName.water-2": "Water District 2",
       "electionDate": "September 8, 2021",
       "electionTitle": "Example Primary Election",
+      "hmpb10WillBeElected": "10 will be elected",
+      "hmpb2WillBeElected": "2 will be elected",
+      "hmpb3WillBeElected": "3 will be elected",
+      "hmpb4WillBeElected": "4 will be elected",
+      "hmpb5WillBeElected": "5 will be elected",
+      "hmpb6WillBeElected": "6 will be elected",
+      "hmpb7WillBeElected": "7 will be elected",
+      "hmpb8WillBeElected": "8 will be elected",
+      "hmpb9WillBeElected": "9 will be elected",
+      "hmpbContinueVotingOnBack": "Turn ballot over and continue voting",
+      "hmpbContinueVotingOnNextSheet": "Continue voting on next ballot sheet",
+      "hmpbInstructions": "Instructions",
+      "hmpbInstructionsToVoteText": "To vote, completely fill in the oval next to your choice.",
+      "hmpbInstructionsToVoteTitle": "To Vote:",
+      "hmpbInstructionsWriteInText": "To vote for a person whose name is not on the ballot, write the person’s name on the \"Write-in\" line and completely fill in the oval next to the line.",
+      "hmpbInstructionsWriteInTitle": "To Vote for a Write-in:",
+      "hmpbOfficialAbsenteeBallot": "Official Absentee Ballot",
+      "hmpbOfficialBallot": "Official Ballot",
+      "hmpbOfficialProvisionalBallot": "Official Provisional Ballot",
+      "hmpbPage": "Page",
+      "hmpbPageIntentionallyBlank": "This page intentionally left blank",
+      "hmpbSampleAbsenteeBallot": "Sample Absentee Ballot",
+      "hmpbSampleBallot": "Sample Ballot",
+      "hmpbSampleProvisionalBallot": "Sample Provisional Ballot",
+      "hmpbTestAbsenteeBallot": "Test Absentee Ballot",
+      "hmpbTestBallot": "Test Ballot",
+      "hmpbTestProvisionalBallot": "Test Provisional Ballot",
+      "hmpbVoteFor1": "Vote for 1",
+      "hmpbVoteFor10": "Vote for up to 10",
+      "hmpbVoteFor11": "Vote for up to 11",
+      "hmpbVoteFor12": "Vote for up to 12",
+      "hmpbVoteFor2": "Vote for up to 2",
+      "hmpbVoteFor3": "Vote for up to 3",
+      "hmpbVoteFor4": "Vote for up to 4",
+      "hmpbVoteFor5": "Vote for up to 5",
+      "hmpbVoteFor6": "Vote for up to 6",
+      "hmpbVoteFor7": "Vote for up to 7",
+      "hmpbVoteFor8": "Vote for up to 8",
+      "hmpbVoteFor9": "Vote for up to 9",
+      "hmpbVoteForNotMoreThan1": "Vote for not more than 1",
+      "hmpbVotingComplete": "You have completed voting.",
+      "hmpbWriteIn": "Write-in",
       "partyFullName.0": "Mammal Party",
       "partyFullName.1": "Fish Party",
       "partyName.0": "Mammal",
       "partyName.1": "Fish",
-      "precinctName.precinct-1": "Precinct 1",
-      "precinctName.precinct-2": "Precinct 2",
+      "precinctName.precinct-c1-w1-1": "Precinct 1",
+      "precinctName.precinct-c1-w1-2": "Precinct 2",
+      "precinctName.precinct-c1-w2": "Precinct 3",
+      "precinctName.precinct-c2": "Precinct 4",
       "stateName": "State of Sample"
     }
   },
   "ballotStyles": [
     {
-      "id": "1M",
-      "groupId": "1M",
+      "id": "1-Ma_zh-Hans",
+      "groupId": "1-Ma",
       "precincts": [
-        "precinct-1",
-        "precinct-2"
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
       ],
       "districts": [
-        "district-1"
+        "county",
+        "congressional-1",
+        "water-1"
       ],
-      "partyId": "0"
+      "partyId": "0",
+      "languages": [
+        "zh-Hans"
+      ]
     },
     {
-      "id": "2F",
-      "groupId": "2F",
+      "id": "1-Ma_zh-Hant",
+      "groupId": "1-Ma",
       "precincts": [
-        "precinct-1",
-        "precinct-2"
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
       ],
       "districts": [
-        "district-1"
+        "county",
+        "congressional-1",
+        "water-1"
       ],
-      "partyId": "1"
+      "partyId": "0",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "1-Ma_en",
+      "groupId": "1-Ma",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "1-Ma_es-US",
+      "groupId": "1-Ma",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "1-F_zh-Hans",
+      "groupId": "1-F",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "1-F_zh-Hant",
+      "groupId": "1-F",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "1-F_en",
+      "groupId": "1-F",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "1-F_es-US",
+      "groupId": "1-F",
+      "precincts": [
+        "precinct-c1-w1-1",
+        "precinct-c1-w1-2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "2-Ma_zh-Hans",
+      "groupId": "2-Ma",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "2-Ma_zh-Hant",
+      "groupId": "2-Ma",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "2-Ma_en",
+      "groupId": "2-Ma",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "2-Ma_es-US",
+      "groupId": "2-Ma",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "2-F_zh-Hans",
+      "groupId": "2-F",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "2-F_zh-Hant",
+      "groupId": "2-F",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "2-F_en",
+      "groupId": "2-F",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "2-F_es-US",
+      "groupId": "2-F",
+      "precincts": [
+        "precinct-c1-w2"
+      ],
+      "districts": [
+        "county",
+        "congressional-1",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "3-Ma_zh-Hans",
+      "groupId": "3-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "3-Ma_zh-Hant",
+      "groupId": "3-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "3-Ma_en",
+      "groupId": "3-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "3-Ma_es-US",
+      "groupId": "3-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "0",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "3-F_zh-Hans",
+      "groupId": "3-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "3-F_zh-Hant",
+      "groupId": "3-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "3-F_en",
+      "groupId": "3-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "3-F_es-US",
+      "groupId": "3-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-1"
+      ],
+      "partyId": "1",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "4-Ma_zh-Hans",
+      "groupId": "4-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "4-Ma_zh-Hant",
+      "groupId": "4-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "4-Ma_en",
+      "groupId": "4-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "4-Ma_es-US",
+      "groupId": "4-Ma",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "0",
+      "languages": [
+        "es-US"
+      ]
+    },
+    {
+      "id": "4-F_zh-Hans",
+      "groupId": "4-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hans"
+      ]
+    },
+    {
+      "id": "4-F_zh-Hant",
+      "groupId": "4-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "zh-Hant"
+      ]
+    },
+    {
+      "id": "4-F_en",
+      "groupId": "4-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "en"
+      ]
+    },
+    {
+      "id": "4-F_es-US",
+      "groupId": "4-F",
+      "precincts": [
+        "precinct-c2"
+      ],
+      "districts": [
+        "county",
+        "congressional-2",
+        "water-2"
+      ],
+      "partyId": "1",
+      "languages": [
+        "es-US"
+      ]
     }
   ],
   "contests": [
     {
-      "id": "best-animal-mammal",
-      "districtId": "district-1",
+      "id": "county-leader-mammal",
+      "districtId": "county",
       "type": "candidate",
-      "title": "Best Animal",
+      "title": "County Leader Mammal",
       "candidates": [
         {
           "id": "horse",
@@ -110,14 +686,13 @@
         }
       ],
       "partyId": "0",
-      "seats": 1,
-      "termDescription": "For three years"
+      "seats": 1
     },
     {
-      "id": "best-animal-fish",
-      "districtId": "district-1",
+      "id": "county-leader-fish",
+      "districtId": "county",
       "type": "candidate",
-      "title": "Best Animal",
+      "title": "County Leader Fish",
       "candidates": [
         {
           "id": "seahorse",
@@ -135,39 +710,38 @@
         }
       ],
       "partyId": "1",
-      "seats": 1,
-      "termDescription": "For three years"
+      "seats": 1
     },
     {
-      "id": "zoo-council-mammal",
-      "districtId": "district-1",
+      "id": "congressional-1-mammal",
+      "districtId": "congressional-1",
       "type": "candidate",
-      "title": "Zoo Council",
+      "title": "Congressional 1 Representative - Mammal",
       "allowWriteIns": true,
       "candidates": [
         {
-          "id": "zebra",
+          "id": "zebra-1",
           "name": "Zebra",
           "partyIds": [
             "0"
           ]
         },
         {
-          "id": "lion",
+          "id": "lion-1",
           "name": "Lion",
           "partyIds": [
             "0"
           ]
         },
         {
-          "id": "kangaroo",
+          "id": "kangaroo-1",
           "name": "Kangaroo",
           "partyIds": [
             "0"
           ]
         },
         {
-          "id": "elephant",
+          "id": "elephant-1",
           "name": "Elephant",
           "partyIds": [
             "0"
@@ -175,39 +749,38 @@
         }
       ],
       "partyId": "0",
-      "seats": 3,
-      "termDescription": "For three years"
+      "seats": 1
     },
     {
-      "id": "aquarium-council-fish",
-      "districtId": "district-1",
+      "id": "congressional-1-fish",
+      "districtId": "congressional-1",
       "type": "candidate",
-      "title": "Zoo Council",
+      "title": "Congressional 1 Representative - Fish",
       "allowWriteIns": true,
       "candidates": [
         {
-          "id": "manta-ray",
+          "id": "manta-ray-1",
           "name": "Manta Ray",
           "partyIds": [
             "1"
           ]
         },
         {
-          "id": "pufferfish",
+          "id": "pufferfish-1",
           "name": "Pufferfish",
           "partyIds": [
             "1"
           ]
         },
         {
-          "id": "rockfish",
+          "id": "rockfish-1",
           "name": "Rockfish",
           "partyIds": [
             "1"
           ]
         },
         {
-          "id": "triggerfish",
+          "id": "triggerfish-1",
           "name": "Triggerfish",
           "partyIds": [
             "1"
@@ -215,51 +788,113 @@
         }
       ],
       "partyId": "1",
-      "seats": 2,
-      "termDescription": "For three years"
+      "seats": 1
     },
     {
-      "id": "new-zoo-either",
-      "districtId": "district-1",
-      "type": "yesno",
-      "title": "Ballot Measure 1",
-      "description": "Initiative Measure No. 12, Should Sample City establish a new safari-style zoo costing 2,000,000?\n\n Alternative Measure 12 A, Should Sample City establish a new traditional zoo costing 1,000,000?",
-      "yesOption": {
-        "id": "new-zoo-either-approved",
-        "label": "FOR APPROVAL OF EITHER Initiative No. 12 OR Alternative Initiative No. 12 A"
-      },
-      "noOption": {
-        "id": "new-zoo-neither-approved",
-        "label": "AGAINST BOTH Initiative No. 12 AND Alternative Measure 12 A"
-      }
+      "id": "congressional-2-mammal",
+      "districtId": "congressional-2",
+      "type": "candidate",
+      "title": "Congressional 2 Representative - Mammal",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "zebra-2",
+          "name": "Zebra",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "lion-2",
+          "name": "Lion",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "kangaroo-2",
+          "name": "Kangaroo",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "elephant-2",
+          "name": "Elephant",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 1
     },
     {
-      "id": "new-zoo-pick",
-      "districtId": "district-1",
-      "type": "yesno",
-      "title": "Ballot Measure 1",
-      "description": "Initiative Measure No. 12, Should Sample City establish a new safari-style zoo costing 2,000,000?\n\n Alternative Measure 12 A, Should Sample City establish a new traditional zoo costing 1,000,000?",
-      "yesOption": {
-        "id": "new-zoo-safari",
-        "label": "FOR Initiative No. 12"
-      },
-      "noOption": {
-        "id": "new-zoo-traditional",
-        "label": "FOR Alternative Measure No. 12 A"
-      }
+      "id": "congressional-2-fish",
+      "districtId": "congressional-2",
+      "type": "candidate",
+      "title": "Congressional 2 Representative - Fish",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "manta-ray-2",
+          "name": "Manta Ray",
+          "partyIds": [
+            "1"
+          ]
+        },
+        {
+          "id": "pufferfish-2",
+          "name": "Pufferfish",
+          "partyIds": [
+            "1"
+          ]
+        },
+        {
+          "id": "rockfish-2",
+          "name": "Rockfish",
+          "partyIds": [
+            "1"
+          ]
+        },
+        {
+          "id": "triggerfish-2",
+          "name": "Triggerfish",
+          "partyIds": [
+            "1"
+          ]
+        }
+      ],
+      "partyId": "1",
+      "seats": 1
     },
     {
-      "id": "fishing",
-      "districtId": "district-1",
+      "id": "water-1-fishing",
+      "districtId": "water-1",
       "type": "yesno",
-      "title": "Ballot Measure 3",
+      "title": "Water District 1 Fishing",
       "description": "Should fishing be banned in all city owned lakes and rivers?",
       "yesOption": {
-        "id": "ban-fishing",
+        "id": "water-1-fishing-ban-fishing",
         "label": "YES"
       },
       "noOption": {
-        "id": "allow-fishing",
+        "id": "water-1-fishing-allow-fishing",
+        "label": "NO"
+      }
+    },
+    {
+      "id": "water-2-fishing",
+      "districtId": "water-2",
+      "type": "yesno",
+      "title": "Water District 2 Fishing",
+      "description": "Should fishing be banned in all city owned lakes and rivers?",
+      "yesOption": {
+        "id": "water-2-fishing-ban-fishing",
+        "label": "YES"
+      },
+      "noOption": {
+        "id": "water-2-fishing-allow-fishing",
         "label": "NO"
       }
     }
@@ -271,11 +906,27 @@
   },
   "districts": [
     {
-      "id": "district-1",
-      "name": "District 1"
+      "id": "county",
+      "name": "County"
+    },
+    {
+      "id": "congressional-1",
+      "name": "Congressional District 1"
+    },
+    {
+      "id": "congressional-2",
+      "name": "Congressional District 2"
+    },
+    {
+      "id": "water-1",
+      "name": "Water District 1"
+    },
+    {
+      "id": "water-2",
+      "name": "Water District 2"
     }
   ],
-  "id": "election-two-party-primary",
+  "id": "election-primary-precinct-splits",
   "date": {
     "year": 2021,
     "month": 9,
@@ -297,13 +948,23 @@
   ],
   "precincts": [
     {
-      "id": "precinct-1",
+      "id": "precinct-c1-w1-1",
       "name": "Precinct 1",
       "districts": null
     },
     {
-      "id": "precinct-2",
+      "id": "precinct-c1-w1-2",
       "name": "Precinct 2",
+      "districts": null
+    },
+    {
+      "id": "precinct-c1-w2",
+      "name": "Precinct 3",
+      "districts": null
+    },
+    {
+      "id": "precinct-c2",
+      "name": "Precinct 4",
       "districts": null
     }
   ],
