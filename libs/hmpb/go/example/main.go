@@ -18,11 +18,6 @@ import (
 )
 
 var (
-	//go:embed seal.png
-	seal []byte
-)
-
-var (
 	electionPathGeneral = os.Getenv("ELECTION_GENERAL")
 	electionPathNh      = os.Getenv("ELECTION_NH")
 	reporoot            = os.Getenv("BUILD_WORKSPACE_DIRECTORY")
