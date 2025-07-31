@@ -54,14 +54,7 @@ ts_tests(
     timeout = "moderate",
     deps = [
         "//:node_modules/@types/jest",
-        "//:node_modules/@types/node",
-        "//:types_env",
-        "//libs/basics/iterators",
-        "//libs/fs/src",
         "//libs/hmpb/src",
-        "//libs/image-test-utils",
-        "//libs/image-utils/src",
-        "//libs/types/elections",
     ],
 )
 
