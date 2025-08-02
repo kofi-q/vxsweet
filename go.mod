@@ -6,7 +6,7 @@ require (
 	github.com/bazelbuild/bazel-gazelle v0.44.0
 	github.com/evanw/esbuild v0.25.5
 	github.com/joho/godotenv v1.5.1
-	github.com/kofi-q/scribe-go v0.0.0-20250731012623-08642b8a9f65
+	github.com/kofi-q/scribe-go v0.0.0-20250802180506-65da851cc4ff
 	github.com/piglig/go-qr v0.2.6
 	github.com/smacker/go-tree-sitter v0.0.0-20240827094217-dd81d9e9be82
 	github.com/stretchr/testify v1.10.0
