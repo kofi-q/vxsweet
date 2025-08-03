@@ -129,11 +129,6 @@ type Key struct {
 	Date Date   `json:"date"`
 }
 
-type BallotMetadata struct {
-	Hash         string
-	QrDataBase64 string
-}
-
 type BallotLayout struct {
 	PaperSize        PaperSize        `json:"paperSize"`
 	MetadataEncoding MetadataEncoding `json:"metadataEncoding"`

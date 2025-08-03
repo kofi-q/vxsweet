@@ -2,9 +2,7 @@ package main
 
 import (
 	"bytes"
-	"crypto/sha256"
 	_ "embed"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -74,14 +72,10 @@ func genSingleBallot(printer hmpb.Printer, election *elections.Election) {
 	finalElection.GridLayouts = []elections.GridLayout{}
 	finalElection.GridLayouts = append(finalElection.GridLayouts, layout)
 
-	electionJson, err := json.Marshal(finalElection)
+	_, hash, err := finalElection.MarshalAndHash()
 	assertNoErr(err)
 
-	hash := sha256.Sum256(electionJson)
-	assertNoErr(renderer.Finalize(file, elections.BallotMetadata{
-		Hash:         hex.EncodeToString(hash[0:]),
-		QrDataBase64: "VlACmAWcqPQItzl/kgAAAAIQ",
-	}))
+	assertNoErr(renderer.Finalize(file, hash))
 
 	fmt.Println("Ballot printed to:", tmpBallotPath)
 }
@@ -138,14 +132,10 @@ func genParallelBallots(printer hmpb.Printer, count uint64) {
 				layout,
 			)
 
-			electionJson, err := json.Marshal(finalElection)
+			_, hash, err := finalElection.MarshalAndHash()
 			assertNoErr(err)
-			hash := sha256.Sum256(electionJson)
 
-			assertNoErr(r.Finalize(&buf, elections.BallotMetadata{
-				Hash:         hex.EncodeToString(hash[0:]),
-				QrDataBase64: "VlACmAWcqPQItzl/kgAAAAIQ",
-			}))
+			assertNoErr(r.Finalize(&buf, hash))
 		}()
 	}
 

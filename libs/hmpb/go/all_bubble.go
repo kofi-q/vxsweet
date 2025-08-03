@@ -91,7 +91,9 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 	r.pageAdd()
 	r.lastPageNo = 2
 
-	r.perf.header = time.Now()
+	if logPerf {
+		r.perf.header = time.Now()
+	}
 
 	for i := range 2 {
 		r.doc.SetPage(i + 1)
@@ -142,16 +144,15 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 		r.election.Contests = append(r.election.Contests, contest)
 	}
 
-	r.perf.candidates = time.Now()
-	r.perf.measures = time.Now()
+	if logPerf {
+		r.perf.candidates = time.Now()
+		r.perf.measures = time.Now()
+	}
 
 	_, hash, err := r.election.MarshalAndHash()
 	if err != nil {
 		return err
 	}
 
-	return r.Finalize(writer, elections.BallotMetadata{
-		Hash:         hash,
-		QrDataBase64: "VlACmAWcqPQItzl/kgAAAAIQ",
-	})
+	return r.Finalize(writer, hash)
 }

@@ -2,9 +2,7 @@ package hmpb
 
 import (
 	_ "embed"
-	"fmt"
 	"testing"
-	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 	"github.com/stretchr/testify/require"
@@ -12,10 +10,8 @@ import (
 
 func TestPackageAll(t *testing.T) {
 	printer := NewPrinterHmpb()
-	startTotal := time.Now()
 
 	style := election.BallotStyles[0]
-
 	packager := Packager{
 		Cfg:      &CfgBase,
 		Election: &election,
@@ -34,7 +30,5 @@ func TestPackageAll(t *testing.T) {
 	}
 	pkg, err := packager.All()
 	require.NoError(t, err)
-
-	fmt.Println("TOTAL TIME:", time.Since(startTotal))
-	fmt.Println("Ballot count:", len(pkg.Ballots))
+	require.Equal(t, 44, len(pkg.Ballots))
 }

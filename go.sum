@@ -4,6 +4,8 @@ github.com/bazelbuild/buildtools v0.0.0-20240918101019-be1c24cc9a44 h1:FGzENZi+S
 github.com/bazelbuild/buildtools v0.0.0-20240918101019-be1c24cc9a44/go.mod h1:PLNUetjLa77TCCziPsz0EI8a6CUxgC+1jgmWv0H25tg=
 github.com/bazelbuild/rules_go v0.50.1 h1:/BUvuaB8MEiUA2oLPPCGtuw5V+doAYyiGTFyoSWlkrw=
 github.com/bazelbuild/rules_go v0.50.1/go.mod h1:Dhcz716Kqg1RHNWos+N6MlXNkjNP2EwZQ0LukRKJfMs=
+github.com/bearmini/bitstream-go v0.0.0-20190121230027-bec1c9ea0d3c h1:4RL7ENhXVDHqTk7vSgM7zUNHdYW7LfWUIBH2WZ/FZLc=
+github.com/bearmini/bitstream-go v0.0.0-20190121230027-bec1c9ea0d3c/go.mod h1:keOh1QpnRe0nCHGjev5R37jMl0zlLP+3ktETWfa4eik=
 github.com/bits-and-blooms/bitset v1.22.0 h1:Tquv9S8+SGaS3EhyA+up3FXzmkhxPGjQQCkcs2uw7w4=
 github.com/bits-and-blooms/bitset v1.22.0/go.mod h1:7hO7Gc7Pp1vODcmWvKMRA9BNmbv6a/7QIWpPxHddWR8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -18,6 +20,8 @@ github.com/kofi-q/scribe-go v0.0.0-20250802180506-65da851cc4ff h1:CsdO6nwaKXmRcD
 github.com/kofi-q/scribe-go v0.0.0-20250802180506-65da851cc4ff/go.mod h1:mQ1c7mlDKvhaZJjaOGXFBuvduA9lpRwv6eXUdWI1n40=
 github.com/piglig/go-qr v0.2.6 h1:oE8v9NGXHWahoFrnS44xsq0Lq0oIRIV7gMBM8cfRGwE=
 github.com/piglig/go-qr v0.2.6/go.mod h1:funyXL4IdgMPcbICoVm1XweMtZy7Px3kyITTENkmA5w=
+github.com/pkg/errors v0.8.0 h1:WdK/asTD0HN+q6hsWO3/vpuAkAr+tw6aNJNDFFf0+qw=
+github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/smacker/go-tree-sitter v0.0.0-20240827094217-dd81d9e9be82 h1:6C8qej6f1bStuePVkLSFxoU22XBS165D3klxlzRg8F4=

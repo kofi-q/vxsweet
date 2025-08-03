@@ -1,16 +1,12 @@
 package hmpb
 
 import (
-	"crypto/sha256"
+	"bytes"
 	_ "embed"
-	"encoding/hex"
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
-	"path"
 	"testing"
-	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 	"github.com/stretchr/testify/require"
@@ -31,15 +27,10 @@ var (
 
 func TestNhGeneral(t *testing.T) {
 	printer := NewPrinterHmpb()
-	startTotal := time.Now()
+
+	var mockFile bytes.Buffer
 
 	style := election.BallotStyles[0]
-
-	tmpBallotPath := path.Join(tmpdir, "blank-ballot-test-print.pdf")
-	file, err := os.Create(tmpBallotPath)
-	require.NoError(t, err)
-	defer file.Close()
-
 	renderer, err := printer.Ballot(
 		&election,
 		PrintParams{
@@ -58,18 +49,10 @@ func TestNhGeneral(t *testing.T) {
 	finalElection.GridLayouts = []elections.GridLayout{}
 	finalElection.GridLayouts = append(finalElection.GridLayouts, layout)
 
-	electionJson, err := json.Marshal(finalElection)
+	_, hash, err := finalElection.MarshalAndHash()
 	require.NoError(t, err)
-	hash := sha256.Sum256(electionJson)
 
-	require.NoError(t, renderer.Finalize(file, elections.BallotMetadata{
-		Hash:         hex.EncodeToString(hash[0:]),
-		QrDataBase64: "VlACmAWcqPQItzl/kgAAAAIQ",
-	}))
-
-	fmt.Println("ballot printed", tmpBallotPath)
-
-	fmt.Println("TOTAL TIME:", time.Since(startTotal))
+	require.NoError(t, renderer.Finalize(&mockFile, hash))
 }
 
 func mockElection() (election elections.Election) {

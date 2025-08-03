@@ -54,14 +54,19 @@ func (r *renderer) renderGridOnly(writer io.Writer) error {
 	r.pageAdd()
 	r.lastPageNo = 2
 
-	r.perf.header = time.Now()
-	r.perf.candidates = time.Now()
-	r.perf.measures = time.Now()
-	r.perf.footers = time.Now()
+	if logPerf {
+		r.perf.header = time.Now()
+		r.perf.candidates = time.Now()
+		r.perf.measures = time.Now()
+		r.perf.footers = time.Now()
+	}
 
 	err = r.doc.Output(writer)
 
-	fmt.Println(r.perf)
+	if logPerf {
+		r.perf.output = time.Now()
+		fmt.Println(r.perf)
+	}
 
 	return err
 }

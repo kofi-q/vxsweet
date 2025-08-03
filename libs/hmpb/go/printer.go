@@ -12,6 +12,7 @@ import (
 	"math"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/kofi-q/scribe-go"
@@ -20,6 +21,10 @@ import (
 	goqr "github.com/piglig/go-qr"
 	"golang.org/x/text/language"
 	"golang.org/x/text/language/display"
+)
+
+const (
+	logPerf = false
 )
 
 var (
@@ -301,7 +306,9 @@ var (
 )
 
 func (r *renderer) init() (*elections.BallotStyle, error) {
-	r.perf = timings{start: time.Now()}
+	if logPerf {
+		r.perf = timings{start: time.Now()}
+	}
 
 	style := r.election.BallotStyle(r.params.StyleId)
 	if style == nil {
@@ -421,7 +428,9 @@ func (r *renderer) init() (*elections.BallotStyle, error) {
 	r.pageAdd()
 	r.doc.UseTemplate(template)
 
-	r.perf.pdfInit = time.Now()
+	if logPerf {
+		r.perf.pdfInit = time.Now()
+	}
 
 	return style, nil
 }
@@ -494,7 +503,9 @@ func (r *renderer) render() error {
 	r.doc.SetXY(r.frame.Origin.X(), y+r.cfg.Padding.Y())
 	r.instructions()
 
-	r.perf.header = time.Now()
+	if logPerf {
+		r.perf.header = time.Now()
+	}
 
 	r.yContentMin = r.doc.GetY() + r.cfg.Padding.Y()
 	r.doc.SetXY(r.frame.Origin.X(), r.yContentMin)
@@ -521,7 +532,9 @@ func (r *renderer) render() error {
 	r.doc.SetXY(r.frame.Origin.X(), r.yEndCandidateContests)
 	widthYesNoColAndPadding := r.widthContestYesNo + r.cfg.Padding.X()
 
-	r.perf.candidates = time.Now()
+	if logPerf {
+		r.perf.candidates = time.Now()
+	}
 
 	for _, contest := range contests {
 		if contest.Type != elections.ContestTypeYesNo {
@@ -537,7 +550,9 @@ func (r *renderer) render() error {
 		}
 	}
 
-	r.perf.measures = time.Now()
+	if logPerf {
+		r.perf.measures = time.Now()
+	}
 
 	r.lastPageNo = uint8(r.doc.PageNo())
 
@@ -559,26 +574,40 @@ func (r *renderer) render() error {
 	return nil
 }
 
-func (r *renderer) Finalize(
-	writer io.Writer,
-	metadata elections.BallotMetadata,
-) error {
-	r.qrRegister(metadata.QrDataBase64)
+func (r *renderer) Finalize(writer io.Writer, electionHash string) error {
+	encodedMetadata, err := EncodeMetadata(r.election, Metadata{
+		Hash:          electionHash,
+		BallotStyleId: r.params.StyleId,
+		BallotType:    r.params.Type,
+		PrecinctId:    r.params.PrecinctId,
+		Official:      r.params.Official,
+		PageCount:     uint8(r.doc.PageCount()),
+	})
+	if err != nil {
+		return err
+	}
+	if err = r.qrRegister(encodedMetadata); err != nil {
+		return err
+	}
 
 	precinct := r.election.Precinct(r.params.PrecinctId)
 	for i := range r.doc.PageCount() {
 		r.doc.SetPage(i + 1)
-		if err := r.footer(precinct, metadata); err != nil {
+		if err := r.footer(precinct, electionHash); err != nil {
 			return err
 		}
 	}
 
-	r.perf.footers = time.Now()
+	if logPerf {
+		r.perf.footers = time.Now()
+	}
 
-	err := r.doc.Output(writer)
+	err = r.doc.Output(writer)
 
-	r.perf.output = time.Now()
-	fmt.Println(r.perf)
+	if logPerf {
+		r.perf.output = time.Now()
+		fmt.Println(r.perf)
+	}
 
 	return err
 }
@@ -1560,7 +1589,7 @@ func (r *renderer) fontTinyBold(lang Lang) (
 
 func (r *renderer) footer(
 	precinct *elections.Precinct,
-	metadata elections.BallotMetadata,
+	electionHash string,
 ) error {
 	strKeyFooter := "hmpbContinueVotingOnBack"
 	y := r.yFooterFront
@@ -1704,7 +1733,7 @@ func (r *renderer) footer(
 	langName := display.English.Languages().Name(lang)
 
 	r.doc.SetFont(r.fontTinyBold(LangSecondary))
-	widthValueElection := r.doc.GetStringWidth(metadata.Hash[0:7])
+	widthValueElection := r.doc.GetStringWidth(electionHash[0:7])
 	widthValueBallotStyle := r.doc.GetStringWidth(r.params.StyleId)
 	widthValuePrecinct := r.doc.GetStringWidth(precinct.Name)
 	widthValueLanguage := r.doc.GetStringWidth(langName)
@@ -1727,7 +1756,7 @@ func (r *renderer) footer(
 	r.doc.Cell(
 		widthValueElection+spacing,
 		r.cfg.LnHeight.Tiny,
-		metadata.Hash[0:7],
+		electionHash[0:7],
 	)
 
 	r.doc.SetFont(r.fontTiny(LangSecondary))
@@ -1923,33 +1952,77 @@ func (r *renderer) StyleId() string {
 	return r.params.StyleId
 }
 
-func (r *renderer) qrRegister(data string) error {
-	qr, err := goqr.EncodeText(data, goqr.Quartile)
-	if err != nil {
-		return err
+func (r *renderer) qrName(pageNum int) string {
+	return "qr-p" + strconv.Itoa(pageNum)
+}
+
+func (r *renderer) qrRegister(metadata MetadataEncoded) error {
+	type result struct {
+		err     error
+		img     *bytes.Buffer
+		pageNum uint8
 	}
 
-	buf := make([]byte, 0, 4*1024)
-	stream := bytes.NewBuffer(buf)
+	qrs := make(chan *result)
 
-	qrSizePx := r.cfg.QrSize / Px
-	qrScale := float32(math.Ceil(float64(qrSizePx / float32(qr.GetSize()))))
-	err = cmp.Or(
-		err,
-		qr.WriteAsPNG(
-			goqr.NewQrCodeImgConfig(int(qrScale), 0),
-			stream,
-		),
-	)
-	if err != nil {
-		return err
+	var wg sync.WaitGroup
+	for i, page := range metadata.Pages {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+
+			data := base64.StdEncoding.EncodeToString(page)
+			qr, err := goqr.EncodeText(data, goqr.Quartile)
+			if err != nil {
+				qrs <- &result{err: err}
+			}
+
+			buf := make([]byte, 0, 4*1024)
+			img := bytes.NewBuffer(buf)
+
+			qrSizePx := r.cfg.QrSize / Px
+			qrScale := float32(
+				math.Ceil(float64(qrSizePx / float32(qr.GetSize()))),
+			)
+			err = cmp.Or(
+				err,
+				qr.WriteAsPNG(
+					goqr.NewQrCodeImgConfig(int(qrScale), 0),
+					img,
+				),
+			)
+			if err != nil {
+				qrs <- &result{err: err}
+			}
+
+			qrs <- &result{
+				img:     img,
+				pageNum: uint8(i + 1),
+			}
+		}()
 	}
 
-	qrImg := r.doc.RegisterImageOptionsReader("qr", scribe.ImageOptions{
-		ImageType: "png",
-		ReadDpi:   true,
-	}, stream)
-	qrImg.SetDpi(DpiImg)
+	done := make(chan struct{})
+	go func() {
+		for q := range qrs {
+			if q.err != nil {
+				r.doc.SetErrorf("unable to encode QR code: %w", q.err)
+				continue
+			}
+
+			name := r.qrName(int(q.pageNum))
+			qrImg := r.doc.RegisterImageOptionsReader(name, scribe.ImageOptions{
+				ImageType: "png",
+				ReadDpi:   true,
+			}, q.img)
+			qrImg.SetDpi(DpiImg)
+		}
+		done <- struct{}{}
+	}()
+
+	wg.Wait()
+	close(qrs)
+	<-done
 
 	return r.doc.Error()
 }
@@ -1958,7 +2031,7 @@ func (r *renderer) qrRender() error {
 	x, y := r.doc.GetXY()
 
 	r.doc.ImageOptions(
-		"qr",
+		r.qrName(r.doc.PageNo()),
 		x,
 		y,
 		r.cfg.QrSize,

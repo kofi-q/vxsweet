@@ -166,10 +166,7 @@ func (p *Packager) All() (Package, error) {
 			}
 			defer file.Close()
 
-			err = r.Finalize(file, elections.BallotMetadata{
-				Hash:         hash,
-				QrDataBase64: "VlACmAWcqPQItzl/kgAAAAIQ",
-			})
+			err = r.Finalize(file, hash)
 			if err != nil {
 				chanErrs <- err
 			}
