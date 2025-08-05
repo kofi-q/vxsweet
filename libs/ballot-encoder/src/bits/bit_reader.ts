@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { BitCursor } from './bit_cursor';
 import { type Uint1, type Uint8, Uint8Size } from './types';
 import { sizeof, makeMasks, toUint8 } from './utils';

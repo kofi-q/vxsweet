@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { iter } from '@vx/libs/basics/iterators';
 import { BitCursor } from './bit_cursor';
 import { type Encoding, Utf8Encoding } from './encoding';
