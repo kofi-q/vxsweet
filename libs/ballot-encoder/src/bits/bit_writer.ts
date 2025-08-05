@@ -193,6 +193,13 @@ export class BitWriter {
     return this;
   }
 
+  writeStringHex(hexString: string): this {
+    const bytes = Buffer.from(hexString, 'hex');
+    for (const byte of bytes) this.writeUint(byte, { size: Uint8Size });
+
+    return this;
+  }
+
   /**
    * Calls back with this `BitWriter` to make chaining easier.
    *

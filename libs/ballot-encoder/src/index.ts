@@ -44,12 +44,14 @@ export const BALLOT_HASH_ENCODING_LENGTH = 20;
 export const MAXIMUM_PAGE_NUMBERS = 30;
 
 /**
- * Maximum number of precincts in an election that we can encode in 12 bits.
+ * Maximum number of precincts in an election that we can encode in 12 bits,
+ * plus 1.
  */
 export const MAXIMUM_PRECINCTS = 4096;
 
 /**
- * Maximum number of ballot styles in an election that we can encode in 12 bits.
+ * Maximum number of ballot styles in an election that we can encode in 12 bits,
+ * plus 1
  */
 export const MAXIMUM_BALLOT_STYLES = 4096;
 
@@ -313,11 +315,7 @@ export function encodeBallotInto(
 
   return bits
     .writeUint8(...BmdPrelude)
-    .writeString(sliceBallotHashForEncoding(ballotHash), {
-      encoding: HexEncoding,
-      includeLength: false,
-      length: BALLOT_HASH_ENCODING_LENGTH,
-    })
+    .writeStringHex(sliceBallotHashForEncoding(ballotHash))
     .with(() =>
       encodeBallotConfigInto(
         election,

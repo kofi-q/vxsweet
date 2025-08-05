@@ -131,10 +131,19 @@ export class BitReader {
     const codes = new Uint8Array(lengthToRead);
 
     for (let i = 0; i < lengthToRead; i += 1) {
-      codes.set([this.readUint({ size: encoding.getBitsPerElement() })], i);
+      codes[i] = this.readUint({ size: encoding.getBitsPerElement() });
     }
 
     return encoding.decode(codes);
+  }
+
+  readStringHex(length: number): string {
+    const buf = Buffer.alloc(length);
+    for (let i = 0; i < length; i += 1) {
+      buf[i] = this.readUint8();
+    }
+
+    return buf.toString('hex');
   }
 
   /**
