@@ -3,7 +3,6 @@ package ballots
 import (
 	"cmp"
 	"fmt"
-	"log"
 	"math/bits"
 	"slices"
 
@@ -14,7 +13,7 @@ import (
 type BallotType uint8
 
 const (
-	BallotHashEncodingLen = 20
+	BallotHashEncodingLen = 10
 )
 
 var (
@@ -25,7 +24,8 @@ var (
 	}
 
 	nBitsBallotStyleIndex = uint8(bits.Len16(4096))
-	nBitsPageNumber       = uint8(bits.Len16(30))
+	nBitsPageNumber       = uint8(bits.Len8(30))
+	nBitsBallotTypeIndex  = uint8(4)
 	nBitsPrecinctIndex    = uint8(bits.Len16(4096))
 )
 
@@ -44,27 +44,11 @@ func NewEncoder(
 	}
 }
 
-type StrEncoding struct {
-	dict []byte
-}
+type StrEncoding string
 
-var (
-	StrEncodingHex = NewStrEncoding([]byte("0123456789abcdef"))
+const (
+	StrEncodingWriteIn StrEncoding = `ABCDEFGHIJKLMNOPQRSTUVWXYZ \'"-.,`
 )
-
-func NewStrEncoding(dict []byte) (enc StrEncoding) {
-	enc.dict = make([]byte, len(dict))
-	copy(enc.dict, dict)
-
-	enc.dict = slices.Compact(enc.dict)
-	slices.Sort(enc.dict)
-
-	if len(enc.dict) > 256 {
-		log.Panicln("character set too large:", len(enc.dict))
-	}
-
-	return
-}
 
 func (e *Encoder) Write(data []byte) error {
 	for _, b := range data {
@@ -94,15 +78,11 @@ func (e *Encoder) WriteBallotTypeIndex(typ elections.BallotType) error {
 		return fmt.Errorf("ballot type not found: %s", typ)
 	}
 
-	return e.writer.WriteNBitsOfUint16BE(nBitsBallotStyleIndex, uint16(i))
+	return e.writer.WriteNBitsOfUint8(nBitsBallotTypeIndex, uint8(i))
 }
 
-func (e *Encoder) WriteHash(hash string) error {
-	return e.WriteHex(hash[0:BallotHashEncodingLen])
-}
-
-func (e *Encoder) WriteHex(str string) error {
-	return e.WriteStringEnc(StrEncodingHex, str)
+func (e *Encoder) WriteHash(hash []byte) error {
+	return e.Write(hash[0:BallotHashEncodingLen])
 }
 
 func (e *Encoder) WritePageNumber(num uint8) error {
@@ -121,11 +101,21 @@ func (e *Encoder) WritePrecinctIndex(id string) error {
 	return fmt.Errorf("precinct not found for ID: %s", id)
 }
 
-func (e *Encoder) WriteString(str string) error {
+type strEncodeFlags uint8
+
+const (
+	StrEncodeOmitEmpty strEncodeFlags = 1 << iota
+)
+
+func (e *Encoder) WriteString(str string, opts strEncodeFlags) error {
 	const maxLen = uint8(0xff)
 	strLen := uint8(len(str))
 	if strLen > maxLen {
 		return fmt.Errorf("expected string len <= %d, got: %d", maxLen, strLen)
+	}
+
+	if opts&StrEncodeOmitEmpty != 0 && strLen == 0 {
+		return nil
 	}
 
 	return cmp.Or(
@@ -135,14 +125,15 @@ func (e *Encoder) WriteString(str string) error {
 }
 
 func (e *Encoder) WriteStringEnc(enc StrEncoding, str string) error {
-	bitWidth := bits.Len8(uint8(len(enc.dict)))
-	for _, char := range []byte(str) {
-		i := slices.Index(enc.dict, char)
-		if i == -1 {
-			return fmt.Errorf("invalid char %c for given encoding", char)
+	bitWidth := bits.Len8(uint8(len(enc) - 1))
+
+	for ixChar := range len(str) {
+		ixMapped, found := slices.BinarySearch([]byte(enc), str[ixChar])
+		if !found {
+			return fmt.Errorf("invalid char %c for given encoding", str[ixChar])
 		}
 
-		err := e.writer.WriteNBitsOfUint8(uint8(bitWidth), uint8(i))
+		err := e.writer.WriteNBitsOfUint8(uint8(bitWidth), uint8(ixMapped))
 		if err != nil {
 			return err
 		}

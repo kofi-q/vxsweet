@@ -1,6 +1,7 @@
 package hmpb
 
 import (
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"os"
@@ -139,6 +140,7 @@ func (p *Packager) All() (Package, error) {
 	if err != nil {
 		return Package{}, err
 	}
+	hashHex := hex.EncodeToString(hash[:])
 
 	ballots := make([]GeneratedBallot, 0, len(p.jobs))
 	for _, r := range renderers {
@@ -166,7 +168,7 @@ func (p *Packager) All() (Package, error) {
 			}
 			defer file.Close()
 
-			err = r.Finalize(file, hash)
+			err = r.Finalize(file, hash[:], hashHex)
 			if err != nil {
 				chanErrs <- err
 			}
@@ -208,7 +210,7 @@ func (p *Packager) All() (Package, error) {
 		Definition: elections.Definition{
 			Election:     finalElection,
 			ElectionData: electionJson,
-			Hash:         hash,
+			Hash:         hashHex,
 		},
 	}, nil
 }

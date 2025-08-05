@@ -574,7 +574,11 @@ func (r *renderer) render() error {
 	return nil
 }
 
-func (r *renderer) Finalize(writer io.Writer, electionHash string) error {
+func (r *renderer) Finalize(
+	writer io.Writer,
+	electionHash []byte,
+	electionHashHex string,
+) error {
 	encodedMetadata, err := EncodeMetadata(r.election, Metadata{
 		Hash:          electionHash,
 		BallotStyleId: r.params.StyleId,
@@ -593,7 +597,7 @@ func (r *renderer) Finalize(writer io.Writer, electionHash string) error {
 	precinct := r.election.Precinct(r.params.PrecinctId)
 	for i := range r.doc.PageCount() {
 		r.doc.SetPage(i + 1)
-		if err := r.footer(precinct, electionHash); err != nil {
+		if err := r.footer(precinct, electionHashHex); err != nil {
 			return err
 		}
 	}

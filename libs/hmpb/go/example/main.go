@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	_ "embed"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -75,7 +76,7 @@ func genSingleBallot(printer hmpb.Printer, election *elections.Election) {
 	_, hash, err := finalElection.MarshalAndHash()
 	assertNoErr(err)
 
-	assertNoErr(renderer.Finalize(file, hash))
+	assertNoErr(renderer.Finalize(file, hash[:], hex.EncodeToString(hash[:])))
 
 	fmt.Println("Ballot printed to:", tmpBallotPath)
 }
@@ -135,7 +136,7 @@ func genParallelBallots(printer hmpb.Printer, count uint64) {
 			_, hash, err := finalElection.MarshalAndHash()
 			assertNoErr(err)
 
-			assertNoErr(r.Finalize(&buf, hash))
+			assertNoErr(r.Finalize(&buf, hash[:], hex.EncodeToString(hash[:])))
 		}()
 	}
 

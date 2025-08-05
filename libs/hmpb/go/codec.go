@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	HmpbPrelude = "VP2"
+	HmpbPrelude = "VP\x02"
 )
 
 type MetadataEncoded struct {
@@ -18,7 +18,7 @@ type MetadataEncoded struct {
 }
 
 type Metadata struct {
-	Hash          string
+	Hash          []byte
 	BallotId      string
 	BallotStyleId string
 	BallotType    elections.BallotType
@@ -51,7 +51,7 @@ func EncodeMetadata(
 
 	lenPreamble := len(preamble.Bytes())
 	// [TODO] Get this from the base encoder:
-	lenEncodedTotal := lenPreamble + 1 + len(metadata.BallotId) + 1
+	lenEncodedTotal := lenPreamble + 1 + 1 + len(metadata.BallotId) + 1
 	for ixPage := range metadata.PageCount {
 		pageStream := bytes.NewBuffer(make([]byte, 0, lenEncodedTotal))
 		pageWriter := bitstream.NewWriter(pageStream)
@@ -63,8 +63,8 @@ func EncodeMetadata(
 			pageWriter.WriteBool(!metadata.Official),
 			pageEnc.WriteBallotTypeIndex(metadata.BallotType),
 			pageWriter.WriteBool(metadata.BallotId != ""),
-			pageEnc.WriteString(metadata.BallotId),
-			writer.Flush(),
+			pageEnc.WriteString(metadata.BallotId, ballots.StrEncodeOmitEmpty),
+			pageWriter.Flush(),
 		)
 		if err != nil {
 			return MetadataEncoded{}, err

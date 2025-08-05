@@ -1,6 +1,7 @@
 package hmpb
 
 import (
+	"encoding/hex"
 	"fmt"
 	"io"
 	"slices"
@@ -154,5 +155,5 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 		return err
 	}
 
-	return r.Finalize(writer, hash)
+	return r.Finalize(writer, hash[:], hex.EncodeToString(hash[:]))
 }

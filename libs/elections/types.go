@@ -2,7 +2,6 @@ package elections
 
 import (
 	"crypto/sha256"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"strconv"
@@ -83,15 +82,19 @@ func (self Election) BallotStyleContests(style *BallotStyle) []*Contest {
 	return contests
 }
 
-func (self *Election) MarshalAndHash() ([]byte, string, error) {
-	electionJson, err := json.MarshalIndent(self, "", "  ")
+func (self *Election) MarshalAndHash() (
+	electionJson []byte,
+	hash [32]byte,
+	err error,
+) {
+	electionJson, err = json.MarshalIndent(self, "", "  ")
 	if err != nil {
-		return nil, "", err
+		return
 	}
 
-	hash := sha256.Sum256(electionJson)
+	hash = sha256.Sum256(electionJson)
 
-	return electionJson, hex.EncodeToString(hash[0:]), nil
+	return
 }
 
 func (self Election) Party(id string) *Party {

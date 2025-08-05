@@ -3,6 +3,7 @@ package hmpb
 import (
 	"bytes"
 	_ "embed"
+	"encoding/hex"
 	"encoding/json"
 	"log"
 	"os"
@@ -52,7 +53,10 @@ func TestNhGeneral(t *testing.T) {
 	_, hash, err := finalElection.MarshalAndHash()
 	require.NoError(t, err)
 
-	require.NoError(t, renderer.Finalize(&mockFile, hash))
+	require.NoError(
+		t,
+		renderer.Finalize(&mockFile, hash[:], hex.EncodeToString(hash[:])),
+	)
 }
 
 func mockElection() (election elections.Election) {
