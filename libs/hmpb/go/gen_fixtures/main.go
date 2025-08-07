@@ -2,6 +2,7 @@ package main
 
 import (
 	"cmp"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -15,37 +16,50 @@ import (
 )
 
 var (
-	electionPathGeneral = os.Getenv("ELECTION_GENERAL")
-	electionPathNh      = os.Getenv("ELECTION_NH")
-	reporoot            = os.Getenv("BUILD_WORKSPACE_DIRECTORY")
+	electionPathFamousNames = os.Getenv("ELECTION_FAMOUS_NAMES")
+	electionPathGeneral     = os.Getenv("ELECTION_GENERAL")
+	electionPathNh          = os.Getenv("ELECTION_NH")
+	reporoot                = os.Getenv("BUILD_WORKSPACE_DIRECTORY")
+	votesPathFamousNames    = os.Getenv("VOTES_FAMOUS_NAMES")
+	votesPathGeneral        = os.Getenv("VOTES_GENERAL")
+	votesPathNh             = os.Getenv("VOTES_NH")
 
-	electionGeneral = mockElection(electionPathGeneral)
-	electionNh      = mockElection(electionPathNh)
+	electionFamousNames = mockElection(electionPathFamousNames)
+	electionGeneral     = mockElection(electionPathGeneral)
+	electionNh          = mockElection(electionPathNh)
+
+	votesFamousNames = mockVotes(votesPathFamousNames)
+	votesGeneral     = mockVotes(votesPathGeneral)
+	votesNh          = mockVotes(votesPathNh)
 
 	outdir = path.Join(reporoot, "libs/hmpb/go/fixtures")
 
-	outdirAllBubbleCustom17 = outdir + "/all_bubble/custom-8.5x17"
-	outdirAllBubbleCustom19 = outdir + "/all_bubble/custom-8.5x19"
-	outdirAllBubbleCustom22 = outdir + "/all_bubble/custom-8.5x22"
-	outdirAllBubbleLegal    = outdir + "/all_bubble/legal"
-	outdirAllBubbleLetter   = outdir + "/all_bubble/letter"
-	outdirGridOnlyCustom17  = outdir + "/grid_only/custom-8.5x17"
-	outdirGridOnlyCustom19  = outdir + "/grid_only/custom-8.5x19"
-	outdirGridOnlyCustom22  = outdir + "/grid_only/custom-8.5x22"
-	outdirGridOnlyLegal     = outdir + "/grid_only/legal"
-	outdirGridOnlyLetter    = outdir + "/grid_only/letter"
-	outdirNhGeneralLegal    = outdir + "/nh_general/legal"
-	outdirNhGeneralLetter   = outdir + "/nh_general/letter"
-	outdirVxGeneralCustom17 = outdir + "/vx_general/custom-8.5x17"
-	outdirVxGeneralCustom19 = outdir + "/vx_general/custom-8.5x19"
-	outdirVxGeneralCustom22 = outdir + "/vx_general/custom-8.5x22"
-	outdirVxGeneralLegal    = outdir + "/vx_general/legal"
-	outdirVxGeneralLetter   = outdir + "/vx_general/letter"
+	outdirAllBubbleCustom17    = outdir + "/all_bubble/custom-8.5x17"
+	outdirAllBubbleCustom19    = outdir + "/all_bubble/custom-8.5x19"
+	outdirAllBubbleCustom22    = outdir + "/all_bubble/custom-8.5x22"
+	outdirAllBubbleLegal       = outdir + "/all_bubble/legal"
+	outdirAllBubbleLetter      = outdir + "/all_bubble/letter"
+	outdirGridOnlyCustom17     = outdir + "/grid_only/custom-8.5x17"
+	outdirGridOnlyCustom19     = outdir + "/grid_only/custom-8.5x19"
+	outdirGridOnlyCustom22     = outdir + "/grid_only/custom-8.5x22"
+	outdirGridOnlyLegal        = outdir + "/grid_only/legal"
+	outdirGridOnlyLetter       = outdir + "/grid_only/letter"
+	outdirNhGeneralLegal       = outdir + "/nh_general/legal"
+	outdirNhGeneralLetter      = outdir + "/nh_general/letter"
+	outdirVxFamousNames        = outdir + "/vx_famous_names"
+	outdirVxGeneralCustom17    = outdir + "/vx_general/custom-8.5x17"
+	outdirVxGeneralCustom19    = outdir + "/vx_general/custom-8.5x19"
+	outdirVxGeneralCustom22    = outdir + "/vx_general/custom-8.5x22"
+	outdirVxGeneralLegal       = outdir + "/vx_general/legal"
+	outdirVxGeneralLegalEsUs   = outdir + "/vx_general/legal-es-US"
+	outdirVxGeneralLegalZhHans = outdir + "/vx_general/legal-zh-Hans"
+	outdirVxGeneralLetter      = outdir + "/vx_general/letter"
 )
 
 type Fixture struct {
 	outdir    string
 	paperSize elections.PaperSize
+	lang      string
 }
 
 func main() {
@@ -69,10 +83,14 @@ func main() {
 		os.MkdirAll(outdirNhGeneralLegal, 0o755),
 		os.MkdirAll(outdirNhGeneralLetter, 0o755),
 
+		os.MkdirAll(outdirVxFamousNames, 0o755),
+
 		os.MkdirAll(outdirVxGeneralCustom17, 0o755),
 		os.MkdirAll(outdirVxGeneralCustom19, 0o755),
 		os.MkdirAll(outdirVxGeneralCustom22, 0o755),
 		os.MkdirAll(outdirVxGeneralLegal, 0o755),
+		os.MkdirAll(outdirVxGeneralLegalEsUs, 0o755),
+		os.MkdirAll(outdirVxGeneralLegalZhHans, 0o755),
 		os.MkdirAll(outdirVxGeneralLetter, 0o755),
 	)
 	if err != nil {
@@ -92,32 +110,15 @@ func main() {
 	printer := hmpb.NewPrinterHmpb()
 	var wg sync.WaitGroup
 
-	// Vx General Election - multi-language legal paper ballots:
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		packager := hmpb.Packager{
-			BallotTypes: []elections.BallotType{
-				elections.BallotTypePrecinct,
-			},
-			Cfg:      &hmpb.CfgBase,
-			Election: &electionGeneral,
-			OutDir:   outdirVxGeneralLegal,
-			Printer:  &printer,
-		}
-
-		_, err := packager.All()
-		if err != nil {
-			log.Fatalln("packager failed:", err)
-		}
-	}()
-
-	// Vx General Election - alternate paper sizes:
+	// Vx General Election:
 	for _, f := range []Fixture{
-		{outdirVxGeneralCustom17, elections.PaperSizeCustom17},
-		{outdirVxGeneralCustom19, elections.PaperSizeCustom19},
-		{outdirVxGeneralCustom22, elections.PaperSizeCustom22},
-		{outdirVxGeneralLetter, elections.PaperSizeLetter},
+		{outdirVxGeneralCustom17, elections.PaperSizeCustom17, "en"},
+		{outdirVxGeneralCustom19, elections.PaperSizeCustom19, "en"},
+		{outdirVxGeneralCustom22, elections.PaperSizeCustom22, "en"},
+		{outdirVxGeneralLegal, elections.PaperSizeLegal, "en"},
+		{outdirVxGeneralLegalEsUs, elections.PaperSizeLegal, "es-US"},
+		{outdirVxGeneralLegalZhHans, elections.PaperSizeLegal, "zh-Hans"},
+		{outdirVxGeneralLetter, elections.PaperSizeLetter, "en"},
 	} {
 		wg.Add(1)
 		go func() {
@@ -127,28 +128,59 @@ func main() {
 			electionGeneral.BallotLayout = elections.BallotLayout{
 				PaperSize: f.paperSize,
 			}
+			ballotStyle := ballotStyle12
+			ballotStyle.Languages = []string{f.lang}
+			electionGeneral.BallotStyles = []elections.BallotStyle{ballotStyle}
 
-			packager := hmpb.Packager{
-				BallotTypes: []elections.BallotType{
-					elections.BallotTypePrecinct,
-				},
-				Cfg:      &hmpb.CfgBase,
-				Election: &electionGeneral,
-				OutDir:   f.outdir,
-				Printer:  &printer,
+			votes, ok := votesGeneral[ballotStyle.Id]
+			if !ok {
+				log.Fatalln(
+					"missing votes for Vx General Election, ballot style:",
+					ballotStyle.Id,
+				)
 			}
 
-			_, err := packager.All()
-			if err != nil {
-				log.Fatalln("packager failed:", err)
-			}
+			genBlankAndMarked(
+				&printer,
+				&hmpb.CfgBase,
+				&electionGeneral,
+				&ballotStyle,
+				ballotStyle12.Precincts[0],
+				votes,
+				f.outdir,
+			)
 		}()
 	}
 
+	// Vx Famous Names Election:
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+
+		ballotStyle := &electionFamousNames.BallotStyles[0]
+		votes, ok := votesFamousNames[ballotStyle.Id]
+		if !ok {
+			log.Fatalln(
+				"missing votes for Famous Names, ballot style:",
+				ballotStyle.Id,
+			)
+		}
+
+		genBlankAndMarked(
+			&printer,
+			&hmpb.CfgBase,
+			&electionFamousNames,
+			ballotStyle,
+			ballotStyle.Precincts[0],
+			votes,
+			outdirVxFamousNames,
+		)
+	}()
+
 	// NH General Election:
 	for _, f := range []Fixture{
-		{outdirNhGeneralLegal, elections.PaperSizeLegal},
-		{outdirNhGeneralLetter, elections.PaperSizeLetter},
+		{outdirNhGeneralLegal, elections.PaperSizeLegal, "en"},
+		{outdirNhGeneralLetter, elections.PaperSizeLetter, "en"},
 	} {
 		wg.Add(1)
 		go func() {
@@ -162,45 +194,49 @@ func main() {
 				PaperSize: f.paperSize,
 			}
 
-			packager := hmpb.Packager{
-				BallotTypes: []elections.BallotType{
-					elections.BallotTypePrecinct,
-				},
-				Cfg:      &hmpb.CfgNh,
-				Election: &election,
-				OutDir:   f.outdir,
-				Printer:  &printer,
+			votes, ok := votesNh[style.Id]
+			if !ok {
+				log.Fatalln(
+					"missing votes for NH General Election, ballot style:",
+					style.Id,
+				)
 			}
 
-			_, err := packager.All()
-			if err != nil {
-				log.Fatalln(f.paperSize, "NH election failed:", err)
-			}
+			genBlankAndMarked(
+				&printer,
+				&hmpb.CfgNh,
+				&election,
+				&style,
+				style.Precincts[0],
+				votes,
+				f.outdir,
+			)
 		}()
 	}
 
 	// All-bubble ballots:
 	for _, f := range []Fixture{
-		{outdirAllBubbleCustom17, elections.PaperSizeCustom17},
-		{outdirAllBubbleCustom19, elections.PaperSizeCustom19},
-		{outdirAllBubbleCustom22, elections.PaperSizeCustom22},
-		{outdirAllBubbleLegal, elections.PaperSizeLegal},
-		{outdirAllBubbleLetter, elections.PaperSizeLetter},
+		{outdirAllBubbleCustom17, elections.PaperSizeCustom17, "en"},
+		{outdirAllBubbleCustom19, elections.PaperSizeCustom19, "en"},
+		{outdirAllBubbleCustom22, elections.PaperSizeCustom22, "en"},
+		{outdirAllBubbleLegal, elections.PaperSizeLegal, "en"},
+		{outdirAllBubbleLetter, elections.PaperSizeLetter, "en"},
 	} {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
 
-			file, err := os.Create(f.outdir + "/blank_ballot.pdf")
+			fileBallot, err := os.Create(f.outdir + "/blank-ballot.pdf")
 			if err != nil {
 				log.Fatalln("unable to open all-bubble file for writing:", err)
 			}
-			defer file.Close()
+			defer fileBallot.Close()
 
 			election, err := printer.BallotAllBubble(
-				file,
+				fileBallot,
 				&hmpb.CfgAllBubble,
 				f.paperSize,
+				hmpb.AllBubbleBallotBlank,
 			)
 			if err != nil {
 				log.Fatalln("all-bubble ballot generation failed:", err)
@@ -220,15 +256,57 @@ func main() {
 				log.Fatalln("unable to write all-bubble election def:", err)
 			}
 		}()
+
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+
+			file, err := os.Create(f.outdir + "/cycling-test-deck.pdf")
+			if err != nil {
+				log.Fatalln("unable to open all-bubble file for writing:", err)
+			}
+			defer file.Close()
+
+			_, err = printer.BallotAllBubble(
+				file,
+				&hmpb.CfgAllBubble,
+				f.paperSize,
+				hmpb.AllBubbleBallotCycling,
+			)
+			if err != nil {
+				log.Fatalln("all-bubble cycling ballot generation failed:", err)
+			}
+		}()
+
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+
+			file, err := os.Create(f.outdir + "/filled-ballot.pdf")
+			if err != nil {
+				log.Fatalln("unable to open all-bubble file for writing:", err)
+			}
+			defer file.Close()
+
+			_, err = printer.BallotAllBubble(
+				file,
+				&hmpb.CfgAllBubble,
+				f.paperSize,
+				hmpb.AllBubbleBallotFilled,
+			)
+			if err != nil {
+				log.Fatalln("all-bubble filled ballot generation failed:", err)
+			}
+		}()
 	}
 
 	// Grid-only sheets:
 	for _, f := range []Fixture{
-		{outdirGridOnlyCustom17, elections.PaperSizeCustom17},
-		{outdirGridOnlyCustom19, elections.PaperSizeCustom19},
-		{outdirGridOnlyCustom22, elections.PaperSizeCustom22},
-		{outdirGridOnlyLegal, elections.PaperSizeLegal},
-		{outdirGridOnlyLetter, elections.PaperSizeLetter},
+		{outdirGridOnlyCustom17, elections.PaperSizeCustom17, "en"},
+		{outdirGridOnlyCustom19, elections.PaperSizeCustom19, "en"},
+		{outdirGridOnlyCustom22, elections.PaperSizeCustom22, "en"},
+		{outdirGridOnlyLegal, elections.PaperSizeLegal, "en"},
+		{outdirGridOnlyLetter, elections.PaperSizeLetter, "en"},
 	} {
 		wg.Add(1)
 		go func() {
@@ -250,6 +328,87 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("\n✅ Done:", time.Since(start))
+}
+
+func genBlankAndMarked(
+	printer hmpb.Printer,
+	cfg *hmpb.Cfg,
+	election *elections.Election,
+	style *elections.BallotStyle,
+	precinctId string,
+	votes elections.Votes,
+	outdir string,
+) {
+	var blankRenderer *hmpb.Renderer
+	var markedRenderer *hmpb.Renderer
+
+	params := hmpb.PrintParams{
+		NoCompress: true,
+		Official:   true,
+		PrecinctId: precinctId,
+		StyleId:    style.Id,
+		Type:       elections.BallotTypeAbsentee,
+	}
+
+	var wg sync.WaitGroup
+	chanElectionHash := make(chan []byte, 1)
+	chanElectionHashHex := make(chan string, 1)
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+
+		var err error
+		blankRenderer, err = printer.Ballot(election, params, cfg)
+		assertNoErr(err)
+
+		layout := blankRenderer.Layout()
+		finalElection := electionGeneral
+		finalElection.GridLayouts = []elections.GridLayout{}
+		finalElection.GridLayouts = append(finalElection.GridLayouts, layout)
+
+		electionJson, hash, err := finalElection.MarshalAndHash()
+		assertNoErr(err)
+
+		hashHex := hex.EncodeToString(hash[:])
+		chanElectionHash <- hash[:]
+		chanElectionHashHex <- hashHex
+
+		fileBallot, err := os.Create(path.Join(outdir, "blank-ballot.pdf"))
+		assertNoErr(err)
+		defer fileBallot.Close()
+
+		assertNoErr(blankRenderer.Finalize(fileBallot, hash[:], hashHex))
+		assertNoErr(
+			os.WriteFile(
+				path.Join(outdir, "election.json"),
+				electionJson,
+				0o666,
+			),
+		)
+	}()
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+
+		var err error
+		markedRenderer, err = printer.Ballot(election, params, cfg)
+		assertNoErr(err)
+
+		markedRenderer.MarkVotes(votes)
+
+		hash := <-chanElectionHash
+		hashHex := <-chanElectionHashHex
+
+		file, err := os.Create(path.Join(outdir, "marked-ballot.pdf"))
+		assertNoErr(err)
+		defer file.Close()
+
+		assertNoErr(markedRenderer.Finalize(file, hash, hashHex))
+	}()
+
+	wg.Wait()
 }
 
 func mockElection(filename string) (election elections.Election) {
@@ -274,4 +433,34 @@ func mockElection(filename string) (election elections.Election) {
 	}
 
 	return
+}
+
+func mockVotes(filename string) (ballotStyleVotes map[string]elections.Votes) {
+	file, err := os.Open(filename)
+	if err != nil {
+		log.Fatalln("unable to open mock votes JSON file for reading:", err)
+	}
+
+	reader := json.NewDecoder(file)
+
+	err = reader.Decode(&ballotStyleVotes)
+	if err != nil {
+		log.Fatalln("unable to decode mock votes JSON:", err)
+	}
+
+	err = file.Close()
+	if err != nil {
+		log.Fatalf(
+			"Unable to close election.json file after reading: %v",
+			err,
+		)
+	}
+
+	return
+}
+
+func assertNoErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
 }

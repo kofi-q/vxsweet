@@ -169,13 +169,14 @@ type Printer interface {
 		io.Writer,
 		*Cfg,
 		elections.PaperSize,
+		AllBubbleBallotMode,
 	) (*elections.Election, error)
 
 	Ballot(
 		*elections.Election,
 		PrintParams,
 		*Cfg,
-	) (*renderer, error)
+	) (*Renderer, error)
 }
 
 type PrinterHmpb struct {
@@ -189,8 +190,8 @@ func (p *PrinterHmpb) Ballot(
 	election *elections.Election,
 	params PrintParams,
 	cfg *Cfg,
-) (*renderer, error) {
-	r := renderer{
+) (*Renderer, error) {
+	r := Renderer{
 		cfg:      cfg,
 		election: election,
 		params:   params,
@@ -235,20 +236,23 @@ func (self timings) String() string {
 	)
 }
 
-type renderer struct {
-	params PrintParams
+type Renderer struct {
 	perf   timings
+	params PrintParams
 
-	frame         Rect
-	gridCellCount Vec2
-	gridP1        Vec2
-	gridP2        Vec2
-	gridSize      Vec2
-	langCode      string
-	markSizeHalf  Vec2
 	gridPositions []elections.GridPosition
-	gridSpacing   Vec2
-	optionAlign   string
+
+	frame       Rect
+	langCode    string
+	optionAlign string
+
+	bubbleSizeHalf Vec2
+	gridCellCount  Vec2
+	gridP1         Vec2
+	gridP2         Vec2
+	gridSize       Vec2
+	gridSpacing    Vec2
+	markSizeHalf   Vec2
 
 	cfg      *Cfg
 	doc      *scribe.Scribe
@@ -305,7 +309,7 @@ var (
 	pageSizeCustom22 = scribe.PageSize{Wd: 8.5 * Inch, Ht: 22 * Inch}
 )
 
-func (r *renderer) init() (*elections.BallotStyle, error) {
+func (r *Renderer) init() (*elections.BallotStyle, error) {
 	if logPerf {
 		r.perf = timings{start: time.Now()}
 	}
@@ -314,6 +318,12 @@ func (r *renderer) init() (*elections.BallotStyle, error) {
 	if style == nil {
 		return nil, ErrBallotStyleInvalid
 	}
+
+	r.gridPositions = make(
+		[]elections.GridPosition,
+		0,
+		len(r.election.Contests),
+	)
 
 	r.langCode = style.LanguagePrimary()
 	r.langDual = r.langCode != "en"
@@ -353,9 +363,11 @@ func (r *renderer) init() (*elections.BallotStyle, error) {
 	r.markSizeHalf = r.cfg.Grid.MarkSize.Mul(Vec2{0.5, 0.5})
 	r.gridP1 = r.cfg.PrintMargin
 	r.gridP2 = Vec2{pageWidth, pageHeight}.
-		Sub(r.gridP1).
+		Sub(r.cfg.PrintMargin).
 		Sub(r.cfg.Grid.MarkSize)
 	r.gridSize = r.gridP2.Sub(r.gridP1)
+
+	r.bubbleSizeHalf = r.cfg.BubbleSize.Mul(Vec2{0.5, 0.5})
 
 	// Corresponds to the NH Accuvote ballot grid, which we mimic so that our
 	// interpreter can support both Accuvote-style ballots and our ballots.
@@ -435,7 +447,7 @@ func (r *renderer) init() (*elections.BallotStyle, error) {
 	return style, nil
 }
 
-func (r *renderer) render() error {
+func (r *Renderer) render() error {
 	style, err := r.init()
 	if err != nil {
 		return err
@@ -574,7 +586,7 @@ func (r *renderer) render() error {
 	return nil
 }
 
-func (r *renderer) Finalize(
+func (r *Renderer) Finalize(
 	writer io.Writer,
 	electionHash []byte,
 	electionHashHex string,
@@ -616,12 +628,97 @@ func (r *renderer) Finalize(
 	return err
 }
 
-func (r *renderer) Layout() elections.GridLayout {
+func (r *Renderer) Layout() elections.GridLayout {
 	return elections.GridLayout{
 		BallotStyleId:              r.params.StyleId,
-		OptionBoundsFromTargetMark: elections.Outset{},
+		OptionBoundsFromTargetMark: elections.Outset{}, // [TODO]
 		GridPositions:              r.gridPositions,
 	}
+}
+
+func (r *Renderer) MarkVotes(votes elections.Votes) {
+	for _, pos := range r.gridPositions {
+		pageNum := pos.SheetNumber * 2
+		if pos.Side == "front" {
+			pageNum -= 1
+		}
+
+		contestVotes, ok := votes[pos.ContestId]
+		if !ok {
+			continue
+		}
+
+		mark := markInfo(contestVotes, pos)
+		if !mark.marked {
+			continue
+		}
+
+		r.doc.SetPage(int(pageNum))
+
+		gridPos := Vec2{pos.Column, pos.Row}
+		bubbleOrigin := r.fromGrid(gridPos).Sub(r.bubbleSizeHalf)
+		r.bubbleShapeFilled(bubbleOrigin)
+
+		if mark.writeInName == "" {
+			continue
+		}
+
+		// Add write-in candidate name within the configured search area:
+
+		writeInArea := r.fromGrid(Vec2{
+			mark.writeInArea.Width,
+			mark.writeInArea.Height,
+		})
+		writeInOrigin := r.fromGrid(Vec2{
+			mark.writeInArea.X,
+			mark.writeInArea.Y,
+		}.Add(gridPos))
+		r.doc.SetXY(
+			writeInOrigin.X(),
+			writeInOrigin.Y()+0.5*(writeInArea.Y()-r.cfg.FontSize.Base),
+		)
+		r.bold(
+			LangSecondary,
+			writeInArea.X(),
+			r.optionAlign,
+			[]string{mark.writeInName},
+		)
+	}
+}
+
+type MarkInfo struct {
+	marked      bool
+	writeInArea elections.Rect
+	writeInName string
+}
+
+func markInfo(votes []elections.Vote, gridPos elections.GridPosition) (
+	info MarkInfo,
+) {
+	for _, vote := range votes {
+		if gridPos.Type == elections.GridPositionTypeWriteIn {
+			if vote.WriteInName == "" ||
+				vote.WriteInIndex != uint8(gridPos.WriteInIndex) {
+				continue
+			}
+
+			info.marked = true
+			info.writeInName = vote.WriteInName
+			info.writeInArea = gridPos.WriteInArea
+
+			return
+		}
+
+		if vote.YesNoOptionId != gridPos.OptionId &&
+			vote.CandidateId != gridPos.OptionId {
+			continue
+		}
+
+		info.marked = true
+		return
+	}
+
+	return
 }
 
 type BoxParams struct {
@@ -632,7 +729,7 @@ type BoxParams struct {
 	Width         float32
 }
 
-func (r *renderer) box(params BoxParams) {
+func (r *Renderer) box(params BoxParams) {
 	if params.HeightHeader > 0 {
 		r.boxHeader(Rect{
 			Origin: params.Pos,
@@ -652,7 +749,7 @@ func (r *renderer) box(params BoxParams) {
 	})
 }
 
-func (r *renderer) boxHeader(bounds Rect) {
+func (r *Renderer) boxHeader(bounds Rect) {
 	r.doc.SetFillColor(r.cfg.Color.Tint.Rgb())
 	r.doc.Rect(
 		bounds.Origin.X(), bounds.Origin.Y(), bounds.Size.X(), bounds.Size.Y(),
@@ -660,7 +757,7 @@ func (r *renderer) boxHeader(bounds Rect) {
 	)
 }
 
-func (r *renderer) boxOutline(bounds Rect) {
+func (r *Renderer) boxOutline(bounds Rect) {
 	yOutline := bounds.Origin.Y() + BoxBorderTopWidthHalf
 	r.doc.SetLineWidth(BoxBorderWidth)
 	r.doc.SetLineJoinStyle("round")
@@ -683,17 +780,17 @@ func (r *renderer) boxOutline(bounds Rect) {
 	)
 }
 
-func (r *renderer) bubbleOption(
+func (r *Renderer) bubbleOption(
 	pos Vec2,
 	contest *elections.Contest,
 	optionId string,
 ) {
-	r.bubbleShape(pos)
+	r.bubbleShape(pos, bubbleStyleEmpty)
 
-	gridPos := r.toGrid(pos)
+	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
 	r.gridPositions = append(r.gridPositions, elections.GridPosition{
 		Type:        elections.GridPositionTypeOption,
-		SheetNumber: (uint32(r.doc.PageNo()) / 2) + 1,
+		SheetNumber: uint32(r.doc.PageNo()+1) / 2,
 		Side:        r.pageSide.String(),
 		Row:         gridPos.Y(),
 		Column:      gridPos.X(),
@@ -704,21 +801,43 @@ func (r *renderer) bubbleOption(
 	})
 }
 
-func (r *renderer) bubbleWritein(
+func (r *Renderer) bubbleOptionFilled(
+	pos Vec2,
+	contest *elections.Contest,
+	optionId string,
+) {
+	r.bubbleShapeFilled(pos)
+
+	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
+	r.gridPositions = append(r.gridPositions, elections.GridPosition{
+		Type:        elections.GridPositionTypeOption,
+		SheetNumber: uint32(r.doc.PageNo()+1) / 2,
+		Side:        r.pageSide.String(),
+		Row:         gridPos.Y(),
+		Column:      gridPos.X(),
+		ContestId:   contest.Id,
+		GridPositionOptionId: elections.GridPositionOptionId{
+			OptionId: optionId,
+		},
+	})
+}
+
+func (r *Renderer) bubbleWritein(
 	pos Vec2,
 	contest *elections.Contest,
 	ixWritein uint32,
 	area Rect,
 ) {
-	r.bubbleShape(pos)
+	r.bubbleShape(pos, bubbleStyleEmpty)
 
-	sizeOnGrid := r.toGrid(area.Size)
-	originOnGrid := r.toGrid(area.Origin)
+	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
 
-	gridPos := r.toGrid(pos)
+	writeInAreaOnGrid := r.toGrid(area.Size)
+	writeInOriginOnGrid := r.toGrid(area.Origin).Sub(gridPos)
+
 	r.gridPositions = append(r.gridPositions, elections.GridPosition{
 		Type:        elections.GridPositionTypeWriteIn,
-		SheetNumber: uint32(r.doc.PageNo()) / 2,
+		SheetNumber: uint32(r.doc.PageNo()+1) / 2,
 		Side:        r.pageSide.String(),
 		Row:         gridPos.Y(),
 		Column:      gridPos.X(),
@@ -726,16 +845,23 @@ func (r *renderer) bubbleWritein(
 		GridPositionWriteInIndex: elections.GridPositionWriteInIndex{
 			WriteInIndex: ixWritein,
 			WriteInArea: elections.Rect{
-				Height: sizeOnGrid.Y(),
-				Width:  sizeOnGrid.X(),
-				X:      originOnGrid.X(),
-				Y:      originOnGrid.Y(),
+				Height: writeInAreaOnGrid.Y(),
+				Width:  writeInAreaOnGrid.X(),
+				X:      writeInOriginOnGrid.X(),
+				Y:      writeInOriginOnGrid.Y(),
 			},
 		},
 	})
 }
 
-func (r *renderer) bubbleShape(pos Vec2) {
+type bubbleStyle string
+
+const (
+	bubbleStyleFilled = "DF"
+	bubbleStyleEmpty  = "D"
+)
+
+func (r *Renderer) bubbleShape(pos Vec2, style bubbleStyle) {
 	r.doc.SetLineWidth(r.cfg.BubbleLnWidth)
 	r.doc.RoundedRectExt(
 		pos.X(),
@@ -746,24 +872,29 @@ func (r *renderer) bubbleShape(pos Vec2) {
 		r.bubbleRadius,
 		r.bubbleRadius,
 		r.bubbleRadius,
-		"D",
+		string(style),
 	)
 }
 
-func (r *renderer) fromGrid(pos Vec2) Vec2 {
+func (r *Renderer) bubbleShapeFilled(pos Vec2) {
+	r.doc.SetFillColor(r.cfg.Color.Fg.Rgb())
+	r.bubbleShape(pos, bubbleStyleFilled)
+}
+
+func (r *Renderer) fromGrid(pos Vec2) Vec2 {
 	return r.gridP1.
 		Add(r.markSizeHalf).
 		Add(pos.Mul(r.cfg.Grid.MarkSize.Add(r.gridSpacing)))
 }
 
-func (r *renderer) toGrid(pos Vec2) Vec2 {
-	return pos.Sub(r.gridP1).
-		Add(r.markSizeHalf).
+func (r *Renderer) toGrid(pos Vec2) Vec2 {
+	return pos.
+		Sub(r.gridP1.Add(r.markSizeHalf)).
 		Div(r.gridSize).
 		Mul(r.gridCellCount.Sub(Vec2{1, 1}))
 }
 
-func (r *renderer) contestCandidate(contest *elections.Contest) error {
+func (r *Renderer) contestCandidate(contest *elections.Contest) error {
 	if contest.Type != elections.ContestTypeCandidate {
 		panic("expected candidate contest")
 	}
@@ -799,8 +930,8 @@ func (r *renderer) contestCandidate(contest *elections.Contest) error {
 
 	var heightCandidates float32 = 0.0
 
-	linesCandidates := []CandidateLines{}
-	for _, candidate := range contest.Candidates {
+	linesCandidates := make([]CandidateLines, len(contest.Candidates))
+	for i, candidate := range contest.Candidates {
 		heightCandidates += r.cfg.OptionSpacing
 
 		stringKeyParty := ""
@@ -824,7 +955,7 @@ func (r *renderer) contestCandidate(contest *elections.Contest) error {
 		heightCandidates += float32(len(lines.party)) * r.cfg.LnHeight.Base
 		heightCandidates += r.cfg.OptionSpacing
 
-		linesCandidates = append(linesCandidates, lines)
+		linesCandidates[i] = lines
 	}
 
 	writeInCount := uint8(0)
@@ -1009,7 +1140,7 @@ type CandidateLines struct {
 	party []string
 }
 
-func (r *renderer) contestYesNo(contest *elections.Contest) error {
+func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 	if contest.Type != elections.ContestTypeYesNo {
 		panic("expected yes/no contest")
 	}
@@ -1043,8 +1174,10 @@ func (r *renderer) contestYesNo(contest *elections.Contest) error {
 		r.doc.SetMeasurementFont(r.fontRegular(LangPrimary))
 		lines := r.doc.TextSplit(desc, r.widthContestYesNoContent)
 		for _, line := range lines {
-			richText.lines = append(richText.lines, HtmlText{text: line})
-			richText.lines = append(richText.lines, HtmlNewline{})
+			richText.lines = []HtmlLine{
+				HtmlText{text: line},
+				HtmlNewline{},
+			}
 		}
 		richText.height = float32(
 			len(lines),
@@ -1115,12 +1248,6 @@ func (r *renderer) contestYesNo(contest *elections.Contest) error {
 		break
 	}
 
-	// r.box(BoxParams{
-	// 	Pos:           pos,
-	// 	HeightContent: firstChunkHeight - heightHeader,
-	// 	HeightHeader:  heightHeader,
-	// 	Width:         r.widthContestYesNo,
-	// })
 	r.boxHeader(Rect{
 		Origin: pos,
 		Size: Vec2{
@@ -1463,7 +1590,7 @@ func (r *renderer) contestYesNo(contest *elections.Contest) error {
 	return nil
 }
 
-func (r *renderer) fontBold(lang Lang) (
+func (r *Renderer) fontBold(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleB
@@ -1472,7 +1599,7 @@ func (r *renderer) fontBold(lang Lang) (
 	return
 }
 
-func (r *renderer) fontItalic(lang Lang) (
+func (r *Renderer) fontItalic(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleI
@@ -1481,7 +1608,7 @@ func (r *renderer) fontItalic(lang Lang) (
 	return
 }
 
-func (r *renderer) fontCaption(lang Lang) (
+func (r *Renderer) fontCaption(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleNone
@@ -1490,7 +1617,7 @@ func (r *renderer) fontCaption(lang Lang) (
 	return
 }
 
-func (r *renderer) fontId(lang Lang, style scribe.FontStyle) scribe.FontId {
+func (r *Renderer) fontId(lang Lang, style scribe.FontStyle) scribe.FontId {
 	langCode := r.langCode
 	if lang == LangSecondary {
 		langCode = "en"
@@ -1519,7 +1646,7 @@ func (r *renderer) fontId(lang Lang, style scribe.FontStyle) scribe.FontId {
 	}
 }
 
-func (r *renderer) fontH1(
+func (r *Renderer) fontH1(
 	lang Lang,
 ) (id scribe.FontId, style scribe.FontStyle, size float32) {
 	style = scribe.FontStyleB
@@ -1528,7 +1655,7 @@ func (r *renderer) fontH1(
 	return
 }
 
-func (r *renderer) fontH2(
+func (r *Renderer) fontH2(
 	lang Lang,
 ) (id scribe.FontId, style scribe.FontStyle, size float32) {
 	style = scribe.FontStyleB
@@ -1537,7 +1664,7 @@ func (r *renderer) fontH2(
 	return
 }
 
-func (r *renderer) fontH3(
+func (r *Renderer) fontH3(
 	lang Lang,
 ) (id scribe.FontId, style scribe.FontStyle, size float32) {
 	style = scribe.FontStyleB
@@ -1546,7 +1673,7 @@ func (r *renderer) fontH3(
 	return
 }
 
-func (r *renderer) fontH4(
+func (r *Renderer) fontH4(
 	lang Lang,
 ) (id scribe.FontId, style scribe.FontStyle, size float32) {
 	style = scribe.FontStyleB
@@ -1555,7 +1682,7 @@ func (r *renderer) fontH4(
 	return
 }
 
-func (r *renderer) fontPico(lang Lang) (
+func (r *Renderer) fontPico(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleNone
@@ -1564,7 +1691,7 @@ func (r *renderer) fontPico(lang Lang) (
 	return
 }
 
-func (r *renderer) fontRegular(lang Lang) (
+func (r *Renderer) fontRegular(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleNone
@@ -1573,7 +1700,7 @@ func (r *renderer) fontRegular(lang Lang) (
 	return
 }
 
-func (r *renderer) fontTiny(lang Lang) (
+func (r *Renderer) fontTiny(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleNone
@@ -1582,7 +1709,7 @@ func (r *renderer) fontTiny(lang Lang) (
 	return
 }
 
-func (r *renderer) fontTinyBold(lang Lang) (
+func (r *Renderer) fontTinyBold(lang Lang) (
 	id scribe.FontId, style scribe.FontStyle, size float32,
 ) {
 	style = scribe.FontStyleB
@@ -1591,7 +1718,7 @@ func (r *renderer) fontTinyBold(lang Lang) (
 	return
 }
 
-func (r *renderer) footer(
+func (r *Renderer) footer(
 	precinct *elections.Precinct,
 	electionHash string,
 ) error {
@@ -1785,7 +1912,7 @@ func (r *renderer) footer(
 	return nil
 }
 
-func (r *renderer) illustrationMarkBubble(origin Vec2) error {
+func (r *Renderer) illustrationMarkBubble(origin Vec2) error {
 	img := r.doc.GetImageInfo(imgNameMarkBubble)
 
 	scale := r.cfg.InstructionImgWidth / img.Width()
@@ -1806,7 +1933,7 @@ func (r *renderer) illustrationMarkBubble(origin Vec2) error {
 	return nil
 }
 
-func (r *renderer) illustrationWriteIn(origin Vec2) error {
+func (r *Renderer) illustrationWriteIn(origin Vec2) error {
 	img := r.doc.GetImageInfo(imgNameWriteIn)
 
 	scale := r.cfg.InstructionImgWidth / img.Width()
@@ -1835,7 +1962,7 @@ func (r *renderer) illustrationWriteIn(origin Vec2) error {
 	return nil
 }
 
-func (r *renderer) instructions() {
+func (r *Renderer) instructions() {
 	width := r.frame.Size.X() - r.cfg.PaddingBox.X() - r.cfg.PaddingBox.X()
 
 	widthWriteIn := r.cfg.InstructionWriteInWidthRatio * width
@@ -1913,7 +2040,7 @@ func (r *renderer) instructions() {
 	r.doc.SetXY(pos.X(), pos.Y()+heightInstructions)
 }
 
-func (r *renderer) pageAdd() {
+func (r *Renderer) pageAdd() {
 	r.doc.AddPage()
 	r.col = 0
 	r.pageSide = PageSide(r.doc.PageNo() % 2)
@@ -1930,18 +2057,18 @@ func (r *renderer) pageAdd() {
 	r.timingMarks()
 }
 
-func (r *renderer) PrecinctId() string {
+func (r *Renderer) PrecinctId() string {
 	return r.params.PrecinctId
 }
 
-func (r *renderer) stringPrimary(key string) string {
+func (r *Renderer) stringPrimary(key string) string {
 	return cmp.Or(
 		r.election.Strings[r.langCode][key],
 		StringCatalog[key],
 	)
 }
 
-func (r *renderer) stringSecondary(key string) string {
+func (r *Renderer) stringSecondary(key string) string {
 	if !r.langDual {
 		return ""
 	}
@@ -1952,15 +2079,15 @@ func (r *renderer) stringSecondary(key string) string {
 	)
 }
 
-func (r *renderer) StyleId() string {
+func (r *Renderer) StyleId() string {
 	return r.params.StyleId
 }
 
-func (r *renderer) qrName(pageNum int) string {
+func (r *Renderer) qrName(pageNum int) string {
 	return "qr-p" + strconv.Itoa(pageNum)
 }
 
-func (r *renderer) qrRegister(metadata MetadataEncoded) error {
+func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 	type result struct {
 		err     error
 		img     *bytes.Buffer
@@ -2031,7 +2158,7 @@ func (r *renderer) qrRegister(metadata MetadataEncoded) error {
 	return r.doc.Error()
 }
 
-func (r *renderer) qrRender() error {
+func (r *Renderer) qrRender() error {
 	x, y := r.doc.GetXY()
 
 	r.doc.ImageOptions(
@@ -2049,7 +2176,7 @@ func (r *renderer) qrRender() error {
 	return nil
 }
 
-func (r *renderer) seal(origin Vec2, containerHeight float32) error {
+func (r *Renderer) seal(origin Vec2, containerHeight float32) error {
 	const name = "seal"
 	if !strings.HasPrefix(r.election.Seal, "data:") {
 		return nil
@@ -2096,7 +2223,7 @@ func (r *renderer) seal(origin Vec2, containerHeight float32) error {
 	return nil
 }
 
-func (r *renderer) BallotMode() string {
+func (r *Renderer) BallotMode() string {
 	if r.params.Official {
 		return "official"
 	}
@@ -2104,11 +2231,11 @@ func (r *renderer) BallotMode() string {
 	return "test"
 }
 
-func (r *renderer) BallotType() elections.BallotType {
+func (r *Renderer) BallotType() elections.BallotType {
 	return r.params.Type
 }
 
-func (r *renderer) bold(
+func (r *Renderer) bold(
 	lang Lang,
 	width float32,
 	align string,
@@ -2127,7 +2254,7 @@ func (r *renderer) bold(
 	}
 }
 
-func (r *renderer) caption(
+func (r *Renderer) caption(
 	lang Lang,
 	width float32,
 	align string,
@@ -2146,7 +2273,7 @@ func (r *renderer) caption(
 	}
 }
 
-func (r *renderer) h1(lang Lang, width float32, align string, lines []string) {
+func (r *Renderer) h1(lang Lang, width float32, align string, lines []string) {
 	r.doc.SetFont(r.fontH1(lang))
 	for _, line := range lines {
 		r.textLine(
@@ -2160,7 +2287,7 @@ func (r *renderer) h1(lang Lang, width float32, align string, lines []string) {
 	}
 }
 
-func (r *renderer) h2(lang Lang, width float32, align string, lines []string) {
+func (r *Renderer) h2(lang Lang, width float32, align string, lines []string) {
 	r.doc.SetFont(r.fontH2(lang))
 	for _, line := range lines {
 		r.textLine(
@@ -2174,7 +2301,7 @@ func (r *renderer) h2(lang Lang, width float32, align string, lines []string) {
 	}
 }
 
-func (r *renderer) h3(lang Lang, width float32, align string, lines []string) {
+func (r *Renderer) h3(lang Lang, width float32, align string, lines []string) {
 	r.doc.SetFont(r.fontH3(lang))
 	for _, line := range lines {
 		r.textLine(
@@ -2188,7 +2315,7 @@ func (r *renderer) h3(lang Lang, width float32, align string, lines []string) {
 	}
 }
 
-func (r *renderer) h4(lang Lang, width float32, align string, lines []string) {
+func (r *Renderer) h4(lang Lang, width float32, align string, lines []string) {
 	r.doc.SetFont(r.fontH4(lang))
 	for _, line := range lines {
 		r.textLine(
@@ -2202,7 +2329,7 @@ func (r *renderer) h4(lang Lang, width float32, align string, lines []string) {
 	}
 }
 
-func (r *renderer) pico(
+func (r *Renderer) pico(
 	lang Lang,
 	width float32,
 	align string,
@@ -2221,7 +2348,7 @@ func (r *renderer) pico(
 	}
 }
 
-func (r *renderer) regular(
+func (r *Renderer) regular(
 	lang Lang,
 	width float32,
 	align string,
@@ -2240,7 +2367,7 @@ func (r *renderer) regular(
 	}
 }
 
-func (r *renderer) tiny(
+func (r *Renderer) tiny(
 	lang Lang,
 	width float32,
 	align string,
@@ -2267,7 +2394,7 @@ type textLineParams struct {
 	width    float32
 }
 
-func (r *renderer) textLine(p textLineParams) {
+func (r *Renderer) textLine(p textLineParams) {
 	x := r.doc.GetX()
 
 	r.doc.CellFormat(
@@ -2280,7 +2407,7 @@ func (r *renderer) textLine(p textLineParams) {
 	r.doc.SetX(x)
 }
 
-func (r *renderer) timingMarks() {
+func (r *Renderer) timingMarks() {
 	r.doc.SetFillColor(0, 0, 0)
 
 	x := r.cfg.PrintMargin.X()
@@ -2298,7 +2425,7 @@ func (r *renderer) timingMarks() {
 	}
 }
 
-func (r *renderer) timingMark(at Vec2) {
+func (r *Renderer) timingMark(at Vec2) {
 	r.doc.Rect(
 		at.X(),
 		at.Y(),

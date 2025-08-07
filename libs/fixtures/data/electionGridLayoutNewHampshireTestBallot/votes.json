@@ -1,0 +1,106 @@
+{
+  "12": {
+    "102": [
+      {
+        "yesNoOptionId": "measure-102-option-no"
+      }
+    ],
+    "president": [
+      {
+        "candidateId": "barchi-hallaren"
+      }
+    ],
+    "senator": [],
+    "representative-district-6": [
+      {
+        "candidateId": "schott"
+      }
+    ],
+    "governor": [],
+    "lieutenant-governor": [
+      {
+        "candidateId": "hovis"
+      }
+    ],
+    "secretary-of-state": [],
+    "state-senator-district-31": [
+      {
+        "candidateId": "shiplett"
+      }
+    ],
+    "state-assembly-district-54": [],
+    "county-commissioners": [
+      {
+        "candidateId": "argent"
+      },
+      {
+        "candidateId": "altman"
+      },
+      {
+        "candidateId": "moore"
+      },
+      {
+        "candidateId": "schreiner"
+      },
+      {
+        "candidateId": "write-in-0",
+        "writeInName": "Write-In #1",
+        "writeInIndex": 0
+      }
+    ],
+    "county-registrar-of-wills": [],
+    "city-mayor": [
+      {
+        "candidateId": "white"
+      },
+      {
+        "candidateId": "write-in-0",
+        "writeInName": "Write-In #1",
+        "writeInIndex": 0
+      }
+    ],
+    "city-council": [
+      {
+        "candidateId": "eagle"
+      },
+      {
+        "candidateId": "smith"
+      }
+    ],
+    "judicial-robert-demergue": [
+      {
+        "yesNoOptionId": "judicial-robert-demergue-option-yes"
+      }
+    ],
+    "judicial-elmer-hull": [
+      {
+        "yesNoOptionId": "judicial-elmer-hull-option-no"
+      }
+    ],
+    "question-a": [
+      {
+        "yesNoOptionId": "question-a-option-yes"
+      }
+    ],
+    "question-b": [
+      {
+        "yesNoOptionId": "question-b-option-no"
+      }
+    ],
+    "question-c": [
+      {
+        "yesNoOptionId": "question-c-option-yes"
+      }
+    ],
+    "proposition-1": [
+      {
+        "yesNoOptionId": "proposition-1-option-no"
+      }
+    ],
+    "measure-101": [
+      {
+        "yesNoOptionId": "measure-101-option-yes"
+      }
+    ]
+  }
+}

@@ -101,7 +101,7 @@ type RichTextLinesParams struct {
 	width float32
 }
 
-func (r *renderer) richTextLines(p RichTextLinesParams) (RichText, error) {
+func (r *Renderer) richTextLines(p RichTextLinesParams) (RichText, error) {
 	rt := RichText{}
 
 	inList := false

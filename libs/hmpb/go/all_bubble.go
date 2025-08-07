@@ -4,17 +4,24 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"slices"
-	"strings"
 	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
+)
+
+type AllBubbleBallotMode uint8
+
+const (
+	AllBubbleBallotBlank AllBubbleBallotMode = iota
+	AllBubbleBallotCycling
+	AllBubbleBallotFilled
 )
 
 func (p *PrinterHmpb) BallotAllBubble(
 	writer io.Writer,
 	cfg *Cfg,
 	size elections.PaperSize,
+	mode AllBubbleBallotMode,
 ) (*elections.Election, error) {
 	election := elections.Election{
 		BallotLayout: elections.BallotLayout{
@@ -27,6 +34,7 @@ func (p *PrinterHmpb) BallotAllBubble(
 			Id:        "sheet-1",
 			Precincts: []string{"test-precinct"},
 		}},
+		Contests: make([]elections.Contest, 0, 2),
 		County: elections.County{
 			Id:   "test-county",
 			Name: "Test County",
@@ -35,6 +43,7 @@ func (p *PrinterHmpb) BallotAllBubble(
 			Id:   "test-district",
 			Name: "Test District",
 		}},
+		GridLayouts: make([]elections.GridLayout, 0, 1),
 		Key: elections.Key{
 			Date: elections.Date{DateObj: elections.DateObj{
 				Year:  2023,
@@ -53,7 +62,7 @@ func (p *PrinterHmpb) BallotAllBubble(
 		Type:    elections.ElectionTypeGeneral,
 	}
 
-	r := renderer{
+	r := Renderer{
 		cfg:      cfg,
 		election: &election,
 		printer:  p,
@@ -65,24 +74,28 @@ func (p *PrinterHmpb) BallotAllBubble(
 		},
 	}
 
-	err := r.renderAllBubble(writer)
+	err := r.renderAllBubble(mode)
 	if err != nil {
 		return nil, err
 	}
 
 	layout := r.Layout()
 	election.GridLayouts = append(election.GridLayouts, layout)
-	slices.SortFunc(
-		election.GridLayouts,
-		func(a, b elections.GridLayout) int {
-			return strings.Compare(a.BallotStyleId, b.BallotStyleId)
-		},
-	)
+
+	_, hash, err := election.MarshalAndHash()
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Finalize(writer, hash[:], hex.EncodeToString(hash[:]))
+	if err != nil {
+		return nil, err
+	}
 
 	return &election, nil
 }
 
-func (r *renderer) renderAllBubble(writer io.Writer) error {
+func (r *Renderer) renderAllBubble(mode AllBubbleBallotMode) error {
 	_, err := r.init()
 	if err != nil {
 		return err
@@ -99,9 +112,13 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 	for i := range 2 {
 		r.doc.SetPage(i + 1)
 
+		const footerGridHeight = 2
+		rowCount := int(r.gridCellCount.Y()) - 2 - footerGridHeight
+		colCount := int(r.gridCellCount.X()) - 2
+
 		contest := elections.Contest{
 			CandidateContest: elections.CandidateContest{
-				Candidates: []elections.Candidate{},
+				Candidates: make([]elections.Candidate, 0, rowCount*colCount),
 			},
 			DistrictId: "test-district",
 			Id:         fmt.Sprintf("page-%d", i+1),
@@ -110,10 +127,9 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 		}
 
 		y := 1
-		const footerGridHeight = 2
-		for range int(r.gridCellCount.Y()) - 2 - footerGridHeight {
+		for range rowCount {
 			x := 1
-			for range int(r.gridCellCount.X()) - 2 {
+			for range colCount {
 				id := fmt.Sprintf("p%d-r%d-c%d", i+1, x, y)
 				contest.Candidates = append(
 					contest.Candidates,
@@ -126,15 +142,26 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 					},
 				)
 
-				r.bubbleOption(
-					r.fromGrid(Vec2{float32(x), float32(y)}).Sub(
-						r.cfg.BubbleSize.
-							Add(Vec2{bubbleLnWidth, bubbleLnWidth}).
-							Mul(Vec2{0.5, 0.5}),
-					),
-					&contest,
-					id,
+				pos := r.fromGrid(Vec2{float32(x), float32(y)}).Sub(
+					r.cfg.BubbleSize.
+						Add(Vec2{bubbleLnWidth, bubbleLnWidth}).
+						Mul(Vec2{0.5, 0.5}),
 				)
+
+				switch mode {
+				case AllBubbleBallotBlank:
+					r.bubbleOption(pos, &contest, id)
+
+				case AllBubbleBallotCycling:
+					if (x-y)%6 == 0 {
+						r.bubbleOptionFilled(pos, &contest, id)
+					} else {
+						r.bubbleOption(pos, &contest, id)
+					}
+
+				case AllBubbleBallotFilled:
+					r.bubbleOptionFilled(pos, &contest, id)
+				}
 
 				x += 1
 			}
@@ -150,10 +177,5 @@ func (r *renderer) renderAllBubble(writer io.Writer) error {
 		r.perf.measures = time.Now()
 	}
 
-	_, hash, err := r.election.MarshalAndHash()
-	if err != nil {
-		return err
-	}
-
-	return r.Finalize(writer, hash[:], hex.EncodeToString(hash[:]))
+	return nil
 }

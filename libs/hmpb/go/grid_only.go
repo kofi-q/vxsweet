@@ -13,7 +13,7 @@ func (p *PrinterHmpb) BallotGridOnly(
 	cfg *Cfg,
 	size elections.PaperSize,
 ) error {
-	r := renderer{
+	r := Renderer{
 		cfg: cfg,
 		election: &elections.Election{
 			BallotLayout: elections.BallotLayout{
@@ -44,7 +44,7 @@ func (p *PrinterHmpb) BallotGridOnly(
 	return err
 }
 
-func (r *renderer) renderGridOnly(writer io.Writer) error {
+func (r *Renderer) renderGridOnly(writer io.Writer) error {
 	_, err := r.init()
 	if err != nil {
 		return err

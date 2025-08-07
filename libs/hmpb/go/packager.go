@@ -43,7 +43,7 @@ var (
 
 func (p *Packager) All() (Package, error) {
 	var errs []error
-	renderers := []*renderer{}
+	renderers := []*Renderer{}
 
 	if p.BallotTypes == nil {
 		p.BallotTypes = AllBallotTypes
@@ -71,7 +71,7 @@ func (p *Packager) All() (Package, error) {
 	}
 
 	chanErrs := make(chan error)
-	chanRenderers := make(chan *renderer)
+	chanRenderers := make(chan *Renderer)
 	var wg sync.WaitGroup
 
 	for _, job := range p.jobs {

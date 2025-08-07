@@ -29,15 +29,18 @@ var (
 func main() {
 	printer := hmpb.NewPrinterHmpb()
 	election := electionGeneral
+	votes := mockVotes(&electionGeneral)
 
 	startTotal := time.Now()
 
 	switch 0 {
 	case 0:
-		genSingleBallot(&printer, &election)
+		genSingleBallot(&printer, &election, nil)
 	case 1:
-		genMultiBallotElection(&printer, &election)
+		genSingleBallot(&printer, &election, votes)
 	case 2:
+		genMultiBallotElection(&printer, &election)
+	case 3:
 		genParallelBallots(&printer, 20)
 	default:
 		panic("\ninvalid mode")
@@ -46,7 +49,11 @@ func main() {
 	fmt.Println("TOTAL TIME:", time.Since(startTotal))
 }
 
-func genSingleBallot(printer hmpb.Printer, election *elections.Election) {
+func genSingleBallot(
+	printer hmpb.Printer,
+	election *elections.Election,
+	votes elections.Votes,
+) {
 	tmpBallotPath := path.Join(outpath, "blank-ballot-test-print.pdf")
 	file, err := os.Create(tmpBallotPath)
 	assertNoErr(err)
@@ -75,6 +82,10 @@ func genSingleBallot(printer hmpb.Printer, election *elections.Election) {
 
 	_, hash, err := finalElection.MarshalAndHash()
 	assertNoErr(err)
+
+	if votes != nil {
+		renderer.MarkVotes(votes)
+	}
 
 	assertNoErr(renderer.Finalize(file, hash[:], hex.EncodeToString(hash[:])))
 
@@ -170,4 +181,39 @@ func mockElection(filename string) (election elections.Election) {
 	}
 
 	return
+}
+
+func mockVotes(election *elections.Election) elections.Votes {
+	votes := elections.Votes{}
+
+	for _, contest := range election.Contests {
+		if contest.Type == elections.ContestTypeYesNo {
+			votes[contest.Id] = []elections.Vote{{
+				YesNoOptionId: contest.YesOption.Id,
+			}}
+
+			continue
+		}
+
+		votes[contest.Id] = []elections.Vote{}
+		seats := contest.Seats
+
+		if contest.AllowWriteIns {
+			votes[contest.Id] = append(votes[contest.Id], elections.Vote{
+				CandidateId:  "write-in-1",
+				WriteInIndex: seats / 2,
+				WriteInName:  "ANYONE BUT ME",
+			})
+
+			seats -= 1
+		}
+
+		for i := range seats {
+			votes[contest.Id] = append(votes[contest.Id], elections.Vote{
+				CandidateId: contest.Candidates[i].Id,
+			})
+		}
+	}
+
+	return votes
 }
