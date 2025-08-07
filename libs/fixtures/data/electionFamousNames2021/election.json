@@ -437,7 +437,7 @@
       "seats": 4
     }
   ],
-  "gridLayouts": null,
+  "gridLayouts": [],
   "county": {
     "id": "franklin",
     "name": "Franklin County"
