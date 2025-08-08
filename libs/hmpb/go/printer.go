@@ -75,6 +75,7 @@ var (
 	FontIdNotoScBold   scribe.FontId
 
 	template = scribe.CreateTpl(
+		"hmpbCommon",
 		scribe.PointType{X: 0, Y: 0},
 		scribe.PageSizeLegal,
 		scribe.OrientationPortrait,
@@ -242,9 +243,12 @@ type Renderer struct {
 
 	gridPositions []elections.GridPosition
 
-	frame       Rect
-	langCode    string
-	optionAlign string
+	frame                Rect
+	langCode             string
+	optionAlign          string
+	templateBubbleEmpty  scribe.Template
+	templateBubbleFilled scribe.Template
+	templateTimingMarks  scribe.Template
 
 	bubbleSizeHalf Vec2
 	gridCellCount  Vec2
@@ -422,9 +426,7 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 		r.cfg.BubbleSize.X()
 
 	r.bubbleRadius = 0.5 * r.cfg.BubbleSize.Y()
-	r.bubbleOffsetY = 0.5*r.cfg.FontSize.Base -
-		0.5*r.cfg.BubbleSize.Y() +
-		r.cfg.BubbleLnWidth
+	r.bubbleOffsetY = 0.5*(r.cfg.FontSize.Base-r.cfg.BubbleSize.Y()) + 0.5*r.cfg.BubbleLnWidth
 
 	r.writeInLineOffsetY = r.cfg.WriteInHeight - r.cfg.LnHeight.Caption
 
@@ -436,6 +438,10 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 	if r.cfg.BubbleAlignRight {
 		r.optionAlign = "R"
 	}
+
+	r.templateBubbleEmpty = r.bubbleTemplate(bubbleStyleEmpty)
+	r.templateBubbleFilled = r.bubbleTemplate(bubbleStyleFilled)
+	r.templateTimingMarks = r.timingMarksTemplate(pageSize)
 
 	r.pageAdd()
 	r.doc.UseTemplate(template)
@@ -785,7 +791,7 @@ func (r *Renderer) bubbleOption(
 	contest *elections.Contest,
 	optionId string,
 ) {
-	r.bubbleShape(pos, bubbleStyleEmpty)
+	r.bubbleShape(pos)
 
 	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
 	r.gridPositions = append(r.gridPositions, elections.GridPosition{
@@ -828,7 +834,7 @@ func (r *Renderer) bubbleWritein(
 	ixWritein uint32,
 	area Rect,
 ) {
-	r.bubbleShape(pos, bubbleStyleEmpty)
+	r.bubbleShape(pos)
 
 	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
 
@@ -854,6 +860,24 @@ func (r *Renderer) bubbleWritein(
 	})
 }
 
+func (r *Renderer) bubbleShape(pos Vec2) {
+	_, size := r.templateBubbleEmpty.Size()
+	r.doc.UseTemplateScaled(
+		r.templateBubbleEmpty,
+		scribe.PointType{X: pos.X(), Y: pos.Y() + r.bubbleOffsetY},
+		size,
+	)
+}
+
+func (r *Renderer) bubbleShapeFilled(pos Vec2) {
+	_, size := r.templateBubbleFilled.Size()
+	r.doc.UseTemplateScaled(
+		r.templateBubbleFilled,
+		scribe.PointType{X: pos.X(), Y: pos.Y() + r.bubbleOffsetY},
+		size,
+	)
+}
+
 type bubbleStyle string
 
 const (
@@ -861,11 +885,30 @@ const (
 	bubbleStyleEmpty  = "D"
 )
 
-func (r *Renderer) bubbleShape(pos Vec2, style bubbleStyle) {
-	r.doc.SetLineWidth(r.cfg.BubbleLnWidth)
-	r.doc.RoundedRectExt(
-		pos.X(),
-		pos.Y()+r.bubbleOffsetY,
+func (r *Renderer) bubbleTemplate(style bubbleStyle) scribe.Template {
+	return r.doc.CreateTemplateCustom(
+		"bubble",
+		scribe.PointType{X: 0, Y: 0},
+		scribe.PageSize{
+			Wd: r.cfg.BubbleSize.X() + r.cfg.BubbleLnWidth,
+			Ht: r.cfg.BubbleSize.Y() + r.cfg.BubbleLnWidth,
+		},
+		func(tpl *scribe.Tpl) {
+			tpl.SetCompression(false)
+			r.bubbleTemplateShape(tpl, style)
+		},
+	)
+}
+
+func (r *Renderer) bubbleTemplateShape(
+	tpl *scribe.Tpl,
+	style bubbleStyle,
+) {
+	tpl.SetLineWidth(r.cfg.BubbleLnWidth)
+	tpl.SetDrawColor(r.cfg.Color.Fg.Rgb())
+	tpl.RoundedRectExt(
+		0.5*r.cfg.BubbleLnWidth,
+		0.5*r.cfg.BubbleLnWidth,
 		r.cfg.BubbleSize.X(),
 		r.cfg.BubbleSize.Y(),
 		r.bubbleRadius,
@@ -874,11 +917,6 @@ func (r *Renderer) bubbleShape(pos Vec2, style bubbleStyle) {
 		r.bubbleRadius,
 		string(style),
 	)
-}
-
-func (r *Renderer) bubbleShapeFilled(pos Vec2) {
-	r.doc.SetFillColor(r.cfg.Color.Fg.Rgb())
-	r.bubbleShape(pos, bubbleStyleFilled)
 }
 
 func (r *Renderer) fromGrid(pos Vec2) Vec2 {
@@ -1021,12 +1059,11 @@ func (r *Renderer) contestCandidate(contest *elections.Contest) error {
 	xCandidate := posContent.X()
 	xBubble := posContent.X() +
 		r.widthOptionCandidate +
-		r.cfg.PaddingBox.X() +
-		0.5*r.cfg.BubbleLnWidth
+		r.cfg.PaddingBox.X()
 
 	if !r.cfg.BubbleAlignRight {
 		xCandidate += r.cfg.BubbleSize.X() + r.cfg.PaddingBox.X()
-		xBubble = posContent.X() + 0.5*r.cfg.BubbleLnWidth
+		xBubble = posContent.X()
 	}
 
 	r.doc.MoveTo(posContent.X(), pos.Y()+heightHeader)
@@ -1518,12 +1555,11 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 	xOption := posContent.X()
 	xBubble := posContent.X() +
 		r.widthOptionYesNo +
-		r.cfg.PaddingBox.X() +
-		0.5*r.cfg.BubbleLnWidth
+		r.cfg.PaddingBox.X()
 
 	if !r.cfg.BubbleAlignRight {
 		xOption += r.cfg.BubbleSize.X() + r.cfg.PaddingBox.X()
-		xBubble = posContent.X() + 0.5*r.cfg.BubbleLnWidth
+		xBubble = posContent.X()
 	}
 
 	// Padding:
@@ -2056,7 +2092,7 @@ func (r *Renderer) pageAdd() {
 	r.yContentMin = r.frame.Origin.Y()
 	r.yEndCandidateContests = r.yContentMin
 
-	r.timingMarks()
+	r.doc.UseTemplate(r.templateTimingMarks)
 }
 
 func (r *Renderer) PrecinctId() string {
@@ -2409,26 +2445,36 @@ func (r *Renderer) textLine(p textLineParams) {
 	r.doc.SetX(x)
 }
 
-func (r *Renderer) timingMarks() {
-	r.doc.SetFillColor(0, 0, 0)
+func (r *Renderer) timingMarksTemplate(
+	pageSize scribe.PageSize,
+) scribe.Template {
+	return r.doc.CreateTemplateCustom(
+		"timingMarks",
+		scribe.PointType{X: 0, Y: 0},
+		pageSize,
+		func(tpl *scribe.Tpl) {
+			tpl.SetCompression(false)
+			tpl.SetFillColor(0, 0, 0)
 
-	x := r.cfg.PrintMargin.X()
-	for range uint8(r.gridCellCount.X()) {
-		r.timingMark(Vec2{x, r.gridP1.Y()})
-		r.timingMark(Vec2{x, r.gridP2.Y()})
-		x += r.cfg.Grid.MarkSize.X() + r.gridSpacing.X()
-	}
+			x := r.cfg.PrintMargin.X()
+			for range uint8(r.gridCellCount.X()) {
+				r.timingMark(tpl, Vec2{x, r.gridP1.Y()})
+				r.timingMark(tpl, Vec2{x, r.gridP2.Y()})
+				x += r.cfg.Grid.MarkSize.X() + r.gridSpacing.X()
+			}
 
-	y := r.cfg.PrintMargin.Y()
-	for range uint8(r.gridCellCount.Y()) {
-		r.timingMark(Vec2{r.gridP1.X(), y})
-		r.timingMark(Vec2{r.gridP2.X(), y})
-		y += r.cfg.Grid.MarkSize.Y() + r.gridSpacing.Y()
-	}
+			y := r.cfg.PrintMargin.Y()
+			for range uint8(r.gridCellCount.Y()) {
+				r.timingMark(tpl, Vec2{r.gridP1.X(), y})
+				r.timingMark(tpl, Vec2{r.gridP2.X(), y})
+				y += r.cfg.Grid.MarkSize.Y() + r.gridSpacing.Y()
+			}
+		},
+	)
 }
 
-func (r *Renderer) timingMark(at Vec2) {
-	r.doc.Rect(
+func (r *Renderer) timingMark(doc scribe.Scriber, at Vec2) {
+	doc.Rect(
 		at.X(),
 		at.Y(),
 		r.cfg.Grid.MarkSize.X(),

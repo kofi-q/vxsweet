@@ -67,10 +67,10 @@ func (p *PrinterHmpb) BallotAllBubble(
 		election: &election,
 		printer:  p,
 		params: PrintParams{
+			Official:   true,
 			PrecinctId: "test-precinct",
 			StyleId:    "sheet-1",
 			Type:       elections.BallotTypePrecinct,
-			Official:   true,
 		},
 	}
 
