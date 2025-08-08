@@ -2085,7 +2085,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 6.26389,
+          "row": 7.792834,
           "column": 1.7296052,
           "contestId": "judicial-robert-demergue",
           "optionId": "judicial-robert-demergue-option-yes"
@@ -2094,7 +2094,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 7.559244,
+          "row": 9.088188,
           "column": 1.7296052,
           "contestId": "judicial-robert-demergue",
           "optionId": "judicial-robert-demergue-option-no"
@@ -2103,7 +2103,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 13.577336,
+          "row": 16.63522,
           "column": 1.7296052,
           "contestId": "judicial-elmer-hull",
           "optionId": "judicial-elmer-hull-option-yes"
@@ -2112,7 +2112,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 14.87269,
+          "row": 17.930574,
           "column": 1.7296052,
           "contestId": "judicial-elmer-hull",
           "optionId": "judicial-elmer-hull-option-no"
@@ -2121,7 +2121,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 20.89078,
+          "row": 30.828915,
           "column": 1.7296052,
           "contestId": "question-a",
           "optionId": "question-a-option-yes"
@@ -2130,7 +2130,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 22.186134,
+          "row": 32.12427,
           "column": 1.7296052,
           "contestId": "question-a",
           "optionId": "question-a-option-no"
@@ -2139,8 +2139,8 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 27.28686,
-          "column": 1.7296052,
+          "row": 15.89623,
+          "column": 17.578289,
           "contestId": "question-b",
           "optionId": "question-b-option-yes"
         },
@@ -2148,8 +2148,8 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 28.582216,
-          "column": 1.7296052,
+          "row": 17.191584,
+          "column": 17.578289,
           "contestId": "question-b",
           "optionId": "question-b-option-no"
         },
@@ -2157,8 +2157,8 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 34.600307,
-          "column": 1.7296052,
+          "row": 27.796505,
+          "column": 17.578289,
           "contestId": "question-c",
           "optionId": "question-c-option-yes"
         },
@@ -2166,8 +2166,8 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 35.895664,
-          "column": 1.7296052,
+          "row": 29.09186,
+          "column": 17.578289,
           "contestId": "question-c",
           "optionId": "question-c-option-no"
         },
@@ -2175,7 +2175,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 15.953565,
+          "row": 45.717014,
           "column": 17.578289,
           "contestId": "proposition-1",
           "optionId": "proposition-1-option-yes"
@@ -2184,7 +2184,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 17.24892,
+          "row": 47.01237,
           "column": 17.578289,
           "contestId": "proposition-1",
           "optionId": "proposition-1-option-no"
@@ -2192,18 +2192,18 @@
         {
           "type": "option",
           "sheetNumber": 2,
-          "side": "front",
-          "row": 33.06395,
-          "column": 17.578289,
+          "side": "back",
+          "row": 15.1434555,
+          "column": 1.7296052,
           "contestId": "measure-101",
           "optionId": "measure-101-option-yes"
         },
         {
           "type": "option",
           "sheetNumber": 2,
-          "side": "front",
-          "row": 34.359306,
-          "column": 17.578289,
+          "side": "back",
+          "row": 16.438812,
+          "column": 1.7296052,
           "contestId": "measure-101",
           "optionId": "measure-101-option-no"
         },
@@ -2211,7 +2211,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 5.346524,
+          "row": 29.337147,
           "column": 1.7296052,
           "contestId": "102",
           "optionId": "measure-102-option-yes"
@@ -2220,7 +2220,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 6.6418786,
+          "row": 30.632504,
           "column": 1.7296052,
           "contestId": "102",
           "optionId": "measure-102-option-no"

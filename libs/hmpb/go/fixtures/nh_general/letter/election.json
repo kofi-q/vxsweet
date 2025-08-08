@@ -2121,7 +2121,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 16.99489,
+          "row": 19.25815,
           "column": 31.313816,
           "contestId": "question-a",
           "optionId": "question-a-option-yes"
@@ -2130,7 +2130,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 18.273212,
+          "row": 20.536472,
           "column": 31.313816,
           "contestId": "question-a",
           "optionId": "question-a-option-no"
@@ -2139,7 +2139,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 23.306873,
+          "row": 31.605501,
           "column": 31.313816,
           "contestId": "question-b",
           "optionId": "question-b-option-yes"
@@ -2148,33 +2148,33 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "back",
-          "row": 24.585197,
+          "row": 32.883827,
           "column": 31.313816,
           "contestId": "question-b",
           "optionId": "question-b-option-no"
         },
         {
           "type": "option",
-          "sheetNumber": 2,
-          "side": "back",
-          "row": 29.618858,
+          "sheetNumber": 3,
+          "side": "front",
+          "row": 5.8797646,
           "column": 31.313816,
           "contestId": "question-c",
           "optionId": "question-c-option-yes"
         },
         {
           "type": "option",
-          "sheetNumber": 2,
-          "side": "back",
-          "row": 30.897182,
+          "sheetNumber": 3,
+          "side": "front",
+          "row": 7.158088,
           "column": 31.313816,
           "contestId": "question-c",
           "optionId": "question-c-option-no"
         },
         {
           "type": "option",
-          "sheetNumber": 3,
-          "side": "back",
+          "sheetNumber": 4,
+          "side": "front",
           "row": 25.49469,
           "column": 31.313816,
           "contestId": "proposition-1",
@@ -2182,8 +2182,8 @@
         },
         {
           "type": "option",
-          "sheetNumber": 3,
-          "side": "back",
+          "sheetNumber": 4,
+          "side": "front",
           "row": 26.773014,
           "column": 31.313816,
           "contestId": "proposition-1",
@@ -2192,7 +2192,7 @@
         {
           "type": "option",
           "sheetNumber": 4,
-          "side": "front",
+          "side": "back",
           "row": 12.681091,
           "column": 31.313816,
           "contestId": "measure-101",
@@ -2201,7 +2201,7 @@
         {
           "type": "option",
           "sheetNumber": 4,
-          "side": "front",
+          "side": "back",
           "row": 13.959414,
           "column": 31.313816,
           "contestId": "measure-101",
@@ -2210,8 +2210,8 @@
         {
           "type": "option",
           "sheetNumber": 4,
-          "side": "front",
-          "row": 18.993074,
+          "side": "back",
+          "row": 21.256334,
           "column": 31.313816,
           "contestId": "102",
           "optionId": "measure-102-option-yes"
@@ -2219,8 +2219,8 @@
         {
           "type": "option",
           "sheetNumber": 4,
-          "side": "front",
-          "row": 20.271397,
+          "side": "back",
+          "row": 22.534658,
           "column": 31.313816,
           "contestId": "102",
           "optionId": "measure-102-option-no"

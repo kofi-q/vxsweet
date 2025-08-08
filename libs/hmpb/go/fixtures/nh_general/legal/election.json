@@ -2121,7 +2121,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 17.221313,
+          "row": 19.514729,
           "column": 31.313816,
           "contestId": "question-a",
           "optionId": "question-a-option-yes"
@@ -2130,7 +2130,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 18.51667,
+          "row": 20.810083,
           "column": 31.313816,
           "contestId": "question-a",
           "optionId": "question-a-option-no"
@@ -2139,7 +2139,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 23.617393,
+          "row": 32.026585,
           "column": 31.313816,
           "contestId": "question-b",
           "optionId": "question-b-option-yes"
@@ -2148,7 +2148,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 24.912746,
+          "row": 33.32194,
           "column": 31.313816,
           "contestId": "question-b",
           "optionId": "question-b-option-no"
@@ -2157,7 +2157,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 30.013475,
+          "row": 39.95162,
           "column": 31.313816,
           "contestId": "question-c",
           "optionId": "question-c-option-yes"
@@ -2166,7 +2166,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 31.308832,
+          "row": 41.246975,
           "column": 31.313816,
           "contestId": "question-c",
           "optionId": "question-c-option-no"
@@ -2211,7 +2211,7 @@
           "type": "option",
           "sheetNumber": 3,
           "side": "front",
-          "row": 35.96257,
+          "row": 38.255993,
           "column": 31.313816,
           "contestId": "102",
           "optionId": "measure-102-option-yes"
@@ -2220,7 +2220,7 @@
           "type": "option",
           "sheetNumber": 3,
           "side": "front",
-          "row": 37.25793,
+          "row": 39.551346,
           "column": 31.313816,
           "contestId": "102",
           "optionId": "measure-102-option-no"

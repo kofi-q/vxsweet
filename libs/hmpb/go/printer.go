@@ -1173,16 +1173,18 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 	} else {
 		r.doc.SetMeasurementFont(r.fontRegular(LangPrimary))
 		lines := r.doc.TextSplit(desc, r.widthContestYesNoContent)
+
+		i := 0
+		richText.lines = make([]HtmlLine, 2*len(lines))
 		for _, line := range lines {
-			richText.lines = []HtmlLine{
-				HtmlText{text: line},
-				HtmlNewline{},
-			}
+			richText.lines[i] = HtmlText{text: line}
+			richText.lines[i+1] = HtmlNewline{}
+			i += 2
 		}
+
 		richText.height = float32(
 			len(lines),
 		)*r.cfg.LnHeight.Base + 3*r.cfg.OptionSpacing
-
 	}
 
 	idOptionA := contest.YesOption.Id
