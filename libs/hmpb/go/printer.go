@@ -821,6 +821,10 @@ func (r *Renderer) bubbleTemplateShape(
 ) {
 	tpl.SetLineWidth(r.cfg.BubbleLnWidth)
 	tpl.SetDrawColor(r.cfg.Color.Fg.Rgb())
+	if style == bubbleStyleFilled {
+		tpl.SetFillColor(r.cfg.Color.Fg.Rgb())
+	}
+
 	tpl.RoundedRectExt(
 		0.5*r.cfg.BubbleLnWidth,
 		0.5*r.cfg.BubbleLnWidth,
