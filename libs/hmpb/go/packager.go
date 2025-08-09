@@ -1,6 +1,7 @@
 package hmpb
 
 import (
+	"bufio"
 	"encoding/hex"
 	"errors"
 	"fmt"
@@ -9,6 +10,7 @@ import (
 	"slices"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 )
@@ -112,6 +114,11 @@ func (p *Packager) All() (Package, error) {
 		return Package{}, errors.Join(errs...)
 	}
 
+	if len(p.jobs) > 1000 {
+		// Break for garbage collection on large elections.
+		time.Sleep(500 * time.Millisecond)
+	}
+
 	finalElection := *p.Election
 	finalElection.GridLayouts = []elections.GridLayout{}
 	for _, r := range renderers {
@@ -168,8 +175,12 @@ func (p *Packager) All() (Package, error) {
 			}
 			defer file.Close()
 
-			err = r.Finalize(file, hash[:], hashHex)
-			if err != nil {
+			bufWriter := bufio.NewWriter(file)
+			if err = r.Finalize(bufWriter, hash[:], hashHex); err != nil {
+				chanErrs <- err
+				return
+			}
+			if err = bufWriter.Flush(); err != nil {
 				chanErrs <- err
 			}
 		}()

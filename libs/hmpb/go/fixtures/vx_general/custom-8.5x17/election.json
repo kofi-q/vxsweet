@@ -2211,7 +2211,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 28.812595,
+          "row": 28.041702,
           "column": 17.556578,
           "contestId": "102",
           "optionId": "measure-102-option-yes"
@@ -2220,7 +2220,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 30.118828,
+          "row": 29.347935,
           "column": 17.556578,
           "contestId": "102",
           "optionId": "measure-102-option-no"

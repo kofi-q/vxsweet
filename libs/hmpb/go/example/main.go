@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	_ "embed"
 	"encoding/hex"
@@ -54,11 +55,6 @@ func genSingleBallot(
 	election *elections.Election,
 	votes elections.Votes,
 ) {
-	tmpBallotPath := path.Join(outpath, "blank-ballot-test-print.pdf")
-	file, err := os.Create(tmpBallotPath)
-	assertNoErr(err)
-	defer file.Close()
-
 	style := election.BallotStyles[0]
 	renderer, err := printer.Ballot(
 		election,
@@ -87,7 +83,20 @@ func genSingleBallot(
 		renderer.MarkVotes(votes)
 	}
 
-	assertNoErr(renderer.Finalize(file, hash[:], hex.EncodeToString(hash[:])))
+	tmpBallotPath := path.Join(outpath, "blank-ballot-test-print.pdf")
+	file, err := os.Create(tmpBallotPath)
+	assertNoErr(err)
+	defer file.Close()
+
+	bufWriter := bufio.NewWriter(file)
+	assertNoErr(
+		renderer.Finalize(
+			bufWriter,
+			hash[:],
+			hex.EncodeToString(hash[:]),
+		),
+	)
+	assertNoErr(bufWriter.Flush())
 
 	fmt.Println("Ballot printed to:", tmpBallotPath)
 }

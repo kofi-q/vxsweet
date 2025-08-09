@@ -4,7 +4,6 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 )
@@ -65,7 +64,6 @@ func (p *PrinterHmpb) BallotAllBubble(
 	r := Renderer{
 		cfg:      cfg,
 		election: &election,
-		printer:  p,
 		params: PrintParams{
 			Official:   true,
 			PrecinctId: "test-precinct",
@@ -104,10 +102,6 @@ func (r *Renderer) renderAllBubble(mode AllBubbleBallotMode) error {
 	r.bubbleOffsetY = 0
 	r.pageAdd()
 	r.lastPageNo = 2
-
-	if logPerf {
-		r.perf.header = time.Now()
-	}
 
 	for i := range 2 {
 		r.doc.SetPage(i + 1)
@@ -170,11 +164,6 @@ func (r *Renderer) renderAllBubble(mode AllBubbleBallotMode) error {
 		}
 
 		r.election.Contests = append(r.election.Contests, contest)
-	}
-
-	if logPerf {
-		r.perf.candidates = time.Now()
-		r.perf.measures = time.Now()
 	}
 
 	return nil

@@ -23,10 +23,6 @@ import (
 	"golang.org/x/text/language/display"
 )
 
-const (
-	logPerf = false
-)
-
 var (
 	//go:embed mark-bubble.png
 	imgMarkBubble []byte
@@ -68,11 +64,33 @@ var (
 )
 
 var (
-	FontIdRoboto       scribe.FontId
-	FontIdRobotoBold   scribe.FontId
-	FontIdRobotoItalic scribe.FontId
-	FontIdNotoSc       scribe.FontId
-	FontIdNotoScBold   scribe.FontId
+	fontSet = scribe.NewFontSet(5)
+
+	FontIdRoboto = fontSet.MustAddTtf(
+		"roboto",
+		scribe.FontStyleNone,
+		fonts.FontRoboto,
+	)
+	FontIdRobotoBold = fontSet.MustAddTtf(
+		"roboto",
+		scribe.FontStyleB,
+		fonts.FontRobotoBold,
+	)
+	FontIdRobotoItalic = fontSet.MustAddTtf(
+		"roboto",
+		scribe.FontStyleI,
+		fonts.FontRobotoItalic,
+	)
+	FontIdNotoSc = fontSet.MustAddTtf(
+		"notosc",
+		scribe.FontStyleNone,
+		fonts.FontNotoSansSc,
+	)
+	FontIdNotoScBold = fontSet.MustAddTtf(
+		"notosc",
+		scribe.FontStyleB,
+		fonts.FontNotoSansScBold,
+	)
 
 	template = scribe.CreateTpl(
 		"hmpbCommon",
@@ -80,52 +98,9 @@ var (
 		scribe.PageSizeLegal,
 		scribe.OrientationPortrait,
 		scribe.UnitPoint,
-		"",
+		&fontSet,
 		func(tpl *scribe.Tpl) {
 			tpl.SetCatalogSort(true)
-
-			var err error
-			FontIdRoboto, err = tpl.AddUTF8FontFromBytes(
-				"roboto",
-				scribe.FontStyleNone,
-				fonts.FontRoboto,
-			)
-			if err != nil {
-				log.Panicf("unable to add template font: %v", err)
-			}
-			FontIdRobotoBold, err = tpl.AddUTF8FontFromBytes(
-				"roboto",
-				scribe.FontStyleB,
-				fonts.FontRobotoBold,
-			)
-			if err != nil {
-				log.Panicf("unable to add template font: %v", err)
-			}
-			FontIdRobotoItalic, err = tpl.AddUTF8FontFromBytes(
-				"roboto",
-				scribe.FontStyleI,
-				fonts.FontRobotoItalic,
-			)
-			if err != nil {
-				log.Panicf("unable to add template font: %v", err)
-			}
-
-			FontIdNotoSc, err = tpl.AddUTF8FontFromBytes(
-				"notosc",
-				scribe.FontStyleNone,
-				fonts.FontNotoSansSc,
-			)
-			if err != nil {
-				log.Panicf("unable to add template font: %v", err)
-			}
-			FontIdNotoScBold, err = tpl.AddUTF8FontFromBytes(
-				"notosc",
-				scribe.FontStyleB,
-				fonts.FontNotoSansScBold,
-			)
-			if err != nil {
-				log.Panicf("unable to add template font: %v", err)
-			}
 
 			img := tpl.RegisterImageOptionsReader(
 				imgNameMarkBubble,
@@ -196,7 +171,6 @@ func (p *PrinterHmpb) Ballot(
 		cfg:      cfg,
 		election: election,
 		params:   params,
-		printer:  p,
 	}
 
 	err := r.render()
@@ -207,38 +181,7 @@ func (p *PrinterHmpb) Ballot(
 	return &r, err
 }
 
-type timings struct {
-	start      time.Time
-	pdfInit    time.Time
-	header     time.Time
-	candidates time.Time
-	measures   time.Time
-	footers    time.Time
-	output     time.Time
-}
-
-func (self timings) String() string {
-	return fmt.Sprintf(`Timings:
-    pdfInit:     %v
-    header:      %v
-    candidates:  %v
-    measures:    %v
-    footers:     %v
-    output:      %v
-    total:       %v
-	`,
-		self.pdfInit.Sub(self.start),
-		self.header.Sub(self.pdfInit),
-		self.candidates.Sub(self.header),
-		self.measures.Sub(self.candidates),
-		self.footers.Sub(self.measures),
-		self.output.Sub(self.footers),
-		self.output.Sub(self.start),
-	)
-}
-
 type Renderer struct {
-	perf   timings
 	params PrintParams
 
 	gridPositions []elections.GridPosition
@@ -261,7 +204,6 @@ type Renderer struct {
 	cfg      *Cfg
 	doc      *scribe.Scribe
 	election *elections.Election
-	printer  *PrinterHmpb
 
 	bubbleRadius                 float32
 	bubbleOffsetY                float32
@@ -314,10 +256,6 @@ var (
 )
 
 func (r *Renderer) init() (*elections.BallotStyle, error) {
-	if logPerf {
-		r.perf = timings{start: time.Now()}
-	}
-
 	style := r.election.BallotStyle(r.params.StyleId)
 	if style == nil {
 		return nil, ErrBallotStyleInvalid
@@ -349,6 +287,7 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 	}
 
 	r.doc = scribe.NewCustom(&scribe.InitType{
+		FontSet:        &fontSet,
 		OrientationStr: scribe.OrientationPortrait,
 		UnitStr:        scribe.UnitPoint,
 		Size:           pageSize,
@@ -439,16 +378,12 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 		r.optionAlign = "R"
 	}
 
-	r.templateBubbleEmpty = r.bubbleTemplate(bubbleStyleEmpty)
-	r.templateBubbleFilled = r.bubbleTemplate(bubbleStyleFilled)
+	r.templateBubbleEmpty = r.bubbleTemplate("bubble", bubbleStyleEmpty)
+	r.templateBubbleFilled = r.bubbleTemplate("bubbleFilled", bubbleStyleFilled)
 	r.templateTimingMarks = r.timingMarksTemplate(pageSize)
 
 	r.pageAdd()
 	r.doc.UseTemplate(template)
-
-	if logPerf {
-		r.perf.pdfInit = time.Now()
-	}
 
 	return style, nil
 }
@@ -521,10 +456,6 @@ func (r *Renderer) render() error {
 	r.doc.SetXY(r.frame.Origin.X(), y+r.cfg.Padding.Y())
 	r.instructions()
 
-	if logPerf {
-		r.perf.header = time.Now()
-	}
-
 	r.yContentMin = r.doc.GetY() + r.cfg.Padding.Y()
 	r.doc.SetXY(r.frame.Origin.X(), r.yContentMin)
 
@@ -550,10 +481,6 @@ func (r *Renderer) render() error {
 	r.doc.SetXY(r.frame.Origin.X(), r.yEndCandidateContests)
 	widthYesNoColAndPadding := r.widthContestYesNo + r.cfg.Padding.X()
 
-	if logPerf {
-		r.perf.candidates = time.Now()
-	}
-
 	for _, contest := range contests {
 		if contest.Type != elections.ContestTypeYesNo {
 			continue
@@ -566,10 +493,6 @@ func (r *Renderer) render() error {
 		if err = r.contestYesNo(contest); err != nil {
 			return err
 		}
-	}
-
-	if logPerf {
-		r.perf.measures = time.Now()
 	}
 
 	r.lastPageNo = uint8(r.doc.PageNo())
@@ -620,18 +543,7 @@ func (r *Renderer) Finalize(
 		}
 	}
 
-	if logPerf {
-		r.perf.footers = time.Now()
-	}
-
-	err = r.doc.Output(writer)
-
-	if logPerf {
-		r.perf.output = time.Now()
-		fmt.Println(r.perf)
-	}
-
-	return err
+	return r.doc.Output(writer)
 }
 
 func (r *Renderer) Layout() elections.GridLayout {
@@ -885,9 +797,12 @@ const (
 	bubbleStyleEmpty  = "D"
 )
 
-func (r *Renderer) bubbleTemplate(style bubbleStyle) scribe.Template {
+func (r *Renderer) bubbleTemplate(
+	name string,
+	style bubbleStyle,
+) scribe.Template {
 	return r.doc.CreateTemplateCustom(
-		"bubble",
+		name,
 		scribe.PointType{X: 0, Y: 0},
 		scribe.PageSize{
 			Wd: r.cfg.BubbleSize.X() + r.cfg.BubbleLnWidth,
@@ -949,12 +864,12 @@ func (r *Renderer) contestCandidate(contest *elections.Contest) error {
 
 	heightHeader += float32(len(linesTitle)) * r.cfg.LnHeight.H3
 
-	linesInstruct := []string{}
 	instructStringKeys, err := r.cfg.CandidateContestInstructions(contest.Seats)
 	if err != nil {
 		return err
 	}
 
+	linesInstruct := make([]string, 0, len(instructStringKeys)+1)
 	r.doc.SetMeasurementFont(r.fontRegular(LangPrimary))
 	for _, k := range instructStringKeys {
 		linesInstruct = append(linesInstruct, r.doc.TextSplit(
@@ -2141,12 +2056,13 @@ func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 			defer wg.Done()
 
 			data := base64.StdEncoding.EncodeToString(page)
-			qr, err := goqr.EncodeText(data, goqr.Quartile)
+			qr, err := goqr.EncodeText(data, goqr.Low)
 			if err != nil {
 				qrs <- &result{err: err}
+				return
 			}
 
-			buf := make([]byte, 0, 4*1024)
+			buf := make([]byte, 0, 2*1024)
 			img := bytes.NewBuffer(buf)
 
 			qrSizePx := r.cfg.QrSize / Px
@@ -2162,6 +2078,7 @@ func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 			)
 			if err != nil {
 				qrs <- &result{err: err}
+				return
 			}
 
 			qrs <- &result{
@@ -2180,11 +2097,10 @@ func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 			}
 
 			name := r.qrName(int(q.pageNum))
-			qrImg := r.doc.RegisterImageOptionsReader(name, scribe.ImageOptions{
+			_ = r.doc.RegisterImageOptionsReader(name, scribe.ImageOptions{
 				ImageType: "png",
 				ReadDpi:   true,
 			}, q.img)
-			qrImg.SetDpi(DpiImg)
 		}
 		done <- struct{}{}
 	}()

@@ -1,9 +1,7 @@
 package hmpb
 
 import (
-	"fmt"
 	"io"
-	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 )
@@ -27,7 +25,6 @@ func (p *PrinterHmpb) BallotGridOnly(
 				Precincts: []string{"test-precinct"},
 			}},
 		},
-		printer: p,
 		params: PrintParams{
 			PrecinctId: "test-precinct",
 			StyleId:    "sheet-1",
@@ -54,19 +51,5 @@ func (r *Renderer) renderGridOnly(writer io.Writer) error {
 	r.pageAdd()
 	r.lastPageNo = 2
 
-	if logPerf {
-		r.perf.header = time.Now()
-		r.perf.candidates = time.Now()
-		r.perf.measures = time.Now()
-		r.perf.footers = time.Now()
-	}
-
-	err = r.doc.Output(writer)
-
-	if logPerf {
-		r.perf.output = time.Now()
-		fmt.Println(r.perf)
-	}
-
-	return err
+	return r.doc.Output(writer)
 }
