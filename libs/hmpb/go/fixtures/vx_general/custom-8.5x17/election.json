@@ -1,7 +1,7 @@
 {
   "ballotLayout": {
-    "paperSize": "legal",
-    "metadataEncoding": "qr-code"
+    "paperSize": "custom-8.5x17",
+    "metadataEncoding": ""
   },
   "ballotStrings": {
     "en": {
@@ -547,54 +547,14 @@
       "id": "12",
       "groupId": "12",
       "precincts": [
-        "23",
-        "21"
-      ],
-      "districts": [
-        "district-1",
-        "district-2"
-      ]
-    },
-    {
-      "id": "12_es-US",
-      "groupId": "12",
-      "precincts": [
-        "23",
-        "21"
+        "23"
       ],
       "districts": [
         "district-1",
         "district-2"
       ],
       "languages": [
-        "es-US",
         "en"
-      ]
-    },
-    {
-      "id": "12_zh-Hans",
-      "groupId": "12",
-      "precincts": [
-        "23",
-        "21"
-      ],
-      "districts": [
-        "district-1",
-        "district-2"
-      ],
-      "languages": [
-        "zh-Hans",
-        "en"
-      ]
-    },
-    {
-      "id": "5",
-      "groupId": "5",
-      "precincts": [
-        "21"
-      ],
-      "districts": [
-        "district-1"
       ]
     }
   ],
@@ -1318,7 +1278,12 @@
   "gridLayouts": [
     {
       "ballotStyleId": "12",
-      "optionBoundsFromTargetMark": {},
+      "optionBoundsFromTargetMark": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
       "gridPositions": [
         {
           "type": "option",
@@ -1867,13 +1832,13 @@
           "row": 27.376791,
           "column": 1.7078947,
           "contestId": "county-commissioners",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
             "x": 0.7960526,
             "y": -0.5406933
-          }
+          },
+          "writeInIndex": 0
         },
         {
           "type": "write-in",
@@ -1882,7 +1847,6 @@
           "row": 29.571688,
           "column": 1.7078947,
           "contestId": "county-commissioners",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
@@ -1898,7 +1862,6 @@
           "row": 31.766586,
           "column": 1.7078947,
           "contestId": "county-commissioners",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
@@ -1914,7 +1877,6 @@
           "row": 33.961483,
           "column": 1.7078947,
           "contestId": "county-commissioners",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
@@ -1939,13 +1901,13 @@
           "row": 41.062252,
           "column": 1.7078947,
           "contestId": "county-registrar-of-wills",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
             "x": 0.7960526,
             "y": -0.5406952
-          }
+          },
+          "writeInIndex": 0
         },
         {
           "type": "option",
@@ -1972,13 +1934,13 @@
           "row": 50.24014,
           "column": 1.7078947,
           "contestId": "city-mayor",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
             "x": 0.7960526,
             "y": -0.5406914
-          }
+          },
+          "writeInIndex": 0
         },
         {
           "type": "option",
@@ -2041,13 +2003,13 @@
           "row": 16.220291,
           "column": 12.2736845,
           "contestId": "city-council",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
             "x": 0.796052,
             "y": -0.5406952
-          }
+          },
+          "writeInIndex": 0
         },
         {
           "type": "write-in",
@@ -2056,7 +2018,6 @@
           "row": 18.415188,
           "column": 12.2736845,
           "contestId": "city-council",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
@@ -2072,7 +2033,6 @@
           "row": 20.610086,
           "column": 12.2736845,
           "contestId": "city-council",
-          "optionId": "",
           "writeInArea": {
             "height": 0.2864073,
             "width": 6.8315787,
@@ -2247,11 +2207,7 @@
     }
   ],
   "id": "election-general",
-  "date": {
-    "year": 2020,
-    "month": 11,
-    "day": 3
-  },
+  "date": "2020-11-03",
   "parties": [
     {
       "id": "0",

@@ -15698,7 +15698,12 @@
   "gridLayouts": [
     {
       "ballotStyleId": "sheet-1",
-      "optionBoundsFromTargetMark": {},
+      "optionBoundsFromTargetMark": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
       "gridPositions": [
         {
           "type": "option",
@@ -50850,11 +50855,7 @@
     }
   ],
   "id": "all-bubble-ballot-election",
-  "date": {
-    "year": 2023,
-    "month": 5,
-    "day": 10
-  },
+  "date": "2023-05-10",
   "parties": null,
   "precincts": [
     {

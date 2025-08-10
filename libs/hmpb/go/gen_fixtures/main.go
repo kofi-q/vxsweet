@@ -344,10 +344,9 @@ func genBlankAndMarked(
 
 	params := hmpb.PrintParams{
 		NoCompress: true,
-		Official:   true,
 		PrecinctId: precinctId,
 		StyleId:    style.Id,
-		Type:       elections.BallotTypeAbsentee,
+		Type:       elections.BallotTypePrecinct,
 	}
 
 	var wg sync.WaitGroup
@@ -363,7 +362,7 @@ func genBlankAndMarked(
 		assertNoErr(err)
 
 		layout := blankRenderer.Layout()
-		finalElection := electionGeneral
+		finalElection := *election
 		finalElection.GridLayouts = []elections.GridLayout{}
 		finalElection.GridLayouts = append(finalElection.GridLayouts, layout)
 

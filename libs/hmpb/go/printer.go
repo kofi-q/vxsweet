@@ -36,7 +36,7 @@ const (
 
 	Inch = 72.0 * Pt
 	Mm   = 2.85 * Pt
-	Px   = 72.0 / 96.0 * Pt
+	Px   = Inch / 96.0
 
 	FontSizeDefault = 12
 	BorderS         = 0.1 * FontSizeDefault
@@ -44,8 +44,7 @@ const (
 	PaddingS        = 0.25 * FontSizeDefault
 	PaddingM        = 0.5 * FontSizeDefault
 
-	DpiImg   = 300
-	QrSizeIn = 1
+	DpiImg = 300
 
 	BoxBorderWidth     = 1 * Px
 	BoxBorderWidthHalf = 0.5 * BoxBorderWidth
@@ -336,9 +335,9 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 
 	yFrameMax := r.frame.Origin.Y() + r.frame.Size.Y()
 	r.yFooterBack = yFrameMax - r.cfg.QrSize
-	r.yFooterFront = r.yFooterBack - r.cfg.FontSize.Caption
-	if r.cfg.NoMetadata {
-		r.yFooterFront = r.yFooterBack
+	r.yFooterFront = r.yFooterBack
+	if !r.cfg.NoMetadata {
+		r.yFooterFront -= r.cfg.FontSize.Caption
 	}
 
 	r.widthContestCandidate =
@@ -716,6 +715,9 @@ func (r *Renderer) bubbleOption(
 		GridPositionOptionId: elections.GridPositionOptionId{
 			OptionId: optionId,
 		},
+		GridPositionWriteInIndex: elections.GridPositionWriteInIndex{
+			WriteInIndex: elections.WriteInIndexNone,
+		},
 	})
 }
 
@@ -736,6 +738,9 @@ func (r *Renderer) bubbleOptionFilled(
 		ContestId:   contest.Id,
 		GridPositionOptionId: elections.GridPositionOptionId{
 			OptionId: optionId,
+		},
+		GridPositionWriteInIndex: elections.GridPositionWriteInIndex{
+			WriteInIndex: elections.WriteInIndexNone,
 		},
 	})
 }
@@ -761,7 +766,7 @@ func (r *Renderer) bubbleWritein(
 		Column:      gridPos.X(),
 		ContestId:   contest.Id,
 		GridPositionWriteInIndex: elections.GridPositionWriteInIndex{
-			WriteInIndex: ixWritein,
+			WriteInIndex: elections.WriteInIndex(ixWritein),
 			WriteInArea: elections.Rect{
 				Height: writeInAreaOnGrid.Y(),
 				Width:  writeInAreaOnGrid.X(),
@@ -2003,7 +2008,7 @@ func (r *Renderer) pageAdd() {
 	r.pageSide = PageSide(r.doc.PageNo() % 2)
 
 	yFooter := r.yFooterFront
-	if r.pageSide == PageSideFront {
+	if r.pageSide == PageSideBack {
 		yFooter = r.yFooterBack
 	}
 

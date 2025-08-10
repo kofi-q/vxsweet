@@ -254,6 +254,16 @@ type DateObj struct {
 	Day   day        `json:"day,omitempty"`
 }
 
+func (self Date) MarshalJSON() ([]byte, error) {
+	return fmt.Appendf(
+		nil,
+		`"%d-%0.2d-%0.2d"`,
+		self.Year,
+		self.Month,
+		self.Day,
+	), nil
+}
+
 func (self *Date) UnmarshalJSON(data []byte) error {
 	switch data[0] {
 	case '"':
@@ -342,7 +352,7 @@ type GridPosition struct {
 }
 
 type GridPositionOptionId struct {
-	OptionId string `json:"optionId"`
+	OptionId string `json:"optionId,omitempty"`
 }
 
 type GridPositionType string
@@ -352,9 +362,19 @@ const (
 	GridPositionTypeWriteIn GridPositionType = "write-in"
 )
 
+type WriteInIndex uint8
+
+const (
+	WriteInIndexNone WriteInIndex = 0xff
+)
+
+func (w WriteInIndex) IsZero() bool {
+	return w == WriteInIndexNone
+}
+
 type GridPositionWriteInIndex struct {
-	WriteInArea  Rect   `json:"writeInArea,omitzero"`
-	WriteInIndex uint32 `json:"writeInIndex,omitzero"`
+	WriteInArea  Rect         `json:"writeInArea,omitzero"`
+	WriteInIndex WriteInIndex `json:"writeInIndex,omitzero"`
 }
 
 type MetadataEncoding string
@@ -382,10 +402,10 @@ const (
 )
 
 type Outset struct {
-	Top    float32 `json:"top,omitempty"`
-	Right  float32 `json:"right,omitempty"`
-	Bottom float32 `json:"bottom,omitempty"`
-	Left   float32 `json:"left,omitempty"`
+	Top    float32 `json:"top"`
+	Right  float32 `json:"right"`
+	Bottom float32 `json:"bottom"`
+	Left   float32 `json:"left"`
 }
 
 type PaperSize string
@@ -412,10 +432,10 @@ type Precinct struct {
 }
 
 type Rect struct {
-	Height float32 `json:"height"`
-	Width  float32 `json:"width"`
-	X      float32 `json:"x"`
-	Y      float32 `json:"y"`
+	Height float32 `json:"height,omitzero"`
+	Width  float32 `json:"width,omitzero"`
+	X      float32 `json:"x,omitzero"`
+	Y      float32 `json:"y,omitzero"`
 }
 
 type UiStringsPackage map[string]UiStrings
