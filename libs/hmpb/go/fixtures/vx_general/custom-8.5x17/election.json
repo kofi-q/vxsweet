@@ -1,7 +1,7 @@
 {
   "ballotLayout": {
     "paperSize": "custom-8.5x17",
-    "metadataEncoding": ""
+    "metadataEncoding": "qr-code"
   },
   "ballotStrings": {
     "en": {
@@ -564,6 +564,7 @@
       "districtId": "district-1",
       "type": "candidate",
       "title": "President and Vice-President",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "barchi-hallaren",
@@ -615,6 +616,7 @@
       "districtId": "district-2",
       "type": "candidate",
       "title": "Senator",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "weiford",
@@ -673,6 +675,7 @@
       "districtId": "district-1",
       "type": "candidate",
       "title": "Representative, District 6",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "plunkard",
@@ -717,6 +720,7 @@
       "districtId": "district-2",
       "type": "candidate",
       "title": "Governor",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "franz",
@@ -838,6 +842,7 @@
       "districtId": "district-1",
       "type": "candidate",
       "title": "Lieutenant Governor",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "norberg",
@@ -910,6 +915,7 @@
       "districtId": "district-2",
       "type": "candidate",
       "title": "Secretary of State",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "shamsi",
@@ -933,6 +939,7 @@
       "districtId": "district-1",
       "type": "candidate",
       "title": "Senator, District 31",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "shiplett",
@@ -949,6 +956,7 @@
       "districtId": "district-1",
       "type": "candidate",
       "title": "Assembly Member, District 54",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "solis",
@@ -1159,6 +1167,7 @@
       "districtId": "district-1",
       "type": "yesno",
       "title": "Retain Robert Demergue as Chief Justice?",
+      "allowWriteIns": false,
       "description": "Shall Robert Demergue be retained as Chief Justice of the Hamilton Court of Appeals?",
       "yesOption": {
         "id": "judicial-robert-demergue-option-yes",
@@ -1174,6 +1183,7 @@
       "districtId": "district-2",
       "type": "yesno",
       "title": "Retain Elmer Hull as Associate Justice?",
+      "allowWriteIns": false,
       "description": "Shall Elmer Hull be retained as Associate Justice of the Hamilton Court of Appeals?",
       "yesOption": {
         "id": "judicial-elmer-hull-option-yes",
@@ -1189,6 +1199,7 @@
       "districtId": "district-1",
       "type": "yesno",
       "title": "Question A: Recovery of Property Damages",
+      "allowWriteIns": false,
       "description": "Shall there be an amendment to the State constitution concerning recovery of damages relating to construction of real property improvements, and, in connection therewith, prohibiting laws that limit or impair a property owner's right to recover damages caused by a failure to construct an improvement in a good and workmanlike manner?",
       "yesOption": {
         "id": "question-a-option-yes",
@@ -1204,6 +1215,7 @@
       "districtId": "district-1",
       "type": "yesno",
       "title": "Question B: Separation of Powers",
+      "allowWriteIns": false,
       "description": "Shall there be amendments to the State constitution intended to have the collective effect of ensuring the separation of governmental power among the three branches of state government: the legislative branch, the executive branch and the judicial branch? \n\na. Article III, Section 6 of the Constitution shall be amended to read as follows: \n\nSection 6. Holding of offices under other governments \n\nSenators and representatives not to hold other appointed offices under state government.",
       "yesOption": {
         "id": "question-b-option-yes",
@@ -1219,6 +1231,7 @@
       "districtId": "district-2",
       "type": "yesno",
       "title": "Question C: Limits to Damages for Non-Economic Loss",
+      "allowWriteIns": false,
       "description": "Shall there be an amendment to the State constitution allowing the State legislature to enact laws limiting the amount of damages for non-economic loss that could be awarded for injury or death caused by a health care provider?",
       "yesOption": {
         "id": "question-c-option-yes",
@@ -1234,6 +1247,7 @@
       "districtId": "district-1",
       "type": "yesno",
       "title": "Proposition 1: Gambling in Franklin and Fromwit Counties",
+      "allowWriteIns": false,
       "description": "\u003cp\u003eShall there be an amendment to the State constitution authorizing Franklin and Fromwit Counties to hold referenda on whether to authorize slot machines in existing, licensed pari-mutuel facilities?\u003c/p\u003e\u003col\u003e\u003cli\u003e\u003cp\u003e\u003cstrong\u003eThoroughbred racing\u003c/strong\u003e\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003e\u003cem\u003eGreyhound racing\u003c/em\u003e\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003e\u003cu\u003eJai alai\u003c/u\u003e\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003e\u003cs\u003eHarness racing\u003c/s\u003e\u003c/p\u003e\u003c/li\u003e\u003c/ol\u003e\u003cp\u003eRequires implementing legislation:\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cp\u003eProposition 1\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eRepeal Statute C\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e",
       "yesOption": {
         "id": "proposition-1-option-yes",
@@ -1249,6 +1263,7 @@
       "districtId": "district-2",
       "type": "yesno",
       "title": "Measure 101: College District",
+      "allowWriteIns": false,
       "description": "\u003cp\u003eTo upgrade educational facilities at Diablo Valley, and Franklin, shall the Franklin Community College District issue $450 million of bonds at legal interest rates with independent oversight, audits, and all funds spent on local sites?\u003c/p\u003e\u003ctable style=\"min-width: 0px\"\u003e\u003ccolgroup\u003e\u003ccol\u003e\u003ccol\u003e\u003c/colgroup\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003eDiablo Valley\u003c/p\u003e\u003c/th\u003e\u003cth colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003eFranklin\u003c/p\u003e\u003c/th\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003ehealth\u003c/p\u003e\u003c/td\u003e\u003ctd colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003e\u003cstrong\u003escience\u003c/strong\u003e\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003e\u003cu\u003emedical\u003c/u\u003e\u003c/p\u003e\u003c/td\u003e\u003ctd colspan=\"1\" rowspan=\"1\"\u003e\u003cp\u003etechnology\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003cimg src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA1MCA1MCIgaGVpZ2h0PSI1MCIgd2lkdGg9IjUwIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0zMS4yNSA5LjM3NUgxOC43NUwxNC4xMjExIDIuNDMxNjRDMTMuNDI3NyAxLjM4NjcyIDE0LjE2OTkgMCAxNS40MTk5IDBIMzQuNTgwMUMzNS44MzAxIDAgMzYuNTcyMyAxLjM4NjcyIDM1Ljg3ODkgMi40MzE2NEwzMS4yNSA5LjM3NVpNMTguNzUgMTIuNUgzMS4yNUMzMS42MjExIDEyLjc0NDEgMzIuMDQxIDEzLjAxNzYgMzIuNTE5NSAxMy4zMjAzQzM4LjA1NjYgMTYuODY1MiA1MCAyNC41MDIgNTAgNDAuNjI1QzUwIDQ1LjgwMDggNDUuODAwOCA1MCA0MC42MjUgNTBIOS4zNzVDNC4xOTkyMiA1MCAwIDQ1LjgwMDggMCA0MC42MjVDMCAyNC41MDIgMTEuOTQzNCAxNi44NjUyIDE3LjQ4MDUgMTMuMzIwM0MxNy45NDkyIDEzLjAxNzYgMTguMzc4OSAxMi43NDQxIDE4Ljc1IDEyLjVaTTI2Ljk1MzEgMjEuMDkzOEMyNi45NTMxIDIwLjAxOTUgMjYuMDc0MiAxOS4xNDA2IDI1IDE5LjE0MDZDMjMuOTI1OCAxOS4xNDA2IDIzLjA0NjkgMjAuMDE5NSAyMy4wNDY5IDIxLjA5MzhWMjIuNDYwOUMyMi4zMDQ3IDIyLjYyNyAyMS41NjI1IDIyLjg5MDYgMjAuODc4OSAyMy4yOTFDMTkuNTIxNSAyNC4xMDE2IDE4LjM0OTYgMjUuNTE3NiAxOC4zNTk0IDI3LjU3ODFDMTguMzY5MSAyOS41NjA1IDE5LjUzMTIgMzAuODEwNSAyMC43NzE1IDMxLjU1MjdDMjEuODQ1NyAzMi4xOTczIDIzLjE4MzYgMzIuNjA3NCAyNC4yNDggMzIuOTE5OUwyNC40MTQxIDMyLjk2ODhDMjUuNjQ0NSAzMy4zMzk4IDI2LjU0MyAzMy42MzI4IDI3LjE0ODQgMzQuMDEzN0MyNy42NDY1IDM0LjMyNjIgMjcuNzE0OCAzNC41NDEgMjcuNzI0NiAzNC44MTQ1QzI3LjczNDQgMzUuMzAyNyAyNy41NDg4IDM1LjU5NTcgMjcuMTQ4NCAzNS44Mzk4QzI2LjY2MDIgMzYuMTQyNiAyNS44ODg3IDM2LjMyODEgMjUuMDU4NiAzNi4yOTg4QzIzLjk3NDYgMzYuMjU5OCAyMi45NTkgMzUuOTE4IDIxLjYzMDkgMzUuNDY4OEMyMS40MDYzIDM1LjM5MDYgMjEuMTcxOSAzNS4zMTI1IDIwLjkyNzcgMzUuMjM0NEMxOS45MDIzIDM0Ljg5MjYgMTguNzk4OCAzNS40NDkyIDE4LjQ1NyAzNi40NjQ4QzE4LjExNTIgMzcuNDgwNSAxOC42NzE5IDM4LjU5MzggMTkuNjg3NSAzOC45MzU1QzE5Ljg3MyAzOC45OTQxIDIwLjA3ODEgMzkuMDYyNSAyMC4yODMyIDM5LjE0MDZDMjEuMDkzNyAzOS40MjM4IDIyLjAzMTIgMzkuNzQ2MSAyMy4wMzcxIDM5Ljk2MDlWNDEuMzg2N0MyMy4wMzcxIDQyLjQ2MDkgMjMuOTE2IDQzLjMzOTggMjQuOTkwMiA0My4zMzk4QzI2LjA2NDUgNDMuMzM5OCAyNi45NDM0IDQyLjQ2MDkgMjYuOTQzNCA0MS4zODY3VjQwLjAzOTFDMjcuNzI0NiAzOS44NzMgMjguNTA1OSAzOS41OTk2IDI5LjIwOSAzOS4xNjAyQzMwLjYwNTUgMzguMjkxIDMxLjY2MDIgMzYuODA2NiAzMS42MzA5IDM0Ljc2NTZDMzEuNjAxNiAzMi43ODMyIDMwLjQ4ODMgMzEuNTAzOSAyOS4yMjg1IDMwLjcwMzFDMjguMTA1NSAzMCAyNi42OTkyIDI5LjU3MDMgMjUuNjA1NSAyOS4yMzgzTDI1LjUzNzEgMjkuMjE4OEMyNC4yODcxIDI4LjgzNzkgMjMuMzk4NCAyOC41NjQ1IDIyLjc3MzQgMjguMTkzNEMyMi4yNjU2IDI3Ljg5MDYgMjIuMjU1OSAyNy43MTQ4IDIyLjI1NTkgMjcuNTM5MUMyMi4yNTU5IDI3LjE3NzcgMjIuMzkyNiAyNi45MDQzIDIyLjg2MTMgMjYuNjMwOUMyMy4zODg3IDI2LjMxODQgMjQuMTg5NSAyNi4xMzI4IDI0Ljk2MDkgMjYuMTQyNkMyNS44OTg0IDI2LjE1MjMgMjYuOTMzNiAyNi4zNTc0IDI4LjAwNzggMjYuNjUwNEMyOS4wNTI3IDI2LjkyMzggMzAuMTE3MiAyNi4zMDg2IDMwLjQwMDQgMjUuMjYzN0MzMC42ODM2IDI0LjIxODggMzAuMDU4NiAyMy4xNTQzIDI5LjAxMzcgMjIuODcxMUMyOC4zNzg5IDIyLjcwNTEgMjcuNjc1OCAyMi41MzkxIDI2Ljk1MzEgMjIuNDEyMVYyMS4wNTQ3VjIxLjA5MzhaIj48L3BhdGg+Cjwvc3ZnPgo=\"\u003e",
       "yesOption": {
         "id": "measure-101-option-yes",
@@ -1264,6 +1279,7 @@
       "districtId": "district-1",
       "type": "yesno",
       "title": "Measure 102: Vehicle Abatement Program",
+      "allowWriteIns": false,
       "description": "Should the Franklin County Vehicle Abatement Program and vehicle registration fees (one dollar per vehicle and an additional two dollars for certain commercial vehicles payable upon registration of a vehicle) be renewed for a ten-year term beginning July 1, 2021, for the abatement and removal of abandoned, wrecked, dismantled, or inoperative vehicles?",
       "yesOption": {
         "id": "measure-102-option-yes",
@@ -1279,17 +1295,17 @@
     {
       "ballotStyleId": "12",
       "optionBoundsFromTargetMark": {
-        "top": 0,
-        "right": 0,
-        "bottom": 0,
-        "left": 0
+        "top": 1.0455039,
+        "right": 9.032894,
+        "bottom": 1.6236722,
+        "left": 0.58026314
       },
       "gridPositions": [
         {
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 13.834813,
+          "row": 13.93519,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "barchi-hallaren"
@@ -1298,7 +1314,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 16.682825,
+          "row": 16.783203,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "cramer-vuocolo"
@@ -1307,7 +1323,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 19.530838,
+          "row": 19.631214,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "court-blumhardt"
@@ -1316,7 +1332,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 22.37885,
+          "row": 22.479227,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "boone-lian"
@@ -1325,7 +1341,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 25.226864,
+          "row": 25.32724,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "hildebrand-garritty"
@@ -1334,7 +1350,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 28.84577,
+          "row": 28.946146,
           "column": 1.7078947,
           "contestId": "president",
           "optionId": "patterson-lariviere"
@@ -1343,7 +1359,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 34.522526,
+          "row": 34.622902,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "weiford"
@@ -1352,7 +1368,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 36.59965,
+          "row": 36.700027,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "garriss"
@@ -1361,7 +1377,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 38.676777,
+          "row": 38.777153,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "wentworthfarthington"
@@ -1370,7 +1386,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 41.52479,
+          "row": 41.62517,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "hewetson"
@@ -1379,7 +1395,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 43.601917,
+          "row": 43.702293,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "martinez"
@@ -1388,7 +1404,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 45.679043,
+          "row": 45.77942,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "brown"
@@ -1397,7 +1413,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 47.75617,
+          "row": 47.856544,
           "column": 1.7078947,
           "contestId": "senator",
           "optionId": "pound"
@@ -1406,7 +1422,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 12.986834,
+          "row": 13.08721,
           "column": 12.2736845,
           "contestId": "representative-district-6",
           "optionId": "plunkard"
@@ -1415,7 +1431,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 15.063955,
+          "row": 15.164332,
           "column": 12.2736845,
           "contestId": "representative-district-6",
           "optionId": "reeder"
@@ -1424,7 +1440,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 17.141077,
+          "row": 17.241453,
           "column": 12.2736845,
           "contestId": "representative-district-6",
           "optionId": "schott"
@@ -1433,7 +1449,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 19.218199,
+          "row": 19.318575,
           "column": 12.2736845,
           "contestId": "representative-district-6",
           "optionId": "tawney"
@@ -1442,7 +1458,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 21.29532,
+          "row": 21.395699,
           "column": 12.2736845,
           "contestId": "representative-district-6",
           "optionId": "forrest"
@@ -1451,7 +1467,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 26.201185,
+          "row": 26.301561,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "franz"
@@ -1460,7 +1476,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 28.278309,
+          "row": 28.378685,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "harris"
@@ -1469,7 +1485,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 30.355434,
+          "row": 30.45581,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "bargmann"
@@ -1478,7 +1494,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 32.43256,
+          "row": 32.532936,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "abcock"
@@ -1487,7 +1503,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 34.509686,
+          "row": 34.61006,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "steelloy"
@@ -1496,7 +1512,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 36.58681,
+          "row": 36.687187,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "sharp"
@@ -1505,7 +1521,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 38.663937,
+          "row": 38.764313,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "wallace"
@@ -1514,7 +1530,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 40.74106,
+          "row": 40.84144,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "williams"
@@ -1523,7 +1539,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 42.818184,
+          "row": 42.91856,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "sharp-althea"
@@ -1532,7 +1548,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 44.89531,
+          "row": 44.995686,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "alpern"
@@ -1541,7 +1557,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 46.972435,
+          "row": 47.07281,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "windbeck"
@@ -1550,7 +1566,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 49.04956,
+          "row": 49.149937,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "greher"
@@ -1559,7 +1575,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 51.126686,
+          "row": 51.227062,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "alexander"
@@ -1568,7 +1584,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 53.20381,
+          "row": 53.304188,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "mitchell"
@@ -1577,7 +1593,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 55.280937,
+          "row": 55.381313,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "lee"
@@ -1586,7 +1602,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 57.358063,
+          "row": 57.45844,
           "column": 12.2736845,
           "contestId": "governor",
           "optionId": "ash"
@@ -1595,7 +1611,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 12.986834,
+          "row": 13.08721,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "norberg"
@@ -1604,7 +1620,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 15.063955,
+          "row": 15.164332,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "parks"
@@ -1613,7 +1629,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 17.141077,
+          "row": 17.241453,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "garcia"
@@ -1622,7 +1638,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 19.218199,
+          "row": 19.318575,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "qualey"
@@ -1631,7 +1647,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 21.29532,
+          "row": 21.395699,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "hovis"
@@ -1640,7 +1656,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 23.372444,
+          "row": 23.47282,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "zirkle"
@@ -1649,7 +1665,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 25.449566,
+          "row": 25.549942,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "davis-brenda"
@@ -1658,7 +1674,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 27.52669,
+          "row": 27.627066,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "freeman"
@@ -1667,7 +1683,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 29.603813,
+          "row": 29.70419,
           "column": 22.839472,
           "contestId": "lieutenant-governor",
           "optionId": "swan"
@@ -1676,7 +1692,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 34.509674,
+          "row": 34.61005,
           "column": 22.839472,
           "contestId": "secretary-of-state",
           "optionId": "shamsi"
@@ -1685,7 +1701,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 36.5868,
+          "row": 36.687176,
           "column": 22.839472,
           "contestId": "secretary-of-state",
           "optionId": "talarico"
@@ -1694,7 +1710,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 41.49266,
+          "row": 41.593037,
           "column": 22.839472,
           "contestId": "state-senator-district-31",
           "optionId": "shiplett"
@@ -1703,7 +1719,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 47.246502,
+          "row": 47.34688,
           "column": 22.839472,
           "contestId": "state-assembly-district-54",
           "optionId": "solis"
@@ -1712,7 +1728,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 49.323627,
+          "row": 49.424004,
           "column": 22.839472,
           "contestId": "state-assembly-district-54",
           "optionId": "keller"
@@ -1721,7 +1737,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 51.400753,
+          "row": 51.50113,
           "column": 22.839472,
           "contestId": "state-assembly-district-54",
           "optionId": "rangel"
@@ -1730,7 +1746,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 3.4577665,
+          "row": 3.558143,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "argent"
@@ -1739,7 +1755,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 5.534889,
+          "row": 5.6352654,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "witherspoonsmithson"
@@ -1748,7 +1764,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 8.382902,
+          "row": 8.483279,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "bainbridge"
@@ -1757,7 +1773,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 10.460024,
+          "row": 10.560401,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "hennessey"
@@ -1766,7 +1782,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 12.537147,
+          "row": 12.637523,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "savoy"
@@ -1775,7 +1791,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 14.614268,
+          "row": 14.714644,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "tawa"
@@ -1784,7 +1800,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 16.69139,
+          "row": 16.791767,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "tawa-mary"
@@ -1793,7 +1809,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 18.768513,
+          "row": 18.868889,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "rangel-damian"
@@ -1802,7 +1818,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 20.845634,
+          "row": 20.94601,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "altman"
@@ -1811,7 +1827,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 22.922756,
+          "row": 23.023132,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "moore"
@@ -1820,7 +1836,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 24.999878,
+          "row": 25.100254,
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "optionId": "schreiner"
@@ -1833,10 +1849,10 @@
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406933
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 26.836098
           },
           "writeInIndex": 0
         },
@@ -1848,10 +1864,10 @@
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406933
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 29.030994
           },
           "writeInIndex": 1
         },
@@ -1863,10 +1879,10 @@
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406933
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 31.225893
           },
           "writeInIndex": 2
         },
@@ -1878,10 +1894,10 @@
           "column": 1.7078947,
           "contestId": "county-commissioners",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406914
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 33.42079
           },
           "writeInIndex": 3
         },
@@ -1889,7 +1905,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 38.685337,
+          "row": 38.785713,
           "column": 1.7078947,
           "contestId": "county-registrar-of-wills",
           "optionId": "ramachandrani"
@@ -1902,10 +1918,10 @@
           "column": 1.7078947,
           "contestId": "county-registrar-of-wills",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406952
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 40.521557
           },
           "writeInIndex": 0
         },
@@ -1913,7 +1929,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 45.7861,
+          "row": 45.886475,
           "column": 1.7078947,
           "contestId": "city-mayor",
           "optionId": "white"
@@ -1922,7 +1938,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 47.863224,
+          "row": 47.9636,
           "column": 1.7078947,
           "contestId": "city-mayor",
           "optionId": "seldon"
@@ -1935,10 +1951,10 @@
           "column": 1.7078947,
           "contestId": "city-mayor",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5406914
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 49.699448
           },
           "writeInIndex": 0
         },
@@ -1946,7 +1962,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 3.4577665,
+          "row": 3.558143,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "eagle"
@@ -1955,7 +1971,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 5.534889,
+          "row": 5.6352654,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "rupp"
@@ -1964,7 +1980,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 7.612012,
+          "row": 7.712388,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "shry"
@@ -1973,7 +1989,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 9.689134,
+          "row": 9.78951,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "barker"
@@ -1982,7 +1998,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 11.766255,
+          "row": 11.866632,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "davis"
@@ -1991,7 +2007,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 13.843377,
+          "row": 13.943754,
           "column": 12.2736845,
           "contestId": "city-council",
           "optionId": "smith"
@@ -2004,10 +2020,10 @@
           "column": 12.2736845,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5406952
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 15.679596
           },
           "writeInIndex": 0
         },
@@ -2019,10 +2035,10 @@
           "column": 12.2736845,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5406952
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 17.874493
           },
           "writeInIndex": 1
         },
@@ -2034,10 +2050,10 @@
           "column": 12.2736845,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.2864073,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5406952
+            "height": 1.2864072,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 20.069391
           },
           "writeInIndex": 2
         },
@@ -2045,7 +2061,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 57.66853,
+          "row": 57.768906,
           "column": 1.7078947,
           "contestId": "judicial-robert-demergue",
           "optionId": "judicial-robert-demergue-option-yes"
@@ -2054,7 +2070,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 58.974762,
+          "row": 59.075138,
           "column": 1.7078947,
           "contestId": "judicial-robert-demergue",
           "optionId": "judicial-robert-demergue-option-no"
@@ -2063,7 +2079,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 57.66853,
+          "row": 57.768906,
           "column": 17.556578,
           "contestId": "judicial-elmer-hull",
           "optionId": "judicial-elmer-hull-option-yes"
@@ -2072,7 +2088,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 58.974762,
+          "row": 59.075138,
           "column": 17.556578,
           "contestId": "judicial-elmer-hull",
           "optionId": "judicial-elmer-hull-option-no"
@@ -2081,7 +2097,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 10.787653,
+          "row": 10.888029,
           "column": 1.7078947,
           "contestId": "question-a",
           "optionId": "question-a-option-yes"
@@ -2090,7 +2106,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 12.0938835,
+          "row": 12.194261,
           "column": 1.7078947,
           "contestId": "question-a",
           "optionId": "question-a-option-no"
@@ -2099,7 +2115,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 28.800798,
+          "row": 28.901176,
           "column": 1.7078947,
           "contestId": "question-b",
           "optionId": "question-b-option-yes"
@@ -2108,7 +2124,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 30.107033,
+          "row": 30.207409,
           "column": 1.7078947,
           "contestId": "question-b",
           "optionId": "question-b-option-no"
@@ -2117,7 +2133,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 40.03012,
+          "row": 40.130497,
           "column": 1.7078947,
           "contestId": "question-c",
           "optionId": "question-c-option-yes"
@@ -2126,7 +2142,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 41.336353,
+          "row": 41.43673,
           "column": 1.7078947,
           "contestId": "question-c",
           "optionId": "question-c-option-no"
@@ -2135,7 +2151,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 57.330208,
+          "row": 57.430588,
           "column": 1.7078947,
           "contestId": "proposition-1",
           "optionId": "proposition-1-option-yes"
@@ -2144,7 +2160,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 58.636444,
+          "row": 58.73682,
           "column": 1.7078947,
           "contestId": "proposition-1",
           "optionId": "proposition-1-option-no"
@@ -2153,7 +2169,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 15.270615,
+          "row": 15.370991,
           "column": 17.556578,
           "contestId": "measure-101",
           "optionId": "measure-101-option-yes"
@@ -2162,7 +2178,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 16.576845,
+          "row": 16.677221,
           "column": 17.556578,
           "contestId": "measure-101",
           "optionId": "measure-101-option-no"
@@ -2171,7 +2187,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 28.041702,
+          "row": 28.142078,
           "column": 17.556578,
           "contestId": "102",
           "optionId": "measure-102-option-yes"
@@ -2180,7 +2196,7 @@
           "type": "option",
           "sheetNumber": 2,
           "side": "front",
-          "row": 29.347935,
+          "row": 29.448313,
           "column": 17.556578,
           "contestId": "102",
           "optionId": "measure-102-option-no"

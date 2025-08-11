@@ -441,17 +441,17 @@
     {
       "ballotStyleId": "1",
       "optionBoundsFromTargetMark": {
-        "top": 0,
-        "right": 0,
-        "bottom": 0,
-        "left": 0
+        "top": 1.0445317,
+        "right": 9.032894,
+        "bottom": 1.6103472,
+        "left": 0.58026314
       },
       "gridPositions": [
         {
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 12.709365,
+          "row": 12.807597,
           "column": 1.7078947,
           "contestId": "mayor",
           "optionId": "sherlock-holmes"
@@ -460,7 +460,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 14.742107,
+          "row": 14.84034,
           "column": 1.7078947,
           "contestId": "mayor",
           "optionId": "thomas-edison"
@@ -473,10 +473,10 @@
           "column": 1.7078947,
           "contestId": "mayor",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 16.539095
           },
           "writeInIndex": 0
         },
@@ -484,7 +484,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 21.69116,
+          "row": 21.78939,
           "column": 1.7078947,
           "contestId": "controller",
           "optionId": "winston-churchill"
@@ -493,7 +493,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 23.723904,
+          "row": 23.822134,
           "column": 1.7078947,
           "contestId": "controller",
           "optionId": "oprah-winfrey"
@@ -502,7 +502,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 25.756645,
+          "row": 25.854877,
           "column": 1.7078947,
           "contestId": "controller",
           "optionId": "louis-armstrong"
@@ -515,10 +515,10 @@
           "column": 1.7078947,
           "contestId": "controller",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5291405
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 27.553635
           },
           "writeInIndex": 0
         },
@@ -526,7 +526,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 12.709365,
+          "row": 12.807597,
           "column": 12.2736845,
           "contestId": "attorney",
           "optionId": "john-snow"
@@ -535,7 +535,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 14.742107,
+          "row": 14.84034,
           "column": 12.2736845,
           "contestId": "attorney",
           "optionId": "mark-twain"
@@ -548,10 +548,10 @@
           "column": 12.2736845,
           "contestId": "attorney",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 16.539095
           },
           "writeInIndex": 0
         },
@@ -559,7 +559,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 21.69116,
+          "row": 21.78939,
           "column": 12.2736845,
           "contestId": "public-works-director",
           "optionId": "benjamin-franklin"
@@ -568,7 +568,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 23.723904,
+          "row": 23.822134,
           "column": 12.2736845,
           "contestId": "public-works-director",
           "optionId": "robert-downey-jr"
@@ -577,7 +577,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 25.756645,
+          "row": 25.854877,
           "column": 12.2736845,
           "contestId": "public-works-director",
           "optionId": "bill-nye"
@@ -590,10 +590,10 @@
           "column": 12.2736845,
           "contestId": "public-works-director",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291405
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 27.553635
           },
           "writeInIndex": 0
         },
@@ -601,7 +601,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 12.709365,
+          "row": 12.807597,
           "column": 22.839472,
           "contestId": "chief-of-police",
           "optionId": "natalie-portman"
@@ -610,7 +610,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 14.742107,
+          "row": 14.84034,
           "column": 22.839472,
           "contestId": "chief-of-police",
           "optionId": "frank-sinatra"
@@ -619,7 +619,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 16.77485,
+          "row": 16.873083,
           "column": 22.839472,
           "contestId": "chief-of-police",
           "optionId": "andy-warhol"
@@ -628,7 +628,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "front",
-          "row": 18.807594,
+          "row": 18.905827,
           "column": 22.839472,
           "contestId": "chief-of-police",
           "optionId": "alfred-hitchcock"
@@ -641,10 +641,10 @@
           "column": 22.839472,
           "contestId": "chief-of-police",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.79605484,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 23.635527,
+            "y": 20.604582
           },
           "writeInIndex": 0
         },
@@ -652,7 +652,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 4.2137523,
+          "row": 4.311984,
           "column": 1.7078947,
           "contestId": "parks-and-recreation-director",
           "optionId": "charles-darwin"
@@ -661,7 +661,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 6.246497,
+          "row": 6.344729,
           "column": 1.7078947,
           "contestId": "parks-and-recreation-director",
           "optionId": "stephen-hawking"
@@ -670,7 +670,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 8.27924,
+          "row": 8.377472,
           "column": 1.7078947,
           "contestId": "parks-and-recreation-director",
           "optionId": "johan-sebastian-bach"
@@ -679,7 +679,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 10.311984,
+          "row": 10.410215,
           "column": 1.7078947,
           "contestId": "parks-and-recreation-director",
           "optionId": "alexander-graham-bell"
@@ -692,10 +692,10 @@
           "column": 1.7078947,
           "contestId": "parks-and-recreation-director",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.7960526,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 2.5039473,
+            "y": 12.108971
           },
           "writeInIndex": 0
         },
@@ -703,7 +703,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 3.3838897,
+          "row": 3.4821215,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "helen-keller"
@@ -712,7 +712,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 5.416634,
+          "row": 5.5148654,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "steve-jobs"
@@ -721,7 +721,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 7.449378,
+          "row": 7.54761,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "nikola-tesla"
@@ -730,7 +730,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 9.482121,
+          "row": 9.580353,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "vincent-van-gogh"
@@ -739,7 +739,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 11.514865,
+          "row": 11.613096,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "pablo-picasso"
@@ -748,7 +748,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 13.547607,
+          "row": 13.64584,
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "optionId": "wolfgang-amadeus-mozart"
@@ -761,10 +761,10 @@
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291405
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 16.099016
           },
           "writeInIndex": 0
         },
@@ -776,10 +776,10 @@
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291443
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 18.247017
           },
           "writeInIndex": 1
         },
@@ -791,10 +791,10 @@
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291443
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 20.39502
           },
           "writeInIndex": 2
         },
@@ -806,10 +806,10 @@
           "column": 12.2736845,
           "contestId": "board-of-alderman",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.796052,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 13.0697365,
+            "y": 22.543022
           },
           "writeInIndex": 3
         },
@@ -817,7 +817,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 3.3838897,
+          "row": 3.4821215,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "marie-curie"
@@ -826,7 +826,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 5.416634,
+          "row": 5.5148654,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "indiana-jones"
@@ -835,7 +835,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 7.449378,
+          "row": 7.54761,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "mona-lisa"
@@ -844,7 +844,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 9.482121,
+          "row": 9.580353,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "jackie-chan"
@@ -853,7 +853,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 11.514865,
+          "row": 11.613096,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "tim-allen"
@@ -862,7 +862,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 13.547607,
+          "row": 13.64584,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "mark-antony"
@@ -871,7 +871,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 15.580351,
+          "row": 15.678583,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "harriet-tubman"
@@ -880,7 +880,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 17.613094,
+          "row": 17.711327,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "martin-luther-king"
@@ -889,7 +889,7 @@
           "type": "option",
           "sheetNumber": 1,
           "side": "back",
-          "row": 19.645838,
+          "row": 19.74407,
           "column": 22.839472,
           "contestId": "city-council",
           "optionId": "marilyn-monroe"
@@ -902,10 +902,10 @@
           "column": 22.839472,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.79605484,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 23.635527,
+            "y": 21.442825
           },
           "writeInIndex": 0
         },
@@ -917,10 +917,10 @@
           "column": 22.839472,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.79605484,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 23.635527,
+            "y": 23.590828
           },
           "writeInIndex": 1
         },
@@ -932,10 +932,10 @@
           "column": 22.839472,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.79605484,
-            "y": -0.52913857
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 23.635527,
+            "y": 25.73883
           },
           "writeInIndex": 2
         },
@@ -947,10 +947,10 @@
           "column": 22.839472,
           "contestId": "city-council",
           "writeInArea": {
-            "height": 0.28028807,
-            "width": 6.8315787,
-            "x": 0.79605484,
-            "y": -0.5291424
+            "height": 1.2802881,
+            "width": 7.8315787,
+            "x": 23.635527,
+            "y": 27.886831
           },
           "writeInIndex": 3
         }

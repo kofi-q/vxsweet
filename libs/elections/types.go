@@ -163,7 +163,7 @@ const (
 )
 
 type CandidateContest struct {
-	AllowWriteIns   bool        `json:"allowWriteIns,omitempty"`
+	AllowWriteIns   bool        `json:"allowWriteIns"`
 	Candidates      []Candidate `json:"candidates,omitempty"`
 	PartyId         string      `json:"partyId,omitempty"`
 	Seats           uint8       `json:"seats,omitempty"`

@@ -53,6 +53,7 @@ var (
 	outdirVxGeneralLegal       = outdir + "/vx_general/legal"
 	outdirVxGeneralLegalEsUs   = outdir + "/vx_general/legal-es-US"
 	outdirVxGeneralLegalZhHans = outdir + "/vx_general/legal-zh-Hans"
+	outdirVxGeneralLegalZhHant = outdir + "/vx_general/legal-zh-Hant"
 	outdirVxGeneralLetter      = outdir + "/vx_general/letter"
 )
 
@@ -91,6 +92,7 @@ func main() {
 		os.MkdirAll(outdirVxGeneralLegal, 0o755),
 		os.MkdirAll(outdirVxGeneralLegalEsUs, 0o755),
 		os.MkdirAll(outdirVxGeneralLegalZhHans, 0o755),
+		os.MkdirAll(outdirVxGeneralLegalZhHant, 0o755),
 		os.MkdirAll(outdirVxGeneralLetter, 0o755),
 	)
 	if err != nil {
@@ -118,6 +120,7 @@ func main() {
 		{outdirVxGeneralLegal, elections.PaperSizeLegal, "en"},
 		{outdirVxGeneralLegalEsUs, elections.PaperSizeLegal, "es-US"},
 		{outdirVxGeneralLegalZhHans, elections.PaperSizeLegal, "zh-Hans"},
+		{outdirVxGeneralLegalZhHant, elections.PaperSizeLegal, "zh-Hant"},
 		{outdirVxGeneralLetter, elections.PaperSizeLetter, "en"},
 	} {
 		wg.Add(1)
@@ -125,9 +128,8 @@ func main() {
 			defer wg.Done()
 
 			electionGeneral := electionSingleBallot
-			electionGeneral.BallotLayout = elections.BallotLayout{
-				PaperSize: f.paperSize,
-			}
+			electionGeneral.BallotLayout = electionSingleBallot.BallotLayout
+			electionGeneral.BallotLayout.PaperSize = f.paperSize
 			ballotStyle := ballotStyle12
 			ballotStyle.Languages = []string{f.lang}
 			electionGeneral.BallotStyles = []elections.BallotStyle{ballotStyle}
@@ -190,9 +192,8 @@ func main() {
 			style := election.BallotStyles[0]
 			style.Precincts = []string{style.Precincts[0]}
 			election.BallotStyles = []elections.BallotStyle{style}
-			election.BallotLayout = elections.BallotLayout{
-				PaperSize: f.paperSize,
-			}
+			election.BallotLayout = electionNh.BallotLayout
+			election.BallotLayout.PaperSize = f.paperSize
 
 			votes, ok := votesNh[style.Id]
 			if !ok {

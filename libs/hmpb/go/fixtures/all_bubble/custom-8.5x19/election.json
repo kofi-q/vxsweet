@@ -67,6 +67,7 @@
       "districtId": "test-district",
       "type": "candidate",
       "title": "Test Contest - Page 1",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "p1-r1-c1",
@@ -8907,6 +8908,7 @@
       "districtId": "test-district",
       "type": "candidate",
       "title": "Test Contest - Page 2",
+      "allowWriteIns": false,
       "candidates": [
         {
           "id": "p2-r1-c1",
@@ -17747,10 +17749,10 @@
     {
       "ballotStyleId": "sheet-1",
       "optionBoundsFromTargetMark": {
-        "top": 0,
-        "right": 0,
-        "bottom": 0,
-        "left": 0
+        "top": 1.0456886,
+        "right": 9.032894,
+        "bottom": 1.6262039,
+        "left": 0.58026314
       },
       "gridPositions": [
         {

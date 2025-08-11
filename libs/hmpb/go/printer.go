@@ -546,10 +546,35 @@ func (r *Renderer) Finalize(
 }
 
 func (r *Renderer) Layout() elections.GridLayout {
+	writeInBoundsP1 := r.toGrid(Vec2{
+		r.bubbleSizeHalf.X() + r.cfg.PaddingBox.X(),
+		r.bubbleSizeHalf.Y() + r.bubbleWriteInOffsetY + r.cfg.OptionSpacing,
+	}).Add(Vec2{1, 1}) // Translate to make coords relative to grid origin.
+
+	writeInBoundsP2 := r.toGrid(Vec2{
+		r.widthContestCandidate - r.cfg.PaddingBox.X() - r.bubbleSizeHalf.X(),
+		r.cfg.WriteInHeight -
+			r.bubbleWriteInOffsetY -
+			r.bubbleSizeHalf.Y() +
+			r.cfg.OptionSpacing,
+	}).Add(Vec2{1, 1}) // Translate to make coords relative to grid origin.
+
+	if r.cfg.BubbleAlignRight {
+		swap := writeInBoundsP1[0]
+		writeInBoundsP1[0] = writeInBoundsP2[0]
+		writeInBoundsP2[0] = swap
+	}
+
 	return elections.GridLayout{
-		BallotStyleId:              r.params.StyleId,
-		OptionBoundsFromTargetMark: elections.Outset{}, // [TODO]
-		GridPositions:              r.gridPositions,
+		BallotStyleId: r.params.StyleId,
+		GridPositions: r.gridPositions,
+		OptionBoundsFromTargetMark: elections.Outset{
+			Left: writeInBoundsP1.X(),
+			Top:  writeInBoundsP1.Y(),
+
+			Right:  writeInBoundsP2.X(),
+			Bottom: writeInBoundsP2.Y(),
+		},
 	}
 }
 
@@ -585,11 +610,11 @@ func (r *Renderer) MarkVotes(votes elections.Votes) {
 		writeInArea := r.fromGrid(Vec2{
 			mark.writeInArea.Width,
 			mark.writeInArea.Height,
-		})
+		}.Sub(Vec2{1, 1})) // Translate from grid origin to page orign first.
 		writeInOrigin := r.fromGrid(Vec2{
 			mark.writeInArea.X,
 			mark.writeInArea.Y,
-		}.Add(gridPos))
+		})
 		r.doc.SetXY(
 			writeInOrigin.X(),
 			writeInOrigin.Y()+0.5*(writeInArea.Y()-r.cfg.FontSize.Base),
@@ -730,12 +755,15 @@ func (r *Renderer) bubbleOptionFilled(
 
 	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
 	r.gridPositions = append(r.gridPositions, elections.GridPosition{
-		Type:        elections.GridPositionTypeOption,
+		ContestId: contest.Id,
+		Type:      elections.GridPositionTypeOption,
+
 		SheetNumber: uint32(r.doc.PageNo()+1) / 2,
 		Side:        r.pageSide.String(),
-		Row:         gridPos.Y(),
-		Column:      gridPos.X(),
-		ContestId:   contest.Id,
+
+		Column: gridPos.X(),
+		Row:    gridPos.Y(),
+
 		GridPositionOptionId: elections.GridPositionOptionId{
 			OptionId: optionId,
 		},
@@ -753,18 +781,23 @@ func (r *Renderer) bubbleWritein(
 ) {
 	r.bubbleShape(pos)
 
-	gridPos := r.toGrid(pos.Add(r.bubbleSizeHalf))
+	bubbleCenterOnGrid := r.toGrid(pos.Add(r.bubbleSizeHalf))
+	writeInOriginOnGrid := r.toGrid(area.Origin)
 
-	writeInAreaOnGrid := r.toGrid(area.Size)
-	writeInOriginOnGrid := r.toGrid(area.Origin).Sub(gridPos)
+	// Translate area dimensions by 1 grid unit to make them relative to the
+	// grid origin:
+	writeInAreaOnGrid := r.toGrid(area.Size).Add(Vec2{1, 1})
 
 	r.gridPositions = append(r.gridPositions, elections.GridPosition{
-		Type:        elections.GridPositionTypeWriteIn,
+		ContestId: contest.Id,
+		Type:      elections.GridPositionTypeWriteIn,
+
 		SheetNumber: uint32(r.doc.PageNo()+1) / 2,
 		Side:        r.pageSide.String(),
-		Row:         gridPos.Y(),
-		Column:      gridPos.X(),
-		ContestId:   contest.Id,
+
+		Column: bubbleCenterOnGrid.X(),
+		Row:    bubbleCenterOnGrid.Y(),
+
 		GridPositionWriteInIndex: elections.GridPositionWriteInIndex{
 			WriteInIndex: elections.WriteInIndex(ixWritein),
 			WriteInArea: elections.Rect{
@@ -781,7 +814,7 @@ func (r *Renderer) bubbleShape(pos Vec2) {
 	_, size := r.templateBubbleEmpty.Size()
 	r.doc.UseTemplateScaled(
 		r.templateBubbleEmpty,
-		scribe.PointType{X: pos.X(), Y: pos.Y() + r.bubbleOffsetY},
+		scribe.PointType{X: pos.X(), Y: pos.Y()},
 		size,
 	)
 }
@@ -790,7 +823,7 @@ func (r *Renderer) bubbleShapeFilled(pos Vec2) {
 	_, size := r.templateBubbleFilled.Size()
 	r.doc.UseTemplateScaled(
 		r.templateBubbleFilled,
-		scribe.PointType{X: pos.X(), Y: pos.Y() + r.bubbleOffsetY},
+		scribe.PointType{X: pos.X(), Y: pos.Y()},
 		size,
 	)
 }
@@ -1011,7 +1044,7 @@ func (r *Renderer) contestCandidate(contest *elections.Contest) error {
 
 		// Cnadidate Option:
 		r.bubbleOption(
-			Vec2{xBubble, r.doc.GetY()},
+			Vec2{xBubble, r.doc.GetY() + r.bubbleOffsetY},
 			contest,
 			contest.Candidates[i].Id,
 		)
@@ -1506,7 +1539,11 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 	r.doc.SetX(xOption)
 
 	// Option A:
-	r.bubbleOption(Vec2{xBubble, r.doc.GetY()}, contest, contest.YesOption.Id)
+	r.bubbleOption(
+		Vec2{xBubble, r.doc.GetY() + r.bubbleOffsetY},
+		contest,
+		contest.YesOption.Id,
+	)
 	r.bold(LangPrimary, r.widthOptionYesNo, r.optionAlign, linesOptionA)
 
 	// Padding:
@@ -1529,7 +1566,11 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 	r.doc.SetX(xOption)
 
 	// Option B:
-	r.bubbleOption(Vec2{xBubble, r.doc.GetY()}, contest, contest.NoOption.Id)
+	r.bubbleOption(
+		Vec2{xBubble, r.doc.GetY() + r.bubbleOffsetY},
+		contest,
+		contest.NoOption.Id,
+	)
 	r.bold(LangPrimary, r.widthOptionYesNo, r.optionAlign, linesOptionB)
 
 	// Padding:
