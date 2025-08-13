@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"cmp"
 	"encoding/hex"
 	"encoding/json"
@@ -233,8 +234,11 @@ func main() {
 			}
 			defer fileBallot.Close()
 
+			bufWriter := bufio.NewWriter(fileBallot)
+			defer bufWriter.Flush()
+
 			election, err := printer.BallotAllBubble(
-				fileBallot,
+				bufWriter,
 				&hmpb.CfgAllBubble,
 				f.paperSize,
 				hmpb.AllBubbleBallotBlank,
@@ -268,8 +272,11 @@ func main() {
 			}
 			defer file.Close()
 
+			bufWriter := bufio.NewWriter(file)
+			defer bufWriter.Flush()
+
 			_, err = printer.BallotAllBubble(
-				file,
+				bufWriter,
 				&hmpb.CfgAllBubble,
 				f.paperSize,
 				hmpb.AllBubbleBallotCycling,
@@ -289,8 +296,11 @@ func main() {
 			}
 			defer file.Close()
 
+			bufWriter := bufio.NewWriter(file)
+			defer bufWriter.Flush()
+
 			_, err = printer.BallotAllBubble(
-				file,
+				bufWriter,
 				&hmpb.CfgAllBubble,
 				f.paperSize,
 				hmpb.AllBubbleBallotFilled,
@@ -319,7 +329,10 @@ func main() {
 			}
 			defer file.Close()
 
-			err = printer.BallotGridOnly(file, &hmpb.CfgBase, f.paperSize)
+			bufWriter := bufio.NewWriter(file)
+			defer bufWriter.Flush()
+
+			err = printer.BallotGridOnly(bufWriter, &hmpb.CfgBase, f.paperSize)
 			if err != nil {
 				log.Fatalln("grid-only doc generation failed:", err)
 			}
@@ -378,7 +391,10 @@ func genBlankAndMarked(
 		assertNoErr(err)
 		defer fileBallot.Close()
 
-		assertNoErr(blankRenderer.Finalize(fileBallot, hash[:], hashHex))
+		bufWriter := bufio.NewWriter(fileBallot)
+		defer bufWriter.Flush()
+
+		assertNoErr(blankRenderer.Finalize(bufWriter, hash[:], hashHex))
 		assertNoErr(
 			os.WriteFile(
 				path.Join(outdir, "election.json"),
@@ -405,7 +421,10 @@ func genBlankAndMarked(
 		assertNoErr(err)
 		defer file.Close()
 
-		assertNoErr(markedRenderer.Finalize(file, hash, hashHex))
+		bufWriter := bufio.NewWriter(file)
+		defer bufWriter.Flush()
+
+		assertNoErr(markedRenderer.Finalize(bufWriter, hash, hashHex))
 	}()
 
 	wg.Wait()
