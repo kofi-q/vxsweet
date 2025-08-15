@@ -7,7 +7,7 @@ require (
 	github.com/bearmini/bitstream-go v0.0.0-20190121230027-bec1c9ea0d3c
 	github.com/evanw/esbuild v0.25.5
 	github.com/joho/godotenv v1.5.1
-	github.com/kofi-q/scribe-go v0.0.0-20250810205152-66665cba9161
+	github.com/kofi-q/scribe-go v0.0.0-20250815013052-be5c1eb7cbdb
 	github.com/piglig/go-qr v0.2.6
 	github.com/smacker/go-tree-sitter v0.0.0-20240827094217-dd81d9e9be82
 	github.com/stretchr/testify v1.10.0

@@ -188,9 +188,9 @@ type Renderer struct {
 	frame                Rect
 	langCode             string
 	optionAlign          string
-	templateBubbleEmpty  scribe.Template
-	templateBubbleFilled scribe.Template
-	templateTimingMarks  scribe.Template
+	templateBubbleEmpty  scribe.XobjectId
+	templateBubbleFilled scribe.XobjectId
+	templateTimingMarks  scribe.XobjectId
 
 	bubbleSizeHalf Vec2
 	gridCellCount  Vec2
@@ -296,7 +296,6 @@ func (r *Renderer) init() (*elections.BallotStyle, error) {
 	r.doc.SetCellMargin(0)
 	r.doc.SetCompression(!r.params.NoCompress)
 	r.doc.SetCreationDate(time.Unix(0, 0).UTC())
-	r.doc.SetLineWidth(BorderM)
 	r.doc.SetMargins(0, 0, 0)
 	r.doc.SetModificationDate(time.Unix(0, 0).UTC())
 
@@ -695,7 +694,7 @@ func (r *Renderer) boxHeader(bounds Rect) {
 	r.doc.SetFillColor(r.cfg.Color.Tint.Rgb())
 	r.doc.Rect(
 		bounds.Origin.X(), bounds.Origin.Y(), bounds.Size.X(), bounds.Size.Y(),
-		"F",
+		"f",
 	)
 }
 
@@ -710,7 +709,7 @@ func (r *Renderer) boxOutline(bounds Rect) {
 		bounds.Size.Y()-
 			BoxBorderTopWidthHalf-
 			BoxBorderWidthHalf,
-		"D",
+		"S",
 	)
 
 	r.doc.SetLineWidth(BoxBorderTopWidth)
@@ -811,41 +810,37 @@ func (r *Renderer) bubbleWritein(
 }
 
 func (r *Renderer) bubbleShape(pos Vec2) {
-	_, size := r.templateBubbleEmpty.Size()
-	r.doc.UseTemplateScaled(
+	r.doc.XobjectUse(
 		r.templateBubbleEmpty,
 		scribe.PointType{X: pos.X(), Y: pos.Y()},
-		size,
 	)
 }
 
 func (r *Renderer) bubbleShapeFilled(pos Vec2) {
-	_, size := r.templateBubbleFilled.Size()
-	r.doc.UseTemplateScaled(
+	r.doc.XobjectUse(
 		r.templateBubbleFilled,
 		scribe.PointType{X: pos.X(), Y: pos.Y()},
-		size,
 	)
 }
 
 type bubbleStyle string
 
 const (
-	bubbleStyleFilled = "DF"
-	bubbleStyleEmpty  = "D"
+	bubbleStyleFilled = "B"
+	bubbleStyleEmpty  = "S"
 )
 
 func (r *Renderer) bubbleTemplate(
 	name string,
 	style bubbleStyle,
-) scribe.Template {
-	return r.doc.CreateTemplateCustom(
+) scribe.XobjectId {
+	return r.doc.XobjectCreate(
 		name,
-		scribe.PointType{X: 0, Y: 0},
-		scribe.PageSize{
+		scribe.SizeType{
 			Wd: r.cfg.BubbleSize.X() + r.cfg.BubbleLnWidth,
 			Ht: r.cfg.BubbleSize.Y() + r.cfg.BubbleLnWidth,
 		},
+		280,
 		func(tpl *scribe.Tpl) {
 			tpl.SetCompression(false)
 			r.bubbleTemplateShape(tpl, style)
@@ -1397,7 +1392,7 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 					xDesc+indent-(0.75*r.cfg.FontSize.Base),
 					r.doc.GetY()+(0.5*r.cfg.FontSize.Base),
 					0.25*r.cfg.FontSize.Base,
-					"F",
+					"f",
 				)
 			} else {
 				r.doc.SetX(xDesc)
@@ -1428,7 +1423,7 @@ func (r *Renderer) contestYesNo(contest *elections.Contest) error {
 		case HtmlSvg:
 			r.doc.SetFillColor(r.cfg.Color.Fg.Rgb())
 			r.doc.SetDrawColor(r.cfg.Color.Fg.Rgb())
-			r.doc.SVGBasicDraw(&l.src, 1, "F")
+			r.doc.SVGBasicDraw(&l.src, 1, "f")
 
 			r.doc.Ln(r.cfg.LnHeight.Base)
 			r.doc.SetX(xDesc + indentSize())
@@ -1813,7 +1808,7 @@ func (r *Renderer) footer(
 			iconCenter.X(),
 			iconCenter.Y(),
 			0.5*r.cfg.FooterIconSize,
-			"F",
+			"f",
 		)
 		r.doc.SetFillColor(0xff, 0xff, 0xff)
 		r.doc.Rect(
@@ -1821,7 +1816,7 @@ func (r *Renderer) footer(
 			iconCenter.Y()-0.1*r.cfg.FooterIconSize,
 			0.3*r.cfg.FooterIconSize+0.25, // +nudge to merge with triangle:
 			0.2*r.cfg.FooterIconSize,
-			"F",
+			"f",
 		)
 		r.doc.MoveTo(
 			iconCenter.X(),
@@ -1840,7 +1835,7 @@ func (r *Renderer) footer(
 			iconCenter.Y()-0.25*r.cfg.FooterIconSize,
 		)
 		r.doc.ClosePath()
-		r.doc.DrawPath("F")
+		r.doc.DrawPath("f")
 	}
 
 	if isBack || r.cfg.NoMetadata {
@@ -2057,7 +2052,7 @@ func (r *Renderer) pageAdd() {
 	r.yContentMin = r.frame.Origin.Y()
 	r.yEndCandidateContests = r.yContentMin
 
-	r.doc.UseTemplate(r.templateTimingMarks)
+	r.doc.XobjectUse(r.templateTimingMarks, scribe.PointType{X: 0, Y: 0})
 }
 
 func (r *Renderer) PrecinctId() string {
@@ -2413,11 +2408,11 @@ func (r *Renderer) textLine(p textLineParams) {
 
 func (r *Renderer) timingMarksTemplate(
 	pageSize scribe.PageSize,
-) scribe.Template {
-	return r.doc.CreateTemplateCustom(
+) scribe.XobjectId {
+	return r.doc.XobjectCreate(
 		"timingMarks",
-		scribe.PointType{X: 0, Y: 0},
-		pageSize,
+		scribe.SizeType(pageSize),
+		7400,
 		func(tpl *scribe.Tpl) {
 			tpl.SetCompression(false)
 			tpl.SetFillColor(0, 0, 0)
@@ -2445,6 +2440,6 @@ func (r *Renderer) timingMark(doc scribe.Scriber, at Vec2) {
 		at.Y(),
 		r.cfg.Grid.MarkSize.X(),
 		r.cfg.Grid.MarkSize.Y(),
-		"F",
+		"f",
 	)
 }
