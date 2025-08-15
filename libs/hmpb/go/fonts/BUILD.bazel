@@ -1,0 +1,18 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "fonts",
+    srcs = [
+        "noto_sans_sc.go",
+        "roboto.go",
+    ],
+    embedsrcs = [
+        "Roboto-Bold.ttf",
+        "Roboto-Italic.ttf",
+        "Roboto-Regular.ttf",
+        "NotoSansSC-Bold.ttf",
+        "NotoSansSC-Regular.ttf",
+    ],
+    importpath = "github.com/kofi-q/vxsweet/libs/hmpb/go/fonts",
+    visibility = ["//visibility:public"],
+)

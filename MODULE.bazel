@@ -106,52 +106,179 @@ crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")
 # TODO: if there's no way to improve performance of `cargo.from_cargo` above,
 # generate these from the Cargo.toml & Cargo.lock to avoid maintaining both.
 # Alternatively, drop `Cargo.toml` files and autogen them in the build process.
-crate.spec(package = "ab_glyph", version = "0.2.23")
-crate.spec(package = "anyhow", version = "1.0.75")
-crate.spec(package = "base64", version = "0.22.0")
-crate.spec(package = "bitter", version = "0.6.1")
-crate.spec(package = "chrono", version = "0.4.31")
-crate.spec(package = "cc", version = "1.2.2")  # Might be a red herring, but this seems to randomly trigger rebuilds if not locked.
-crate.spec(package = "clap", version = "4.0.29", features = ["cargo", "derive", "env"])
-crate.spec(package = "color-eyre", version = "0.6.2")
-crate.spec(package = "crc16", version = "0.4.0")
-crate.spec(package = "crossterm", version = "0.27.0")
-crate.spec(package = "csv", version = "1.3.0")
-crate.spec(package = "ctrlc", version = "3.4.2")
-crate.spec(package = "hex", version = "0.4.3")
-crate.spec(package = "image", version = "0.25.0")
-crate.spec(package = "imageproc", version = "0.24.0")
-crate.spec(package = "itertools", version = "0.12.1")
-crate.spec(package = "libc", version = "0.2.153")
-crate.spec(package = "log", version = "0.4.17")
-crate.spec(package = "logging_timer", version = "1.1.0")
-crate.spec(package = "neon", version = "1.0.0", default_features = False, features = ["napi-6"])
-crate.spec(package = "neon-serde3", version = "0.10.0")
-crate.spec(package = "nom", version = "7.1.3")
-crate.spec(package = "num_enum", version = "0.7.1")
-crate.spec(package = "pkg-config", version = "0.3.2")
-crate.spec(package = "pretty_env_logger", version = "0.5.0")
-crate.spec(package = "proptest", version = "1.0.0")
-crate.spec(package = "psutil", version = "3.3.0")
-crate.spec(package = "rand", version = "0.8.5")
-crate.spec(package = "rayon", version = "1.5.3")
-crate.spec(package = "rqrr", version = "0.7.1")
-crate.spec(package = "rusb", version = "0.9.3")
-crate.spec(package = "serde", version = "1.0.150", features = ["derive"])
-crate.spec(package = "serde_bytes", version = "0.11.14")
-crate.spec(package = "serde_json", version = "1.0.89")
-crate.spec(package = "tempfile", version = "3.3.0")
-crate.spec(package = "thiserror", version = "1.0.50")
-crate.spec(package = "tracing", version = "0.1.40")
-crate.spec(package = "tracing-subscriber", version = "0.3.18", features = ["env-filter"])
-crate.spec(package = "uinput", version = "0.1.3")
-crate.spec(package = "zbar-rust", version = "0.0.23")
-
+crate.spec(
+    package = "ab_glyph",
+    version = "0.2.23",
+)
+crate.spec(
+    package = "anyhow",
+    version = "1.0.75",
+)
+crate.spec(
+    package = "base64",
+    version = "0.22.0",
+)
+crate.spec(
+    package = "bitter",
+    version = "0.6.1",
+)
+crate.spec(
+    package = "chrono",
+    version = "0.4.31",
+)
+crate.spec(
+    package = "cc",
+    version = "1.2.2",
+)  # Might be a red herring, but this seems to randomly trigger rebuilds if not locked.
+crate.spec(
+    features = [
+        "cargo",
+        "derive",
+        "env",
+    ],
+    package = "clap",
+    version = "4.0.29",
+)
+crate.spec(
+    package = "color-eyre",
+    version = "0.6.2",
+)
+crate.spec(
+    package = "crc16",
+    version = "0.4.0",
+)
+crate.spec(
+    package = "crossterm",
+    version = "0.27.0",
+)
+crate.spec(
+    package = "csv",
+    version = "1.3.0",
+)
+crate.spec(
+    package = "ctrlc",
+    version = "3.4.2",
+)
+crate.spec(
+    package = "hex",
+    version = "0.4.3",
+)
+crate.spec(
+    package = "image",
+    version = "0.25.0",
+)
+crate.spec(
+    package = "imageproc",
+    version = "0.24.0",
+)
+crate.spec(
+    package = "itertools",
+    version = "0.12.1",
+)
+crate.spec(
+    package = "libc",
+    version = "0.2.153",
+)
+crate.spec(
+    package = "log",
+    version = "0.4.17",
+)
+crate.spec(
+    package = "logging_timer",
+    version = "1.1.0",
+)
+crate.spec(
+    default_features = False,
+    features = ["napi-6"],
+    package = "neon",
+    version = "1.0.0",
+)
+crate.spec(
+    package = "neon-serde3",
+    version = "0.10.0",
+)
+crate.spec(
+    package = "nom",
+    version = "7.1.3",
+)
+crate.spec(
+    package = "num_enum",
+    version = "0.7.1",
+)
+crate.spec(
+    package = "pkg-config",
+    version = "0.3.2",
+)
+crate.spec(
+    package = "pretty_env_logger",
+    version = "0.5.0",
+)
+crate.spec(
+    package = "proptest",
+    version = "1.0.0",
+)
+crate.spec(
+    package = "psutil",
+    version = "3.3.0",
+)
+crate.spec(
+    package = "rand",
+    version = "0.8.5",
+)
+crate.spec(
+    package = "rayon",
+    version = "1.5.3",
+)
+crate.spec(
+    package = "rqrr",
+    version = "0.7.1",
+)
+crate.spec(
+    package = "rusb",
+    version = "0.9.3",
+)
+crate.spec(
+    features = ["derive"],
+    package = "serde",
+    version = "1.0.150",
+)
+crate.spec(
+    package = "serde_bytes",
+    version = "0.11.14",
+)
+crate.spec(
+    package = "serde_json",
+    version = "1.0.89",
+)
+crate.spec(
+    package = "tempfile",
+    version = "3.3.0",
+)
+crate.spec(
+    package = "thiserror",
+    version = "1.0.50",
+)
+crate.spec(
+    package = "tracing",
+    version = "0.1.40",
+)
+crate.spec(
+    features = ["env-filter"],
+    package = "tracing-subscriber",
+    version = "0.3.18",
+)
+crate.spec(
+    package = "uinput",
+    version = "0.1.3",
+)
+crate.spec(
+    package = "zbar-rust",
+    version = "0.0.23",
+)
 crate.annotation(
     crate = "libudev-sys",
     override_target_lib = "//libs/libudev-sys",
 )
-
 crate.from_specs()
 use_repo(crate, "crates")
 
@@ -173,8 +300,13 @@ go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
 go_deps.from_file(go_mod = "//:go.mod")
 use_repo(
     go_deps,
+    "com_github_bearmini_bitstream_go",
     "com_github_evanw_esbuild",
     "com_github_joho_godotenv",
+    "com_github_kofi_q_scribe_go",
+    "com_github_piglig_go_qr",
     "com_github_smacker_go_tree_sitter",
     "com_github_stretchr_testify",
+    "org_golang_x_net",
+    "org_golang_x_text",
 )

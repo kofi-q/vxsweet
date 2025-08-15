@@ -84,7 +84,7 @@ information as possible is encoded. Here are some of the guidelines:
   `255` range.
 - **uint8**: a number represented using a single byte with values in the range
   `0` to `255`.
-- **little-endian**: the binary encoding scheme this format uses, which encodes
+- **big-endian**: the binary encoding scheme this format uses, which encodes
   the most-significant bit (MSB) first and the least-significant bit (LSB) last.
   For example, the value `3` is encoded as `00000011` (or, if we were using
   _big-endian_, as `11000000`).
@@ -114,10 +114,10 @@ is encoded as follows:
 
 - **Precinct Index:** A fixed-width number for the index of the precinct in the
   election's precinct list (`C.precinctId`).
-  - Size: 12 bits.
+  - Size: 13 bits.
 - **Ballot Style Index:** A fixed-width number for the index of the ballot style
   in the election's ballot style list (`C.ballotStyleId`).
-  - Size: 12 bits.
+  - Size: 13 bits.
 - **Page Number:** _(HMPB-only.)_ A dynamic-width number for the 1-based page
   number up to a maximum number of pages (`C.pageNumber`).
   - Size: 5 bits.

@@ -1,0 +1,34 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "gen_fixtures_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/kofi-q/vxsweet/libs/hmpb/go/gen_fixtures",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//libs/elections",
+        "//libs/hmpb/go",
+    ],
+)
+
+go_binary(
+    name = "gen_fixtures",
+    data = [
+        "//libs/fixtures/data/electionFamousNames2021:election.json",
+        "//libs/fixtures/data/electionFamousNames2021:votes.json",
+        "//libs/fixtures/data/electionGeneral:election.json",
+        "//libs/fixtures/data/electionGeneral:votes.json",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:election.json",
+        "//libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:votes.json",
+    ],
+    embed = [":gen_fixtures_lib"],
+    env = {
+        "ELECTION_FAMOUS_NAMES": "$(rootpath //libs/fixtures/data/electionFamousNames2021:election.json)",
+        "ELECTION_GENERAL": "$(rootpath //libs/fixtures/data/electionGeneral:election.json)",
+        "ELECTION_NH": "$(rootpath //libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:election.json)",
+        "VOTES_FAMOUS_NAMES": "$(rootpath //libs/fixtures/data/electionFamousNames2021:votes.json)",
+        "VOTES_GENERAL": "$(rootpath //libs/fixtures/data/electionGeneral:votes.json)",
+        "VOTES_NH": "$(rootpath //libs/fixtures/data/electionGridLayoutNewHampshireTestBallot:votes.json)",
+    },
+    visibility = ["//visibility:public"],
+)

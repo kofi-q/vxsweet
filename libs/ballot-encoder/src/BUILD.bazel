@@ -7,6 +7,7 @@ load("//tools/ts_build:ts_tests.bzl", "ts_tests")
 ts_library(
     name = "src",
     deps = [
+        "//:node_modules/@types/node",
         "//libs/basics/assert",
         "//libs/basics/iterators",
         "//libs/types/basic",

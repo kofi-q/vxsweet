@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { BitCursor } from './bit_cursor';
 import { type Uint1, type Uint8, Uint8Size } from './types';
 import { sizeof, makeMasks, toUint8 } from './utils';
@@ -131,10 +132,19 @@ export class BitReader {
     const codes = new Uint8Array(lengthToRead);
 
     for (let i = 0; i < lengthToRead; i += 1) {
-      codes.set([this.readUint({ size: encoding.getBitsPerElement() })], i);
+      codes[i] = this.readUint({ size: encoding.getBitsPerElement() });
     }
 
     return encoding.decode(codes);
+  }
+
+  readStringHex(length: number): string {
+    const buf = Buffer.alloc(length);
+    for (let i = 0; i < length; i += 1) {
+      buf[i] = this.readUint8();
+    }
+
+    return buf.toString('hex');
   }
 
   /**

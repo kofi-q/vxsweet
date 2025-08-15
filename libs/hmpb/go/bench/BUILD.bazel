@@ -1,0 +1,12 @@
+load("@rules_go//go:def.bzl", "go_test")
+
+go_test(
+    name = "bench_test",
+    size = "small",
+    srcs = ["bench_test.go"],
+    embedsrcs = ["election.json"],
+    deps = [
+        "//libs/elections",
+        "//libs/hmpb/go",
+    ],
+)

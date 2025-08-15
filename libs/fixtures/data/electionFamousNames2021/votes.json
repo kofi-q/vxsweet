@@ -1,0 +1,62 @@
+{
+  "1": {
+    "mayor": [
+      {
+        "candidateId": "sherlock-holmes"
+      }
+    ],
+    "controller": [
+      {
+        "candidateId": "oprah-winfrey"
+      }
+    ],
+    "attorney": [
+      {
+        "candidateId": "john-snow"
+      }
+    ],
+    "public-works-director": [
+      {
+        "candidateId": "benjamin-franklin"
+      }
+    ],
+    "chief-of-police": [
+      {
+        "candidateId": "natalie-portman"
+      }
+    ],
+    "parks-and-recreation-director": [
+      {
+        "candidateId": "stephen-hawking"
+      }
+    ],
+    "board-of-alderman": [
+      {
+        "candidateId": "helen-keller"
+      },
+      {
+        "candidateId": "steve-jobs"
+      },
+      {
+        "candidateId": "nikola-tesla"
+      },
+      {
+        "candidateId": "vincent-van-gogh"
+      }
+    ],
+    "city-council": [
+      {
+        "candidateId": "marie-curie"
+      },
+      {
+        "candidateId": "martin-luther-king"
+      },
+      {
+        "candidateId": "indiana-jones"
+      },
+      {
+        "candidateId": "marilyn-monroe"
+      }
+    ]
+  }
+}

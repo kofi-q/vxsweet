@@ -1,0 +1,12 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "ballots",
+    srcs = ["codec.go"],
+    importpath = "github.com/kofi-q/vxsweet/libs/ballots",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/elections",
+        "@com_github_bearmini_bitstream_go//:bitstream-go",
+    ],
+)

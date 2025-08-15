@@ -1,0 +1,665 @@
+{
+  "ballotLayout": {
+    "paperSize": "letter",
+    "metadataEncoding": "qr-code"
+  },
+  "ballotStrings": {
+    "en": {
+      "ballotLanguage": "English",
+      "ballotStyleId.1L": "1L",
+      "ballotStyleId.2L": "2L",
+      "ballotStyleId.3C": "3C",
+      "ballotStyleId.4F": "4F",
+      "ballotStyleId.5F": "5F",
+      "ballotStyleId.6F": "6F",
+      "candidateName.aaron-alligator": "Aaron Alligator",
+      "candidateName.amber-brkich": "Amber Brkich",
+      "candidateName.aras-baskauskas": "Aras Baskauskas",
+      "candidateName.bob-crowley": "Bob Crowley",
+      "candidateName.brain-heidik": "Brain Heidik",
+      "candidateName.bulbasaur": "Bulbasaur",
+      "candidateName.charmander": "Charmander",
+      "candidateName.chidi-anagonye": "Chidi Anagonye",
+      "candidateName.chris-daugherty": "Chris Daugherty",
+      "candidateName.danni-boatwright": "Dann Boatwright",
+      "candidateName.dax-shepherd": "Dax Shepherd",
+      "candidateName.earl-cole": "Earl Cole",
+      "candidateName.eevee": "Eevee",
+      "candidateName.eleanor-shellstrop": "Eleanor Shellstrop",
+      "candidateName.ethan-zohn": "Ethan Zohn",
+      "candidateName.flareon": "Flareon",
+      "candidateName.jason-mendoza": "Jason Mendoza",
+      "candidateName.jenna-morasca": "Jenna Morasca",
+      "candidateName.jt-thomas": "JT Thomas",
+      "candidateName.kristen-bell": "Kristen Bell",
+      "candidateName.natalie-white": "Natalie White",
+      "candidateName.parvati-shallow": "Parvati Shallow",
+      "candidateName.peter-pigeon": "Peter Pigeon",
+      "candidateName.pikachu": "Pikachu",
+      "candidateName.sandra-diaz-twine": "Sandra Diaz-Twine",
+      "candidateName.squirtle": "Squirtle",
+      "candidateName.tahani-al-jamil": "Tahani Al-Jamil",
+      "candidateName.tina-wesson": "Tina Wesson",
+      "candidateName.todd-herzog": "Todd Herzog",
+      "candidateName.tom-westman": "Tom Westman",
+      "candidateName.umbreon": "Umbreon",
+      "candidateName.vaporeon": "Vaporeon",
+      "candidateName.vecepia-towery": "Vecepia Towery",
+      "candidateName.yul-kwon": "Yul Kwon",
+      "contestTitle.assistant-mayor-contest-liberty": "Assistant Mayor",
+      "contestTitle.chief-pokemon-constitution": "Chief Pokemon",
+      "contestTitle.chief-pokemon-federalist": "Chief Pokemon",
+      "contestTitle.chief-pokemon-liberty": "Chief Pokemon",
+      "contestTitle.governor-contest-constitution": "Governor",
+      "contestTitle.governor-contest-federalist": "Governor",
+      "contestTitle.governor-contest-liberty": "Governor",
+      "contestTitle.mayor-contest-constitution": "Mayor",
+      "contestTitle.mayor-contest-federalist": "Mayor",
+      "contestTitle.mayor-contest-liberty": "Mayor",
+      "contestTitle.schoolboard-constitution": "Schoolboard",
+      "contestTitle.schoolboard-federalist": "Schoolboard",
+      "contestTitle.schoolboard-liberty": "Schoolboard",
+      "countyName": "Sample County",
+      "districtName.district-1": "District 1",
+      "districtName.district-2": "District 2",
+      "districtName.district-3": "District 3",
+      "districtName.district-4": "District 4",
+      "electionDate": "November 3, 2020",
+      "electionTitle": "Primary Election",
+      "partyFullName.0": "Liberty Party",
+      "partyFullName.1": "Democratic Party",
+      "partyFullName.2": "Republican Party",
+      "partyFullName.3": "Constitution Party",
+      "partyFullName.4": "Federalist Party",
+      "partyFullName.5": "Labor Party",
+      "partyFullName.6": "Independent Party",
+      "partyName.0": "Liberty",
+      "partyName.1": "Democrat",
+      "partyName.2": "Republican",
+      "partyName.3": "Constitution",
+      "partyName.4": "Federalist",
+      "partyName.5": "Labor",
+      "partyName.6": "Independent",
+      "precinctName.precinct-1": "Precinct 1",
+      "precinctName.precinct-2": "Precinct 2",
+      "precinctName.precinct-3": "Precinct 3",
+      "precinctName.precinct-4": "Precinct 4",
+      "precinctName.precinct-5": "Precinct 5",
+      "stateName": "State of Sample"
+    }
+  },
+  "ballotStyles": [
+    {
+      "id": "1L",
+      "groupId": "1L",
+      "precincts": [
+        "precinct-1",
+        "precinct-3",
+        "precinct-5"
+      ],
+      "districts": [
+        "district-1",
+        "district-2"
+      ],
+      "partyId": "0"
+    },
+    {
+      "id": "2L",
+      "groupId": "2L",
+      "precincts": [
+        "precinct-2",
+        "precinct-4",
+        "precinct-5"
+      ],
+      "districts": [
+        "district-1",
+        "district-3",
+        "district-4"
+      ],
+      "partyId": "0"
+    },
+    {
+      "id": "3C",
+      "groupId": "3C",
+      "precincts": [
+        "precinct-1",
+        "precinct-2",
+        "precinct-3",
+        "precinct-4",
+        "precinct-5"
+      ],
+      "districts": [
+        "district-1",
+        "district-2",
+        "district-3",
+        "district-4"
+      ],
+      "partyId": "3"
+    },
+    {
+      "id": "4F",
+      "groupId": "4F",
+      "precincts": [
+        "precinct-1"
+      ],
+      "districts": [
+        "district-1"
+      ],
+      "partyId": "4"
+    },
+    {
+      "id": "5F",
+      "groupId": "5F",
+      "precincts": [
+        "precinct-1"
+      ],
+      "districts": [
+        "district-1",
+        "district-2"
+      ],
+      "partyId": "4"
+    },
+    {
+      "id": "6F",
+      "groupId": "6F",
+      "precincts": [
+        "precinct-5"
+      ],
+      "districts": [
+        "district-1",
+        "district-2",
+        "district-3",
+        "district-4"
+      ],
+      "partyId": "4"
+    }
+  ],
+  "contests": [
+    {
+      "id": "governor-contest-liberty",
+      "districtId": "district-1",
+      "type": "candidate",
+      "title": "Governor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "aaron-alligator",
+          "name": "Aaron Alligator",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "peter-pigeon",
+          "name": "Peter Pigeon",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 1
+    },
+    {
+      "id": "governor-contest-constitution",
+      "districtId": "district-1",
+      "type": "candidate",
+      "title": "Governor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "kristen-bell",
+          "name": "Kristen Bell",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "dax-shepherd",
+          "name": "Dax Shepherd",
+          "partyIds": [
+            "3"
+          ]
+        }
+      ],
+      "partyId": "3",
+      "seats": 1
+    },
+    {
+      "id": "governor-contest-federalist",
+      "districtId": "district-1",
+      "type": "candidate",
+      "title": "Governor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "eleanor-shellstrop",
+          "name": "Eleanor Shellstrop",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "chidi-anagonye",
+          "name": "Chidi Anagonye",
+          "partyIds": [
+            "4"
+          ]
+        }
+      ],
+      "partyId": "4",
+      "seats": 1
+    },
+    {
+      "id": "mayor-contest-liberty",
+      "districtId": "district-2",
+      "type": "candidate",
+      "title": "Mayor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "tahani-al-jamil",
+          "name": "Tahani Al-Jamil",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "jason-mendoza",
+          "name": "Jason Mendoza",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 1
+    },
+    {
+      "id": "mayor-contest-constitution",
+      "districtId": "district-2",
+      "type": "candidate",
+      "title": "Mayor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "tina-wesson",
+          "name": "Tina Wesson",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "ethan-zohn",
+          "name": "Ethan Zohn",
+          "partyIds": [
+            "3"
+          ]
+        }
+      ],
+      "partyId": "3",
+      "seats": 1
+    },
+    {
+      "id": "mayor-contest-federalist",
+      "districtId": "district-2",
+      "type": "candidate",
+      "title": "Mayor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "vecepia-towery",
+          "name": "Vecepia Towery",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "brain-heidik",
+          "name": "Brain Heidik",
+          "partyIds": [
+            "4"
+          ]
+        }
+      ],
+      "partyId": "4",
+      "seats": 1
+    },
+    {
+      "id": "assistant-mayor-contest-liberty",
+      "districtId": "district-2",
+      "type": "candidate",
+      "title": "Assistant Mayor",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "jenna-morasca",
+          "name": "Jenna Morasca",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "sandra-diaz-twine",
+          "name": "Sandra Diaz-Twine",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 1
+    },
+    {
+      "id": "chief-pokemon-liberty",
+      "districtId": "district-3",
+      "type": "candidate",
+      "title": "Chief Pokemon",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "charmander",
+          "name": "Charmander",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 1
+    },
+    {
+      "id": "chief-pokemon-constitution",
+      "districtId": "district-3",
+      "type": "candidate",
+      "title": "Chief Pokemon",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "partyIds": [
+            "3"
+          ]
+        }
+      ],
+      "partyId": "3",
+      "seats": 1
+    },
+    {
+      "id": "chief-pokemon-federalist",
+      "districtId": "district-3",
+      "type": "candidate",
+      "title": "Chief Pokemon",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "eevee",
+          "name": "Eevee",
+          "partyIds": [
+            "4"
+          ]
+        }
+      ],
+      "partyId": "4",
+      "seats": 1
+    },
+    {
+      "id": "schoolboard-liberty",
+      "districtId": "district-4",
+      "type": "candidate",
+      "title": "Schoolboard",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "amber-brkich",
+          "name": "Amber Brkich",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "chris-daugherty",
+          "name": "Chris Daugherty",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "tom-westman",
+          "name": "Tom Westman",
+          "partyIds": [
+            "0"
+          ]
+        },
+        {
+          "id": "danni-boatwright",
+          "name": "Dann Boatwright",
+          "partyIds": [
+            "0"
+          ]
+        }
+      ],
+      "partyId": "0",
+      "seats": 2
+    },
+    {
+      "id": "schoolboard-constitution",
+      "districtId": "district-4",
+      "type": "candidate",
+      "title": "Schoolboard",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "aras-baskauskas",
+          "name": "Aras Baskauskas",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "yul-kwon",
+          "name": "Yul Kwon",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "earl-cole",
+          "name": "Earl Cole",
+          "partyIds": [
+            "3"
+          ]
+        },
+        {
+          "id": "todd-herzog",
+          "name": "Todd Herzog",
+          "partyIds": [
+            "3"
+          ]
+        }
+      ],
+      "partyId": "3",
+      "seats": 2
+    },
+    {
+      "id": "schoolboard-federalist",
+      "districtId": "district-4",
+      "type": "candidate",
+      "title": "Schoolboard",
+      "allowWriteIns": true,
+      "candidates": [
+        {
+          "id": "parvati-shallow",
+          "name": "Parvati Shallow",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "bob-crowley",
+          "name": "Bob Crowley",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "jt-thomas",
+          "name": "JT Thomas",
+          "partyIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "natalie-white",
+          "name": "Natalie White",
+          "partyIds": [
+            "4"
+          ]
+        }
+      ],
+      "partyId": "4",
+      "seats": 2
+    }
+  ],
+  "gridLayouts": null,
+  "county": {
+    "id": "sample-county",
+    "name": "Sample County"
+  },
+  "districts": [
+    {
+      "id": "district-1",
+      "name": "District 1"
+    },
+    {
+      "id": "district-2",
+      "name": "District 2"
+    },
+    {
+      "id": "district-3",
+      "name": "District 3"
+    },
+    {
+      "id": "district-4",
+      "name": "District 4"
+    }
+  ],
+  "id": "election-multi-party-primary",
+  "date": {
+    "year": 2020,
+    "month": 11,
+    "day": 3
+  },
+  "parties": [
+    {
+      "id": "0",
+      "name": "Liberty",
+      "fullName": "Liberty Party",
+      "abbrev": "Li"
+    },
+    {
+      "id": "1",
+      "name": "Democrat",
+      "fullName": "Democratic Party",
+      "abbrev": "D"
+    },
+    {
+      "id": "2",
+      "name": "Republican",
+      "fullName": "Republican Party",
+      "abbrev": "R"
+    },
+    {
+      "id": "3",
+      "name": "Constitution",
+      "fullName": "Constitution Party",
+      "abbrev": "C"
+    },
+    {
+      "id": "4",
+      "name": "Federalist",
+      "fullName": "Federalist Party",
+      "abbrev": "F"
+    },
+    {
+      "id": "5",
+      "name": "Labor",
+      "fullName": "Labor Party",
+      "abbrev": "La"
+    },
+    {
+      "id": "6",
+      "name": "Independent",
+      "fullName": "Independent Party",
+      "abbrev": "I"
+    }
+  ],
+  "precincts": [
+    {
+      "id": "precinct-1",
+      "name": "Precinct 1",
+      "districts": null
+    },
+    {
+      "id": "precinct-2",
+      "name": "Precinct 2",
+      "districts": null
+    },
+    {
+      "id": "precinct-3",
+      "name": "Precinct 3",
+      "districts": null
+    },
+    {
+      "id": "precinct-4",
+      "name": "Precinct 4",
+      "districts": null
+    },
+    {
+      "id": "precinct-5",
+      "name": "Precinct 5",
+      "districts": null
+    }
+  ],
+  "seal": "data:image/png;base64,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",
+  "state": "State of Sample",
+  "title": "Primary Election",
+  "type": "primary",
+  "version": 2
+}

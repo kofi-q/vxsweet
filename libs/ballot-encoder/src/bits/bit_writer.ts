@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { iter } from '@vx/libs/basics/iterators';
 import { BitCursor } from './bit_cursor';
 import { type Encoding, Utf8Encoding } from './encoding';
@@ -189,6 +190,13 @@ export class BitWriter {
     for (const code of codes) {
       this.writeUint(code, { size: encoding.getBitsPerElement() });
     }
+
+    return this;
+  }
+
+  writeStringHex(hexString: string): this {
+    const bytes = Buffer.from(hexString, 'hex');
+    for (const byte of bytes) this.writeUint(byte, { size: Uint8Size });
 
     return this;
   }
