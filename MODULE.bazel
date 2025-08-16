@@ -5,10 +5,10 @@
 ################################################################################
 bazel_dep(name = "aspect_bazel_lib", version = "2.14.0")
 bazel_dep(name = "bazel_skylib_gazelle_plugin", version = "1.7.1")
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
 bazel_dep(name = "buildifier_prebuilt", version = "8.0.1")
 bazel_dep(name = "buildozer", version = "8.0.3")
-bazel_dep(name = "gazelle", version = "0.44.0")
+bazel_dep(name = "gazelle", version = "0.45.0")
 bazel_dep(name = "rules_multitool", version = "1.0.0")
 
 multitool = use_extension("@rules_multitool//multitool:extension.bzl", "multitool")
@@ -18,18 +18,24 @@ use_repo(multitool, "multitool")
 ################################################################################
 # JAVASCRIPT
 ################################################################################
-bazel_dep(name = "aspect_rules_jest", version = "0.23.2")
-bazel_dep(name = "aspect_rules_js", version = "2.3.7")
-bazel_dep(name = "aspect_rules_ts", version = "3.6.0")
-bazel_dep(name = "rules_nodejs", version = "6.4.0")
+bazel_dep(name = "aspect_rules_jest", version = "0.23.3")
+bazel_dep(name = "aspect_rules_js", version = "2.4.2")
+bazel_dep(name = "aspect_rules_ts", version = "3.6.3")
+bazel_dep(name = "rules_nodejs", version = "6.5.0")
 
 # Register explicit NodeJS runtime and build toolchain version:
 node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node")
 node.toolchain(node_version = "20.16.0")
 
-# Set up TypeScript compiler toolchain::
-rules_ts_ext = use_extension("@aspect_rules_ts//ts:extensions.bzl", "ext")
-rules_ts_ext.deps()
+# Set up TypeScript compiler toolchain:
+rules_ts_ext = use_extension(
+    "@aspect_rules_ts//ts:extensions.bzl",
+    "ext",
+    dev_dependency = True,
+)
+rules_ts_ext.deps(
+    ts_version_from = "//:package.json",
+)
 use_repo(rules_ts_ext, "npm_typescript")
 
 # Set up node module repos:
@@ -71,7 +77,7 @@ use_repo(pnpm, "pnpm")
 ################################################################################
 # RUST
 ################################################################################
-bazel_dep(name = "rules_rust", version = "0.61.0")
+bazel_dep(name = "rules_rust", version = "0.63.0")
 
 rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
 rust.toolchain(
@@ -285,12 +291,12 @@ use_repo(crate, "crates")
 ################################################################################
 # GOLANG (Only needed for the build file auto-updater, Gazelle.)
 ################################################################################
-bazel_dep(name = "rules_go", version = "0.55.0")
+bazel_dep(name = "rules_go", version = "0.56.1")
 
 go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
 go_sdk.download(
     name = "go_sdk",
-    version = "1.24.3",
+    version = "1.24.5",
 )
 use_repo(go_sdk, "go_toolchains")
 
