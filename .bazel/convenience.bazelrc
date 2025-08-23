@@ -31,5 +31,6 @@ test --test_tag_filters=-lint --build_tests_only
 
 # Enable garbage collection of old unused build artifacts when the Bazel server
 # is idle.
-# https://bazel.build/reference/command-line-reference#flag--experimental_disk_cache_gc_max_age
 common --experimental_disk_cache_gc_max_age=7d
+common --experimental_install_base_gc_max_age=7d
+common --repo_contents_cache_gc_max_age=7d
