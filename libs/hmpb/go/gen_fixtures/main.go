@@ -124,9 +124,7 @@ func main() {
 		{outdirVxGeneralLegalZhHant, elections.PaperSizeLegal, "zh-Hant"},
 		{outdirVxGeneralLetter, elections.PaperSizeLetter, "en"},
 	} {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			electionGeneral := electionSingleBallot
 			electionGeneral.BallotLayout = electionSingleBallot.BallotLayout
@@ -152,13 +150,11 @@ func main() {
 				votes,
 				f.outdir,
 			)
-		}()
+		})
 	}
 
 	// Vx Famous Names Election:
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
+	wg.Go(func() {
 
 		ballotStyle := &electionFamousNames.BallotStyles[0]
 		votes, ok := votesFamousNames[ballotStyle.Id]
@@ -178,16 +174,14 @@ func main() {
 			votes,
 			outdirVxFamousNames,
 		)
-	}()
+	})
 
 	// NH General Election:
 	for _, f := range []Fixture{
 		{outdirNhGeneralLegal, elections.PaperSizeLegal, "en"},
 		{outdirNhGeneralLetter, elections.PaperSizeLetter, "en"},
 	} {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			election := electionNh
 			style := election.BallotStyles[0]
@@ -213,7 +207,7 @@ func main() {
 				votes,
 				f.outdir,
 			)
-		}()
+		})
 	}
 
 	// All-bubble ballots:
@@ -224,9 +218,7 @@ func main() {
 		{outdirAllBubbleLegal, elections.PaperSizeLegal, "en"},
 		{outdirAllBubbleLetter, elections.PaperSizeLetter, "en"},
 	} {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			fileBallot, err := os.Create(f.outdir + "/blank-ballot.pdf")
 			if err != nil {
@@ -260,11 +252,9 @@ func main() {
 			if err != nil {
 				log.Fatalln("unable to write all-bubble election def:", err)
 			}
-		}()
+		})
 
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			file, err := os.Create(f.outdir + "/cycling-test-deck.pdf")
 			if err != nil {
@@ -284,11 +274,9 @@ func main() {
 			if err != nil {
 				log.Fatalln("all-bubble cycling ballot generation failed:", err)
 			}
-		}()
+		})
 
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			file, err := os.Create(f.outdir + "/filled-ballot.pdf")
 			if err != nil {
@@ -308,7 +296,7 @@ func main() {
 			if err != nil {
 				log.Fatalln("all-bubble filled ballot generation failed:", err)
 			}
-		}()
+		})
 	}
 
 	// Grid-only sheets:
@@ -319,9 +307,7 @@ func main() {
 		{outdirGridOnlyLegal, elections.PaperSizeLegal, "en"},
 		{outdirGridOnlyLetter, elections.PaperSizeLetter, "en"},
 	} {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			file, err := os.Create(f.outdir + "/standard.pdf")
 			if err != nil {
@@ -336,7 +322,7 @@ func main() {
 			if err != nil {
 				log.Fatalln("grid-only doc generation failed:", err)
 			}
-		}()
+		})
 	}
 
 	wg.Wait()
@@ -367,9 +353,7 @@ func genBlankAndMarked(
 	chanElectionHash := make(chan []byte, 1)
 	chanElectionHashHex := make(chan string, 1)
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
+	wg.Go(func() {
 
 		var err error
 		blankRenderer, err = printer.Ballot(election, params, cfg)
@@ -402,11 +386,9 @@ func genBlankAndMarked(
 				0o666,
 			),
 		)
-	}()
+	})
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
+	wg.Go(func() {
 
 		var err error
 		markedRenderer, err = printer.Ballot(election, params, cfg)
@@ -425,7 +407,7 @@ func genBlankAndMarked(
 		defer bufWriter.Flush()
 
 		assertNoErr(markedRenderer.Finalize(bufWriter, hash, hashHex))
-	}()
+	})
 
 	wg.Wait()
 }

@@ -11,18 +11,10 @@ import (
 	sitter "github.com/smacker/go-tree-sitter"
 )
 
-type jestmockComponent interface {
-}
-
 type namedJestMockRecord struct {
 	alias  string
 	isType bool
 	name   string
-}
-
-type namespaceJestMockRecord struct {
-	name   string
-	isType bool
 }
 
 func (self namedJestMockRecord) String() string {
@@ -251,7 +243,11 @@ func (self *JestMockUpdater) Update(
 	switch factoryBody.Type() {
 	case "parenthesized_expression":
 		objectNode := factoryBody.NamedChild(0)
-		return self.parseReturnObject(objectNode, canonicalExports, hasReturnType)
+		return self.parseReturnObject(
+			objectNode,
+			canonicalExports,
+			hasReturnType,
+		)
 	case "statement_block":
 		return self.parseFactoryFunctionBlock(
 			factoryBody,
@@ -415,7 +411,8 @@ func (self *JestMockUpdater) parseReturnObject(
 				}
 
 			case "pair":
-				name := fieldNode.ChildByFieldName("key").Content(self.src.Code())
+				name := fieldNode.ChildByFieldName("key").
+					Content(self.src.Code())
 				isExportedByFile := slices.ContainsFunc(
 					exports,
 					func(e *CanonicalExport) bool {
@@ -424,7 +421,9 @@ func (self *JestMockUpdater) parseReturnObject(
 				)
 
 				if isExportedByFile {
-					chunkGroup.chunks.Push(fieldNode.Content(self.src.Code()) + ",\n")
+					chunkGroup.chunks.Push(
+						fieldNode.Content(self.src.Code()) + ",\n",
+					)
 
 					if !slices.Contains(filesWithMockedExports, file) {
 						filesWithMockedExports = append(
@@ -435,7 +434,9 @@ func (self *JestMockUpdater) parseReturnObject(
 				}
 
 			case "method_definition":
-				name := fieldNode.ChildByFieldName("name").Content(self.src.Code())
+				name := fieldNode.
+					ChildByFieldName("name").
+					Content(self.src.Code())
 				isExportedByFile := slices.ContainsFunc(
 					exports,
 					func(e *CanonicalExport) bool {
@@ -444,7 +445,9 @@ func (self *JestMockUpdater) parseReturnObject(
 				)
 
 				if isExportedByFile {
-					chunkGroup.chunks.Push(fieldNode.Content(self.src.Code()) + ",\n")
+					chunkGroup.chunks.Push(
+						fieldNode.Content(self.src.Code()) + ",\n",
+					)
 
 					if !slices.Contains(filesWithMockedExports, file) {
 						filesWithMockedExports = append(
@@ -455,7 +458,9 @@ func (self *JestMockUpdater) parseReturnObject(
 				}
 
 			case "comment":
-				chunkGroup.chunks.Push(fieldNode.Content(self.src.Code()) + "\n")
+				chunkGroup.chunks.Push(
+					fieldNode.Content(self.src.Code()) + "\n",
+				)
 
 			default:
 				log.Panicf(

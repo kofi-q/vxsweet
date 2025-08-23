@@ -43,7 +43,7 @@ type ImportStatement struct {
 
 type parseResult struct {
 	SourcePath string
-	Imports    map[ImportStatement]interface{}
+	Imports    map[ImportStatement]any
 	Modules    []string
 	Errors     []error
 }
@@ -63,15 +63,13 @@ func (t *tsPackage) parseFiles(
 
 	// Kick off workers:
 	var wg sync.WaitGroup
-	for i := 0; i < workerCount; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+	for range workerCount {
+		wg.Go(func() {
 
 			for sourcePath := range sourcePathChannel {
 				resultsChannel <- t.collectImports(args.Config, sourcePath)
 			}
-		}()
+		})
 	}
 
 	// Send files to the workers.
@@ -101,7 +99,7 @@ func (t *tsPackage) collectImports(
 	result := parseResult{
 		SourcePath: sourcePath,
 		Errors:     errs,
-		Imports:    map[ImportStatement]interface{}{},
+		Imports:    map[ImportStatement]any{},
 		Modules:    parseResults.Modules,
 	}
 

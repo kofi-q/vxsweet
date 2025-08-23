@@ -46,9 +46,6 @@ type importGroup struct {
 	from             *File
 }
 
-type importClause interface {
-}
-
 func (self importGroup) String() string {
 	return strings.Join(
 		append(self.namespaceStrings(), self.componentsStrings()...),

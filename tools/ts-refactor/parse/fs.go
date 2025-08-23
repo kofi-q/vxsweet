@@ -40,7 +40,10 @@ func ListFiles() *Repo {
 
 		// Skip files in root dir, except hackily for files that are imported in
 		// other source dirs:
-		isRootSourceFile := slices.Contains(importableRootFiles[:], absolutePath)
+		isRootSourceFile := slices.Contains(
+			importableRootFiles[:],
+			absolutePath,
+		)
 		if path.Dir(absolutePath) == RepoRoot && !isRootSourceFile {
 			return nil
 		}
@@ -89,7 +92,7 @@ func registerFileMoves(repo *Repo) {
 		log.Fatalf("unable to get git status: %v", err)
 	}
 
-	for _, statusLine := range strings.Split(string(result), "\n") {
+	for statusLine := range strings.SplitSeq(string(result), "\n") {
 		if len(statusLine) == 0 || statusLine[0] != 'R' {
 			continue
 		}

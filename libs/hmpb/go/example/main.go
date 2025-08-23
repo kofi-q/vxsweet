@@ -128,9 +128,7 @@ func genParallelBallots(printer hmpb.Printer, count uint64) {
 	var wg sync.WaitGroup
 
 	for range count {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			var buf bytes.Buffer
 			defer buf.Reset()
@@ -157,7 +155,7 @@ func genParallelBallots(printer hmpb.Printer, count uint64) {
 			assertNoErr(err)
 
 			assertNoErr(r.Finalize(&buf, hash[:], hex.EncodeToString(hash[:])))
-		}()
+		})
 	}
 
 	wg.Wait()

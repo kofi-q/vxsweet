@@ -30,10 +30,8 @@ func refactorRepo(
 
 	var wg sync.WaitGroup
 	for i := range min(runtime.NumCPU()-1, maxWorkers) {
-		wg.Add(1)
 
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			for file := range repoFileChannel {
 				src, err := srcLoader.LoadSrc(file)
@@ -63,7 +61,7 @@ func refactorRepo(
 				}
 				os.WriteFile(file.AbsolutePath(), []byte(newContent), 0644)
 			}
-		}()
+		})
 
 	}
 

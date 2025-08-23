@@ -7,13 +7,14 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/bazelbuild/bazel-gazelle/language"
 	"github.com/bazelbuild/bazel-gazelle/rule"
 )
 
-type JsImports map[ImportStatement]interface{}
+type JsImports map[ImportStatement]any
 
 var (
 	testFileInfix  = ".test"
@@ -382,13 +383,7 @@ func newJsonPackageRule() *rule.Rule {
 }
 
 func isTsExtension(fileExtension string) bool {
-	for _, tsExtension := range tsExtensions {
-		if tsExtension == fileExtension {
-			return true
-		}
-	}
-
-	return false
+	return slices.Contains(tsExtensions, fileExtension)
 }
 
 func newEmptyLanguageResult() language.GenerateResult {

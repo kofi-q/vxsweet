@@ -152,7 +152,7 @@ func (t *tsPackage) Resolve(
 	ruleIndex *resolve.RuleIndex,
 	remoteCache *repo.RemoteCache,
 	buildRule *rule.Rule,
-	imports interface{},
+	imports any,
 	buildRuleLabel label.Label,
 ) {
 	switch buildRule.Kind() {
@@ -192,7 +192,7 @@ func setDeps(
 	attributeName string,
 	ruleIndex *resolve.RuleIndex,
 	currentRuleLabel label.Label,
-	imports map[ImportStatement]interface{},
+	imports map[ImportStatement]any,
 ) {
 	depSet := resolveImports(
 		runConfig,
@@ -219,9 +219,9 @@ func resolveImports(
 	runConfig *config.Config,
 	ruleIndex *resolve.RuleIndex,
 	currentRuleLabel label.Label,
-	imports map[ImportStatement]interface{},
-) map[label.Label]interface{} {
-	deps := map[label.Label]interface{}{}
+	imports map[ImportStatement]any,
+) map[label.Label]any {
+	deps := map[label.Label]any{}
 
 	for importStatement := range imports {
 		if importStatement.ImportPath[0] != '.' &&
