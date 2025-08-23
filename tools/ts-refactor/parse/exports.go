@@ -177,11 +177,9 @@ func ProcessExports(repo *Repo, srcLoader SrcLoader) {
 	repoFileChannel := make(chan *File)
 
 	var wg sync.WaitGroup
-	for i := range min(runtime.NumCPU() - 1, maxCpus) {
-		wg.Add(1)
+	for i := range min(runtime.NumCPU()-1, maxCpus) {
 
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			for f := range repoFileChannel {
 				err := processModuleExports(f, repo, srcLoader)
@@ -193,7 +191,7 @@ func ProcessExports(repo *Repo, srcLoader SrcLoader) {
 					continue
 				}
 			}
-		}()
+		})
 
 	}
 

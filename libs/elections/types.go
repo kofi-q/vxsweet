@@ -12,10 +12,10 @@ import (
 )
 
 type Record struct {
-	Id          string             `json:"id,omitempty"`
-	Definition  Definition         `json:"electionDefinition,omitempty"`
-	CreatedAt   datetime.Timestamp `json:"createdAtMs,omitempty"`
-	PackageHash string             `json:"electionPackageHash,omitempty"`
+	Id          string             `json:"id"`
+	Definition  Definition         `json:"electionDefinition"`
+	CreatedAt   datetime.Timestamp `json:"createdAtMs"`
+	PackageHash string             `json:"electionPackageHash"`
 }
 
 type Definition struct {
@@ -443,7 +443,7 @@ type UiStringsPackage map[string]UiStrings
 type UiStrings map[string]string
 
 func (self *UiStrings) UnmarshalJSON(bytes []byte) error {
-	var rawMap map[string]interface{}
+	var rawMap map[string]any
 	err := json.Unmarshal(bytes, &rawMap)
 	if err != nil {
 		return err
@@ -452,7 +452,7 @@ func (self *UiStrings) UnmarshalJSON(bytes []byte) error {
 	*self = UiStrings{}
 	for key, rawVal := range rawMap {
 		switch valOrNested := rawVal.(type) {
-		case map[string]interface{}:
+		case map[string]any:
 			for subKey, val := range valOrNested {
 				(*self)[fmt.Sprintf("%s.%s", key, subKey)] = val.(string)
 			}

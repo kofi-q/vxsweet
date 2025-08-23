@@ -44,9 +44,6 @@ type exportGroup struct {
 	from             *File
 }
 
-type exportClause interface {
-}
-
 func (self exportGroup) String() string {
 	return strings.Join(
 		append(self.namespaceStrings(), self.componentsStrings()...),

@@ -26,7 +26,7 @@ func (self Timestamp) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.Val.UnixMilli())
 }
 
-func (self *Timestamp) Scan(src interface{}) error {
+func (self *Timestamp) Scan(src any) error {
 	var ok bool
 	if self.Val, ok = src.(time.Time); !ok {
 		return fmt.Errorf("invalid timestamp")

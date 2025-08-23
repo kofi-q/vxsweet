@@ -2096,9 +2096,7 @@ func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 
 	var wg sync.WaitGroup
 	for i, page := range metadata.Pages {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			data := base64.StdEncoding.EncodeToString(page)
 			qr, err := goqr.EncodeText(data, goqr.Low)
@@ -2130,7 +2128,7 @@ func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
 				img:     img,
 				pageNum: uint8(i + 1),
 			}
-		}()
+		})
 	}
 
 	done := make(chan struct{})

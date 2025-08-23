@@ -77,9 +77,7 @@ func (p *Packager) All() (Package, error) {
 	var wg sync.WaitGroup
 
 	for _, job := range p.jobs {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			r, err := p.Printer.Ballot(p.Election, job, p.Cfg)
 			if err != nil {
@@ -88,7 +86,7 @@ func (p *Packager) All() (Package, error) {
 			}
 
 			chanRenderers <- r
-		}()
+		})
 	}
 
 	done := make(chan struct{})
@@ -165,9 +163,7 @@ func (p *Packager) All() (Package, error) {
 			StyleId:    r.StyleId(),
 		})
 
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
+		wg.Go(func() {
 
 			file, err := os.Create(outPath)
 			if err != nil {
@@ -183,7 +179,7 @@ func (p *Packager) All() (Package, error) {
 			if err = bufWriter.Flush(); err != nil {
 				chanErrs <- err
 			}
-		}()
+		})
 	}
 
 	go func() {
