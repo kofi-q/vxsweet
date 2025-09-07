@@ -171,11 +171,11 @@ crate.spec(
 )
 crate.spec(
     package = "image",
-    version = "0.25.0",
+    version = "=0.25.0",
 )
 crate.spec(
     package = "imageproc",
-    version = "0.24.0",
+    version = "=0.24.0",
 )
 crate.spec(
     package = "itertools",

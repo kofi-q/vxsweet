@@ -12,7 +12,6 @@ import (
 	"math"
 	"strconv"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/kofi-q/scribe-go"
@@ -529,14 +528,12 @@ func (r *Renderer) Finalize(
 	if err != nil {
 		return err
 	}
-	if err = r.qrRegister(encodedMetadata); err != nil {
-		return err
-	}
 
 	precinct := r.election.Precinct(r.params.PrecinctId)
 	for i := range r.doc.PageCount() {
 		r.doc.SetPage(i + 1)
-		if err := r.footer(precinct, electionHashHex); err != nil {
+		err = r.footer(precinct, electionHashHex, &encodedMetadata)
+		if err != nil {
 			return err
 		}
 	}
@@ -835,12 +832,14 @@ func (r *Renderer) bubbleTemplate(
 	style bubbleStyle,
 ) scribe.XobjectId {
 	return r.doc.XobjectCreate(
-		name,
-		scribe.SizeType{
-			Wd: r.cfg.BubbleSize.X() + r.cfg.BubbleLnWidth,
-			Ht: r.cfg.BubbleSize.Y() + r.cfg.BubbleLnWidth,
+		scribe.XobjectParams{
+			Name: name,
+			Size: scribe.SizeType{
+				Wd: r.cfg.BubbleSize.X() + r.cfg.BubbleLnWidth,
+				Ht: r.cfg.BubbleSize.Y() + r.cfg.BubbleLnWidth,
+			},
+			BufSizeInit: 280,
 		},
-		280,
 		func(tpl *scribe.Tpl) {
 			tpl.SetCompression(false)
 			r.bubbleTemplateShape(tpl, style)
@@ -1719,6 +1718,7 @@ func (r *Renderer) fontTinyBold(lang Lang) (
 func (r *Renderer) footer(
 	precinct *elections.Precinct,
 	electionHash string,
+	metadata *MetadataEncoded,
 ) error {
 	strKeyFooter := "hmpbContinueVotingOnBack"
 	y := r.yFooterFront
@@ -1741,8 +1741,9 @@ func (r *Renderer) footer(
 		strKeyFooter = ""
 	}
 
+	// [TODO] Pass origin to qrRender instead.
 	r.doc.MoveTo(r.frame.Origin.X(), y)
-	r.qrRender()
+	r.qrRender(metadata)
 
 	qrSlotSize := r.cfg.QrSize + r.cfg.Padding.X()
 	pos := Vec2{r.frame.Origin.X() + qrSlotSize, y}
@@ -2085,92 +2086,64 @@ func (r *Renderer) qrName(pageNum int) string {
 	return "qr-p" + strconv.Itoa(pageNum)
 }
 
-func (r *Renderer) qrRegister(metadata MetadataEncoded) error {
+func (r *Renderer) qrRender(metadata *MetadataEncoded) error {
 	type result struct {
 		err     error
 		img     *bytes.Buffer
 		pageNum uint8
 	}
 
-	qrs := make(chan *result)
+	ixPage := r.doc.PageNo() - 1
+	page := metadata.Pages[ixPage]
 
-	var wg sync.WaitGroup
-	for i, page := range metadata.Pages {
-		wg.Go(func() {
-
-			data := base64.StdEncoding.EncodeToString(page)
-			qr, err := goqr.EncodeText(data, goqr.Low)
-			if err != nil {
-				qrs <- &result{err: err}
-				return
-			}
-
-			buf := make([]byte, 0, 2*1024)
-			img := bytes.NewBuffer(buf)
-
-			qrSizePx := r.cfg.QrSize / Px
-			qrScale := float32(
-				math.Ceil(float64(qrSizePx / float32(qr.GetSize()))),
-			)
-			err = cmp.Or(
-				err,
-				qr.WriteAsPNG(
-					goqr.NewQrCodeImgConfig(int(qrScale), 0),
-					img,
-				),
-			)
-			if err != nil {
-				qrs <- &result{err: err}
-				return
-			}
-
-			qrs <- &result{
-				img:     img,
-				pageNum: uint8(i + 1),
-			}
-		})
+	data := base64.StdEncoding.EncodeToString(page)
+	qr, err := goqr.EncodeText(data, goqr.Low)
+	if err != nil {
+		return err
 	}
 
-	done := make(chan struct{})
-	go func() {
-		for q := range qrs {
-			if q.err != nil {
-				r.doc.SetErrorf("unable to encode QR code: %w", q.err)
-				continue
+	moduleCount := qr.GetSize()
+	moduleSize := float64(r.cfg.QrSize) / float64(moduleCount)
+	const cmdLenAvg = len("00.0000 00.0000 0.00 -0.00 re f\n")
+
+	qrXobject := r.doc.XobjectCreate(
+		scribe.XobjectParams{
+			BufSizeInit: uint32(moduleCount * moduleCount * cmdLenAvg),
+			Name:        r.qrName(ixPage),
+			Size:        scribe.SizeType{Ht: r.cfg.QrSize, Wd: r.cfg.QrSize},
+		},
+		func(t *scribe.Tpl) {
+			t.SetFillColor(0, 0, 0)
+
+			y := 0.0
+			for yIndex := range qr.GetSize() {
+				x := 0.0
+				for xIndex := range qr.GetSize() {
+					if !qr.GetModule(xIndex, yIndex) {
+						x += moduleSize
+						continue
+					}
+
+					t.Rect(
+						float32(x),
+						float32(y),
+						float32(moduleSize),
+						float32(moduleSize),
+						"f",
+					)
+
+					x += moduleSize
+				}
+
+				y += moduleSize
 			}
-
-			name := r.qrName(int(q.pageNum))
-			_ = r.doc.RegisterImageOptionsReader(name, scribe.ImageOptions{
-				ImageType: "png",
-				ReadDpi:   true,
-			}, q.img)
-		}
-		done <- struct{}{}
-	}()
-
-	wg.Wait()
-	close(qrs)
-	<-done
-
-	return r.doc.Error()
-}
-
-func (r *Renderer) qrRender() error {
-	x, y := r.doc.GetXY()
-
-	r.doc.ImageOptions(
-		r.qrName(r.doc.PageNo()),
-		x,
-		y,
-		r.cfg.QrSize,
-		r.cfg.QrSize,
-		false,
-		scribe.ImageOptions{},
-		0,
-		"",
+		},
 	)
 
-	return nil
+	x, y := r.doc.GetXY()
+	r.doc.XobjectUse(qrXobject, scribe.PointType{X: x, Y: y})
+
+	return r.doc.Error()
 }
 
 func (r *Renderer) seal(origin Vec2, containerHeight float32) error {
@@ -2408,9 +2381,11 @@ func (r *Renderer) timingMarksTemplate(
 	pageSize scribe.PageSize,
 ) scribe.XobjectId {
 	return r.doc.XobjectCreate(
-		"timingMarks",
-		scribe.SizeType(pageSize),
-		7400,
+		scribe.XobjectParams{
+			Name:        "timingMarks",
+			Size:        scribe.SizeType(pageSize),
+			BufSizeInit: 7400,
+		},
 		func(tpl *scribe.Tpl) {
 			tpl.SetCompression(false)
 			tpl.SetFillColor(0, 0, 0)
