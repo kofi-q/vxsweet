@@ -10,7 +10,6 @@ import (
 	"slices"
 	"strings"
 	"sync"
-	"time"
 
 	"github.com/kofi-q/vxsweet/libs/elections"
 )
@@ -78,7 +77,6 @@ func (p *Packager) All() (Package, error) {
 
 	for _, job := range p.jobs {
 		wg.Go(func() {
-
 			r, err := p.Printer.Ballot(p.Election, job, p.Cfg)
 			if err != nil {
 				chanErrs <- err
@@ -110,11 +108,6 @@ func (p *Packager) All() (Package, error) {
 
 	if len(errs) > 0 {
 		return Package{}, errors.Join(errs...)
-	}
-
-	if len(p.jobs) > 1000 {
-		// Break for garbage collection on large elections.
-		time.Sleep(500 * time.Millisecond)
 	}
 
 	finalElection := *p.Election
@@ -164,7 +157,6 @@ func (p *Packager) All() (Package, error) {
 		})
 
 		wg.Go(func() {
-
 			file, err := os.Create(outPath)
 			if err != nil {
 				chanErrs <- err
